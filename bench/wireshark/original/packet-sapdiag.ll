@@ -3,16 +3,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
 
-@proto_register_sapdiag.hf = internal global [321 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_sapdiag_dp, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_header, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_payload, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_mode, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_com_flag, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_com_flag_TERM_EOS, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_com_flag_TERM_EOC, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_com_flag_TERM_NOP, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_com_flag_TERM_EOP, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_com_flag_TERM_INI, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_com_flag_TERM_CAS, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_com_flag_TERM_NNM, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_com_flag_TERM_GRA, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_mode_stat, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_err_no, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_msg_type, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_msg_info, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_msg_rc, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_compress, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 4, i32 2, ptr @sapdiag_compress_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_error_message, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_compress_header, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_uncomplength, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_algorithm, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 4, i32 2, ptr @sapdiag_algorithm_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_magic, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_special, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_type, %struct._header_field_info { ptr @.str.52, ptr @.str.53, i32 4, i32 2, ptr @sapdiag_item_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_id, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 4, i32 2, ptr @sapdiag_item_id_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_sid, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_length_short, %struct._header_field_info { ptr @.str.58, ptr @.str.59, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_length_long, %struct._header_field_info { ptr @.str.58, ptr @.str.60, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_value, %struct._header_field_info { ptr @.str.61, ptr @.str.62, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_request_id, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 15, i32 1, ptr @sapdiag_dp_request_id_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_retcode, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_sender_id, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 4, i32 2, ptr @sapdiag_dp_sender_id_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_action_type, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 4, i32 2, ptr @sapdiag_dp_action_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info, %struct._header_field_info { ptr @.str.71, ptr @.str.72, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_LOGIN, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_LOGOFF, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_SHUTDOWN, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_GRAPHIC_TM, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_ALPHA_TM, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_ERROR_FROM_APPC, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_CANCELMODE, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_MSG_WITH_REQ_BUF, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_MSG_WITH_OH, %struct._header_field_info { ptr @.str.89, ptr @.str.90, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_BUFFER_REFRESH, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_BTC_SCHEDULER, %struct._header_field_info { ptr @.str.93, ptr @.str.94, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_APPC_SERVER_DOWN, %struct._header_field_info { ptr @.str.95, ptr @.str.96, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_MS_ERROR, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_SET_SYSTEM_USER, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_CANT_HANDLE_REQ, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_AUTO_ABAP, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_APPL_SERV_INFO, %struct._header_field_info { ptr @.str.105, ptr @.str.106, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_ADMIN, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_SPOOL_ALRM, %struct._header_field_info { ptr @.str.109, ptr @.str.110, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_HAND_SHAKE, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_CANCEL_PRIV, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_RAISE_TIMEOUT, %struct._header_field_info { ptr @.str.115, ptr @.str.116, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_NEW_MODE, %struct._header_field_info { ptr @.str.117, ptr @.str.118, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_SOFT_CANCEL, %struct._header_field_info { ptr @.str.119, ptr @.str.120, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_TM_INPUT, %struct._header_field_info { ptr @.str.121, ptr @.str.122, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_TM_OUTPUT, %struct._header_field_info { ptr @.str.123, ptr @.str.124, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_ASYNC_RFC, %struct._header_field_info { ptr @.str.125, ptr @.str.126, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_ICM_EVENT, %struct._header_field_info { ptr @.str.127, ptr @.str.128, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_AUTO_TH, %struct._header_field_info { ptr @.str.129, ptr @.str.130, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_RFC_CANCEL, %struct._header_field_info { ptr @.str.131, ptr @.str.132, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_MS_ADM, %struct._header_field_info { ptr @.str.133, ptr @.str.134, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_tid, %struct._header_field_info { ptr @.str.135, ptr @.str.136, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_uid, %struct._header_field_info { ptr @.str.137, ptr @.str.138, i32 13, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_mode, %struct._header_field_info { ptr @.str.6, ptr @.str.139, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_wp_id, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_wp_ca_blk, %struct._header_field_info { ptr @.str.142, ptr @.str.143, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_appc_ca_blk, %struct._header_field_info { ptr @.str.144, ptr @.str.145, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_len, %struct._header_field_info { ptr @.str.146, ptr @.str.147, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_new_stat, %struct._header_field_info { ptr @.str.148, ptr @.str.149, i32 4, i32 2, ptr @sapdiag_dp_new_stat_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_rq_id, %struct._header_field_info { ptr @.str.63, ptr @.str.150, i32 13, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_terminal, %struct._header_field_info { ptr @.str.151, ptr @.str.152, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_PROGRESS_INDICATOR, %struct._header_field_info { ptr @.str.153, ptr @.str.154, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SAPGUI_LABELS, %struct._header_field_info { ptr @.str.155, ptr @.str.156, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SAPGUI_DIAGVERSION, %struct._header_field_info { ptr @.str.157, ptr @.str.158, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SAPGUI_SELECT_RECT, %struct._header_field_info { ptr @.str.159, ptr @.str.160, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SAPGUI_SYMBOL_RIGHT, %struct._header_field_info { ptr @.str.161, ptr @.str.162, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SAPGUI_FONT_METRIC, %struct._header_field_info { ptr @.str.163, ptr @.str.164, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SAPGUI_COMPR_ENHANCED, %struct._header_field_info { ptr @.str.165, ptr @.str.166, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SAPGUI_IMODE, %struct._header_field_info { ptr @.str.167, ptr @.str.168, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SAPGUI_LONG_MESSAGE, %struct._header_field_info { ptr @.str.169, ptr @.str.170, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SAPGUI_TABLE, %struct._header_field_info { ptr @.str.171, ptr @.str.172, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SAPGUI_FOCUS_1, %struct._header_field_info { ptr @.str.173, ptr @.str.174, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SAPGUI_PUSHBUTTON_1, %struct._header_field_info { ptr @.str.175, ptr @.str.176, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_UPPERCASE, %struct._header_field_info { ptr @.str.177, ptr @.str.178, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SAPGUI_TABPROPERTY, %struct._header_field_info { ptr @.str.179, ptr @.str.180, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_INPUT_UPPERCASE, %struct._header_field_info { ptr @.str.181, ptr @.str.182, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_RFC_DIALOG, %struct._header_field_info { ptr @.str.183, ptr @.str.184, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_LIST_HOTSPOT, %struct._header_field_info { ptr @.str.185, ptr @.str.186, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_FKEY_TABLE, %struct._header_field_info { ptr @.str.187, ptr @.str.188, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MENU_SHORTCUT, %struct._header_field_info { ptr @.str.189, ptr @.str.190, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_STOP_TRANS, %struct._header_field_info { ptr @.str.191, ptr @.str.192, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_FULL_MENU, %struct._header_field_info { ptr @.str.193, ptr @.str.194, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_OBJECT_NAMES, %struct._header_field_info { ptr @.str.195, ptr @.str.196, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CONTAINER_TYPE, %struct._header_field_info { ptr @.str.197, ptr @.str.198, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_DLGH_FLAGS, %struct._header_field_info { ptr @.str.199, ptr @.str.200, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_APPL_MNU, %struct._header_field_info { ptr @.str.201, ptr @.str.202, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MESSAGE_INFO, %struct._header_field_info { ptr @.str.203, ptr @.str.204, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MESDUM_FLAG1, %struct._header_field_info { ptr @.str.205, ptr @.str.206, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TABSEL_ATTRIB, %struct._header_field_info { ptr @.str.207, ptr @.str.208, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_GUIAPI, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NOGRAPH, %struct._header_field_info { ptr @.str.211, ptr @.str.212, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NOMESSAGES, %struct._header_field_info { ptr @.str.213, ptr @.str.214, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NORABAX, %struct._header_field_info { ptr @.str.215, ptr @.str.216, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NOSYSMSG, %struct._header_field_info { ptr @.str.217, ptr @.str.218, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NOSAPSCRIPT, %struct._header_field_info { ptr @.str.219, ptr @.str.220, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NORFC, %struct._header_field_info { ptr @.str.221, ptr @.str.222, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NEW_BSD_JUSTRIGHT, %struct._header_field_info { ptr @.str.223, ptr @.str.224, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MESSAGE_VARS, %struct._header_field_info { ptr @.str.225, ptr @.str.226, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_OCX_SUPPORT, %struct._header_field_info { ptr @.str.227, ptr @.str.228, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SCROLL_INFOS, %struct._header_field_info { ptr @.str.229, ptr @.str.230, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TABLE_SIZE_OK, %struct._header_field_info { ptr @.str.231, ptr @.str.232, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MESSAGE_INFO2, %struct._header_field_info { ptr @.str.233, ptr @.str.234, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_VARINFO_OKCODE, %struct._header_field_info { ptr @.str.235, ptr @.str.236, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CURR_TCODE, %struct._header_field_info { ptr @.str.237, ptr @.str.238, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CONN_WSIZE, %struct._header_field_info { ptr @.str.239, ptr @.str.240, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_PUSHBUTTON_2, %struct._header_field_info { ptr @.str.241, ptr @.str.242, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TABSTRIP, %struct._header_field_info { ptr @.str.243, ptr @.str.244, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_UNKNOWN_1, %struct._header_field_info { ptr @.str.245, ptr @.str.246, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TABSCROLL_INFOS, %struct._header_field_info { ptr @.str.247, ptr @.str.248, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TABLE_FIELD_NAMES, %struct._header_field_info { ptr @.str.249, ptr @.str.250, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NEW_MODE_REQUEST, %struct._header_field_info { ptr @.str.251, ptr @.str.252, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_RFCBLOB_DIAG_PARSER, %struct._header_field_info { ptr @.str.253, ptr @.str.254, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MULTI_LOGIN_USER, %struct._header_field_info { ptr @.str.255, ptr @.str.256, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CONTROL_CONTAINER, %struct._header_field_info { ptr @.str.257, ptr @.str.258, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_APPTOOLBAR_FIXED, %struct._header_field_info { ptr @.str.259, ptr @.str.260, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_R3INFO_USER_CHECKED, %struct._header_field_info { ptr @.str.261, ptr @.str.262, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NEED_STDDYNPRO, %struct._header_field_info { ptr @.str.263, ptr @.str.264, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TYPE_SERVER, %struct._header_field_info { ptr @.str.265, ptr @.str.266, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_COMBOBOX, %struct._header_field_info { ptr @.str.267, ptr @.str.268, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_INPUT_REQUIRED, %struct._header_field_info { ptr @.str.269, ptr @.str.270, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ISO_LANGUAGE, %struct._header_field_info { ptr @.str.271, ptr @.str.272, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_COMBOBOX_TABLE, %struct._header_field_info { ptr @.str.273, ptr @.str.274, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_R3INFO_FLAGS, %struct._header_field_info { ptr @.str.275, ptr @.str.276, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CHECKRADIO_EVENTS, %struct._header_field_info { ptr @.str.277, ptr @.str.278, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_R3INFO_USERID, %struct._header_field_info { ptr @.str.279, ptr @.str.280, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_R3INFO_ROLLCOUNT, %struct._header_field_info { ptr @.str.281, ptr @.str.282, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_USER_TURNTIME2, %struct._header_field_info { ptr @.str.283, ptr @.str.284, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NUM_FIELD, %struct._header_field_info { ptr @.str.285, ptr @.str.286, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_WIN16, %struct._header_field_info { ptr @.str.287, ptr @.str.288, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CONTEXT_MENU, %struct._header_field_info { ptr @.str.289, ptr @.str.290, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SCROLLABLE_TABSTRIP_PAGE, %struct._header_field_info { ptr @.str.291, ptr @.str.292, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_EVENT_DESCRIPTION, %struct._header_field_info { ptr @.str.293, ptr @.str.294, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_LABEL_OWNER, %struct._header_field_info { ptr @.str.295, ptr @.str.296, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CLICKABLE_FIELD, %struct._header_field_info { ptr @.str.297, ptr @.str.298, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_PROPERTY_BAG, %struct._header_field_info { ptr @.str.299, ptr @.str.300, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_UNUSED_1, %struct._header_field_info { ptr @.str.301, ptr @.str.302, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TABLE_ROW_REFERENCES_2, %struct._header_field_info { ptr @.str.303, ptr @.str.304, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_PROPFONT_VALID, %struct._header_field_info { ptr @.str.305, ptr @.str.306, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_VARINFO_CONTAINER, %struct._header_field_info { ptr @.str.307, ptr @.str.308, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_R3INFO_IMODEUUID, %struct._header_field_info { ptr @.str.309, ptr @.str.310, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NOTGUI, %struct._header_field_info { ptr @.str.311, ptr @.str.312, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_WAN, %struct._header_field_info { ptr @.str.313, ptr @.str.314, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_XML_BLOBS, %struct._header_field_info { ptr @.str.315, ptr @.str.316, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_RFC_QUEUE, %struct._header_field_info { ptr @.str.317, ptr @.str.318, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_RFC_COMPRESS, %struct._header_field_info { ptr @.str.319, ptr @.str.320, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_JAVA_BEANS, %struct._header_field_info { ptr @.str.321, ptr @.str.322, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_DPLOADONDEMAND, %struct._header_field_info { ptr @.str.323, ptr @.str.324, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CTL_PROPCACHE, %struct._header_field_info { ptr @.str.325, ptr @.str.326, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ENJOY_IMODEUUID, %struct._header_field_info { ptr @.str.327, ptr @.str.328, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_RFC_ASYNC_BLOB, %struct._header_field_info { ptr @.str.329, ptr @.str.330, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_KEEP_SCROLLPOS, %struct._header_field_info { ptr @.str.331, ptr @.str.332, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_UNUSED_2, %struct._header_field_info { ptr @.str.333, ptr @.str.334, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_UNUSED_3, %struct._header_field_info { ptr @.str.335, ptr @.str.336, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_XML_PROPERTIES, %struct._header_field_info { ptr @.str.337, ptr @.str.338, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_UNUSED_4, %struct._header_field_info { ptr @.str.339, ptr @.str.340, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_HEX_FIELD, %struct._header_field_info { ptr @.str.341, ptr @.str.342, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_HAS_CACHE, %struct._header_field_info { ptr @.str.343, ptr @.str.344, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_XML_PROP_TABLE, %struct._header_field_info { ptr @.str.345, ptr @.str.346, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_UNUSED_5, %struct._header_field_info { ptr @.str.347, ptr @.str.348, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ENJOY_IMODEUUID2, %struct._header_field_info { ptr @.str.349, ptr @.str.350, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ITS, %struct._header_field_info { ptr @.str.351, ptr @.str.352, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NO_EASYACCESS, %struct._header_field_info { ptr @.str.353, ptr @.str.354, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_PROPERTYPUMP, %struct._header_field_info { ptr @.str.355, ptr @.str.356, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_COOKIE, %struct._header_field_info { ptr @.str.357, ptr @.str.358, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_UNUSED_6, %struct._header_field_info { ptr @.str.359, ptr @.str.360, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SUPPBIT_AREA_SIZE, %struct._header_field_info { ptr @.str.361, ptr @.str.362, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_DPLOADONDEMAND_WRITE, %struct._header_field_info { ptr @.str.363, ptr @.str.364, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CONTROL_FOCUS, %struct._header_field_info { ptr @.str.365, ptr @.str.366, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ENTRY_HISTORY, %struct._header_field_info { ptr @.str.367, ptr @.str.368, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_AUTO_CODEPAGE, %struct._header_field_info { ptr @.str.369, ptr @.str.370, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CACHED_VSETS, %struct._header_field_info { ptr @.str.371, ptr @.str.372, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_EMERGENCY_REPAIR, %struct._header_field_info { ptr @.str.373, ptr @.str.374, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_AREA2FRONT, %struct._header_field_info { ptr @.str.375, ptr @.str.376, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SCROLLBAR_WIDTH, %struct._header_field_info { ptr @.str.377, ptr @.str.378, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_AUTORESIZE, %struct._header_field_info { ptr @.str.379, ptr @.str.380, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_EDIT_VARLEN, %struct._header_field_info { ptr @.str.381, ptr @.str.382, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_WORKPLACE, %struct._header_field_info { ptr @.str.383, ptr @.str.384, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_PRINTDATA, %struct._header_field_info { ptr @.str.385, ptr @.str.386, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_UNKNOWN_2, %struct._header_field_info { ptr @.str.387, ptr @.str.388, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SINGLE_SESSION, %struct._header_field_info { ptr @.str.389, ptr @.str.390, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NOTIFY_NEWMODE, %struct._header_field_info { ptr @.str.391, ptr @.str.392, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TOOLBAR_HEIGHT, %struct._header_field_info { ptr @.str.393, ptr @.str.394, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_XMLPROP_CONTAINER, %struct._header_field_info { ptr @.str.395, ptr @.str.396, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_XMLPROP_DYNPRO, %struct._header_field_info { ptr @.str.397, ptr @.str.398, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_DP_HTTP_PUT, %struct._header_field_info { ptr @.str.399, ptr @.str.400, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_DYNAMIC_PASSPORT, %struct._header_field_info { ptr @.str.401, ptr @.str.402, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_WEBGUI, %struct._header_field_info { ptr @.str.403, ptr @.str.404, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_WEBGUI_HELPMODE, %struct._header_field_info { ptr @.str.405, ptr @.str.406, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CONTROL_FOCUS_ON_LIST, %struct._header_field_info { ptr @.str.407, ptr @.str.408, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CBU_RBUDUMMY_2, %struct._header_field_info { ptr @.str.409, ptr @.str.410, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_EOKDUMMY_1, %struct._header_field_info { ptr @.str.411, ptr @.str.412, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_GUI_USER_SCRIPTING, %struct._header_field_info { ptr @.str.413, ptr @.str.414, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SLC, %struct._header_field_info { ptr @.str.415, ptr @.str.416, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ACCESSIBILITY, %struct._header_field_info { ptr @.str.417, ptr @.str.418, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ECATT, %struct._header_field_info { ptr @.str.419, ptr @.str.420, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ENJOY_IMODEUUID3, %struct._header_field_info { ptr @.str.421, ptr @.str.422, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ENABLE_UTF8, %struct._header_field_info { ptr @.str.423, ptr @.str.424, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_R3INFO_AUTOLOGOUT_TIME, %struct._header_field_info { ptr @.str.425, ptr @.str.426, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_VARINFO_ICON_TITLE_LIST, %struct._header_field_info { ptr @.str.427, ptr @.str.428, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ENABLE_UTF16BE, %struct._header_field_info { ptr @.str.429, ptr @.str.430, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ENABLE_UTF16LE, %struct._header_field_info { ptr @.str.431, ptr @.str.432, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_R3INFO_CODEPAGE_APP, %struct._header_field_info { ptr @.str.433, ptr @.str.434, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ENABLE_APPL4, %struct._header_field_info { ptr @.str.435, ptr @.str.436, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_GUIPATCHLEVEL, %struct._header_field_info { ptr @.str.437, ptr @.str.438, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CBURBU_NEW_STATE, %struct._header_field_info { ptr @.str.439, ptr @.str.440, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_BINARY_EVENTID, %struct._header_field_info { ptr @.str.441, ptr @.str.442, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_GUI_THEME, %struct._header_field_info { ptr @.str.443, ptr @.str.444, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TOP_WINDOW, %struct._header_field_info { ptr @.str.445, ptr @.str.446, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_EVENT_DESCRIPTION_1, %struct._header_field_info { ptr @.str.447, ptr @.str.448, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SPLITTER, %struct._header_field_info { ptr @.str.449, ptr @.str.450, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_VALUE_4_HISTORY, %struct._header_field_info { ptr @.str.451, ptr @.str.452, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ACC_LIST, %struct._header_field_info { ptr @.str.453, ptr @.str.454, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_GUI_USER_SCRIPTING_INFO, %struct._header_field_info { ptr @.str.455, ptr @.str.456, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TEXTEDIT_STREAM, %struct._header_field_info { ptr @.str.457, ptr @.str.458, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_DYNT_NOFOCUS, %struct._header_field_info { ptr @.str.459, ptr @.str.460, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_R3INFO_CODEPAGE_APP_1, %struct._header_field_info { ptr @.str.461, ptr @.str.462, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_FRAME_1, %struct._header_field_info { ptr @.str.463, ptr @.str.464, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TICKET4GUI, %struct._header_field_info { ptr @.str.465, ptr @.str.466, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ACC_LIST_PROPS, %struct._header_field_info { ptr @.str.467, ptr @.str.468, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TABSEL_ATTRIB_INPUT, %struct._header_field_info { ptr @.str.469, ptr @.str.470, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_DEFAULT_TOOLTIP, %struct._header_field_info { ptr @.str.471, ptr @.str.472, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_XML_PROP_TABLE_2, %struct._header_field_info { ptr @.str.473, ptr @.str.474, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CBU_RBUDUMMY_3, %struct._header_field_info { ptr @.str.475, ptr @.str.476, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CELLINFO, %struct._header_field_info { ptr @.str.477, ptr @.str.478, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CONTROL_FOCUS_ON_LIST_2, %struct._header_field_info { ptr @.str.479, ptr @.str.480, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TABLE_COLUMNWIDTH_INPUT, %struct._header_field_info { ptr @.str.481, ptr @.str.482, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ITS_PLUGIN, %struct._header_field_info { ptr @.str.483, ptr @.str.484, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_OBJECT_NAMES_4_LOGIN_PROCESS, %struct._header_field_info { ptr @.str.485, ptr @.str.486, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_RFC_SERVER_4_GUI, %struct._header_field_info { ptr @.str.487, ptr @.str.488, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_R3INFO_FLAGS_2, %struct._header_field_info { ptr @.str.489, ptr @.str.490, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_RCUI, %struct._header_field_info { ptr @.str.491, ptr @.str.492, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MENUENTRY_WITH_FCODE, %struct._header_field_info { ptr @.str.493, ptr @.str.494, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_WEBSAPCONSOLE, %struct._header_field_info { ptr @.str.495, ptr @.str.496, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_R3INFO_KERNEL_VERSION, %struct._header_field_info { ptr @.str.497, ptr @.str.498, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_VARINFO_CONTAINER_LOOP, %struct._header_field_info { ptr @.str.499, ptr @.str.500, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_EOKDUMMY_2, %struct._header_field_info { ptr @.str.501, ptr @.str.502, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MESSAGE_INFO3, %struct._header_field_info { ptr @.str.503, ptr @.str.504, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SBA2, %struct._header_field_info { ptr @.str.505, ptr @.str.506, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MAINAREA_SIZE, %struct._header_field_info { ptr @.str.507, ptr @.str.508, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_GUIPATCHLEVEL_2, %struct._header_field_info { ptr @.str.509, ptr @.str.510, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_DISPLAY_SIZE, %struct._header_field_info { ptr @.str.511, ptr @.str.512, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_GUI_PACKET, %struct._header_field_info { ptr @.str.513, ptr @.str.514, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_DIALOG_STEP_NUMBER, %struct._header_field_info { ptr @.str.515, ptr @.str.516, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TC_KEEP_SCROLL_POSITION, %struct._header_field_info { ptr @.str.517, ptr @.str.518, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MESSAGE_SERVICE_REQUEST, %struct._header_field_info { ptr @.str.519, ptr @.str.520, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_DYNT_FOCUS_FRAME, %struct._header_field_info { ptr @.str.521, ptr @.str.522, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MAX_STRING_LEN, %struct._header_field_info { ptr @.str.523, ptr @.str.524, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_VARINFO_CONTAINER_1, %struct._header_field_info { ptr @.str.525, ptr @.str.526, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_STD_TOOLBAR_ITEMS, %struct._header_field_info { ptr @.str.527, ptr @.str.528, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_XMLPROP_LIST_DYNPRO, %struct._header_field_info { ptr @.str.529, ptr @.str.530, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TRACE_GUI_CONNECT, %struct._header_field_info { ptr @.str.531, ptr @.str.532, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_LIST_FULLWIDTH, %struct._header_field_info { ptr @.str.533, ptr @.str.534, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ALLWAYS_SEND_CLIENT, %struct._header_field_info { ptr @.str.535, ptr @.str.536, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_UNKNOWN_3, %struct._header_field_info { ptr @.str.537, ptr @.str.538, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_GUI_SIGNATURE_COLOR, %struct._header_field_info { ptr @.str.539, ptr @.str.540, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MAX_WSIZE, %struct._header_field_info { ptr @.str.541, ptr @.str.542, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SAP_PERSONAS, %struct._header_field_info { ptr @.str.543, ptr @.str.544, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_IDA_ALV, %struct._header_field_info { ptr @.str.545, ptr @.str.546, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_IDA_ALV_FRAGMENTS, %struct._header_field_info { ptr @.str.547, ptr @.str.548, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_AMC, %struct._header_field_info { ptr @.str.549, ptr @.str.550, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_EXTMODE_FONT_METRIC, %struct._header_field_info { ptr @.str.551, ptr @.str.552, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_GROUPBOX, %struct._header_field_info { ptr @.str.553, ptr @.str.554, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_AGI_ID_TS_BUTTON, %struct._header_field_info { ptr @.str.555, ptr @.str.556, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NO_FOCUS_ON_LIST, %struct._header_field_info { ptr @.str.557, ptr @.str.558, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_FIORI_MODE, %struct._header_field_info { ptr @.str.559, ptr @.str.560, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CONNECT_CHECK_DONE, %struct._header_field_info { ptr @.str.561, ptr @.str.562, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MSGINFO_WITH_CODEPAGE, %struct._header_field_info { ptr @.str.563, ptr @.str.564, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_AGI_ID, %struct._header_field_info { ptr @.str.565, ptr @.str.566, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_AGI_ID_TC, %struct._header_field_info { ptr @.str.567, ptr @.str.568, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_FIORI_TOOLBARS, %struct._header_field_info { ptr @.str.569, ptr @.str.570, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_OBJECT_NAMES_ENFORCE, %struct._header_field_info { ptr @.str.571, ptr @.str.572, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MESDUMMY_FLAGS_2_3, %struct._header_field_info { ptr @.str.573, ptr @.str.574, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NWBC, %struct._header_field_info { ptr @.str.575, ptr @.str.576, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CONTAINER_LIST, %struct._header_field_info { ptr @.str.577, ptr @.str.578, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_GUI_SYSTEM_COLOR, %struct._header_field_info { ptr @.str.579, ptr @.str.580, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_GROUPBOX_WITHOUT_BOTTOMLINE, %struct._header_field_info { ptr @.str.581, ptr @.str.582, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_dynt_atom, %struct._header_field_info { ptr @.str.583, ptr @.str.584, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_dynt_atom_item, %struct._header_field_info { ptr @.str.585, ptr @.str.586, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_dynt_atom_item_etype, %struct._header_field_info { ptr @.str.587, ptr @.str.588, i32 4, i32 1, ptr @sapdiag_item_dynt_atom_item_etype_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_dynt_atom_item_attr, %struct._header_field_info { ptr @.str.589, ptr @.str.590, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_dynt_atom_item_attr_DIAG_BSD_COMBOSTYLE, %struct._header_field_info { ptr @.str.591, ptr @.str.592, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_dynt_atom_item_attr_DIAG_BSD_YES3D, %struct._header_field_info { ptr @.str.593, ptr @.str.594, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_dynt_atom_item_attr_DIAG_BSD_PROPFONT, %struct._header_field_info { ptr @.str.595, ptr @.str.596, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_dynt_atom_item_attr_DIAG_BSD_MATCHCODE, %struct._header_field_info { ptr @.str.597, ptr @.str.598, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_dynt_atom_item_attr_DIAG_BSD_JUSTRIGHT, %struct._header_field_info { ptr @.str.599, ptr @.str.600, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_dynt_atom_item_attr_DIAG_BSD_INTENSIFY, %struct._header_field_info { ptr @.str.601, ptr @.str.602, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_dynt_atom_item_attr_DIAG_BSD_INVISIBLE, %struct._header_field_info { ptr @.str.603, ptr @.str.604, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_dynt_atom_item_attr_DIAG_BSD_PROTECTED, %struct._header_field_info { ptr @.str.605, ptr @.str.606, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_control_properties_id, %struct._header_field_info { ptr @.str.607, ptr @.str.608, i32 5, i32 2, ptr @sapdiag_item_control_properties_id_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_control_properties_value, %struct._header_field_info { ptr @.str.609, ptr @.str.610, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_ui_event_event_type, %struct._header_field_info { ptr @.str.611, ptr @.str.612, i32 5, i32 1, ptr @sapdiag_item_ui_event_event_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_ui_event_control_type, %struct._header_field_info { ptr @.str.613, ptr @.str.614, i32 5, i32 1, ptr @sapdiag_item_ui_event_control_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_ui_event_valid, %struct._header_field_info { ptr @.str.615, ptr @.str.616, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_ui_event_valid_MENU_POS, %struct._header_field_info { ptr @.str.617, ptr @.str.618, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_ui_event_valid_CONTROL_POS, %struct._header_field_info { ptr @.str.619, ptr @.str.620, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_ui_event_valid_NAVIGATION_DATA, %struct._header_field_info { ptr @.str.621, ptr @.str.622, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_ui_event_valid_FUNCTIONKEY_DATA, %struct._header_field_info { ptr @.str.623, ptr @.str.624, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_ui_event_control_row, %struct._header_field_info { ptr @.str.625, ptr @.str.626, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_ui_event_control_col, %struct._header_field_info { ptr @.str.627, ptr @.str.628, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_ui_event_navigation_data, %struct._header_field_info { ptr @.str.629, ptr @.str.630, i32 7, i32 1, ptr @sapdiag_item_ui_event_navigation_data_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_ui_event_data, %struct._header_field_info { ptr @.str.631, ptr @.str.632, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_ui_event_container_nrs, %struct._header_field_info { ptr @.str.633, ptr @.str.634, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_ui_event_container, %struct._header_field_info { ptr @.str.635, ptr @.str.636, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_menu_entry, %struct._header_field_info { ptr @.str.637, ptr @.str.638, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@proto_register_sapdiag.hf = internal global [321 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_sapdiag_dp, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_header, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_payload, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_mode, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_com_flag, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_com_flag_TERM_EOS, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_com_flag_TERM_EOC, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_com_flag_TERM_NOP, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_com_flag_TERM_EOP, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_com_flag_TERM_INI, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_com_flag_TERM_CAS, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_com_flag_TERM_NNM, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_com_flag_TERM_GRA, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_mode_stat, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_err_no, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_msg_type, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_msg_info, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_msg_rc, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_compress, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 4, i32 2, ptr @sapdiag_compress_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_error_message, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_compress_header, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_uncomplength, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_algorithm, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 4, i32 2, ptr @sapdiag_algorithm_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_magic, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_special, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_type, %struct._header_field_info { ptr @.str.52, ptr @.str.53, i32 4, i32 2, ptr @sapdiag_item_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_id, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 4, i32 2, ptr @sapdiag_item_id_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_sid, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_length_short, %struct._header_field_info { ptr @.str.58, ptr @.str.59, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_length_long, %struct._header_field_info { ptr @.str.58, ptr @.str.60, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_value, %struct._header_field_info { ptr @.str.61, ptr @.str.62, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_request_id, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 15, i32 1, ptr @sapdiag_dp_request_id_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_retcode, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_sender_id, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 4, i32 2, ptr @sapdiag_dp_sender_id_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_action_type, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 4, i32 2, ptr @sapdiag_dp_action_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info, %struct._header_field_info { ptr @.str.71, ptr @.str.72, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_LOGIN, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_LOGOFF, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_SHUTDOWN, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_GRAPHIC_TM, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_ALPHA_TM, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_ERROR_FROM_APPC, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_CANCELMODE, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_MSG_WITH_REQ_BUF, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_MSG_WITH_OH, %struct._header_field_info { ptr @.str.89, ptr @.str.90, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_BUFFER_REFRESH, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_BTC_SCHEDULER, %struct._header_field_info { ptr @.str.93, ptr @.str.94, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_APPC_SERVER_DOWN, %struct._header_field_info { ptr @.str.95, ptr @.str.96, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_MS_ERROR, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_SET_SYSTEM_USER, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_CANT_HANDLE_REQ, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_AUTO_ABAP, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_APPL_SERV_INFO, %struct._header_field_info { ptr @.str.105, ptr @.str.106, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_ADMIN, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_SPOOL_ALRM, %struct._header_field_info { ptr @.str.109, ptr @.str.110, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_HAND_SHAKE, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_CANCEL_PRIV, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_RAISE_TIMEOUT, %struct._header_field_info { ptr @.str.115, ptr @.str.116, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_NEW_MODE, %struct._header_field_info { ptr @.str.117, ptr @.str.118, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_SOFT_CANCEL, %struct._header_field_info { ptr @.str.119, ptr @.str.120, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_TM_INPUT, %struct._header_field_info { ptr @.str.121, ptr @.str.122, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_TM_OUTPUT, %struct._header_field_info { ptr @.str.123, ptr @.str.124, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_ASYNC_RFC, %struct._header_field_info { ptr @.str.125, ptr @.str.126, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_ICM_EVENT, %struct._header_field_info { ptr @.str.127, ptr @.str.128, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_AUTO_TH, %struct._header_field_info { ptr @.str.129, ptr @.str.130, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_RFC_CANCEL, %struct._header_field_info { ptr @.str.131, ptr @.str.132, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_req_info_DP_MS_ADM, %struct._header_field_info { ptr @.str.133, ptr @.str.134, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_tid, %struct._header_field_info { ptr @.str.135, ptr @.str.136, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_uid, %struct._header_field_info { ptr @.str.137, ptr @.str.138, i32 13, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_mode, %struct._header_field_info { ptr @.str.6, ptr @.str.139, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_wp_id, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_wp_ca_blk, %struct._header_field_info { ptr @.str.142, ptr @.str.143, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_appc_ca_blk, %struct._header_field_info { ptr @.str.144, ptr @.str.145, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_len, %struct._header_field_info { ptr @.str.146, ptr @.str.147, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_new_stat, %struct._header_field_info { ptr @.str.148, ptr @.str.149, i32 4, i32 2, ptr @sapdiag_dp_new_stat_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_rq_id, %struct._header_field_info { ptr @.str.63, ptr @.str.150, i32 13, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_dp_terminal, %struct._header_field_info { ptr @.str.151, ptr @.str.152, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_PROGRESS_INDICATOR, %struct._header_field_info { ptr @.str.153, ptr @.str.154, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SAPGUI_LABELS, %struct._header_field_info { ptr @.str.155, ptr @.str.156, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SAPGUI_DIAGVERSION, %struct._header_field_info { ptr @.str.157, ptr @.str.158, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SAPGUI_SELECT_RECT, %struct._header_field_info { ptr @.str.159, ptr @.str.160, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SAPGUI_SYMBOL_RIGHT, %struct._header_field_info { ptr @.str.161, ptr @.str.162, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SAPGUI_FONT_METRIC, %struct._header_field_info { ptr @.str.163, ptr @.str.164, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SAPGUI_COMPR_ENHANCED, %struct._header_field_info { ptr @.str.165, ptr @.str.166, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SAPGUI_IMODE, %struct._header_field_info { ptr @.str.167, ptr @.str.168, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SAPGUI_LONG_MESSAGE, %struct._header_field_info { ptr @.str.169, ptr @.str.170, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SAPGUI_TABLE, %struct._header_field_info { ptr @.str.171, ptr @.str.172, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SAPGUI_FOCUS_1, %struct._header_field_info { ptr @.str.173, ptr @.str.174, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SAPGUI_PUSHBUTTON_1, %struct._header_field_info { ptr @.str.175, ptr @.str.176, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_UPPERCASE, %struct._header_field_info { ptr @.str.177, ptr @.str.178, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SAPGUI_TABPROPERTY, %struct._header_field_info { ptr @.str.179, ptr @.str.180, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_INPUT_UPPERCASE, %struct._header_field_info { ptr @.str.181, ptr @.str.182, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_RFC_DIALOG, %struct._header_field_info { ptr @.str.183, ptr @.str.184, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_LIST_HOTSPOT, %struct._header_field_info { ptr @.str.185, ptr @.str.186, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_FKEY_TABLE, %struct._header_field_info { ptr @.str.187, ptr @.str.188, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MENU_SHORTCUT, %struct._header_field_info { ptr @.str.189, ptr @.str.190, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_STOP_TRANS, %struct._header_field_info { ptr @.str.191, ptr @.str.192, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_FULL_MENU, %struct._header_field_info { ptr @.str.193, ptr @.str.194, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_OBJECT_NAMES, %struct._header_field_info { ptr @.str.195, ptr @.str.196, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CONTAINER_TYPE, %struct._header_field_info { ptr @.str.197, ptr @.str.198, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_DLGH_FLAGS, %struct._header_field_info { ptr @.str.199, ptr @.str.200, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_APPL_MNU, %struct._header_field_info { ptr @.str.201, ptr @.str.202, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MESSAGE_INFO, %struct._header_field_info { ptr @.str.203, ptr @.str.204, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MESDUM_FLAG1, %struct._header_field_info { ptr @.str.205, ptr @.str.206, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TABSEL_ATTRIB, %struct._header_field_info { ptr @.str.207, ptr @.str.208, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_GUIAPI, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NOGRAPH, %struct._header_field_info { ptr @.str.211, ptr @.str.212, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NOMESSAGES, %struct._header_field_info { ptr @.str.213, ptr @.str.214, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NORABAX, %struct._header_field_info { ptr @.str.215, ptr @.str.216, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NOSYSMSG, %struct._header_field_info { ptr @.str.217, ptr @.str.218, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NOSAPSCRIPT, %struct._header_field_info { ptr @.str.219, ptr @.str.220, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NORFC, %struct._header_field_info { ptr @.str.221, ptr @.str.222, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NEW_BSD_JUSTRIGHT, %struct._header_field_info { ptr @.str.223, ptr @.str.224, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MESSAGE_VARS, %struct._header_field_info { ptr @.str.225, ptr @.str.226, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_OCX_SUPPORT, %struct._header_field_info { ptr @.str.227, ptr @.str.228, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SCROLL_INFOS, %struct._header_field_info { ptr @.str.229, ptr @.str.230, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TABLE_SIZE_OK, %struct._header_field_info { ptr @.str.231, ptr @.str.232, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MESSAGE_INFO2, %struct._header_field_info { ptr @.str.233, ptr @.str.234, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_VARINFO_OKCODE, %struct._header_field_info { ptr @.str.235, ptr @.str.236, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CURR_TCODE, %struct._header_field_info { ptr @.str.237, ptr @.str.238, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CONN_WSIZE, %struct._header_field_info { ptr @.str.239, ptr @.str.240, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_PUSHBUTTON_2, %struct._header_field_info { ptr @.str.241, ptr @.str.242, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TABSTRIP, %struct._header_field_info { ptr @.str.243, ptr @.str.244, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_UNKNOWN_1, %struct._header_field_info { ptr @.str.245, ptr @.str.246, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TABSCROLL_INFOS, %struct._header_field_info { ptr @.str.247, ptr @.str.248, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TABLE_FIELD_NAMES, %struct._header_field_info { ptr @.str.249, ptr @.str.250, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NEW_MODE_REQUEST, %struct._header_field_info { ptr @.str.251, ptr @.str.252, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_RFCBLOB_DIAG_PARSER, %struct._header_field_info { ptr @.str.253, ptr @.str.254, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MULTI_LOGIN_USER, %struct._header_field_info { ptr @.str.255, ptr @.str.256, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CONTROL_CONTAINER, %struct._header_field_info { ptr @.str.257, ptr @.str.258, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_APPTOOLBAR_FIXED, %struct._header_field_info { ptr @.str.259, ptr @.str.260, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_R3INFO_USER_CHECKED, %struct._header_field_info { ptr @.str.261, ptr @.str.262, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NEED_STDDYNPRO, %struct._header_field_info { ptr @.str.263, ptr @.str.264, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TYPE_SERVER, %struct._header_field_info { ptr @.str.265, ptr @.str.266, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_COMBOBOX, %struct._header_field_info { ptr @.str.267, ptr @.str.268, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_INPUT_REQUIRED, %struct._header_field_info { ptr @.str.269, ptr @.str.270, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ISO_LANGUAGE, %struct._header_field_info { ptr @.str.271, ptr @.str.272, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_COMBOBOX_TABLE, %struct._header_field_info { ptr @.str.273, ptr @.str.274, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_R3INFO_FLAGS, %struct._header_field_info { ptr @.str.275, ptr @.str.276, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CHECKRADIO_EVENTS, %struct._header_field_info { ptr @.str.277, ptr @.str.278, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_R3INFO_USERID, %struct._header_field_info { ptr @.str.279, ptr @.str.280, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_R3INFO_ROLLCOUNT, %struct._header_field_info { ptr @.str.281, ptr @.str.282, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_USER_TURNTIME2, %struct._header_field_info { ptr @.str.283, ptr @.str.284, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NUM_FIELD, %struct._header_field_info { ptr @.str.285, ptr @.str.286, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_WIN16, %struct._header_field_info { ptr @.str.287, ptr @.str.288, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CONTEXT_MENU, %struct._header_field_info { ptr @.str.289, ptr @.str.290, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SCROLLABLE_TABSTRIP_PAGE, %struct._header_field_info { ptr @.str.291, ptr @.str.292, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_EVENT_DESCRIPTION, %struct._header_field_info { ptr @.str.293, ptr @.str.294, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_LABEL_OWNER, %struct._header_field_info { ptr @.str.295, ptr @.str.296, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CLICKABLE_FIELD, %struct._header_field_info { ptr @.str.297, ptr @.str.298, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_PROPERTY_BAG, %struct._header_field_info { ptr @.str.299, ptr @.str.300, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_UNUSED_1, %struct._header_field_info { ptr @.str.301, ptr @.str.302, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TABLE_ROW_REFERENCES_2, %struct._header_field_info { ptr @.str.303, ptr @.str.304, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_PROPFONT_VALID, %struct._header_field_info { ptr @.str.305, ptr @.str.306, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_VARINFO_CONTAINER, %struct._header_field_info { ptr @.str.307, ptr @.str.308, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_R3INFO_IMODEUUID, %struct._header_field_info { ptr @.str.309, ptr @.str.310, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NOTGUI, %struct._header_field_info { ptr @.str.311, ptr @.str.312, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_WAN, %struct._header_field_info { ptr @.str.313, ptr @.str.314, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_XML_BLOBS, %struct._header_field_info { ptr @.str.315, ptr @.str.316, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_RFC_QUEUE, %struct._header_field_info { ptr @.str.317, ptr @.str.318, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_RFC_COMPRESS, %struct._header_field_info { ptr @.str.319, ptr @.str.320, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_JAVA_BEANS, %struct._header_field_info { ptr @.str.321, ptr @.str.322, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_DPLOADONDEMAND, %struct._header_field_info { ptr @.str.323, ptr @.str.324, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CTL_PROPCACHE, %struct._header_field_info { ptr @.str.325, ptr @.str.326, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ENJOY_IMODEUUID, %struct._header_field_info { ptr @.str.327, ptr @.str.328, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_RFC_ASYNC_BLOB, %struct._header_field_info { ptr @.str.329, ptr @.str.330, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_KEEP_SCROLLPOS, %struct._header_field_info { ptr @.str.331, ptr @.str.332, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_UNUSED_2, %struct._header_field_info { ptr @.str.333, ptr @.str.334, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_UNUSED_3, %struct._header_field_info { ptr @.str.335, ptr @.str.336, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_XML_PROPERTIES, %struct._header_field_info { ptr @.str.337, ptr @.str.338, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_UNUSED_4, %struct._header_field_info { ptr @.str.339, ptr @.str.340, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_HEX_FIELD, %struct._header_field_info { ptr @.str.341, ptr @.str.342, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_HAS_CACHE, %struct._header_field_info { ptr @.str.343, ptr @.str.344, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_XML_PROP_TABLE, %struct._header_field_info { ptr @.str.345, ptr @.str.346, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_UNUSED_5, %struct._header_field_info { ptr @.str.347, ptr @.str.348, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ENJOY_IMODEUUID2, %struct._header_field_info { ptr @.str.349, ptr @.str.350, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ITS, %struct._header_field_info { ptr @.str.351, ptr @.str.352, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NO_EASYACCESS, %struct._header_field_info { ptr @.str.353, ptr @.str.354, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_PROPERTYPUMP, %struct._header_field_info { ptr @.str.355, ptr @.str.356, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_COOKIE, %struct._header_field_info { ptr @.str.357, ptr @.str.358, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_UNUSED_6, %struct._header_field_info { ptr @.str.359, ptr @.str.360, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SUPPBIT_AREA_SIZE, %struct._header_field_info { ptr @.str.361, ptr @.str.362, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_DPLOADONDEMAND_WRITE, %struct._header_field_info { ptr @.str.363, ptr @.str.364, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CONTROL_FOCUS, %struct._header_field_info { ptr @.str.365, ptr @.str.366, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ENTRY_HISTORY, %struct._header_field_info { ptr @.str.367, ptr @.str.368, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_AUTO_CODEPAGE, %struct._header_field_info { ptr @.str.369, ptr @.str.370, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CACHED_VSETS, %struct._header_field_info { ptr @.str.371, ptr @.str.372, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_EMERGENCY_REPAIR, %struct._header_field_info { ptr @.str.373, ptr @.str.374, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_AREA2FRONT, %struct._header_field_info { ptr @.str.375, ptr @.str.376, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SCROLLBAR_WIDTH, %struct._header_field_info { ptr @.str.377, ptr @.str.378, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_AUTORESIZE, %struct._header_field_info { ptr @.str.379, ptr @.str.380, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_EDIT_VARLEN, %struct._header_field_info { ptr @.str.381, ptr @.str.382, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_WORKPLACE, %struct._header_field_info { ptr @.str.383, ptr @.str.384, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_PRINTDATA, %struct._header_field_info { ptr @.str.385, ptr @.str.386, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_UNKNOWN_2, %struct._header_field_info { ptr @.str.387, ptr @.str.388, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SINGLE_SESSION, %struct._header_field_info { ptr @.str.389, ptr @.str.390, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NOTIFY_NEWMODE, %struct._header_field_info { ptr @.str.391, ptr @.str.392, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TOOLBAR_HEIGHT, %struct._header_field_info { ptr @.str.393, ptr @.str.394, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_XMLPROP_CONTAINER, %struct._header_field_info { ptr @.str.395, ptr @.str.396, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_XMLPROP_DYNPRO, %struct._header_field_info { ptr @.str.397, ptr @.str.398, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_DP_HTTP_PUT, %struct._header_field_info { ptr @.str.399, ptr @.str.400, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_DYNAMIC_PASSPORT, %struct._header_field_info { ptr @.str.401, ptr @.str.402, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_WEBGUI, %struct._header_field_info { ptr @.str.403, ptr @.str.404, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_WEBGUI_HELPMODE, %struct._header_field_info { ptr @.str.405, ptr @.str.406, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CONTROL_FOCUS_ON_LIST, %struct._header_field_info { ptr @.str.407, ptr @.str.408, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CBU_RBUDUMMY_2, %struct._header_field_info { ptr @.str.409, ptr @.str.410, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_EOKDUMMY_1, %struct._header_field_info { ptr @.str.411, ptr @.str.412, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_GUI_USER_SCRIPTING, %struct._header_field_info { ptr @.str.413, ptr @.str.414, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SLC, %struct._header_field_info { ptr @.str.415, ptr @.str.416, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ACCESSIBILITY, %struct._header_field_info { ptr @.str.417, ptr @.str.418, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ECATT, %struct._header_field_info { ptr @.str.419, ptr @.str.420, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ENJOY_IMODEUUID3, %struct._header_field_info { ptr @.str.421, ptr @.str.422, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ENABLE_UTF8, %struct._header_field_info { ptr @.str.423, ptr @.str.424, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_R3INFO_AUTOLOGOUT_TIME, %struct._header_field_info { ptr @.str.425, ptr @.str.426, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_VARINFO_ICON_TITLE_LIST, %struct._header_field_info { ptr @.str.427, ptr @.str.428, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ENABLE_UTF16BE, %struct._header_field_info { ptr @.str.429, ptr @.str.430, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ENABLE_UTF16LE, %struct._header_field_info { ptr @.str.431, ptr @.str.432, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_R3INFO_CODEPAGE_APP, %struct._header_field_info { ptr @.str.433, ptr @.str.434, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ENABLE_APPL4, %struct._header_field_info { ptr @.str.435, ptr @.str.436, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_GUIPATCHLEVEL, %struct._header_field_info { ptr @.str.437, ptr @.str.438, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CBURBU_NEW_STATE, %struct._header_field_info { ptr @.str.439, ptr @.str.440, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_BINARY_EVENTID, %struct._header_field_info { ptr @.str.441, ptr @.str.442, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_GUI_THEME, %struct._header_field_info { ptr @.str.443, ptr @.str.444, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TOP_WINDOW, %struct._header_field_info { ptr @.str.445, ptr @.str.446, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_EVENT_DESCRIPTION_1, %struct._header_field_info { ptr @.str.447, ptr @.str.448, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SPLITTER, %struct._header_field_info { ptr @.str.449, ptr @.str.450, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_VALUE_4_HISTORY, %struct._header_field_info { ptr @.str.451, ptr @.str.452, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ACC_LIST, %struct._header_field_info { ptr @.str.453, ptr @.str.454, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_GUI_USER_SCRIPTING_INFO, %struct._header_field_info { ptr @.str.455, ptr @.str.456, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TEXTEDIT_STREAM, %struct._header_field_info { ptr @.str.457, ptr @.str.458, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_DYNT_NOFOCUS, %struct._header_field_info { ptr @.str.459, ptr @.str.460, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_R3INFO_CODEPAGE_APP_1, %struct._header_field_info { ptr @.str.461, ptr @.str.462, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_FRAME_1, %struct._header_field_info { ptr @.str.463, ptr @.str.464, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TICKET4GUI, %struct._header_field_info { ptr @.str.465, ptr @.str.466, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ACC_LIST_PROPS, %struct._header_field_info { ptr @.str.467, ptr @.str.468, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TABSEL_ATTRIB_INPUT, %struct._header_field_info { ptr @.str.469, ptr @.str.470, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_DEFAULT_TOOLTIP, %struct._header_field_info { ptr @.str.471, ptr @.str.472, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_XML_PROP_TABLE_2, %struct._header_field_info { ptr @.str.473, ptr @.str.474, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CBU_RBUDUMMY_3, %struct._header_field_info { ptr @.str.475, ptr @.str.476, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CELLINFO, %struct._header_field_info { ptr @.str.477, ptr @.str.478, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CONTROL_FOCUS_ON_LIST_2, %struct._header_field_info { ptr @.str.479, ptr @.str.480, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TABLE_COLUMNWIDTH_INPUT, %struct._header_field_info { ptr @.str.481, ptr @.str.482, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ITS_PLUGIN, %struct._header_field_info { ptr @.str.483, ptr @.str.484, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_OBJECT_NAMES_4_LOGIN_PROCESS, %struct._header_field_info { ptr @.str.485, ptr @.str.486, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_RFC_SERVER_4_GUI, %struct._header_field_info { ptr @.str.487, ptr @.str.488, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_R3INFO_FLAGS_2, %struct._header_field_info { ptr @.str.489, ptr @.str.490, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_RCUI, %struct._header_field_info { ptr @.str.491, ptr @.str.492, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MENUENTRY_WITH_FCODE, %struct._header_field_info { ptr @.str.493, ptr @.str.494, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_WEBSAPCONSOLE, %struct._header_field_info { ptr @.str.495, ptr @.str.496, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_R3INFO_KERNEL_VERSION, %struct._header_field_info { ptr @.str.497, ptr @.str.498, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_VARINFO_CONTAINER_LOOP, %struct._header_field_info { ptr @.str.499, ptr @.str.500, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_EOKDUMMY_2, %struct._header_field_info { ptr @.str.501, ptr @.str.502, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MESSAGE_INFO3, %struct._header_field_info { ptr @.str.503, ptr @.str.504, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SBA2, %struct._header_field_info { ptr @.str.505, ptr @.str.506, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MAINAREA_SIZE, %struct._header_field_info { ptr @.str.507, ptr @.str.508, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_GUIPATCHLEVEL_2, %struct._header_field_info { ptr @.str.509, ptr @.str.510, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_DISPLAY_SIZE, %struct._header_field_info { ptr @.str.511, ptr @.str.512, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_GUI_PACKET, %struct._header_field_info { ptr @.str.513, ptr @.str.514, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_DIALOG_STEP_NUMBER, %struct._header_field_info { ptr @.str.515, ptr @.str.516, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TC_KEEP_SCROLL_POSITION, %struct._header_field_info { ptr @.str.517, ptr @.str.518, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MESSAGE_SERVICE_REQUEST, %struct._header_field_info { ptr @.str.519, ptr @.str.520, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_DYNT_FOCUS_FRAME, %struct._header_field_info { ptr @.str.521, ptr @.str.522, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MAX_STRING_LEN, %struct._header_field_info { ptr @.str.523, ptr @.str.524, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_VARINFO_CONTAINER_1, %struct._header_field_info { ptr @.str.525, ptr @.str.526, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_STD_TOOLBAR_ITEMS, %struct._header_field_info { ptr @.str.527, ptr @.str.528, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_XMLPROP_LIST_DYNPRO, %struct._header_field_info { ptr @.str.529, ptr @.str.530, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_TRACE_GUI_CONNECT, %struct._header_field_info { ptr @.str.531, ptr @.str.532, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_LIST_FULLWIDTH, %struct._header_field_info { ptr @.str.533, ptr @.str.534, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_ALLWAYS_SEND_CLIENT, %struct._header_field_info { ptr @.str.535, ptr @.str.536, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_UNKNOWN_3, %struct._header_field_info { ptr @.str.537, ptr @.str.538, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_GUI_SIGNATURE_COLOR, %struct._header_field_info { ptr @.str.539, ptr @.str.540, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MAX_WSIZE, %struct._header_field_info { ptr @.str.541, ptr @.str.542, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_SAP_PERSONAS, %struct._header_field_info { ptr @.str.543, ptr @.str.544, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_IDA_ALV, %struct._header_field_info { ptr @.str.545, ptr @.str.546, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_IDA_ALV_FRAGMENTS, %struct._header_field_info { ptr @.str.547, ptr @.str.548, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_AMC, %struct._header_field_info { ptr @.str.549, ptr @.str.550, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_EXTMODE_FONT_METRIC, %struct._header_field_info { ptr @.str.551, ptr @.str.552, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_GROUPBOX, %struct._header_field_info { ptr @.str.553, ptr @.str.554, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_AGI_ID_TS_BUTTON, %struct._header_field_info { ptr @.str.555, ptr @.str.556, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NO_FOCUS_ON_LIST, %struct._header_field_info { ptr @.str.557, ptr @.str.558, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_FIORI_MODE, %struct._header_field_info { ptr @.str.559, ptr @.str.560, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CONNECT_CHECK_DONE, %struct._header_field_info { ptr @.str.561, ptr @.str.562, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MSGINFO_WITH_CODEPAGE, %struct._header_field_info { ptr @.str.563, ptr @.str.564, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_AGI_ID, %struct._header_field_info { ptr @.str.565, ptr @.str.566, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_AGI_ID_TC, %struct._header_field_info { ptr @.str.567, ptr @.str.568, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_FIORI_TOOLBARS, %struct._header_field_info { ptr @.str.569, ptr @.str.570, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_OBJECT_NAMES_ENFORCE, %struct._header_field_info { ptr @.str.571, ptr @.str.572, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_MESDUMMY_FLAGS_2_3, %struct._header_field_info { ptr @.str.573, ptr @.str.574, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_NWBC, %struct._header_field_info { ptr @.str.575, ptr @.str.576, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_CONTAINER_LIST, %struct._header_field_info { ptr @.str.577, ptr @.str.578, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_GUI_SYSTEM_COLOR, %struct._header_field_info { ptr @.str.579, ptr @.str.580, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_SAPDIAG_SUPPORT_BIT_GROUPBOX_WITHOUT_BOTTOMLINE, %struct._header_field_info { ptr @.str.581, ptr @.str.582, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_dynt_atom, %struct._header_field_info { ptr @.str.583, ptr @.str.584, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_dynt_atom_item, %struct._header_field_info { ptr @.str.585, ptr @.str.586, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_dynt_atom_item_etype, %struct._header_field_info { ptr @.str.587, ptr @.str.588, i32 4, i32 1, ptr @sapdiag_item_dynt_atom_item_etype_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_dynt_atom_item_attr, %struct._header_field_info { ptr @.str.589, ptr @.str.590, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_dynt_atom_item_attr_DIAG_BSD_COMBOSTYLE, %struct._header_field_info { ptr @.str.591, ptr @.str.592, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_dynt_atom_item_attr_DIAG_BSD_YES3D, %struct._header_field_info { ptr @.str.593, ptr @.str.594, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_dynt_atom_item_attr_DIAG_BSD_PROPFONT, %struct._header_field_info { ptr @.str.595, ptr @.str.596, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_dynt_atom_item_attr_DIAG_BSD_MATCHCODE, %struct._header_field_info { ptr @.str.597, ptr @.str.598, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_dynt_atom_item_attr_DIAG_BSD_JUSTRIGHT, %struct._header_field_info { ptr @.str.599, ptr @.str.600, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_dynt_atom_item_attr_DIAG_BSD_INTENSIFY, %struct._header_field_info { ptr @.str.601, ptr @.str.602, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_dynt_atom_item_attr_DIAG_BSD_INVISIBLE, %struct._header_field_info { ptr @.str.603, ptr @.str.604, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_dynt_atom_item_attr_DIAG_BSD_PROTECTED, %struct._header_field_info { ptr @.str.605, ptr @.str.606, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_control_properties_id, %struct._header_field_info { ptr @.str.607, ptr @.str.608, i32 5, i32 2, ptr @sapdiag_item_control_properties_id_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_control_properties_value, %struct._header_field_info { ptr @.str.609, ptr @.str.610, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_ui_event_event_type, %struct._header_field_info { ptr @.str.611, ptr @.str.612, i32 5, i32 1, ptr @sapdiag_item_ui_event_event_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_ui_event_control_type, %struct._header_field_info { ptr @.str.613, ptr @.str.614, i32 5, i32 1, ptr @sapdiag_item_ui_event_control_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_ui_event_valid, %struct._header_field_info { ptr @.str.615, ptr @.str.616, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_ui_event_valid_MENU_POS, %struct._header_field_info { ptr @.str.617, ptr @.str.618, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_ui_event_valid_CONTROL_POS, %struct._header_field_info { ptr @.str.619, ptr @.str.620, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_ui_event_valid_NAVIGATION_DATA, %struct._header_field_info { ptr @.str.621, ptr @.str.622, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_ui_event_valid_FUNCTIONKEY_DATA, %struct._header_field_info { ptr @.str.623, ptr @.str.624, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_ui_event_control_row, %struct._header_field_info { ptr @.str.625, ptr @.str.626, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_ui_event_control_col, %struct._header_field_info { ptr @.str.627, ptr @.str.628, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_ui_event_navigation_data, %struct._header_field_info { ptr @.str.629, ptr @.str.630, i32 7, i32 1, ptr @sapdiag_item_ui_event_navigation_data_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_ui_event_data, %struct._header_field_info { ptr @.str.631, ptr @.str.632, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_ui_event_container_nrs, %struct._header_field_info { ptr @.str.633, ptr @.str.634, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_ui_event_container, %struct._header_field_info { ptr @.str.635, ptr @.str.636, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sapdiag_item_menu_entry, %struct._header_field_info { ptr @.str.637, ptr @.str.638, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_sapdiag_dp = internal global i32 0, align 4
 @.str = private unnamed_addr constant [10 x i8] c"DP Header\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"sapdiag.dp\00", align 1
@@ -70,7 +67,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_sapdiag_compress = internal global i32 0, align 4
 @.str.36 = private unnamed_addr constant [9 x i8] c"Compress\00", align 1
 @.str.37 = private unnamed_addr constant [24 x i8] c"sapdiag.header.compress\00", align 1
-@sapdiag_compress_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.673 }, %struct._value_string { i32 1, ptr @.str.674 }, %struct._value_string { i32 2, ptr @.str.675 }, %struct._value_string { i32 3, ptr @.str.676 }, %struct._value_string zeroinitializer], align 16
 @hf_sapdiag_error_message = internal global i32 0, align 4
 @.str.38 = private unnamed_addr constant [14 x i8] c"Error Message\00", align 1
 @.str.39 = private unnamed_addr constant [22 x i8] c"sapdiag.error_message\00", align 1
@@ -83,7 +79,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_sapdiag_algorithm = internal global i32 0, align 4
 @.str.44 = private unnamed_addr constant [22 x i8] c"Compression Algorithm\00", align 1
 @.str.45 = private unnamed_addr constant [37 x i8] c"sapdiag.header.compression.algorithm\00", align 1
-@sapdiag_algorithm_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 16, ptr @.str.677 }, %struct._value_string { i32 18, ptr @.str.678 }, %struct._value_string zeroinitializer], align 16
 @hf_sapdiag_magic = internal global i32 0, align 4
 @.str.46 = private unnamed_addr constant [12 x i8] c"Magic Bytes\00", align 1
 @.str.47 = private unnamed_addr constant [33 x i8] c"sapdiag.header.compression.magic\00", align 1
@@ -96,11 +91,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_sapdiag_item_type = internal global i32 0, align 4
 @.str.52 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
 @.str.53 = private unnamed_addr constant [18 x i8] c"sapdiag.item.type\00", align 1
-@sapdiag_item_type_vals = internal constant [15 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.679 }, %struct._value_string { i32 2, ptr @.str.680 }, %struct._value_string { i32 3, ptr @.str.681 }, %struct._value_string { i32 7, ptr @.str.682 }, %struct._value_string { i32 8, ptr @.str.683 }, %struct._value_string { i32 9, ptr @.str.684 }, %struct._value_string { i32 10, ptr @.str.685 }, %struct._value_string { i32 11, ptr @.str.686 }, %struct._value_string { i32 12, ptr @.str.687 }, %struct._value_string { i32 16, ptr @.str.688 }, %struct._value_string { i32 17, ptr @.str.689 }, %struct._value_string { i32 18, ptr @.str.690 }, %struct._value_string { i32 19, ptr @.str.691 }, %struct._value_string { i32 21, ptr @.str.692 }, %struct._value_string zeroinitializer], align 16
 @hf_sapdiag_item_id = internal global i32 0, align 4
 @.str.54 = private unnamed_addr constant [3 x i8] c"ID\00", align 1
 @.str.55 = private unnamed_addr constant [16 x i8] c"sapdiag.item.id\00", align 1
-@sapdiag_item_id_vals = internal constant [18 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.693 }, %struct._value_string { i32 2, ptr @.str.694 }, %struct._value_string { i32 3, ptr @.str.695 }, %struct._value_string { i32 4, ptr @.str.696 }, %struct._value_string { i32 5, ptr @.str.697 }, %struct._value_string { i32 6, ptr @.str.698 }, %struct._value_string { i32 7, ptr @.str.699 }, %struct._value_string { i32 8, ptr @.str.700 }, %struct._value_string { i32 9, ptr @.str.701 }, %struct._value_string { i32 10, ptr @.str.702 }, %struct._value_string { i32 11, ptr @.str.703 }, %struct._value_string { i32 12, ptr @.str.704 }, %struct._value_string { i32 14, ptr @.str.705 }, %struct._value_string { i32 15, ptr @.str.706 }, %struct._value_string { i32 18, ptr @.str.707 }, %struct._value_string { i32 19, ptr @.str.708 }, %struct._value_string { i32 20, ptr @.str.709 }, %struct._value_string zeroinitializer], align 16
 @hf_sapdiag_item_sid = internal global i32 0, align 4
 @.str.56 = private unnamed_addr constant [4 x i8] c"SID\00", align 1
 @.str.57 = private unnamed_addr constant [17 x i8] c"sapdiag.item.sid\00", align 1
@@ -115,18 +108,15 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_sapdiag_dp_request_id = internal global i32 0, align 4
 @.str.63 = private unnamed_addr constant [11 x i8] c"Request ID\00", align 1
 @.str.64 = private unnamed_addr constant [17 x i8] c"sapdiag.dp.reqid\00", align 1
-@sapdiag_dp_request_id_vals = internal constant [8 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.710 }, %struct._value_string { i32 1, ptr @.str.711 }, %struct._value_string { i32 2, ptr @.str.712 }, %struct._value_string { i32 3, ptr @.str.713 }, %struct._value_string { i32 4, ptr @.str.714 }, %struct._value_string { i32 5, ptr @.str.715 }, %struct._value_string { i32 6, ptr @.str.716 }, %struct._value_string zeroinitializer], align 16
 @hf_sapdiag_dp_retcode = internal global i32 0, align 4
 @.str.65 = private unnamed_addr constant [8 x i8] c"Retcode\00", align 1
 @.str.66 = private unnamed_addr constant [19 x i8] c"sapdiag.dp.retcode\00", align 1
 @hf_sapdiag_dp_sender_id = internal global i32 0, align 4
 @.str.67 = private unnamed_addr constant [10 x i8] c"Sender ID\00", align 1
 @.str.68 = private unnamed_addr constant [20 x i8] c"sapdiag.dp.senderid\00", align 1
-@sapdiag_dp_sender_id_vals = internal constant [9 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.717 }, %struct._value_string { i32 2, ptr @.str.718 }, %struct._value_string { i32 4, ptr @.str.719 }, %struct._value_string { i32 32, ptr @.str.720 }, %struct._value_string { i32 64, ptr @.str.721 }, %struct._value_string { i32 200, ptr @.str.722 }, %struct._value_string { i32 201, ptr @.str.723 }, %struct._value_string { i32 203, ptr @.str.724 }, %struct._value_string zeroinitializer], align 16
 @hf_sapdiag_dp_action_type = internal global i32 0, align 4
 @.str.69 = private unnamed_addr constant [12 x i8] c"Action type\00", align 1
 @.str.70 = private unnamed_addr constant [22 x i8] c"sapdiag.dp.actiontype\00", align 1
-@sapdiag_dp_action_type_vals = internal constant [19 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.725 }, %struct._value_string { i32 2, ptr @.str.726 }, %struct._value_string { i32 3, ptr @.str.727 }, %struct._value_string { i32 4, ptr @.str.728 }, %struct._value_string { i32 5, ptr @.str.729 }, %struct._value_string { i32 6, ptr @.str.730 }, %struct._value_string { i32 7, ptr @.str.731 }, %struct._value_string { i32 8, ptr @.str.732 }, %struct._value_string { i32 9, ptr @.str.733 }, %struct._value_string { i32 10, ptr @.str.734 }, %struct._value_string { i32 11, ptr @.str.735 }, %struct._value_string { i32 12, ptr @.str.736 }, %struct._value_string { i32 13, ptr @.str.737 }, %struct._value_string { i32 14, ptr @.str.738 }, %struct._value_string { i32 15, ptr @.str.739 }, %struct._value_string { i32 16, ptr @.str.740 }, %struct._value_string { i32 17, ptr @.str.741 }, %struct._value_string { i32 18, ptr @.str.742 }, %struct._value_string zeroinitializer], align 16
 @hf_sapdiag_dp_req_info = internal global i32 0, align 4
 @.str.71 = private unnamed_addr constant [13 x i8] c"Request Info\00", align 1
 @.str.72 = private unnamed_addr constant [19 x i8] c"sapdiag.dp.reqinfo\00", align 1
@@ -246,7 +236,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_sapdiag_dp_new_stat = internal global i32 0, align 4
 @.str.148 = private unnamed_addr constant [9 x i8] c"New Stat\00", align 1
 @.str.149 = private unnamed_addr constant [19 x i8] c"sapdiag.dp.newstat\00", align 1
-@sapdiag_dp_new_stat_vals = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.743 }, %struct._value_string { i32 1, ptr @.str.744 }, %struct._value_string { i32 2, ptr @.str.745 }, %struct._value_string { i32 4, ptr @.str.746 }, %struct._value_string { i32 8, ptr @.str.747 }, %struct._value_string { i32 16, ptr @.str.748 }, %struct._value_string { i32 32, ptr @.str.749 }, %struct._value_string { i32 64, ptr @.str.750 }, %struct._value_string { i32 128, ptr @.str.751 }, %struct._value_string zeroinitializer], align 16
 @hf_sapdiag_dp_rq_id = internal global i32 0, align 4
 @.str.150 = private unnamed_addr constant [16 x i8] c"sapdiag.dp.rqid\00", align 1
 @hf_sapdiag_dp_terminal = internal global i32 0, align 4
@@ -906,7 +895,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_sapdiag_item_dynt_atom_item_etype = internal global i32 0, align 4
 @.str.587 = private unnamed_addr constant [20 x i8] c"Dynt Atom Item Type\00", align 1
 @.str.588 = private unnamed_addr constant [38 x i8] c"sapdiag.item.value.dyntatom.item.type\00", align 1
-@sapdiag_item_dynt_atom_item_etype_vals = internal constant [32 x %struct._value_string] [%struct._value_string { i32 101, ptr @.str.752 }, %struct._value_string { i32 102, ptr @.str.753 }, %struct._value_string { i32 103, ptr @.str.754 }, %struct._value_string { i32 104, ptr @.str.755 }, %struct._value_string { i32 105, ptr @.str.756 }, %struct._value_string { i32 106, ptr @.str.757 }, %struct._value_string { i32 107, ptr @.str.758 }, %struct._value_string { i32 108, ptr @.str.759 }, %struct._value_string { i32 109, ptr @.str.760 }, %struct._value_string { i32 111, ptr @.str.761 }, %struct._value_string { i32 112, ptr @.str.762 }, %struct._value_string { i32 113, ptr @.str.763 }, %struct._value_string { i32 114, ptr @.str.764 }, %struct._value_string { i32 115, ptr @.str.765 }, %struct._value_string { i32 116, ptr @.str.766 }, %struct._value_string { i32 117, ptr @.str.767 }, %struct._value_string { i32 118, ptr @.str.768 }, %struct._value_string { i32 119, ptr @.str.769 }, %struct._value_string { i32 120, ptr @.str.770 }, %struct._value_string { i32 121, ptr @.str.771 }, %struct._value_string { i32 122, ptr @.str.772 }, %struct._value_string { i32 123, ptr @.str.773 }, %struct._value_string { i32 124, ptr @.str.774 }, %struct._value_string { i32 125, ptr @.str.775 }, %struct._value_string { i32 126, ptr @.str.776 }, %struct._value_string { i32 127, ptr @.str.777 }, %struct._value_string { i32 128, ptr @.str.778 }, %struct._value_string { i32 129, ptr @.str.779 }, %struct._value_string { i32 130, ptr @.str.780 }, %struct._value_string { i32 131, ptr @.str.781 }, %struct._value_string { i32 132, ptr @.str.782 }, %struct._value_string zeroinitializer], align 16
 @hf_sapdiag_item_dynt_atom_item_attr = internal global i32 0, align 4
 @.str.589 = private unnamed_addr constant [26 x i8] c"Dynt Atom Item Attributes\00", align 1
 @.str.590 = private unnamed_addr constant [38 x i8] c"sapdiag.item.value.dyntatom.item.attr\00", align 1
@@ -937,18 +925,15 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_sapdiag_item_control_properties_id = internal global i32 0, align 4
 @.str.607 = private unnamed_addr constant [22 x i8] c"Control Properties ID\00", align 1
 @.str.608 = private unnamed_addr constant [40 x i8] c"sapdiag.item.value.controlproperties.id\00", align 1
-@sapdiag_item_control_properties_id_vals = internal constant [8 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.783 }, %struct._value_string { i32 2, ptr @.str.784 }, %struct._value_string { i32 3, ptr @.str.785 }, %struct._value_string { i32 4, ptr @.str.786 }, %struct._value_string { i32 5, ptr @.str.787 }, %struct._value_string { i32 6, ptr @.str.788 }, %struct._value_string { i32 7, ptr @.str.789 }, %struct._value_string zeroinitializer], align 16
 @hf_sapdiag_item_control_properties_value = internal global i32 0, align 4
 @.str.609 = private unnamed_addr constant [25 x i8] c"Control Properties Value\00", align 1
 @.str.610 = private unnamed_addr constant [43 x i8] c"sapdiag.item.value.controlproperties.value\00", align 1
 @hf_sapdiag_item_ui_event_event_type = internal global i32 0, align 4
 @.str.611 = private unnamed_addr constant [21 x i8] c"UI Event Source Type\00", align 1
 @.str.612 = private unnamed_addr constant [32 x i8] c"sapdiag.item.value.uievent.type\00", align 1
-@sapdiag_item_ui_event_event_type_vals = internal constant [11 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.790 }, %struct._value_string { i32 2, ptr @.str.791 }, %struct._value_string { i32 3, ptr @.str.792 }, %struct._value_string { i32 6, ptr @.str.793 }, %struct._value_string { i32 7, ptr @.str.794 }, %struct._value_string { i32 8, ptr @.str.795 }, %struct._value_string { i32 9, ptr @.str.796 }, %struct._value_string { i32 10, ptr @.str.797 }, %struct._value_string { i32 11, ptr @.str.798 }, %struct._value_string { i32 12, ptr @.str.799 }, %struct._value_string zeroinitializer], align 16
 @hf_sapdiag_item_ui_event_control_type = internal global i32 0, align 4
 @.str.613 = private unnamed_addr constant [22 x i8] c"UI Event Control Type\00", align 1
 @.str.614 = private unnamed_addr constant [35 x i8] c"sapdiag.item.value.uievent.control\00", align 1
-@sapdiag_item_ui_event_control_type_vals = internal constant [22 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.800 }, %struct._value_string { i32 1, ptr @.str.801 }, %struct._value_string { i32 2, ptr @.str.802 }, %struct._value_string { i32 3, ptr @.str.803 }, %struct._value_string { i32 4, ptr @.str.804 }, %struct._value_string { i32 5, ptr @.str.805 }, %struct._value_string { i32 6, ptr @.str.806 }, %struct._value_string { i32 7, ptr @.str.807 }, %struct._value_string { i32 8, ptr @.str.808 }, %struct._value_string { i32 9, ptr @.str.809 }, %struct._value_string { i32 10, ptr @.str.810 }, %struct._value_string { i32 11, ptr @.str.811 }, %struct._value_string { i32 13, ptr @.str.812 }, %struct._value_string { i32 14, ptr @.str.813 }, %struct._value_string { i32 15, ptr @.str.814 }, %struct._value_string { i32 16, ptr @.str.815 }, %struct._value_string { i32 17, ptr @.str.816 }, %struct._value_string { i32 18, ptr @.str.817 }, %struct._value_string { i32 19, ptr @.str.818 }, %struct._value_string { i32 20, ptr @.str.819 }, %struct._value_string { i32 21, ptr @.str.820 }, %struct._value_string zeroinitializer], align 16
 @hf_sapdiag_item_ui_event_valid = internal global i32 0, align 4
 @.str.615 = private unnamed_addr constant [15 x i8] c"UI Event Valid\00", align 1
 @.str.616 = private unnamed_addr constant [33 x i8] c"sapdiag.item.value.uievent.valid\00", align 1
@@ -973,7 +958,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_sapdiag_item_ui_event_navigation_data = internal global i32 0, align 4
 @.str.629 = private unnamed_addr constant [32 x i8] c"UI Event Source Navigation Data\00", align 1
 @.str.630 = private unnamed_addr constant [42 x i8] c"sapdiag.item.value.uievent.navigationdata\00", align 1
-@sapdiag_item_ui_event_navigation_data_vals = internal constant [11 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.821 }, %struct._value_string { i32 2, ptr @.str.822 }, %struct._value_string { i32 3, ptr @.str.823 }, %struct._value_string { i32 4, ptr @.str.824 }, %struct._value_string { i32 5, ptr @.str.825 }, %struct._value_string { i32 6, ptr @.str.826 }, %struct._value_string { i32 7, ptr @.str.827 }, %struct._value_string { i32 8, ptr @.str.828 }, %struct._value_string { i32 9, ptr @.str.829 }, %struct._value_string { i32 10, ptr @.str.830 }, %struct._value_string zeroinitializer], align 16
 @hf_sapdiag_item_ui_event_data = internal global i32 0, align 4
 @.str.631 = private unnamed_addr constant [21 x i8] c"UI Event Source Data\00", align 1
 @.str.632 = private unnamed_addr constant [32 x i8] c"sapdiag.item.value.uievent.data\00", align 1
@@ -988,7 +972,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.638 = private unnamed_addr constant [24 x i8] c"sapdiag.item.value.menu\00", align 1
 @proto_register_sapdiag.ett = internal global [1 x ptr] [ptr @ett_sapdiag], align 8
 @ett_sapdiag = internal global i32 0, align 4
-@proto_register_sapdiag.ei = internal global [10 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_sapdiag_item_unknown, %struct.expert_field_info { ptr @.str.639, i32 83886080, i32 6291456, ptr @.str.640, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_sapdiag_item_partial, %struct.expert_field_info { ptr @.str.639, i32 83886080, i32 6291456, ptr @.str.641, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_sapdiag_item_unknown_length, %struct.expert_field_info { ptr @.str.642, i32 83886080, i32 6291456, ptr @.str.643, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_sapdiag_item_offset_invalid, %struct.expert_field_info { ptr @.str.644, i32 117440512, i32 8388608, ptr @.str.645, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_sapdiag_item_length_invalid, %struct.expert_field_info { ptr @.str.646, i32 117440512, i32 6291456, ptr @.str.647, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_sapdiag_atom_item_unknown, %struct.expert_field_info { ptr @.str.648, i32 83886080, i32 6291456, ptr @.str.649, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_sapdiag_atom_item_partial, %struct.expert_field_info { ptr @.str.648, i32 83886080, i32 6291456, ptr @.str.650, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_sapdiag_atom_item_malformed, %struct.expert_field_info { ptr @.str.651, i32 117440512, i32 6291456, ptr @.str.652, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_sapdiag_dynt_focus_more_cont_ids, %struct.expert_field_info { ptr @.str.653, i32 117440512, i32 6291456, ptr @.str.654, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_sapdiag_password_field, %struct.expert_field_info { ptr @.str.655, i32 167772160, i32 6291456, ptr @.str.656, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_sapdiag.ei = internal global [10 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_sapdiag_item_unknown, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.639, i32 83886080, i32 6291456, ptr @.str.640, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_sapdiag_item_partial, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.639, i32 83886080, i32 6291456, ptr @.str.641, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_sapdiag_item_unknown_length, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.642, i32 83886080, i32 6291456, ptr @.str.643, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_sapdiag_item_offset_invalid, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.644, i32 117440512, i32 8388608, ptr @.str.645, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_sapdiag_item_length_invalid, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.646, i32 117440512, i32 6291456, ptr @.str.647, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_sapdiag_atom_item_unknown, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.648, i32 83886080, i32 6291456, ptr @.str.649, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_sapdiag_atom_item_partial, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.648, i32 83886080, i32 6291456, ptr @.str.650, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_sapdiag_atom_item_malformed, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.651, i32 117440512, i32 6291456, ptr @.str.652, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_sapdiag_dynt_focus_more_cont_ids, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.653, i32 117440512, i32 6291456, ptr @.str.654, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_sapdiag_password_field, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.655, i32 167772160, i32 6291456, ptr @.str.656, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_sapdiag_item_unknown = internal global %struct.expert_field zeroinitializer, align 4
 @.str.639 = private unnamed_addr constant [21 x i8] c"sapdiag.item.unknown\00", align 1
 @.str.640 = private unnamed_addr constant [55 x i8] c"The Diag Item has a unknown type that is not dissected\00", align 1
@@ -1029,570 +1013,585 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.664 = private unnamed_addr constant [15 x i8] c"rfc_dissection\00", align 1
 @.str.665 = private unnamed_addr constant [31 x i8] c"Dissect embedded SAP RFC calls\00", align 1
 @.str.666 = private unnamed_addr constant [97 x i8] c"Whether the SAP Diag Protocol dissector should call the SAP RFC dissector for embedded RFC calls\00", align 1
-@global_sapdiag_rfc_dissection = internal global i32 1, align 4
+@global_sapdiag_rfc_dissection = internal global i8 1, align 1
 @.str.667 = private unnamed_addr constant [15 x i8] c"snc_dissection\00", align 1
 @.str.668 = private unnamed_addr constant [23 x i8] c"Dissect SAP SNC frames\00", align 1
 @.str.669 = private unnamed_addr constant [89 x i8] c"Whether the SAP Diag Protocol dissector should call the SAP SNC dissector for SNC frames\00", align 1
-@global_sapdiag_snc_dissection = internal global i32 1, align 4
+@global_sapdiag_snc_dissection = internal global i8 1, align 1
 @.str.670 = private unnamed_addr constant [24 x i8] c"highlight_unknown_items\00", align 1
 @.str.671 = private unnamed_addr constant [33 x i8] c"Highlight unknown SAP Diag Items\00", align 1
 @.str.672 = private unnamed_addr constant [134 x i8] c"Whether the SAP Diag Protocol dissector should highlight unknown SAP Diag item (might be noise and generate a lot of expert warnings)\00", align 1
-@global_sapdiag_highlight_items = internal global i32 1, align 4
+@global_sapdiag_highlight_items = internal global i8 1, align 1
 @proto_reg_handoff_sapdiag.sapdiag_port_range = internal global ptr null, align 8
-@proto_reg_handoff_sapdiag.initialized = internal global i32 0, align 4
+@proto_reg_handoff_sapdiag.initialized = internal global i8 0, align 1
 @sapdiag_handle = internal global ptr null, align 8
 @.str.673 = private unnamed_addr constant [25 x i8] c"Compression switched off\00", align 1
 @.str.674 = private unnamed_addr constant [24 x i8] c"Compression switched on\00", align 1
 @.str.675 = private unnamed_addr constant [15 x i8] c"Data encrypted\00", align 1
 @.str.676 = private unnamed_addr constant [20 x i8] c"Data encrypted wrap\00", align 1
-@.str.677 = private unnamed_addr constant [4 x i8] c"LZC\00", align 1
-@.str.678 = private unnamed_addr constant [4 x i8] c"LZH\00", align 1
-@.str.679 = private unnamed_addr constant [4 x i8] c"SES\00", align 1
-@.str.680 = private unnamed_addr constant [4 x i8] c"ICO\00", align 1
-@.str.681 = private unnamed_addr constant [4 x i8] c"TIT\00", align 1
-@.str.682 = private unnamed_addr constant [25 x i8] c"DiagMessage (old format)\00", align 1
-@.str.683 = private unnamed_addr constant [4 x i8] c"OKC\00", align 1
-@.str.684 = private unnamed_addr constant [4 x i8] c"CHL\00", align 1
-@.str.685 = private unnamed_addr constant [4 x i8] c"SFE\00", align 1
-@.str.686 = private unnamed_addr constant [4 x i8] c"SBA\00", align 1
-@.str.687 = private unnamed_addr constant [4 x i8] c"EOM\00", align 1
-@.str.688 = private unnamed_addr constant [5 x i8] c"APPL\00", align 1
-@.str.689 = private unnamed_addr constant [13 x i8] c"DIAG_XMLBLOB\00", align 1
-@.str.690 = private unnamed_addr constant [6 x i8] c"APPL4\00", align 1
-@.str.691 = private unnamed_addr constant [4 x i8] c"SLC\00", align 1
-@.str.692 = private unnamed_addr constant [5 x i8] c"SBA2\00", align 1
-@.str.693 = private unnamed_addr constant [7 x i8] c"SCRIPT\00", align 1
-@.str.694 = private unnamed_addr constant [6 x i8] c"GRAPH\00", align 1
-@.str.695 = private unnamed_addr constant [5 x i8] c"IXOS\00", align 1
-@.str.696 = private unnamed_addr constant [8 x i8] c"ST_USER\00", align 1
-@.str.697 = private unnamed_addr constant [5 x i8] c"DYNN\00", align 1
-@.str.698 = private unnamed_addr constant [10 x i8] c"ST_R3INFO\00", align 1
-@.str.699 = private unnamed_addr constant [5 x i8] c"POPU\00", align 1
-@.str.700 = private unnamed_addr constant [7 x i8] c"RFC_TR\00", align 1
-@.str.701 = private unnamed_addr constant [5 x i8] c"DYNT\00", align 1
-@.str.702 = private unnamed_addr constant [10 x i8] c"CONTAINER\00", align 1
-@.str.703 = private unnamed_addr constant [9 x i8] c"MNUENTRY\00", align 1
-@.str.704 = private unnamed_addr constant [8 x i8] c"VARINFO\00", align 1
-@.str.705 = private unnamed_addr constant [8 x i8] c"CONTROL\00", align 1
-@.str.706 = private unnamed_addr constant [9 x i8] c"UI_EVENT\00", align 1
-@.str.707 = private unnamed_addr constant [9 x i8] c"ACC_LIST\00", align 1
-@.str.708 = private unnamed_addr constant [5 x i8] c"RCUI\00", align 1
-@.str.709 = private unnamed_addr constant [11 x i8] c"GUI_PACKET\00", align 1
-@.str.710 = private unnamed_addr constant [5 x i8] c"NOWP\00", align 1
-@.str.711 = private unnamed_addr constant [4 x i8] c"DIA\00", align 1
-@.str.712 = private unnamed_addr constant [5 x i8] c"DUPD\00", align 1
-@.str.713 = private unnamed_addr constant [5 x i8] c"DENQ\00", align 1
-@.str.714 = private unnamed_addr constant [5 x i8] c"DBTC\00", align 1
-@.str.715 = private unnamed_addr constant [5 x i8] c"DSPO\00", align 1
-@.str.716 = private unnamed_addr constant [5 x i8] c"DUP2\00", align 1
-@.str.717 = private unnamed_addr constant [11 x i8] c"DISPATCHER\00", align 1
-@.str.718 = private unnamed_addr constant [13 x i8] c"WORK_PROCESS\00", align 1
-@.str.719 = private unnamed_addr constant [16 x i8] c"REMOTE_TERMINAL\00", align 1
-@.str.720 = private unnamed_addr constant [14 x i8] c"APPC_TERMINAL\00", align 1
-@.str.721 = private unnamed_addr constant [13 x i8] c"APPC_GATEWAY\00", align 1
-@.str.722 = private unnamed_addr constant [6 x i8] c"ICMAN\00", align 1
-@.str.723 = private unnamed_addr constant [11 x i8] c"IC_MONITOR\00", align 1
-@.str.724 = private unnamed_addr constant [5 x i8] c"LCOM\00", align 1
-@.str.725 = private unnamed_addr constant [11 x i8] c"SEND_TO_DP\00", align 1
-@.str.726 = private unnamed_addr constant [11 x i8] c"SEND_TO_WP\00", align 1
-@.str.727 = private unnamed_addr constant [11 x i8] c"SEND_TO_TM\00", align 1
-@.str.728 = private unnamed_addr constant [13 x i8] c"SEND_TO_APPC\00", align 1
-@.str.729 = private unnamed_addr constant [15 x i8] c"SEND_TO_APPCTM\00", align 1
-@.str.730 = private unnamed_addr constant [14 x i8] c"SEND_MSG_TYPE\00", align 1
-@.str.731 = private unnamed_addr constant [16 x i8] c"SEND_MSG_REQUES\00", align 1
-@.str.732 = private unnamed_addr constant [15 x i8] c"SEND_MSG_REPLY\00", align 1
-@.str.733 = private unnamed_addr constant [16 x i8] c"SEND_MSG_ONEWAY\00", align 1
-@.str.734 = private unnamed_addr constant [15 x i8] c"SEND_MSG_ADMIN\00", align 1
-@.str.735 = private unnamed_addr constant [12 x i8] c"WAKE_UP_WPS\00", align 1
-@.str.736 = private unnamed_addr constant [12 x i8] c"SET_TIMEOUT\00", align 1
-@.str.737 = private unnamed_addr constant [13 x i8] c"DEL_SCHEDULE\00", align 1
-@.str.738 = private unnamed_addr constant [14 x i8] c"ADD_SOFT_SERV\00", align 1
-@.str.739 = private unnamed_addr constant [14 x i8] c"SUB_SOFT_SERV\00", align 1
-@.str.740 = private unnamed_addr constant [9 x i8] c"SHUTDOWN\00", align 1
-@.str.741 = private unnamed_addr constant [16 x i8] c"SEND_TO_MSGSERV\00", align 1
-@.str.742 = private unnamed_addr constant [15 x i8] c"SEND_TO_PLUGIN\00", align 1
-@.str.743 = private unnamed_addr constant [10 x i8] c"NO_CHANGE\00", align 1
-@.str.744 = private unnamed_addr constant [13 x i8] c"WP_SLOT_FREE\00", align 1
-@.str.745 = private unnamed_addr constant [8 x i8] c"WP_WAIT\00", align 1
-@.str.746 = private unnamed_addr constant [7 x i8] c"WP_RUN\00", align 1
-@.str.747 = private unnamed_addr constant [8 x i8] c"WP_HOLD\00", align 1
-@.str.748 = private unnamed_addr constant [10 x i8] c"WP_KILLED\00", align 1
-@.str.749 = private unnamed_addr constant [12 x i8] c"WP_SHUTDOWN\00", align 1
-@.str.750 = private unnamed_addr constant [14 x i8] c"WP_RESTRICTED\00", align 1
-@.str.751 = private unnamed_addr constant [7 x i8] c"WP_NEW\00", align 1
-@.str.752 = private unnamed_addr constant [19 x i8] c"DIAG_DGOTYP_EFIELD\00", align 1
-@.str.753 = private unnamed_addr constant [19 x i8] c"DIAG_DGOTYP_OFIELD\00", align 1
-@.str.754 = private unnamed_addr constant [20 x i8] c"DIAG_DGOTYP_KEYWORD\00", align 1
-@.str.755 = private unnamed_addr constant [26 x i8] c"DIAG_DGOTYP_CHECKBUTTON_4\00", align 1
-@.str.756 = private unnamed_addr constant [26 x i8] c"DIAG_DGOTYP_RADIOBUTTON_0\00", align 1
-@.str.757 = private unnamed_addr constant [25 x i8] c"DIAG_DGOTYP_PUSHBUTTON_3\00", align 1
-@.str.758 = private unnamed_addr constant [20 x i8] c"DIAG_DGOTYP_FRAME_3\00", align 1
-@.str.759 = private unnamed_addr constant [19 x i8] c"DIAG_DGOTYP_LOOP_6\00", align 1
-@.str.760 = private unnamed_addr constant [22 x i8] c"DIAG_DGOTYP_SUBSCREEN\00", align 1
-@.str.761 = private unnamed_addr constant [21 x i8] c"DIAG_DGOTYP_PROPERTY\00", align 1
-@.str.762 = private unnamed_addr constant [19 x i8] c"DIAG_DGOTYP_ICON_0\00", align 1
-@.str.763 = private unnamed_addr constant [25 x i8] c"DIAG_DGOTYP_PUSHBUTTON_1\00", align 1
-@.str.764 = private unnamed_addr constant [18 x i8] c"DIAG_DGOTYP_FNAME\00", align 1
-@.str.765 = private unnamed_addr constant [25 x i8] c"DIAG_DGOTYP_PUSHBUTTON_2\00", align 1
-@.str.766 = private unnamed_addr constant [28 x i8] c"DIAG_DGOTYP_TABSTRIP_BUTTON\00", align 1
-@.str.767 = private unnamed_addr constant [21 x i8] c"DIAG_DGOTYP_COMBOBOX\00", align 1
-@.str.768 = private unnamed_addr constant [26 x i8] c"DIAG_DGOTYP_CHECKBUTTON_1\00", align 1
-@.str.769 = private unnamed_addr constant [26 x i8] c"DIAG_DGOTYP_RADIOBUTTON_1\00", align 1
-@.str.770 = private unnamed_addr constant [20 x i8] c"DIAG_DGOTYP_XMLPROP\00", align 1
-@.str.771 = private unnamed_addr constant [21 x i8] c"DIAG_DGOTYP_EFIELD_1\00", align 1
-@.str.772 = private unnamed_addr constant [21 x i8] c"DIAG_DGOTYP_OFIELD_1\00", align 1
-@.str.773 = private unnamed_addr constant [24 x i8] c"DIAG_DGOTYP_KEYWORD_1_1\00", align 1
-@.str.774 = private unnamed_addr constant [26 x i8] c"DIAG_DGOTYP_CHECKBUTTON_2\00", align 1
-@.str.775 = private unnamed_addr constant [27 x i8] c"DIAG_DGOTYP_RADIOBUTTON__0\00", align 1
-@.str.776 = private unnamed_addr constant [23 x i8] c"DIAG_DGOTYP_COMBOBOX_1\00", align 1
-@.str.777 = private unnamed_addr constant [20 x i8] c"DIAG_DGOTYP_FRAME_1\00", align 1
-@.str.778 = private unnamed_addr constant [26 x i8] c"DIAG_DGOTYP_CHECKBUTTON_3\00", align 1
-@.str.779 = private unnamed_addr constant [26 x i8] c"DIAG_DGOTYP_RADIOBUTTON_3\00", align 1
-@.str.780 = private unnamed_addr constant [21 x i8] c"DIAG_DGOTYP_EFIELD_2\00", align 1
-@.str.781 = private unnamed_addr constant [21 x i8] c"DIAG_DGOTYP_OFIELD_2\00", align 1
-@.str.782 = private unnamed_addr constant [22 x i8] c"DIAG_DGOTYP_KEYWORD_2\00", align 1
-@.str.783 = private unnamed_addr constant [13 x i8] c"CONTROL_AREA\00", align 1
-@.str.784 = private unnamed_addr constant [11 x i8] c"CONTROL_ID\00", align 1
-@.str.785 = private unnamed_addr constant [16 x i8] c"CONTROL_VISIBLE\00", align 1
-@.str.786 = private unnamed_addr constant [12 x i8] c"CONTROL_ROW\00", align 1
-@.str.787 = private unnamed_addr constant [15 x i8] c"CONTROL_COLUMN\00", align 1
-@.str.788 = private unnamed_addr constant [13 x i8] c"CONTROL_ROWS\00", align 1
-@.str.789 = private unnamed_addr constant [16 x i8] c"CONTROL_COLUMNS\00", align 1
-@.str.790 = private unnamed_addr constant [7 x i8] c"SELECT\00", align 1
-@.str.791 = private unnamed_addr constant [3 x i8] c"HE\00", align 1
-@.str.792 = private unnamed_addr constant [10 x i8] c"VALUEHELP\00", align 1
-@.str.793 = private unnamed_addr constant [7 x i8] c"RESIZE\00", align 1
-@.str.794 = private unnamed_addr constant [12 x i8] c"FUNCTIONKEY\00", align 1
-@.str.795 = private unnamed_addr constant [7 x i8] c"SCROLL\00", align 1
-@.str.796 = private unnamed_addr constant [14 x i8] c"BUTTONPRESSED\00", align 1
-@.str.797 = private unnamed_addr constant [13 x i8] c"VALUECHANGED\00", align 1
-@.str.798 = private unnamed_addr constant [13 x i8] c"STATECHANGED\00", align 1
-@.str.799 = private unnamed_addr constant [11 x i8] c"NAVIGATION\00", align 1
-@.str.800 = private unnamed_addr constant [5 x i8] c"NONE\00", align 1
-@.str.801 = private unnamed_addr constant [6 x i8] c"FIELD\00", align 1
-@.str.802 = private unnamed_addr constant [12 x i8] c"RADIOBUTTON\00", align 1
-@.str.803 = private unnamed_addr constant [12 x i8] c"CHECKBUTTON\00", align 1
-@.str.804 = private unnamed_addr constant [11 x i8] c"MENUBUTTON\00", align 1
-@.str.805 = private unnamed_addr constant [14 x i8] c"TOOLBARBUTTON\00", align 1
-@.str.806 = private unnamed_addr constant [22 x i8] c"STANDARDTOOLBARBUTTON\00", align 1
-@.str.807 = private unnamed_addr constant [11 x i8] c"PUSHBUTTON\00", align 1
-@.str.808 = private unnamed_addr constant [10 x i8] c"TABLEVIEW\00", align 1
-@.str.809 = private unnamed_addr constant [9 x i8] c"TABSTRIP\00", align 1
-@.str.810 = private unnamed_addr constant [7 x i8] c"DYNPRO\00", align 1
-@.str.811 = private unnamed_addr constant [15 x i8] c"CUSTOM_CONTROL\00", align 1
-@.str.812 = private unnamed_addr constant [6 x i8] c"FRAME\00", align 1
-@.str.813 = private unnamed_addr constant [24 x i8] c"TABLEVIEW_COLSEL_BUTTON\00", align 1
-@.str.814 = private unnamed_addr constant [24 x i8] c"TABLEVIEW_ROWSEL_BUTTON\00", align 1
-@.str.815 = private unnamed_addr constant [15 x i8] c"TABLEVIEW_CELL\00", align 1
-@.str.816 = private unnamed_addr constant [12 x i8] c"CONTEXTMENU\00", align 1
-@.str.817 = private unnamed_addr constant [9 x i8] c"SPLITTER\00", align 1
-@.str.818 = private unnamed_addr constant [8 x i8] c"MESSAGE\00", align 1
-@.str.819 = private unnamed_addr constant [7 x i8] c"OKCODE\00", align 1
-@.str.820 = private unnamed_addr constant [14 x i8] c"ACC_CONTAINER\00", align 1
-@.str.821 = private unnamed_addr constant [4 x i8] c"TAB\00", align 1
-@.str.822 = private unnamed_addr constant [9 x i8] c"TAB_BACK\00", align 1
-@.str.823 = private unnamed_addr constant [10 x i8] c"JUMP_OVER\00", align 1
-@.str.824 = private unnamed_addr constant [15 x i8] c"JUMP_OVER_BACK\00", align 1
-@.str.825 = private unnamed_addr constant [9 x i8] c"JUMP_OUT\00", align 1
-@.str.826 = private unnamed_addr constant [14 x i8] c"JUMP_OUT_BACK\00", align 1
-@.str.827 = private unnamed_addr constant [13 x i8] c"JUMP_SECTION\00", align 1
-@.str.828 = private unnamed_addr constant [18 x i8] c"JUMP_SECTION_BACK\00", align 1
-@.str.829 = private unnamed_addr constant [12 x i8] c"FIRST_FIELD\00", align 1
-@.str.830 = private unnamed_addr constant [11 x i8] c"LAST_FIELD\00", align 1
-@.str.831 = private unnamed_addr constant [13 x i8] c"**DPTMMSG**\00\00", align 1
-@.str.832 = private unnamed_addr constant [13 x i8] c"**DPTMOPC**\00\00", align 1
-@.str.833 = private unnamed_addr constant [23 x i8] c", Uncompressed Len: %u\00", align 1
-@.str.834 = private unnamed_addr constant [25 x i8] c" Uncompressed Length=%u \00", align 1
-@.str.835 = private unnamed_addr constant [19 x i8] c"SNC unwrapped Data\00", align 1
-@.str.836 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
-@.str.837 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
-@.str.838 = private unnamed_addr constant [37 x i8] c"Diag Type of unknown length (0x%.2x)\00", align 1
-@.str.839 = private unnamed_addr constant [5 x i8] c", %s\00", align 1
-@.str.840 = private unnamed_addr constant [12 x i8] c"%s (0x%.2x)\00", align 1
-@.str.841 = private unnamed_addr constant [9 x i8] c", Len=%d\00", align 1
-@sapdiag_item_appl_script_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.842 }, %struct._value_string { i32 2, ptr @.str.843 }, %struct._value_string { i32 3, ptr @.str.844 }, %struct._value_string { i32 4, ptr @.str.845 }, %struct._value_string zeroinitializer], align 16
-@sapdiag_item_appl_graph_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 3, ptr @.str.846 }, %struct._value_string { i32 5, ptr @.str.847 }, %struct._value_string zeroinitializer], align 16
-@sapdiag_item_appl_ixos_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.848 }, %struct._value_string { i32 2, ptr @.str.849 }, %struct._value_string { i32 3, ptr @.str.850 }, %struct._value_string zeroinitializer], align 16
-@sapdiag_item_appl_st_user_vals = internal constant [38 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.851 }, %struct._value_string { i32 2, ptr @.str.852 }, %struct._value_string { i32 3, ptr @.str.853 }, %struct._value_string { i32 4, ptr @.str.854 }, %struct._value_string { i32 5, ptr @.str.855 }, %struct._value_string { i32 6, ptr @.str.856 }, %struct._value_string { i32 7, ptr @.str.857 }, %struct._value_string { i32 8, ptr @.str.858 }, %struct._value_string { i32 9, ptr @.str.859 }, %struct._value_string { i32 11, ptr @.str.860 }, %struct._value_string { i32 12, ptr @.str.861 }, %struct._value_string { i32 13, ptr @.str.862 }, %struct._value_string { i32 14, ptr @.str.863 }, %struct._value_string { i32 15, ptr @.str.864 }, %struct._value_string { i32 16, ptr @.str.865 }, %struct._value_string { i32 17, ptr @.str.866 }, %struct._value_string { i32 18, ptr @.str.867 }, %struct._value_string { i32 19, ptr @.str.868 }, %struct._value_string { i32 20, ptr @.str.869 }, %struct._value_string { i32 21, ptr @.str.870 }, %struct._value_string { i32 22, ptr @.str.871 }, %struct._value_string { i32 23, ptr @.str.872 }, %struct._value_string { i32 24, ptr @.str.873 }, %struct._value_string { i32 25, ptr @.str.874 }, %struct._value_string { i32 26, ptr @.str.875 }, %struct._value_string { i32 27, ptr @.str.876 }, %struct._value_string { i32 28, ptr @.str.877 }, %struct._value_string { i32 29, ptr @.str.878 }, %struct._value_string { i32 30, ptr @.str.879 }, %struct._value_string { i32 31, ptr @.str.880 }, %struct._value_string { i32 32, ptr @.str.881 }, %struct._value_string { i32 33, ptr @.str.882 }, %struct._value_string { i32 34, ptr @.str.883 }, %struct._value_string { i32 35, ptr @.str.884 }, %struct._value_string { i32 36, ptr @.str.885 }, %struct._value_string { i32 37, ptr @.str.886 }, %struct._value_string { i32 38, ptr @.str.887 }, %struct._value_string zeroinitializer], align 16
-@sapdiag_item_appl_dynn_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.684 }, %struct._value_string { i32 3, ptr @.str.888 }, %struct._value_string zeroinitializer], align 16
-@sapdiag_item_appl_st_r3info_vals = internal constant [43 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.889 }, %struct._value_string { i32 2, ptr @.str.890 }, %struct._value_string { i32 3, ptr @.str.891 }, %struct._value_string { i32 4, ptr @.str.892 }, %struct._value_string { i32 5, ptr @.str.893 }, %struct._value_string { i32 6, ptr @.str.894 }, %struct._value_string { i32 7, ptr @.str.895 }, %struct._value_string { i32 8, ptr @.str.896 }, %struct._value_string { i32 9, ptr @.str.897 }, %struct._value_string { i32 10, ptr @.str.898 }, %struct._value_string { i32 11, ptr @.str.818 }, %struct._value_string { i32 12, ptr @.str.899 }, %struct._value_string { i32 13, ptr @.str.900 }, %struct._value_string { i32 14, ptr @.str.901 }, %struct._value_string { i32 15, ptr @.str.902 }, %struct._value_string { i32 16, ptr @.str.903 }, %struct._value_string { i32 17, ptr @.str.860 }, %struct._value_string { i32 18, ptr @.str.904 }, %struct._value_string { i32 19, ptr @.str.905 }, %struct._value_string { i32 20, ptr @.str.906 }, %struct._value_string { i32 21, ptr @.str.907 }, %struct._value_string { i32 22, ptr @.str.908 }, %struct._value_string { i32 23, ptr @.str.909 }, %struct._value_string { i32 24, ptr @.str.910 }, %struct._value_string { i32 25, ptr @.str.911 }, %struct._value_string { i32 26, ptr @.str.912 }, %struct._value_string { i32 27, ptr @.str.913 }, %struct._value_string { i32 28, ptr @.str.914 }, %struct._value_string { i32 29, ptr @.str.915 }, %struct._value_string { i32 30, ptr @.str.916 }, %struct._value_string { i32 31, ptr @.str.917 }, %struct._value_string { i32 32, ptr @.str.918 }, %struct._value_string { i32 33, ptr @.str.919 }, %struct._value_string { i32 34, ptr @.str.920 }, %struct._value_string { i32 35, ptr @.str.921 }, %struct._value_string { i32 36, ptr @.str.922 }, %struct._value_string { i32 37, ptr @.str.923 }, %struct._value_string { i32 38, ptr @.str.924 }, %struct._value_string { i32 39, ptr @.str.925 }, %struct._value_string { i32 40, ptr @.str.926 }, %struct._value_string { i32 41, ptr @.str.927 }, %struct._value_string { i32 42, ptr @.str.928 }, %struct._value_string zeroinitializer], align 16
-@sapdiag_item_appl_popu_vals = internal constant [2 x %struct._value_string] [%struct._value_string { i32 2, ptr @.str.929 }, %struct._value_string zeroinitializer], align 16
-@sapdiag_item_appl_rfc_tr_vals = internal constant [13 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.930 }, %struct._value_string { i32 1, ptr @.str.931 }, %struct._value_string { i32 2, ptr @.str.932 }, %struct._value_string { i32 3, ptr @.str.933 }, %struct._value_string { i32 4, ptr @.str.934 }, %struct._value_string { i32 5, ptr @.str.935 }, %struct._value_string { i32 6, ptr @.str.936 }, %struct._value_string { i32 7, ptr @.str.937 }, %struct._value_string { i32 8, ptr @.str.938 }, %struct._value_string { i32 9, ptr @.str.939 }, %struct._value_string { i32 10, ptr @.str.940 }, %struct._value_string { i32 11, ptr @.str.941 }, %struct._value_string zeroinitializer], align 16
-@sapdiag_item_appl_dynt_vals = internal constant [24 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.942 }, %struct._value_string { i32 2, ptr @.str.943 }, %struct._value_string { i32 3, ptr @.str.944 }, %struct._value_string { i32 4, ptr @.str.945 }, %struct._value_string { i32 5, ptr @.str.946 }, %struct._value_string { i32 6, ptr @.str.947 }, %struct._value_string { i32 7, ptr @.str.948 }, %struct._value_string { i32 8, ptr @.str.949 }, %struct._value_string { i32 9, ptr @.str.950 }, %struct._value_string { i32 10, ptr @.str.951 }, %struct._value_string { i32 11, ptr @.str.952 }, %struct._value_string { i32 12, ptr @.str.953 }, %struct._value_string { i32 13, ptr @.str.954 }, %struct._value_string { i32 14, ptr @.str.955 }, %struct._value_string { i32 15, ptr @.str.956 }, %struct._value_string { i32 16, ptr @.str.957 }, %struct._value_string { i32 17, ptr @.str.958 }, %struct._value_string { i32 18, ptr @.str.959 }, %struct._value_string { i32 19, ptr @.str.960 }, %struct._value_string { i32 20, ptr @.str.961 }, %struct._value_string { i32 21, ptr @.str.962 }, %struct._value_string { i32 22, ptr @.str.963 }, %struct._value_string { i32 23, ptr @.str.964 }, %struct._value_string zeroinitializer], align 16
-@sapdiag_item_appl_container_vals = internal constant [13 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.965 }, %struct._value_string { i32 2, ptr @.str.966 }, %struct._value_string { i32 3, ptr @.str.967 }, %struct._value_string { i32 4, ptr @.str.968 }, %struct._value_string { i32 5, ptr @.str.969 }, %struct._value_string { i32 6, ptr @.str.970 }, %struct._value_string { i32 8, ptr @.str.809 }, %struct._value_string { i32 9, ptr @.str.971 }, %struct._value_string { i32 10, ptr @.str.705 }, %struct._value_string { i32 12, ptr @.str.972 }, %struct._value_string { i32 13, ptr @.str.817 }, %struct._value_string { i32 14, ptr @.str.973 }, %struct._value_string zeroinitializer], align 16
-@sapdiag_item_appl_mnuentry_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.974 }, %struct._value_string { i32 2, ptr @.str.975 }, %struct._value_string { i32 3, ptr @.str.976 }, %struct._value_string { i32 4, ptr @.str.977 }, %struct._value_string zeroinitializer], align 16
-@sapdiag_item_appl_varinfo_vals = internal constant [16 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.978 }, %struct._value_string { i32 2, ptr @.str.979 }, %struct._value_string { i32 3, ptr @.str.980 }, %struct._value_string { i32 4, ptr @.str.819 }, %struct._value_string { i32 5, ptr @.str.702 }, %struct._value_string { i32 6, ptr @.str.981 }, %struct._value_string { i32 7, ptr @.str.982 }, %struct._value_string { i32 8, ptr @.str.983 }, %struct._value_string { i32 9, ptr @.str.984 }, %struct._value_string { i32 10, ptr @.str.985 }, %struct._value_string { i32 11, ptr @.str.986 }, %struct._value_string { i32 12, ptr @.str.987 }, %struct._value_string { i32 13, ptr @.str.988 }, %struct._value_string { i32 14, ptr @.str.989 }, %struct._value_string { i32 15, ptr @.str.990 }, %struct._value_string zeroinitializer], align 16
-@sapdiag_item_appl_control_vals = internal constant [2 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.991 }, %struct._value_string zeroinitializer], align 16
-@sapdiag_item_appl_ui_event_vals = internal constant [2 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.992 }, %struct._value_string zeroinitializer], align 16
-@sapdiag_item_appl_acc_list_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.993 }, %struct._value_string { i32 2, ptr @.str.994 }, %struct._value_string zeroinitializer], align 16
-@sapdiag_item_appl_rcui_vals = internal constant [10 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.995 }, %struct._value_string { i32 2, ptr @.str.996 }, %struct._value_string { i32 3, ptr @.str.997 }, %struct._value_string { i32 4, ptr @.str.998 }, %struct._value_string { i32 5, ptr @.str.999 }, %struct._value_string { i32 6, ptr @.str.1000 }, %struct._value_string { i32 7, ptr @.str.1001 }, %struct._value_string { i32 8, ptr @.str.1002 }, %struct._value_string { i32 9, ptr @.str.1003 }, %struct._value_string zeroinitializer], align 16
-@sapdiag_item_appl_gui_packet_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.1004 }, %struct._value_string { i32 2, ptr @.str.1005 }, %struct._value_string zeroinitializer], align 16
-@.str.842 = private unnamed_addr constant [11 x i8] c"SCRIPT_OTF\00", align 1
-@.str.843 = private unnamed_addr constant [14 x i8] c"SCRIPT_SCREEN\00", align 1
-@.str.844 = private unnamed_addr constant [18 x i8] c"SCRIPT_POSTSCRIPT\00", align 1
-@.str.845 = private unnamed_addr constant [11 x i8] c"SCRIPT_ITF\00", align 1
-@.str.846 = private unnamed_addr constant [16 x i8] c"GRAPH RELEASE 3\00", align 1
-@.str.847 = private unnamed_addr constant [16 x i8] c"GRAPH RELEASE 5\00", align 1
-@.str.848 = private unnamed_addr constant [7 x i8] c"ABLAGE\00", align 1
-@.str.849 = private unnamed_addr constant [8 x i8] c"ANZEIGE\00", align 1
-@.str.850 = private unnamed_addr constant [13 x i8] c"IXOS_COMMAND\00", align 1
-@.str.851 = private unnamed_addr constant [3 x i8] c"V1\00", align 1
-@.str.852 = private unnamed_addr constant [8 x i8] c"CONNECT\00", align 1
-@.str.853 = private unnamed_addr constant [13 x i8] c"SELECTEDRECT\00", align 1
-@.str.854 = private unnamed_addr constant [11 x i8] c"FONTMETRIC\00", align 1
-@.str.855 = private unnamed_addr constant [12 x i8] c"TABLEMETRIC\00", align 1
-@.str.856 = private unnamed_addr constant [8 x i8] c"GUITIME\00", align 1
-@.str.857 = private unnamed_addr constant [12 x i8] c"GUITIMEZONE\00", align 1
-@.str.858 = private unnamed_addr constant [9 x i8] c"TURNTIME\00", align 1
-@.str.859 = private unnamed_addr constant [11 x i8] c"GUIVERSION\00", align 1
-@.str.860 = private unnamed_addr constant [12 x i8] c"SUPPORTDATA\00", align 1
-@.str.861 = private unnamed_addr constant [12 x i8] c"RFC_CONNECT\00", align 1
-@.str.862 = private unnamed_addr constant [6 x i8] c"WSIZE\00", align 1
-@.str.863 = private unnamed_addr constant [3 x i8] c"V2\00", align 1
-@.str.864 = private unnamed_addr constant [10 x i8] c"TURNTIME2\00", align 1
-@.str.865 = private unnamed_addr constant [16 x i8] c"RFC_PARENT_UUID\00", align 1
-@.str.866 = private unnamed_addr constant [13 x i8] c"RFC_NEW_UUID\00", align 1
-@.str.867 = private unnamed_addr constant [10 x i8] c"RFC_UUIDS\00", align 1
-@.str.868 = private unnamed_addr constant [11 x i8] c"RFC_UUIDS2\00", align 1
-@.str.869 = private unnamed_addr constant [10 x i8] c"XML_LOGIN\00", align 1
-@.str.870 = private unnamed_addr constant [16 x i8] c"XML_TRANSACTION\00", align 1
-@.str.871 = private unnamed_addr constant [16 x i8] c"SCROLLBAR_WIDTH\00", align 1
-@.str.872 = private unnamed_addr constant [15 x i8] c"TOOLBAR_HEIGHT\00", align 1
-@.str.873 = private unnamed_addr constant [14 x i8] c"PASSPORT_DATA\00", align 1
-@.str.874 = private unnamed_addr constant [10 x i8] c"GUI_STATE\00", align 1
-@.str.875 = private unnamed_addr constant [13 x i8] c"DECIMALPOINT\00", align 1
-@.str.876 = private unnamed_addr constant [9 x i8] c"LANGUAGE\00", align 1
-@.str.877 = private unnamed_addr constant [9 x i8] c"USERNAME\00", align 1
-@.str.878 = private unnamed_addr constant [14 x i8] c"GUIPATCHLEVEL\00", align 1
-@.str.879 = private unnamed_addr constant [12 x i8] c"WSIZE_PIXEL\00", align 1
-@.str.880 = private unnamed_addr constant [15 x i8] c"GUI_OS_VERSION\00", align 1
-@.str.881 = private unnamed_addr constant [16 x i8] c"BROWSER_VERSION\00", align 1
-@.str.882 = private unnamed_addr constant [15 x i8] c"OFFICE_VERSION\00", align 1
-@.str.883 = private unnamed_addr constant [12 x i8] c"JDK_VERSION\00", align 1
-@.str.884 = private unnamed_addr constant [14 x i8] c"GUIXT_VERSION\00", align 1
-@.str.885 = private unnamed_addr constant [13 x i8] c"DISPLAY_SIZE\00", align 1
-@.str.886 = private unnamed_addr constant [9 x i8] c"GUI_TYPE\00", align 1
-@.str.887 = private unnamed_addr constant [19 x i8] c"DIALOG_STEP_NUMBER\00", align 1
-@.str.888 = private unnamed_addr constant [15 x i8] c"XMLPROP DYNPRO\00", align 1
-@.str.889 = private unnamed_addr constant [11 x i8] c"MODENUMBER\00", align 1
-@.str.890 = private unnamed_addr constant [7 x i8] c"DBNAME\00", align 1
-@.str.891 = private unnamed_addr constant [8 x i8] c"CPUNAME\00", align 1
-@.str.892 = private unnamed_addr constant [12 x i8] c"RFC_TRIGGER\00", align 1
-@.str.893 = private unnamed_addr constant [10 x i8] c"GUI_LABEL\00", align 1
-@.str.894 = private unnamed_addr constant [12 x i8] c"DIAGVERSION\00", align 1
-@.str.895 = private unnamed_addr constant [6 x i8] c"TCODE\00", align 1
-@.str.896 = private unnamed_addr constant [12 x i8] c"RFC_WAITING\00", align 1
-@.str.897 = private unnamed_addr constant [12 x i8] c"RFC_REFRESH\00", align 1
-@.str.898 = private unnamed_addr constant [12 x i8] c"IMODENUMBER\00", align 1
-@.str.899 = private unnamed_addr constant [7 x i8] c"CLIENT\00", align 1
-@.str.900 = private unnamed_addr constant [11 x i8] c"DYNPRONAME\00", align 1
-@.str.901 = private unnamed_addr constant [13 x i8] c"DYNPRONUMBER\00", align 1
-@.str.902 = private unnamed_addr constant [8 x i8] c"CUANAME\00", align 1
-@.str.903 = private unnamed_addr constant [10 x i8] c"CUASTATUS\00", align 1
-@.str.904 = private unnamed_addr constant [15 x i8] c"RFC_CONNECT_OK\00", align 1
-@.str.905 = private unnamed_addr constant [9 x i8] c"GUI_FKEY\00", align 1
-@.str.906 = private unnamed_addr constant [10 x i8] c"GUI_FKEYT\00", align 1
-@.str.907 = private unnamed_addr constant [11 x i8] c"STOP_TRANS\00", align 1
-@.str.908 = private unnamed_addr constant [20 x i8] c"RFC_DIAG_BLOCK_SIZE\00", align 1
-@.str.909 = private unnamed_addr constant [13 x i8] c"USER_CHECKED\00", align 1
-@.str.910 = private unnamed_addr constant [6 x i8] c"FLAGS\00", align 1
-@.str.911 = private unnamed_addr constant [7 x i8] c"USERID\00", align 1
-@.str.912 = private unnamed_addr constant [10 x i8] c"ROLLCOUNT\00", align 1
-@.str.913 = private unnamed_addr constant [11 x i8] c"GUI_XT_VAR\00", align 1
-@.str.914 = private unnamed_addr constant [10 x i8] c"IMODEUUID\00", align 1
-@.str.915 = private unnamed_addr constant [21 x i8] c"IMODEUUID_INVALIDATE\00", align 1
-@.str.916 = private unnamed_addr constant [11 x i8] c"IMODEUUIDS\00", align 1
-@.str.917 = private unnamed_addr constant [12 x i8] c"IMODEUUIDS2\00", align 1
-@.str.918 = private unnamed_addr constant [9 x i8] c"CODEPAGE\00", align 1
-@.str.919 = private unnamed_addr constant [10 x i8] c"CONTEXTID\00", align 1
-@.str.920 = private unnamed_addr constant [16 x i8] c"AUTOLOGOUT_TIME\00", align 1
-@.str.921 = private unnamed_addr constant [18 x i8] c"CODEPAGE_DIAG_GUI\00", align 1
-@.str.922 = private unnamed_addr constant [20 x i8] c"CODEPAGE_APP_SERVER\00", align 1
-@.str.923 = private unnamed_addr constant [10 x i8] c"GUI_THEME\00", align 1
-@.str.924 = private unnamed_addr constant [19 x i8] c"GUI_USER_SCRIPTING\00", align 1
-@.str.925 = private unnamed_addr constant [22 x i8] c"CODEPAGE_APP_SERVER_1\00", align 1
-@.str.926 = private unnamed_addr constant [11 x i8] c"TICKET4GUI\00", align 1
-@.str.927 = private unnamed_addr constant [15 x i8] c"KERNEL_VERSION\00", align 1
-@.str.928 = private unnamed_addr constant [18 x i8] c"STD_TOOLBAR_ITEMS\00", align 1
-@.str.929 = private unnamed_addr constant [5 x i8] c"DEST\00", align 1
-@.str.930 = private unnamed_addr constant [11 x i8] c"RFC_TR_REQ\00", align 1
-@.str.931 = private unnamed_addr constant [11 x i8] c"RFC_TR_RET\00", align 1
-@.str.932 = private unnamed_addr constant [11 x i8] c"RFC_TR_ERR\00", align 1
-@.str.933 = private unnamed_addr constant [11 x i8] c"RFC_TR_RQT\00", align 1
-@.str.934 = private unnamed_addr constant [11 x i8] c"RFC_TR_MOR\00", align 1
-@.str.935 = private unnamed_addr constant [11 x i8] c"RFC_TR_MOB\00", align 1
-@.str.936 = private unnamed_addr constant [11 x i8] c"RFC_TR_RNB\00", align 1
-@.str.937 = private unnamed_addr constant [11 x i8] c"RFC_TR_RNT\00", align 1
-@.str.938 = private unnamed_addr constant [11 x i8] c"RFC_TR_DIS\00", align 1
-@.str.939 = private unnamed_addr constant [12 x i8] c"RFC_TR_CALL\00", align 1
-@.str.940 = private unnamed_addr constant [16 x i8] c"RFC_TR_CALL_END\00", align 1
-@.str.941 = private unnamed_addr constant [11 x i8] c"RFC_TR_RES\00", align 1
-@.str.942 = private unnamed_addr constant [11 x i8] c"DYNT_FOCUS\00", align 1
-@.str.943 = private unnamed_addr constant [10 x i8] c"DYNT_ATOM\00", align 1
-@.str.944 = private unnamed_addr constant [18 x i8] c"DYNT_EVENT_UNUSED\00", align 1
-@.str.945 = private unnamed_addr constant [20 x i8] c"TABLE_ROW_REFERENCE\00", align 1
-@.str.946 = private unnamed_addr constant [26 x i8] c"TABLE_ROW_DAT_INPUT_DUMMY\00", align 1
-@.str.947 = private unnamed_addr constant [19 x i8] c"TABLE_INPUT_HEADER\00", align 1
-@.str.948 = private unnamed_addr constant [20 x i8] c"TABLE_OUTPUT_HEADER\00", align 1
-@.str.949 = private unnamed_addr constant [21 x i8] c"TABLE_ROW_DATA_INPUT\00", align 1
-@.str.950 = private unnamed_addr constant [22 x i8] c"TABLE_ROW_DATA_OUTPUT\00", align 1
-@.str.951 = private unnamed_addr constant [13 x i8] c"DYNT_NOFOCUS\00", align 1
-@.str.952 = private unnamed_addr constant [13 x i8] c"DYNT_FOCUS_1\00", align 1
-@.str.953 = private unnamed_addr constant [22 x i8] c"TABLE_ROW_REFERENCE_1\00", align 1
-@.str.954 = private unnamed_addr constant [18 x i8] c"TABLE_FIELD_NAMES\00", align 1
-@.str.955 = private unnamed_addr constant [13 x i8] c"TABLE_HEADER\00", align 1
-@.str.956 = private unnamed_addr constant [21 x i8] c"DYNT_TABSTRIP_HEADER\00", align 1
-@.str.957 = private unnamed_addr constant [22 x i8] c"DYNT_TABSTRIP_BUTTONS\00", align 1
-@.str.958 = private unnamed_addr constant [22 x i8] c"TABLE_ROW_REFERENCE_2\00", align 1
-@.str.959 = private unnamed_addr constant [19 x i8] c"DYNT_CONTROL_FOCUS\00", align 1
-@.str.960 = private unnamed_addr constant [20 x i8] c"TABLE_FIELD_XMLPROP\00", align 1
-@.str.961 = private unnamed_addr constant [21 x i8] c"DYNT_SPLITTER_HEADER\00", align 1
-@.str.962 = private unnamed_addr constant [26 x i8] c"DYNT_TC_COLUMN_TITLE_XMLP\00", align 1
-@.str.963 = private unnamed_addr constant [26 x i8] c"DYNT_TC_ROW_SELECTOR_NAME\00", align 1
-@.str.964 = private unnamed_addr constant [17 x i8] c"DYNT_FOCUS_FRAME\00", align 1
-@.str.965 = private unnamed_addr constant [6 x i8] c"RESET\00", align 1
-@.str.966 = private unnamed_addr constant [8 x i8] c"DEFAULT\00", align 1
-@.str.967 = private unnamed_addr constant [10 x i8] c"SUBSCREEN\00", align 1
-@.str.968 = private unnamed_addr constant [5 x i8] c"LOOP\00", align 1
-@.str.969 = private unnamed_addr constant [6 x i8] c"TABLE\00", align 1
-@.str.970 = private unnamed_addr constant [5 x i8] c"NAME\00", align 1
-@.str.971 = private unnamed_addr constant [14 x i8] c"TABSTRIP_PAGE\00", align 1
-@.str.972 = private unnamed_addr constant [8 x i8] c"XMLPROP\00", align 1
-@.str.973 = private unnamed_addr constant [14 x i8] c"SPLITTER_CELL\00", align 1
-@.str.974 = private unnamed_addr constant [9 x i8] c"MENU_ACT\00", align 1
-@.str.975 = private unnamed_addr constant [9 x i8] c"MENU_MNU\00", align 1
-@.str.976 = private unnamed_addr constant [9 x i8] c"MENU_PFK\00", align 1
-@.str.977 = private unnamed_addr constant [9 x i8] c"MENU_KYB\00", align 1
-@.str.978 = private unnamed_addr constant [8 x i8] c"MESTYPE\00", align 1
-@.str.979 = private unnamed_addr constant [13 x i8] c"SCROLL_INFOS\00", align 1
-@.str.980 = private unnamed_addr constant [9 x i8] c"MESTYPE2\00", align 1
-@.str.981 = private unnamed_addr constant [14 x i8] c"SCROLL_INFOS2\00", align 1
-@.str.982 = private unnamed_addr constant [9 x i8] c"AREASIZE\00", align 1
-@.str.983 = private unnamed_addr constant [15 x i8] c"AREA_PIXELSIZE\00", align 1
-@.str.984 = private unnamed_addr constant [14 x i8] c"SESSION_TITLE\00", align 1
-@.str.985 = private unnamed_addr constant [13 x i8] c"SESSION_ICON\00", align 1
-@.str.986 = private unnamed_addr constant [15 x i8] c"LIST_CELL_TEXT\00", align 1
-@.str.987 = private unnamed_addr constant [15 x i8] c"CONTAINER_LOOP\00", align 1
-@.str.988 = private unnamed_addr constant [11 x i8] c"LIST_FOCUS\00", align 1
-@.str.989 = private unnamed_addr constant [19 x i8] c"MAINAREA_PIXELSIZE\00", align 1
-@.str.990 = private unnamed_addr constant [16 x i8] c"SERVICE_REQUEST\00", align 1
-@.str.991 = private unnamed_addr constant [19 x i8] c"CONTROL_PROPERTIES\00", align 1
-@.str.992 = private unnamed_addr constant [16 x i8] c"UI_EVENT_SOURCE\00", align 1
-@.str.993 = private unnamed_addr constant [20 x i8] c"ACC_LIST_INFO4FIELD\00", align 1
-@.str.994 = private unnamed_addr constant [19 x i8] c"ACC_LIST_CONTAINER\00", align 1
-@.str.995 = private unnamed_addr constant [12 x i8] c"RCUI_STREAM\00", align 1
-@.str.996 = private unnamed_addr constant [18 x i8] c"RCUI_SYSTEM_ERROR\00", align 1
-@.str.997 = private unnamed_addr constant [12 x i8] c"RCUI_SPAGPA\00", align 1
-@.str.998 = private unnamed_addr constant [14 x i8] c"RCUI_MEMORYID\00", align 1
-@.str.999 = private unnamed_addr constant [14 x i8] c"RCUI_TXOPTION\00", align 1
-@.str.1000 = private unnamed_addr constant [11 x i8] c"RCUI_VALUE\00", align 1
-@.str.1001 = private unnamed_addr constant [13 x i8] c"RCUI_COMMAND\00", align 1
-@.str.1002 = private unnamed_addr constant [12 x i8] c"RCUI_BDCMSG\00", align 1
-@.str.1003 = private unnamed_addr constant [18 x i8] c"RCUI_CONNECT_DATA\00", align 1
-@.str.1004 = private unnamed_addr constant [17 x i8] c"GUI_PACKET_STATE\00", align 1
-@.str.1005 = private unnamed_addr constant [16 x i8] c"GUI_PACKET_DATA\00", align 1
-@.str.1006 = private unnamed_addr constant [12 x i8] c"Event Array\00", align 1
-@.str.1007 = private unnamed_addr constant [11 x i8] c"Event ID 1\00", align 1
-@.str.1008 = private unnamed_addr constant [11 x i8] c"Event ID 2\00", align 1
-@.str.1009 = private unnamed_addr constant [11 x i8] c"Event ID 3\00", align 1
-@.str.1010 = private unnamed_addr constant [11 x i8] c"Event ID 4\00", align 1
-@.str.1011 = private unnamed_addr constant [11 x i8] c"Event ID 5\00", align 1
-@.str.1012 = private unnamed_addr constant [12 x i8] c"Screen Flag\00", align 1
-@.str.1013 = private unnamed_addr constant [9 x i8] c"Modal No\00", align 1
-@.str.1014 = private unnamed_addr constant [6 x i8] c"X Pos\00", align 1
-@.str.1015 = private unnamed_addr constant [6 x i8] c"Y Pos\00", align 1
-@.str.1016 = private unnamed_addr constant [6 x i8] c"IMode\00", align 1
-@.str.1017 = private unnamed_addr constant [7 x i8] c"Flag 1\00", align 1
-@.str.1018 = private unnamed_addr constant [8 x i8] c"Dim Row\00", align 1
-@.str.1019 = private unnamed_addr constant [8 x i8] c"Dim Col\00", align 1
-@.str.1020 = private unnamed_addr constant [59 x i8] c"The SES item is dissected partially (event array = 0x%.2x)\00", align 1
-@.str.1021 = private unnamed_addr constant [15 x i8] c"Control format\00", align 1
-@.str.1022 = private unnamed_addr constant [14 x i8] c"Control color\00", align 1
-@.str.1023 = private unnamed_addr constant [17 x i8] c"Control extended\00", align 1
-@.str.1024 = private unnamed_addr constant [19 x i8] c"Control y-position\00", align 1
-@.str.1025 = private unnamed_addr constant [19 x i8] c"Control x-position\00", align 1
-@.str.1026 = private unnamed_addr constant [19 x i8] c"Dialog Step Number\00", align 1
-@.str.1027 = private unnamed_addr constant [8 x i8] c"Connect\00", align 1
-@.str.1028 = private unnamed_addr constant [17 x i8] c"Protocol Version\00", align 1
-@.str.1029 = private unnamed_addr constant [10 x i8] c"Code Page\00", align 1
-@.str.1030 = private unnamed_addr constant [8 x i8] c"WS Type\00", align 1
-@.str.1031 = private unnamed_addr constant [12 x i8] c"Font Metric\00", align 1
-@.str.1032 = private unnamed_addr constant [23 x i8] c"Variable font size (y)\00", align 1
-@.str.1033 = private unnamed_addr constant [23 x i8] c"Variable font size (x)\00", align 1
-@.str.1034 = private unnamed_addr constant [20 x i8] c"Fixed font size (y)\00", align 1
-@.str.1035 = private unnamed_addr constant [20 x i8] c"Fixed font size (x)\00", align 1
-@.str.1036 = private unnamed_addr constant [13 x i8] c"Support Data\00", align 1
-@.str.1037 = private unnamed_addr constant [12 x i8] c"Window Size\00", align 1
-@.str.1038 = private unnamed_addr constant [14 x i8] c"Window Height\00", align 1
-@.str.1039 = private unnamed_addr constant [13 x i8] c"Window Width\00", align 1
-@.str.1040 = private unnamed_addr constant [12 x i8] c"Area Height\00", align 1
-@.str.1041 = private unnamed_addr constant [11 x i8] c"Area Width\00", align 1
-@.str.1042 = private unnamed_addr constant [14 x i8] c"Response time\00", align 1
-@.str.1043 = private unnamed_addr constant [16 x i8] c"Scrollbar Width\00", align 1
-@.str.1044 = private unnamed_addr constant [17 x i8] c"Scrolllbar Width\00", align 1
-@.str.1045 = private unnamed_addr constant [17 x i8] c"Scrollbar Height\00", align 1
-@.str.1046 = private unnamed_addr constant [10 x i8] c"Gui State\00", align 1
-@.str.1047 = private unnamed_addr constant [7 x i8] c"Flag 2\00", align 1
-@.str.1048 = private unnamed_addr constant [16 x i8] c"GUI patch level\00", align 1
-@.str.1049 = private unnamed_addr constant [13 x i8] c"Display Size\00", align 1
-@.str.1050 = private unnamed_addr constant [7 x i8] c"Height\00", align 1
-@.str.1051 = private unnamed_addr constant [9 x i8] c"GUI Type\00", align 1
-@.str.1052 = private unnamed_addr constant [12 x i8] c"Mode Number\00", align 1
-@.str.1053 = private unnamed_addr constant [13 x i8] c"Diag version\00", align 1
-@.str.1054 = private unnamed_addr constant [21 x i8] c"Internal Mode Number\00", align 1
-@.str.1055 = private unnamed_addr constant [19 x i8] c"Virtual key number\00", align 1
-@.str.1056 = private unnamed_addr constant [14 x i8] c"String number\00", align 1
-@.str.1057 = private unnamed_addr constant [62 x i8] c"The Diag Item is dissected partially (0x%.2x, 0x%.2x, 0x%.2x)\00", align 1
-@.str.1058 = private unnamed_addr constant [17 x i8] c"Virtual key text\00", align 1
-@.str.1059 = private unnamed_addr constant [20 x i8] c"RFC Diag Block Size\00", align 1
-@.str.1060 = private unnamed_addr constant [11 x i8] c"Info flags\00", align 1
-@.str.1061 = private unnamed_addr constant [8 x i8] c"User ID\00", align 1
-@.str.1062 = private unnamed_addr constant [12 x i8] c"IMode uuids\00", align 1
-@.str.1063 = private unnamed_addr constant [16 x i8] c"Number of uuids\00", align 1
-@.str.1064 = private unnamed_addr constant [5 x i8] c"UUID\00", align 1
-@.str.1065 = private unnamed_addr constant [15 x i8] c"Active context\00", align 1
-@.str.1066 = private unnamed_addr constant [17 x i8] c"Auto logout time\00", align 1
-@.str.1067 = private unnamed_addr constant [41 x i8] c"Codepage number (numeric representation)\00", align 1
-@.str.1068 = private unnamed_addr constant [38 x i8] c"Minimum number of bytes per character\00", align 1
-@.str.1069 = private unnamed_addr constant [40 x i8] c"Codepage number (string representation)\00", align 1
-@.str.1070 = private unnamed_addr constant [21 x i8] c"Codepage description\00", align 1
-@.str.1071 = private unnamed_addr constant [17 x i8] c"Database version\00", align 1
-@.str.1072 = private unnamed_addr constant [15 x i8] c"Kernel version\00", align 1
-@.str.1073 = private unnamed_addr constant [19 x i8] c"Kernel patch level\00", align 1
-@.str.1074 = private unnamed_addr constant [21 x i8] c"Focus Num of Area ID\00", align 1
-@.str.1075 = private unnamed_addr constant [10 x i8] c"Focus Row\00", align 1
-@.str.1076 = private unnamed_addr constant [10 x i8] c"Focus Col\00", align 1
-@.str.1077 = private unnamed_addr constant [17 x i8] c"Focus Row Offset\00", align 1
-@.str.1078 = private unnamed_addr constant [17 x i8] c"Focus Col Offset\00", align 1
-@.str.1079 = private unnamed_addr constant [56 x i8] c"The Dynt Focus contains more than 30 Container IDs (%d)\00", align 1
-@.str.1080 = private unnamed_addr constant [19 x i8] c"Focus Container ID\00", align 1
-@.str.1081 = private unnamed_addr constant [16 x i8] c"Container Reset\00", align 1
-@.str.1082 = private unnamed_addr constant [13 x i8] c"Container Id\00", align 1
-@.str.1083 = private unnamed_addr constant [14 x i8] c"Container Row\00", align 1
-@.str.1084 = private unnamed_addr constant [14 x i8] c"Container Col\00", align 1
-@.str.1085 = private unnamed_addr constant [16 x i8] c"Container Width\00", align 1
-@.str.1086 = private unnamed_addr constant [17 x i8] c"Container Height\00", align 1
-@.str.1087 = private unnamed_addr constant [15 x i8] c"Container Loop\00", align 1
-@.str.1088 = private unnamed_addr constant [16 x i8] c"Container Table\00", align 1
-@.str.1089 = private unnamed_addr constant [15 x i8] c"Subscreen name\00", align 1
-@.str.1090 = private unnamed_addr constant [15 x i8] c"Container name\00", align 1
-@.str.1091 = private unnamed_addr constant [15 x i8] c"Subdynpro name\00", align 1
-@.str.1092 = private unnamed_addr constant [19 x i8] c"Container TabStrip\00", align 1
-@.str.1093 = private unnamed_addr constant [24 x i8] c"Container TabStrip Page\00", align 1
-@.str.1094 = private unnamed_addr constant [18 x i8] c"Container Control\00", align 1
-@.str.1095 = private unnamed_addr constant [2 x i8] c"T\00", align 1
-@.str.1096 = private unnamed_addr constant [13 x i8] c"Scroll Infos\00", align 1
-@.str.1097 = private unnamed_addr constant [13 x i8] c"Total Height\00", align 1
-@.str.1098 = private unnamed_addr constant [12 x i8] c"Total Width\00", align 1
-@.str.1099 = private unnamed_addr constant [12 x i8] c"Data Height\00", align 1
-@.str.1100 = private unnamed_addr constant [11 x i8] c"Data Width\00", align 1
-@.str.1101 = private unnamed_addr constant [14 x i8] c"Height Offset\00", align 1
-@.str.1102 = private unnamed_addr constant [13 x i8] c"Width Offset\00", align 1
-@.str.1103 = private unnamed_addr constant [15 x i8] c"Scroll Infos 2\00", align 1
-@.str.1104 = private unnamed_addr constant [15 x i8] c"Visible Height\00", align 1
-@.str.1105 = private unnamed_addr constant [14 x i8] c"Visible Width\00", align 1
-@.str.1106 = private unnamed_addr constant [12 x i8] c"Scroll Flag\00", align 1
-@.str.1107 = private unnamed_addr constant [10 x i8] c"Area Size\00", align 1
-@.str.1108 = private unnamed_addr constant [11 x i8] c"Pixel Size\00", align 1
-@.str.1109 = private unnamed_addr constant [19 x i8] c"Lines Per Loop Row\00", align 1
-@.str.1110 = private unnamed_addr constant [11 x i8] c"List focus\00", align 1
-@.str.1111 = private unnamed_addr constant [19 x i8] c"List focus version\00", align 1
-@.str.1112 = private unnamed_addr constant [15 x i8] c"List focus Row\00", align 1
-@.str.1113 = private unnamed_addr constant [18 x i8] c"List focus Column\00", align 1
-@.str.1114 = private unnamed_addr constant [21 x i8] c"Main Area Pixel Size\00", align 1
-@.str.1115 = private unnamed_addr constant [7 x i8] c"scrflg\00", align 1
-@.str.1116 = private unnamed_addr constant [8 x i8] c"chlflag\00", align 1
-@.str.1117 = private unnamed_addr constant [12 x i8] c"current row\00", align 1
-@.str.1118 = private unnamed_addr constant [15 x i8] c"current column\00", align 1
-@.str.1119 = private unnamed_addr constant [14 x i8] c"V Slider Size\00", align 1
-@.str.1120 = private unnamed_addr constant [11 x i8] c"dimlistrow\00", align 1
-@.str.1121 = private unnamed_addr constant [11 x i8] c"dimlistcol\00", align 1
-@.str.1122 = private unnamed_addr constant [14 x i8] c"H Slider Size\00", align 1
-@.str.1123 = private unnamed_addr constant [7 x i8] c"dimrow\00", align 1
-@.str.1124 = private unnamed_addr constant [7 x i8] c"dimcol\00", align 1
-@.str.1125 = private unnamed_addr constant [11 x i8] c"maxlistrow\00", align 1
-@.str.1126 = private unnamed_addr constant [14 x i8] c"listrowoffset\00", align 1
-@.str.1127 = private unnamed_addr constant [11 x i8] c"maxlistcol\00", align 1
-@.str.1128 = private unnamed_addr constant [14 x i8] c"listcoloffset\00", align 1
-@.str.1129 = private unnamed_addr constant [25 x i8] c", Control Property ID=%d\00", align 1
-@.str.1130 = private unnamed_addr constant [23 x i8] c"Control Property Value\00", align 1
-@.str.1131 = private unnamed_addr constant [6 x i8] c"Flags\00", align 1
-@.str.1132 = private unnamed_addr constant [12 x i8] c"Bytes Total\00", align 1
-@.str.1133 = private unnamed_addr constant [11 x i8] c"Bytes Send\00", align 1
-@.str.1134 = private unnamed_addr constant [15 x i8] c"Bytes Received\00", align 1
-@.str.1135 = private unnamed_addr constant [27 x i8] c"Field length in characters\00", align 1
-@.str.1136 = private unnamed_addr constant [80 x i8] c"The Diag Item has a unknown type that is not dissected (0x%.2x, 0x%.2x, 0x%.2x)\00", align 1
-@.str.1137 = private unnamed_addr constant [26 x i8] c"Item %s length is invalid\00", align 1
-@.str.1138 = private unnamed_addr constant [7 x i8] c"%s: %d\00", align 1
-@.str.1139 = private unnamed_addr constant [8 x i8] c", %s=%d\00", align 1
-@.str.1140 = private unnamed_addr constant [7 x i8] c"%s: %s\00", align 1
-@.str.1141 = private unnamed_addr constant [8 x i8] c", %s=%s\00", align 1
-@.str.1142 = private unnamed_addr constant [16 x i8] c", Event Type=%s\00", align 1
-@.str.1143 = private unnamed_addr constant [18 x i8] c", Control Type=%s\00", align 1
-@.str.1144 = private unnamed_addr constant [40 x i8] c"Number of Container IDs (%d) is invalid\00", align 1
-@.str.1145 = private unnamed_addr constant [11 x i8] c", Etype=%s\00", align 1
-@.str.1146 = private unnamed_addr constant [12 x i8] c"Atom Length\00", align 1
-@.str.1147 = private unnamed_addr constant [11 x i8] c"Dlg Flag 1\00", align 1
-@.str.1148 = private unnamed_addr constant [11 x i8] c"Dlg Flag 2\00", align 1
-@.str.1149 = private unnamed_addr constant [11 x i8] c", EType=%d\00", align 1
-@.str.1150 = private unnamed_addr constant [5 x i8] c"Area\00", align 1
-@.str.1151 = private unnamed_addr constant [6 x i8] c"Block\00", align 1
-@.str.1152 = private unnamed_addr constant [6 x i8] c"Group\00", align 1
-@.str.1153 = private unnamed_addr constant [4 x i8] c"Row\00", align 1
-@.str.1154 = private unnamed_addr constant [4 x i8] c"Col\00", align 1
-@.str.1155 = private unnamed_addr constant [10 x i8] c", Attr=%d\00", align 1
-@.str.1156 = private unnamed_addr constant [5 x i8] c"Text\00", align 1
-@.str.1157 = private unnamed_addr constant [10 x i8] c", Text=%s\00", align 1
-@.str.1158 = private unnamed_addr constant [9 x i8] c"V Length\00", align 1
-@.str.1159 = private unnamed_addr constant [9 x i8] c"V Height\00", align 1
-@.str.1160 = private unnamed_addr constant [21 x i8] c"Function Code Offset\00", align 1
-@.str.1161 = private unnamed_addr constant [12 x i8] c"Text Offset\00", align 1
-@.str.1162 = private unnamed_addr constant [14 x i8] c"Function Code\00", align 1
-@.str.1163 = private unnamed_addr constant [8 x i8] c"Page Id\00", align 1
-@.str.1164 = private unnamed_addr constant [10 x i8] c"Id Offset\00", align 1
-@.str.1165 = private unnamed_addr constant [46 x i8] c"The Diag Atom is dissected partially (0x%.2x)\00", align 1
-@.str.1166 = private unnamed_addr constant [8 x i8] c"XMLProp\00", align 1
-@.str.1167 = private unnamed_addr constant [13 x i8] c", XMLProp=%s\00", align 1
-@.str.1168 = private unnamed_addr constant [6 x i8] c"Flag1\00", align 1
-@.str.1169 = private unnamed_addr constant [5 x i8] c"DLen\00", align 1
-@.str.1170 = private unnamed_addr constant [5 x i8] c"MLen\00", align 1
-@.str.1171 = private unnamed_addr constant [11 x i8] c"MaxNrChars\00", align 1
-@.str.1172 = private unnamed_addr constant [6 x i8] c"DRows\00", align 1
-@.str.1173 = private unnamed_addr constant [6 x i8] c"DCols\00", align 1
-@.str.1174 = private unnamed_addr constant [7 x i8] c"Button\00", align 1
-@.str.1175 = private unnamed_addr constant [21 x i8] c"Visible Label Length\00", align 1
-@.str.1176 = private unnamed_addr constant [12 x i8] c"EventID Off\00", align 1
-@.str.1177 = private unnamed_addr constant [12 x i8] c"EventID Len\00", align 1
-@.str.1178 = private unnamed_addr constant [9 x i8] c"Text Off\00", align 1
-@.str.1179 = private unnamed_addr constant [12 x i8] c"Text Length\00", align 1
-@.str.1180 = private unnamed_addr constant [60 x i8] c"The Diag Atom has a unknown type that is not dissected (%d)\00", align 1
-@.str.1181 = private unnamed_addr constant [15 x i8] c"saprfcinternal\00", align 1
-@.str.1182 = private unnamed_addr constant [11 x i8] c"Position 1\00", align 1
-@.str.1183 = private unnamed_addr constant [11 x i8] c"Position 2\00", align 1
-@.str.1184 = private unnamed_addr constant [11 x i8] c"Position 3\00", align 1
-@.str.1185 = private unnamed_addr constant [11 x i8] c"Position 4\00", align 1
-@.str.1186 = private unnamed_addr constant [5 x i8] c"Flag\00", align 1
-@.str.1187 = private unnamed_addr constant [12 x i8] c"Virtual Key\00", align 1
-@.str.1188 = private unnamed_addr constant [14 x i8] c"Return Code 1\00", align 1
-@.str.1189 = private unnamed_addr constant [14 x i8] c"Return Code 2\00", align 1
-@.str.1190 = private unnamed_addr constant [14 x i8] c"Return Code 3\00", align 1
-@.str.1191 = private unnamed_addr constant [14 x i8] c"Return Code 4\00", align 1
-@.str.1192 = private unnamed_addr constant [14 x i8] c"Return Code 5\00", align 1
-@.str.1193 = private unnamed_addr constant [14 x i8] c"Return Code 6\00", align 1
-@.str.1194 = private unnamed_addr constant [16 x i8] c"Function Code 1\00", align 1
-@.str.1195 = private unnamed_addr constant [16 x i8] c"Function Code 2\00", align 1
-@.str.1196 = private unnamed_addr constant [16 x i8] c"Function Code 3\00", align 1
-@.str.1197 = private unnamed_addr constant [16 x i8] c"Function Code 4\00", align 1
-@.str.1198 = private unnamed_addr constant [16 x i8] c"Function Code 5\00", align 1
-@.str.1199 = private unnamed_addr constant [16 x i8] c"Function Code 6\00", align 1
-@.str.1200 = private unnamed_addr constant [12 x i8] c"Accelerator\00", align 1
-@.str.1201 = private unnamed_addr constant [5 x i8] c"Info\00", align 1
-@.str.1202 = private unnamed_addr constant [11 x i8] c"sapni.port\00", align 1
+@sapdiag_compress_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.673 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.674 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.675 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.676 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.678 = private unnamed_addr constant [4 x i8] c"LZC\00", align 1
+@.str.679 = private unnamed_addr constant [4 x i8] c"LZH\00", align 1
+@sapdiag_algorithm_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.678 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.679 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.681 = private unnamed_addr constant [4 x i8] c"SES\00", align 1
+@.str.682 = private unnamed_addr constant [4 x i8] c"ICO\00", align 1
+@.str.683 = private unnamed_addr constant [4 x i8] c"TIT\00", align 1
+@.str.684 = private unnamed_addr constant [25 x i8] c"DiagMessage (old format)\00", align 1
+@.str.685 = private unnamed_addr constant [4 x i8] c"OKC\00", align 1
+@.str.686 = private unnamed_addr constant [4 x i8] c"CHL\00", align 1
+@.str.687 = private unnamed_addr constant [4 x i8] c"SFE\00", align 1
+@.str.688 = private unnamed_addr constant [4 x i8] c"SBA\00", align 1
+@.str.689 = private unnamed_addr constant [4 x i8] c"EOM\00", align 1
+@.str.690 = private unnamed_addr constant [5 x i8] c"APPL\00", align 1
+@.str.691 = private unnamed_addr constant [13 x i8] c"DIAG_XMLBLOB\00", align 1
+@.str.692 = private unnamed_addr constant [6 x i8] c"APPL4\00", align 1
+@.str.693 = private unnamed_addr constant [4 x i8] c"SLC\00", align 1
+@.str.694 = private unnamed_addr constant [5 x i8] c"SBA2\00", align 1
+@sapdiag_item_type_vals = internal constant [15 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.681 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.682 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.683 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.684 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.685 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.686 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.687 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.688 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.689 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.690 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.691 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.692 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.693 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.694 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.696 = private unnamed_addr constant [7 x i8] c"SCRIPT\00", align 1
+@.str.697 = private unnamed_addr constant [6 x i8] c"GRAPH\00", align 1
+@.str.698 = private unnamed_addr constant [5 x i8] c"IXOS\00", align 1
+@.str.699 = private unnamed_addr constant [8 x i8] c"ST_USER\00", align 1
+@.str.700 = private unnamed_addr constant [5 x i8] c"DYNN\00", align 1
+@.str.701 = private unnamed_addr constant [10 x i8] c"ST_R3INFO\00", align 1
+@.str.702 = private unnamed_addr constant [5 x i8] c"POPU\00", align 1
+@.str.703 = private unnamed_addr constant [7 x i8] c"RFC_TR\00", align 1
+@.str.704 = private unnamed_addr constant [5 x i8] c"DYNT\00", align 1
+@.str.705 = private unnamed_addr constant [10 x i8] c"CONTAINER\00", align 1
+@.str.706 = private unnamed_addr constant [9 x i8] c"MNUENTRY\00", align 1
+@.str.707 = private unnamed_addr constant [8 x i8] c"VARINFO\00", align 1
+@.str.708 = private unnamed_addr constant [8 x i8] c"CONTROL\00", align 1
+@.str.709 = private unnamed_addr constant [9 x i8] c"UI_EVENT\00", align 1
+@.str.710 = private unnamed_addr constant [9 x i8] c"ACC_LIST\00", align 1
+@.str.711 = private unnamed_addr constant [5 x i8] c"RCUI\00", align 1
+@.str.712 = private unnamed_addr constant [11 x i8] c"GUI_PACKET\00", align 1
+@sapdiag_item_id_vals = internal constant [18 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.696 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.697 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.698 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.699 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.700 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.701 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.702 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.703 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.704 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.705 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.706 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.707 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.708 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.709 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.710 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.711 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.712 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.714 = private unnamed_addr constant [5 x i8] c"NOWP\00", align 1
+@.str.715 = private unnamed_addr constant [4 x i8] c"DIA\00", align 1
+@.str.716 = private unnamed_addr constant [5 x i8] c"DUPD\00", align 1
+@.str.717 = private unnamed_addr constant [5 x i8] c"DENQ\00", align 1
+@.str.718 = private unnamed_addr constant [5 x i8] c"DBTC\00", align 1
+@.str.719 = private unnamed_addr constant [5 x i8] c"DSPO\00", align 1
+@.str.720 = private unnamed_addr constant [5 x i8] c"DUP2\00", align 1
+@sapdiag_dp_request_id_vals = internal constant [8 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.714 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.715 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.716 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.717 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.718 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.719 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.720 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.722 = private unnamed_addr constant [11 x i8] c"DISPATCHER\00", align 1
+@.str.723 = private unnamed_addr constant [13 x i8] c"WORK_PROCESS\00", align 1
+@.str.724 = private unnamed_addr constant [16 x i8] c"REMOTE_TERMINAL\00", align 1
+@.str.725 = private unnamed_addr constant [14 x i8] c"APPC_TERMINAL\00", align 1
+@.str.726 = private unnamed_addr constant [13 x i8] c"APPC_GATEWAY\00", align 1
+@.str.727 = private unnamed_addr constant [6 x i8] c"ICMAN\00", align 1
+@.str.728 = private unnamed_addr constant [11 x i8] c"IC_MONITOR\00", align 1
+@.str.729 = private unnamed_addr constant [5 x i8] c"LCOM\00", align 1
+@sapdiag_dp_sender_id_vals = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.722 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.723 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.724 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.725 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.726 }, { i32, [4 x i8], ptr } { i32 200, [4 x i8] zeroinitializer, ptr @.str.727 }, { i32, [4 x i8], ptr } { i32 201, [4 x i8] zeroinitializer, ptr @.str.728 }, { i32, [4 x i8], ptr } { i32 203, [4 x i8] zeroinitializer, ptr @.str.729 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.731 = private unnamed_addr constant [11 x i8] c"SEND_TO_DP\00", align 1
+@.str.732 = private unnamed_addr constant [11 x i8] c"SEND_TO_WP\00", align 1
+@.str.733 = private unnamed_addr constant [11 x i8] c"SEND_TO_TM\00", align 1
+@.str.734 = private unnamed_addr constant [13 x i8] c"SEND_TO_APPC\00", align 1
+@.str.735 = private unnamed_addr constant [15 x i8] c"SEND_TO_APPCTM\00", align 1
+@.str.736 = private unnamed_addr constant [14 x i8] c"SEND_MSG_TYPE\00", align 1
+@.str.737 = private unnamed_addr constant [16 x i8] c"SEND_MSG_REQUES\00", align 1
+@.str.738 = private unnamed_addr constant [15 x i8] c"SEND_MSG_REPLY\00", align 1
+@.str.739 = private unnamed_addr constant [16 x i8] c"SEND_MSG_ONEWAY\00", align 1
+@.str.740 = private unnamed_addr constant [15 x i8] c"SEND_MSG_ADMIN\00", align 1
+@.str.741 = private unnamed_addr constant [12 x i8] c"WAKE_UP_WPS\00", align 1
+@.str.742 = private unnamed_addr constant [12 x i8] c"SET_TIMEOUT\00", align 1
+@.str.743 = private unnamed_addr constant [13 x i8] c"DEL_SCHEDULE\00", align 1
+@.str.744 = private unnamed_addr constant [14 x i8] c"ADD_SOFT_SERV\00", align 1
+@.str.745 = private unnamed_addr constant [14 x i8] c"SUB_SOFT_SERV\00", align 1
+@.str.746 = private unnamed_addr constant [9 x i8] c"SHUTDOWN\00", align 1
+@.str.747 = private unnamed_addr constant [16 x i8] c"SEND_TO_MSGSERV\00", align 1
+@.str.748 = private unnamed_addr constant [15 x i8] c"SEND_TO_PLUGIN\00", align 1
+@sapdiag_dp_action_type_vals = internal constant [19 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.731 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.732 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.733 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.734 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.735 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.736 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.737 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.738 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.739 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.740 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.741 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.742 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.743 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.744 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.745 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.746 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.747 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.748 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.750 = private unnamed_addr constant [10 x i8] c"NO_CHANGE\00", align 1
+@.str.751 = private unnamed_addr constant [13 x i8] c"WP_SLOT_FREE\00", align 1
+@.str.752 = private unnamed_addr constant [8 x i8] c"WP_WAIT\00", align 1
+@.str.753 = private unnamed_addr constant [7 x i8] c"WP_RUN\00", align 1
+@.str.754 = private unnamed_addr constant [8 x i8] c"WP_HOLD\00", align 1
+@.str.755 = private unnamed_addr constant [10 x i8] c"WP_KILLED\00", align 1
+@.str.756 = private unnamed_addr constant [12 x i8] c"WP_SHUTDOWN\00", align 1
+@.str.757 = private unnamed_addr constant [14 x i8] c"WP_RESTRICTED\00", align 1
+@.str.758 = private unnamed_addr constant [7 x i8] c"WP_NEW\00", align 1
+@sapdiag_dp_new_stat_vals = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.750 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.751 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.752 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.753 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.754 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.755 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.756 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.757 }, { i32, [4 x i8], ptr } { i32 128, [4 x i8] zeroinitializer, ptr @.str.758 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.760 = private unnamed_addr constant [19 x i8] c"DIAG_DGOTYP_EFIELD\00", align 1
+@.str.761 = private unnamed_addr constant [19 x i8] c"DIAG_DGOTYP_OFIELD\00", align 1
+@.str.762 = private unnamed_addr constant [20 x i8] c"DIAG_DGOTYP_KEYWORD\00", align 1
+@.str.763 = private unnamed_addr constant [26 x i8] c"DIAG_DGOTYP_CHECKBUTTON_4\00", align 1
+@.str.764 = private unnamed_addr constant [26 x i8] c"DIAG_DGOTYP_RADIOBUTTON_0\00", align 1
+@.str.765 = private unnamed_addr constant [25 x i8] c"DIAG_DGOTYP_PUSHBUTTON_3\00", align 1
+@.str.766 = private unnamed_addr constant [20 x i8] c"DIAG_DGOTYP_FRAME_3\00", align 1
+@.str.767 = private unnamed_addr constant [19 x i8] c"DIAG_DGOTYP_LOOP_6\00", align 1
+@.str.768 = private unnamed_addr constant [22 x i8] c"DIAG_DGOTYP_SUBSCREEN\00", align 1
+@.str.769 = private unnamed_addr constant [21 x i8] c"DIAG_DGOTYP_PROPERTY\00", align 1
+@.str.770 = private unnamed_addr constant [19 x i8] c"DIAG_DGOTYP_ICON_0\00", align 1
+@.str.771 = private unnamed_addr constant [25 x i8] c"DIAG_DGOTYP_PUSHBUTTON_1\00", align 1
+@.str.772 = private unnamed_addr constant [18 x i8] c"DIAG_DGOTYP_FNAME\00", align 1
+@.str.773 = private unnamed_addr constant [25 x i8] c"DIAG_DGOTYP_PUSHBUTTON_2\00", align 1
+@.str.774 = private unnamed_addr constant [28 x i8] c"DIAG_DGOTYP_TABSTRIP_BUTTON\00", align 1
+@.str.775 = private unnamed_addr constant [21 x i8] c"DIAG_DGOTYP_COMBOBOX\00", align 1
+@.str.776 = private unnamed_addr constant [26 x i8] c"DIAG_DGOTYP_CHECKBUTTON_1\00", align 1
+@.str.777 = private unnamed_addr constant [26 x i8] c"DIAG_DGOTYP_RADIOBUTTON_1\00", align 1
+@.str.778 = private unnamed_addr constant [20 x i8] c"DIAG_DGOTYP_XMLPROP\00", align 1
+@.str.779 = private unnamed_addr constant [21 x i8] c"DIAG_DGOTYP_EFIELD_1\00", align 1
+@.str.780 = private unnamed_addr constant [21 x i8] c"DIAG_DGOTYP_OFIELD_1\00", align 1
+@.str.781 = private unnamed_addr constant [24 x i8] c"DIAG_DGOTYP_KEYWORD_1_1\00", align 1
+@.str.782 = private unnamed_addr constant [26 x i8] c"DIAG_DGOTYP_CHECKBUTTON_2\00", align 1
+@.str.783 = private unnamed_addr constant [27 x i8] c"DIAG_DGOTYP_RADIOBUTTON__0\00", align 1
+@.str.784 = private unnamed_addr constant [23 x i8] c"DIAG_DGOTYP_COMBOBOX_1\00", align 1
+@.str.785 = private unnamed_addr constant [20 x i8] c"DIAG_DGOTYP_FRAME_1\00", align 1
+@.str.786 = private unnamed_addr constant [26 x i8] c"DIAG_DGOTYP_CHECKBUTTON_3\00", align 1
+@.str.787 = private unnamed_addr constant [26 x i8] c"DIAG_DGOTYP_RADIOBUTTON_3\00", align 1
+@.str.788 = private unnamed_addr constant [21 x i8] c"DIAG_DGOTYP_EFIELD_2\00", align 1
+@.str.789 = private unnamed_addr constant [21 x i8] c"DIAG_DGOTYP_OFIELD_2\00", align 1
+@.str.790 = private unnamed_addr constant [22 x i8] c"DIAG_DGOTYP_KEYWORD_2\00", align 1
+@sapdiag_item_dynt_atom_item_etype_vals = internal constant [32 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 101, [4 x i8] zeroinitializer, ptr @.str.760 }, { i32, [4 x i8], ptr } { i32 102, [4 x i8] zeroinitializer, ptr @.str.761 }, { i32, [4 x i8], ptr } { i32 103, [4 x i8] zeroinitializer, ptr @.str.762 }, { i32, [4 x i8], ptr } { i32 104, [4 x i8] zeroinitializer, ptr @.str.763 }, { i32, [4 x i8], ptr } { i32 105, [4 x i8] zeroinitializer, ptr @.str.764 }, { i32, [4 x i8], ptr } { i32 106, [4 x i8] zeroinitializer, ptr @.str.765 }, { i32, [4 x i8], ptr } { i32 107, [4 x i8] zeroinitializer, ptr @.str.766 }, { i32, [4 x i8], ptr } { i32 108, [4 x i8] zeroinitializer, ptr @.str.767 }, { i32, [4 x i8], ptr } { i32 109, [4 x i8] zeroinitializer, ptr @.str.768 }, { i32, [4 x i8], ptr } { i32 111, [4 x i8] zeroinitializer, ptr @.str.769 }, { i32, [4 x i8], ptr } { i32 112, [4 x i8] zeroinitializer, ptr @.str.770 }, { i32, [4 x i8], ptr } { i32 113, [4 x i8] zeroinitializer, ptr @.str.771 }, { i32, [4 x i8], ptr } { i32 114, [4 x i8] zeroinitializer, ptr @.str.772 }, { i32, [4 x i8], ptr } { i32 115, [4 x i8] zeroinitializer, ptr @.str.773 }, { i32, [4 x i8], ptr } { i32 116, [4 x i8] zeroinitializer, ptr @.str.774 }, { i32, [4 x i8], ptr } { i32 117, [4 x i8] zeroinitializer, ptr @.str.775 }, { i32, [4 x i8], ptr } { i32 118, [4 x i8] zeroinitializer, ptr @.str.776 }, { i32, [4 x i8], ptr } { i32 119, [4 x i8] zeroinitializer, ptr @.str.777 }, { i32, [4 x i8], ptr } { i32 120, [4 x i8] zeroinitializer, ptr @.str.778 }, { i32, [4 x i8], ptr } { i32 121, [4 x i8] zeroinitializer, ptr @.str.779 }, { i32, [4 x i8], ptr } { i32 122, [4 x i8] zeroinitializer, ptr @.str.780 }, { i32, [4 x i8], ptr } { i32 123, [4 x i8] zeroinitializer, ptr @.str.781 }, { i32, [4 x i8], ptr } { i32 124, [4 x i8] zeroinitializer, ptr @.str.782 }, { i32, [4 x i8], ptr } { i32 125, [4 x i8] zeroinitializer, ptr @.str.783 }, { i32, [4 x i8], ptr } { i32 126, [4 x i8] zeroinitializer, ptr @.str.784 }, { i32, [4 x i8], ptr } { i32 127, [4 x i8] zeroinitializer, ptr @.str.785 }, { i32, [4 x i8], ptr } { i32 128, [4 x i8] zeroinitializer, ptr @.str.786 }, { i32, [4 x i8], ptr } { i32 129, [4 x i8] zeroinitializer, ptr @.str.787 }, { i32, [4 x i8], ptr } { i32 130, [4 x i8] zeroinitializer, ptr @.str.788 }, { i32, [4 x i8], ptr } { i32 131, [4 x i8] zeroinitializer, ptr @.str.789 }, { i32, [4 x i8], ptr } { i32 132, [4 x i8] zeroinitializer, ptr @.str.790 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.792 = private unnamed_addr constant [13 x i8] c"CONTROL_AREA\00", align 1
+@.str.793 = private unnamed_addr constant [11 x i8] c"CONTROL_ID\00", align 1
+@.str.794 = private unnamed_addr constant [16 x i8] c"CONTROL_VISIBLE\00", align 1
+@.str.795 = private unnamed_addr constant [12 x i8] c"CONTROL_ROW\00", align 1
+@.str.796 = private unnamed_addr constant [15 x i8] c"CONTROL_COLUMN\00", align 1
+@.str.797 = private unnamed_addr constant [13 x i8] c"CONTROL_ROWS\00", align 1
+@.str.798 = private unnamed_addr constant [16 x i8] c"CONTROL_COLUMNS\00", align 1
+@sapdiag_item_control_properties_id_vals = internal constant [8 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.792 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.793 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.794 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.795 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.796 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.797 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.798 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.800 = private unnamed_addr constant [7 x i8] c"SELECT\00", align 1
+@.str.801 = private unnamed_addr constant [3 x i8] c"HE\00", align 1
+@.str.802 = private unnamed_addr constant [10 x i8] c"VALUEHELP\00", align 1
+@.str.803 = private unnamed_addr constant [7 x i8] c"RESIZE\00", align 1
+@.str.804 = private unnamed_addr constant [12 x i8] c"FUNCTIONKEY\00", align 1
+@.str.805 = private unnamed_addr constant [7 x i8] c"SCROLL\00", align 1
+@.str.806 = private unnamed_addr constant [14 x i8] c"BUTTONPRESSED\00", align 1
+@.str.807 = private unnamed_addr constant [13 x i8] c"VALUECHANGED\00", align 1
+@.str.808 = private unnamed_addr constant [13 x i8] c"STATECHANGED\00", align 1
+@.str.809 = private unnamed_addr constant [11 x i8] c"NAVIGATION\00", align 1
+@sapdiag_item_ui_event_event_type_vals = internal constant [11 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.800 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.801 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.802 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.803 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.804 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.805 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.806 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.807 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.808 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.809 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.811 = private unnamed_addr constant [5 x i8] c"NONE\00", align 1
+@.str.812 = private unnamed_addr constant [6 x i8] c"FIELD\00", align 1
+@.str.813 = private unnamed_addr constant [12 x i8] c"RADIOBUTTON\00", align 1
+@.str.814 = private unnamed_addr constant [12 x i8] c"CHECKBUTTON\00", align 1
+@.str.815 = private unnamed_addr constant [11 x i8] c"MENUBUTTON\00", align 1
+@.str.816 = private unnamed_addr constant [14 x i8] c"TOOLBARBUTTON\00", align 1
+@.str.817 = private unnamed_addr constant [22 x i8] c"STANDARDTOOLBARBUTTON\00", align 1
+@.str.818 = private unnamed_addr constant [11 x i8] c"PUSHBUTTON\00", align 1
+@.str.819 = private unnamed_addr constant [10 x i8] c"TABLEVIEW\00", align 1
+@.str.820 = private unnamed_addr constant [9 x i8] c"TABSTRIP\00", align 1
+@.str.821 = private unnamed_addr constant [7 x i8] c"DYNPRO\00", align 1
+@.str.822 = private unnamed_addr constant [15 x i8] c"CUSTOM_CONTROL\00", align 1
+@.str.823 = private unnamed_addr constant [6 x i8] c"FRAME\00", align 1
+@.str.824 = private unnamed_addr constant [24 x i8] c"TABLEVIEW_COLSEL_BUTTON\00", align 1
+@.str.825 = private unnamed_addr constant [24 x i8] c"TABLEVIEW_ROWSEL_BUTTON\00", align 1
+@.str.826 = private unnamed_addr constant [15 x i8] c"TABLEVIEW_CELL\00", align 1
+@.str.827 = private unnamed_addr constant [12 x i8] c"CONTEXTMENU\00", align 1
+@.str.828 = private unnamed_addr constant [9 x i8] c"SPLITTER\00", align 1
+@.str.829 = private unnamed_addr constant [8 x i8] c"MESSAGE\00", align 1
+@.str.830 = private unnamed_addr constant [7 x i8] c"OKCODE\00", align 1
+@.str.831 = private unnamed_addr constant [14 x i8] c"ACC_CONTAINER\00", align 1
+@sapdiag_item_ui_event_control_type_vals = internal constant [22 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.811 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.812 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.813 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.814 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.815 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.816 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.817 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.818 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.819 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.820 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.821 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.822 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.823 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.824 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.825 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.826 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.827 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.828 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.829 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.830 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.831 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.833 = private unnamed_addr constant [4 x i8] c"TAB\00", align 1
+@.str.834 = private unnamed_addr constant [9 x i8] c"TAB_BACK\00", align 1
+@.str.835 = private unnamed_addr constant [10 x i8] c"JUMP_OVER\00", align 1
+@.str.836 = private unnamed_addr constant [15 x i8] c"JUMP_OVER_BACK\00", align 1
+@.str.837 = private unnamed_addr constant [9 x i8] c"JUMP_OUT\00", align 1
+@.str.838 = private unnamed_addr constant [14 x i8] c"JUMP_OUT_BACK\00", align 1
+@.str.839 = private unnamed_addr constant [13 x i8] c"JUMP_SECTION\00", align 1
+@.str.840 = private unnamed_addr constant [18 x i8] c"JUMP_SECTION_BACK\00", align 1
+@.str.841 = private unnamed_addr constant [12 x i8] c"FIRST_FIELD\00", align 1
+@.str.842 = private unnamed_addr constant [11 x i8] c"LAST_FIELD\00", align 1
+@sapdiag_item_ui_event_navigation_data_vals = internal constant [11 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.833 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.834 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.835 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.836 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.837 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.838 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.839 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.840 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.841 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.842 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.844 = private unnamed_addr constant [13 x i8] c"**DPTMMSG**\00\00", align 1
+@.str.845 = private unnamed_addr constant [13 x i8] c"**DPTMOPC**\00\00", align 1
+@.str.846 = private unnamed_addr constant [23 x i8] c", Uncompressed Len: %u\00", align 1
+@.str.847 = private unnamed_addr constant [25 x i8] c" Uncompressed Length=%u \00", align 1
+@.str.848 = private unnamed_addr constant [19 x i8] c"SNC unwrapped Data\00", align 1
+@.str.849 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
+@.str.850 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
+@.str.851 = private unnamed_addr constant [37 x i8] c"Diag Type of unknown length (0x%.2x)\00", align 1
+@.str.852 = private unnamed_addr constant [5 x i8] c", %s\00", align 1
+@.str.853 = private unnamed_addr constant [12 x i8] c"%s (0x%.2x)\00", align 1
+@.str.854 = private unnamed_addr constant [9 x i8] c", Len=%d\00", align 1
+@.str.855 = private unnamed_addr constant [11 x i8] c"SCRIPT_OTF\00", align 1
+@.str.856 = private unnamed_addr constant [14 x i8] c"SCRIPT_SCREEN\00", align 1
+@.str.857 = private unnamed_addr constant [18 x i8] c"SCRIPT_POSTSCRIPT\00", align 1
+@.str.858 = private unnamed_addr constant [11 x i8] c"SCRIPT_ITF\00", align 1
+@sapdiag_item_appl_script_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.855 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.856 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.857 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.858 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.860 = private unnamed_addr constant [16 x i8] c"GRAPH RELEASE 3\00", align 1
+@.str.861 = private unnamed_addr constant [16 x i8] c"GRAPH RELEASE 5\00", align 1
+@sapdiag_item_appl_graph_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.860 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.861 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.863 = private unnamed_addr constant [7 x i8] c"ABLAGE\00", align 1
+@.str.864 = private unnamed_addr constant [8 x i8] c"ANZEIGE\00", align 1
+@.str.865 = private unnamed_addr constant [13 x i8] c"IXOS_COMMAND\00", align 1
+@sapdiag_item_appl_ixos_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.863 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.864 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.865 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.867 = private unnamed_addr constant [3 x i8] c"V1\00", align 1
+@.str.868 = private unnamed_addr constant [8 x i8] c"CONNECT\00", align 1
+@.str.869 = private unnamed_addr constant [13 x i8] c"SELECTEDRECT\00", align 1
+@.str.870 = private unnamed_addr constant [11 x i8] c"FONTMETRIC\00", align 1
+@.str.871 = private unnamed_addr constant [12 x i8] c"TABLEMETRIC\00", align 1
+@.str.872 = private unnamed_addr constant [8 x i8] c"GUITIME\00", align 1
+@.str.873 = private unnamed_addr constant [12 x i8] c"GUITIMEZONE\00", align 1
+@.str.874 = private unnamed_addr constant [9 x i8] c"TURNTIME\00", align 1
+@.str.875 = private unnamed_addr constant [11 x i8] c"GUIVERSION\00", align 1
+@.str.876 = private unnamed_addr constant [12 x i8] c"SUPPORTDATA\00", align 1
+@.str.877 = private unnamed_addr constant [12 x i8] c"RFC_CONNECT\00", align 1
+@.str.878 = private unnamed_addr constant [6 x i8] c"WSIZE\00", align 1
+@.str.879 = private unnamed_addr constant [3 x i8] c"V2\00", align 1
+@.str.880 = private unnamed_addr constant [10 x i8] c"TURNTIME2\00", align 1
+@.str.881 = private unnamed_addr constant [16 x i8] c"RFC_PARENT_UUID\00", align 1
+@.str.882 = private unnamed_addr constant [13 x i8] c"RFC_NEW_UUID\00", align 1
+@.str.883 = private unnamed_addr constant [10 x i8] c"RFC_UUIDS\00", align 1
+@.str.884 = private unnamed_addr constant [11 x i8] c"RFC_UUIDS2\00", align 1
+@.str.885 = private unnamed_addr constant [10 x i8] c"XML_LOGIN\00", align 1
+@.str.886 = private unnamed_addr constant [16 x i8] c"XML_TRANSACTION\00", align 1
+@.str.887 = private unnamed_addr constant [16 x i8] c"SCROLLBAR_WIDTH\00", align 1
+@.str.888 = private unnamed_addr constant [15 x i8] c"TOOLBAR_HEIGHT\00", align 1
+@.str.889 = private unnamed_addr constant [14 x i8] c"PASSPORT_DATA\00", align 1
+@.str.890 = private unnamed_addr constant [10 x i8] c"GUI_STATE\00", align 1
+@.str.891 = private unnamed_addr constant [13 x i8] c"DECIMALPOINT\00", align 1
+@.str.892 = private unnamed_addr constant [9 x i8] c"LANGUAGE\00", align 1
+@.str.893 = private unnamed_addr constant [9 x i8] c"USERNAME\00", align 1
+@.str.894 = private unnamed_addr constant [14 x i8] c"GUIPATCHLEVEL\00", align 1
+@.str.895 = private unnamed_addr constant [12 x i8] c"WSIZE_PIXEL\00", align 1
+@.str.896 = private unnamed_addr constant [15 x i8] c"GUI_OS_VERSION\00", align 1
+@.str.897 = private unnamed_addr constant [16 x i8] c"BROWSER_VERSION\00", align 1
+@.str.898 = private unnamed_addr constant [15 x i8] c"OFFICE_VERSION\00", align 1
+@.str.899 = private unnamed_addr constant [12 x i8] c"JDK_VERSION\00", align 1
+@.str.900 = private unnamed_addr constant [14 x i8] c"GUIXT_VERSION\00", align 1
+@.str.901 = private unnamed_addr constant [13 x i8] c"DISPLAY_SIZE\00", align 1
+@.str.902 = private unnamed_addr constant [9 x i8] c"GUI_TYPE\00", align 1
+@.str.903 = private unnamed_addr constant [19 x i8] c"DIALOG_STEP_NUMBER\00", align 1
+@sapdiag_item_appl_st_user_vals = internal constant [38 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.867 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.868 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.869 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.870 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.871 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.872 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.873 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.874 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.875 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.876 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.877 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.878 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.879 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.880 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.881 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.882 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.883 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.884 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.885 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.886 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.887 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.888 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.889 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.890 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.891 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.892 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.893 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.894 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.895 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.896 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.897 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.898 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.899 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.900 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.901 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.902 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.903 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.905 = private unnamed_addr constant [15 x i8] c"XMLPROP DYNPRO\00", align 1
+@sapdiag_item_appl_dynn_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.686 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.905 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.907 = private unnamed_addr constant [11 x i8] c"MODENUMBER\00", align 1
+@.str.908 = private unnamed_addr constant [7 x i8] c"DBNAME\00", align 1
+@.str.909 = private unnamed_addr constant [8 x i8] c"CPUNAME\00", align 1
+@.str.910 = private unnamed_addr constant [12 x i8] c"RFC_TRIGGER\00", align 1
+@.str.911 = private unnamed_addr constant [10 x i8] c"GUI_LABEL\00", align 1
+@.str.912 = private unnamed_addr constant [12 x i8] c"DIAGVERSION\00", align 1
+@.str.913 = private unnamed_addr constant [6 x i8] c"TCODE\00", align 1
+@.str.914 = private unnamed_addr constant [12 x i8] c"RFC_WAITING\00", align 1
+@.str.915 = private unnamed_addr constant [12 x i8] c"RFC_REFRESH\00", align 1
+@.str.916 = private unnamed_addr constant [12 x i8] c"IMODENUMBER\00", align 1
+@.str.917 = private unnamed_addr constant [7 x i8] c"CLIENT\00", align 1
+@.str.918 = private unnamed_addr constant [11 x i8] c"DYNPRONAME\00", align 1
+@.str.919 = private unnamed_addr constant [13 x i8] c"DYNPRONUMBER\00", align 1
+@.str.920 = private unnamed_addr constant [8 x i8] c"CUANAME\00", align 1
+@.str.921 = private unnamed_addr constant [10 x i8] c"CUASTATUS\00", align 1
+@.str.922 = private unnamed_addr constant [15 x i8] c"RFC_CONNECT_OK\00", align 1
+@.str.923 = private unnamed_addr constant [9 x i8] c"GUI_FKEY\00", align 1
+@.str.924 = private unnamed_addr constant [10 x i8] c"GUI_FKEYT\00", align 1
+@.str.925 = private unnamed_addr constant [11 x i8] c"STOP_TRANS\00", align 1
+@.str.926 = private unnamed_addr constant [20 x i8] c"RFC_DIAG_BLOCK_SIZE\00", align 1
+@.str.927 = private unnamed_addr constant [13 x i8] c"USER_CHECKED\00", align 1
+@.str.928 = private unnamed_addr constant [6 x i8] c"FLAGS\00", align 1
+@.str.929 = private unnamed_addr constant [7 x i8] c"USERID\00", align 1
+@.str.930 = private unnamed_addr constant [10 x i8] c"ROLLCOUNT\00", align 1
+@.str.931 = private unnamed_addr constant [11 x i8] c"GUI_XT_VAR\00", align 1
+@.str.932 = private unnamed_addr constant [10 x i8] c"IMODEUUID\00", align 1
+@.str.933 = private unnamed_addr constant [21 x i8] c"IMODEUUID_INVALIDATE\00", align 1
+@.str.934 = private unnamed_addr constant [11 x i8] c"IMODEUUIDS\00", align 1
+@.str.935 = private unnamed_addr constant [12 x i8] c"IMODEUUIDS2\00", align 1
+@.str.936 = private unnamed_addr constant [9 x i8] c"CODEPAGE\00", align 1
+@.str.937 = private unnamed_addr constant [10 x i8] c"CONTEXTID\00", align 1
+@.str.938 = private unnamed_addr constant [16 x i8] c"AUTOLOGOUT_TIME\00", align 1
+@.str.939 = private unnamed_addr constant [18 x i8] c"CODEPAGE_DIAG_GUI\00", align 1
+@.str.940 = private unnamed_addr constant [20 x i8] c"CODEPAGE_APP_SERVER\00", align 1
+@.str.941 = private unnamed_addr constant [10 x i8] c"GUI_THEME\00", align 1
+@.str.942 = private unnamed_addr constant [19 x i8] c"GUI_USER_SCRIPTING\00", align 1
+@.str.943 = private unnamed_addr constant [22 x i8] c"CODEPAGE_APP_SERVER_1\00", align 1
+@.str.944 = private unnamed_addr constant [11 x i8] c"TICKET4GUI\00", align 1
+@.str.945 = private unnamed_addr constant [15 x i8] c"KERNEL_VERSION\00", align 1
+@.str.946 = private unnamed_addr constant [18 x i8] c"STD_TOOLBAR_ITEMS\00", align 1
+@sapdiag_item_appl_st_r3info_vals = internal constant [43 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.907 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.908 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.909 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.910 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.911 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.912 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.913 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.914 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.915 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.916 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.829 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.917 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.918 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.919 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.920 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.921 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.876 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.922 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.923 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.924 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.925 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.926 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.927 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.928 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.929 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.930 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.931 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.932 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.933 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.934 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.935 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.936 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.937 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.938 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.939 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.940 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.941 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.942 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.943 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.944 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.945 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.946 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.948 = private unnamed_addr constant [5 x i8] c"DEST\00", align 1
+@sapdiag_item_appl_popu_vals = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.948 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.950 = private unnamed_addr constant [11 x i8] c"RFC_TR_REQ\00", align 1
+@.str.951 = private unnamed_addr constant [11 x i8] c"RFC_TR_RET\00", align 1
+@.str.952 = private unnamed_addr constant [11 x i8] c"RFC_TR_ERR\00", align 1
+@.str.953 = private unnamed_addr constant [11 x i8] c"RFC_TR_RQT\00", align 1
+@.str.954 = private unnamed_addr constant [11 x i8] c"RFC_TR_MOR\00", align 1
+@.str.955 = private unnamed_addr constant [11 x i8] c"RFC_TR_MOB\00", align 1
+@.str.956 = private unnamed_addr constant [11 x i8] c"RFC_TR_RNB\00", align 1
+@.str.957 = private unnamed_addr constant [11 x i8] c"RFC_TR_RNT\00", align 1
+@.str.958 = private unnamed_addr constant [11 x i8] c"RFC_TR_DIS\00", align 1
+@.str.959 = private unnamed_addr constant [12 x i8] c"RFC_TR_CALL\00", align 1
+@.str.960 = private unnamed_addr constant [16 x i8] c"RFC_TR_CALL_END\00", align 1
+@.str.961 = private unnamed_addr constant [11 x i8] c"RFC_TR_RES\00", align 1
+@sapdiag_item_appl_rfc_tr_vals = internal constant [13 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.950 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.951 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.952 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.953 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.954 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.955 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.956 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.957 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.958 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.959 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.960 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.961 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.963 = private unnamed_addr constant [11 x i8] c"DYNT_FOCUS\00", align 1
+@.str.964 = private unnamed_addr constant [10 x i8] c"DYNT_ATOM\00", align 1
+@.str.965 = private unnamed_addr constant [18 x i8] c"DYNT_EVENT_UNUSED\00", align 1
+@.str.966 = private unnamed_addr constant [20 x i8] c"TABLE_ROW_REFERENCE\00", align 1
+@.str.967 = private unnamed_addr constant [26 x i8] c"TABLE_ROW_DAT_INPUT_DUMMY\00", align 1
+@.str.968 = private unnamed_addr constant [19 x i8] c"TABLE_INPUT_HEADER\00", align 1
+@.str.969 = private unnamed_addr constant [20 x i8] c"TABLE_OUTPUT_HEADER\00", align 1
+@.str.970 = private unnamed_addr constant [21 x i8] c"TABLE_ROW_DATA_INPUT\00", align 1
+@.str.971 = private unnamed_addr constant [22 x i8] c"TABLE_ROW_DATA_OUTPUT\00", align 1
+@.str.972 = private unnamed_addr constant [13 x i8] c"DYNT_NOFOCUS\00", align 1
+@.str.973 = private unnamed_addr constant [13 x i8] c"DYNT_FOCUS_1\00", align 1
+@.str.974 = private unnamed_addr constant [22 x i8] c"TABLE_ROW_REFERENCE_1\00", align 1
+@.str.975 = private unnamed_addr constant [18 x i8] c"TABLE_FIELD_NAMES\00", align 1
+@.str.976 = private unnamed_addr constant [13 x i8] c"TABLE_HEADER\00", align 1
+@.str.977 = private unnamed_addr constant [21 x i8] c"DYNT_TABSTRIP_HEADER\00", align 1
+@.str.978 = private unnamed_addr constant [22 x i8] c"DYNT_TABSTRIP_BUTTONS\00", align 1
+@.str.979 = private unnamed_addr constant [22 x i8] c"TABLE_ROW_REFERENCE_2\00", align 1
+@.str.980 = private unnamed_addr constant [19 x i8] c"DYNT_CONTROL_FOCUS\00", align 1
+@.str.981 = private unnamed_addr constant [20 x i8] c"TABLE_FIELD_XMLPROP\00", align 1
+@.str.982 = private unnamed_addr constant [21 x i8] c"DYNT_SPLITTER_HEADER\00", align 1
+@.str.983 = private unnamed_addr constant [26 x i8] c"DYNT_TC_COLUMN_TITLE_XMLP\00", align 1
+@.str.984 = private unnamed_addr constant [26 x i8] c"DYNT_TC_ROW_SELECTOR_NAME\00", align 1
+@.str.985 = private unnamed_addr constant [17 x i8] c"DYNT_FOCUS_FRAME\00", align 1
+@sapdiag_item_appl_dynt_vals = internal constant [24 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.963 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.964 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.965 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.966 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.967 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.968 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.969 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.970 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.971 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.972 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.973 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.974 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.975 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.976 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.977 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.978 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.979 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.980 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.981 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.982 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.983 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.984 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.985 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.987 = private unnamed_addr constant [6 x i8] c"RESET\00", align 1
+@.str.988 = private unnamed_addr constant [8 x i8] c"DEFAULT\00", align 1
+@.str.989 = private unnamed_addr constant [10 x i8] c"SUBSCREEN\00", align 1
+@.str.990 = private unnamed_addr constant [5 x i8] c"LOOP\00", align 1
+@.str.991 = private unnamed_addr constant [6 x i8] c"TABLE\00", align 1
+@.str.992 = private unnamed_addr constant [5 x i8] c"NAME\00", align 1
+@.str.993 = private unnamed_addr constant [14 x i8] c"TABSTRIP_PAGE\00", align 1
+@.str.994 = private unnamed_addr constant [8 x i8] c"XMLPROP\00", align 1
+@.str.995 = private unnamed_addr constant [14 x i8] c"SPLITTER_CELL\00", align 1
+@sapdiag_item_appl_container_vals = internal constant [13 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.987 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.988 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.989 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.990 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.991 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.992 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.820 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.993 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.708 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.994 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.828 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.995 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.997 = private unnamed_addr constant [9 x i8] c"MENU_ACT\00", align 1
+@.str.998 = private unnamed_addr constant [9 x i8] c"MENU_MNU\00", align 1
+@.str.999 = private unnamed_addr constant [9 x i8] c"MENU_PFK\00", align 1
+@.str.1000 = private unnamed_addr constant [9 x i8] c"MENU_KYB\00", align 1
+@sapdiag_item_appl_mnuentry_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.997 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.998 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.999 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1000 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1002 = private unnamed_addr constant [8 x i8] c"MESTYPE\00", align 1
+@.str.1003 = private unnamed_addr constant [13 x i8] c"SCROLL_INFOS\00", align 1
+@.str.1004 = private unnamed_addr constant [9 x i8] c"MESTYPE2\00", align 1
+@.str.1005 = private unnamed_addr constant [14 x i8] c"SCROLL_INFOS2\00", align 1
+@.str.1006 = private unnamed_addr constant [9 x i8] c"AREASIZE\00", align 1
+@.str.1007 = private unnamed_addr constant [15 x i8] c"AREA_PIXELSIZE\00", align 1
+@.str.1008 = private unnamed_addr constant [14 x i8] c"SESSION_TITLE\00", align 1
+@.str.1009 = private unnamed_addr constant [13 x i8] c"SESSION_ICON\00", align 1
+@.str.1010 = private unnamed_addr constant [15 x i8] c"LIST_CELL_TEXT\00", align 1
+@.str.1011 = private unnamed_addr constant [15 x i8] c"CONTAINER_LOOP\00", align 1
+@.str.1012 = private unnamed_addr constant [11 x i8] c"LIST_FOCUS\00", align 1
+@.str.1013 = private unnamed_addr constant [19 x i8] c"MAINAREA_PIXELSIZE\00", align 1
+@.str.1014 = private unnamed_addr constant [16 x i8] c"SERVICE_REQUEST\00", align 1
+@sapdiag_item_appl_varinfo_vals = internal constant [16 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1002 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1003 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1004 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.830 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.705 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1005 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1006 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.1007 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.1008 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.1009 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.1010 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.1011 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.1012 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.1013 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.1014 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1016 = private unnamed_addr constant [19 x i8] c"CONTROL_PROPERTIES\00", align 1
+@sapdiag_item_appl_control_vals = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1016 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1018 = private unnamed_addr constant [16 x i8] c"UI_EVENT_SOURCE\00", align 1
+@sapdiag_item_appl_ui_event_vals = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1018 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1020 = private unnamed_addr constant [20 x i8] c"ACC_LIST_INFO4FIELD\00", align 1
+@.str.1021 = private unnamed_addr constant [19 x i8] c"ACC_LIST_CONTAINER\00", align 1
+@sapdiag_item_appl_acc_list_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1020 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1021 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1023 = private unnamed_addr constant [12 x i8] c"RCUI_STREAM\00", align 1
+@.str.1024 = private unnamed_addr constant [18 x i8] c"RCUI_SYSTEM_ERROR\00", align 1
+@.str.1025 = private unnamed_addr constant [12 x i8] c"RCUI_SPAGPA\00", align 1
+@.str.1026 = private unnamed_addr constant [14 x i8] c"RCUI_MEMORYID\00", align 1
+@.str.1027 = private unnamed_addr constant [14 x i8] c"RCUI_TXOPTION\00", align 1
+@.str.1028 = private unnamed_addr constant [11 x i8] c"RCUI_VALUE\00", align 1
+@.str.1029 = private unnamed_addr constant [13 x i8] c"RCUI_COMMAND\00", align 1
+@.str.1030 = private unnamed_addr constant [12 x i8] c"RCUI_BDCMSG\00", align 1
+@.str.1031 = private unnamed_addr constant [18 x i8] c"RCUI_CONNECT_DATA\00", align 1
+@sapdiag_item_appl_rcui_vals = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1023 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1024 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1025 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1026 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1027 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1028 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1029 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.1030 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.1031 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1033 = private unnamed_addr constant [17 x i8] c"GUI_PACKET_STATE\00", align 1
+@.str.1034 = private unnamed_addr constant [16 x i8] c"GUI_PACKET_DATA\00", align 1
+@sapdiag_item_appl_gui_packet_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1033 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1034 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1036 = private unnamed_addr constant [12 x i8] c"Event Array\00", align 1
+@.str.1037 = private unnamed_addr constant [11 x i8] c"Event ID 1\00", align 1
+@.str.1038 = private unnamed_addr constant [11 x i8] c"Event ID 2\00", align 1
+@.str.1039 = private unnamed_addr constant [11 x i8] c"Event ID 3\00", align 1
+@.str.1040 = private unnamed_addr constant [11 x i8] c"Event ID 4\00", align 1
+@.str.1041 = private unnamed_addr constant [11 x i8] c"Event ID 5\00", align 1
+@.str.1042 = private unnamed_addr constant [12 x i8] c"Screen Flag\00", align 1
+@.str.1043 = private unnamed_addr constant [9 x i8] c"Modal No\00", align 1
+@.str.1044 = private unnamed_addr constant [6 x i8] c"X Pos\00", align 1
+@.str.1045 = private unnamed_addr constant [6 x i8] c"Y Pos\00", align 1
+@.str.1046 = private unnamed_addr constant [6 x i8] c"IMode\00", align 1
+@.str.1047 = private unnamed_addr constant [7 x i8] c"Flag 1\00", align 1
+@.str.1048 = private unnamed_addr constant [8 x i8] c"Dim Row\00", align 1
+@.str.1049 = private unnamed_addr constant [8 x i8] c"Dim Col\00", align 1
+@.str.1050 = private unnamed_addr constant [59 x i8] c"The SES item is dissected partially (event array = 0x%.2x)\00", align 1
+@.str.1051 = private unnamed_addr constant [15 x i8] c"Control format\00", align 1
+@.str.1052 = private unnamed_addr constant [14 x i8] c"Control color\00", align 1
+@.str.1053 = private unnamed_addr constant [17 x i8] c"Control extended\00", align 1
+@.str.1054 = private unnamed_addr constant [19 x i8] c"Control y-position\00", align 1
+@.str.1055 = private unnamed_addr constant [19 x i8] c"Control x-position\00", align 1
+@.str.1056 = private unnamed_addr constant [19 x i8] c"Dialog Step Number\00", align 1
+@.str.1057 = private unnamed_addr constant [8 x i8] c"Connect\00", align 1
+@.str.1058 = private unnamed_addr constant [17 x i8] c"Protocol Version\00", align 1
+@.str.1059 = private unnamed_addr constant [10 x i8] c"Code Page\00", align 1
+@.str.1060 = private unnamed_addr constant [8 x i8] c"WS Type\00", align 1
+@.str.1061 = private unnamed_addr constant [12 x i8] c"Font Metric\00", align 1
+@.str.1062 = private unnamed_addr constant [23 x i8] c"Variable font size (y)\00", align 1
+@.str.1063 = private unnamed_addr constant [23 x i8] c"Variable font size (x)\00", align 1
+@.str.1064 = private unnamed_addr constant [20 x i8] c"Fixed font size (y)\00", align 1
+@.str.1065 = private unnamed_addr constant [20 x i8] c"Fixed font size (x)\00", align 1
+@.str.1066 = private unnamed_addr constant [13 x i8] c"Support Data\00", align 1
+@.str.1067 = private unnamed_addr constant [12 x i8] c"Window Size\00", align 1
+@.str.1068 = private unnamed_addr constant [14 x i8] c"Window Height\00", align 1
+@.str.1069 = private unnamed_addr constant [13 x i8] c"Window Width\00", align 1
+@.str.1070 = private unnamed_addr constant [12 x i8] c"Area Height\00", align 1
+@.str.1071 = private unnamed_addr constant [11 x i8] c"Area Width\00", align 1
+@.str.1072 = private unnamed_addr constant [14 x i8] c"Response time\00", align 1
+@.str.1073 = private unnamed_addr constant [16 x i8] c"Scrollbar Width\00", align 1
+@.str.1074 = private unnamed_addr constant [17 x i8] c"Scrolllbar Width\00", align 1
+@.str.1075 = private unnamed_addr constant [17 x i8] c"Scrollbar Height\00", align 1
+@.str.1076 = private unnamed_addr constant [10 x i8] c"Gui State\00", align 1
+@.str.1077 = private unnamed_addr constant [7 x i8] c"Flag 2\00", align 1
+@.str.1078 = private unnamed_addr constant [16 x i8] c"GUI patch level\00", align 1
+@.str.1079 = private unnamed_addr constant [13 x i8] c"Display Size\00", align 1
+@.str.1080 = private unnamed_addr constant [7 x i8] c"Height\00", align 1
+@.str.1081 = private unnamed_addr constant [9 x i8] c"GUI Type\00", align 1
+@.str.1082 = private unnamed_addr constant [12 x i8] c"Mode Number\00", align 1
+@.str.1083 = private unnamed_addr constant [13 x i8] c"Diag version\00", align 1
+@.str.1084 = private unnamed_addr constant [21 x i8] c"Internal Mode Number\00", align 1
+@.str.1085 = private unnamed_addr constant [19 x i8] c"Virtual key number\00", align 1
+@.str.1086 = private unnamed_addr constant [14 x i8] c"String number\00", align 1
+@.str.1087 = private unnamed_addr constant [62 x i8] c"The Diag Item is dissected partially (0x%.2x, 0x%.2x, 0x%.2x)\00", align 1
+@.str.1088 = private unnamed_addr constant [17 x i8] c"Virtual key text\00", align 1
+@.str.1089 = private unnamed_addr constant [20 x i8] c"RFC Diag Block Size\00", align 1
+@.str.1090 = private unnamed_addr constant [11 x i8] c"Info flags\00", align 1
+@.str.1091 = private unnamed_addr constant [8 x i8] c"User ID\00", align 1
+@.str.1092 = private unnamed_addr constant [12 x i8] c"IMode uuids\00", align 1
+@.str.1093 = private unnamed_addr constant [16 x i8] c"Number of uuids\00", align 1
+@.str.1094 = private unnamed_addr constant [5 x i8] c"UUID\00", align 1
+@.str.1095 = private unnamed_addr constant [15 x i8] c"Active context\00", align 1
+@.str.1096 = private unnamed_addr constant [17 x i8] c"Auto logout time\00", align 1
+@.str.1097 = private unnamed_addr constant [41 x i8] c"Codepage number (numeric representation)\00", align 1
+@.str.1098 = private unnamed_addr constant [38 x i8] c"Minimum number of bytes per character\00", align 1
+@.str.1099 = private unnamed_addr constant [40 x i8] c"Codepage number (string representation)\00", align 1
+@.str.1100 = private unnamed_addr constant [21 x i8] c"Codepage description\00", align 1
+@.str.1101 = private unnamed_addr constant [17 x i8] c"Database version\00", align 1
+@.str.1102 = private unnamed_addr constant [15 x i8] c"Kernel version\00", align 1
+@.str.1103 = private unnamed_addr constant [19 x i8] c"Kernel patch level\00", align 1
+@.str.1104 = private unnamed_addr constant [21 x i8] c"Focus Num of Area ID\00", align 1
+@.str.1105 = private unnamed_addr constant [10 x i8] c"Focus Row\00", align 1
+@.str.1106 = private unnamed_addr constant [10 x i8] c"Focus Col\00", align 1
+@.str.1107 = private unnamed_addr constant [17 x i8] c"Focus Row Offset\00", align 1
+@.str.1108 = private unnamed_addr constant [17 x i8] c"Focus Col Offset\00", align 1
+@.str.1109 = private unnamed_addr constant [56 x i8] c"The Dynt Focus contains more than 30 Container IDs (%d)\00", align 1
+@.str.1110 = private unnamed_addr constant [19 x i8] c"Focus Container ID\00", align 1
+@.str.1111 = private unnamed_addr constant [16 x i8] c"Container Reset\00", align 1
+@.str.1112 = private unnamed_addr constant [13 x i8] c"Container Id\00", align 1
+@.str.1113 = private unnamed_addr constant [14 x i8] c"Container Row\00", align 1
+@.str.1114 = private unnamed_addr constant [14 x i8] c"Container Col\00", align 1
+@.str.1115 = private unnamed_addr constant [16 x i8] c"Container Width\00", align 1
+@.str.1116 = private unnamed_addr constant [17 x i8] c"Container Height\00", align 1
+@.str.1117 = private unnamed_addr constant [15 x i8] c"Container Loop\00", align 1
+@.str.1118 = private unnamed_addr constant [16 x i8] c"Container Table\00", align 1
+@.str.1119 = private unnamed_addr constant [15 x i8] c"Subscreen name\00", align 1
+@.str.1120 = private unnamed_addr constant [15 x i8] c"Container name\00", align 1
+@.str.1121 = private unnamed_addr constant [15 x i8] c"Subdynpro name\00", align 1
+@.str.1122 = private unnamed_addr constant [19 x i8] c"Container TabStrip\00", align 1
+@.str.1123 = private unnamed_addr constant [24 x i8] c"Container TabStrip Page\00", align 1
+@.str.1124 = private unnamed_addr constant [18 x i8] c"Container Control\00", align 1
+@.str.1125 = private unnamed_addr constant [2 x i8] c"T\00", align 1
+@.str.1126 = private unnamed_addr constant [13 x i8] c"Scroll Infos\00", align 1
+@.str.1127 = private unnamed_addr constant [13 x i8] c"Total Height\00", align 1
+@.str.1128 = private unnamed_addr constant [12 x i8] c"Total Width\00", align 1
+@.str.1129 = private unnamed_addr constant [12 x i8] c"Data Height\00", align 1
+@.str.1130 = private unnamed_addr constant [11 x i8] c"Data Width\00", align 1
+@.str.1131 = private unnamed_addr constant [14 x i8] c"Height Offset\00", align 1
+@.str.1132 = private unnamed_addr constant [13 x i8] c"Width Offset\00", align 1
+@.str.1133 = private unnamed_addr constant [15 x i8] c"Scroll Infos 2\00", align 1
+@.str.1134 = private unnamed_addr constant [15 x i8] c"Visible Height\00", align 1
+@.str.1135 = private unnamed_addr constant [14 x i8] c"Visible Width\00", align 1
+@.str.1136 = private unnamed_addr constant [12 x i8] c"Scroll Flag\00", align 1
+@.str.1137 = private unnamed_addr constant [10 x i8] c"Area Size\00", align 1
+@.str.1138 = private unnamed_addr constant [11 x i8] c"Pixel Size\00", align 1
+@.str.1139 = private unnamed_addr constant [19 x i8] c"Lines Per Loop Row\00", align 1
+@.str.1140 = private unnamed_addr constant [11 x i8] c"List focus\00", align 1
+@.str.1141 = private unnamed_addr constant [19 x i8] c"List focus version\00", align 1
+@.str.1142 = private unnamed_addr constant [15 x i8] c"List focus Row\00", align 1
+@.str.1143 = private unnamed_addr constant [18 x i8] c"List focus Column\00", align 1
+@.str.1144 = private unnamed_addr constant [21 x i8] c"Main Area Pixel Size\00", align 1
+@.str.1145 = private unnamed_addr constant [7 x i8] c"scrflg\00", align 1
+@.str.1146 = private unnamed_addr constant [8 x i8] c"chlflag\00", align 1
+@.str.1147 = private unnamed_addr constant [12 x i8] c"current row\00", align 1
+@.str.1148 = private unnamed_addr constant [15 x i8] c"current column\00", align 1
+@.str.1149 = private unnamed_addr constant [14 x i8] c"V Slider Size\00", align 1
+@.str.1150 = private unnamed_addr constant [11 x i8] c"dimlistrow\00", align 1
+@.str.1151 = private unnamed_addr constant [11 x i8] c"dimlistcol\00", align 1
+@.str.1152 = private unnamed_addr constant [14 x i8] c"H Slider Size\00", align 1
+@.str.1153 = private unnamed_addr constant [7 x i8] c"dimrow\00", align 1
+@.str.1154 = private unnamed_addr constant [7 x i8] c"dimcol\00", align 1
+@.str.1155 = private unnamed_addr constant [11 x i8] c"maxlistrow\00", align 1
+@.str.1156 = private unnamed_addr constant [14 x i8] c"listrowoffset\00", align 1
+@.str.1157 = private unnamed_addr constant [11 x i8] c"maxlistcol\00", align 1
+@.str.1158 = private unnamed_addr constant [14 x i8] c"listcoloffset\00", align 1
+@.str.1159 = private unnamed_addr constant [25 x i8] c", Control Property ID=%d\00", align 1
+@.str.1160 = private unnamed_addr constant [23 x i8] c"Control Property Value\00", align 1
+@.str.1161 = private unnamed_addr constant [6 x i8] c"Flags\00", align 1
+@.str.1162 = private unnamed_addr constant [12 x i8] c"Bytes Total\00", align 1
+@.str.1163 = private unnamed_addr constant [11 x i8] c"Bytes Send\00", align 1
+@.str.1164 = private unnamed_addr constant [15 x i8] c"Bytes Received\00", align 1
+@.str.1165 = private unnamed_addr constant [27 x i8] c"Field length in characters\00", align 1
+@.str.1166 = private unnamed_addr constant [80 x i8] c"The Diag Item has a unknown type that is not dissected (0x%.2x, 0x%.2x, 0x%.2x)\00", align 1
+@.str.1167 = private unnamed_addr constant [26 x i8] c"Item %s length is invalid\00", align 1
+@.str.1168 = private unnamed_addr constant [7 x i8] c"%s: %d\00", align 1
+@.str.1169 = private unnamed_addr constant [8 x i8] c", %s=%d\00", align 1
+@.str.1170 = private unnamed_addr constant [7 x i8] c"%s: %s\00", align 1
+@.str.1171 = private unnamed_addr constant [8 x i8] c", %s=%s\00", align 1
+@.str.1172 = private unnamed_addr constant [16 x i8] c", Event Type=%s\00", align 1
+@.str.1173 = private unnamed_addr constant [18 x i8] c", Control Type=%s\00", align 1
+@.str.1174 = private unnamed_addr constant [40 x i8] c"Number of Container IDs (%d) is invalid\00", align 1
+@.str.1175 = private unnamed_addr constant [11 x i8] c", Etype=%s\00", align 1
+@.str.1176 = private unnamed_addr constant [12 x i8] c"Atom Length\00", align 1
+@.str.1177 = private unnamed_addr constant [11 x i8] c"Dlg Flag 1\00", align 1
+@.str.1178 = private unnamed_addr constant [11 x i8] c"Dlg Flag 2\00", align 1
+@.str.1179 = private unnamed_addr constant [11 x i8] c", EType=%d\00", align 1
+@.str.1180 = private unnamed_addr constant [5 x i8] c"Area\00", align 1
+@.str.1181 = private unnamed_addr constant [6 x i8] c"Block\00", align 1
+@.str.1182 = private unnamed_addr constant [6 x i8] c"Group\00", align 1
+@.str.1183 = private unnamed_addr constant [4 x i8] c"Row\00", align 1
+@.str.1184 = private unnamed_addr constant [4 x i8] c"Col\00", align 1
+@.str.1185 = private unnamed_addr constant [10 x i8] c", Attr=%d\00", align 1
+@.str.1186 = private unnamed_addr constant [5 x i8] c"Text\00", align 1
+@.str.1187 = private unnamed_addr constant [10 x i8] c", Text=%s\00", align 1
+@.str.1188 = private unnamed_addr constant [9 x i8] c"V Length\00", align 1
+@.str.1189 = private unnamed_addr constant [9 x i8] c"V Height\00", align 1
+@.str.1190 = private unnamed_addr constant [21 x i8] c"Function Code Offset\00", align 1
+@.str.1191 = private unnamed_addr constant [12 x i8] c"Text Offset\00", align 1
+@.str.1192 = private unnamed_addr constant [14 x i8] c"Function Code\00", align 1
+@.str.1193 = private unnamed_addr constant [8 x i8] c"Page Id\00", align 1
+@.str.1194 = private unnamed_addr constant [10 x i8] c"Id Offset\00", align 1
+@.str.1195 = private unnamed_addr constant [46 x i8] c"The Diag Atom is dissected partially (0x%.2x)\00", align 1
+@.str.1196 = private unnamed_addr constant [8 x i8] c"XMLProp\00", align 1
+@.str.1197 = private unnamed_addr constant [13 x i8] c", XMLProp=%s\00", align 1
+@.str.1198 = private unnamed_addr constant [6 x i8] c"Flag1\00", align 1
+@.str.1199 = private unnamed_addr constant [5 x i8] c"DLen\00", align 1
+@.str.1200 = private unnamed_addr constant [5 x i8] c"MLen\00", align 1
+@.str.1201 = private unnamed_addr constant [11 x i8] c"MaxNrChars\00", align 1
+@.str.1202 = private unnamed_addr constant [6 x i8] c"DRows\00", align 1
+@.str.1203 = private unnamed_addr constant [6 x i8] c"DCols\00", align 1
+@.str.1204 = private unnamed_addr constant [7 x i8] c"Button\00", align 1
+@.str.1205 = private unnamed_addr constant [21 x i8] c"Visible Label Length\00", align 1
+@.str.1206 = private unnamed_addr constant [12 x i8] c"EventID Off\00", align 1
+@.str.1207 = private unnamed_addr constant [12 x i8] c"EventID Len\00", align 1
+@.str.1208 = private unnamed_addr constant [9 x i8] c"Text Off\00", align 1
+@.str.1209 = private unnamed_addr constant [12 x i8] c"Text Length\00", align 1
+@.str.1210 = private unnamed_addr constant [60 x i8] c"The Diag Atom has a unknown type that is not dissected (%d)\00", align 1
+@.str.1211 = private unnamed_addr constant [15 x i8] c"saprfcinternal\00", align 1
+@.str.1212 = private unnamed_addr constant [11 x i8] c"Position 1\00", align 1
+@.str.1213 = private unnamed_addr constant [11 x i8] c"Position 2\00", align 1
+@.str.1214 = private unnamed_addr constant [11 x i8] c"Position 3\00", align 1
+@.str.1215 = private unnamed_addr constant [11 x i8] c"Position 4\00", align 1
+@.str.1216 = private unnamed_addr constant [5 x i8] c"Flag\00", align 1
+@.str.1217 = private unnamed_addr constant [12 x i8] c"Virtual Key\00", align 1
+@.str.1218 = private unnamed_addr constant [14 x i8] c"Return Code 1\00", align 1
+@.str.1219 = private unnamed_addr constant [14 x i8] c"Return Code 2\00", align 1
+@.str.1220 = private unnamed_addr constant [14 x i8] c"Return Code 3\00", align 1
+@.str.1221 = private unnamed_addr constant [14 x i8] c"Return Code 4\00", align 1
+@.str.1222 = private unnamed_addr constant [14 x i8] c"Return Code 5\00", align 1
+@.str.1223 = private unnamed_addr constant [14 x i8] c"Return Code 6\00", align 1
+@.str.1224 = private unnamed_addr constant [16 x i8] c"Function Code 1\00", align 1
+@.str.1225 = private unnamed_addr constant [16 x i8] c"Function Code 2\00", align 1
+@.str.1226 = private unnamed_addr constant [16 x i8] c"Function Code 3\00", align 1
+@.str.1227 = private unnamed_addr constant [16 x i8] c"Function Code 4\00", align 1
+@.str.1228 = private unnamed_addr constant [16 x i8] c"Function Code 5\00", align 1
+@.str.1229 = private unnamed_addr constant [16 x i8] c"Function Code 6\00", align 1
+@.str.1230 = private unnamed_addr constant [12 x i8] c"Accelerator\00", align 1
+@.str.1231 = private unnamed_addr constant [5 x i8] c"Info\00", align 1
+@.str.1232 = private unnamed_addr constant [11 x i8] c"sapni.port\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_sapdiag() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #3
   %3 = call i32 @proto_register_protocol(ptr noundef @.str.657, ptr noundef @.str.658, ptr noundef @.str.659)
   store i32 %3, ptr @proto_sapdiag, align 4
   %4 = load i32, ptr @proto_sapdiag, align 4
@@ -1618,22 +1617,33 @@ define hidden void @proto_register_sapdiag() #0 {
   call void @prefs_register_bool_preference(ptr noundef %16, ptr noundef @.str.667, ptr noundef @.str.668, ptr noundef @.str.669, ptr noundef @global_sapdiag_snc_dissection)
   %17 = load ptr, ptr %1, align 8
   call void @prefs_register_bool_preference(ptr noundef %17, ptr noundef @.str.670, ptr noundef @.str.671, ptr noundef @.str.672, ptr noundef @global_sapdiag_highlight_items)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #3
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_sapdiag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -1651,364 +1661,395 @@ define internal i32 @dissect_sapdiag(ptr noundef %0, ptr noundef %1, ptr noundef
   %18 = alloca ptr, align 8
   %19 = alloca ptr, align 8
   %20 = alloca ptr, align 8
-  %21 = alloca ptr, align 8
-  %22 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca ptr, align 8
+  %23 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
   store i8 0, ptr %10, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #3
   store i8 0, ptr %11, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
   store i32 0, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
   store ptr null, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
   store ptr null, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
   store ptr null, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
   store ptr null, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #3
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #3
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #3
   store ptr null, ptr %19, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #3
   store ptr null, ptr %20, align 8
-  %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds %struct._packet_info, ptr %23, i32 0, i32 1
-  %25 = load ptr, ptr %24, align 8
-  call void @col_add_str(ptr noundef %25, i32 noundef 34, ptr noundef @.str.658)
-  %26 = load ptr, ptr %7, align 8
-  %27 = getelementptr inbounds %struct._packet_info, ptr %26, i32 0, i32 1
-  %28 = load ptr, ptr %27, align 8
-  call void @col_clear(ptr noundef %28, i32 noundef 25)
-  %29 = load ptr, ptr %8, align 8
-  %30 = load i32, ptr @proto_sapdiag, align 4
-  %31 = load ptr, ptr %6, align 8
-  %32 = call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %30, ptr noundef %31, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  store ptr %32, ptr %13, align 8
-  %33 = load ptr, ptr %13, align 8
-  %34 = load i32, ptr @ett_sapdiag, align 4
-  %35 = call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34)
-  store ptr %35, ptr %17, align 8
-  %36 = load ptr, ptr %6, align 8
-  %37 = load i32, ptr %12, align 4
-  %38 = call i32 @check_sapdiag_dp(ptr noundef %36, i32 noundef %37)
-  %39 = icmp ne i32 %38, 0
-  br i1 %39, label %40, label %46
+  %24 = load ptr, ptr %7, align 8
+  %25 = getelementptr inbounds nuw %struct._packet_info, ptr %24, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8
+  call void @col_set_str(ptr noundef %26, i32 noundef 35, ptr noundef @.str.658)
+  %27 = load ptr, ptr %7, align 8
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
+  %29 = load ptr, ptr %28, align 8
+  call void @col_clear(ptr noundef %29, i32 noundef 25)
+  %30 = load ptr, ptr %8, align 8
+  %31 = load i32, ptr @proto_sapdiag, align 4
+  %32 = load ptr, ptr %6, align 8
+  %33 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %31, ptr noundef %32, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  store ptr %33, ptr %13, align 8
+  %34 = load ptr, ptr %13, align 8
+  %35 = load i32, ptr @ett_sapdiag, align 4
+  %36 = call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %35)
+  store ptr %36, ptr %17, align 8
+  %37 = load ptr, ptr %6, align 8
+  %38 = load i32, ptr %12, align 4
+  %39 = call i32 @check_sapdiag_dp(ptr noundef %37, i32 noundef %38)
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %41, label %47
 
-40:                                               ; preds = %4
-  %41 = load ptr, ptr %6, align 8
-  %42 = load ptr, ptr %17, align 8
-  %43 = load i32, ptr %12, align 4
-  call void @dissect_sapdiag_dp(ptr noundef %41, ptr noundef %42, i32 noundef %43)
+41:                                               ; preds = %4
+  %42 = load ptr, ptr %6, align 8
+  %43 = load ptr, ptr %17, align 8
   %44 = load i32, ptr %12, align 4
-  %45 = add i32 %44, 200
-  store i32 %45, ptr %12, align 4
-  br label %46
+  call void @dissect_sapdiag_dp(ptr noundef %42, ptr noundef %43, i32 noundef %44)
+  %45 = load i32, ptr %12, align 4
+  %46 = add i32 %45, 200
+  store i32 %46, ptr %12, align 4
+  br label %47
 
-46:                                               ; preds = %40, %4
-  %47 = load ptr, ptr %6, align 8
-  %48 = call i32 @tvb_strneql(ptr noundef %47, i32 noundef 0, ptr noundef @.str.831, i64 noundef 12)
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %57
+47:                                               ; preds = %41, %4
+  %48 = load ptr, ptr %6, align 8
+  %49 = call i32 @tvb_strneql(ptr noundef %48, i32 noundef 0, ptr noundef @.str.844, i64 noundef 12)
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %58
 
-50:                                               ; preds = %46
-  %51 = load ptr, ptr %17, align 8
-  %52 = load i32, ptr @hf_sapdiag_payload, align 4
-  %53 = load ptr, ptr %6, align 8
-  %54 = load i32, ptr %12, align 4
-  %55 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %52, ptr noundef %53, i32 noundef %54, i32 noundef -1, i32 noundef 0)
-  %56 = load i32, ptr %12, align 4
-  store i32 %56, ptr %5, align 4
-  br label %268
+51:                                               ; preds = %47
+  %52 = load ptr, ptr %17, align 8
+  %53 = load i32, ptr @hf_sapdiag_payload, align 4
+  %54 = load ptr, ptr %6, align 8
+  %55 = load i32, ptr %12, align 4
+  %56 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %53, ptr noundef %54, i32 noundef %55, i32 noundef -1, i32 noundef 0)
+  %57 = load i32, ptr %12, align 4
+  store i32 %57, ptr %5, align 4
+  store i32 1, ptr %21, align 4
+  br label %269
 
-57:                                               ; preds = %46
-  %58 = load ptr, ptr %6, align 8
-  %59 = call i32 @tvb_strneql(ptr noundef %58, i32 noundef 0, ptr noundef @.str.832, i64 noundef 12)
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %68
+58:                                               ; preds = %47
+  %59 = load ptr, ptr %6, align 8
+  %60 = call i32 @tvb_strneql(ptr noundef %59, i32 noundef 0, ptr noundef @.str.845, i64 noundef 12)
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %69
 
-61:                                               ; preds = %57
-  %62 = load ptr, ptr %17, align 8
-  %63 = load i32, ptr @hf_sapdiag_payload, align 4
-  %64 = load ptr, ptr %6, align 8
-  %65 = load i32, ptr %12, align 4
-  %66 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %63, ptr noundef %64, i32 noundef %65, i32 noundef -1, i32 noundef 0)
-  %67 = load i32, ptr %12, align 4
-  store i32 %67, ptr %5, align 4
-  br label %268
+62:                                               ; preds = %58
+  %63 = load ptr, ptr %17, align 8
+  %64 = load i32, ptr @hf_sapdiag_payload, align 4
+  %65 = load ptr, ptr %6, align 8
+  %66 = load i32, ptr %12, align 4
+  %67 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %64, ptr noundef %65, i32 noundef %66, i32 noundef -1, i32 noundef 0)
+  %68 = load i32, ptr %12, align 4
+  store i32 %68, ptr %5, align 4
+  store i32 1, ptr %21, align 4
+  br label %269
 
-68:                                               ; preds = %57
-  br label %69
+69:                                               ; preds = %58
+  br label %70
 
-69:                                               ; preds = %68
-  %70 = load ptr, ptr %17, align 8
-  %71 = load i32, ptr @hf_sapdiag_header, align 4
-  %72 = load ptr, ptr %6, align 8
-  %73 = load i32, ptr %12, align 4
-  %74 = call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %71, ptr noundef %72, i32 noundef %73, i32 noundef 8, i32 noundef 0)
-  store ptr %74, ptr %14, align 8
-  %75 = load ptr, ptr %14, align 8
-  %76 = load i32, ptr @ett_sapdiag, align 4
-  %77 = call ptr @proto_item_add_subtree(ptr noundef %75, i32 noundef %76)
-  store ptr %77, ptr %18, align 8
-  %78 = load ptr, ptr %18, align 8
-  %79 = load i32, ptr @hf_sapdiag_mode, align 4
-  %80 = load ptr, ptr %6, align 8
-  %81 = load i32, ptr %12, align 4
-  %82 = call ptr @proto_tree_add_item(ptr noundef %78, i32 noundef %79, ptr noundef %80, i32 noundef %81, i32 noundef 1, i32 noundef 0)
-  %83 = load i32, ptr %12, align 4
-  %84 = add i32 %83, 1
-  store i32 %84, ptr %12, align 4
-  %85 = load ptr, ptr %18, align 8
-  %86 = load i32, ptr @hf_sapdiag_com_flag, align 4
-  %87 = load ptr, ptr %6, align 8
-  %88 = load i32, ptr %12, align 4
-  %89 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %86, ptr noundef %87, i32 noundef %88, i32 noundef 1, i32 noundef 0)
-  store ptr %89, ptr %15, align 8
-  %90 = load ptr, ptr %15, align 8
-  %91 = load i32, ptr @ett_sapdiag, align 4
-  %92 = call ptr @proto_item_add_subtree(ptr noundef %90, i32 noundef %91)
-  store ptr %92, ptr %19, align 8
-  %93 = load ptr, ptr %19, align 8
-  %94 = load i32, ptr @hf_sapdiag_com_flag_TERM_EOS, align 4
-  %95 = load ptr, ptr %6, align 8
-  %96 = load i32, ptr %12, align 4
-  %97 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %94, ptr noundef %95, i32 noundef %96, i32 noundef 1, i32 noundef 0)
-  %98 = load ptr, ptr %19, align 8
-  %99 = load i32, ptr @hf_sapdiag_com_flag_TERM_EOC, align 4
-  %100 = load ptr, ptr %6, align 8
-  %101 = load i32, ptr %12, align 4
-  %102 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %99, ptr noundef %100, i32 noundef %101, i32 noundef 1, i32 noundef 0)
-  %103 = load ptr, ptr %19, align 8
-  %104 = load i32, ptr @hf_sapdiag_com_flag_TERM_NOP, align 4
-  %105 = load ptr, ptr %6, align 8
-  %106 = load i32, ptr %12, align 4
-  %107 = call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %104, ptr noundef %105, i32 noundef %106, i32 noundef 1, i32 noundef 0)
-  %108 = load ptr, ptr %19, align 8
-  %109 = load i32, ptr @hf_sapdiag_com_flag_TERM_EOP, align 4
-  %110 = load ptr, ptr %6, align 8
-  %111 = load i32, ptr %12, align 4
-  %112 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %109, ptr noundef %110, i32 noundef %111, i32 noundef 1, i32 noundef 0)
-  %113 = load ptr, ptr %19, align 8
-  %114 = load i32, ptr @hf_sapdiag_com_flag_TERM_INI, align 4
-  %115 = load ptr, ptr %6, align 8
-  %116 = load i32, ptr %12, align 4
-  %117 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %114, ptr noundef %115, i32 noundef %116, i32 noundef 1, i32 noundef 0)
-  %118 = load ptr, ptr %19, align 8
-  %119 = load i32, ptr @hf_sapdiag_com_flag_TERM_CAS, align 4
-  %120 = load ptr, ptr %6, align 8
-  %121 = load i32, ptr %12, align 4
-  %122 = call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %119, ptr noundef %120, i32 noundef %121, i32 noundef 1, i32 noundef 0)
-  %123 = load ptr, ptr %19, align 8
-  %124 = load i32, ptr @hf_sapdiag_com_flag_TERM_NNM, align 4
-  %125 = load ptr, ptr %6, align 8
-  %126 = load i32, ptr %12, align 4
-  %127 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %124, ptr noundef %125, i32 noundef %126, i32 noundef 1, i32 noundef 0)
-  %128 = load ptr, ptr %19, align 8
-  %129 = load i32, ptr @hf_sapdiag_com_flag_TERM_GRA, align 4
-  %130 = load ptr, ptr %6, align 8
-  %131 = load i32, ptr %12, align 4
-  %132 = call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %129, ptr noundef %130, i32 noundef %131, i32 noundef 1, i32 noundef 0)
-  %133 = load i32, ptr %12, align 4
-  %134 = add i32 %133, 1
-  store i32 %134, ptr %12, align 4
-  %135 = load ptr, ptr %18, align 8
-  %136 = load i32, ptr @hf_sapdiag_mode_stat, align 4
-  %137 = load ptr, ptr %6, align 8
-  %138 = load i32, ptr %12, align 4
-  %139 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %136, ptr noundef %137, i32 noundef %138, i32 noundef 1, i32 noundef 0)
-  %140 = load i32, ptr %12, align 4
-  %141 = add i32 %140, 1
-  store i32 %141, ptr %12, align 4
-  %142 = load ptr, ptr %6, align 8
-  %143 = load i32, ptr %12, align 4
-  %144 = call zeroext i8 @tvb_get_guint8(ptr noundef %142, i32 noundef %143)
-  store i8 %144, ptr %11, align 1
-  %145 = load ptr, ptr %18, align 8
-  %146 = load i32, ptr @hf_sapdiag_err_no, align 4
-  %147 = load ptr, ptr %6, align 8
-  %148 = load i32, ptr %12, align 4
-  %149 = call ptr @proto_tree_add_item(ptr noundef %145, i32 noundef %146, ptr noundef %147, i32 noundef %148, i32 noundef 1, i32 noundef 0)
-  %150 = load i32, ptr %12, align 4
-  %151 = add i32 %150, 1
-  store i32 %151, ptr %12, align 4
-  %152 = load ptr, ptr %18, align 8
-  %153 = load i32, ptr @hf_sapdiag_msg_type, align 4
-  %154 = load ptr, ptr %6, align 8
-  %155 = load i32, ptr %12, align 4
-  %156 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %153, ptr noundef %154, i32 noundef %155, i32 noundef 1, i32 noundef 0)
-  %157 = load i32, ptr %12, align 4
-  %158 = add i32 %157, 1
-  store i32 %158, ptr %12, align 4
-  %159 = load ptr, ptr %18, align 8
-  %160 = load i32, ptr @hf_sapdiag_msg_info, align 4
-  %161 = load ptr, ptr %6, align 8
-  %162 = load i32, ptr %12, align 4
-  %163 = call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %160, ptr noundef %161, i32 noundef %162, i32 noundef 1, i32 noundef 0)
-  %164 = load i32, ptr %12, align 4
-  %165 = add i32 %164, 1
-  store i32 %165, ptr %12, align 4
-  %166 = load ptr, ptr %18, align 8
-  %167 = load i32, ptr @hf_sapdiag_msg_rc, align 4
-  %168 = load ptr, ptr %6, align 8
-  %169 = load i32, ptr %12, align 4
-  %170 = call ptr @proto_tree_add_item(ptr noundef %166, i32 noundef %167, ptr noundef %168, i32 noundef %169, i32 noundef 1, i32 noundef 0)
-  %171 = load i32, ptr %12, align 4
-  %172 = add i32 %171, 1
-  store i32 %172, ptr %12, align 4
-  %173 = load ptr, ptr %6, align 8
-  %174 = load i32, ptr %12, align 4
-  %175 = call zeroext i8 @tvb_get_guint8(ptr noundef %173, i32 noundef %174)
-  store i8 %175, ptr %10, align 1
-  %176 = load ptr, ptr %18, align 8
-  %177 = load i32, ptr @hf_sapdiag_compress, align 4
-  %178 = load ptr, ptr %6, align 8
-  %179 = load i32, ptr %12, align 4
-  %180 = call ptr @proto_tree_add_item(ptr noundef %176, i32 noundef %177, ptr noundef %178, i32 noundef %179, i32 noundef 1, i32 noundef 0)
-  %181 = load i32, ptr %12, align 4
-  %182 = add i32 %181, 1
-  store i32 %182, ptr %12, align 4
-  %183 = load i8, ptr %11, align 1
-  %184 = zext i8 %183 to i32
-  %185 = icmp ne i32 %184, 0
-  br i1 %185, label %186, label %210
+70:                                               ; preds = %69
+  %71 = load ptr, ptr %17, align 8
+  %72 = load i32, ptr @hf_sapdiag_header, align 4
+  %73 = load ptr, ptr %6, align 8
+  %74 = load i32, ptr %12, align 4
+  %75 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %72, ptr noundef %73, i32 noundef %74, i32 noundef 8, i32 noundef 0)
+  store ptr %75, ptr %14, align 8
+  %76 = load ptr, ptr %14, align 8
+  %77 = load i32, ptr @ett_sapdiag, align 4
+  %78 = call ptr @proto_item_add_subtree(ptr noundef %76, i32 noundef %77)
+  store ptr %78, ptr %18, align 8
+  %79 = load ptr, ptr %18, align 8
+  %80 = load i32, ptr @hf_sapdiag_mode, align 4
+  %81 = load ptr, ptr %6, align 8
+  %82 = load i32, ptr %12, align 4
+  %83 = call ptr @proto_tree_add_item(ptr noundef %79, i32 noundef %80, ptr noundef %81, i32 noundef %82, i32 noundef 1, i32 noundef 0)
+  %84 = load i32, ptr %12, align 4
+  %85 = add i32 %84, 1
+  store i32 %85, ptr %12, align 4
+  %86 = load ptr, ptr %18, align 8
+  %87 = load i32, ptr @hf_sapdiag_com_flag, align 4
+  %88 = load ptr, ptr %6, align 8
+  %89 = load i32, ptr %12, align 4
+  %90 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %87, ptr noundef %88, i32 noundef %89, i32 noundef 1, i32 noundef 0)
+  store ptr %90, ptr %15, align 8
+  %91 = load ptr, ptr %15, align 8
+  %92 = load i32, ptr @ett_sapdiag, align 4
+  %93 = call ptr @proto_item_add_subtree(ptr noundef %91, i32 noundef %92)
+  store ptr %93, ptr %19, align 8
+  %94 = load ptr, ptr %19, align 8
+  %95 = load i32, ptr @hf_sapdiag_com_flag_TERM_EOS, align 4
+  %96 = load ptr, ptr %6, align 8
+  %97 = load i32, ptr %12, align 4
+  %98 = call ptr @proto_tree_add_item(ptr noundef %94, i32 noundef %95, ptr noundef %96, i32 noundef %97, i32 noundef 1, i32 noundef 0)
+  %99 = load ptr, ptr %19, align 8
+  %100 = load i32, ptr @hf_sapdiag_com_flag_TERM_EOC, align 4
+  %101 = load ptr, ptr %6, align 8
+  %102 = load i32, ptr %12, align 4
+  %103 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %100, ptr noundef %101, i32 noundef %102, i32 noundef 1, i32 noundef 0)
+  %104 = load ptr, ptr %19, align 8
+  %105 = load i32, ptr @hf_sapdiag_com_flag_TERM_NOP, align 4
+  %106 = load ptr, ptr %6, align 8
+  %107 = load i32, ptr %12, align 4
+  %108 = call ptr @proto_tree_add_item(ptr noundef %104, i32 noundef %105, ptr noundef %106, i32 noundef %107, i32 noundef 1, i32 noundef 0)
+  %109 = load ptr, ptr %19, align 8
+  %110 = load i32, ptr @hf_sapdiag_com_flag_TERM_EOP, align 4
+  %111 = load ptr, ptr %6, align 8
+  %112 = load i32, ptr %12, align 4
+  %113 = call ptr @proto_tree_add_item(ptr noundef %109, i32 noundef %110, ptr noundef %111, i32 noundef %112, i32 noundef 1, i32 noundef 0)
+  %114 = load ptr, ptr %19, align 8
+  %115 = load i32, ptr @hf_sapdiag_com_flag_TERM_INI, align 4
+  %116 = load ptr, ptr %6, align 8
+  %117 = load i32, ptr %12, align 4
+  %118 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %115, ptr noundef %116, i32 noundef %117, i32 noundef 1, i32 noundef 0)
+  %119 = load ptr, ptr %19, align 8
+  %120 = load i32, ptr @hf_sapdiag_com_flag_TERM_CAS, align 4
+  %121 = load ptr, ptr %6, align 8
+  %122 = load i32, ptr %12, align 4
+  %123 = call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %120, ptr noundef %121, i32 noundef %122, i32 noundef 1, i32 noundef 0)
+  %124 = load ptr, ptr %19, align 8
+  %125 = load i32, ptr @hf_sapdiag_com_flag_TERM_NNM, align 4
+  %126 = load ptr, ptr %6, align 8
+  %127 = load i32, ptr %12, align 4
+  %128 = call ptr @proto_tree_add_item(ptr noundef %124, i32 noundef %125, ptr noundef %126, i32 noundef %127, i32 noundef 1, i32 noundef 0)
+  %129 = load ptr, ptr %19, align 8
+  %130 = load i32, ptr @hf_sapdiag_com_flag_TERM_GRA, align 4
+  %131 = load ptr, ptr %6, align 8
+  %132 = load i32, ptr %12, align 4
+  %133 = call ptr @proto_tree_add_item(ptr noundef %129, i32 noundef %130, ptr noundef %131, i32 noundef %132, i32 noundef 1, i32 noundef 0)
+  %134 = load i32, ptr %12, align 4
+  %135 = add i32 %134, 1
+  store i32 %135, ptr %12, align 4
+  %136 = load ptr, ptr %18, align 8
+  %137 = load i32, ptr @hf_sapdiag_mode_stat, align 4
+  %138 = load ptr, ptr %6, align 8
+  %139 = load i32, ptr %12, align 4
+  %140 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %137, ptr noundef %138, i32 noundef %139, i32 noundef 1, i32 noundef 0)
+  %141 = load i32, ptr %12, align 4
+  %142 = add i32 %141, 1
+  store i32 %142, ptr %12, align 4
+  %143 = load ptr, ptr %6, align 8
+  %144 = load i32, ptr %12, align 4
+  %145 = call zeroext i8 @tvb_get_uint8(ptr noundef %143, i32 noundef %144)
+  store i8 %145, ptr %11, align 1
+  %146 = load ptr, ptr %18, align 8
+  %147 = load i32, ptr @hf_sapdiag_err_no, align 4
+  %148 = load ptr, ptr %6, align 8
+  %149 = load i32, ptr %12, align 4
+  %150 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %147, ptr noundef %148, i32 noundef %149, i32 noundef 1, i32 noundef 0)
+  %151 = load i32, ptr %12, align 4
+  %152 = add i32 %151, 1
+  store i32 %152, ptr %12, align 4
+  %153 = load ptr, ptr %18, align 8
+  %154 = load i32, ptr @hf_sapdiag_msg_type, align 4
+  %155 = load ptr, ptr %6, align 8
+  %156 = load i32, ptr %12, align 4
+  %157 = call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %154, ptr noundef %155, i32 noundef %156, i32 noundef 1, i32 noundef 0)
+  %158 = load i32, ptr %12, align 4
+  %159 = add i32 %158, 1
+  store i32 %159, ptr %12, align 4
+  %160 = load ptr, ptr %18, align 8
+  %161 = load i32, ptr @hf_sapdiag_msg_info, align 4
+  %162 = load ptr, ptr %6, align 8
+  %163 = load i32, ptr %12, align 4
+  %164 = call ptr @proto_tree_add_item(ptr noundef %160, i32 noundef %161, ptr noundef %162, i32 noundef %163, i32 noundef 1, i32 noundef 0)
+  %165 = load i32, ptr %12, align 4
+  %166 = add i32 %165, 1
+  store i32 %166, ptr %12, align 4
+  %167 = load ptr, ptr %18, align 8
+  %168 = load i32, ptr @hf_sapdiag_msg_rc, align 4
+  %169 = load ptr, ptr %6, align 8
+  %170 = load i32, ptr %12, align 4
+  %171 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %168, ptr noundef %169, i32 noundef %170, i32 noundef 1, i32 noundef 0)
+  %172 = load i32, ptr %12, align 4
+  %173 = add i32 %172, 1
+  store i32 %173, ptr %12, align 4
+  %174 = load ptr, ptr %6, align 8
+  %175 = load i32, ptr %12, align 4
+  %176 = call zeroext i8 @tvb_get_uint8(ptr noundef %174, i32 noundef %175)
+  store i8 %176, ptr %10, align 1
+  %177 = load ptr, ptr %18, align 8
+  %178 = load i32, ptr @hf_sapdiag_compress, align 4
+  %179 = load ptr, ptr %6, align 8
+  %180 = load i32, ptr %12, align 4
+  %181 = call ptr @proto_tree_add_item(ptr noundef %177, i32 noundef %178, ptr noundef %179, i32 noundef %180, i32 noundef 1, i32 noundef 0)
+  %182 = load i32, ptr %12, align 4
+  %183 = add i32 %182, 1
+  store i32 %183, ptr %12, align 4
+  %184 = load i8, ptr %11, align 1
+  %185 = zext i8 %184 to i32
+  %186 = icmp ne i32 %185, 0
+  br i1 %186, label %187, label %211
 
-186:                                              ; preds = %69
-  %187 = load ptr, ptr %6, align 8
-  %188 = load i32, ptr %12, align 4
-  %189 = call i32 @tvb_reported_length_remaining(ptr noundef %187, i32 noundef %188)
-  %190 = icmp sgt i32 %189, 0
-  br i1 %190, label %191, label %210
+187:                                              ; preds = %70
+  %188 = load ptr, ptr %6, align 8
+  %189 = load i32, ptr %12, align 4
+  %190 = call i32 @tvb_reported_length_remaining(ptr noundef %188, i32 noundef %189)
+  %191 = icmp sgt i32 %190, 0
+  br i1 %191, label %192, label %211
 
-191:                                              ; preds = %186
-  store ptr null, ptr %21, align 8
-  store i32 0, ptr %22, align 4
-  %192 = load ptr, ptr %6, align 8
-  %193 = load i32, ptr %12, align 4
-  %194 = call i32 @tvb_reported_length_remaining(ptr noundef %192, i32 noundef %193)
-  %195 = sub i32 %194, 1
-  store i32 %195, ptr %22, align 4
-  %196 = load ptr, ptr %7, align 8
-  %197 = getelementptr inbounds %struct._packet_info, ptr %196, i32 0, i32 50
-  %198 = load ptr, ptr %197, align 8
-  %199 = load ptr, ptr %6, align 8
-  %200 = load i32, ptr %12, align 4
-  %201 = load i32, ptr %22, align 4
-  %202 = call ptr @tvb_get_string_enc(ptr noundef %198, ptr noundef %199, i32 noundef %200, i32 noundef %201, i32 noundef -2147483644)
-  store ptr %202, ptr %21, align 8
-  %203 = load ptr, ptr %17, align 8
-  %204 = load i32, ptr @hf_sapdiag_error_message, align 4
-  %205 = load ptr, ptr %6, align 8
-  %206 = load i32, ptr %12, align 4
-  %207 = load i32, ptr %22, align 4
-  %208 = load ptr, ptr %21, align 8
-  %209 = call ptr @proto_tree_add_string(ptr noundef %203, i32 noundef %204, ptr noundef %205, i32 noundef %206, i32 noundef %207, ptr noundef %208)
+192:                                              ; preds = %187
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #3
+  store ptr null, ptr %22, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #3
+  store i32 0, ptr %23, align 4
+  %193 = load ptr, ptr %6, align 8
+  %194 = load i32, ptr %12, align 4
+  %195 = call i32 @tvb_reported_length_remaining(ptr noundef %193, i32 noundef %194)
+  %196 = sub i32 %195, 1
+  store i32 %196, ptr %23, align 4
+  %197 = load ptr, ptr %7, align 8
+  %198 = getelementptr inbounds nuw %struct._packet_info, ptr %197, i32 0, i32 51
+  %199 = load ptr, ptr %198, align 8
+  %200 = load ptr, ptr %6, align 8
+  %201 = load i32, ptr %12, align 4
+  %202 = load i32, ptr %23, align 4
+  %203 = call ptr @tvb_get_string_enc(ptr noundef %199, ptr noundef %200, i32 noundef %201, i32 noundef %202, i32 noundef -2147483644)
+  store ptr %203, ptr %22, align 8
+  %204 = load ptr, ptr %17, align 8
+  %205 = load i32, ptr @hf_sapdiag_error_message, align 4
+  %206 = load ptr, ptr %6, align 8
+  %207 = load i32, ptr %12, align 4
+  %208 = load i32, ptr %23, align 4
+  %209 = load ptr, ptr %22, align 8
+  %210 = call ptr @proto_tree_add_string(ptr noundef %204, i32 noundef %205, ptr noundef %206, i32 noundef %207, i32 noundef %208, ptr noundef %209)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #3
+  br label %267
+
+211:                                              ; preds = %187, %70
+  %212 = load i8, ptr %10, align 1
+  %213 = zext i8 %212 to i32
+  %214 = icmp eq i32 %213, 1
+  br i1 %214, label %215, label %226
+
+215:                                              ; preds = %211
+  %216 = load ptr, ptr %6, align 8
+  %217 = load i32, ptr %12, align 4
+  %218 = call i32 @tvb_reported_length_remaining(ptr noundef %216, i32 noundef %217)
+  %219 = icmp sge i32 %218, 8
+  br i1 %219, label %220, label %226
+
+220:                                              ; preds = %215
+  %221 = load ptr, ptr %6, align 8
+  %222 = load ptr, ptr %7, align 8
+  %223 = load ptr, ptr %17, align 8
+  %224 = load ptr, ptr %13, align 8
+  %225 = load i32, ptr %12, align 4
+  call void @dissect_sapdiag_compressed_payload(ptr noundef %221, ptr noundef %222, ptr noundef %223, ptr noundef %224, i32 noundef %225)
   br label %266
 
-210:                                              ; preds = %186, %69
-  %211 = load i8, ptr %10, align 1
-  %212 = zext i8 %211 to i32
-  %213 = icmp eq i32 %212, 1
-  br i1 %213, label %214, label %225
+226:                                              ; preds = %215, %211
+  %227 = load i8, ptr %10, align 1
+  %228 = zext i8 %227 to i32
+  %229 = icmp eq i32 %228, 2
+  br i1 %229, label %234, label %230
 
-214:                                              ; preds = %210
-  %215 = load ptr, ptr %6, align 8
-  %216 = load i32, ptr %12, align 4
-  %217 = call i32 @tvb_reported_length_remaining(ptr noundef %215, i32 noundef %216)
-  %218 = icmp sge i32 %217, 8
-  br i1 %218, label %219, label %225
+230:                                              ; preds = %226
+  %231 = load i8, ptr %10, align 1
+  %232 = zext i8 %231 to i32
+  %233 = icmp eq i32 %232, 3
+  br i1 %233, label %234, label %245
 
-219:                                              ; preds = %214
-  %220 = load ptr, ptr %6, align 8
-  %221 = load ptr, ptr %7, align 8
-  %222 = load ptr, ptr %17, align 8
-  %223 = load ptr, ptr %13, align 8
-  %224 = load i32, ptr %12, align 4
-  call void @dissect_sapdiag_compressed_payload(ptr noundef %220, ptr noundef %221, ptr noundef %222, ptr noundef %223, i32 noundef %224)
+234:                                              ; preds = %230, %226
+  %235 = load ptr, ptr %6, align 8
+  %236 = load i32, ptr %12, align 4
+  %237 = call i32 @tvb_reported_length_remaining(ptr noundef %235, i32 noundef %236)
+  %238 = icmp sgt i32 %237, 0
+  br i1 %238, label %239, label %245
+
+239:                                              ; preds = %234
+  %240 = load ptr, ptr %6, align 8
+  %241 = load ptr, ptr %7, align 8
+  %242 = load ptr, ptr %17, align 8
+  %243 = load ptr, ptr %8, align 8
+  %244 = load i32, ptr %12, align 4
+  call void @dissect_sapdiag_snc_frame(ptr noundef %240, ptr noundef %241, ptr noundef %242, ptr noundef %243, i32 noundef %244)
   br label %265
 
-225:                                              ; preds = %214, %210
-  %226 = load i8, ptr %10, align 1
-  %227 = zext i8 %226 to i32
-  %228 = icmp eq i32 %227, 2
-  br i1 %228, label %233, label %229
+245:                                              ; preds = %234, %230
+  %246 = load ptr, ptr %6, align 8
+  %247 = load i32, ptr %12, align 4
+  %248 = call i32 @tvb_reported_length_remaining(ptr noundef %246, i32 noundef %247)
+  %249 = icmp sgt i32 %248, 0
+  br i1 %249, label %250, label %264
 
-229:                                              ; preds = %225
-  %230 = load i8, ptr %10, align 1
-  %231 = zext i8 %230 to i32
-  %232 = icmp eq i32 %231, 3
-  br i1 %232, label %233, label %244
-
-233:                                              ; preds = %229, %225
-  %234 = load ptr, ptr %6, align 8
-  %235 = load i32, ptr %12, align 4
-  %236 = call i32 @tvb_reported_length_remaining(ptr noundef %234, i32 noundef %235)
-  %237 = icmp sgt i32 %236, 0
-  br i1 %237, label %238, label %244
-
-238:                                              ; preds = %233
-  %239 = load ptr, ptr %6, align 8
-  %240 = load ptr, ptr %7, align 8
-  %241 = load ptr, ptr %17, align 8
-  %242 = load ptr, ptr %8, align 8
-  %243 = load i32, ptr %12, align 4
-  call void @dissect_sapdiag_snc_frame(ptr noundef %239, ptr noundef %240, ptr noundef %241, ptr noundef %242, i32 noundef %243)
+250:                                              ; preds = %245
+  %251 = load ptr, ptr %17, align 8
+  %252 = load i32, ptr @hf_sapdiag_payload, align 4
+  %253 = load ptr, ptr %6, align 8
+  %254 = load i32, ptr %12, align 4
+  %255 = call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %252, ptr noundef %253, i32 noundef %254, i32 noundef -1, i32 noundef 0)
+  store ptr %255, ptr %16, align 8
+  %256 = load ptr, ptr %16, align 8
+  %257 = load i32, ptr @ett_sapdiag, align 4
+  %258 = call ptr @proto_item_add_subtree(ptr noundef %256, i32 noundef %257)
+  store ptr %258, ptr %20, align 8
+  %259 = load ptr, ptr %6, align 8
+  %260 = load ptr, ptr %7, align 8
+  %261 = load ptr, ptr %20, align 8
+  %262 = load ptr, ptr %8, align 8
+  %263 = load i32, ptr %12, align 4
+  call void @dissect_sapdiag_payload(ptr noundef %259, ptr noundef %260, ptr noundef %261, ptr noundef %262, i32 noundef %263)
   br label %264
 
-244:                                              ; preds = %233, %229
-  %245 = load ptr, ptr %6, align 8
-  %246 = load i32, ptr %12, align 4
-  %247 = call i32 @tvb_reported_length_remaining(ptr noundef %245, i32 noundef %246)
-  %248 = icmp sgt i32 %247, 0
-  br i1 %248, label %249, label %263
-
-249:                                              ; preds = %244
-  %250 = load ptr, ptr %17, align 8
-  %251 = load i32, ptr @hf_sapdiag_payload, align 4
-  %252 = load ptr, ptr %6, align 8
-  %253 = load i32, ptr %12, align 4
-  %254 = call ptr @proto_tree_add_item(ptr noundef %250, i32 noundef %251, ptr noundef %252, i32 noundef %253, i32 noundef -1, i32 noundef 0)
-  store ptr %254, ptr %16, align 8
-  %255 = load ptr, ptr %16, align 8
-  %256 = load i32, ptr @ett_sapdiag, align 4
-  %257 = call ptr @proto_item_add_subtree(ptr noundef %255, i32 noundef %256)
-  store ptr %257, ptr %20, align 8
-  %258 = load ptr, ptr %6, align 8
-  %259 = load ptr, ptr %7, align 8
-  %260 = load ptr, ptr %20, align 8
-  %261 = load ptr, ptr %8, align 8
-  %262 = load i32, ptr %12, align 4
-  call void @dissect_sapdiag_payload(ptr noundef %258, ptr noundef %259, ptr noundef %260, ptr noundef %261, i32 noundef %262)
-  br label %263
-
-263:                                              ; preds = %249, %244
-  br label %264
-
-264:                                              ; preds = %263, %238
+264:                                              ; preds = %250, %245
   br label %265
 
-265:                                              ; preds = %264, %219
+265:                                              ; preds = %264, %239
   br label %266
 
-266:                                              ; preds = %265, %191
-  %267 = load i32, ptr %12, align 4
-  store i32 %267, ptr %5, align 4
-  br label %268
+266:                                              ; preds = %265, %220
+  br label %267
 
-268:                                              ; preds = %266, %61, %50
-  %269 = load i32, ptr %5, align 4
-  ret i32 %269
+267:                                              ; preds = %266, %192
+  %268 = load i32, ptr %12, align 4
+  store i32 %268, ptr %5, align 4
+  store i32 1, ptr %21, align 4
+  br label %269
+
+269:                                              ; preds = %267, %62, %51
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  %270 = load i32, ptr %5, align 4
+  ret i32 %270
 }
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_sapdiag() #0 {
-  %1 = load i32, ptr @proto_reg_handoff_sapdiag.initialized, align 4
-  %2 = icmp ne i32 %1, 0
+  %1 = load i8, ptr @proto_reg_handoff_sapdiag.initialized, align 1, !range !6, !noundef !7
+  %2 = trunc i8 %1 to i1
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %0
   %4 = load i32, ptr @proto_sapdiag, align 4
   %5 = call ptr @create_dissector_handle(ptr noundef @dissect_sapdiag, i32 noundef %4)
   store ptr %5, ptr @sapdiag_handle, align 8
-  store i32 1, ptr @proto_reg_handoff_sapdiag.initialized, align 4
+  store i8 1, ptr @proto_reg_handoff_sapdiag.initialized, align 1
   br label %10
 
 6:                                                ; preds = %0
@@ -2029,19 +2070,28 @@ define hidden void @proto_reg_handoff_sapdiag() #0 {
   ret void
 }
 
-declare i32 @range_convert_str(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @range_convert_str(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @wmem_epan_scope() #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_epan_scope() #2
 
-declare void @prefs_register_range_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_range_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
 
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @create_dissector_handle(ptr noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @range_foreach(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @create_dissector_handle(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare void @range_foreach(ptr noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @range_delete_callback(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
@@ -2049,15 +2099,17 @@ define internal void @range_delete_callback(i32 noundef %0, ptr noundef %1) #0 {
   store ptr %1, ptr %4, align 8
   %5 = load i32, ptr %3, align 4
   %6 = load ptr, ptr @sapdiag_handle, align 8
-  call void @dissector_delete_uint(ptr noundef @.str.1202, i32 noundef %5, ptr noundef %6)
+  call void @dissector_delete_uint(ptr noundef @.str.1232, i32 noundef %5, ptr noundef %6)
   ret void
 }
 
-declare void @wmem_free(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @wmem_free(ptr noundef, ptr noundef) #2
 
-declare ptr @range_copy(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @range_copy(ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @range_add_callback(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
@@ -2065,19 +2117,23 @@ define internal void @range_add_callback(i32 noundef %0, ptr noundef %1) #0 {
   store ptr %1, ptr %4, align 8
   %5 = load i32, ptr %3, align 4
   %6 = load ptr, ptr @sapdiag_handle, align 8
-  call void @dissector_add_uint(ptr noundef @.str.1202, i32 noundef %5, ptr noundef %6)
+  call void @dissector_add_uint(ptr noundef @.str.1232, i32 noundef %5, ptr noundef %6)
   ret void
 }
 
-declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @col_clear(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_clear(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @check_sapdiag_dp(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
@@ -2093,7 +2149,7 @@ define internal i32 @check_sapdiag_dp(ptr noundef %0, i32 noundef %1) #0 {
 10:                                               ; preds = %2
   %11 = load ptr, ptr %4, align 8
   %12 = load i32, ptr %5, align 4
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef %12)
+  %13 = call zeroext i8 @tvb_get_uint8(ptr noundef %11, i32 noundef %12)
   %14 = zext i8 %13 to i32
   %15 = icmp eq i32 %14, 255
   br i1 %15, label %16, label %17
@@ -2111,7 +2167,7 @@ define internal i32 @check_sapdiag_dp(ptr noundef %0, i32 noundef %1) #0 {
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_sapdiag_dp(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2121,7 +2177,9 @@ define internal void @dissect_sapdiag_dp(ptr noundef %0, ptr noundef %1, i32 nou
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
   store ptr null, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
   %9 = load ptr, ptr %5, align 8
   %10 = load i32, ptr @hf_sapdiag_dp, align 4
   %11 = load ptr, ptr %4, align 8
@@ -2254,20 +2312,27 @@ define internal void @dissect_sapdiag_dp(ptr noundef %0, ptr noundef %1, i32 nou
   %119 = load ptr, ptr %4, align 8
   %120 = load i32, ptr %6, align 4
   %121 = call ptr @proto_tree_add_item(ptr noundef %117, i32 noundef %118, ptr noundef %119, i32 noundef %120, i32 noundef 15, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
   ret void
 }
 
-declare i32 @tvb_strneql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_strneql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #2
 
-declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_sapdiag_compressed_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2282,8 +2347,11 @@ define internal void @dissect_sapdiag_compressed_payload(ptr noundef %0, ptr nou
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
   store i32 0, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
   store ptr null, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
   store ptr null, ptr %13, align 8
   %14 = load ptr, ptr %8, align 8
   %15 = load i32, ptr @hf_sapdiag_compress_header, align 4
@@ -2310,12 +2378,12 @@ define internal void @dissect_sapdiag_compressed_payload(ptr noundef %0, ptr nou
   store i32 %32, ptr %10, align 4
   %33 = load ptr, ptr %9, align 8
   %34 = load i32, ptr %11, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %33, ptr noundef @.str.833, i32 noundef %34)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %33, ptr noundef @.str.846, i32 noundef %34)
   %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds %struct._packet_info, ptr %35, i32 0, i32 1
+  %36 = getelementptr inbounds nuw %struct._packet_info, ptr %35, i32 0, i32 1
   %37 = load ptr, ptr %36, align 8
   %38 = load i32, ptr %11, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %37, i32 noundef 25, ptr noundef @.str.834, i32 noundef %38)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %37, i32 noundef 25, ptr noundef @.str.847, i32 noundef %38)
   %39 = load ptr, ptr %13, align 8
   %40 = load i32, ptr @hf_sapdiag_algorithm, align 4
   %41 = load ptr, ptr %6, align 8
@@ -2345,10 +2413,13 @@ define internal void @dissect_sapdiag_compressed_payload(ptr noundef %0, ptr nou
   %62 = load ptr, ptr %6, align 8
   %63 = load i32, ptr %10, align 4
   %64 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %61, ptr noundef %62, i32 noundef %63, i32 noundef -1, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_sapdiag_snc_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2363,69 +2434,77 @@ define internal void @dissect_sapdiag_snc_frame(ptr noundef %0, ptr noundef %1, 
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
   store ptr null, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
   store ptr null, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
   store ptr null, ptr %13, align 8
-  %14 = load i32, ptr @global_sapdiag_snc_dissection, align 4
-  %15 = icmp eq i32 %14, 1
-  br i1 %15, label %16, label %49
+  %14 = load i8, ptr @global_sapdiag_snc_dissection, align 1, !range !6, !noundef !7
+  %15 = trunc i8 %14 to i1
+  %16 = zext i1 %15 to i32
+  %17 = icmp eq i32 %16, 1
+  br i1 %17, label %18, label %51
 
-16:                                               ; preds = %5
-  %17 = load ptr, ptr %6, align 8
-  %18 = load ptr, ptr %7, align 8
-  %19 = load ptr, ptr %9, align 8
-  %20 = load i32, ptr %10, align 4
-  %21 = call ptr @dissect_sapsnc_frame(ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20)
-  store ptr %21, ptr %11, align 8
-  %22 = load ptr, ptr %11, align 8
-  %23 = icmp ne ptr %22, null
-  br i1 %23, label %24, label %48
+18:                                               ; preds = %5
+  %19 = load ptr, ptr %6, align 8
+  %20 = load ptr, ptr %7, align 8
+  %21 = load ptr, ptr %9, align 8
+  %22 = load i32, ptr %10, align 4
+  %23 = call ptr @dissect_sapsnc_frame(ptr noundef %19, ptr noundef %20, ptr noundef %21, i32 noundef %22)
+  store ptr %23, ptr %11, align 8
+  %24 = load ptr, ptr %11, align 8
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %26, label %50
 
-24:                                               ; preds = %16
-  %25 = load ptr, ptr %7, align 8
-  %26 = load ptr, ptr %11, align 8
-  call void @add_new_data_source(ptr noundef %25, ptr noundef %26, ptr noundef @.str.835)
-  %27 = load ptr, ptr %8, align 8
-  %28 = load i32, ptr @hf_sapdiag_payload, align 4
-  %29 = load ptr, ptr %11, align 8
-  %30 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  store ptr %30, ptr %12, align 8
-  %31 = load ptr, ptr %12, align 8
-  %32 = load i32, ptr @ett_sapdiag, align 4
-  %33 = call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32)
-  store ptr %33, ptr %13, align 8
-  %34 = load ptr, ptr %11, align 8
-  %35 = call i32 @check_sapdiag_compression(ptr noundef %34, i32 noundef 0)
-  %36 = icmp ne i32 %35, 0
-  br i1 %36, label %37, label %42
+26:                                               ; preds = %18
+  %27 = load ptr, ptr %7, align 8
+  %28 = load ptr, ptr %11, align 8
+  call void @add_new_data_source(ptr noundef %27, ptr noundef %28, ptr noundef @.str.848)
+  %29 = load ptr, ptr %8, align 8
+  %30 = load i32, ptr @hf_sapdiag_payload, align 4
+  %31 = load ptr, ptr %11, align 8
+  %32 = call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %30, ptr noundef %31, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  store ptr %32, ptr %12, align 8
+  %33 = load ptr, ptr %12, align 8
+  %34 = load i32, ptr @ett_sapdiag, align 4
+  %35 = call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34)
+  store ptr %35, ptr %13, align 8
+  %36 = load ptr, ptr %11, align 8
+  %37 = call i32 @check_sapdiag_compression(ptr noundef %36, i32 noundef 0)
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %44
 
-37:                                               ; preds = %24
-  %38 = load ptr, ptr %11, align 8
-  %39 = load ptr, ptr %7, align 8
-  %40 = load ptr, ptr %13, align 8
-  %41 = load ptr, ptr %12, align 8
-  call void @dissect_sapdiag_compressed_payload(ptr noundef %38, ptr noundef %39, ptr noundef %40, ptr noundef %41, i32 noundef 0)
-  br label %47
-
-42:                                               ; preds = %24
-  %43 = load ptr, ptr %11, align 8
-  %44 = load ptr, ptr %7, align 8
-  %45 = load ptr, ptr %13, align 8
-  %46 = load ptr, ptr %12, align 8
-  call void @dissect_sapdiag_payload(ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %46, i32 noundef 0)
-  br label %47
-
-47:                                               ; preds = %42, %37
-  br label %48
-
-48:                                               ; preds = %47, %16
+39:                                               ; preds = %26
+  %40 = load ptr, ptr %11, align 8
+  %41 = load ptr, ptr %7, align 8
+  %42 = load ptr, ptr %13, align 8
+  %43 = load ptr, ptr %12, align 8
+  call void @dissect_sapdiag_compressed_payload(ptr noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %43, i32 noundef 0)
   br label %49
 
-49:                                               ; preds = %48, %5
+44:                                               ; preds = %26
+  %45 = load ptr, ptr %11, align 8
+  %46 = load ptr, ptr %7, align 8
+  %47 = load ptr, ptr %13, align 8
+  %48 = load ptr, ptr %12, align 8
+  call void @dissect_sapdiag_payload(ptr noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48, i32 noundef 0)
+  br label %49
+
+49:                                               ; preds = %44, %39
+  br label %50
+
+50:                                               ; preds = %49, %18
+  br label %51
+
+51:                                               ; preds = %50, %5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_sapdiag_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2445,25 +2524,38 @@ define internal void @dissect_sapdiag_payload(ptr noundef %0, ptr noundef %1, pt
   %21 = alloca ptr, align 8
   %22 = alloca ptr, align 8
   %23 = alloca ptr, align 8
+  %24 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #3
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #3
   store ptr null, ptr %19, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #3
   store ptr null, ptr %20, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #3
   store ptr null, ptr %21, align 8
-  br label %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #3
+  br label %25
 
-24:                                               ; preds = %215, %5
-  %25 = load ptr, ptr %6, align 8
-  %26 = load i32, ptr %10, align 4
-  %27 = call i32 @tvb_offset_exists(ptr noundef %25, i32 noundef %26)
-  %28 = icmp ne i32 %27, 0
+25:                                               ; preds = %215, %5
+  %26 = load ptr, ptr %6, align 8
+  %27 = load i32, ptr %10, align 4
+  %28 = call zeroext i1 @tvb_offset_exists(ptr noundef %26, i32 noundef %27)
   br i1 %28, label %29, label %216
 
-29:                                               ; preds = %24
+29:                                               ; preds = %25
   store i8 0, ptr %13, align 1
   store i32 0, ptr %17, align 4
   store i32 0, ptr %16, align 4
@@ -2481,7 +2573,7 @@ define internal void @dissect_sapdiag_payload(ptr noundef %0, ptr noundef %1, pt
   store ptr %37, ptr %22, align 8
   %38 = load ptr, ptr %6, align 8
   %39 = load i32, ptr %10, align 4
-  %40 = call zeroext i8 @tvb_get_guint8(ptr noundef %38, i32 noundef %39)
+  %40 = call zeroext i8 @tvb_get_uint8(ptr noundef %38, i32 noundef %39)
   store i8 %40, ptr %12, align 1
   %41 = load ptr, ptr %22, align 8
   %42 = load i32, ptr @hf_sapdiag_item_type, align 4
@@ -2497,8 +2589,8 @@ define internal void @dissect_sapdiag_payload(ptr noundef %0, ptr noundef %1, pt
   %50 = load ptr, ptr %19, align 8
   %51 = load i8, ptr %12, align 1
   %52 = zext i8 %51 to i32
-  %53 = call ptr @val_to_str_const(i32 noundef %52, ptr noundef @sapdiag_item_type_vals, ptr noundef @.str.837)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef @.str.836, ptr noundef %53)
+  %53 = call ptr @val_to_str_const(i32 noundef %52, ptr noundef @sapdiag_item_type_vals, ptr noundef @.str.850)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef @.str.849, ptr noundef %53)
   %54 = load i8, ptr %12, align 1
   %55 = zext i8 %54 to i32
   switch i32 %55, label %127 [
@@ -2535,8 +2627,8 @@ define internal void @dissect_sapdiag_payload(ptr noundef %0, ptr noundef %1, pt
   br label %127
 
 60:                                               ; preds = %29
-  %61 = load i32, ptr @global_sapdiag_highlight_items, align 4
-  %62 = icmp ne i32 %61, 0
+  %61 = load i8, ptr @global_sapdiag_highlight_items, align 1, !range !6, !noundef !7
+  %62 = trunc i8 %61 to i1
   br i1 %62, label %63, label %69
 
 63:                                               ; preds = %60
@@ -2544,7 +2636,7 @@ define internal void @dissect_sapdiag_payload(ptr noundef %0, ptr noundef %1, pt
   %65 = load ptr, ptr %19, align 8
   %66 = load i8, ptr %12, align 1
   %67 = zext i8 %66 to i32
-  %68 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %64, ptr noundef %65, ptr noundef @ei_sapdiag_item_unknown_length, ptr noundef @.str.838, i32 noundef %67)
+  %68 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %64, ptr noundef %65, ptr noundef @ei_sapdiag_item_unknown_length, ptr noundef @.str.851, i32 noundef %67)
   br label %69
 
 69:                                               ; preds = %63, %60
@@ -2580,13 +2672,13 @@ define internal void @dissect_sapdiag_payload(ptr noundef %0, ptr noundef %1, pt
 77:                                               ; preds = %29, %29
   %78 = load ptr, ptr %6, align 8
   %79 = load i32, ptr %10, align 4
-  %80 = call zeroext i8 @tvb_get_guint8(ptr noundef %78, i32 noundef %79)
+  %80 = call zeroext i8 @tvb_get_uint8(ptr noundef %78, i32 noundef %79)
   store i8 %80, ptr %14, align 1
   %81 = load ptr, ptr %19, align 8
   %82 = load i8, ptr %14, align 1
   %83 = zext i8 %82 to i32
-  %84 = call ptr @val_to_str_const(i32 noundef %83, ptr noundef @sapdiag_item_id_vals, ptr noundef @.str.837)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %81, ptr noundef @.str.839, ptr noundef %84)
+  %84 = call ptr @val_to_str_const(i32 noundef %83, ptr noundef @sapdiag_item_id_vals, ptr noundef @.str.850)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %81, ptr noundef @.str.852, ptr noundef %84)
   %85 = load ptr, ptr %22, align 8
   %86 = load i32, ptr @hf_sapdiag_item_id, align 4
   %87 = load ptr, ptr %6, align 8
@@ -2600,7 +2692,7 @@ define internal void @dissect_sapdiag_payload(ptr noundef %0, ptr noundef %1, pt
   store i32 %93, ptr %16, align 4
   %94 = load ptr, ptr %6, align 8
   %95 = load i32, ptr %10, align 4
-  %96 = call zeroext i8 @tvb_get_guint8(ptr noundef %94, i32 noundef %95)
+  %96 = call zeroext i8 @tvb_get_uint8(ptr noundef %94, i32 noundef %95)
   store i8 %96, ptr %15, align 1
   %97 = load i8, ptr %14, align 1
   %98 = load i8, ptr %15, align 1
@@ -2608,7 +2700,7 @@ define internal void @dissect_sapdiag_payload(ptr noundef %0, ptr noundef %1, pt
   store ptr %99, ptr %18, align 8
   %100 = load ptr, ptr %19, align 8
   %101 = load ptr, ptr %18, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %100, ptr noundef @.str.839, ptr noundef %101)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %100, ptr noundef @.str.852, ptr noundef %101)
   %102 = load ptr, ptr %22, align 8
   %103 = load i32, ptr @hf_sapdiag_item_sid, align 4
   %104 = load ptr, ptr %6, align 8
@@ -2618,7 +2710,7 @@ define internal void @dissect_sapdiag_payload(ptr noundef %0, ptr noundef %1, pt
   %108 = load ptr, ptr %18, align 8
   %109 = load i8, ptr %15, align 1
   %110 = zext i8 %109 to i32
-  %111 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %102, i32 noundef %103, ptr noundef %104, i32 noundef %105, i32 noundef 1, i32 noundef %107, ptr noundef @.str.840, ptr noundef %108, i32 noundef %110)
+  %111 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %102, i32 noundef %103, ptr noundef %104, i32 noundef %105, i32 noundef 1, i32 noundef %107, ptr noundef @.str.853, ptr noundef %108, i32 noundef %110)
   %112 = load i32, ptr %10, align 4
   %113 = add i32 %112, 1
   store i32 %113, ptr %10, align 4
@@ -2650,7 +2742,7 @@ define internal void @dissect_sapdiag_payload(ptr noundef %0, ptr noundef %1, pt
 126:                                              ; preds = %125, %119
   br label %127
 
-127:                                              ; preds = %126, %76, %75, %74, %73, %72, %71, %70, %69, %59, %58, %57, %56, %29
+127:                                              ; preds = %29, %126, %76, %75, %74, %73, %72, %71, %70, %69, %59, %58, %57, %56
   %128 = load i8, ptr %13, align 1
   %129 = zext i8 %128 to i32
   %130 = icmp eq i32 %129, 2
@@ -2707,7 +2799,7 @@ define internal void @dissect_sapdiag_payload(ptr noundef %0, ptr noundef %1, pt
 163:                                              ; preds = %162, %131
   %164 = load ptr, ptr %19, align 8
   %165 = load i32, ptr %17, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %164, ptr noundef @.str.841, i32 noundef %165)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %164, ptr noundef @.str.854, i32 noundef %165)
   %166 = load i32, ptr %17, align 4
   %167 = load i32, ptr %16, align 4
   %168 = add i32 %167, %166
@@ -2732,7 +2824,8 @@ define internal void @dissect_sapdiag_payload(ptr noundef %0, ptr noundef %1, pt
   %180 = load ptr, ptr %7, align 8
   %181 = load ptr, ptr %20, align 8
   %182 = call ptr @expert_add_info(ptr noundef %180, ptr noundef %181, ptr noundef @ei_sapdiag_item_offset_invalid)
-  br label %216
+  store i32 1, ptr %24, align 4
+  br label %217
 
 183:                                              ; preds = %173
   %184 = load i32, ptr %11, align 4
@@ -2778,13 +2871,40 @@ define internal void @dissect_sapdiag_payload(ptr noundef %0, ptr noundef %1, pt
   br label %215
 
 215:                                              ; preds = %192, %163
-  br label %24, !llvm.loop !4
+  br label %25, !llvm.loop !8
 
-216:                                              ; preds = %179, %24
+216:                                              ; preds = %25
+  store i32 0, ptr %24, align 4
+  br label %217
+
+217:                                              ; preds = %216, %179
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  %218 = load i32, ptr %24, align 4
+  switch i32 %218, label %220 [
+    i32 0, label %219
+    i32 1, label %219
+  ]
+
+219:                                              ; preds = %217, %217
   ret void
+
+220:                                              ; preds = %217
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_sapdiag_dp_req_info(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2794,7 +2914,9 @@ define internal void @dissect_sapdiag_dp_req_info(ptr noundef %0, ptr noundef %1
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
   store ptr null, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
   %9 = load ptr, ptr %5, align 8
   %10 = load i32, ptr @hf_sapdiag_dp_req_info, align 4
   %11 = load ptr, ptr %4, align 8
@@ -2969,22 +3091,30 @@ define internal void @dissect_sapdiag_dp_req_info(ptr noundef %0, ptr noundef %1
   %175 = load ptr, ptr %4, align 8
   %176 = load i32, ptr %6, align 4
   %177 = call ptr @proto_tree_add_item(ptr noundef %173, i32 noundef %174, ptr noundef %175, i32 noundef %176, i32 noundef 1, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
   ret void
 }
 
-declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #2
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @dissect_sapsnc_frame(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @dissect_sapsnc_frame(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
 
-declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @check_sapdiag_compression(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
@@ -3001,7 +3131,7 @@ define internal i32 @check_sapdiag_compression(ptr noundef %0, i32 noundef %1) #
   %11 = load ptr, ptr %4, align 8
   %12 = load i32, ptr %5, align 4
   %13 = add i32 %12, 4
-  %14 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef %13)
+  %14 = call zeroext i8 @tvb_get_uint8(ptr noundef %11, i32 noundef %13)
   %15 = zext i8 %14 to i32
   %16 = icmp eq i32 %15, 17
   br i1 %16, label %24, label %17
@@ -3010,7 +3140,7 @@ define internal i32 @check_sapdiag_compression(ptr noundef %0, i32 noundef %1) #
   %18 = load ptr, ptr %4, align 8
   %19 = load i32, ptr %5, align 4
   %20 = add i32 %19, 4
-  %21 = call zeroext i8 @tvb_get_guint8(ptr noundef %18, i32 noundef %20)
+  %21 = call zeroext i8 @tvb_get_uint8(ptr noundef %18, i32 noundef %20)
   %22 = zext i8 %21 to i32
   %23 = icmp eq i32 %22, 18
   br i1 %23, label %24, label %32
@@ -3019,7 +3149,7 @@ define internal i32 @check_sapdiag_compression(ptr noundef %0, i32 noundef %1) #
   %25 = load ptr, ptr %4, align 8
   %26 = load i32, ptr %5, align 4
   %27 = add i32 %26, 5
-  %28 = call zeroext i16 @tvb_get_guint16(ptr noundef %25, i32 noundef %27, i32 noundef -2147483648)
+  %28 = call zeroext i16 @tvb_get_uint16(ptr noundef %25, i32 noundef %27, i32 noundef -2147483648)
   %29 = zext i16 %28 to i32
   %30 = icmp eq i32 %29, 40223
   br i1 %30, label %31, label %32
@@ -3037,21 +3167,26 @@ define internal i32 @check_sapdiag_compression(ptr noundef %0, i32 noundef %1) #
   ret i32 %34
 }
 
-declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_uint16(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @tvb_offset_exists(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @tvb_offset_exists(ptr noundef, i32 noundef) #2
 
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @get_appl_string(i8 noundef zeroext %0, i8 noundef zeroext %1) #0 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = alloca ptr, align 8
   store i8 %0, ptr %3, align 1
   store i8 %1, ptr %4, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
   store ptr null, ptr %5, align 8
   %6 = load i8, ptr %3, align 1
   %7 = zext i8 %6 to i32
@@ -3078,138 +3213,144 @@ define internal ptr @get_appl_string(i8 noundef zeroext %0, i8 noundef zeroext %
 8:                                                ; preds = %2
   %9 = load i8, ptr %4, align 1
   %10 = zext i8 %9 to i32
-  %11 = call ptr @val_to_str_const(i32 noundef %10, ptr noundef @sapdiag_item_appl_script_vals, ptr noundef @.str.837)
+  %11 = call ptr @val_to_str_const(i32 noundef %10, ptr noundef @sapdiag_item_appl_script_vals, ptr noundef @.str.850)
   store ptr %11, ptr %5, align 8
   br label %76
 
 12:                                               ; preds = %2
   %13 = load i8, ptr %4, align 1
   %14 = zext i8 %13 to i32
-  %15 = call ptr @val_to_str_const(i32 noundef %14, ptr noundef @sapdiag_item_appl_graph_vals, ptr noundef @.str.837)
+  %15 = call ptr @val_to_str_const(i32 noundef %14, ptr noundef @sapdiag_item_appl_graph_vals, ptr noundef @.str.850)
   store ptr %15, ptr %5, align 8
   br label %76
 
 16:                                               ; preds = %2
   %17 = load i8, ptr %4, align 1
   %18 = zext i8 %17 to i32
-  %19 = call ptr @val_to_str_const(i32 noundef %18, ptr noundef @sapdiag_item_appl_ixos_vals, ptr noundef @.str.837)
+  %19 = call ptr @val_to_str_const(i32 noundef %18, ptr noundef @sapdiag_item_appl_ixos_vals, ptr noundef @.str.850)
   store ptr %19, ptr %5, align 8
   br label %76
 
 20:                                               ; preds = %2
   %21 = load i8, ptr %4, align 1
   %22 = zext i8 %21 to i32
-  %23 = call ptr @val_to_str_const(i32 noundef %22, ptr noundef @sapdiag_item_appl_st_user_vals, ptr noundef @.str.837)
+  %23 = call ptr @val_to_str_const(i32 noundef %22, ptr noundef @sapdiag_item_appl_st_user_vals, ptr noundef @.str.850)
   store ptr %23, ptr %5, align 8
   br label %76
 
 24:                                               ; preds = %2
   %25 = load i8, ptr %4, align 1
   %26 = zext i8 %25 to i32
-  %27 = call ptr @val_to_str_const(i32 noundef %26, ptr noundef @sapdiag_item_appl_dynn_vals, ptr noundef @.str.837)
+  %27 = call ptr @val_to_str_const(i32 noundef %26, ptr noundef @sapdiag_item_appl_dynn_vals, ptr noundef @.str.850)
   store ptr %27, ptr %5, align 8
   br label %76
 
 28:                                               ; preds = %2
   %29 = load i8, ptr %4, align 1
   %30 = zext i8 %29 to i32
-  %31 = call ptr @val_to_str_const(i32 noundef %30, ptr noundef @sapdiag_item_appl_st_r3info_vals, ptr noundef @.str.837)
+  %31 = call ptr @val_to_str_const(i32 noundef %30, ptr noundef @sapdiag_item_appl_st_r3info_vals, ptr noundef @.str.850)
   store ptr %31, ptr %5, align 8
   br label %76
 
 32:                                               ; preds = %2
   %33 = load i8, ptr %4, align 1
   %34 = zext i8 %33 to i32
-  %35 = call ptr @val_to_str_const(i32 noundef %34, ptr noundef @sapdiag_item_appl_popu_vals, ptr noundef @.str.837)
+  %35 = call ptr @val_to_str_const(i32 noundef %34, ptr noundef @sapdiag_item_appl_popu_vals, ptr noundef @.str.850)
   store ptr %35, ptr %5, align 8
   br label %76
 
 36:                                               ; preds = %2
   %37 = load i8, ptr %4, align 1
   %38 = zext i8 %37 to i32
-  %39 = call ptr @val_to_str_const(i32 noundef %38, ptr noundef @sapdiag_item_appl_rfc_tr_vals, ptr noundef @.str.837)
+  %39 = call ptr @val_to_str_const(i32 noundef %38, ptr noundef @sapdiag_item_appl_rfc_tr_vals, ptr noundef @.str.850)
   store ptr %39, ptr %5, align 8
   br label %76
 
 40:                                               ; preds = %2
   %41 = load i8, ptr %4, align 1
   %42 = zext i8 %41 to i32
-  %43 = call ptr @val_to_str_const(i32 noundef %42, ptr noundef @sapdiag_item_appl_dynt_vals, ptr noundef @.str.837)
+  %43 = call ptr @val_to_str_const(i32 noundef %42, ptr noundef @sapdiag_item_appl_dynt_vals, ptr noundef @.str.850)
   store ptr %43, ptr %5, align 8
   br label %76
 
 44:                                               ; preds = %2
   %45 = load i8, ptr %4, align 1
   %46 = zext i8 %45 to i32
-  %47 = call ptr @val_to_str_const(i32 noundef %46, ptr noundef @sapdiag_item_appl_container_vals, ptr noundef @.str.837)
+  %47 = call ptr @val_to_str_const(i32 noundef %46, ptr noundef @sapdiag_item_appl_container_vals, ptr noundef @.str.850)
   store ptr %47, ptr %5, align 8
   br label %76
 
 48:                                               ; preds = %2
   %49 = load i8, ptr %4, align 1
   %50 = zext i8 %49 to i32
-  %51 = call ptr @val_to_str_const(i32 noundef %50, ptr noundef @sapdiag_item_appl_mnuentry_vals, ptr noundef @.str.837)
+  %51 = call ptr @val_to_str_const(i32 noundef %50, ptr noundef @sapdiag_item_appl_mnuentry_vals, ptr noundef @.str.850)
   store ptr %51, ptr %5, align 8
   br label %76
 
 52:                                               ; preds = %2
   %53 = load i8, ptr %4, align 1
   %54 = zext i8 %53 to i32
-  %55 = call ptr @val_to_str_const(i32 noundef %54, ptr noundef @sapdiag_item_appl_varinfo_vals, ptr noundef @.str.837)
+  %55 = call ptr @val_to_str_const(i32 noundef %54, ptr noundef @sapdiag_item_appl_varinfo_vals, ptr noundef @.str.850)
   store ptr %55, ptr %5, align 8
   br label %76
 
 56:                                               ; preds = %2
   %57 = load i8, ptr %4, align 1
   %58 = zext i8 %57 to i32
-  %59 = call ptr @val_to_str_const(i32 noundef %58, ptr noundef @sapdiag_item_appl_control_vals, ptr noundef @.str.837)
+  %59 = call ptr @val_to_str_const(i32 noundef %58, ptr noundef @sapdiag_item_appl_control_vals, ptr noundef @.str.850)
   store ptr %59, ptr %5, align 8
   br label %76
 
 60:                                               ; preds = %2
   %61 = load i8, ptr %4, align 1
   %62 = zext i8 %61 to i32
-  %63 = call ptr @val_to_str_const(i32 noundef %62, ptr noundef @sapdiag_item_appl_ui_event_vals, ptr noundef @.str.837)
+  %63 = call ptr @val_to_str_const(i32 noundef %62, ptr noundef @sapdiag_item_appl_ui_event_vals, ptr noundef @.str.850)
   store ptr %63, ptr %5, align 8
   br label %76
 
 64:                                               ; preds = %2
   %65 = load i8, ptr %4, align 1
   %66 = zext i8 %65 to i32
-  %67 = call ptr @val_to_str_const(i32 noundef %66, ptr noundef @sapdiag_item_appl_acc_list_vals, ptr noundef @.str.837)
+  %67 = call ptr @val_to_str_const(i32 noundef %66, ptr noundef @sapdiag_item_appl_acc_list_vals, ptr noundef @.str.850)
   store ptr %67, ptr %5, align 8
   br label %76
 
 68:                                               ; preds = %2
   %69 = load i8, ptr %4, align 1
   %70 = zext i8 %69 to i32
-  %71 = call ptr @val_to_str_const(i32 noundef %70, ptr noundef @sapdiag_item_appl_rcui_vals, ptr noundef @.str.837)
+  %71 = call ptr @val_to_str_const(i32 noundef %70, ptr noundef @sapdiag_item_appl_rcui_vals, ptr noundef @.str.850)
   store ptr %71, ptr %5, align 8
   br label %76
 
 72:                                               ; preds = %2
   %73 = load i8, ptr %4, align 1
   %74 = zext i8 %73 to i32
-  %75 = call ptr @val_to_str_const(i32 noundef %74, ptr noundef @sapdiag_item_appl_gui_packet_vals, ptr noundef @.str.837)
+  %75 = call ptr @val_to_str_const(i32 noundef %74, ptr noundef @sapdiag_item_appl_gui_packet_vals, ptr noundef @.str.850)
   store ptr %75, ptr %5, align 8
   br label %76
 
-76:                                               ; preds = %72, %68, %64, %60, %56, %52, %48, %44, %40, %36, %32, %28, %24, %20, %16, %12, %8, %2
+76:                                               ; preds = %2, %72, %68, %64, %60, %56, %52, %48, %44, %40, %36, %32, %28, %24, %20, %16, %12, %8
   %77 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
   ret ptr %77
 }
 
-declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #2
 
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #2
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) #2
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i8 noundef zeroext %8, i32 noundef %9) #0 {
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
@@ -3226,6 +3367,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %23 = alloca i8, align 1
   %24 = alloca i32, align 4
   %25 = alloca i32, align 4
+  %26 = alloca i32, align 4
   store ptr %0, ptr %11, align 8
   store ptr %1, ptr %12, align 8
   store ptr %2, ptr %13, align 8
@@ -3236,866 +3378,868 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   store i8 %7, ptr %18, align 1
   store i8 %8, ptr %19, align 1
   store i32 %9, ptr %20, align 4
-  %26 = load i8, ptr %17, align 1
-  %27 = zext i8 %26 to i32
-  %28 = icmp eq i32 %27, 1
-  br i1 %28, label %29, label %156
+  %27 = load i8, ptr %17, align 1
+  %28 = zext i8 %27 to i32
+  %29 = icmp eq i32 %28, 1
+  br i1 %29, label %30, label %157
 
-29:                                               ; preds = %10
+30:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %21) #3
   store i8 0, ptr %21, align 1
-  %30 = load ptr, ptr %12, align 8
-  %31 = load ptr, ptr %14, align 8
-  %32 = load i32, ptr %20, align 4
-  %33 = call i32 @check_length(ptr noundef %30, ptr noundef %31, i32 noundef 16, i32 noundef %32, ptr noundef @.str.679)
-  %34 = load ptr, ptr %11, align 8
-  %35 = load i32, ptr %16, align 4
-  %36 = call zeroext i8 @tvb_get_guint8(ptr noundef %34, i32 noundef %35)
-  store i8 %36, ptr %21, align 1
-  %37 = load ptr, ptr %11, align 8
-  %38 = load ptr, ptr %13, align 8
-  %39 = load ptr, ptr %14, align 8
-  %40 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %41 = load i32, ptr %16, align 4
-  %42 = call zeroext i8 @add_item_value_uint8(ptr noundef %37, ptr noundef %38, ptr noundef %39, i32 noundef %40, i32 noundef %41, ptr noundef @.str.1006)
-  %43 = load i32, ptr %16, align 4
-  %44 = add i32 %43, 1
-  store i32 %44, ptr %16, align 4
-  %45 = load ptr, ptr %11, align 8
-  %46 = load ptr, ptr %13, align 8
-  %47 = load ptr, ptr %14, align 8
-  %48 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %49 = load i32, ptr %16, align 4
-  %50 = call zeroext i8 @add_item_value_uint8(ptr noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef %48, i32 noundef %49, ptr noundef @.str.1007)
-  %51 = load i32, ptr %16, align 4
-  %52 = add i32 %51, 1
-  store i32 %52, ptr %16, align 4
-  %53 = load ptr, ptr %11, align 8
-  %54 = load ptr, ptr %13, align 8
-  %55 = load ptr, ptr %14, align 8
-  %56 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %57 = load i32, ptr %16, align 4
-  %58 = call zeroext i8 @add_item_value_uint8(ptr noundef %53, ptr noundef %54, ptr noundef %55, i32 noundef %56, i32 noundef %57, ptr noundef @.str.1008)
-  %59 = load i32, ptr %16, align 4
-  %60 = add i32 %59, 1
-  store i32 %60, ptr %16, align 4
-  %61 = load ptr, ptr %11, align 8
-  %62 = load ptr, ptr %13, align 8
-  %63 = load ptr, ptr %14, align 8
-  %64 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %65 = load i32, ptr %16, align 4
-  %66 = call zeroext i8 @add_item_value_uint8(ptr noundef %61, ptr noundef %62, ptr noundef %63, i32 noundef %64, i32 noundef %65, ptr noundef @.str.1009)
-  %67 = load i32, ptr %16, align 4
-  %68 = add i32 %67, 1
-  store i32 %68, ptr %16, align 4
-  %69 = load ptr, ptr %11, align 8
-  %70 = load ptr, ptr %13, align 8
-  %71 = load ptr, ptr %14, align 8
-  %72 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %73 = load i32, ptr %16, align 4
-  %74 = call zeroext i8 @add_item_value_uint8(ptr noundef %69, ptr noundef %70, ptr noundef %71, i32 noundef %72, i32 noundef %73, ptr noundef @.str.1010)
-  %75 = load i32, ptr %16, align 4
-  %76 = add i32 %75, 1
-  store i32 %76, ptr %16, align 4
-  %77 = load ptr, ptr %11, align 8
-  %78 = load ptr, ptr %13, align 8
-  %79 = load ptr, ptr %14, align 8
-  %80 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %81 = load i32, ptr %16, align 4
-  %82 = call zeroext i8 @add_item_value_uint8(ptr noundef %77, ptr noundef %78, ptr noundef %79, i32 noundef %80, i32 noundef %81, ptr noundef @.str.1011)
-  %83 = load i32, ptr %16, align 4
-  %84 = add i32 %83, 1
-  store i32 %84, ptr %16, align 4
-  %85 = load ptr, ptr %11, align 8
-  %86 = load ptr, ptr %13, align 8
-  %87 = load ptr, ptr %14, align 8
-  %88 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %89 = load i32, ptr %16, align 4
-  %90 = call zeroext i8 @add_item_value_uint8(ptr noundef %85, ptr noundef %86, ptr noundef %87, i32 noundef %88, i32 noundef %89, ptr noundef @.str.1012)
-  %91 = load i32, ptr %16, align 4
-  %92 = add i32 %91, 1
-  store i32 %92, ptr %16, align 4
-  %93 = load ptr, ptr %11, align 8
-  %94 = load ptr, ptr %13, align 8
-  %95 = load ptr, ptr %14, align 8
-  %96 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %97 = load i32, ptr %16, align 4
-  %98 = call zeroext i8 @add_item_value_uint8(ptr noundef %93, ptr noundef %94, ptr noundef %95, i32 noundef %96, i32 noundef %97, ptr noundef @.str.1013)
-  %99 = load i32, ptr %16, align 4
-  %100 = add i32 %99, 1
-  store i32 %100, ptr %16, align 4
-  %101 = load ptr, ptr %11, align 8
-  %102 = load ptr, ptr %13, align 8
-  %103 = load ptr, ptr %14, align 8
-  %104 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %105 = load i32, ptr %16, align 4
-  %106 = call zeroext i8 @add_item_value_uint8(ptr noundef %101, ptr noundef %102, ptr noundef %103, i32 noundef %104, i32 noundef %105, ptr noundef @.str.1014)
-  %107 = load i32, ptr %16, align 4
-  %108 = add i32 %107, 1
-  store i32 %108, ptr %16, align 4
-  %109 = load ptr, ptr %11, align 8
-  %110 = load ptr, ptr %13, align 8
-  %111 = load ptr, ptr %14, align 8
-  %112 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %113 = load i32, ptr %16, align 4
-  %114 = call zeroext i8 @add_item_value_uint8(ptr noundef %109, ptr noundef %110, ptr noundef %111, i32 noundef %112, i32 noundef %113, ptr noundef @.str.1015)
-  %115 = load i32, ptr %16, align 4
-  %116 = add i32 %115, 1
-  store i32 %116, ptr %16, align 4
-  %117 = load ptr, ptr %11, align 8
-  %118 = load ptr, ptr %13, align 8
-  %119 = load ptr, ptr %14, align 8
-  %120 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %121 = load i32, ptr %16, align 4
-  %122 = call zeroext i8 @add_item_value_uint8(ptr noundef %117, ptr noundef %118, ptr noundef %119, i32 noundef %120, i32 noundef %121, ptr noundef @.str.1016)
-  %123 = load i32, ptr %16, align 4
-  %124 = add i32 %123, 1
-  store i32 %124, ptr %16, align 4
-  %125 = load ptr, ptr %11, align 8
-  %126 = load ptr, ptr %13, align 8
-  %127 = load ptr, ptr %14, align 8
-  %128 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %129 = load i32, ptr %16, align 4
-  %130 = call zeroext i8 @add_item_value_uint8(ptr noundef %125, ptr noundef %126, ptr noundef %127, i32 noundef %128, i32 noundef %129, ptr noundef @.str.1017)
-  %131 = load i32, ptr %16, align 4
-  %132 = add i32 %131, 3
-  store i32 %132, ptr %16, align 4
-  %133 = load ptr, ptr %11, align 8
-  %134 = load ptr, ptr %13, align 8
-  %135 = load ptr, ptr %14, align 8
-  %136 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %137 = load i32, ptr %16, align 4
-  %138 = call zeroext i8 @add_item_value_uint8(ptr noundef %133, ptr noundef %134, ptr noundef %135, i32 noundef %136, i32 noundef %137, ptr noundef @.str.1018)
-  %139 = load i32, ptr %16, align 4
-  %140 = add i32 %139, 1
-  store i32 %140, ptr %16, align 4
-  %141 = load ptr, ptr %11, align 8
-  %142 = load ptr, ptr %13, align 8
-  %143 = load ptr, ptr %14, align 8
-  %144 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %145 = load i32, ptr %16, align 4
-  %146 = call zeroext i8 @add_item_value_uint8(ptr noundef %141, ptr noundef %142, ptr noundef %143, i32 noundef %144, i32 noundef %145, ptr noundef @.str.1019)
-  %147 = load i32, ptr @global_sapdiag_highlight_items, align 4
-  %148 = icmp ne i32 %147, 0
-  br i1 %148, label %149, label %155
+  %31 = load ptr, ptr %12, align 8
+  %32 = load ptr, ptr %14, align 8
+  %33 = load i32, ptr %20, align 4
+  %34 = call zeroext i1 @check_length(ptr noundef %31, ptr noundef %32, i32 noundef 16, i32 noundef %33, ptr noundef @.str.681)
+  %35 = load ptr, ptr %11, align 8
+  %36 = load i32, ptr %16, align 4
+  %37 = call zeroext i8 @tvb_get_uint8(ptr noundef %35, i32 noundef %36)
+  store i8 %37, ptr %21, align 1
+  %38 = load ptr, ptr %11, align 8
+  %39 = load ptr, ptr %13, align 8
+  %40 = load ptr, ptr %14, align 8
+  %41 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %42 = load i32, ptr %16, align 4
+  %43 = call zeroext i8 @add_item_value_uint8(ptr noundef %38, ptr noundef %39, ptr noundef %40, i32 noundef %41, i32 noundef %42, ptr noundef @.str.1036)
+  %44 = load i32, ptr %16, align 4
+  %45 = add i32 %44, 1
+  store i32 %45, ptr %16, align 4
+  %46 = load ptr, ptr %11, align 8
+  %47 = load ptr, ptr %13, align 8
+  %48 = load ptr, ptr %14, align 8
+  %49 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %50 = load i32, ptr %16, align 4
+  %51 = call zeroext i8 @add_item_value_uint8(ptr noundef %46, ptr noundef %47, ptr noundef %48, i32 noundef %49, i32 noundef %50, ptr noundef @.str.1037)
+  %52 = load i32, ptr %16, align 4
+  %53 = add i32 %52, 1
+  store i32 %53, ptr %16, align 4
+  %54 = load ptr, ptr %11, align 8
+  %55 = load ptr, ptr %13, align 8
+  %56 = load ptr, ptr %14, align 8
+  %57 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %58 = load i32, ptr %16, align 4
+  %59 = call zeroext i8 @add_item_value_uint8(ptr noundef %54, ptr noundef %55, ptr noundef %56, i32 noundef %57, i32 noundef %58, ptr noundef @.str.1038)
+  %60 = load i32, ptr %16, align 4
+  %61 = add i32 %60, 1
+  store i32 %61, ptr %16, align 4
+  %62 = load ptr, ptr %11, align 8
+  %63 = load ptr, ptr %13, align 8
+  %64 = load ptr, ptr %14, align 8
+  %65 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %66 = load i32, ptr %16, align 4
+  %67 = call zeroext i8 @add_item_value_uint8(ptr noundef %62, ptr noundef %63, ptr noundef %64, i32 noundef %65, i32 noundef %66, ptr noundef @.str.1039)
+  %68 = load i32, ptr %16, align 4
+  %69 = add i32 %68, 1
+  store i32 %69, ptr %16, align 4
+  %70 = load ptr, ptr %11, align 8
+  %71 = load ptr, ptr %13, align 8
+  %72 = load ptr, ptr %14, align 8
+  %73 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %74 = load i32, ptr %16, align 4
+  %75 = call zeroext i8 @add_item_value_uint8(ptr noundef %70, ptr noundef %71, ptr noundef %72, i32 noundef %73, i32 noundef %74, ptr noundef @.str.1040)
+  %76 = load i32, ptr %16, align 4
+  %77 = add i32 %76, 1
+  store i32 %77, ptr %16, align 4
+  %78 = load ptr, ptr %11, align 8
+  %79 = load ptr, ptr %13, align 8
+  %80 = load ptr, ptr %14, align 8
+  %81 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %82 = load i32, ptr %16, align 4
+  %83 = call zeroext i8 @add_item_value_uint8(ptr noundef %78, ptr noundef %79, ptr noundef %80, i32 noundef %81, i32 noundef %82, ptr noundef @.str.1041)
+  %84 = load i32, ptr %16, align 4
+  %85 = add i32 %84, 1
+  store i32 %85, ptr %16, align 4
+  %86 = load ptr, ptr %11, align 8
+  %87 = load ptr, ptr %13, align 8
+  %88 = load ptr, ptr %14, align 8
+  %89 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %90 = load i32, ptr %16, align 4
+  %91 = call zeroext i8 @add_item_value_uint8(ptr noundef %86, ptr noundef %87, ptr noundef %88, i32 noundef %89, i32 noundef %90, ptr noundef @.str.1042)
+  %92 = load i32, ptr %16, align 4
+  %93 = add i32 %92, 1
+  store i32 %93, ptr %16, align 4
+  %94 = load ptr, ptr %11, align 8
+  %95 = load ptr, ptr %13, align 8
+  %96 = load ptr, ptr %14, align 8
+  %97 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %98 = load i32, ptr %16, align 4
+  %99 = call zeroext i8 @add_item_value_uint8(ptr noundef %94, ptr noundef %95, ptr noundef %96, i32 noundef %97, i32 noundef %98, ptr noundef @.str.1043)
+  %100 = load i32, ptr %16, align 4
+  %101 = add i32 %100, 1
+  store i32 %101, ptr %16, align 4
+  %102 = load ptr, ptr %11, align 8
+  %103 = load ptr, ptr %13, align 8
+  %104 = load ptr, ptr %14, align 8
+  %105 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %106 = load i32, ptr %16, align 4
+  %107 = call zeroext i8 @add_item_value_uint8(ptr noundef %102, ptr noundef %103, ptr noundef %104, i32 noundef %105, i32 noundef %106, ptr noundef @.str.1044)
+  %108 = load i32, ptr %16, align 4
+  %109 = add i32 %108, 1
+  store i32 %109, ptr %16, align 4
+  %110 = load ptr, ptr %11, align 8
+  %111 = load ptr, ptr %13, align 8
+  %112 = load ptr, ptr %14, align 8
+  %113 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %114 = load i32, ptr %16, align 4
+  %115 = call zeroext i8 @add_item_value_uint8(ptr noundef %110, ptr noundef %111, ptr noundef %112, i32 noundef %113, i32 noundef %114, ptr noundef @.str.1045)
+  %116 = load i32, ptr %16, align 4
+  %117 = add i32 %116, 1
+  store i32 %117, ptr %16, align 4
+  %118 = load ptr, ptr %11, align 8
+  %119 = load ptr, ptr %13, align 8
+  %120 = load ptr, ptr %14, align 8
+  %121 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %122 = load i32, ptr %16, align 4
+  %123 = call zeroext i8 @add_item_value_uint8(ptr noundef %118, ptr noundef %119, ptr noundef %120, i32 noundef %121, i32 noundef %122, ptr noundef @.str.1046)
+  %124 = load i32, ptr %16, align 4
+  %125 = add i32 %124, 1
+  store i32 %125, ptr %16, align 4
+  %126 = load ptr, ptr %11, align 8
+  %127 = load ptr, ptr %13, align 8
+  %128 = load ptr, ptr %14, align 8
+  %129 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %130 = load i32, ptr %16, align 4
+  %131 = call zeroext i8 @add_item_value_uint8(ptr noundef %126, ptr noundef %127, ptr noundef %128, i32 noundef %129, i32 noundef %130, ptr noundef @.str.1047)
+  %132 = load i32, ptr %16, align 4
+  %133 = add i32 %132, 3
+  store i32 %133, ptr %16, align 4
+  %134 = load ptr, ptr %11, align 8
+  %135 = load ptr, ptr %13, align 8
+  %136 = load ptr, ptr %14, align 8
+  %137 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %138 = load i32, ptr %16, align 4
+  %139 = call zeroext i8 @add_item_value_uint8(ptr noundef %134, ptr noundef %135, ptr noundef %136, i32 noundef %137, i32 noundef %138, ptr noundef @.str.1048)
+  %140 = load i32, ptr %16, align 4
+  %141 = add i32 %140, 1
+  store i32 %141, ptr %16, align 4
+  %142 = load ptr, ptr %11, align 8
+  %143 = load ptr, ptr %13, align 8
+  %144 = load ptr, ptr %14, align 8
+  %145 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %146 = load i32, ptr %16, align 4
+  %147 = call zeroext i8 @add_item_value_uint8(ptr noundef %142, ptr noundef %143, ptr noundef %144, i32 noundef %145, i32 noundef %146, ptr noundef @.str.1049)
+  %148 = load i8, ptr @global_sapdiag_highlight_items, align 1, !range !6, !noundef !7
+  %149 = trunc i8 %148 to i1
+  br i1 %149, label %150, label %156
 
-149:                                              ; preds = %29
-  %150 = load ptr, ptr %12, align 8
-  %151 = load ptr, ptr %13, align 8
-  %152 = load i8, ptr %21, align 1
-  %153 = zext i8 %152 to i32
-  %154 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %150, ptr noundef %151, ptr noundef @ei_sapdiag_item_partial, ptr noundef @.str.1020, i32 noundef %153)
-  br label %155
+150:                                              ; preds = %30
+  %151 = load ptr, ptr %12, align 8
+  %152 = load ptr, ptr %13, align 8
+  %153 = load i8, ptr %21, align 1
+  %154 = zext i8 %153 to i32
+  %155 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %151, ptr noundef %152, ptr noundef @ei_sapdiag_item_partial, ptr noundef @.str.1050, i32 noundef %154)
+  br label %156
 
-155:                                              ; preds = %149, %29
-  br label %2619
-
-156:                                              ; preds = %10
-  %157 = load i8, ptr %17, align 1
-  %158 = zext i8 %157 to i32
-  %159 = icmp eq i32 %158, 10
-  br i1 %159, label %160, label %187
-
-160:                                              ; preds = %156
-  %161 = load ptr, ptr %12, align 8
-  %162 = load ptr, ptr %14, align 8
-  %163 = load i32, ptr %20, align 4
-  %164 = call i32 @check_length(ptr noundef %161, ptr noundef %162, i32 noundef 3, i32 noundef %163, ptr noundef @.str.685)
-  %165 = load ptr, ptr %11, align 8
-  %166 = load ptr, ptr %13, align 8
-  %167 = load ptr, ptr %14, align 8
-  %168 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %169 = load i32, ptr %16, align 4
-  %170 = call zeroext i8 @add_item_value_uint8(ptr noundef %165, ptr noundef %166, ptr noundef %167, i32 noundef %168, i32 noundef %169, ptr noundef @.str.1021)
-  %171 = load i32, ptr %16, align 4
-  %172 = add i32 %171, 1
-  store i32 %172, ptr %16, align 4
-  %173 = load ptr, ptr %11, align 8
-  %174 = load ptr, ptr %13, align 8
-  %175 = load ptr, ptr %14, align 8
-  %176 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %177 = load i32, ptr %16, align 4
-  %178 = call zeroext i8 @add_item_value_uint8(ptr noundef %173, ptr noundef %174, ptr noundef %175, i32 noundef %176, i32 noundef %177, ptr noundef @.str.1022)
-  %179 = load i32, ptr %16, align 4
-  %180 = add i32 %179, 1
-  store i32 %180, ptr %16, align 4
-  %181 = load ptr, ptr %11, align 8
-  %182 = load ptr, ptr %13, align 8
-  %183 = load ptr, ptr %14, align 8
-  %184 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %185 = load i32, ptr %16, align 4
-  %186 = call zeroext i8 @add_item_value_uint8(ptr noundef %181, ptr noundef %182, ptr noundef %183, i32 noundef %184, i32 noundef %185, ptr noundef @.str.1023)
+156:                                              ; preds = %150, %30
+  call void @llvm.lifetime.end.p0(i64 1, ptr %21) #3
   br label %2618
 
-187:                                              ; preds = %156
-  %188 = load i8, ptr %17, align 1
-  %189 = zext i8 %188 to i32
-  %190 = icmp eq i32 %189, 11
-  br i1 %190, label %191, label %210
+157:                                              ; preds = %10
+  %158 = load i8, ptr %17, align 1
+  %159 = zext i8 %158 to i32
+  %160 = icmp eq i32 %159, 10
+  br i1 %160, label %161, label %188
 
-191:                                              ; preds = %187
-  %192 = load ptr, ptr %12, align 8
-  %193 = load ptr, ptr %14, align 8
-  %194 = load i32, ptr %20, align 4
-  %195 = call i32 @check_length(ptr noundef %192, ptr noundef %193, i32 noundef 2, i32 noundef %194, ptr noundef @.str.686)
-  %196 = load ptr, ptr %11, align 8
-  %197 = load ptr, ptr %13, align 8
-  %198 = load ptr, ptr %14, align 8
-  %199 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %200 = load i32, ptr %16, align 4
-  %201 = call zeroext i8 @add_item_value_uint8(ptr noundef %196, ptr noundef %197, ptr noundef %198, i32 noundef %199, i32 noundef %200, ptr noundef @.str.1024)
-  %202 = load i32, ptr %16, align 4
-  %203 = add i32 %202, 1
-  store i32 %203, ptr %16, align 4
-  %204 = load ptr, ptr %11, align 8
-  %205 = load ptr, ptr %13, align 8
-  %206 = load ptr, ptr %14, align 8
-  %207 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %208 = load i32, ptr %16, align 4
-  %209 = call zeroext i8 @add_item_value_uint8(ptr noundef %204, ptr noundef %205, ptr noundef %206, i32 noundef %207, i32 noundef %208, ptr noundef @.str.1025)
+161:                                              ; preds = %157
+  %162 = load ptr, ptr %12, align 8
+  %163 = load ptr, ptr %14, align 8
+  %164 = load i32, ptr %20, align 4
+  %165 = call zeroext i1 @check_length(ptr noundef %162, ptr noundef %163, i32 noundef 3, i32 noundef %164, ptr noundef @.str.687)
+  %166 = load ptr, ptr %11, align 8
+  %167 = load ptr, ptr %13, align 8
+  %168 = load ptr, ptr %14, align 8
+  %169 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %170 = load i32, ptr %16, align 4
+  %171 = call zeroext i8 @add_item_value_uint8(ptr noundef %166, ptr noundef %167, ptr noundef %168, i32 noundef %169, i32 noundef %170, ptr noundef @.str.1051)
+  %172 = load i32, ptr %16, align 4
+  %173 = add i32 %172, 1
+  store i32 %173, ptr %16, align 4
+  %174 = load ptr, ptr %11, align 8
+  %175 = load ptr, ptr %13, align 8
+  %176 = load ptr, ptr %14, align 8
+  %177 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %178 = load i32, ptr %16, align 4
+  %179 = call zeroext i8 @add_item_value_uint8(ptr noundef %174, ptr noundef %175, ptr noundef %176, i32 noundef %177, i32 noundef %178, ptr noundef @.str.1052)
+  %180 = load i32, ptr %16, align 4
+  %181 = add i32 %180, 1
+  store i32 %181, ptr %16, align 4
+  %182 = load ptr, ptr %11, align 8
+  %183 = load ptr, ptr %13, align 8
+  %184 = load ptr, ptr %14, align 8
+  %185 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %186 = load i32, ptr %16, align 4
+  %187 = call zeroext i8 @add_item_value_uint8(ptr noundef %182, ptr noundef %183, ptr noundef %184, i32 noundef %185, i32 noundef %186, ptr noundef @.str.1053)
   br label %2617
 
-210:                                              ; preds = %187
-  %211 = load i8, ptr %17, align 1
-  %212 = zext i8 %211 to i32
-  %213 = icmp eq i32 %212, 16
-  br i1 %213, label %214, label %233
+188:                                              ; preds = %157
+  %189 = load i8, ptr %17, align 1
+  %190 = zext i8 %189 to i32
+  %191 = icmp eq i32 %190, 11
+  br i1 %191, label %192, label %211
 
-214:                                              ; preds = %210
-  %215 = load i8, ptr %18, align 1
-  %216 = zext i8 %215 to i32
-  %217 = icmp eq i32 %216, 4
-  br i1 %217, label %218, label %233
-
-218:                                              ; preds = %214
-  %219 = load i8, ptr %19, align 1
-  %220 = zext i8 %219 to i32
-  %221 = icmp eq i32 %220, 38
-  br i1 %221, label %222, label %233
-
-222:                                              ; preds = %218
-  %223 = load ptr, ptr %12, align 8
-  %224 = load ptr, ptr %14, align 8
-  %225 = load i32, ptr %20, align 4
-  %226 = call i32 @check_length(ptr noundef %223, ptr noundef %224, i32 noundef 4, i32 noundef %225, ptr noundef @.str.1026)
-  %227 = load ptr, ptr %11, align 8
-  %228 = load ptr, ptr %13, align 8
-  %229 = load ptr, ptr %14, align 8
-  %230 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %231 = load i32, ptr %16, align 4
-  %232 = call i32 @add_item_value_uint32(ptr noundef %227, ptr noundef %228, ptr noundef %229, i32 noundef %230, i32 noundef %231, ptr noundef @.str.1026)
+192:                                              ; preds = %188
+  %193 = load ptr, ptr %12, align 8
+  %194 = load ptr, ptr %14, align 8
+  %195 = load i32, ptr %20, align 4
+  %196 = call zeroext i1 @check_length(ptr noundef %193, ptr noundef %194, i32 noundef 2, i32 noundef %195, ptr noundef @.str.688)
+  %197 = load ptr, ptr %11, align 8
+  %198 = load ptr, ptr %13, align 8
+  %199 = load ptr, ptr %14, align 8
+  %200 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %201 = load i32, ptr %16, align 4
+  %202 = call zeroext i8 @add_item_value_uint8(ptr noundef %197, ptr noundef %198, ptr noundef %199, i32 noundef %200, i32 noundef %201, ptr noundef @.str.1054)
+  %203 = load i32, ptr %16, align 4
+  %204 = add i32 %203, 1
+  store i32 %204, ptr %16, align 4
+  %205 = load ptr, ptr %11, align 8
+  %206 = load ptr, ptr %13, align 8
+  %207 = load ptr, ptr %14, align 8
+  %208 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %209 = load i32, ptr %16, align 4
+  %210 = call zeroext i8 @add_item_value_uint8(ptr noundef %205, ptr noundef %206, ptr noundef %207, i32 noundef %208, i32 noundef %209, ptr noundef @.str.1055)
   br label %2616
 
-233:                                              ; preds = %218, %214, %210
-  %234 = load i8, ptr %17, align 1
-  %235 = zext i8 %234 to i32
-  %236 = icmp eq i32 %235, 16
-  br i1 %236, label %237, label %272
+211:                                              ; preds = %188
+  %212 = load i8, ptr %17, align 1
+  %213 = zext i8 %212 to i32
+  %214 = icmp eq i32 %213, 16
+  br i1 %214, label %215, label %234
 
-237:                                              ; preds = %233
-  %238 = load i8, ptr %18, align 1
-  %239 = zext i8 %238 to i32
-  %240 = icmp eq i32 %239, 4
-  br i1 %240, label %241, label %272
+215:                                              ; preds = %211
+  %216 = load i8, ptr %18, align 1
+  %217 = zext i8 %216 to i32
+  %218 = icmp eq i32 %217, 4
+  br i1 %218, label %219, label %234
 
-241:                                              ; preds = %237
-  %242 = load i8, ptr %19, align 1
-  %243 = zext i8 %242 to i32
-  %244 = icmp eq i32 %243, 2
-  br i1 %244, label %245, label %272
+219:                                              ; preds = %215
+  %220 = load i8, ptr %19, align 1
+  %221 = zext i8 %220 to i32
+  %222 = icmp eq i32 %221, 38
+  br i1 %222, label %223, label %234
 
-245:                                              ; preds = %241
-  %246 = load ptr, ptr %12, align 8
-  %247 = load ptr, ptr %14, align 8
-  %248 = load i32, ptr %20, align 4
-  %249 = call i32 @check_length(ptr noundef %246, ptr noundef %247, i32 noundef 12, i32 noundef %248, ptr noundef @.str.1027)
-  %250 = load ptr, ptr %11, align 8
-  %251 = load ptr, ptr %13, align 8
-  %252 = load ptr, ptr %14, align 8
-  %253 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %254 = load i32, ptr %16, align 4
-  %255 = call i32 @add_item_value_uint32(ptr noundef %250, ptr noundef %251, ptr noundef %252, i32 noundef %253, i32 noundef %254, ptr noundef @.str.1028)
-  %256 = load i32, ptr %16, align 4
-  %257 = add i32 %256, 4
-  store i32 %257, ptr %16, align 4
-  %258 = load ptr, ptr %11, align 8
-  %259 = load ptr, ptr %13, align 8
-  %260 = load ptr, ptr %14, align 8
-  %261 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %262 = load i32, ptr %16, align 4
-  %263 = call i32 @add_item_value_uint32(ptr noundef %258, ptr noundef %259, ptr noundef %260, i32 noundef %261, i32 noundef %262, ptr noundef @.str.1029)
-  %264 = load i32, ptr %16, align 4
-  %265 = add i32 %264, 4
-  store i32 %265, ptr %16, align 4
-  %266 = load ptr, ptr %11, align 8
-  %267 = load ptr, ptr %13, align 8
-  %268 = load ptr, ptr %14, align 8
-  %269 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %270 = load i32, ptr %16, align 4
-  %271 = call i32 @add_item_value_uint32(ptr noundef %266, ptr noundef %267, ptr noundef %268, i32 noundef %269, i32 noundef %270, ptr noundef @.str.1030)
+223:                                              ; preds = %219
+  %224 = load ptr, ptr %12, align 8
+  %225 = load ptr, ptr %14, align 8
+  %226 = load i32, ptr %20, align 4
+  %227 = call zeroext i1 @check_length(ptr noundef %224, ptr noundef %225, i32 noundef 4, i32 noundef %226, ptr noundef @.str.1056)
+  %228 = load ptr, ptr %11, align 8
+  %229 = load ptr, ptr %13, align 8
+  %230 = load ptr, ptr %14, align 8
+  %231 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %232 = load i32, ptr %16, align 4
+  %233 = call i32 @add_item_value_uint32(ptr noundef %228, ptr noundef %229, ptr noundef %230, i32 noundef %231, i32 noundef %232, ptr noundef @.str.1056)
   br label %2615
 
-272:                                              ; preds = %241, %237, %233
-  %273 = load i8, ptr %17, align 1
-  %274 = zext i8 %273 to i32
-  %275 = icmp eq i32 %274, 16
-  br i1 %275, label %276, label %319
+234:                                              ; preds = %219, %215, %211
+  %235 = load i8, ptr %17, align 1
+  %236 = zext i8 %235 to i32
+  %237 = icmp eq i32 %236, 16
+  br i1 %237, label %238, label %273
 
-276:                                              ; preds = %272
-  %277 = load i8, ptr %18, align 1
-  %278 = zext i8 %277 to i32
-  %279 = icmp eq i32 %278, 4
-  br i1 %279, label %280, label %319
+238:                                              ; preds = %234
+  %239 = load i8, ptr %18, align 1
+  %240 = zext i8 %239 to i32
+  %241 = icmp eq i32 %240, 4
+  br i1 %241, label %242, label %273
 
-280:                                              ; preds = %276
-  %281 = load i8, ptr %19, align 1
-  %282 = zext i8 %281 to i32
-  %283 = icmp eq i32 %282, 4
-  br i1 %283, label %284, label %319
+242:                                              ; preds = %238
+  %243 = load i8, ptr %19, align 1
+  %244 = zext i8 %243 to i32
+  %245 = icmp eq i32 %244, 2
+  br i1 %245, label %246, label %273
 
-284:                                              ; preds = %280
-  %285 = load ptr, ptr %12, align 8
-  %286 = load ptr, ptr %14, align 8
-  %287 = load i32, ptr %20, align 4
-  %288 = call i32 @check_length(ptr noundef %285, ptr noundef %286, i32 noundef 8, i32 noundef %287, ptr noundef @.str.1031)
-  %289 = load ptr, ptr %11, align 8
-  %290 = load ptr, ptr %13, align 8
-  %291 = load ptr, ptr %14, align 8
-  %292 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %293 = load i32, ptr %16, align 4
-  %294 = call zeroext i16 @add_item_value_uint16(ptr noundef %289, ptr noundef %290, ptr noundef %291, i32 noundef %292, i32 noundef %293, ptr noundef @.str.1032)
-  %295 = load i32, ptr %16, align 4
-  %296 = add i32 %295, 2
-  store i32 %296, ptr %16, align 4
-  %297 = load ptr, ptr %11, align 8
-  %298 = load ptr, ptr %13, align 8
-  %299 = load ptr, ptr %14, align 8
-  %300 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %301 = load i32, ptr %16, align 4
-  %302 = call zeroext i16 @add_item_value_uint16(ptr noundef %297, ptr noundef %298, ptr noundef %299, i32 noundef %300, i32 noundef %301, ptr noundef @.str.1033)
-  %303 = load i32, ptr %16, align 4
-  %304 = add i32 %303, 2
-  store i32 %304, ptr %16, align 4
-  %305 = load ptr, ptr %11, align 8
-  %306 = load ptr, ptr %13, align 8
-  %307 = load ptr, ptr %14, align 8
-  %308 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %309 = load i32, ptr %16, align 4
-  %310 = call zeroext i16 @add_item_value_uint16(ptr noundef %305, ptr noundef %306, ptr noundef %307, i32 noundef %308, i32 noundef %309, ptr noundef @.str.1034)
-  %311 = load i32, ptr %16, align 4
-  %312 = add i32 %311, 2
-  store i32 %312, ptr %16, align 4
-  %313 = load ptr, ptr %11, align 8
-  %314 = load ptr, ptr %13, align 8
-  %315 = load ptr, ptr %14, align 8
-  %316 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %317 = load i32, ptr %16, align 4
-  %318 = call zeroext i16 @add_item_value_uint16(ptr noundef %313, ptr noundef %314, ptr noundef %315, i32 noundef %316, i32 noundef %317, ptr noundef @.str.1035)
+246:                                              ; preds = %242
+  %247 = load ptr, ptr %12, align 8
+  %248 = load ptr, ptr %14, align 8
+  %249 = load i32, ptr %20, align 4
+  %250 = call zeroext i1 @check_length(ptr noundef %247, ptr noundef %248, i32 noundef 12, i32 noundef %249, ptr noundef @.str.1057)
+  %251 = load ptr, ptr %11, align 8
+  %252 = load ptr, ptr %13, align 8
+  %253 = load ptr, ptr %14, align 8
+  %254 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %255 = load i32, ptr %16, align 4
+  %256 = call i32 @add_item_value_uint32(ptr noundef %251, ptr noundef %252, ptr noundef %253, i32 noundef %254, i32 noundef %255, ptr noundef @.str.1058)
+  %257 = load i32, ptr %16, align 4
+  %258 = add i32 %257, 4
+  store i32 %258, ptr %16, align 4
+  %259 = load ptr, ptr %11, align 8
+  %260 = load ptr, ptr %13, align 8
+  %261 = load ptr, ptr %14, align 8
+  %262 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %263 = load i32, ptr %16, align 4
+  %264 = call i32 @add_item_value_uint32(ptr noundef %259, ptr noundef %260, ptr noundef %261, i32 noundef %262, i32 noundef %263, ptr noundef @.str.1059)
+  %265 = load i32, ptr %16, align 4
+  %266 = add i32 %265, 4
+  store i32 %266, ptr %16, align 4
+  %267 = load ptr, ptr %11, align 8
+  %268 = load ptr, ptr %13, align 8
+  %269 = load ptr, ptr %14, align 8
+  %270 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %271 = load i32, ptr %16, align 4
+  %272 = call i32 @add_item_value_uint32(ptr noundef %267, ptr noundef %268, ptr noundef %269, i32 noundef %270, i32 noundef %271, ptr noundef @.str.1060)
   br label %2614
 
-319:                                              ; preds = %280, %276, %272
-  %320 = load i8, ptr %17, align 1
-  %321 = zext i8 %320 to i32
-  %322 = icmp eq i32 %321, 16
-  br i1 %322, label %323, label %331
+273:                                              ; preds = %242, %238, %234
+  %274 = load i8, ptr %17, align 1
+  %275 = zext i8 %274 to i32
+  %276 = icmp eq i32 %275, 16
+  br i1 %276, label %277, label %320
 
-323:                                              ; preds = %319
-  %324 = load i8, ptr %18, align 1
-  %325 = zext i8 %324 to i32
-  %326 = icmp eq i32 %325, 4
-  br i1 %326, label %327, label %331
+277:                                              ; preds = %273
+  %278 = load i8, ptr %18, align 1
+  %279 = zext i8 %278 to i32
+  %280 = icmp eq i32 %279, 4
+  br i1 %280, label %281, label %320
 
-327:                                              ; preds = %323
-  %328 = load i8, ptr %19, align 1
-  %329 = zext i8 %328 to i32
-  %330 = icmp eq i32 %329, 11
-  br i1 %330, label %343, label %331
+281:                                              ; preds = %277
+  %282 = load i8, ptr %19, align 1
+  %283 = zext i8 %282 to i32
+  %284 = icmp eq i32 %283, 4
+  br i1 %284, label %285, label %320
 
-331:                                              ; preds = %327, %323, %319
-  %332 = load i8, ptr %17, align 1
-  %333 = zext i8 %332 to i32
-  %334 = icmp eq i32 %333, 16
-  br i1 %334, label %335, label %351
-
-335:                                              ; preds = %331
-  %336 = load i8, ptr %18, align 1
-  %337 = zext i8 %336 to i32
-  %338 = icmp eq i32 %337, 6
-  br i1 %338, label %339, label %351
-
-339:                                              ; preds = %335
-  %340 = load i8, ptr %19, align 1
-  %341 = zext i8 %340 to i32
-  %342 = icmp eq i32 %341, 17
-  br i1 %342, label %343, label %351
-
-343:                                              ; preds = %339, %327
-  %344 = load ptr, ptr %12, align 8
-  %345 = load ptr, ptr %14, align 8
-  %346 = load i32, ptr %20, align 4
-  %347 = call i32 @check_length(ptr noundef %344, ptr noundef %345, i32 noundef 32, i32 noundef %346, ptr noundef @.str.1036)
-  %348 = load ptr, ptr %11, align 8
-  %349 = load ptr, ptr %14, align 8
-  %350 = load i32, ptr %16, align 4
-  call void @dissect_sapdiag_support_bits(ptr noundef %348, ptr noundef %349, i32 noundef %350)
+285:                                              ; preds = %281
+  %286 = load ptr, ptr %12, align 8
+  %287 = load ptr, ptr %14, align 8
+  %288 = load i32, ptr %20, align 4
+  %289 = call zeroext i1 @check_length(ptr noundef %286, ptr noundef %287, i32 noundef 8, i32 noundef %288, ptr noundef @.str.1061)
+  %290 = load ptr, ptr %11, align 8
+  %291 = load ptr, ptr %13, align 8
+  %292 = load ptr, ptr %14, align 8
+  %293 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %294 = load i32, ptr %16, align 4
+  %295 = call zeroext i16 @add_item_value_uint16(ptr noundef %290, ptr noundef %291, ptr noundef %292, i32 noundef %293, i32 noundef %294, ptr noundef @.str.1062)
+  %296 = load i32, ptr %16, align 4
+  %297 = add i32 %296, 2
+  store i32 %297, ptr %16, align 4
+  %298 = load ptr, ptr %11, align 8
+  %299 = load ptr, ptr %13, align 8
+  %300 = load ptr, ptr %14, align 8
+  %301 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %302 = load i32, ptr %16, align 4
+  %303 = call zeroext i16 @add_item_value_uint16(ptr noundef %298, ptr noundef %299, ptr noundef %300, i32 noundef %301, i32 noundef %302, ptr noundef @.str.1063)
+  %304 = load i32, ptr %16, align 4
+  %305 = add i32 %304, 2
+  store i32 %305, ptr %16, align 4
+  %306 = load ptr, ptr %11, align 8
+  %307 = load ptr, ptr %13, align 8
+  %308 = load ptr, ptr %14, align 8
+  %309 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %310 = load i32, ptr %16, align 4
+  %311 = call zeroext i16 @add_item_value_uint16(ptr noundef %306, ptr noundef %307, ptr noundef %308, i32 noundef %309, i32 noundef %310, ptr noundef @.str.1064)
+  %312 = load i32, ptr %16, align 4
+  %313 = add i32 %312, 2
+  store i32 %313, ptr %16, align 4
+  %314 = load ptr, ptr %11, align 8
+  %315 = load ptr, ptr %13, align 8
+  %316 = load ptr, ptr %14, align 8
+  %317 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %318 = load i32, ptr %16, align 4
+  %319 = call zeroext i16 @add_item_value_uint16(ptr noundef %314, ptr noundef %315, ptr noundef %316, i32 noundef %317, i32 noundef %318, ptr noundef @.str.1065)
   br label %2613
 
-351:                                              ; preds = %339, %335, %331
-  %352 = load i8, ptr %17, align 1
-  %353 = zext i8 %352 to i32
-  %354 = icmp eq i32 %353, 16
-  br i1 %354, label %355, label %398
+320:                                              ; preds = %281, %277, %273
+  %321 = load i8, ptr %17, align 1
+  %322 = zext i8 %321 to i32
+  %323 = icmp eq i32 %322, 16
+  br i1 %323, label %324, label %332
 
-355:                                              ; preds = %351
-  %356 = load i8, ptr %18, align 1
-  %357 = zext i8 %356 to i32
-  %358 = icmp eq i32 %357, 4
-  br i1 %358, label %359, label %398
+324:                                              ; preds = %320
+  %325 = load i8, ptr %18, align 1
+  %326 = zext i8 %325 to i32
+  %327 = icmp eq i32 %326, 4
+  br i1 %327, label %328, label %332
 
-359:                                              ; preds = %355
-  %360 = load i8, ptr %19, align 1
-  %361 = zext i8 %360 to i32
-  %362 = icmp eq i32 %361, 13
-  br i1 %362, label %363, label %398
+328:                                              ; preds = %324
+  %329 = load i8, ptr %19, align 1
+  %330 = zext i8 %329 to i32
+  %331 = icmp eq i32 %330, 11
+  br i1 %331, label %344, label %332
 
-363:                                              ; preds = %359
-  %364 = load ptr, ptr %12, align 8
-  %365 = load ptr, ptr %14, align 8
-  %366 = load i32, ptr %20, align 4
-  %367 = call i32 @check_length(ptr noundef %364, ptr noundef %365, i32 noundef 16, i32 noundef %366, ptr noundef @.str.1037)
-  %368 = load ptr, ptr %11, align 8
-  %369 = load ptr, ptr %13, align 8
-  %370 = load ptr, ptr %14, align 8
-  %371 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %372 = load i32, ptr %16, align 4
-  %373 = call i32 @add_item_value_uint32(ptr noundef %368, ptr noundef %369, ptr noundef %370, i32 noundef %371, i32 noundef %372, ptr noundef @.str.1038)
-  %374 = load i32, ptr %16, align 4
-  %375 = add i32 %374, 4
-  store i32 %375, ptr %16, align 4
-  %376 = load ptr, ptr %11, align 8
-  %377 = load ptr, ptr %13, align 8
-  %378 = load ptr, ptr %14, align 8
-  %379 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %380 = load i32, ptr %16, align 4
-  %381 = call i32 @add_item_value_uint32(ptr noundef %376, ptr noundef %377, ptr noundef %378, i32 noundef %379, i32 noundef %380, ptr noundef @.str.1039)
-  %382 = load i32, ptr %16, align 4
-  %383 = add i32 %382, 4
-  store i32 %383, ptr %16, align 4
-  %384 = load ptr, ptr %11, align 8
-  %385 = load ptr, ptr %13, align 8
-  %386 = load ptr, ptr %14, align 8
-  %387 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %388 = load i32, ptr %16, align 4
-  %389 = call i32 @add_item_value_uint32(ptr noundef %384, ptr noundef %385, ptr noundef %386, i32 noundef %387, i32 noundef %388, ptr noundef @.str.1040)
-  %390 = load i32, ptr %16, align 4
-  %391 = add i32 %390, 4
-  store i32 %391, ptr %16, align 4
-  %392 = load ptr, ptr %11, align 8
-  %393 = load ptr, ptr %13, align 8
-  %394 = load ptr, ptr %14, align 8
-  %395 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %396 = load i32, ptr %16, align 4
-  %397 = call i32 @add_item_value_uint32(ptr noundef %392, ptr noundef %393, ptr noundef %394, i32 noundef %395, i32 noundef %396, ptr noundef @.str.1041)
+332:                                              ; preds = %328, %324, %320
+  %333 = load i8, ptr %17, align 1
+  %334 = zext i8 %333 to i32
+  %335 = icmp eq i32 %334, 16
+  br i1 %335, label %336, label %352
+
+336:                                              ; preds = %332
+  %337 = load i8, ptr %18, align 1
+  %338 = zext i8 %337 to i32
+  %339 = icmp eq i32 %338, 6
+  br i1 %339, label %340, label %352
+
+340:                                              ; preds = %336
+  %341 = load i8, ptr %19, align 1
+  %342 = zext i8 %341 to i32
+  %343 = icmp eq i32 %342, 17
+  br i1 %343, label %344, label %352
+
+344:                                              ; preds = %340, %328
+  %345 = load ptr, ptr %12, align 8
+  %346 = load ptr, ptr %14, align 8
+  %347 = load i32, ptr %20, align 4
+  %348 = call zeroext i1 @check_length(ptr noundef %345, ptr noundef %346, i32 noundef 32, i32 noundef %347, ptr noundef @.str.1066)
+  %349 = load ptr, ptr %11, align 8
+  %350 = load ptr, ptr %14, align 8
+  %351 = load i32, ptr %16, align 4
+  call void @dissect_sapdiag_support_bits(ptr noundef %349, ptr noundef %350, i32 noundef %351)
   br label %2612
 
-398:                                              ; preds = %359, %355, %351
-  %399 = load i8, ptr %17, align 1
-  %400 = zext i8 %399 to i32
-  %401 = icmp eq i32 %400, 16
-  br i1 %401, label %402, label %421
+352:                                              ; preds = %340, %336, %332
+  %353 = load i8, ptr %17, align 1
+  %354 = zext i8 %353 to i32
+  %355 = icmp eq i32 %354, 16
+  br i1 %355, label %356, label %399
 
-402:                                              ; preds = %398
-  %403 = load i8, ptr %18, align 1
-  %404 = zext i8 %403 to i32
-  %405 = icmp eq i32 %404, 4
-  br i1 %405, label %406, label %421
+356:                                              ; preds = %352
+  %357 = load i8, ptr %18, align 1
+  %358 = zext i8 %357 to i32
+  %359 = icmp eq i32 %358, 4
+  br i1 %359, label %360, label %399
 
-406:                                              ; preds = %402
-  %407 = load i8, ptr %19, align 1
-  %408 = zext i8 %407 to i32
-  %409 = icmp eq i32 %408, 15
-  br i1 %409, label %410, label %421
+360:                                              ; preds = %356
+  %361 = load i8, ptr %19, align 1
+  %362 = zext i8 %361 to i32
+  %363 = icmp eq i32 %362, 13
+  br i1 %363, label %364, label %399
 
-410:                                              ; preds = %406
-  %411 = load ptr, ptr %12, align 8
-  %412 = load ptr, ptr %14, align 8
-  %413 = load i32, ptr %20, align 4
-  %414 = call i32 @check_length(ptr noundef %411, ptr noundef %412, i32 noundef 4, i32 noundef %413, ptr noundef @.str.1042)
-  %415 = load ptr, ptr %11, align 8
-  %416 = load ptr, ptr %13, align 8
-  %417 = load ptr, ptr %14, align 8
-  %418 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %419 = load i32, ptr %16, align 4
-  %420 = call i32 @add_item_value_uint32(ptr noundef %415, ptr noundef %416, ptr noundef %417, i32 noundef %418, i32 noundef %419, ptr noundef @.str.1042)
+364:                                              ; preds = %360
+  %365 = load ptr, ptr %12, align 8
+  %366 = load ptr, ptr %14, align 8
+  %367 = load i32, ptr %20, align 4
+  %368 = call zeroext i1 @check_length(ptr noundef %365, ptr noundef %366, i32 noundef 16, i32 noundef %367, ptr noundef @.str.1067)
+  %369 = load ptr, ptr %11, align 8
+  %370 = load ptr, ptr %13, align 8
+  %371 = load ptr, ptr %14, align 8
+  %372 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %373 = load i32, ptr %16, align 4
+  %374 = call i32 @add_item_value_uint32(ptr noundef %369, ptr noundef %370, ptr noundef %371, i32 noundef %372, i32 noundef %373, ptr noundef @.str.1068)
+  %375 = load i32, ptr %16, align 4
+  %376 = add i32 %375, 4
+  store i32 %376, ptr %16, align 4
+  %377 = load ptr, ptr %11, align 8
+  %378 = load ptr, ptr %13, align 8
+  %379 = load ptr, ptr %14, align 8
+  %380 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %381 = load i32, ptr %16, align 4
+  %382 = call i32 @add_item_value_uint32(ptr noundef %377, ptr noundef %378, ptr noundef %379, i32 noundef %380, i32 noundef %381, ptr noundef @.str.1069)
+  %383 = load i32, ptr %16, align 4
+  %384 = add i32 %383, 4
+  store i32 %384, ptr %16, align 4
+  %385 = load ptr, ptr %11, align 8
+  %386 = load ptr, ptr %13, align 8
+  %387 = load ptr, ptr %14, align 8
+  %388 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %389 = load i32, ptr %16, align 4
+  %390 = call i32 @add_item_value_uint32(ptr noundef %385, ptr noundef %386, ptr noundef %387, i32 noundef %388, i32 noundef %389, ptr noundef @.str.1070)
+  %391 = load i32, ptr %16, align 4
+  %392 = add i32 %391, 4
+  store i32 %392, ptr %16, align 4
+  %393 = load ptr, ptr %11, align 8
+  %394 = load ptr, ptr %13, align 8
+  %395 = load ptr, ptr %14, align 8
+  %396 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %397 = load i32, ptr %16, align 4
+  %398 = call i32 @add_item_value_uint32(ptr noundef %393, ptr noundef %394, ptr noundef %395, i32 noundef %396, i32 noundef %397, ptr noundef @.str.1071)
   br label %2611
 
-421:                                              ; preds = %406, %402, %398
-  %422 = load i8, ptr %17, align 1
-  %423 = zext i8 %422 to i32
-  %424 = icmp eq i32 %423, 16
-  br i1 %424, label %425, label %444
+399:                                              ; preds = %360, %356, %352
+  %400 = load i8, ptr %17, align 1
+  %401 = zext i8 %400 to i32
+  %402 = icmp eq i32 %401, 16
+  br i1 %402, label %403, label %422
 
-425:                                              ; preds = %421
-  %426 = load i8, ptr %18, align 1
-  %427 = zext i8 %426 to i32
-  %428 = icmp eq i32 %427, 4
-  br i1 %428, label %429, label %444
+403:                                              ; preds = %399
+  %404 = load i8, ptr %18, align 1
+  %405 = zext i8 %404 to i32
+  %406 = icmp eq i32 %405, 4
+  br i1 %406, label %407, label %422
 
-429:                                              ; preds = %425
-  %430 = load i8, ptr %19, align 1
-  %431 = zext i8 %430 to i32
-  %432 = icmp eq i32 %431, 22
-  br i1 %432, label %433, label %444
+407:                                              ; preds = %403
+  %408 = load i8, ptr %19, align 1
+  %409 = zext i8 %408 to i32
+  %410 = icmp eq i32 %409, 15
+  br i1 %410, label %411, label %422
 
-433:                                              ; preds = %429
-  %434 = load ptr, ptr %12, align 8
-  %435 = load ptr, ptr %14, align 8
-  %436 = load i32, ptr %20, align 4
-  %437 = call i32 @check_length(ptr noundef %434, ptr noundef %435, i32 noundef 2, i32 noundef %436, ptr noundef @.str.1043)
-  %438 = load ptr, ptr %11, align 8
-  %439 = load ptr, ptr %13, align 8
-  %440 = load ptr, ptr %14, align 8
-  %441 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %442 = load i32, ptr %16, align 4
-  %443 = call zeroext i16 @add_item_value_uint16(ptr noundef %438, ptr noundef %439, ptr noundef %440, i32 noundef %441, i32 noundef %442, ptr noundef @.str.1044)
+411:                                              ; preds = %407
+  %412 = load ptr, ptr %12, align 8
+  %413 = load ptr, ptr %14, align 8
+  %414 = load i32, ptr %20, align 4
+  %415 = call zeroext i1 @check_length(ptr noundef %412, ptr noundef %413, i32 noundef 4, i32 noundef %414, ptr noundef @.str.1072)
+  %416 = load ptr, ptr %11, align 8
+  %417 = load ptr, ptr %13, align 8
+  %418 = load ptr, ptr %14, align 8
+  %419 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %420 = load i32, ptr %16, align 4
+  %421 = call i32 @add_item_value_uint32(ptr noundef %416, ptr noundef %417, ptr noundef %418, i32 noundef %419, i32 noundef %420, ptr noundef @.str.1072)
   br label %2610
 
-444:                                              ; preds = %429, %425, %421
-  %445 = load i8, ptr %17, align 1
-  %446 = zext i8 %445 to i32
-  %447 = icmp eq i32 %446, 16
-  br i1 %447, label %448, label %467
+422:                                              ; preds = %407, %403, %399
+  %423 = load i8, ptr %17, align 1
+  %424 = zext i8 %423 to i32
+  %425 = icmp eq i32 %424, 16
+  br i1 %425, label %426, label %445
 
-448:                                              ; preds = %444
-  %449 = load i8, ptr %18, align 1
-  %450 = zext i8 %449 to i32
-  %451 = icmp eq i32 %450, 4
-  br i1 %451, label %452, label %467
+426:                                              ; preds = %422
+  %427 = load i8, ptr %18, align 1
+  %428 = zext i8 %427 to i32
+  %429 = icmp eq i32 %428, 4
+  br i1 %429, label %430, label %445
 
-452:                                              ; preds = %448
-  %453 = load i8, ptr %19, align 1
-  %454 = zext i8 %453 to i32
-  %455 = icmp eq i32 %454, 23
-  br i1 %455, label %456, label %467
+430:                                              ; preds = %426
+  %431 = load i8, ptr %19, align 1
+  %432 = zext i8 %431 to i32
+  %433 = icmp eq i32 %432, 22
+  br i1 %433, label %434, label %445
 
-456:                                              ; preds = %452
-  %457 = load ptr, ptr %12, align 8
-  %458 = load ptr, ptr %14, align 8
-  %459 = load i32, ptr %20, align 4
-  %460 = call i32 @check_length(ptr noundef %457, ptr noundef %458, i32 noundef 2, i32 noundef %459, ptr noundef @.str.1045)
-  %461 = load ptr, ptr %11, align 8
-  %462 = load ptr, ptr %13, align 8
-  %463 = load ptr, ptr %14, align 8
-  %464 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %465 = load i32, ptr %16, align 4
-  %466 = call zeroext i16 @add_item_value_uint16(ptr noundef %461, ptr noundef %462, ptr noundef %463, i32 noundef %464, i32 noundef %465, ptr noundef @.str.1045)
+434:                                              ; preds = %430
+  %435 = load ptr, ptr %12, align 8
+  %436 = load ptr, ptr %14, align 8
+  %437 = load i32, ptr %20, align 4
+  %438 = call zeroext i1 @check_length(ptr noundef %435, ptr noundef %436, i32 noundef 2, i32 noundef %437, ptr noundef @.str.1073)
+  %439 = load ptr, ptr %11, align 8
+  %440 = load ptr, ptr %13, align 8
+  %441 = load ptr, ptr %14, align 8
+  %442 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %443 = load i32, ptr %16, align 4
+  %444 = call zeroext i16 @add_item_value_uint16(ptr noundef %439, ptr noundef %440, ptr noundef %441, i32 noundef %442, i32 noundef %443, ptr noundef @.str.1074)
   br label %2609
 
-467:                                              ; preds = %452, %448, %444
-  %468 = load i8, ptr %17, align 1
-  %469 = zext i8 %468 to i32
-  %470 = icmp eq i32 %469, 16
-  br i1 %470, label %471, label %498
+445:                                              ; preds = %430, %426, %422
+  %446 = load i8, ptr %17, align 1
+  %447 = zext i8 %446 to i32
+  %448 = icmp eq i32 %447, 16
+  br i1 %448, label %449, label %468
 
-471:                                              ; preds = %467
-  %472 = load i8, ptr %18, align 1
-  %473 = zext i8 %472 to i32
-  %474 = icmp eq i32 %473, 4
-  br i1 %474, label %475, label %498
+449:                                              ; preds = %445
+  %450 = load i8, ptr %18, align 1
+  %451 = zext i8 %450 to i32
+  %452 = icmp eq i32 %451, 4
+  br i1 %452, label %453, label %468
 
-475:                                              ; preds = %471
-  %476 = load i8, ptr %19, align 1
-  %477 = zext i8 %476 to i32
-  %478 = icmp eq i32 %477, 25
-  br i1 %478, label %479, label %498
+453:                                              ; preds = %449
+  %454 = load i8, ptr %19, align 1
+  %455 = zext i8 %454 to i32
+  %456 = icmp eq i32 %455, 23
+  br i1 %456, label %457, label %468
 
-479:                                              ; preds = %475
-  %480 = load ptr, ptr %12, align 8
-  %481 = load ptr, ptr %14, align 8
-  %482 = load i32, ptr %20, align 4
-  %483 = call i32 @check_length(ptr noundef %480, ptr noundef %481, i32 noundef 2, i32 noundef %482, ptr noundef @.str.1046)
-  %484 = load ptr, ptr %11, align 8
-  %485 = load ptr, ptr %13, align 8
-  %486 = load ptr, ptr %14, align 8
-  %487 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %488 = load i32, ptr %16, align 4
-  %489 = call zeroext i8 @add_item_value_uint8(ptr noundef %484, ptr noundef %485, ptr noundef %486, i32 noundef %487, i32 noundef %488, ptr noundef @.str.1017)
-  %490 = load i32, ptr %16, align 4
-  %491 = add i32 %490, 1
-  store i32 %491, ptr %16, align 4
-  %492 = load ptr, ptr %11, align 8
-  %493 = load ptr, ptr %13, align 8
-  %494 = load ptr, ptr %14, align 8
-  %495 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %496 = load i32, ptr %16, align 4
-  %497 = call zeroext i8 @add_item_value_uint8(ptr noundef %492, ptr noundef %493, ptr noundef %494, i32 noundef %495, i32 noundef %496, ptr noundef @.str.1047)
+457:                                              ; preds = %453
+  %458 = load ptr, ptr %12, align 8
+  %459 = load ptr, ptr %14, align 8
+  %460 = load i32, ptr %20, align 4
+  %461 = call zeroext i1 @check_length(ptr noundef %458, ptr noundef %459, i32 noundef 2, i32 noundef %460, ptr noundef @.str.1075)
+  %462 = load ptr, ptr %11, align 8
+  %463 = load ptr, ptr %13, align 8
+  %464 = load ptr, ptr %14, align 8
+  %465 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %466 = load i32, ptr %16, align 4
+  %467 = call zeroext i16 @add_item_value_uint16(ptr noundef %462, ptr noundef %463, ptr noundef %464, i32 noundef %465, i32 noundef %466, ptr noundef @.str.1075)
   br label %2608
 
-498:                                              ; preds = %475, %471, %467
-  %499 = load i8, ptr %17, align 1
-  %500 = zext i8 %499 to i32
-  %501 = icmp eq i32 %500, 16
-  br i1 %501, label %502, label %532
+468:                                              ; preds = %453, %449, %445
+  %469 = load i8, ptr %17, align 1
+  %470 = zext i8 %469 to i32
+  %471 = icmp eq i32 %470, 16
+  br i1 %471, label %472, label %499
 
-502:                                              ; preds = %498
-  %503 = load i8, ptr %18, align 1
-  %504 = zext i8 %503 to i32
-  %505 = icmp eq i32 %504, 4
-  br i1 %505, label %506, label %532
+472:                                              ; preds = %468
+  %473 = load i8, ptr %18, align 1
+  %474 = zext i8 %473 to i32
+  %475 = icmp eq i32 %474, 4
+  br i1 %475, label %476, label %499
 
-506:                                              ; preds = %502
-  %507 = load i8, ptr %19, align 1
-  %508 = zext i8 %507 to i32
-  %509 = icmp eq i32 %508, 29
-  br i1 %509, label %510, label %532
+476:                                              ; preds = %472
+  %477 = load i8, ptr %19, align 1
+  %478 = zext i8 %477 to i32
+  %479 = icmp eq i32 %478, 25
+  br i1 %479, label %480, label %499
 
-510:                                              ; preds = %506
-  %511 = load i32, ptr %20, align 4
-  %512 = icmp eq i32 %511, 2
-  br i1 %512, label %513, label %520
-
-513:                                              ; preds = %510
-  %514 = load ptr, ptr %11, align 8
-  %515 = load ptr, ptr %12, align 8
-  %516 = load ptr, ptr %13, align 8
-  %517 = load ptr, ptr %14, align 8
-  %518 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %519 = load i32, ptr %16, align 4
-  call void @add_item_value_string(ptr noundef %514, ptr noundef %515, ptr noundef %516, ptr noundef %517, i32 noundef %518, i32 noundef %519, i32 noundef 2, ptr noundef @.str.1048, i32 noundef 1)
-  br label %531
-
-520:                                              ; preds = %510
-  %521 = load ptr, ptr %12, align 8
-  %522 = load ptr, ptr %14, align 8
-  %523 = load i32, ptr %20, align 4
-  %524 = call i32 @check_length(ptr noundef %521, ptr noundef %522, i32 noundef 1, i32 noundef %523, ptr noundef @.str.1048)
-  %525 = load ptr, ptr %11, align 8
-  %526 = load ptr, ptr %13, align 8
-  %527 = load ptr, ptr %14, align 8
-  %528 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %529 = load i32, ptr %16, align 4
-  %530 = call zeroext i8 @add_item_value_uint8(ptr noundef %525, ptr noundef %526, ptr noundef %527, i32 noundef %528, i32 noundef %529, ptr noundef @.str.1048)
-  br label %531
-
-531:                                              ; preds = %520, %513
+480:                                              ; preds = %476
+  %481 = load ptr, ptr %12, align 8
+  %482 = load ptr, ptr %14, align 8
+  %483 = load i32, ptr %20, align 4
+  %484 = call zeroext i1 @check_length(ptr noundef %481, ptr noundef %482, i32 noundef 2, i32 noundef %483, ptr noundef @.str.1076)
+  %485 = load ptr, ptr %11, align 8
+  %486 = load ptr, ptr %13, align 8
+  %487 = load ptr, ptr %14, align 8
+  %488 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %489 = load i32, ptr %16, align 4
+  %490 = call zeroext i8 @add_item_value_uint8(ptr noundef %485, ptr noundef %486, ptr noundef %487, i32 noundef %488, i32 noundef %489, ptr noundef @.str.1047)
+  %491 = load i32, ptr %16, align 4
+  %492 = add i32 %491, 1
+  store i32 %492, ptr %16, align 4
+  %493 = load ptr, ptr %11, align 8
+  %494 = load ptr, ptr %13, align 8
+  %495 = load ptr, ptr %14, align 8
+  %496 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %497 = load i32, ptr %16, align 4
+  %498 = call zeroext i8 @add_item_value_uint8(ptr noundef %493, ptr noundef %494, ptr noundef %495, i32 noundef %496, i32 noundef %497, ptr noundef @.str.1077)
   br label %2607
 
-532:                                              ; preds = %506, %502, %498
-  %533 = load i8, ptr %17, align 1
-  %534 = zext i8 %533 to i32
-  %535 = icmp eq i32 %534, 16
-  br i1 %535, label %536, label %563
+499:                                              ; preds = %476, %472, %468
+  %500 = load i8, ptr %17, align 1
+  %501 = zext i8 %500 to i32
+  %502 = icmp eq i32 %501, 16
+  br i1 %502, label %503, label %533
 
-536:                                              ; preds = %532
-  %537 = load i8, ptr %18, align 1
-  %538 = zext i8 %537 to i32
-  %539 = icmp eq i32 %538, 4
-  br i1 %539, label %540, label %563
+503:                                              ; preds = %499
+  %504 = load i8, ptr %18, align 1
+  %505 = zext i8 %504 to i32
+  %506 = icmp eq i32 %505, 4
+  br i1 %506, label %507, label %533
 
-540:                                              ; preds = %536
-  %541 = load i8, ptr %19, align 1
-  %542 = zext i8 %541 to i32
-  %543 = icmp eq i32 %542, 36
-  br i1 %543, label %544, label %563
+507:                                              ; preds = %503
+  %508 = load i8, ptr %19, align 1
+  %509 = zext i8 %508 to i32
+  %510 = icmp eq i32 %509, 29
+  br i1 %510, label %511, label %533
 
-544:                                              ; preds = %540
-  %545 = load ptr, ptr %12, align 8
-  %546 = load ptr, ptr %14, align 8
-  %547 = load i32, ptr %20, align 4
-  %548 = call i32 @check_length(ptr noundef %545, ptr noundef %546, i32 noundef 8, i32 noundef %547, ptr noundef @.str.1049)
-  %549 = load ptr, ptr %11, align 8
-  %550 = load ptr, ptr %13, align 8
-  %551 = load ptr, ptr %14, align 8
-  %552 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %553 = load i32, ptr %16, align 4
-  %554 = call i32 @add_item_value_uint32(ptr noundef %549, ptr noundef %550, ptr noundef %551, i32 noundef %552, i32 noundef %553, ptr noundef @.str.1050)
-  %555 = load i32, ptr %16, align 4
-  %556 = add i32 %555, 4
-  store i32 %556, ptr %16, align 4
-  %557 = load ptr, ptr %11, align 8
-  %558 = load ptr, ptr %13, align 8
-  %559 = load ptr, ptr %14, align 8
-  %560 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %561 = load i32, ptr %16, align 4
-  %562 = call i32 @add_item_value_uint32(ptr noundef %557, ptr noundef %558, ptr noundef %559, i32 noundef %560, i32 noundef %561, ptr noundef @.str.1050)
+511:                                              ; preds = %507
+  %512 = load i32, ptr %20, align 4
+  %513 = icmp eq i32 %512, 2
+  br i1 %513, label %514, label %521
+
+514:                                              ; preds = %511
+  %515 = load ptr, ptr %11, align 8
+  %516 = load ptr, ptr %12, align 8
+  %517 = load ptr, ptr %13, align 8
+  %518 = load ptr, ptr %14, align 8
+  %519 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %520 = load i32, ptr %16, align 4
+  call void @add_item_value_string(ptr noundef %515, ptr noundef %516, ptr noundef %517, ptr noundef %518, i32 noundef %519, i32 noundef %520, i32 noundef 2, ptr noundef @.str.1078, i32 noundef 1)
+  br label %532
+
+521:                                              ; preds = %511
+  %522 = load ptr, ptr %12, align 8
+  %523 = load ptr, ptr %14, align 8
+  %524 = load i32, ptr %20, align 4
+  %525 = call zeroext i1 @check_length(ptr noundef %522, ptr noundef %523, i32 noundef 1, i32 noundef %524, ptr noundef @.str.1078)
+  %526 = load ptr, ptr %11, align 8
+  %527 = load ptr, ptr %13, align 8
+  %528 = load ptr, ptr %14, align 8
+  %529 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %530 = load i32, ptr %16, align 4
+  %531 = call zeroext i8 @add_item_value_uint8(ptr noundef %526, ptr noundef %527, ptr noundef %528, i32 noundef %529, i32 noundef %530, ptr noundef @.str.1078)
+  br label %532
+
+532:                                              ; preds = %521, %514
   br label %2606
 
-563:                                              ; preds = %540, %536, %532
-  %564 = load i8, ptr %17, align 1
-  %565 = zext i8 %564 to i32
-  %566 = icmp eq i32 %565, 16
-  br i1 %566, label %567, label %586
+533:                                              ; preds = %507, %503, %499
+  %534 = load i8, ptr %17, align 1
+  %535 = zext i8 %534 to i32
+  %536 = icmp eq i32 %535, 16
+  br i1 %536, label %537, label %564
 
-567:                                              ; preds = %563
-  %568 = load i8, ptr %18, align 1
-  %569 = zext i8 %568 to i32
-  %570 = icmp eq i32 %569, 4
-  br i1 %570, label %571, label %586
+537:                                              ; preds = %533
+  %538 = load i8, ptr %18, align 1
+  %539 = zext i8 %538 to i32
+  %540 = icmp eq i32 %539, 4
+  br i1 %540, label %541, label %564
 
-571:                                              ; preds = %567
-  %572 = load i8, ptr %19, align 1
-  %573 = zext i8 %572 to i32
-  %574 = icmp eq i32 %573, 37
-  br i1 %574, label %575, label %586
+541:                                              ; preds = %537
+  %542 = load i8, ptr %19, align 1
+  %543 = zext i8 %542 to i32
+  %544 = icmp eq i32 %543, 36
+  br i1 %544, label %545, label %564
 
-575:                                              ; preds = %571
-  %576 = load ptr, ptr %12, align 8
-  %577 = load ptr, ptr %14, align 8
-  %578 = load i32, ptr %20, align 4
-  %579 = call i32 @check_length(ptr noundef %576, ptr noundef %577, i32 noundef 2, i32 noundef %578, ptr noundef @.str.1051)
-  %580 = load ptr, ptr %11, align 8
-  %581 = load ptr, ptr %13, align 8
-  %582 = load ptr, ptr %14, align 8
-  %583 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %584 = load i32, ptr %16, align 4
-  %585 = call zeroext i16 @add_item_value_uint16(ptr noundef %580, ptr noundef %581, ptr noundef %582, i32 noundef %583, i32 noundef %584, ptr noundef @.str.1051)
+545:                                              ; preds = %541
+  %546 = load ptr, ptr %12, align 8
+  %547 = load ptr, ptr %14, align 8
+  %548 = load i32, ptr %20, align 4
+  %549 = call zeroext i1 @check_length(ptr noundef %546, ptr noundef %547, i32 noundef 8, i32 noundef %548, ptr noundef @.str.1079)
+  %550 = load ptr, ptr %11, align 8
+  %551 = load ptr, ptr %13, align 8
+  %552 = load ptr, ptr %14, align 8
+  %553 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %554 = load i32, ptr %16, align 4
+  %555 = call i32 @add_item_value_uint32(ptr noundef %550, ptr noundef %551, ptr noundef %552, i32 noundef %553, i32 noundef %554, ptr noundef @.str.1080)
+  %556 = load i32, ptr %16, align 4
+  %557 = add i32 %556, 4
+  store i32 %557, ptr %16, align 4
+  %558 = load ptr, ptr %11, align 8
+  %559 = load ptr, ptr %13, align 8
+  %560 = load ptr, ptr %14, align 8
+  %561 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %562 = load i32, ptr %16, align 4
+  %563 = call i32 @add_item_value_uint32(ptr noundef %558, ptr noundef %559, ptr noundef %560, i32 noundef %561, i32 noundef %562, ptr noundef @.str.1080)
   br label %2605
 
-586:                                              ; preds = %571, %567, %563
-  %587 = load i8, ptr %17, align 1
-  %588 = zext i8 %587 to i32
-  %589 = icmp eq i32 %588, 16
-  br i1 %589, label %590, label %609
+564:                                              ; preds = %541, %537, %533
+  %565 = load i8, ptr %17, align 1
+  %566 = zext i8 %565 to i32
+  %567 = icmp eq i32 %566, 16
+  br i1 %567, label %568, label %587
 
-590:                                              ; preds = %586
-  %591 = load i8, ptr %18, align 1
-  %592 = zext i8 %591 to i32
-  %593 = icmp eq i32 %592, 6
-  br i1 %593, label %594, label %609
+568:                                              ; preds = %564
+  %569 = load i8, ptr %18, align 1
+  %570 = zext i8 %569 to i32
+  %571 = icmp eq i32 %570, 4
+  br i1 %571, label %572, label %587
 
-594:                                              ; preds = %590
-  %595 = load i8, ptr %19, align 1
-  %596 = zext i8 %595 to i32
-  %597 = icmp eq i32 %596, 1
-  br i1 %597, label %598, label %609
+572:                                              ; preds = %568
+  %573 = load i8, ptr %19, align 1
+  %574 = zext i8 %573 to i32
+  %575 = icmp eq i32 %574, 37
+  br i1 %575, label %576, label %587
 
-598:                                              ; preds = %594
-  %599 = load ptr, ptr %12, align 8
-  %600 = load ptr, ptr %14, align 8
-  %601 = load i32, ptr %20, align 4
-  %602 = call i32 @check_length(ptr noundef %599, ptr noundef %600, i32 noundef 2, i32 noundef %601, ptr noundef @.str.1052)
-  %603 = load ptr, ptr %11, align 8
-  %604 = load ptr, ptr %13, align 8
-  %605 = load ptr, ptr %14, align 8
-  %606 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %607 = load i32, ptr %16, align 4
-  %608 = call zeroext i16 @add_item_value_uint16(ptr noundef %603, ptr noundef %604, ptr noundef %605, i32 noundef %606, i32 noundef %607, ptr noundef @.str.1052)
+576:                                              ; preds = %572
+  %577 = load ptr, ptr %12, align 8
+  %578 = load ptr, ptr %14, align 8
+  %579 = load i32, ptr %20, align 4
+  %580 = call zeroext i1 @check_length(ptr noundef %577, ptr noundef %578, i32 noundef 2, i32 noundef %579, ptr noundef @.str.1081)
+  %581 = load ptr, ptr %11, align 8
+  %582 = load ptr, ptr %13, align 8
+  %583 = load ptr, ptr %14, align 8
+  %584 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %585 = load i32, ptr %16, align 4
+  %586 = call zeroext i16 @add_item_value_uint16(ptr noundef %581, ptr noundef %582, ptr noundef %583, i32 noundef %584, i32 noundef %585, ptr noundef @.str.1081)
   br label %2604
 
-609:                                              ; preds = %594, %590, %586
-  %610 = load i8, ptr %17, align 1
-  %611 = zext i8 %610 to i32
-  %612 = icmp eq i32 %611, 16
-  br i1 %612, label %613, label %632
+587:                                              ; preds = %572, %568, %564
+  %588 = load i8, ptr %17, align 1
+  %589 = zext i8 %588 to i32
+  %590 = icmp eq i32 %589, 16
+  br i1 %590, label %591, label %610
 
-613:                                              ; preds = %609
-  %614 = load i8, ptr %18, align 1
-  %615 = zext i8 %614 to i32
-  %616 = icmp eq i32 %615, 6
-  br i1 %616, label %617, label %632
+591:                                              ; preds = %587
+  %592 = load i8, ptr %18, align 1
+  %593 = zext i8 %592 to i32
+  %594 = icmp eq i32 %593, 6
+  br i1 %594, label %595, label %610
 
-617:                                              ; preds = %613
-  %618 = load i8, ptr %19, align 1
-  %619 = zext i8 %618 to i32
-  %620 = icmp eq i32 %619, 6
-  br i1 %620, label %621, label %632
+595:                                              ; preds = %591
+  %596 = load i8, ptr %19, align 1
+  %597 = zext i8 %596 to i32
+  %598 = icmp eq i32 %597, 1
+  br i1 %598, label %599, label %610
 
-621:                                              ; preds = %617
-  %622 = load ptr, ptr %12, align 8
-  %623 = load ptr, ptr %14, align 8
-  %624 = load i32, ptr %20, align 4
-  %625 = call i32 @check_length(ptr noundef %622, ptr noundef %623, i32 noundef 2, i32 noundef %624, ptr noundef @.str.1053)
-  %626 = load ptr, ptr %11, align 8
-  %627 = load ptr, ptr %13, align 8
-  %628 = load ptr, ptr %14, align 8
-  %629 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %630 = load i32, ptr %16, align 4
-  %631 = call zeroext i16 @add_item_value_uint16(ptr noundef %626, ptr noundef %627, ptr noundef %628, i32 noundef %629, i32 noundef %630, ptr noundef @.str.1053)
+599:                                              ; preds = %595
+  %600 = load ptr, ptr %12, align 8
+  %601 = load ptr, ptr %14, align 8
+  %602 = load i32, ptr %20, align 4
+  %603 = call zeroext i1 @check_length(ptr noundef %600, ptr noundef %601, i32 noundef 2, i32 noundef %602, ptr noundef @.str.1082)
+  %604 = load ptr, ptr %11, align 8
+  %605 = load ptr, ptr %13, align 8
+  %606 = load ptr, ptr %14, align 8
+  %607 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %608 = load i32, ptr %16, align 4
+  %609 = call zeroext i16 @add_item_value_uint16(ptr noundef %604, ptr noundef %605, ptr noundef %606, i32 noundef %607, i32 noundef %608, ptr noundef @.str.1082)
   br label %2603
 
-632:                                              ; preds = %617, %613, %609
-  %633 = load i8, ptr %17, align 1
-  %634 = zext i8 %633 to i32
-  %635 = icmp eq i32 %634, 16
-  br i1 %635, label %636, label %655
+610:                                              ; preds = %595, %591, %587
+  %611 = load i8, ptr %17, align 1
+  %612 = zext i8 %611 to i32
+  %613 = icmp eq i32 %612, 16
+  br i1 %613, label %614, label %633
 
-636:                                              ; preds = %632
-  %637 = load i8, ptr %18, align 1
-  %638 = zext i8 %637 to i32
-  %639 = icmp eq i32 %638, 6
-  br i1 %639, label %640, label %655
+614:                                              ; preds = %610
+  %615 = load i8, ptr %18, align 1
+  %616 = zext i8 %615 to i32
+  %617 = icmp eq i32 %616, 6
+  br i1 %617, label %618, label %633
 
-640:                                              ; preds = %636
-  %641 = load i8, ptr %19, align 1
-  %642 = zext i8 %641 to i32
-  %643 = icmp eq i32 %642, 10
-  br i1 %643, label %644, label %655
+618:                                              ; preds = %614
+  %619 = load i8, ptr %19, align 1
+  %620 = zext i8 %619 to i32
+  %621 = icmp eq i32 %620, 6
+  br i1 %621, label %622, label %633
 
-644:                                              ; preds = %640
-  %645 = load ptr, ptr %12, align 8
-  %646 = load ptr, ptr %14, align 8
-  %647 = load i32, ptr %20, align 4
-  %648 = call i32 @check_length(ptr noundef %645, ptr noundef %646, i32 noundef 2, i32 noundef %647, ptr noundef @.str.1054)
-  %649 = load ptr, ptr %11, align 8
-  %650 = load ptr, ptr %13, align 8
-  %651 = load ptr, ptr %14, align 8
-  %652 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %653 = load i32, ptr %16, align 4
-  %654 = call zeroext i16 @add_item_value_uint16(ptr noundef %649, ptr noundef %650, ptr noundef %651, i32 noundef %652, i32 noundef %653, ptr noundef @.str.1054)
+622:                                              ; preds = %618
+  %623 = load ptr, ptr %12, align 8
+  %624 = load ptr, ptr %14, align 8
+  %625 = load i32, ptr %20, align 4
+  %626 = call zeroext i1 @check_length(ptr noundef %623, ptr noundef %624, i32 noundef 2, i32 noundef %625, ptr noundef @.str.1083)
+  %627 = load ptr, ptr %11, align 8
+  %628 = load ptr, ptr %13, align 8
+  %629 = load ptr, ptr %14, align 8
+  %630 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %631 = load i32, ptr %16, align 4
+  %632 = call zeroext i16 @add_item_value_uint16(ptr noundef %627, ptr noundef %628, ptr noundef %629, i32 noundef %630, i32 noundef %631, ptr noundef @.str.1083)
   br label %2602
 
-655:                                              ; preds = %640, %636, %632
-  %656 = load i8, ptr %17, align 1
-  %657 = zext i8 %656 to i32
-  %658 = icmp eq i32 %657, 16
-  br i1 %658, label %659, label %717
+633:                                              ; preds = %618, %614, %610
+  %634 = load i8, ptr %17, align 1
+  %635 = zext i8 %634 to i32
+  %636 = icmp eq i32 %635, 16
+  br i1 %636, label %637, label %656
 
-659:                                              ; preds = %655
-  %660 = load i8, ptr %18, align 1
-  %661 = zext i8 %660 to i32
-  %662 = icmp eq i32 %661, 6
-  br i1 %662, label %663, label %717
+637:                                              ; preds = %633
+  %638 = load i8, ptr %18, align 1
+  %639 = zext i8 %638 to i32
+  %640 = icmp eq i32 %639, 6
+  br i1 %640, label %641, label %656
 
-663:                                              ; preds = %659
-  %664 = load i8, ptr %19, align 1
-  %665 = zext i8 %664 to i32
-  %666 = icmp eq i32 %665, 19
-  br i1 %666, label %667, label %717
+641:                                              ; preds = %637
+  %642 = load i8, ptr %19, align 1
+  %643 = zext i8 %642 to i32
+  %644 = icmp eq i32 %643, 10
+  br i1 %644, label %645, label %656
 
-667:                                              ; preds = %663
-  %668 = load i32, ptr %16, align 4
-  %669 = load i32, ptr %20, align 4
-  %670 = add i32 %668, %669
-  store i32 %670, ptr %22, align 4
-  %671 = load i32, ptr %16, align 4
-  %672 = add i32 %671, 1
-  store i32 %672, ptr %16, align 4
-  %673 = load ptr, ptr %11, align 8
-  %674 = load ptr, ptr %12, align 8
-  %675 = load ptr, ptr %13, align 8
-  %676 = load ptr, ptr %14, align 8
-  %677 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %678 = load i32, ptr %16, align 4
-  %679 = call i32 @add_item_value_stringz(ptr noundef %673, ptr noundef %674, ptr noundef %675, ptr noundef %676, i32 noundef %677, i32 noundef %678, ptr noundef @.str.1055, i32 noundef 1)
-  %680 = load i32, ptr %16, align 4
-  %681 = add i32 %680, %679
-  store i32 %681, ptr %16, align 4
-  br label %682
+645:                                              ; preds = %641
+  %646 = load ptr, ptr %12, align 8
+  %647 = load ptr, ptr %14, align 8
+  %648 = load i32, ptr %20, align 4
+  %649 = call zeroext i1 @check_length(ptr noundef %646, ptr noundef %647, i32 noundef 2, i32 noundef %648, ptr noundef @.str.1084)
+  %650 = load ptr, ptr %11, align 8
+  %651 = load ptr, ptr %13, align 8
+  %652 = load ptr, ptr %14, align 8
+  %653 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %654 = load i32, ptr %16, align 4
+  %655 = call zeroext i16 @add_item_value_uint16(ptr noundef %650, ptr noundef %651, ptr noundef %652, i32 noundef %653, i32 noundef %654, ptr noundef @.str.1084)
+  br label %2601
 
-682:                                              ; preds = %693, %667
-  %683 = load i32, ptr %16, align 4
-  %684 = load i32, ptr %22, align 4
-  %685 = icmp ult i32 %683, %684
-  br i1 %685, label %686, label %691
+656:                                              ; preds = %641, %637, %633
+  %657 = load i8, ptr %17, align 1
+  %658 = zext i8 %657 to i32
+  %659 = icmp eq i32 %658, 16
+  br i1 %659, label %660, label %717
 
-686:                                              ; preds = %682
-  %687 = load ptr, ptr %11, align 8
-  %688 = load i32, ptr %16, align 4
-  %689 = call i32 @tvb_offset_exists(ptr noundef %687, i32 noundef %688)
-  %690 = icmp ne i32 %689, 0
+660:                                              ; preds = %656
+  %661 = load i8, ptr %18, align 1
+  %662 = zext i8 %661 to i32
+  %663 = icmp eq i32 %662, 6
+  br i1 %663, label %664, label %717
+
+664:                                              ; preds = %660
+  %665 = load i8, ptr %19, align 1
+  %666 = zext i8 %665 to i32
+  %667 = icmp eq i32 %666, 19
+  br i1 %667, label %668, label %717
+
+668:                                              ; preds = %664
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #3
+  %669 = load i32, ptr %16, align 4
+  %670 = load i32, ptr %20, align 4
+  %671 = add i32 %669, %670
+  store i32 %671, ptr %22, align 4
+  %672 = load i32, ptr %16, align 4
+  %673 = add i32 %672, 1
+  store i32 %673, ptr %16, align 4
+  %674 = load ptr, ptr %11, align 8
+  %675 = load ptr, ptr %12, align 8
+  %676 = load ptr, ptr %13, align 8
+  %677 = load ptr, ptr %14, align 8
+  %678 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %679 = load i32, ptr %16, align 4
+  %680 = call i32 @add_item_value_stringz(ptr noundef %674, ptr noundef %675, ptr noundef %676, ptr noundef %677, i32 noundef %678, i32 noundef %679, ptr noundef @.str.1085, i32 noundef 1)
+  %681 = load i32, ptr %16, align 4
+  %682 = add i32 %681, %680
+  store i32 %682, ptr %16, align 4
+  br label %683
+
+683:                                              ; preds = %693, %668
+  %684 = load i32, ptr %16, align 4
+  %685 = load i32, ptr %22, align 4
+  %686 = icmp ult i32 %684, %685
+  br i1 %686, label %687, label %691
+
+687:                                              ; preds = %683
+  %688 = load ptr, ptr %11, align 8
+  %689 = load i32, ptr %16, align 4
+  %690 = call zeroext i1 @tvb_offset_exists(ptr noundef %688, i32 noundef %689)
   br label %691
 
-691:                                              ; preds = %686, %682
-  %692 = phi i1 [ false, %682 ], [ %690, %686 ]
+691:                                              ; preds = %687, %683
+  %692 = phi i1 [ false, %683 ], [ %690, %687 ]
   br i1 %692, label %693, label %703
 
 693:                                              ; preds = %691
@@ -4105,15 +4249,15 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %697 = load ptr, ptr %14, align 8
   %698 = load i32, ptr @hf_sapdiag_item_value, align 4
   %699 = load i32, ptr %16, align 4
-  %700 = call i32 @add_item_value_stringz(ptr noundef %694, ptr noundef %695, ptr noundef %696, ptr noundef %697, i32 noundef %698, i32 noundef %699, ptr noundef @.str.1056, i32 noundef 1)
+  %700 = call i32 @add_item_value_stringz(ptr noundef %694, ptr noundef %695, ptr noundef %696, ptr noundef %697, i32 noundef %698, i32 noundef %699, ptr noundef @.str.1086, i32 noundef 1)
   %701 = load i32, ptr %16, align 4
   %702 = add i32 %701, %700
   store i32 %702, ptr %16, align 4
-  br label %682, !llvm.loop !6
+  br label %683, !llvm.loop !10
 
 703:                                              ; preds = %691
-  %704 = load i32, ptr @global_sapdiag_highlight_items, align 4
-  %705 = icmp ne i32 %704, 0
+  %704 = load i8, ptr @global_sapdiag_highlight_items, align 1, !range !6, !noundef !7
+  %705 = trunc i8 %704 to i1
   br i1 %705, label %706, label %716
 
 706:                                              ; preds = %703
@@ -4125,13 +4269,14 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %712 = zext i8 %711 to i32
   %713 = load i8, ptr %19, align 1
   %714 = zext i8 %713 to i32
-  %715 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %707, ptr noundef %708, ptr noundef @ei_sapdiag_item_partial, ptr noundef @.str.1057, i32 noundef %710, i32 noundef %712, i32 noundef %714)
+  %715 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %707, ptr noundef %708, ptr noundef @ei_sapdiag_item_partial, ptr noundef @.str.1087, i32 noundef %710, i32 noundef %712, i32 noundef %714)
   br label %716
 
 716:                                              ; preds = %706, %703
-  br label %2601
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #3
+  br label %2600
 
-717:                                              ; preds = %663, %659, %655
+717:                                              ; preds = %664, %660, %656
   %718 = load i8, ptr %17, align 1
   %719 = zext i8 %718 to i32
   %720 = icmp eq i32 %719, 16
@@ -4158,7 +4303,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %734 = load ptr, ptr %14, align 8
   %735 = load i32, ptr @hf_sapdiag_item_value, align 4
   %736 = load i32, ptr %16, align 4
-  %737 = call zeroext i8 @add_item_value_uint8(ptr noundef %732, ptr noundef %733, ptr noundef %734, i32 noundef %735, i32 noundef %736, ptr noundef @.str.1055)
+  %737 = call zeroext i8 @add_item_value_uint8(ptr noundef %732, ptr noundef %733, ptr noundef %734, i32 noundef %735, i32 noundef %736, ptr noundef @.str.1085)
   %738 = load i32, ptr %16, align 4
   %739 = add i32 %738, 2
   store i32 %739, ptr %16, align 4
@@ -4168,9 +4313,9 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %743 = load ptr, ptr %14, align 8
   %744 = load i32, ptr @hf_sapdiag_item_value, align 4
   %745 = load i32, ptr %16, align 4
-  %746 = call i32 @add_item_value_stringz(ptr noundef %740, ptr noundef %741, ptr noundef %742, ptr noundef %743, i32 noundef %744, i32 noundef %745, ptr noundef @.str.1058, i32 noundef 1)
-  %747 = load i32, ptr @global_sapdiag_highlight_items, align 4
-  %748 = icmp ne i32 %747, 0
+  %746 = call i32 @add_item_value_stringz(ptr noundef %740, ptr noundef %741, ptr noundef %742, ptr noundef %743, i32 noundef %744, i32 noundef %745, ptr noundef @.str.1088, i32 noundef 1)
+  %747 = load i8, ptr @global_sapdiag_highlight_items, align 1, !range !6, !noundef !7
+  %748 = trunc i8 %747 to i1
   br i1 %748, label %749, label %759
 
 749:                                              ; preds = %729
@@ -4182,11 +4327,11 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %755 = zext i8 %754 to i32
   %756 = load i8, ptr %19, align 1
   %757 = zext i8 %756 to i32
-  %758 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %750, ptr noundef %751, ptr noundef @ei_sapdiag_item_partial, ptr noundef @.str.1057, i32 noundef %753, i32 noundef %755, i32 noundef %757)
+  %758 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %750, ptr noundef %751, ptr noundef @ei_sapdiag_item_partial, ptr noundef @.str.1087, i32 noundef %753, i32 noundef %755, i32 noundef %757)
   br label %759
 
 759:                                              ; preds = %749, %729
-  br label %2600
+  br label %2599
 
 760:                                              ; preds = %725, %721, %717
   %761 = load i8, ptr %17, align 1
@@ -4210,14 +4355,14 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %773 = load ptr, ptr %12, align 8
   %774 = load ptr, ptr %14, align 8
   %775 = load i32, ptr %20, align 4
-  %776 = call i32 @check_length(ptr noundef %773, ptr noundef %774, i32 noundef 4, i32 noundef %775, ptr noundef @.str.1059)
+  %776 = call zeroext i1 @check_length(ptr noundef %773, ptr noundef %774, i32 noundef 4, i32 noundef %775, ptr noundef @.str.1089)
   %777 = load ptr, ptr %11, align 8
   %778 = load ptr, ptr %13, align 8
   %779 = load ptr, ptr %14, align 8
   %780 = load i32, ptr @hf_sapdiag_item_value, align 4
   %781 = load i32, ptr %16, align 4
-  %782 = call i32 @add_item_value_uint32(ptr noundef %777, ptr noundef %778, ptr noundef %779, i32 noundef %780, i32 noundef %781, ptr noundef @.str.1059)
-  br label %2599
+  %782 = call i32 @add_item_value_uint32(ptr noundef %777, ptr noundef %778, ptr noundef %779, i32 noundef %780, i32 noundef %781, ptr noundef @.str.1089)
+  br label %2598
 
 783:                                              ; preds = %768, %764, %760
   %784 = load i8, ptr %17, align 1
@@ -4241,15 +4386,15 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %796 = load ptr, ptr %12, align 8
   %797 = load ptr, ptr %14, align 8
   %798 = load i32, ptr %20, align 4
-  %799 = call i32 @check_length(ptr noundef %796, ptr noundef %797, i32 noundef 2, i32 noundef %798, ptr noundef @.str.1060)
+  %799 = call zeroext i1 @check_length(ptr noundef %796, ptr noundef %797, i32 noundef 2, i32 noundef %798, ptr noundef @.str.1090)
   %800 = load ptr, ptr %11, align 8
   %801 = load ptr, ptr %13, align 8
   %802 = load ptr, ptr %14, align 8
   %803 = load i32, ptr @hf_sapdiag_item_value, align 4
   %804 = load i32, ptr %16, align 4
-  %805 = call zeroext i16 @add_item_value_uint16(ptr noundef %800, ptr noundef %801, ptr noundef %802, i32 noundef %803, i32 noundef %804, ptr noundef @.str.1060)
-  %806 = load i32, ptr @global_sapdiag_highlight_items, align 4
-  %807 = icmp ne i32 %806, 0
+  %805 = call zeroext i16 @add_item_value_uint16(ptr noundef %800, ptr noundef %801, ptr noundef %802, i32 noundef %803, i32 noundef %804, ptr noundef @.str.1090)
+  %806 = load i8, ptr @global_sapdiag_highlight_items, align 1, !range !6, !noundef !7
+  %807 = trunc i8 %806 to i1
   br i1 %807, label %808, label %818
 
 808:                                              ; preds = %795
@@ -4261,11 +4406,11 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %814 = zext i8 %813 to i32
   %815 = load i8, ptr %19, align 1
   %816 = zext i8 %815 to i32
-  %817 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %809, ptr noundef %810, ptr noundef @ei_sapdiag_item_partial, ptr noundef @.str.1057, i32 noundef %812, i32 noundef %814, i32 noundef %816)
+  %817 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %809, ptr noundef %810, ptr noundef @ei_sapdiag_item_partial, ptr noundef @.str.1087, i32 noundef %812, i32 noundef %814, i32 noundef %816)
   br label %818
 
 818:                                              ; preds = %808, %795
-  br label %2598
+  br label %2597
 
 819:                                              ; preds = %791, %787, %783
   %820 = load i8, ptr %17, align 1
@@ -4289,37 +4434,38 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %832 = load ptr, ptr %12, align 8
   %833 = load ptr, ptr %14, align 8
   %834 = load i32, ptr %20, align 4
-  %835 = call i32 @check_length(ptr noundef %832, ptr noundef %833, i32 noundef 2, i32 noundef %834, ptr noundef @.str.1061)
+  %835 = call zeroext i1 @check_length(ptr noundef %832, ptr noundef %833, i32 noundef 2, i32 noundef %834, ptr noundef @.str.1091)
   %836 = load ptr, ptr %11, align 8
   %837 = load ptr, ptr %13, align 8
   %838 = load ptr, ptr %14, align 8
   %839 = load i32, ptr @hf_sapdiag_item_value, align 4
   %840 = load i32, ptr %16, align 4
-  %841 = call zeroext i16 @add_item_value_uint16(ptr noundef %836, ptr noundef %837, ptr noundef %838, i32 noundef %839, i32 noundef %840, ptr noundef @.str.1061)
-  br label %2597
+  %841 = call zeroext i16 @add_item_value_uint16(ptr noundef %836, ptr noundef %837, ptr noundef %838, i32 noundef %839, i32 noundef %840, ptr noundef @.str.1091)
+  br label %2596
 
 842:                                              ; preds = %827, %823, %819
   %843 = load i8, ptr %17, align 1
   %844 = zext i8 %843 to i32
   %845 = icmp eq i32 %844, 16
-  br i1 %845, label %846, label %910
+  br i1 %845, label %846, label %911
 
 846:                                              ; preds = %842
   %847 = load i8, ptr %18, align 1
   %848 = zext i8 %847 to i32
   %849 = icmp eq i32 %848, 6
-  br i1 %849, label %850, label %910
+  br i1 %849, label %850, label %911
 
 850:                                              ; preds = %846
   %851 = load i8, ptr %19, align 1
   %852 = zext i8 %851 to i32
   %853 = icmp eq i32 %852, 31
-  br i1 %853, label %854, label %910
+  br i1 %853, label %854, label %911
 
 854:                                              ; preds = %850
+  call void @llvm.lifetime.start.p0(i64 1, ptr %23) #3
   %855 = load ptr, ptr %11, align 8
   %856 = load i32, ptr %16, align 4
-  %857 = call zeroext i8 @tvb_get_guint8(ptr noundef %855, i32 noundef %856)
+  %857 = call zeroext i8 @tvb_get_uint8(ptr noundef %855, i32 noundef %856)
   store i8 %857, ptr %23, align 1
   %858 = load ptr, ptr %12, align 8
   %859 = load ptr, ptr %14, align 8
@@ -4328,362 +4474,373 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %862 = mul i32 17, %861
   %863 = add i32 1, %862
   %864 = load i32, ptr %20, align 4
-  %865 = call i32 @check_length(ptr noundef %858, ptr noundef %859, i32 noundef %863, i32 noundef %864, ptr noundef @.str.1062)
-  %866 = icmp ne i32 %865, 0
-  br i1 %866, label %868, label %867
+  %865 = call zeroext i1 @check_length(ptr noundef %858, ptr noundef %859, i32 noundef %863, i32 noundef %864, ptr noundef @.str.1092)
+  br i1 %865, label %867, label %866
+
+866:                                              ; preds = %854
+  store i32 1, ptr %24, align 4
+  br label %908
 
 867:                                              ; preds = %854
-  br label %2619
+  %868 = load ptr, ptr %11, align 8
+  %869 = load ptr, ptr %13, align 8
+  %870 = load ptr, ptr %14, align 8
+  %871 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %872 = load i32, ptr %16, align 4
+  %873 = call zeroext i8 @add_item_value_uint8(ptr noundef %868, ptr noundef %869, ptr noundef %870, i32 noundef %871, i32 noundef %872, ptr noundef @.str.1093)
+  %874 = load i32, ptr %16, align 4
+  %875 = add i32 %874, 1
+  store i32 %875, ptr %16, align 4
+  br label %876
 
-868:                                              ; preds = %854
-  %869 = load ptr, ptr %11, align 8
-  %870 = load ptr, ptr %13, align 8
-  %871 = load ptr, ptr %14, align 8
-  %872 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %873 = load i32, ptr %16, align 4
-  %874 = call zeroext i8 @add_item_value_uint8(ptr noundef %869, ptr noundef %870, ptr noundef %871, i32 noundef %872, i32 noundef %873, ptr noundef @.str.1063)
-  %875 = load i32, ptr %16, align 4
-  %876 = add i32 %875, 1
-  store i32 %876, ptr %16, align 4
-  br label %877
+876:                                              ; preds = %888, %867
+  %877 = load i8, ptr %23, align 1
+  %878 = zext i8 %877 to i32
+  %879 = icmp sgt i32 %878, 0
+  br i1 %879, label %880, label %886
 
-877:                                              ; preds = %890, %868
-  %878 = load i8, ptr %23, align 1
-  %879 = zext i8 %878 to i32
-  %880 = icmp sgt i32 %879, 0
-  br i1 %880, label %881, label %888
+880:                                              ; preds = %876
+  %881 = load ptr, ptr %11, align 8
+  %882 = load i32, ptr %16, align 4
+  %883 = add i32 %882, 16
+  %884 = add i32 %883, 1
+  %885 = call zeroext i1 @tvb_offset_exists(ptr noundef %881, i32 noundef %884)
+  br label %886
 
-881:                                              ; preds = %877
-  %882 = load ptr, ptr %11, align 8
-  %883 = load i32, ptr %16, align 4
-  %884 = add i32 %883, 16
-  %885 = add i32 %884, 1
-  %886 = call i32 @tvb_offset_exists(ptr noundef %882, i32 noundef %885)
-  %887 = icmp ne i32 %886, 0
-  br label %888
+886:                                              ; preds = %880, %876
+  %887 = phi i1 [ false, %876 ], [ %885, %880 ]
+  br i1 %887, label %888, label %907
 
-888:                                              ; preds = %881, %877
-  %889 = phi i1 [ false, %877 ], [ %887, %881 ]
-  br i1 %889, label %890, label %909
-
-890:                                              ; preds = %888
-  %891 = load ptr, ptr %11, align 8
-  %892 = load ptr, ptr %12, align 8
-  %893 = load ptr, ptr %13, align 8
-  %894 = load ptr, ptr %14, align 8
-  %895 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %896 = load i32, ptr %16, align 4
-  call void @add_item_value_hexstring(ptr noundef %891, ptr noundef %892, ptr noundef %893, ptr noundef %894, i32 noundef %895, i32 noundef %896, i32 noundef 16, ptr noundef @.str.1064)
-  %897 = load i32, ptr %16, align 4
-  %898 = add i32 %897, 16
-  store i32 %898, ptr %16, align 4
-  %899 = load ptr, ptr %11, align 8
-  %900 = load ptr, ptr %13, align 8
-  %901 = load ptr, ptr %14, align 8
-  %902 = load i32, ptr @hf_sapdiag_item_value, align 4
+888:                                              ; preds = %886
+  %889 = load ptr, ptr %11, align 8
+  %890 = load ptr, ptr %12, align 8
+  %891 = load ptr, ptr %13, align 8
+  %892 = load ptr, ptr %14, align 8
+  %893 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %894 = load i32, ptr %16, align 4
+  call void @add_item_value_hexstring(ptr noundef %889, ptr noundef %890, ptr noundef %891, ptr noundef %892, i32 noundef %893, i32 noundef %894, i32 noundef 16, ptr noundef @.str.1094)
+  %895 = load i32, ptr %16, align 4
+  %896 = add i32 %895, 16
+  store i32 %896, ptr %16, align 4
+  %897 = load ptr, ptr %11, align 8
+  %898 = load ptr, ptr %13, align 8
+  %899 = load ptr, ptr %14, align 8
+  %900 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %901 = load i32, ptr %16, align 4
+  %902 = call zeroext i8 @add_item_value_uint8(ptr noundef %897, ptr noundef %898, ptr noundef %899, i32 noundef %900, i32 noundef %901, ptr noundef @.str.1095)
   %903 = load i32, ptr %16, align 4
-  %904 = call zeroext i8 @add_item_value_uint8(ptr noundef %899, ptr noundef %900, ptr noundef %901, i32 noundef %902, i32 noundef %903, ptr noundef @.str.1065)
-  %905 = load i32, ptr %16, align 4
-  %906 = add i32 %905, 1
-  store i32 %906, ptr %16, align 4
-  %907 = load i8, ptr %23, align 1
-  %908 = add i8 %907, -1
-  store i8 %908, ptr %23, align 1
-  br label %877, !llvm.loop !7
+  %904 = add i32 %903, 1
+  store i32 %904, ptr %16, align 4
+  %905 = load i8, ptr %23, align 1
+  %906 = add i8 %905, -1
+  store i8 %906, ptr %23, align 1
+  br label %876, !llvm.loop !11
 
-909:                                              ; preds = %888
-  br label %2596
+907:                                              ; preds = %886
+  store i32 0, ptr %24, align 4
+  br label %908
 
-910:                                              ; preds = %850, %846, %842
-  %911 = load i8, ptr %17, align 1
-  %912 = zext i8 %911 to i32
-  %913 = icmp eq i32 %912, 16
-  br i1 %913, label %914, label %933
+908:                                              ; preds = %907, %866
+  call void @llvm.lifetime.end.p0(i64 1, ptr %23) #3
+  %909 = load i32, ptr %24, align 4
+  switch i32 %909, label %2619 [
+    i32 0, label %910
+    i32 1, label %2618
+  ]
 
-914:                                              ; preds = %910
-  %915 = load i8, ptr %18, align 1
-  %916 = zext i8 %915 to i32
-  %917 = icmp eq i32 %916, 6
-  br i1 %917, label %918, label %933
-
-918:                                              ; preds = %914
-  %919 = load i8, ptr %19, align 1
-  %920 = zext i8 %919 to i32
-  %921 = icmp eq i32 %920, 34
-  br i1 %921, label %922, label %933
-
-922:                                              ; preds = %918
-  %923 = load ptr, ptr %12, align 8
-  %924 = load ptr, ptr %14, align 8
-  %925 = load i32, ptr %20, align 4
-  %926 = call i32 @check_length(ptr noundef %923, ptr noundef %924, i32 noundef 4, i32 noundef %925, ptr noundef @.str.1066)
-  %927 = load ptr, ptr %11, align 8
-  %928 = load ptr, ptr %13, align 8
-  %929 = load ptr, ptr %14, align 8
-  %930 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %931 = load i32, ptr %16, align 4
-  %932 = call i32 @add_item_value_uint32(ptr noundef %927, ptr noundef %928, ptr noundef %929, i32 noundef %930, i32 noundef %931, ptr noundef @.str.1066)
+910:                                              ; preds = %908
   br label %2595
 
-933:                                              ; preds = %918, %914, %910
-  %934 = load i8, ptr %17, align 1
-  %935 = zext i8 %934 to i32
-  %936 = icmp eq i32 %935, 16
-  br i1 %936, label %937, label %978
+911:                                              ; preds = %850, %846, %842
+  %912 = load i8, ptr %17, align 1
+  %913 = zext i8 %912 to i32
+  %914 = icmp eq i32 %913, 16
+  br i1 %914, label %915, label %934
 
-937:                                              ; preds = %933
-  %938 = load i8, ptr %18, align 1
-  %939 = zext i8 %938 to i32
-  %940 = icmp eq i32 %939, 6
-  br i1 %940, label %941, label %978
+915:                                              ; preds = %911
+  %916 = load i8, ptr %18, align 1
+  %917 = zext i8 %916 to i32
+  %918 = icmp eq i32 %917, 6
+  br i1 %918, label %919, label %934
 
-941:                                              ; preds = %937
-  %942 = load i8, ptr %19, align 1
-  %943 = zext i8 %942 to i32
-  %944 = icmp eq i32 %943, 35
-  br i1 %944, label %945, label %978
+919:                                              ; preds = %915
+  %920 = load i8, ptr %19, align 1
+  %921 = zext i8 %920 to i32
+  %922 = icmp eq i32 %921, 34
+  br i1 %922, label %923, label %934
 
-945:                                              ; preds = %941
-  %946 = load ptr, ptr %11, align 8
-  %947 = load ptr, ptr %13, align 8
-  %948 = load ptr, ptr %14, align 8
-  %949 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %950 = load i32, ptr %16, align 4
-  %951 = call i32 @add_item_value_uint32(ptr noundef %946, ptr noundef %947, ptr noundef %948, i32 noundef %949, i32 noundef %950, ptr noundef @.str.1067)
-  %952 = load i32, ptr %16, align 4
-  %953 = add i32 %952, 4
-  store i32 %953, ptr %16, align 4
-  %954 = load ptr, ptr %11, align 8
-  %955 = load ptr, ptr %13, align 8
-  %956 = load ptr, ptr %14, align 8
-  %957 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %958 = load i32, ptr %16, align 4
-  %959 = call zeroext i8 @add_item_value_uint8(ptr noundef %954, ptr noundef %955, ptr noundef %956, i32 noundef %957, i32 noundef %958, ptr noundef @.str.1068)
-  %960 = load i32, ptr %16, align 4
-  %961 = add i32 %960, 1
-  store i32 %961, ptr %16, align 4
-  %962 = load ptr, ptr %11, align 8
-  %963 = load ptr, ptr %12, align 8
-  %964 = load ptr, ptr %13, align 8
-  %965 = load ptr, ptr %14, align 8
-  %966 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %967 = load i32, ptr %16, align 4
-  %968 = call i32 @add_item_value_stringz(ptr noundef %962, ptr noundef %963, ptr noundef %964, ptr noundef %965, i32 noundef %966, i32 noundef %967, ptr noundef @.str.1069, i32 noundef 1)
-  %969 = load i32, ptr %16, align 4
-  %970 = add i32 %969, %968
-  store i32 %970, ptr %16, align 4
-  %971 = load ptr, ptr %11, align 8
-  %972 = load ptr, ptr %12, align 8
-  %973 = load ptr, ptr %13, align 8
-  %974 = load ptr, ptr %14, align 8
-  %975 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %976 = load i32, ptr %16, align 4
-  %977 = call i32 @add_item_value_stringz(ptr noundef %971, ptr noundef %972, ptr noundef %973, ptr noundef %974, i32 noundef %975, i32 noundef %976, ptr noundef @.str.1070, i32 noundef 1)
+923:                                              ; preds = %919
+  %924 = load ptr, ptr %12, align 8
+  %925 = load ptr, ptr %14, align 8
+  %926 = load i32, ptr %20, align 4
+  %927 = call zeroext i1 @check_length(ptr noundef %924, ptr noundef %925, i32 noundef 4, i32 noundef %926, ptr noundef @.str.1096)
+  %928 = load ptr, ptr %11, align 8
+  %929 = load ptr, ptr %13, align 8
+  %930 = load ptr, ptr %14, align 8
+  %931 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %932 = load i32, ptr %16, align 4
+  %933 = call i32 @add_item_value_uint32(ptr noundef %928, ptr noundef %929, ptr noundef %930, i32 noundef %931, i32 noundef %932, ptr noundef @.str.1096)
   br label %2594
 
-978:                                              ; preds = %941, %937, %933
-  %979 = load i8, ptr %17, align 1
-  %980 = zext i8 %979 to i32
-  %981 = icmp eq i32 %980, 16
-  br i1 %981, label %982, label %1023
+934:                                              ; preds = %919, %915, %911
+  %935 = load i8, ptr %17, align 1
+  %936 = zext i8 %935 to i32
+  %937 = icmp eq i32 %936, 16
+  br i1 %937, label %938, label %979
 
-982:                                              ; preds = %978
-  %983 = load i8, ptr %18, align 1
-  %984 = zext i8 %983 to i32
-  %985 = icmp eq i32 %984, 6
-  br i1 %985, label %986, label %1023
+938:                                              ; preds = %934
+  %939 = load i8, ptr %18, align 1
+  %940 = zext i8 %939 to i32
+  %941 = icmp eq i32 %940, 6
+  br i1 %941, label %942, label %979
 
-986:                                              ; preds = %982
-  %987 = load i8, ptr %19, align 1
-  %988 = zext i8 %987 to i32
-  %989 = icmp eq i32 %988, 39
-  br i1 %989, label %990, label %1023
+942:                                              ; preds = %938
+  %943 = load i8, ptr %19, align 1
+  %944 = zext i8 %943 to i32
+  %945 = icmp eq i32 %944, 35
+  br i1 %945, label %946, label %979
 
-990:                                              ; preds = %986
-  %991 = load ptr, ptr %11, align 8
-  %992 = load ptr, ptr %13, align 8
-  %993 = load ptr, ptr %14, align 8
-  %994 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %995 = load i32, ptr %16, align 4
-  %996 = call i32 @add_item_value_uint32(ptr noundef %991, ptr noundef %992, ptr noundef %993, i32 noundef %994, i32 noundef %995, ptr noundef @.str.1067)
-  %997 = load i32, ptr %16, align 4
-  %998 = add i32 %997, 4
-  store i32 %998, ptr %16, align 4
-  %999 = load ptr, ptr %11, align 8
-  %1000 = load ptr, ptr %13, align 8
-  %1001 = load ptr, ptr %14, align 8
-  %1002 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %1003 = load i32, ptr %16, align 4
-  %1004 = call zeroext i8 @add_item_value_uint8(ptr noundef %999, ptr noundef %1000, ptr noundef %1001, i32 noundef %1002, i32 noundef %1003, ptr noundef @.str.1068)
-  %1005 = load i32, ptr %16, align 4
-  %1006 = add i32 %1005, 1
-  store i32 %1006, ptr %16, align 4
-  %1007 = load ptr, ptr %11, align 8
-  %1008 = load ptr, ptr %12, align 8
-  %1009 = load ptr, ptr %13, align 8
-  %1010 = load ptr, ptr %14, align 8
-  %1011 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %1012 = load i32, ptr %16, align 4
-  %1013 = call i32 @add_item_value_stringz(ptr noundef %1007, ptr noundef %1008, ptr noundef %1009, ptr noundef %1010, i32 noundef %1011, i32 noundef %1012, ptr noundef @.str.1069, i32 noundef 1)
-  %1014 = load i32, ptr %16, align 4
-  %1015 = add i32 %1014, %1013
-  store i32 %1015, ptr %16, align 4
-  %1016 = load ptr, ptr %11, align 8
-  %1017 = load ptr, ptr %12, align 8
-  %1018 = load ptr, ptr %13, align 8
-  %1019 = load ptr, ptr %14, align 8
-  %1020 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %1021 = load i32, ptr %16, align 4
-  %1022 = call i32 @add_item_value_stringz(ptr noundef %1016, ptr noundef %1017, ptr noundef %1018, ptr noundef %1019, i32 noundef %1020, i32 noundef %1021, ptr noundef @.str.1070, i32 noundef 1)
+946:                                              ; preds = %942
+  %947 = load ptr, ptr %11, align 8
+  %948 = load ptr, ptr %13, align 8
+  %949 = load ptr, ptr %14, align 8
+  %950 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %951 = load i32, ptr %16, align 4
+  %952 = call i32 @add_item_value_uint32(ptr noundef %947, ptr noundef %948, ptr noundef %949, i32 noundef %950, i32 noundef %951, ptr noundef @.str.1097)
+  %953 = load i32, ptr %16, align 4
+  %954 = add i32 %953, 4
+  store i32 %954, ptr %16, align 4
+  %955 = load ptr, ptr %11, align 8
+  %956 = load ptr, ptr %13, align 8
+  %957 = load ptr, ptr %14, align 8
+  %958 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %959 = load i32, ptr %16, align 4
+  %960 = call zeroext i8 @add_item_value_uint8(ptr noundef %955, ptr noundef %956, ptr noundef %957, i32 noundef %958, i32 noundef %959, ptr noundef @.str.1098)
+  %961 = load i32, ptr %16, align 4
+  %962 = add i32 %961, 1
+  store i32 %962, ptr %16, align 4
+  %963 = load ptr, ptr %11, align 8
+  %964 = load ptr, ptr %12, align 8
+  %965 = load ptr, ptr %13, align 8
+  %966 = load ptr, ptr %14, align 8
+  %967 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %968 = load i32, ptr %16, align 4
+  %969 = call i32 @add_item_value_stringz(ptr noundef %963, ptr noundef %964, ptr noundef %965, ptr noundef %966, i32 noundef %967, i32 noundef %968, ptr noundef @.str.1099, i32 noundef 1)
+  %970 = load i32, ptr %16, align 4
+  %971 = add i32 %970, %969
+  store i32 %971, ptr %16, align 4
+  %972 = load ptr, ptr %11, align 8
+  %973 = load ptr, ptr %12, align 8
+  %974 = load ptr, ptr %13, align 8
+  %975 = load ptr, ptr %14, align 8
+  %976 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %977 = load i32, ptr %16, align 4
+  %978 = call i32 @add_item_value_stringz(ptr noundef %972, ptr noundef %973, ptr noundef %974, ptr noundef %975, i32 noundef %976, i32 noundef %977, ptr noundef @.str.1100, i32 noundef 1)
   br label %2593
 
-1023:                                             ; preds = %986, %982, %978
-  %1024 = load i8, ptr %17, align 1
-  %1025 = zext i8 %1024 to i32
-  %1026 = icmp eq i32 %1025, 16
-  br i1 %1026, label %1027, label %1061
+979:                                              ; preds = %942, %938, %934
+  %980 = load i8, ptr %17, align 1
+  %981 = zext i8 %980 to i32
+  %982 = icmp eq i32 %981, 16
+  br i1 %982, label %983, label %1024
 
-1027:                                             ; preds = %1023
-  %1028 = load i8, ptr %18, align 1
-  %1029 = zext i8 %1028 to i32
-  %1030 = icmp eq i32 %1029, 6
-  br i1 %1030, label %1031, label %1061
+983:                                              ; preds = %979
+  %984 = load i8, ptr %18, align 1
+  %985 = zext i8 %984 to i32
+  %986 = icmp eq i32 %985, 6
+  br i1 %986, label %987, label %1024
 
-1031:                                             ; preds = %1027
-  %1032 = load i8, ptr %19, align 1
-  %1033 = zext i8 %1032 to i32
-  %1034 = icmp eq i32 %1033, 41
-  br i1 %1034, label %1035, label %1061
+987:                                              ; preds = %983
+  %988 = load i8, ptr %19, align 1
+  %989 = zext i8 %988 to i32
+  %990 = icmp eq i32 %989, 39
+  br i1 %990, label %991, label %1024
 
-1035:                                             ; preds = %1031
-  %1036 = load ptr, ptr %11, align 8
-  %1037 = load ptr, ptr %12, align 8
-  %1038 = load ptr, ptr %13, align 8
-  %1039 = load ptr, ptr %14, align 8
-  %1040 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %1041 = load i32, ptr %16, align 4
-  %1042 = call i32 @add_item_value_stringz(ptr noundef %1036, ptr noundef %1037, ptr noundef %1038, ptr noundef %1039, i32 noundef %1040, i32 noundef %1041, ptr noundef @.str.1071, i32 noundef 1)
-  %1043 = load i32, ptr %16, align 4
-  %1044 = add i32 %1043, %1042
-  store i32 %1044, ptr %16, align 4
-  %1045 = load ptr, ptr %11, align 8
-  %1046 = load ptr, ptr %12, align 8
-  %1047 = load ptr, ptr %13, align 8
-  %1048 = load ptr, ptr %14, align 8
-  %1049 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %1050 = load i32, ptr %16, align 4
-  %1051 = call i32 @add_item_value_stringz(ptr noundef %1045, ptr noundef %1046, ptr noundef %1047, ptr noundef %1048, i32 noundef %1049, i32 noundef %1050, ptr noundef @.str.1072, i32 noundef 1)
-  %1052 = load i32, ptr %16, align 4
-  %1053 = add i32 %1052, %1051
-  store i32 %1053, ptr %16, align 4
-  %1054 = load ptr, ptr %11, align 8
-  %1055 = load ptr, ptr %12, align 8
-  %1056 = load ptr, ptr %13, align 8
-  %1057 = load ptr, ptr %14, align 8
-  %1058 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %1059 = load i32, ptr %16, align 4
-  %1060 = call i32 @add_item_value_stringz(ptr noundef %1054, ptr noundef %1055, ptr noundef %1056, ptr noundef %1057, i32 noundef %1058, i32 noundef %1059, ptr noundef @.str.1073, i32 noundef 1)
+991:                                              ; preds = %987
+  %992 = load ptr, ptr %11, align 8
+  %993 = load ptr, ptr %13, align 8
+  %994 = load ptr, ptr %14, align 8
+  %995 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %996 = load i32, ptr %16, align 4
+  %997 = call i32 @add_item_value_uint32(ptr noundef %992, ptr noundef %993, ptr noundef %994, i32 noundef %995, i32 noundef %996, ptr noundef @.str.1097)
+  %998 = load i32, ptr %16, align 4
+  %999 = add i32 %998, 4
+  store i32 %999, ptr %16, align 4
+  %1000 = load ptr, ptr %11, align 8
+  %1001 = load ptr, ptr %13, align 8
+  %1002 = load ptr, ptr %14, align 8
+  %1003 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %1004 = load i32, ptr %16, align 4
+  %1005 = call zeroext i8 @add_item_value_uint8(ptr noundef %1000, ptr noundef %1001, ptr noundef %1002, i32 noundef %1003, i32 noundef %1004, ptr noundef @.str.1098)
+  %1006 = load i32, ptr %16, align 4
+  %1007 = add i32 %1006, 1
+  store i32 %1007, ptr %16, align 4
+  %1008 = load ptr, ptr %11, align 8
+  %1009 = load ptr, ptr %12, align 8
+  %1010 = load ptr, ptr %13, align 8
+  %1011 = load ptr, ptr %14, align 8
+  %1012 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %1013 = load i32, ptr %16, align 4
+  %1014 = call i32 @add_item_value_stringz(ptr noundef %1008, ptr noundef %1009, ptr noundef %1010, ptr noundef %1011, i32 noundef %1012, i32 noundef %1013, ptr noundef @.str.1099, i32 noundef 1)
+  %1015 = load i32, ptr %16, align 4
+  %1016 = add i32 %1015, %1014
+  store i32 %1016, ptr %16, align 4
+  %1017 = load ptr, ptr %11, align 8
+  %1018 = load ptr, ptr %12, align 8
+  %1019 = load ptr, ptr %13, align 8
+  %1020 = load ptr, ptr %14, align 8
+  %1021 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %1022 = load i32, ptr %16, align 4
+  %1023 = call i32 @add_item_value_stringz(ptr noundef %1017, ptr noundef %1018, ptr noundef %1019, ptr noundef %1020, i32 noundef %1021, i32 noundef %1022, ptr noundef @.str.1100, i32 noundef 1)
   br label %2592
 
-1061:                                             ; preds = %1031, %1027, %1023
-  %1062 = load i8, ptr %17, align 1
-  %1063 = zext i8 %1062 to i32
-  %1064 = icmp eq i32 %1063, 16
-  br i1 %1064, label %1065, label %1148
+1024:                                             ; preds = %987, %983, %979
+  %1025 = load i8, ptr %17, align 1
+  %1026 = zext i8 %1025 to i32
+  %1027 = icmp eq i32 %1026, 16
+  br i1 %1027, label %1028, label %1062
 
-1065:                                             ; preds = %1061
-  %1066 = load i8, ptr %18, align 1
-  %1067 = zext i8 %1066 to i32
-  %1068 = icmp eq i32 %1067, 9
-  br i1 %1068, label %1069, label %1148
+1028:                                             ; preds = %1024
+  %1029 = load i8, ptr %18, align 1
+  %1030 = zext i8 %1029 to i32
+  %1031 = icmp eq i32 %1030, 6
+  br i1 %1031, label %1032, label %1062
 
-1069:                                             ; preds = %1065
-  %1070 = load i8, ptr %19, align 1
-  %1071 = zext i8 %1070 to i32
-  %1072 = icmp eq i32 %1071, 11
-  br i1 %1072, label %1073, label %1148
+1032:                                             ; preds = %1028
+  %1033 = load i8, ptr %19, align 1
+  %1034 = zext i8 %1033 to i32
+  %1035 = icmp eq i32 %1034, 41
+  br i1 %1035, label %1036, label %1062
 
-1073:                                             ; preds = %1069
-  %1074 = load i32, ptr %16, align 4
-  %1075 = load i32, ptr %20, align 4
-  %1076 = add i32 %1074, %1075
-  store i32 %1076, ptr %24, align 4
-  %1077 = load ptr, ptr %11, align 8
-  %1078 = load ptr, ptr %13, align 8
-  %1079 = load ptr, ptr %14, align 8
-  %1080 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %1081 = load i32, ptr %16, align 4
-  %1082 = call zeroext i8 @add_item_value_uint8(ptr noundef %1077, ptr noundef %1078, ptr noundef %1079, i32 noundef %1080, i32 noundef %1081, ptr noundef @.str.1074)
-  %1083 = load i32, ptr %16, align 4
-  %1084 = add i32 %1083, 1
-  store i32 %1084, ptr %16, align 4
-  %1085 = load ptr, ptr %11, align 8
-  %1086 = load ptr, ptr %13, align 8
-  %1087 = load ptr, ptr %14, align 8
-  %1088 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %1089 = load i32, ptr %16, align 4
-  %1090 = call zeroext i16 @add_item_value_uint16(ptr noundef %1085, ptr noundef %1086, ptr noundef %1087, i32 noundef %1088, i32 noundef %1089, ptr noundef @.str.1075)
-  %1091 = load i32, ptr %16, align 4
-  %1092 = add i32 %1091, 2
-  store i32 %1092, ptr %16, align 4
-  %1093 = load ptr, ptr %11, align 8
-  %1094 = load ptr, ptr %13, align 8
-  %1095 = load ptr, ptr %14, align 8
-  %1096 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %1097 = load i32, ptr %16, align 4
-  %1098 = call zeroext i16 @add_item_value_uint16(ptr noundef %1093, ptr noundef %1094, ptr noundef %1095, i32 noundef %1096, i32 noundef %1097, ptr noundef @.str.1076)
-  %1099 = load i32, ptr %16, align 4
-  %1100 = add i32 %1099, 2
-  store i32 %1100, ptr %16, align 4
-  %1101 = load ptr, ptr %11, align 8
-  %1102 = load ptr, ptr %13, align 8
-  %1103 = load ptr, ptr %14, align 8
-  %1104 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %1105 = load i32, ptr %16, align 4
-  %1106 = call zeroext i16 @add_item_value_uint16(ptr noundef %1101, ptr noundef %1102, ptr noundef %1103, i32 noundef %1104, i32 noundef %1105, ptr noundef @.str.1077)
-  %1107 = load i32, ptr %16, align 4
-  %1108 = add i32 %1107, 2
-  store i32 %1108, ptr %16, align 4
-  %1109 = load ptr, ptr %11, align 8
-  %1110 = load ptr, ptr %13, align 8
-  %1111 = load ptr, ptr %14, align 8
-  %1112 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %1113 = load i32, ptr %16, align 4
-  %1114 = call zeroext i16 @add_item_value_uint16(ptr noundef %1109, ptr noundef %1110, ptr noundef %1111, i32 noundef %1112, i32 noundef %1113, ptr noundef @.str.1078)
-  %1115 = load i32, ptr %16, align 4
-  %1116 = add i32 %1115, 2
-  store i32 %1116, ptr %16, align 4
-  %1117 = load i32, ptr %24, align 4
-  %1118 = load i32, ptr %16, align 4
-  %1119 = sub i32 %1117, %1118
-  %1120 = icmp ugt i32 %1119, 30
-  br i1 %1120, label %1121, label %1126
+1036:                                             ; preds = %1032
+  %1037 = load ptr, ptr %11, align 8
+  %1038 = load ptr, ptr %12, align 8
+  %1039 = load ptr, ptr %13, align 8
+  %1040 = load ptr, ptr %14, align 8
+  %1041 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %1042 = load i32, ptr %16, align 4
+  %1043 = call i32 @add_item_value_stringz(ptr noundef %1037, ptr noundef %1038, ptr noundef %1039, ptr noundef %1040, i32 noundef %1041, i32 noundef %1042, ptr noundef @.str.1101, i32 noundef 1)
+  %1044 = load i32, ptr %16, align 4
+  %1045 = add i32 %1044, %1043
+  store i32 %1045, ptr %16, align 4
+  %1046 = load ptr, ptr %11, align 8
+  %1047 = load ptr, ptr %12, align 8
+  %1048 = load ptr, ptr %13, align 8
+  %1049 = load ptr, ptr %14, align 8
+  %1050 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %1051 = load i32, ptr %16, align 4
+  %1052 = call i32 @add_item_value_stringz(ptr noundef %1046, ptr noundef %1047, ptr noundef %1048, ptr noundef %1049, i32 noundef %1050, i32 noundef %1051, ptr noundef @.str.1102, i32 noundef 1)
+  %1053 = load i32, ptr %16, align 4
+  %1054 = add i32 %1053, %1052
+  store i32 %1054, ptr %16, align 4
+  %1055 = load ptr, ptr %11, align 8
+  %1056 = load ptr, ptr %12, align 8
+  %1057 = load ptr, ptr %13, align 8
+  %1058 = load ptr, ptr %14, align 8
+  %1059 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %1060 = load i32, ptr %16, align 4
+  %1061 = call i32 @add_item_value_stringz(ptr noundef %1055, ptr noundef %1056, ptr noundef %1057, ptr noundef %1058, i32 noundef %1059, i32 noundef %1060, ptr noundef @.str.1103, i32 noundef 1)
+  br label %2591
 
-1121:                                             ; preds = %1073
-  %1122 = load ptr, ptr %12, align 8
-  %1123 = load ptr, ptr %13, align 8
-  %1124 = load i32, ptr %16, align 4
-  %1125 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1122, ptr noundef %1123, ptr noundef @ei_sapdiag_dynt_focus_more_cont_ids, ptr noundef @.str.1079, i32 noundef %1124)
-  br label %1126
+1062:                                             ; preds = %1032, %1028, %1024
+  %1063 = load i8, ptr %17, align 1
+  %1064 = zext i8 %1063 to i32
+  %1065 = icmp eq i32 %1064, 16
+  br i1 %1065, label %1066, label %1148
 
-1126:                                             ; preds = %1121, %1073
+1066:                                             ; preds = %1062
+  %1067 = load i8, ptr %18, align 1
+  %1068 = zext i8 %1067 to i32
+  %1069 = icmp eq i32 %1068, 9
+  br i1 %1069, label %1070, label %1148
+
+1070:                                             ; preds = %1066
+  %1071 = load i8, ptr %19, align 1
+  %1072 = zext i8 %1071 to i32
+  %1073 = icmp eq i32 %1072, 11
+  br i1 %1073, label %1074, label %1148
+
+1074:                                             ; preds = %1070
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #3
+  %1075 = load i32, ptr %16, align 4
+  %1076 = load i32, ptr %20, align 4
+  %1077 = add i32 %1075, %1076
+  store i32 %1077, ptr %25, align 4
+  %1078 = load ptr, ptr %11, align 8
+  %1079 = load ptr, ptr %13, align 8
+  %1080 = load ptr, ptr %14, align 8
+  %1081 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %1082 = load i32, ptr %16, align 4
+  %1083 = call zeroext i8 @add_item_value_uint8(ptr noundef %1078, ptr noundef %1079, ptr noundef %1080, i32 noundef %1081, i32 noundef %1082, ptr noundef @.str.1104)
+  %1084 = load i32, ptr %16, align 4
+  %1085 = add i32 %1084, 1
+  store i32 %1085, ptr %16, align 4
+  %1086 = load ptr, ptr %11, align 8
+  %1087 = load ptr, ptr %13, align 8
+  %1088 = load ptr, ptr %14, align 8
+  %1089 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %1090 = load i32, ptr %16, align 4
+  %1091 = call zeroext i16 @add_item_value_uint16(ptr noundef %1086, ptr noundef %1087, ptr noundef %1088, i32 noundef %1089, i32 noundef %1090, ptr noundef @.str.1105)
+  %1092 = load i32, ptr %16, align 4
+  %1093 = add i32 %1092, 2
+  store i32 %1093, ptr %16, align 4
+  %1094 = load ptr, ptr %11, align 8
+  %1095 = load ptr, ptr %13, align 8
+  %1096 = load ptr, ptr %14, align 8
+  %1097 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %1098 = load i32, ptr %16, align 4
+  %1099 = call zeroext i16 @add_item_value_uint16(ptr noundef %1094, ptr noundef %1095, ptr noundef %1096, i32 noundef %1097, i32 noundef %1098, ptr noundef @.str.1106)
+  %1100 = load i32, ptr %16, align 4
+  %1101 = add i32 %1100, 2
+  store i32 %1101, ptr %16, align 4
+  %1102 = load ptr, ptr %11, align 8
+  %1103 = load ptr, ptr %13, align 8
+  %1104 = load ptr, ptr %14, align 8
+  %1105 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %1106 = load i32, ptr %16, align 4
+  %1107 = call zeroext i16 @add_item_value_uint16(ptr noundef %1102, ptr noundef %1103, ptr noundef %1104, i32 noundef %1105, i32 noundef %1106, ptr noundef @.str.1107)
+  %1108 = load i32, ptr %16, align 4
+  %1109 = add i32 %1108, 2
+  store i32 %1109, ptr %16, align 4
+  %1110 = load ptr, ptr %11, align 8
+  %1111 = load ptr, ptr %13, align 8
+  %1112 = load ptr, ptr %14, align 8
+  %1113 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %1114 = load i32, ptr %16, align 4
+  %1115 = call zeroext i16 @add_item_value_uint16(ptr noundef %1110, ptr noundef %1111, ptr noundef %1112, i32 noundef %1113, i32 noundef %1114, ptr noundef @.str.1108)
+  %1116 = load i32, ptr %16, align 4
+  %1117 = add i32 %1116, 2
+  store i32 %1117, ptr %16, align 4
+  %1118 = load i32, ptr %25, align 4
+  %1119 = load i32, ptr %16, align 4
+  %1120 = sub i32 %1118, %1119
+  %1121 = icmp ugt i32 %1120, 30
+  br i1 %1121, label %1122, label %1127
+
+1122:                                             ; preds = %1074
+  %1123 = load ptr, ptr %12, align 8
+  %1124 = load ptr, ptr %13, align 8
+  %1125 = load i32, ptr %16, align 4
+  %1126 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1123, ptr noundef %1124, ptr noundef @ei_sapdiag_dynt_focus_more_cont_ids, ptr noundef @.str.1109, i32 noundef %1125)
   br label %1127
 
-1127:                                             ; preds = %1138, %1126
-  %1128 = load i32, ptr %16, align 4
-  %1129 = load i32, ptr %24, align 4
-  %1130 = icmp ult i32 %1128, %1129
-  br i1 %1130, label %1131, label %1136
+1127:                                             ; preds = %1122, %1074
+  br label %1128
 
-1131:                                             ; preds = %1127
-  %1132 = load ptr, ptr %11, align 8
-  %1133 = load i32, ptr %16, align 4
-  %1134 = call i32 @tvb_offset_exists(ptr noundef %1132, i32 noundef %1133)
-  %1135 = icmp ne i32 %1134, 0
+1128:                                             ; preds = %1138, %1127
+  %1129 = load i32, ptr %16, align 4
+  %1130 = load i32, ptr %25, align 4
+  %1131 = icmp ult i32 %1129, %1130
+  br i1 %1131, label %1132, label %1136
+
+1132:                                             ; preds = %1128
+  %1133 = load ptr, ptr %11, align 8
+  %1134 = load i32, ptr %16, align 4
+  %1135 = call zeroext i1 @tvb_offset_exists(ptr noundef %1133, i32 noundef %1134)
   br label %1136
 
-1136:                                             ; preds = %1131, %1127
-  %1137 = phi i1 [ false, %1127 ], [ %1135, %1131 ]
+1136:                                             ; preds = %1132, %1128
+  %1137 = phi i1 [ false, %1128 ], [ %1135, %1132 ]
   br i1 %1137, label %1138, label %1147
 
 1138:                                             ; preds = %1136
@@ -4692,16 +4849,17 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1141 = load ptr, ptr %14, align 8
   %1142 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1143 = load i32, ptr %16, align 4
-  %1144 = call zeroext i8 @add_item_value_uint8(ptr noundef %1139, ptr noundef %1140, ptr noundef %1141, i32 noundef %1142, i32 noundef %1143, ptr noundef @.str.1080)
+  %1144 = call zeroext i8 @add_item_value_uint8(ptr noundef %1139, ptr noundef %1140, ptr noundef %1141, i32 noundef %1142, i32 noundef %1143, ptr noundef @.str.1110)
   %1145 = load i32, ptr %16, align 4
   %1146 = add i32 %1145, 1
   store i32 %1146, ptr %16, align 4
-  br label %1127, !llvm.loop !8
+  br label %1128, !llvm.loop !12
 
 1147:                                             ; preds = %1136
-  br label %2591
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #3
+  br label %2590
 
-1148:                                             ; preds = %1069, %1065, %1061
+1148:                                             ; preds = %1070, %1066, %1062
   %1149 = load i8, ptr %17, align 1
   %1150 = zext i8 %1149 to i32
   %1151 = icmp eq i32 %1150, 16
@@ -4723,13 +4881,13 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1161 = load ptr, ptr %12, align 8
   %1162 = load ptr, ptr %14, align 8
   %1163 = load i32, ptr %20, align 4
-  %1164 = call i32 @check_length(ptr noundef %1161, ptr noundef %1162, i32 noundef 9, i32 noundef %1163, ptr noundef @.str.1081)
+  %1164 = call zeroext i1 @check_length(ptr noundef %1161, ptr noundef %1162, i32 noundef 9, i32 noundef %1163, ptr noundef @.str.1111)
   %1165 = load ptr, ptr %11, align 8
   %1166 = load ptr, ptr %13, align 8
   %1167 = load ptr, ptr %14, align 8
   %1168 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1169 = load i32, ptr %16, align 4
-  %1170 = call zeroext i8 @add_item_value_uint8(ptr noundef %1165, ptr noundef %1166, ptr noundef %1167, i32 noundef %1168, i32 noundef %1169, ptr noundef @.str.1082)
+  %1170 = call zeroext i8 @add_item_value_uint8(ptr noundef %1165, ptr noundef %1166, ptr noundef %1167, i32 noundef %1168, i32 noundef %1169, ptr noundef @.str.1112)
   %1171 = load i32, ptr %16, align 4
   %1172 = add i32 %1171, 1
   store i32 %1172, ptr %16, align 4
@@ -4738,7 +4896,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1175 = load ptr, ptr %14, align 8
   %1176 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1177 = load i32, ptr %16, align 4
-  %1178 = call zeroext i16 @add_item_value_uint16(ptr noundef %1173, ptr noundef %1174, ptr noundef %1175, i32 noundef %1176, i32 noundef %1177, ptr noundef @.str.1083)
+  %1178 = call zeroext i16 @add_item_value_uint16(ptr noundef %1173, ptr noundef %1174, ptr noundef %1175, i32 noundef %1176, i32 noundef %1177, ptr noundef @.str.1113)
   %1179 = load i32, ptr %16, align 4
   %1180 = add i32 %1179, 2
   store i32 %1180, ptr %16, align 4
@@ -4747,7 +4905,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1183 = load ptr, ptr %14, align 8
   %1184 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1185 = load i32, ptr %16, align 4
-  %1186 = call zeroext i16 @add_item_value_uint16(ptr noundef %1181, ptr noundef %1182, ptr noundef %1183, i32 noundef %1184, i32 noundef %1185, ptr noundef @.str.1084)
+  %1186 = call zeroext i16 @add_item_value_uint16(ptr noundef %1181, ptr noundef %1182, ptr noundef %1183, i32 noundef %1184, i32 noundef %1185, ptr noundef @.str.1114)
   %1187 = load i32, ptr %16, align 4
   %1188 = add i32 %1187, 2
   store i32 %1188, ptr %16, align 4
@@ -4756,7 +4914,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1191 = load ptr, ptr %14, align 8
   %1192 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1193 = load i32, ptr %16, align 4
-  %1194 = call zeroext i16 @add_item_value_uint16(ptr noundef %1189, ptr noundef %1190, ptr noundef %1191, i32 noundef %1192, i32 noundef %1193, ptr noundef @.str.1085)
+  %1194 = call zeroext i16 @add_item_value_uint16(ptr noundef %1189, ptr noundef %1190, ptr noundef %1191, i32 noundef %1192, i32 noundef %1193, ptr noundef @.str.1115)
   %1195 = load i32, ptr %16, align 4
   %1196 = add i32 %1195, 2
   store i32 %1196, ptr %16, align 4
@@ -4765,8 +4923,8 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1199 = load ptr, ptr %14, align 8
   %1200 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1201 = load i32, ptr %16, align 4
-  %1202 = call zeroext i16 @add_item_value_uint16(ptr noundef %1197, ptr noundef %1198, ptr noundef %1199, i32 noundef %1200, i32 noundef %1201, ptr noundef @.str.1086)
-  br label %2590
+  %1202 = call zeroext i16 @add_item_value_uint16(ptr noundef %1197, ptr noundef %1198, ptr noundef %1199, i32 noundef %1200, i32 noundef %1201, ptr noundef @.str.1116)
+  br label %2589
 
 1203:                                             ; preds = %1156, %1152, %1148
   %1204 = load i8, ptr %17, align 1
@@ -4790,13 +4948,13 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1216 = load ptr, ptr %12, align 8
   %1217 = load ptr, ptr %14, align 8
   %1218 = load i32, ptr %20, align 4
-  %1219 = call i32 @check_length(ptr noundef %1216, ptr noundef %1217, i32 noundef 9, i32 noundef %1218, ptr noundef @.str.1087)
+  %1219 = call zeroext i1 @check_length(ptr noundef %1216, ptr noundef %1217, i32 noundef 9, i32 noundef %1218, ptr noundef @.str.1117)
   %1220 = load ptr, ptr %11, align 8
   %1221 = load ptr, ptr %13, align 8
   %1222 = load ptr, ptr %14, align 8
   %1223 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1224 = load i32, ptr %16, align 4
-  %1225 = call zeroext i8 @add_item_value_uint8(ptr noundef %1220, ptr noundef %1221, ptr noundef %1222, i32 noundef %1223, i32 noundef %1224, ptr noundef @.str.1082)
+  %1225 = call zeroext i8 @add_item_value_uint8(ptr noundef %1220, ptr noundef %1221, ptr noundef %1222, i32 noundef %1223, i32 noundef %1224, ptr noundef @.str.1112)
   %1226 = load i32, ptr %16, align 4
   %1227 = add i32 %1226, 1
   store i32 %1227, ptr %16, align 4
@@ -4805,7 +4963,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1230 = load ptr, ptr %14, align 8
   %1231 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1232 = load i32, ptr %16, align 4
-  %1233 = call zeroext i16 @add_item_value_uint16(ptr noundef %1228, ptr noundef %1229, ptr noundef %1230, i32 noundef %1231, i32 noundef %1232, ptr noundef @.str.1083)
+  %1233 = call zeroext i16 @add_item_value_uint16(ptr noundef %1228, ptr noundef %1229, ptr noundef %1230, i32 noundef %1231, i32 noundef %1232, ptr noundef @.str.1113)
   %1234 = load i32, ptr %16, align 4
   %1235 = add i32 %1234, 2
   store i32 %1235, ptr %16, align 4
@@ -4814,7 +4972,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1238 = load ptr, ptr %14, align 8
   %1239 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1240 = load i32, ptr %16, align 4
-  %1241 = call zeroext i16 @add_item_value_uint16(ptr noundef %1236, ptr noundef %1237, ptr noundef %1238, i32 noundef %1239, i32 noundef %1240, ptr noundef @.str.1084)
+  %1241 = call zeroext i16 @add_item_value_uint16(ptr noundef %1236, ptr noundef %1237, ptr noundef %1238, i32 noundef %1239, i32 noundef %1240, ptr noundef @.str.1114)
   %1242 = load i32, ptr %16, align 4
   %1243 = add i32 %1242, 2
   store i32 %1243, ptr %16, align 4
@@ -4823,7 +4981,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1246 = load ptr, ptr %14, align 8
   %1247 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1248 = load i32, ptr %16, align 4
-  %1249 = call zeroext i16 @add_item_value_uint16(ptr noundef %1244, ptr noundef %1245, ptr noundef %1246, i32 noundef %1247, i32 noundef %1248, ptr noundef @.str.1085)
+  %1249 = call zeroext i16 @add_item_value_uint16(ptr noundef %1244, ptr noundef %1245, ptr noundef %1246, i32 noundef %1247, i32 noundef %1248, ptr noundef @.str.1115)
   %1250 = load i32, ptr %16, align 4
   %1251 = add i32 %1250, 2
   store i32 %1251, ptr %16, align 4
@@ -4832,8 +4990,8 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1254 = load ptr, ptr %14, align 8
   %1255 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1256 = load i32, ptr %16, align 4
-  %1257 = call zeroext i16 @add_item_value_uint16(ptr noundef %1252, ptr noundef %1253, ptr noundef %1254, i32 noundef %1255, i32 noundef %1256, ptr noundef @.str.1086)
-  br label %2589
+  %1257 = call zeroext i16 @add_item_value_uint16(ptr noundef %1252, ptr noundef %1253, ptr noundef %1254, i32 noundef %1255, i32 noundef %1256, ptr noundef @.str.1116)
+  br label %2588
 
 1258:                                             ; preds = %1211, %1207, %1203
   %1259 = load i8, ptr %17, align 1
@@ -4857,13 +5015,13 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1271 = load ptr, ptr %12, align 8
   %1272 = load ptr, ptr %14, align 8
   %1273 = load i32, ptr %20, align 4
-  %1274 = call i32 @check_length(ptr noundef %1271, ptr noundef %1272, i32 noundef 9, i32 noundef %1273, ptr noundef @.str.1088)
+  %1274 = call zeroext i1 @check_length(ptr noundef %1271, ptr noundef %1272, i32 noundef 9, i32 noundef %1273, ptr noundef @.str.1118)
   %1275 = load ptr, ptr %11, align 8
   %1276 = load ptr, ptr %13, align 8
   %1277 = load ptr, ptr %14, align 8
   %1278 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1279 = load i32, ptr %16, align 4
-  %1280 = call zeroext i8 @add_item_value_uint8(ptr noundef %1275, ptr noundef %1276, ptr noundef %1277, i32 noundef %1278, i32 noundef %1279, ptr noundef @.str.1082)
+  %1280 = call zeroext i8 @add_item_value_uint8(ptr noundef %1275, ptr noundef %1276, ptr noundef %1277, i32 noundef %1278, i32 noundef %1279, ptr noundef @.str.1112)
   %1281 = load i32, ptr %16, align 4
   %1282 = add i32 %1281, 1
   store i32 %1282, ptr %16, align 4
@@ -4872,7 +5030,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1285 = load ptr, ptr %14, align 8
   %1286 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1287 = load i32, ptr %16, align 4
-  %1288 = call zeroext i16 @add_item_value_uint16(ptr noundef %1283, ptr noundef %1284, ptr noundef %1285, i32 noundef %1286, i32 noundef %1287, ptr noundef @.str.1083)
+  %1288 = call zeroext i16 @add_item_value_uint16(ptr noundef %1283, ptr noundef %1284, ptr noundef %1285, i32 noundef %1286, i32 noundef %1287, ptr noundef @.str.1113)
   %1289 = load i32, ptr %16, align 4
   %1290 = add i32 %1289, 2
   store i32 %1290, ptr %16, align 4
@@ -4881,7 +5039,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1293 = load ptr, ptr %14, align 8
   %1294 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1295 = load i32, ptr %16, align 4
-  %1296 = call zeroext i16 @add_item_value_uint16(ptr noundef %1291, ptr noundef %1292, ptr noundef %1293, i32 noundef %1294, i32 noundef %1295, ptr noundef @.str.1084)
+  %1296 = call zeroext i16 @add_item_value_uint16(ptr noundef %1291, ptr noundef %1292, ptr noundef %1293, i32 noundef %1294, i32 noundef %1295, ptr noundef @.str.1114)
   %1297 = load i32, ptr %16, align 4
   %1298 = add i32 %1297, 2
   store i32 %1298, ptr %16, align 4
@@ -4890,7 +5048,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1301 = load ptr, ptr %14, align 8
   %1302 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1303 = load i32, ptr %16, align 4
-  %1304 = call zeroext i16 @add_item_value_uint16(ptr noundef %1299, ptr noundef %1300, ptr noundef %1301, i32 noundef %1302, i32 noundef %1303, ptr noundef @.str.1085)
+  %1304 = call zeroext i16 @add_item_value_uint16(ptr noundef %1299, ptr noundef %1300, ptr noundef %1301, i32 noundef %1302, i32 noundef %1303, ptr noundef @.str.1115)
   %1305 = load i32, ptr %16, align 4
   %1306 = add i32 %1305, 2
   store i32 %1306, ptr %16, align 4
@@ -4899,8 +5057,8 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1309 = load ptr, ptr %14, align 8
   %1310 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1311 = load i32, ptr %16, align 4
-  %1312 = call zeroext i16 @add_item_value_uint16(ptr noundef %1307, ptr noundef %1308, ptr noundef %1309, i32 noundef %1310, i32 noundef %1311, ptr noundef @.str.1086)
-  br label %2588
+  %1312 = call zeroext i16 @add_item_value_uint16(ptr noundef %1307, ptr noundef %1308, ptr noundef %1309, i32 noundef %1310, i32 noundef %1311, ptr noundef @.str.1116)
+  br label %2587
 
 1313:                                             ; preds = %1266, %1262, %1258
   %1314 = load i8, ptr %17, align 1
@@ -4927,7 +5085,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1329 = load ptr, ptr %14, align 8
   %1330 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1331 = load i32, ptr %16, align 4
-  %1332 = call i32 @add_item_value_stringz(ptr noundef %1326, ptr noundef %1327, ptr noundef %1328, ptr noundef %1329, i32 noundef %1330, i32 noundef %1331, ptr noundef @.str.1089, i32 noundef 1)
+  %1332 = call i32 @add_item_value_stringz(ptr noundef %1326, ptr noundef %1327, ptr noundef %1328, ptr noundef %1329, i32 noundef %1330, i32 noundef %1331, ptr noundef @.str.1119, i32 noundef 1)
   %1333 = load i32, ptr %16, align 4
   %1334 = add i32 %1333, %1332
   store i32 %1334, ptr %16, align 4
@@ -4937,7 +5095,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1338 = load ptr, ptr %14, align 8
   %1339 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1340 = load i32, ptr %16, align 4
-  %1341 = call i32 @add_item_value_stringz(ptr noundef %1335, ptr noundef %1336, ptr noundef %1337, ptr noundef %1338, i32 noundef %1339, i32 noundef %1340, ptr noundef @.str.1090, i32 noundef 1)
+  %1341 = call i32 @add_item_value_stringz(ptr noundef %1335, ptr noundef %1336, ptr noundef %1337, ptr noundef %1338, i32 noundef %1339, i32 noundef %1340, ptr noundef @.str.1120, i32 noundef 1)
   %1342 = load i32, ptr %16, align 4
   %1343 = add i32 %1342, %1341
   store i32 %1343, ptr %16, align 4
@@ -4947,8 +5105,8 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1347 = load ptr, ptr %14, align 8
   %1348 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1349 = load i32, ptr %16, align 4
-  %1350 = call i32 @add_item_value_stringz(ptr noundef %1344, ptr noundef %1345, ptr noundef %1346, ptr noundef %1347, i32 noundef %1348, i32 noundef %1349, ptr noundef @.str.1091, i32 noundef 1)
-  br label %2587
+  %1350 = call i32 @add_item_value_stringz(ptr noundef %1344, ptr noundef %1345, ptr noundef %1346, ptr noundef %1347, i32 noundef %1348, i32 noundef %1349, ptr noundef @.str.1121, i32 noundef 1)
+  br label %2586
 
 1351:                                             ; preds = %1321, %1317, %1313
   %1352 = load i8, ptr %17, align 1
@@ -4972,13 +5130,13 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1364 = load ptr, ptr %12, align 8
   %1365 = load ptr, ptr %14, align 8
   %1366 = load i32, ptr %20, align 4
-  %1367 = call i32 @check_length(ptr noundef %1364, ptr noundef %1365, i32 noundef 9, i32 noundef %1366, ptr noundef @.str.1092)
+  %1367 = call zeroext i1 @check_length(ptr noundef %1364, ptr noundef %1365, i32 noundef 9, i32 noundef %1366, ptr noundef @.str.1122)
   %1368 = load ptr, ptr %11, align 8
   %1369 = load ptr, ptr %13, align 8
   %1370 = load ptr, ptr %14, align 8
   %1371 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1372 = load i32, ptr %16, align 4
-  %1373 = call zeroext i8 @add_item_value_uint8(ptr noundef %1368, ptr noundef %1369, ptr noundef %1370, i32 noundef %1371, i32 noundef %1372, ptr noundef @.str.1082)
+  %1373 = call zeroext i8 @add_item_value_uint8(ptr noundef %1368, ptr noundef %1369, ptr noundef %1370, i32 noundef %1371, i32 noundef %1372, ptr noundef @.str.1112)
   %1374 = load i32, ptr %16, align 4
   %1375 = add i32 %1374, 1
   store i32 %1375, ptr %16, align 4
@@ -4987,7 +5145,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1378 = load ptr, ptr %14, align 8
   %1379 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1380 = load i32, ptr %16, align 4
-  %1381 = call zeroext i16 @add_item_value_uint16(ptr noundef %1376, ptr noundef %1377, ptr noundef %1378, i32 noundef %1379, i32 noundef %1380, ptr noundef @.str.1083)
+  %1381 = call zeroext i16 @add_item_value_uint16(ptr noundef %1376, ptr noundef %1377, ptr noundef %1378, i32 noundef %1379, i32 noundef %1380, ptr noundef @.str.1113)
   %1382 = load i32, ptr %16, align 4
   %1383 = add i32 %1382, 2
   store i32 %1383, ptr %16, align 4
@@ -4996,7 +5154,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1386 = load ptr, ptr %14, align 8
   %1387 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1388 = load i32, ptr %16, align 4
-  %1389 = call zeroext i16 @add_item_value_uint16(ptr noundef %1384, ptr noundef %1385, ptr noundef %1386, i32 noundef %1387, i32 noundef %1388, ptr noundef @.str.1084)
+  %1389 = call zeroext i16 @add_item_value_uint16(ptr noundef %1384, ptr noundef %1385, ptr noundef %1386, i32 noundef %1387, i32 noundef %1388, ptr noundef @.str.1114)
   %1390 = load i32, ptr %16, align 4
   %1391 = add i32 %1390, 2
   store i32 %1391, ptr %16, align 4
@@ -5005,7 +5163,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1394 = load ptr, ptr %14, align 8
   %1395 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1396 = load i32, ptr %16, align 4
-  %1397 = call zeroext i16 @add_item_value_uint16(ptr noundef %1392, ptr noundef %1393, ptr noundef %1394, i32 noundef %1395, i32 noundef %1396, ptr noundef @.str.1085)
+  %1397 = call zeroext i16 @add_item_value_uint16(ptr noundef %1392, ptr noundef %1393, ptr noundef %1394, i32 noundef %1395, i32 noundef %1396, ptr noundef @.str.1115)
   %1398 = load i32, ptr %16, align 4
   %1399 = add i32 %1398, 2
   store i32 %1399, ptr %16, align 4
@@ -5014,8 +5172,8 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1402 = load ptr, ptr %14, align 8
   %1403 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1404 = load i32, ptr %16, align 4
-  %1405 = call zeroext i16 @add_item_value_uint16(ptr noundef %1400, ptr noundef %1401, ptr noundef %1402, i32 noundef %1403, i32 noundef %1404, ptr noundef @.str.1086)
-  br label %2586
+  %1405 = call zeroext i16 @add_item_value_uint16(ptr noundef %1400, ptr noundef %1401, ptr noundef %1402, i32 noundef %1403, i32 noundef %1404, ptr noundef @.str.1116)
+  br label %2585
 
 1406:                                             ; preds = %1359, %1355, %1351
   %1407 = load i8, ptr %17, align 1
@@ -5039,13 +5197,13 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1419 = load ptr, ptr %12, align 8
   %1420 = load ptr, ptr %14, align 8
   %1421 = load i32, ptr %20, align 4
-  %1422 = call i32 @check_length(ptr noundef %1419, ptr noundef %1420, i32 noundef 9, i32 noundef %1421, ptr noundef @.str.1093)
+  %1422 = call zeroext i1 @check_length(ptr noundef %1419, ptr noundef %1420, i32 noundef 9, i32 noundef %1421, ptr noundef @.str.1123)
   %1423 = load ptr, ptr %11, align 8
   %1424 = load ptr, ptr %13, align 8
   %1425 = load ptr, ptr %14, align 8
   %1426 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1427 = load i32, ptr %16, align 4
-  %1428 = call zeroext i8 @add_item_value_uint8(ptr noundef %1423, ptr noundef %1424, ptr noundef %1425, i32 noundef %1426, i32 noundef %1427, ptr noundef @.str.1082)
+  %1428 = call zeroext i8 @add_item_value_uint8(ptr noundef %1423, ptr noundef %1424, ptr noundef %1425, i32 noundef %1426, i32 noundef %1427, ptr noundef @.str.1112)
   %1429 = load i32, ptr %16, align 4
   %1430 = add i32 %1429, 1
   store i32 %1430, ptr %16, align 4
@@ -5054,7 +5212,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1433 = load ptr, ptr %14, align 8
   %1434 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1435 = load i32, ptr %16, align 4
-  %1436 = call zeroext i16 @add_item_value_uint16(ptr noundef %1431, ptr noundef %1432, ptr noundef %1433, i32 noundef %1434, i32 noundef %1435, ptr noundef @.str.1083)
+  %1436 = call zeroext i16 @add_item_value_uint16(ptr noundef %1431, ptr noundef %1432, ptr noundef %1433, i32 noundef %1434, i32 noundef %1435, ptr noundef @.str.1113)
   %1437 = load i32, ptr %16, align 4
   %1438 = add i32 %1437, 2
   store i32 %1438, ptr %16, align 4
@@ -5063,7 +5221,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1441 = load ptr, ptr %14, align 8
   %1442 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1443 = load i32, ptr %16, align 4
-  %1444 = call zeroext i16 @add_item_value_uint16(ptr noundef %1439, ptr noundef %1440, ptr noundef %1441, i32 noundef %1442, i32 noundef %1443, ptr noundef @.str.1084)
+  %1444 = call zeroext i16 @add_item_value_uint16(ptr noundef %1439, ptr noundef %1440, ptr noundef %1441, i32 noundef %1442, i32 noundef %1443, ptr noundef @.str.1114)
   %1445 = load i32, ptr %16, align 4
   %1446 = add i32 %1445, 2
   store i32 %1446, ptr %16, align 4
@@ -5072,7 +5230,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1449 = load ptr, ptr %14, align 8
   %1450 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1451 = load i32, ptr %16, align 4
-  %1452 = call zeroext i16 @add_item_value_uint16(ptr noundef %1447, ptr noundef %1448, ptr noundef %1449, i32 noundef %1450, i32 noundef %1451, ptr noundef @.str.1085)
+  %1452 = call zeroext i16 @add_item_value_uint16(ptr noundef %1447, ptr noundef %1448, ptr noundef %1449, i32 noundef %1450, i32 noundef %1451, ptr noundef @.str.1115)
   %1453 = load i32, ptr %16, align 4
   %1454 = add i32 %1453, 2
   store i32 %1454, ptr %16, align 4
@@ -5081,8 +5239,8 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1457 = load ptr, ptr %14, align 8
   %1458 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1459 = load i32, ptr %16, align 4
-  %1460 = call zeroext i16 @add_item_value_uint16(ptr noundef %1455, ptr noundef %1456, ptr noundef %1457, i32 noundef %1458, i32 noundef %1459, ptr noundef @.str.1086)
-  br label %2585
+  %1460 = call zeroext i16 @add_item_value_uint16(ptr noundef %1455, ptr noundef %1456, ptr noundef %1457, i32 noundef %1458, i32 noundef %1459, ptr noundef @.str.1116)
+  br label %2584
 
 1461:                                             ; preds = %1414, %1410, %1406
   %1462 = load i8, ptr %17, align 1
@@ -5106,13 +5264,13 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1474 = load ptr, ptr %12, align 8
   %1475 = load ptr, ptr %14, align 8
   %1476 = load i32, ptr %20, align 4
-  %1477 = call i32 @check_length(ptr noundef %1474, ptr noundef %1475, i32 noundef 9, i32 noundef %1476, ptr noundef @.str.1094)
+  %1477 = call zeroext i1 @check_length(ptr noundef %1474, ptr noundef %1475, i32 noundef 9, i32 noundef %1476, ptr noundef @.str.1124)
   %1478 = load ptr, ptr %11, align 8
   %1479 = load ptr, ptr %13, align 8
   %1480 = load ptr, ptr %14, align 8
   %1481 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1482 = load i32, ptr %16, align 4
-  %1483 = call zeroext i8 @add_item_value_uint8(ptr noundef %1478, ptr noundef %1479, ptr noundef %1480, i32 noundef %1481, i32 noundef %1482, ptr noundef @.str.1082)
+  %1483 = call zeroext i8 @add_item_value_uint8(ptr noundef %1478, ptr noundef %1479, ptr noundef %1480, i32 noundef %1481, i32 noundef %1482, ptr noundef @.str.1112)
   %1484 = load i32, ptr %16, align 4
   %1485 = add i32 %1484, 1
   store i32 %1485, ptr %16, align 4
@@ -5121,7 +5279,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1488 = load ptr, ptr %14, align 8
   %1489 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1490 = load i32, ptr %16, align 4
-  %1491 = call zeroext i16 @add_item_value_uint16(ptr noundef %1486, ptr noundef %1487, ptr noundef %1488, i32 noundef %1489, i32 noundef %1490, ptr noundef @.str.1083)
+  %1491 = call zeroext i16 @add_item_value_uint16(ptr noundef %1486, ptr noundef %1487, ptr noundef %1488, i32 noundef %1489, i32 noundef %1490, ptr noundef @.str.1113)
   %1492 = load i32, ptr %16, align 4
   %1493 = add i32 %1492, 2
   store i32 %1493, ptr %16, align 4
@@ -5130,7 +5288,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1496 = load ptr, ptr %14, align 8
   %1497 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1498 = load i32, ptr %16, align 4
-  %1499 = call zeroext i16 @add_item_value_uint16(ptr noundef %1494, ptr noundef %1495, ptr noundef %1496, i32 noundef %1497, i32 noundef %1498, ptr noundef @.str.1084)
+  %1499 = call zeroext i16 @add_item_value_uint16(ptr noundef %1494, ptr noundef %1495, ptr noundef %1496, i32 noundef %1497, i32 noundef %1498, ptr noundef @.str.1114)
   %1500 = load i32, ptr %16, align 4
   %1501 = add i32 %1500, 2
   store i32 %1501, ptr %16, align 4
@@ -5139,7 +5297,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1504 = load ptr, ptr %14, align 8
   %1505 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1506 = load i32, ptr %16, align 4
-  %1507 = call zeroext i16 @add_item_value_uint16(ptr noundef %1502, ptr noundef %1503, ptr noundef %1504, i32 noundef %1505, i32 noundef %1506, ptr noundef @.str.1085)
+  %1507 = call zeroext i16 @add_item_value_uint16(ptr noundef %1502, ptr noundef %1503, ptr noundef %1504, i32 noundef %1505, i32 noundef %1506, ptr noundef @.str.1115)
   %1508 = load i32, ptr %16, align 4
   %1509 = add i32 %1508, 2
   store i32 %1509, ptr %16, align 4
@@ -5148,8 +5306,8 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1512 = load ptr, ptr %14, align 8
   %1513 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1514 = load i32, ptr %16, align 4
-  %1515 = call zeroext i16 @add_item_value_uint16(ptr noundef %1510, ptr noundef %1511, ptr noundef %1512, i32 noundef %1513, i32 noundef %1514, ptr noundef @.str.1086)
-  br label %2584
+  %1515 = call zeroext i16 @add_item_value_uint16(ptr noundef %1510, ptr noundef %1511, ptr noundef %1512, i32 noundef %1513, i32 noundef %1514, ptr noundef @.str.1116)
+  br label %2583
 
 1516:                                             ; preds = %1469, %1465, %1461
   %1517 = load i8, ptr %17, align 1
@@ -5176,7 +5334,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1532 = load ptr, ptr %14, align 8
   %1533 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1534 = load i32, ptr %16, align 4
-  %1535 = call i32 @add_item_value_stringz(ptr noundef %1529, ptr noundef %1530, ptr noundef %1531, ptr noundef %1532, i32 noundef %1533, i32 noundef %1534, ptr noundef @.str.1095, i32 noundef 1)
+  %1535 = call i32 @add_item_value_stringz(ptr noundef %1529, ptr noundef %1530, ptr noundef %1531, ptr noundef %1532, i32 noundef %1533, i32 noundef %1534, ptr noundef @.str.1125, i32 noundef 1)
   %1536 = load i32, ptr %16, align 4
   %1537 = add i32 %1536, %1535
   store i32 %1537, ptr %16, align 4
@@ -5186,7 +5344,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1541 = load ptr, ptr %14, align 8
   %1542 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1543 = load i32, ptr %16, align 4
-  %1544 = call i32 @add_item_value_stringz(ptr noundef %1538, ptr noundef %1539, ptr noundef %1540, ptr noundef %1541, i32 noundef %1542, i32 noundef %1543, ptr noundef @.str.1095, i32 noundef 1)
+  %1544 = call i32 @add_item_value_stringz(ptr noundef %1538, ptr noundef %1539, ptr noundef %1540, ptr noundef %1541, i32 noundef %1542, i32 noundef %1543, ptr noundef @.str.1125, i32 noundef 1)
   %1545 = load i32, ptr %16, align 4
   %1546 = add i32 %1545, %1544
   store i32 %1546, ptr %16, align 4
@@ -5196,7 +5354,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1550 = load ptr, ptr %14, align 8
   %1551 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1552 = load i32, ptr %16, align 4
-  %1553 = call i32 @add_item_value_stringz(ptr noundef %1547, ptr noundef %1548, ptr noundef %1549, ptr noundef %1550, i32 noundef %1551, i32 noundef %1552, ptr noundef @.str.1095, i32 noundef 1)
+  %1553 = call i32 @add_item_value_stringz(ptr noundef %1547, ptr noundef %1548, ptr noundef %1549, ptr noundef %1550, i32 noundef %1551, i32 noundef %1552, ptr noundef @.str.1125, i32 noundef 1)
   %1554 = load i32, ptr %16, align 4
   %1555 = add i32 %1554, %1553
   store i32 %1555, ptr %16, align 4
@@ -5206,8 +5364,8 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1559 = load ptr, ptr %14, align 8
   %1560 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1561 = load i32, ptr %16, align 4
-  %1562 = call i32 @add_item_value_stringz(ptr noundef %1556, ptr noundef %1557, ptr noundef %1558, ptr noundef %1559, i32 noundef %1560, i32 noundef %1561, ptr noundef @.str.1095, i32 noundef 1)
-  br label %2583
+  %1562 = call i32 @add_item_value_stringz(ptr noundef %1556, ptr noundef %1557, ptr noundef %1558, ptr noundef %1559, i32 noundef %1560, i32 noundef %1561, ptr noundef @.str.1125, i32 noundef 1)
+  br label %2582
 
 1563:                                             ; preds = %1524, %1520, %1516
   %1564 = load i8, ptr %17, align 1
@@ -5231,13 +5389,13 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1576 = load ptr, ptr %12, align 8
   %1577 = load ptr, ptr %14, align 8
   %1578 = load i32, ptr %20, align 4
-  %1579 = call i32 @check_length(ptr noundef %1576, ptr noundef %1577, i32 noundef 24, i32 noundef %1578, ptr noundef @.str.1096)
+  %1579 = call zeroext i1 @check_length(ptr noundef %1576, ptr noundef %1577, i32 noundef 24, i32 noundef %1578, ptr noundef @.str.1126)
   %1580 = load ptr, ptr %11, align 8
   %1581 = load ptr, ptr %13, align 8
   %1582 = load ptr, ptr %14, align 8
   %1583 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1584 = load i32, ptr %16, align 4
-  %1585 = call i32 @add_item_value_uint32(ptr noundef %1580, ptr noundef %1581, ptr noundef %1582, i32 noundef %1583, i32 noundef %1584, ptr noundef @.str.1097)
+  %1585 = call i32 @add_item_value_uint32(ptr noundef %1580, ptr noundef %1581, ptr noundef %1582, i32 noundef %1583, i32 noundef %1584, ptr noundef @.str.1127)
   %1586 = load i32, ptr %16, align 4
   %1587 = add i32 %1586, 4
   store i32 %1587, ptr %16, align 4
@@ -5246,7 +5404,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1590 = load ptr, ptr %14, align 8
   %1591 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1592 = load i32, ptr %16, align 4
-  %1593 = call i32 @add_item_value_uint32(ptr noundef %1588, ptr noundef %1589, ptr noundef %1590, i32 noundef %1591, i32 noundef %1592, ptr noundef @.str.1098)
+  %1593 = call i32 @add_item_value_uint32(ptr noundef %1588, ptr noundef %1589, ptr noundef %1590, i32 noundef %1591, i32 noundef %1592, ptr noundef @.str.1128)
   %1594 = load i32, ptr %16, align 4
   %1595 = add i32 %1594, 4
   store i32 %1595, ptr %16, align 4
@@ -5255,7 +5413,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1598 = load ptr, ptr %14, align 8
   %1599 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1600 = load i32, ptr %16, align 4
-  %1601 = call i32 @add_item_value_uint32(ptr noundef %1596, ptr noundef %1597, ptr noundef %1598, i32 noundef %1599, i32 noundef %1600, ptr noundef @.str.1099)
+  %1601 = call i32 @add_item_value_uint32(ptr noundef %1596, ptr noundef %1597, ptr noundef %1598, i32 noundef %1599, i32 noundef %1600, ptr noundef @.str.1129)
   %1602 = load i32, ptr %16, align 4
   %1603 = add i32 %1602, 4
   store i32 %1603, ptr %16, align 4
@@ -5264,7 +5422,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1606 = load ptr, ptr %14, align 8
   %1607 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1608 = load i32, ptr %16, align 4
-  %1609 = call i32 @add_item_value_uint32(ptr noundef %1604, ptr noundef %1605, ptr noundef %1606, i32 noundef %1607, i32 noundef %1608, ptr noundef @.str.1100)
+  %1609 = call i32 @add_item_value_uint32(ptr noundef %1604, ptr noundef %1605, ptr noundef %1606, i32 noundef %1607, i32 noundef %1608, ptr noundef @.str.1130)
   %1610 = load i32, ptr %16, align 4
   %1611 = add i32 %1610, 4
   store i32 %1611, ptr %16, align 4
@@ -5273,7 +5431,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1614 = load ptr, ptr %14, align 8
   %1615 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1616 = load i32, ptr %16, align 4
-  %1617 = call i32 @add_item_value_uint32(ptr noundef %1612, ptr noundef %1613, ptr noundef %1614, i32 noundef %1615, i32 noundef %1616, ptr noundef @.str.1101)
+  %1617 = call i32 @add_item_value_uint32(ptr noundef %1612, ptr noundef %1613, ptr noundef %1614, i32 noundef %1615, i32 noundef %1616, ptr noundef @.str.1131)
   %1618 = load i32, ptr %16, align 4
   %1619 = add i32 %1618, 4
   store i32 %1619, ptr %16, align 4
@@ -5282,8 +5440,8 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1622 = load ptr, ptr %14, align 8
   %1623 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1624 = load i32, ptr %16, align 4
-  %1625 = call i32 @add_item_value_uint32(ptr noundef %1620, ptr noundef %1621, ptr noundef %1622, i32 noundef %1623, i32 noundef %1624, ptr noundef @.str.1102)
-  br label %2582
+  %1625 = call i32 @add_item_value_uint32(ptr noundef %1620, ptr noundef %1621, ptr noundef %1622, i32 noundef %1623, i32 noundef %1624, ptr noundef @.str.1132)
+  br label %2581
 
 1626:                                             ; preds = %1571, %1567, %1563
   %1627 = load i8, ptr %17, align 1
@@ -5307,13 +5465,13 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1639 = load ptr, ptr %12, align 8
   %1640 = load ptr, ptr %14, align 8
   %1641 = load i32, ptr %20, align 4
-  %1642 = call i32 @check_length(ptr noundef %1639, ptr noundef %1640, i32 noundef 33, i32 noundef %1641, ptr noundef @.str.1103)
+  %1642 = call zeroext i1 @check_length(ptr noundef %1639, ptr noundef %1640, i32 noundef 33, i32 noundef %1641, ptr noundef @.str.1133)
   %1643 = load ptr, ptr %11, align 8
   %1644 = load ptr, ptr %13, align 8
   %1645 = load ptr, ptr %14, align 8
   %1646 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1647 = load i32, ptr %16, align 4
-  %1648 = call i32 @add_item_value_uint32(ptr noundef %1643, ptr noundef %1644, ptr noundef %1645, i32 noundef %1646, i32 noundef %1647, ptr noundef @.str.1097)
+  %1648 = call i32 @add_item_value_uint32(ptr noundef %1643, ptr noundef %1644, ptr noundef %1645, i32 noundef %1646, i32 noundef %1647, ptr noundef @.str.1127)
   %1649 = load i32, ptr %16, align 4
   %1650 = add i32 %1649, 4
   store i32 %1650, ptr %16, align 4
@@ -5322,7 +5480,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1653 = load ptr, ptr %14, align 8
   %1654 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1655 = load i32, ptr %16, align 4
-  %1656 = call i32 @add_item_value_uint32(ptr noundef %1651, ptr noundef %1652, ptr noundef %1653, i32 noundef %1654, i32 noundef %1655, ptr noundef @.str.1098)
+  %1656 = call i32 @add_item_value_uint32(ptr noundef %1651, ptr noundef %1652, ptr noundef %1653, i32 noundef %1654, i32 noundef %1655, ptr noundef @.str.1128)
   %1657 = load i32, ptr %16, align 4
   %1658 = add i32 %1657, 4
   store i32 %1658, ptr %16, align 4
@@ -5331,7 +5489,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1661 = load ptr, ptr %14, align 8
   %1662 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1663 = load i32, ptr %16, align 4
-  %1664 = call i32 @add_item_value_uint32(ptr noundef %1659, ptr noundef %1660, ptr noundef %1661, i32 noundef %1662, i32 noundef %1663, ptr noundef @.str.1099)
+  %1664 = call i32 @add_item_value_uint32(ptr noundef %1659, ptr noundef %1660, ptr noundef %1661, i32 noundef %1662, i32 noundef %1663, ptr noundef @.str.1129)
   %1665 = load i32, ptr %16, align 4
   %1666 = add i32 %1665, 4
   store i32 %1666, ptr %16, align 4
@@ -5340,7 +5498,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1669 = load ptr, ptr %14, align 8
   %1670 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1671 = load i32, ptr %16, align 4
-  %1672 = call i32 @add_item_value_uint32(ptr noundef %1667, ptr noundef %1668, ptr noundef %1669, i32 noundef %1670, i32 noundef %1671, ptr noundef @.str.1100)
+  %1672 = call i32 @add_item_value_uint32(ptr noundef %1667, ptr noundef %1668, ptr noundef %1669, i32 noundef %1670, i32 noundef %1671, ptr noundef @.str.1130)
   %1673 = load i32, ptr %16, align 4
   %1674 = add i32 %1673, 4
   store i32 %1674, ptr %16, align 4
@@ -5349,7 +5507,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1677 = load ptr, ptr %14, align 8
   %1678 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1679 = load i32, ptr %16, align 4
-  %1680 = call i32 @add_item_value_uint32(ptr noundef %1675, ptr noundef %1676, ptr noundef %1677, i32 noundef %1678, i32 noundef %1679, ptr noundef @.str.1101)
+  %1680 = call i32 @add_item_value_uint32(ptr noundef %1675, ptr noundef %1676, ptr noundef %1677, i32 noundef %1678, i32 noundef %1679, ptr noundef @.str.1131)
   %1681 = load i32, ptr %16, align 4
   %1682 = add i32 %1681, 4
   store i32 %1682, ptr %16, align 4
@@ -5358,7 +5516,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1685 = load ptr, ptr %14, align 8
   %1686 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1687 = load i32, ptr %16, align 4
-  %1688 = call i32 @add_item_value_uint32(ptr noundef %1683, ptr noundef %1684, ptr noundef %1685, i32 noundef %1686, i32 noundef %1687, ptr noundef @.str.1102)
+  %1688 = call i32 @add_item_value_uint32(ptr noundef %1683, ptr noundef %1684, ptr noundef %1685, i32 noundef %1686, i32 noundef %1687, ptr noundef @.str.1132)
   %1689 = load i32, ptr %16, align 4
   %1690 = add i32 %1689, 4
   store i32 %1690, ptr %16, align 4
@@ -5367,7 +5525,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1693 = load ptr, ptr %14, align 8
   %1694 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1695 = load i32, ptr %16, align 4
-  %1696 = call i32 @add_item_value_uint32(ptr noundef %1691, ptr noundef %1692, ptr noundef %1693, i32 noundef %1694, i32 noundef %1695, ptr noundef @.str.1104)
+  %1696 = call i32 @add_item_value_uint32(ptr noundef %1691, ptr noundef %1692, ptr noundef %1693, i32 noundef %1694, i32 noundef %1695, ptr noundef @.str.1134)
   %1697 = load i32, ptr %16, align 4
   %1698 = add i32 %1697, 4
   store i32 %1698, ptr %16, align 4
@@ -5376,7 +5534,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1701 = load ptr, ptr %14, align 8
   %1702 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1703 = load i32, ptr %16, align 4
-  %1704 = call i32 @add_item_value_uint32(ptr noundef %1699, ptr noundef %1700, ptr noundef %1701, i32 noundef %1702, i32 noundef %1703, ptr noundef @.str.1105)
+  %1704 = call i32 @add_item_value_uint32(ptr noundef %1699, ptr noundef %1700, ptr noundef %1701, i32 noundef %1702, i32 noundef %1703, ptr noundef @.str.1135)
   %1705 = load i32, ptr %16, align 4
   %1706 = add i32 %1705, 4
   store i32 %1706, ptr %16, align 4
@@ -5385,8 +5543,8 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1709 = load ptr, ptr %14, align 8
   %1710 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1711 = load i32, ptr %16, align 4
-  %1712 = call zeroext i8 @add_item_value_uint8(ptr noundef %1707, ptr noundef %1708, ptr noundef %1709, i32 noundef %1710, i32 noundef %1711, ptr noundef @.str.1106)
-  br label %2581
+  %1712 = call zeroext i8 @add_item_value_uint8(ptr noundef %1707, ptr noundef %1708, ptr noundef %1709, i32 noundef %1710, i32 noundef %1711, ptr noundef @.str.1136)
+  br label %2580
 
 1713:                                             ; preds = %1634, %1630, %1626
   %1714 = load i8, ptr %17, align 1
@@ -5410,13 +5568,13 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1726 = load ptr, ptr %12, align 8
   %1727 = load ptr, ptr %14, align 8
   %1728 = load i32, ptr %20, align 4
-  %1729 = call i32 @check_length(ptr noundef %1726, ptr noundef %1727, i32 noundef 16, i32 noundef %1728, ptr noundef @.str.1107)
+  %1729 = call zeroext i1 @check_length(ptr noundef %1726, ptr noundef %1727, i32 noundef 16, i32 noundef %1728, ptr noundef @.str.1137)
   %1730 = load ptr, ptr %11, align 8
   %1731 = load ptr, ptr %13, align 8
   %1732 = load ptr, ptr %14, align 8
   %1733 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1734 = load i32, ptr %16, align 4
-  %1735 = call i32 @add_item_value_uint32(ptr noundef %1730, ptr noundef %1731, ptr noundef %1732, i32 noundef %1733, i32 noundef %1734, ptr noundef @.str.1038)
+  %1735 = call i32 @add_item_value_uint32(ptr noundef %1730, ptr noundef %1731, ptr noundef %1732, i32 noundef %1733, i32 noundef %1734, ptr noundef @.str.1068)
   %1736 = load i32, ptr %16, align 4
   %1737 = add i32 %1736, 4
   store i32 %1737, ptr %16, align 4
@@ -5425,7 +5583,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1740 = load ptr, ptr %14, align 8
   %1741 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1742 = load i32, ptr %16, align 4
-  %1743 = call i32 @add_item_value_uint32(ptr noundef %1738, ptr noundef %1739, ptr noundef %1740, i32 noundef %1741, i32 noundef %1742, ptr noundef @.str.1039)
+  %1743 = call i32 @add_item_value_uint32(ptr noundef %1738, ptr noundef %1739, ptr noundef %1740, i32 noundef %1741, i32 noundef %1742, ptr noundef @.str.1069)
   %1744 = load i32, ptr %16, align 4
   %1745 = add i32 %1744, 4
   store i32 %1745, ptr %16, align 4
@@ -5434,7 +5592,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1748 = load ptr, ptr %14, align 8
   %1749 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1750 = load i32, ptr %16, align 4
-  %1751 = call i32 @add_item_value_uint32(ptr noundef %1746, ptr noundef %1747, ptr noundef %1748, i32 noundef %1749, i32 noundef %1750, ptr noundef @.str.1040)
+  %1751 = call i32 @add_item_value_uint32(ptr noundef %1746, ptr noundef %1747, ptr noundef %1748, i32 noundef %1749, i32 noundef %1750, ptr noundef @.str.1070)
   %1752 = load i32, ptr %16, align 4
   %1753 = add i32 %1752, 4
   store i32 %1753, ptr %16, align 4
@@ -5443,8 +5601,8 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1756 = load ptr, ptr %14, align 8
   %1757 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1758 = load i32, ptr %16, align 4
-  %1759 = call i32 @add_item_value_uint32(ptr noundef %1754, ptr noundef %1755, ptr noundef %1756, i32 noundef %1757, i32 noundef %1758, ptr noundef @.str.1041)
-  br label %2580
+  %1759 = call i32 @add_item_value_uint32(ptr noundef %1754, ptr noundef %1755, ptr noundef %1756, i32 noundef %1757, i32 noundef %1758, ptr noundef @.str.1071)
+  br label %2579
 
 1760:                                             ; preds = %1721, %1717, %1713
   %1761 = load i8, ptr %17, align 1
@@ -5468,13 +5626,13 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1773 = load ptr, ptr %12, align 8
   %1774 = load ptr, ptr %14, align 8
   %1775 = load i32, ptr %20, align 4
-  %1776 = call i32 @check_length(ptr noundef %1773, ptr noundef %1774, i32 noundef 16, i32 noundef %1775, ptr noundef @.str.1108)
+  %1776 = call zeroext i1 @check_length(ptr noundef %1773, ptr noundef %1774, i32 noundef 16, i32 noundef %1775, ptr noundef @.str.1138)
   %1777 = load ptr, ptr %11, align 8
   %1778 = load ptr, ptr %13, align 8
   %1779 = load ptr, ptr %14, align 8
   %1780 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1781 = load i32, ptr %16, align 4
-  %1782 = call i32 @add_item_value_uint32(ptr noundef %1777, ptr noundef %1778, ptr noundef %1779, i32 noundef %1780, i32 noundef %1781, ptr noundef @.str.1038)
+  %1782 = call i32 @add_item_value_uint32(ptr noundef %1777, ptr noundef %1778, ptr noundef %1779, i32 noundef %1780, i32 noundef %1781, ptr noundef @.str.1068)
   %1783 = load i32, ptr %16, align 4
   %1784 = add i32 %1783, 4
   store i32 %1784, ptr %16, align 4
@@ -5483,7 +5641,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1787 = load ptr, ptr %14, align 8
   %1788 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1789 = load i32, ptr %16, align 4
-  %1790 = call i32 @add_item_value_uint32(ptr noundef %1785, ptr noundef %1786, ptr noundef %1787, i32 noundef %1788, i32 noundef %1789, ptr noundef @.str.1039)
+  %1790 = call i32 @add_item_value_uint32(ptr noundef %1785, ptr noundef %1786, ptr noundef %1787, i32 noundef %1788, i32 noundef %1789, ptr noundef @.str.1069)
   %1791 = load i32, ptr %16, align 4
   %1792 = add i32 %1791, 4
   store i32 %1792, ptr %16, align 4
@@ -5492,7 +5650,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1795 = load ptr, ptr %14, align 8
   %1796 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1797 = load i32, ptr %16, align 4
-  %1798 = call i32 @add_item_value_uint32(ptr noundef %1793, ptr noundef %1794, ptr noundef %1795, i32 noundef %1796, i32 noundef %1797, ptr noundef @.str.1040)
+  %1798 = call i32 @add_item_value_uint32(ptr noundef %1793, ptr noundef %1794, ptr noundef %1795, i32 noundef %1796, i32 noundef %1797, ptr noundef @.str.1070)
   %1799 = load i32, ptr %16, align 4
   %1800 = add i32 %1799, 4
   store i32 %1800, ptr %16, align 4
@@ -5501,8 +5659,8 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1803 = load ptr, ptr %14, align 8
   %1804 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1805 = load i32, ptr %16, align 4
-  %1806 = call i32 @add_item_value_uint32(ptr noundef %1801, ptr noundef %1802, ptr noundef %1803, i32 noundef %1804, i32 noundef %1805, ptr noundef @.str.1041)
-  br label %2579
+  %1806 = call i32 @add_item_value_uint32(ptr noundef %1801, ptr noundef %1802, ptr noundef %1803, i32 noundef %1804, i32 noundef %1805, ptr noundef @.str.1071)
+  br label %2578
 
 1807:                                             ; preds = %1768, %1764, %1760
   %1808 = load i8, ptr %17, align 1
@@ -5526,14 +5684,14 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1820 = load ptr, ptr %12, align 8
   %1821 = load ptr, ptr %14, align 8
   %1822 = load i32, ptr %20, align 4
-  %1823 = call i32 @check_length(ptr noundef %1820, ptr noundef %1821, i32 noundef 2, i32 noundef %1822, ptr noundef @.str.1087)
+  %1823 = call zeroext i1 @check_length(ptr noundef %1820, ptr noundef %1821, i32 noundef 2, i32 noundef %1822, ptr noundef @.str.1117)
   %1824 = load ptr, ptr %11, align 8
   %1825 = load ptr, ptr %13, align 8
   %1826 = load ptr, ptr %14, align 8
   %1827 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1828 = load i32, ptr %16, align 4
-  %1829 = call zeroext i16 @add_item_value_uint16(ptr noundef %1824, ptr noundef %1825, ptr noundef %1826, i32 noundef %1827, i32 noundef %1828, ptr noundef @.str.1109)
-  br label %2578
+  %1829 = call zeroext i16 @add_item_value_uint16(ptr noundef %1824, ptr noundef %1825, ptr noundef %1826, i32 noundef %1827, i32 noundef %1828, ptr noundef @.str.1139)
+  br label %2577
 
 1830:                                             ; preds = %1815, %1811, %1807
   %1831 = load i8, ptr %17, align 1
@@ -5557,13 +5715,13 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1843 = load ptr, ptr %12, align 8
   %1844 = load ptr, ptr %14, align 8
   %1845 = load i32, ptr %20, align 4
-  %1846 = call i32 @check_length(ptr noundef %1843, ptr noundef %1844, i32 noundef 5, i32 noundef %1845, ptr noundef @.str.1110)
+  %1846 = call zeroext i1 @check_length(ptr noundef %1843, ptr noundef %1844, i32 noundef 5, i32 noundef %1845, ptr noundef @.str.1140)
   %1847 = load ptr, ptr %11, align 8
   %1848 = load ptr, ptr %13, align 8
   %1849 = load ptr, ptr %14, align 8
   %1850 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1851 = load i32, ptr %16, align 4
-  %1852 = call zeroext i8 @add_item_value_uint8(ptr noundef %1847, ptr noundef %1848, ptr noundef %1849, i32 noundef %1850, i32 noundef %1851, ptr noundef @.str.1111)
+  %1852 = call zeroext i8 @add_item_value_uint8(ptr noundef %1847, ptr noundef %1848, ptr noundef %1849, i32 noundef %1850, i32 noundef %1851, ptr noundef @.str.1141)
   %1853 = load i32, ptr %16, align 4
   %1854 = add i32 %1853, 1
   store i32 %1854, ptr %16, align 4
@@ -5572,7 +5730,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1857 = load ptr, ptr %14, align 8
   %1858 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1859 = load i32, ptr %16, align 4
-  %1860 = call zeroext i16 @add_item_value_uint16(ptr noundef %1855, ptr noundef %1856, ptr noundef %1857, i32 noundef %1858, i32 noundef %1859, ptr noundef @.str.1112)
+  %1860 = call zeroext i16 @add_item_value_uint16(ptr noundef %1855, ptr noundef %1856, ptr noundef %1857, i32 noundef %1858, i32 noundef %1859, ptr noundef @.str.1142)
   %1861 = load i32, ptr %16, align 4
   %1862 = add i32 %1861, 2
   store i32 %1862, ptr %16, align 4
@@ -5581,8 +5739,8 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1865 = load ptr, ptr %14, align 8
   %1866 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1867 = load i32, ptr %16, align 4
-  %1868 = call zeroext i16 @add_item_value_uint16(ptr noundef %1863, ptr noundef %1864, ptr noundef %1865, i32 noundef %1866, i32 noundef %1867, ptr noundef @.str.1113)
-  br label %2577
+  %1868 = call zeroext i16 @add_item_value_uint16(ptr noundef %1863, ptr noundef %1864, ptr noundef %1865, i32 noundef %1866, i32 noundef %1867, ptr noundef @.str.1143)
+  br label %2576
 
 1869:                                             ; preds = %1838, %1834, %1830
   %1870 = load i8, ptr %17, align 1
@@ -5606,13 +5764,13 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1882 = load ptr, ptr %12, align 8
   %1883 = load ptr, ptr %14, align 8
   %1884 = load i32, ptr %20, align 4
-  %1885 = call i32 @check_length(ptr noundef %1882, ptr noundef %1883, i32 noundef 16, i32 noundef %1884, ptr noundef @.str.1114)
+  %1885 = call zeroext i1 @check_length(ptr noundef %1882, ptr noundef %1883, i32 noundef 16, i32 noundef %1884, ptr noundef @.str.1144)
   %1886 = load ptr, ptr %11, align 8
   %1887 = load ptr, ptr %13, align 8
   %1888 = load ptr, ptr %14, align 8
   %1889 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1890 = load i32, ptr %16, align 4
-  %1891 = call i32 @add_item_value_uint32(ptr noundef %1886, ptr noundef %1887, ptr noundef %1888, i32 noundef %1889, i32 noundef %1890, ptr noundef @.str.1038)
+  %1891 = call i32 @add_item_value_uint32(ptr noundef %1886, ptr noundef %1887, ptr noundef %1888, i32 noundef %1889, i32 noundef %1890, ptr noundef @.str.1068)
   %1892 = load i32, ptr %16, align 4
   %1893 = add i32 %1892, 4
   store i32 %1893, ptr %16, align 4
@@ -5621,8 +5779,8 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1896 = load ptr, ptr %14, align 8
   %1897 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1898 = load i32, ptr %16, align 4
-  %1899 = call i32 @add_item_value_uint32(ptr noundef %1894, ptr noundef %1895, ptr noundef %1896, i32 noundef %1897, i32 noundef %1898, ptr noundef @.str.1039)
-  br label %2576
+  %1899 = call i32 @add_item_value_uint32(ptr noundef %1894, ptr noundef %1895, ptr noundef %1896, i32 noundef %1897, i32 noundef %1898, ptr noundef @.str.1069)
+  br label %2575
 
 1900:                                             ; preds = %1877, %1873, %1869
   %1901 = load i8, ptr %17, align 1
@@ -5654,7 +5812,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1919 = load ptr, ptr %14, align 8
   %1920 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1921 = load i32, ptr %16, align 4
-  %1922 = call zeroext i16 @add_item_value_uint16(ptr noundef %1917, ptr noundef %1918, ptr noundef %1919, i32 noundef %1920, i32 noundef %1921, ptr noundef @.str.1115)
+  %1922 = call zeroext i16 @add_item_value_uint16(ptr noundef %1917, ptr noundef %1918, ptr noundef %1919, i32 noundef %1920, i32 noundef %1921, ptr noundef @.str.1145)
   %1923 = load i32, ptr %16, align 4
   %1924 = add i32 %1923, 2
   store i32 %1924, ptr %16, align 4
@@ -5663,7 +5821,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1927 = load ptr, ptr %14, align 8
   %1928 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1929 = load i32, ptr %16, align 4
-  %1930 = call zeroext i16 @add_item_value_uint16(ptr noundef %1925, ptr noundef %1926, ptr noundef %1927, i32 noundef %1928, i32 noundef %1929, ptr noundef @.str.1116)
+  %1930 = call zeroext i16 @add_item_value_uint16(ptr noundef %1925, ptr noundef %1926, ptr noundef %1927, i32 noundef %1928, i32 noundef %1929, ptr noundef @.str.1146)
   %1931 = load i32, ptr %16, align 4
   %1932 = add i32 %1931, 2
   store i32 %1932, ptr %16, align 4
@@ -5672,7 +5830,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1935 = load ptr, ptr %14, align 8
   %1936 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1937 = load i32, ptr %16, align 4
-  %1938 = call zeroext i8 @add_item_value_uint8(ptr noundef %1933, ptr noundef %1934, ptr noundef %1935, i32 noundef %1936, i32 noundef %1937, ptr noundef @.str.1117)
+  %1938 = call zeroext i8 @add_item_value_uint8(ptr noundef %1933, ptr noundef %1934, ptr noundef %1935, i32 noundef %1936, i32 noundef %1937, ptr noundef @.str.1147)
   %1939 = load i32, ptr %16, align 4
   %1940 = add i32 %1939, 1
   store i32 %1940, ptr %16, align 4
@@ -5681,7 +5839,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1943 = load ptr, ptr %14, align 8
   %1944 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1945 = load i32, ptr %16, align 4
-  %1946 = call zeroext i8 @add_item_value_uint8(ptr noundef %1941, ptr noundef %1942, ptr noundef %1943, i32 noundef %1944, i32 noundef %1945, ptr noundef @.str.1118)
+  %1946 = call zeroext i8 @add_item_value_uint8(ptr noundef %1941, ptr noundef %1942, ptr noundef %1943, i32 noundef %1944, i32 noundef %1945, ptr noundef @.str.1148)
   %1947 = load i32, ptr %16, align 4
   %1948 = add i32 %1947, 1
   store i32 %1948, ptr %16, align 4
@@ -5690,7 +5848,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1951 = load ptr, ptr %14, align 8
   %1952 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1953 = load i32, ptr %16, align 4
-  %1954 = call zeroext i8 @add_item_value_uint8(ptr noundef %1949, ptr noundef %1950, ptr noundef %1951, i32 noundef %1952, i32 noundef %1953, ptr noundef @.str.1119)
+  %1954 = call zeroext i8 @add_item_value_uint8(ptr noundef %1949, ptr noundef %1950, ptr noundef %1951, i32 noundef %1952, i32 noundef %1953, ptr noundef @.str.1149)
   %1955 = load i32, ptr %16, align 4
   %1956 = add i32 %1955, 1
   store i32 %1956, ptr %16, align 4
@@ -5699,7 +5857,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1959 = load ptr, ptr %14, align 8
   %1960 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1961 = load i32, ptr %16, align 4
-  %1962 = call zeroext i8 @add_item_value_uint8(ptr noundef %1957, ptr noundef %1958, ptr noundef %1959, i32 noundef %1960, i32 noundef %1961, ptr noundef @.str.1120)
+  %1962 = call zeroext i8 @add_item_value_uint8(ptr noundef %1957, ptr noundef %1958, ptr noundef %1959, i32 noundef %1960, i32 noundef %1961, ptr noundef @.str.1150)
   %1963 = load i32, ptr %16, align 4
   %1964 = add i32 %1963, 1
   store i32 %1964, ptr %16, align 4
@@ -5708,7 +5866,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1967 = load ptr, ptr %14, align 8
   %1968 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1969 = load i32, ptr %16, align 4
-  %1970 = call zeroext i8 @add_item_value_uint8(ptr noundef %1965, ptr noundef %1966, ptr noundef %1967, i32 noundef %1968, i32 noundef %1969, ptr noundef @.str.1121)
+  %1970 = call zeroext i8 @add_item_value_uint8(ptr noundef %1965, ptr noundef %1966, ptr noundef %1967, i32 noundef %1968, i32 noundef %1969, ptr noundef @.str.1151)
   %1971 = load i32, ptr %16, align 4
   %1972 = add i32 %1971, 1
   store i32 %1972, ptr %16, align 4
@@ -5717,7 +5875,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1975 = load ptr, ptr %14, align 8
   %1976 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1977 = load i32, ptr %16, align 4
-  %1978 = call zeroext i8 @add_item_value_uint8(ptr noundef %1973, ptr noundef %1974, ptr noundef %1975, i32 noundef %1976, i32 noundef %1977, ptr noundef @.str.1122)
+  %1978 = call zeroext i8 @add_item_value_uint8(ptr noundef %1973, ptr noundef %1974, ptr noundef %1975, i32 noundef %1976, i32 noundef %1977, ptr noundef @.str.1152)
   %1979 = load i32, ptr %16, align 4
   %1980 = add i32 %1979, 1
   store i32 %1980, ptr %16, align 4
@@ -5726,7 +5884,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1983 = load ptr, ptr %14, align 8
   %1984 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1985 = load i32, ptr %16, align 4
-  %1986 = call zeroext i8 @add_item_value_uint8(ptr noundef %1981, ptr noundef %1982, ptr noundef %1983, i32 noundef %1984, i32 noundef %1985, ptr noundef @.str.1123)
+  %1986 = call zeroext i8 @add_item_value_uint8(ptr noundef %1981, ptr noundef %1982, ptr noundef %1983, i32 noundef %1984, i32 noundef %1985, ptr noundef @.str.1153)
   %1987 = load i32, ptr %16, align 4
   %1988 = add i32 %1987, 1
   store i32 %1988, ptr %16, align 4
@@ -5735,7 +5893,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1991 = load ptr, ptr %14, align 8
   %1992 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1993 = load i32, ptr %16, align 4
-  %1994 = call zeroext i8 @add_item_value_uint8(ptr noundef %1989, ptr noundef %1990, ptr noundef %1991, i32 noundef %1992, i32 noundef %1993, ptr noundef @.str.1124)
+  %1994 = call zeroext i8 @add_item_value_uint8(ptr noundef %1989, ptr noundef %1990, ptr noundef %1991, i32 noundef %1992, i32 noundef %1993, ptr noundef @.str.1154)
   %1995 = load i32, ptr %16, align 4
   %1996 = add i32 %1995, 1
   store i32 %1996, ptr %16, align 4
@@ -5744,7 +5902,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %1999 = load ptr, ptr %14, align 8
   %2000 = load i32, ptr @hf_sapdiag_item_value, align 4
   %2001 = load i32, ptr %16, align 4
-  %2002 = call zeroext i16 @add_item_value_uint16(ptr noundef %1997, ptr noundef %1998, ptr noundef %1999, i32 noundef %2000, i32 noundef %2001, ptr noundef @.str.1125)
+  %2002 = call zeroext i16 @add_item_value_uint16(ptr noundef %1997, ptr noundef %1998, ptr noundef %1999, i32 noundef %2000, i32 noundef %2001, ptr noundef @.str.1155)
   %2003 = load i32, ptr %16, align 4
   %2004 = add i32 %2003, 2
   store i32 %2004, ptr %16, align 4
@@ -5753,7 +5911,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %2007 = load ptr, ptr %14, align 8
   %2008 = load i32, ptr @hf_sapdiag_item_value, align 4
   %2009 = load i32, ptr %16, align 4
-  %2010 = call zeroext i16 @add_item_value_uint16(ptr noundef %2005, ptr noundef %2006, ptr noundef %2007, i32 noundef %2008, i32 noundef %2009, ptr noundef @.str.1126)
+  %2010 = call zeroext i16 @add_item_value_uint16(ptr noundef %2005, ptr noundef %2006, ptr noundef %2007, i32 noundef %2008, i32 noundef %2009, ptr noundef @.str.1156)
   %2011 = load i32, ptr %16, align 4
   %2012 = add i32 %2011, 2
   store i32 %2012, ptr %16, align 4
@@ -5762,7 +5920,7 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %2015 = load ptr, ptr %14, align 8
   %2016 = load i32, ptr @hf_sapdiag_item_value, align 4
   %2017 = load i32, ptr %16, align 4
-  %2018 = call zeroext i8 @add_item_value_uint8(ptr noundef %2013, ptr noundef %2014, ptr noundef %2015, i32 noundef %2016, i32 noundef %2017, ptr noundef @.str.1127)
+  %2018 = call zeroext i8 @add_item_value_uint8(ptr noundef %2013, ptr noundef %2014, ptr noundef %2015, i32 noundef %2016, i32 noundef %2017, ptr noundef @.str.1157)
   %2019 = load i32, ptr %16, align 4
   %2020 = add i32 %2019, 1
   store i32 %2020, ptr %16, align 4
@@ -5771,9 +5929,9 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %2023 = load ptr, ptr %14, align 8
   %2024 = load i32, ptr @hf_sapdiag_item_value, align 4
   %2025 = load i32, ptr %16, align 4
-  %2026 = call zeroext i8 @add_item_value_uint8(ptr noundef %2021, ptr noundef %2022, ptr noundef %2023, i32 noundef %2024, i32 noundef %2025, ptr noundef @.str.1128)
-  %2027 = load i32, ptr @global_sapdiag_highlight_items, align 4
-  %2028 = icmp ne i32 %2027, 0
+  %2026 = call zeroext i8 @add_item_value_uint8(ptr noundef %2021, ptr noundef %2022, ptr noundef %2023, i32 noundef %2024, i32 noundef %2025, ptr noundef @.str.1158)
+  %2027 = load i8, ptr @global_sapdiag_highlight_items, align 1, !range !6, !noundef !7
+  %2028 = trunc i8 %2027 to i1
   br i1 %2028, label %2029, label %2039
 
 2029:                                             ; preds = %1916
@@ -5785,948 +5943,952 @@ define internal void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr n
   %2035 = zext i8 %2034 to i32
   %2036 = load i8, ptr %19, align 1
   %2037 = zext i8 %2036 to i32
-  %2038 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2030, ptr noundef %2031, ptr noundef @ei_sapdiag_item_partial, ptr noundef @.str.1057, i32 noundef %2033, i32 noundef %2035, i32 noundef %2037)
+  %2038 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2030, ptr noundef %2031, ptr noundef @ei_sapdiag_item_partial, ptr noundef @.str.1087, i32 noundef %2033, i32 noundef %2035, i32 noundef %2037)
   br label %2039
 
 2039:                                             ; preds = %2029, %1916
-  br label %2575
+  br label %2574
 
 2040:                                             ; preds = %1912, %1908, %1904
   %2041 = load i8, ptr %17, align 1
   %2042 = zext i8 %2041 to i32
   %2043 = icmp eq i32 %2042, 16
-  br i1 %2043, label %2044, label %2091
+  br i1 %2043, label %2044, label %2090
 
 2044:                                             ; preds = %2040
   %2045 = load i8, ptr %18, align 1
   %2046 = zext i8 %2045 to i32
   %2047 = icmp eq i32 %2046, 14
-  br i1 %2047, label %2048, label %2091
+  br i1 %2047, label %2048, label %2090
 
 2048:                                             ; preds = %2044
   %2049 = load i8, ptr %19, align 1
   %2050 = zext i8 %2049 to i32
   %2051 = icmp eq i32 %2050, 1
-  br i1 %2051, label %2052, label %2091
+  br i1 %2051, label %2052, label %2090
 
 2052:                                             ; preds = %2048
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #3
   %2053 = load i32, ptr %16, align 4
   %2054 = load i32, ptr %20, align 4
   %2055 = add i32 %2053, %2054
-  store i32 %2055, ptr %25, align 4
+  store i32 %2055, ptr %26, align 4
   br label %2056
 
-2056:                                             ; preds = %2068, %2052
+2056:                                             ; preds = %2067, %2052
   %2057 = load i32, ptr %16, align 4
-  %2058 = load i32, ptr %25, align 4
+  %2058 = load i32, ptr %26, align 4
   %2059 = icmp ult i32 %2057, %2058
-  br i1 %2059, label %2060, label %2066
+  br i1 %2059, label %2060, label %2065
 
 2060:                                             ; preds = %2056
   %2061 = load ptr, ptr %11, align 8
   %2062 = load i32, ptr %16, align 4
   %2063 = add i32 %2062, 3
-  %2064 = call i32 @tvb_offset_exists(ptr noundef %2061, i32 noundef %2063)
-  %2065 = icmp ne i32 %2064, 0
-  br label %2066
+  %2064 = call zeroext i1 @tvb_offset_exists(ptr noundef %2061, i32 noundef %2063)
+  br label %2065
 
-2066:                                             ; preds = %2060, %2056
-  %2067 = phi i1 [ false, %2056 ], [ %2065, %2060 ]
-  br i1 %2067, label %2068, label %2090
+2065:                                             ; preds = %2060, %2056
+  %2066 = phi i1 [ false, %2056 ], [ %2064, %2060 ]
+  br i1 %2066, label %2067, label %2089
 
-2068:                                             ; preds = %2066
-  %2069 = load ptr, ptr %14, align 8
-  %2070 = load i32, ptr @hf_sapdiag_item_control_properties_id, align 4
-  %2071 = load ptr, ptr %11, align 8
-  %2072 = load i32, ptr %16, align 4
-  %2073 = call ptr @proto_tree_add_item(ptr noundef %2069, i32 noundef %2070, ptr noundef %2071, i32 noundef %2072, i32 noundef 2, i32 noundef 0)
-  %2074 = load ptr, ptr %13, align 8
-  %2075 = load ptr, ptr %11, align 8
-  %2076 = load i32, ptr %16, align 4
-  %2077 = call zeroext i16 @tvb_get_ntohs(ptr noundef %2075, i32 noundef %2076)
-  %2078 = zext i16 %2077 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2074, ptr noundef @.str.1129, i32 noundef %2078)
-  %2079 = load i32, ptr %16, align 4
-  %2080 = add i32 %2079, 2
-  store i32 %2080, ptr %16, align 4
-  %2081 = load ptr, ptr %11, align 8
-  %2082 = load ptr, ptr %12, align 8
-  %2083 = load ptr, ptr %13, align 8
-  %2084 = load ptr, ptr %14, align 8
-  %2085 = load i32, ptr @hf_sapdiag_item_control_properties_value, align 4
-  %2086 = load i32, ptr %16, align 4
-  %2087 = call i32 @add_item_value_stringz(ptr noundef %2081, ptr noundef %2082, ptr noundef %2083, ptr noundef %2084, i32 noundef %2085, i32 noundef %2086, ptr noundef @.str.1130, i32 noundef 1)
-  %2088 = load i32, ptr %16, align 4
-  %2089 = add i32 %2088, %2087
-  store i32 %2089, ptr %16, align 4
-  br label %2056, !llvm.loop !9
+2067:                                             ; preds = %2065
+  %2068 = load ptr, ptr %14, align 8
+  %2069 = load i32, ptr @hf_sapdiag_item_control_properties_id, align 4
+  %2070 = load ptr, ptr %11, align 8
+  %2071 = load i32, ptr %16, align 4
+  %2072 = call ptr @proto_tree_add_item(ptr noundef %2068, i32 noundef %2069, ptr noundef %2070, i32 noundef %2071, i32 noundef 2, i32 noundef 0)
+  %2073 = load ptr, ptr %13, align 8
+  %2074 = load ptr, ptr %11, align 8
+  %2075 = load i32, ptr %16, align 4
+  %2076 = call zeroext i16 @tvb_get_ntohs(ptr noundef %2074, i32 noundef %2075)
+  %2077 = zext i16 %2076 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2073, ptr noundef @.str.1159, i32 noundef %2077)
+  %2078 = load i32, ptr %16, align 4
+  %2079 = add i32 %2078, 2
+  store i32 %2079, ptr %16, align 4
+  %2080 = load ptr, ptr %11, align 8
+  %2081 = load ptr, ptr %12, align 8
+  %2082 = load ptr, ptr %13, align 8
+  %2083 = load ptr, ptr %14, align 8
+  %2084 = load i32, ptr @hf_sapdiag_item_control_properties_value, align 4
+  %2085 = load i32, ptr %16, align 4
+  %2086 = call i32 @add_item_value_stringz(ptr noundef %2080, ptr noundef %2081, ptr noundef %2082, ptr noundef %2083, i32 noundef %2084, i32 noundef %2085, ptr noundef @.str.1160, i32 noundef 1)
+  %2087 = load i32, ptr %16, align 4
+  %2088 = add i32 %2087, %2086
+  store i32 %2088, ptr %16, align 4
+  br label %2056, !llvm.loop !13
 
-2090:                                             ; preds = %2066
-  br label %2574
-
-2091:                                             ; preds = %2048, %2044, %2040
-  %2092 = load i8, ptr %17, align 1
-  %2093 = zext i8 %2092 to i32
-  %2094 = icmp eq i32 %2093, 16
-  br i1 %2094, label %2095, label %2109
-
-2095:                                             ; preds = %2091
-  %2096 = load i8, ptr %18, align 1
-  %2097 = zext i8 %2096 to i32
-  %2098 = icmp eq i32 %2097, 15
-  br i1 %2098, label %2099, label %2109
-
-2099:                                             ; preds = %2095
-  %2100 = load i8, ptr %19, align 1
-  %2101 = zext i8 %2100 to i32
-  %2102 = icmp eq i32 %2101, 1
-  br i1 %2102, label %2103, label %2109
-
-2103:                                             ; preds = %2099
-  %2104 = load ptr, ptr %11, align 8
-  %2105 = load ptr, ptr %12, align 8
-  %2106 = load ptr, ptr %14, align 8
-  %2107 = load i32, ptr %16, align 4
-  %2108 = load i32, ptr %20, align 4
-  call void @dissect_sapdiag_uievent(ptr noundef %2104, ptr noundef %2105, ptr noundef %2106, i32 noundef %2107, i32 noundef %2108)
+2089:                                             ; preds = %2065
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #3
   br label %2573
 
-2109:                                             ; preds = %2099, %2095, %2091
-  %2110 = load i8, ptr %17, align 1
-  %2111 = zext i8 %2110 to i32
-  %2112 = icmp eq i32 %2111, 16
-  br i1 %2112, label %2113, label %2152
+2090:                                             ; preds = %2048, %2044, %2040
+  %2091 = load i8, ptr %17, align 1
+  %2092 = zext i8 %2091 to i32
+  %2093 = icmp eq i32 %2092, 16
+  br i1 %2093, label %2094, label %2108
 
-2113:                                             ; preds = %2109
-  %2114 = load i8, ptr %18, align 1
-  %2115 = zext i8 %2114 to i32
-  %2116 = icmp eq i32 %2115, 20
-  br i1 %2116, label %2117, label %2152
+2094:                                             ; preds = %2090
+  %2095 = load i8, ptr %18, align 1
+  %2096 = zext i8 %2095 to i32
+  %2097 = icmp eq i32 %2096, 15
+  br i1 %2097, label %2098, label %2108
 
-2117:                                             ; preds = %2113
-  %2118 = load i8, ptr %19, align 1
-  %2119 = zext i8 %2118 to i32
-  %2120 = icmp eq i32 %2119, 1
-  br i1 %2120, label %2121, label %2152
+2098:                                             ; preds = %2094
+  %2099 = load i8, ptr %19, align 1
+  %2100 = zext i8 %2099 to i32
+  %2101 = icmp eq i32 %2100, 1
+  br i1 %2101, label %2102, label %2108
 
-2121:                                             ; preds = %2117
-  %2122 = load ptr, ptr %11, align 8
-  %2123 = load ptr, ptr %13, align 8
-  %2124 = load ptr, ptr %14, align 8
-  %2125 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %2126 = load i32, ptr %16, align 4
-  %2127 = call zeroext i8 @add_item_value_uint8(ptr noundef %2122, ptr noundef %2123, ptr noundef %2124, i32 noundef %2125, i32 noundef %2126, ptr noundef @.str.1131)
-  %2128 = load i32, ptr %16, align 4
-  %2129 = add i32 %2128, 1
-  store i32 %2129, ptr %16, align 4
-  %2130 = load ptr, ptr %11, align 8
-  %2131 = load ptr, ptr %13, align 8
-  %2132 = load ptr, ptr %14, align 8
-  %2133 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %2134 = load i32, ptr %16, align 4
-  %2135 = call i32 @add_item_value_uint32(ptr noundef %2130, ptr noundef %2131, ptr noundef %2132, i32 noundef %2133, i32 noundef %2134, ptr noundef @.str.1132)
-  %2136 = load i32, ptr %16, align 4
-  %2137 = add i32 %2136, 4
-  store i32 %2137, ptr %16, align 4
-  %2138 = load ptr, ptr %11, align 8
-  %2139 = load ptr, ptr %13, align 8
-  %2140 = load ptr, ptr %14, align 8
-  %2141 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %2142 = load i32, ptr %16, align 4
-  %2143 = call i32 @add_item_value_uint32(ptr noundef %2138, ptr noundef %2139, ptr noundef %2140, i32 noundef %2141, i32 noundef %2142, ptr noundef @.str.1133)
-  %2144 = load i32, ptr %16, align 4
-  %2145 = add i32 %2144, 4
-  store i32 %2145, ptr %16, align 4
-  %2146 = load ptr, ptr %11, align 8
-  %2147 = load ptr, ptr %13, align 8
-  %2148 = load ptr, ptr %14, align 8
-  %2149 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %2150 = load i32, ptr %16, align 4
-  %2151 = call i32 @add_item_value_uint32(ptr noundef %2146, ptr noundef %2147, ptr noundef %2148, i32 noundef %2149, i32 noundef %2150, ptr noundef @.str.1134)
+2102:                                             ; preds = %2098
+  %2103 = load ptr, ptr %11, align 8
+  %2104 = load ptr, ptr %12, align 8
+  %2105 = load ptr, ptr %14, align 8
+  %2106 = load i32, ptr %16, align 4
+  %2107 = load i32, ptr %20, align 4
+  call void @dissect_sapdiag_uievent(ptr noundef %2103, ptr noundef %2104, ptr noundef %2105, i32 noundef %2106, i32 noundef %2107)
   br label %2572
 
-2152:                                             ; preds = %2117, %2113, %2109
-  %2153 = load i8, ptr %17, align 1
-  %2154 = zext i8 %2153 to i32
-  %2155 = icmp eq i32 %2154, 18
-  br i1 %2155, label %2156, label %2164
+2108:                                             ; preds = %2098, %2094, %2090
+  %2109 = load i8, ptr %17, align 1
+  %2110 = zext i8 %2109 to i32
+  %2111 = icmp eq i32 %2110, 16
+  br i1 %2111, label %2112, label %2151
 
-2156:                                             ; preds = %2152
-  %2157 = load i8, ptr %18, align 1
-  %2158 = zext i8 %2157 to i32
-  %2159 = icmp eq i32 %2158, 9
-  br i1 %2159, label %2160, label %2164
+2112:                                             ; preds = %2108
+  %2113 = load i8, ptr %18, align 1
+  %2114 = zext i8 %2113 to i32
+  %2115 = icmp eq i32 %2114, 20
+  br i1 %2115, label %2116, label %2151
 
-2160:                                             ; preds = %2156
-  %2161 = load i8, ptr %19, align 1
-  %2162 = zext i8 %2161 to i32
-  %2163 = icmp eq i32 %2162, 2
-  br i1 %2163, label %2176, label %2164
+2116:                                             ; preds = %2112
+  %2117 = load i8, ptr %19, align 1
+  %2118 = zext i8 %2117 to i32
+  %2119 = icmp eq i32 %2118, 1
+  br i1 %2119, label %2120, label %2151
 
-2164:                                             ; preds = %2160, %2156, %2152
-  %2165 = load i8, ptr %17, align 1
-  %2166 = zext i8 %2165 to i32
-  %2167 = icmp eq i32 %2166, 16
-  br i1 %2167, label %2168, label %2182
-
-2168:                                             ; preds = %2164
-  %2169 = load i8, ptr %18, align 1
-  %2170 = zext i8 %2169 to i32
-  %2171 = icmp eq i32 %2170, 9
-  br i1 %2171, label %2172, label %2182
-
-2172:                                             ; preds = %2168
-  %2173 = load i8, ptr %19, align 1
-  %2174 = zext i8 %2173 to i32
-  %2175 = icmp eq i32 %2174, 2
-  br i1 %2175, label %2176, label %2182
-
-2176:                                             ; preds = %2172, %2160
-  %2177 = load ptr, ptr %11, align 8
-  %2178 = load ptr, ptr %12, align 8
-  %2179 = load ptr, ptr %14, align 8
-  %2180 = load i32, ptr %16, align 4
-  %2181 = load i32, ptr %20, align 4
-  call void @dissect_sapdiag_dyntatom(ptr noundef %2177, ptr noundef %2178, ptr noundef %2179, i32 noundef %2180, i32 noundef %2181)
+2120:                                             ; preds = %2116
+  %2121 = load ptr, ptr %11, align 8
+  %2122 = load ptr, ptr %13, align 8
+  %2123 = load ptr, ptr %14, align 8
+  %2124 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %2125 = load i32, ptr %16, align 4
+  %2126 = call zeroext i8 @add_item_value_uint8(ptr noundef %2121, ptr noundef %2122, ptr noundef %2123, i32 noundef %2124, i32 noundef %2125, ptr noundef @.str.1161)
+  %2127 = load i32, ptr %16, align 4
+  %2128 = add i32 %2127, 1
+  store i32 %2128, ptr %16, align 4
+  %2129 = load ptr, ptr %11, align 8
+  %2130 = load ptr, ptr %13, align 8
+  %2131 = load ptr, ptr %14, align 8
+  %2132 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %2133 = load i32, ptr %16, align 4
+  %2134 = call i32 @add_item_value_uint32(ptr noundef %2129, ptr noundef %2130, ptr noundef %2131, i32 noundef %2132, i32 noundef %2133, ptr noundef @.str.1162)
+  %2135 = load i32, ptr %16, align 4
+  %2136 = add i32 %2135, 4
+  store i32 %2136, ptr %16, align 4
+  %2137 = load ptr, ptr %11, align 8
+  %2138 = load ptr, ptr %13, align 8
+  %2139 = load ptr, ptr %14, align 8
+  %2140 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %2141 = load i32, ptr %16, align 4
+  %2142 = call i32 @add_item_value_uint32(ptr noundef %2137, ptr noundef %2138, ptr noundef %2139, i32 noundef %2140, i32 noundef %2141, ptr noundef @.str.1163)
+  %2143 = load i32, ptr %16, align 4
+  %2144 = add i32 %2143, 4
+  store i32 %2144, ptr %16, align 4
+  %2145 = load ptr, ptr %11, align 8
+  %2146 = load ptr, ptr %13, align 8
+  %2147 = load ptr, ptr %14, align 8
+  %2148 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %2149 = load i32, ptr %16, align 4
+  %2150 = call i32 @add_item_value_uint32(ptr noundef %2145, ptr noundef %2146, ptr noundef %2147, i32 noundef %2148, i32 noundef %2149, ptr noundef @.str.1164)
   br label %2571
 
-2182:                                             ; preds = %2172, %2168, %2164
-  %2183 = load i8, ptr %17, align 1
-  %2184 = zext i8 %2183 to i32
-  %2185 = icmp eq i32 %2184, 16
-  br i1 %2185, label %2186, label %2194
-
-2186:                                             ; preds = %2182
-  %2187 = load i8, ptr %18, align 1
-  %2188 = zext i8 %2187 to i32
-  %2189 = icmp eq i32 %2188, 4
-  br i1 %2189, label %2190, label %2194
-
-2190:                                             ; preds = %2186
-  %2191 = load i8, ptr %19, align 1
-  %2192 = zext i8 %2191 to i32
-  %2193 = icmp eq i32 %2192, 9
-  br i1 %2193, label %2470, label %2194
-
-2194:                                             ; preds = %2190, %2186, %2182
-  %2195 = load i8, ptr %17, align 1
-  %2196 = zext i8 %2195 to i32
-  %2197 = icmp eq i32 %2196, 16
-  br i1 %2197, label %2198, label %2206
-
-2198:                                             ; preds = %2194
-  %2199 = load i8, ptr %18, align 1
-  %2200 = zext i8 %2199 to i32
-  %2201 = icmp eq i32 %2200, 4
-  br i1 %2201, label %2202, label %2206
-
-2202:                                             ; preds = %2198
-  %2203 = load i8, ptr %19, align 1
-  %2204 = zext i8 %2203 to i32
-  %2205 = icmp eq i32 %2204, 26
-  br i1 %2205, label %2470, label %2206
-
-2206:                                             ; preds = %2202, %2198, %2194
-  %2207 = load i8, ptr %17, align 1
-  %2208 = zext i8 %2207 to i32
-  %2209 = icmp eq i32 %2208, 16
-  br i1 %2209, label %2210, label %2218
-
-2210:                                             ; preds = %2206
-  %2211 = load i8, ptr %18, align 1
-  %2212 = zext i8 %2211 to i32
-  %2213 = icmp eq i32 %2212, 4
-  br i1 %2213, label %2214, label %2218
-
-2214:                                             ; preds = %2210
-  %2215 = load i8, ptr %19, align 1
-  %2216 = zext i8 %2215 to i32
-  %2217 = icmp eq i32 %2216, 27
-  br i1 %2217, label %2470, label %2218
-
-2218:                                             ; preds = %2214, %2210, %2206
-  %2219 = load i8, ptr %17, align 1
-  %2220 = zext i8 %2219 to i32
-  %2221 = icmp eq i32 %2220, 16
-  br i1 %2221, label %2222, label %2230
-
-2222:                                             ; preds = %2218
-  %2223 = load i8, ptr %18, align 1
-  %2224 = zext i8 %2223 to i32
-  %2225 = icmp eq i32 %2224, 4
-  br i1 %2225, label %2226, label %2230
-
-2226:                                             ; preds = %2222
-  %2227 = load i8, ptr %19, align 1
-  %2228 = zext i8 %2227 to i32
-  %2229 = icmp eq i32 %2228, 28
-  br i1 %2229, label %2470, label %2230
-
-2230:                                             ; preds = %2226, %2222, %2218
-  %2231 = load i8, ptr %17, align 1
-  %2232 = zext i8 %2231 to i32
-  %2233 = icmp eq i32 %2232, 16
-  br i1 %2233, label %2234, label %2242
-
-2234:                                             ; preds = %2230
-  %2235 = load i8, ptr %18, align 1
-  %2236 = zext i8 %2235 to i32
-  %2237 = icmp eq i32 %2236, 4
-  br i1 %2237, label %2238, label %2242
-
-2238:                                             ; preds = %2234
-  %2239 = load i8, ptr %19, align 1
-  %2240 = zext i8 %2239 to i32
-  %2241 = icmp eq i32 %2240, 31
-  br i1 %2241, label %2470, label %2242
-
-2242:                                             ; preds = %2238, %2234, %2230
-  %2243 = load i8, ptr %17, align 1
-  %2244 = zext i8 %2243 to i32
-  %2245 = icmp eq i32 %2244, 16
-  br i1 %2245, label %2246, label %2254
-
-2246:                                             ; preds = %2242
-  %2247 = load i8, ptr %18, align 1
-  %2248 = zext i8 %2247 to i32
-  %2249 = icmp eq i32 %2248, 4
-  br i1 %2249, label %2250, label %2254
-
-2250:                                             ; preds = %2246
-  %2251 = load i8, ptr %19, align 1
-  %2252 = zext i8 %2251 to i32
-  %2253 = icmp eq i32 %2252, 32
-  br i1 %2253, label %2470, label %2254
-
-2254:                                             ; preds = %2250, %2246, %2242
-  %2255 = load i8, ptr %17, align 1
-  %2256 = zext i8 %2255 to i32
-  %2257 = icmp eq i32 %2256, 16
-  br i1 %2257, label %2258, label %2266
-
-2258:                                             ; preds = %2254
-  %2259 = load i8, ptr %18, align 1
-  %2260 = zext i8 %2259 to i32
-  %2261 = icmp eq i32 %2260, 4
-  br i1 %2261, label %2262, label %2266
-
-2262:                                             ; preds = %2258
-  %2263 = load i8, ptr %19, align 1
-  %2264 = zext i8 %2263 to i32
-  %2265 = icmp eq i32 %2264, 33
-  br i1 %2265, label %2470, label %2266
-
-2266:                                             ; preds = %2262, %2258, %2254
-  %2267 = load i8, ptr %17, align 1
-  %2268 = zext i8 %2267 to i32
-  %2269 = icmp eq i32 %2268, 16
-  br i1 %2269, label %2270, label %2278
-
-2270:                                             ; preds = %2266
-  %2271 = load i8, ptr %18, align 1
-  %2272 = zext i8 %2271 to i32
-  %2273 = icmp eq i32 %2272, 6
-  br i1 %2273, label %2274, label %2278
-
-2274:                                             ; preds = %2270
-  %2275 = load i8, ptr %19, align 1
-  %2276 = zext i8 %2275 to i32
-  %2277 = icmp eq i32 %2276, 2
-  br i1 %2277, label %2470, label %2278
-
-2278:                                             ; preds = %2274, %2270, %2266
-  %2279 = load i8, ptr %17, align 1
-  %2280 = zext i8 %2279 to i32
-  %2281 = icmp eq i32 %2280, 16
-  br i1 %2281, label %2282, label %2290
-
-2282:                                             ; preds = %2278
-  %2283 = load i8, ptr %18, align 1
-  %2284 = zext i8 %2283 to i32
-  %2285 = icmp eq i32 %2284, 6
-  br i1 %2285, label %2286, label %2290
-
-2286:                                             ; preds = %2282
-  %2287 = load i8, ptr %19, align 1
-  %2288 = zext i8 %2287 to i32
-  %2289 = icmp eq i32 %2288, 3
-  br i1 %2289, label %2470, label %2290
-
-2290:                                             ; preds = %2286, %2282, %2278
-  %2291 = load i8, ptr %17, align 1
-  %2292 = zext i8 %2291 to i32
-  %2293 = icmp eq i32 %2292, 16
-  br i1 %2293, label %2294, label %2302
-
-2294:                                             ; preds = %2290
-  %2295 = load i8, ptr %18, align 1
-  %2296 = zext i8 %2295 to i32
-  %2297 = icmp eq i32 %2296, 6
-  br i1 %2297, label %2298, label %2302
-
-2298:                                             ; preds = %2294
-  %2299 = load i8, ptr %19, align 1
-  %2300 = zext i8 %2299 to i32
-  %2301 = icmp eq i32 %2300, 7
-  br i1 %2301, label %2470, label %2302
-
-2302:                                             ; preds = %2298, %2294, %2290
-  %2303 = load i8, ptr %17, align 1
-  %2304 = zext i8 %2303 to i32
-  %2305 = icmp eq i32 %2304, 16
-  br i1 %2305, label %2306, label %2314
-
-2306:                                             ; preds = %2302
-  %2307 = load i8, ptr %18, align 1
-  %2308 = zext i8 %2307 to i32
-  %2309 = icmp eq i32 %2308, 6
-  br i1 %2309, label %2310, label %2314
-
-2310:                                             ; preds = %2306
-  %2311 = load i8, ptr %19, align 1
-  %2312 = zext i8 %2311 to i32
-  %2313 = icmp eq i32 %2312, 11
-  br i1 %2313, label %2470, label %2314
-
-2314:                                             ; preds = %2310, %2306, %2302
-  %2315 = load i8, ptr %17, align 1
-  %2316 = zext i8 %2315 to i32
-  %2317 = icmp eq i32 %2316, 16
-  br i1 %2317, label %2318, label %2326
-
-2318:                                             ; preds = %2314
-  %2319 = load i8, ptr %18, align 1
-  %2320 = zext i8 %2319 to i32
-  %2321 = icmp eq i32 %2320, 6
-  br i1 %2321, label %2322, label %2326
-
-2322:                                             ; preds = %2318
-  %2323 = load i8, ptr %19, align 1
-  %2324 = zext i8 %2323 to i32
-  %2325 = icmp eq i32 %2324, 12
-  br i1 %2325, label %2470, label %2326
-
-2326:                                             ; preds = %2322, %2318, %2314
-  %2327 = load i8, ptr %17, align 1
-  %2328 = zext i8 %2327 to i32
-  %2329 = icmp eq i32 %2328, 16
-  br i1 %2329, label %2330, label %2338
-
-2330:                                             ; preds = %2326
-  %2331 = load i8, ptr %18, align 1
-  %2332 = zext i8 %2331 to i32
-  %2333 = icmp eq i32 %2332, 6
-  br i1 %2333, label %2334, label %2338
-
-2334:                                             ; preds = %2330
-  %2335 = load i8, ptr %19, align 1
-  %2336 = zext i8 %2335 to i32
-  %2337 = icmp eq i32 %2336, 13
-  br i1 %2337, label %2470, label %2338
-
-2338:                                             ; preds = %2334, %2330, %2326
-  %2339 = load i8, ptr %17, align 1
-  %2340 = zext i8 %2339 to i32
-  %2341 = icmp eq i32 %2340, 16
-  br i1 %2341, label %2342, label %2350
-
-2342:                                             ; preds = %2338
-  %2343 = load i8, ptr %18, align 1
-  %2344 = zext i8 %2343 to i32
-  %2345 = icmp eq i32 %2344, 6
-  br i1 %2345, label %2346, label %2350
-
-2346:                                             ; preds = %2342
-  %2347 = load i8, ptr %19, align 1
-  %2348 = zext i8 %2347 to i32
-  %2349 = icmp eq i32 %2348, 14
-  br i1 %2349, label %2470, label %2350
-
-2350:                                             ; preds = %2346, %2342, %2338
-  %2351 = load i8, ptr %17, align 1
-  %2352 = zext i8 %2351 to i32
-  %2353 = icmp eq i32 %2352, 16
-  br i1 %2353, label %2354, label %2362
-
-2354:                                             ; preds = %2350
-  %2355 = load i8, ptr %18, align 1
-  %2356 = zext i8 %2355 to i32
-  %2357 = icmp eq i32 %2356, 6
-  br i1 %2357, label %2358, label %2362
-
-2358:                                             ; preds = %2354
-  %2359 = load i8, ptr %19, align 1
-  %2360 = zext i8 %2359 to i32
-  %2361 = icmp eq i32 %2360, 15
-  br i1 %2361, label %2470, label %2362
-
-2362:                                             ; preds = %2358, %2354, %2350
-  %2363 = load i8, ptr %17, align 1
-  %2364 = zext i8 %2363 to i32
-  %2365 = icmp eq i32 %2364, 16
-  br i1 %2365, label %2366, label %2374
-
-2366:                                             ; preds = %2362
-  %2367 = load i8, ptr %18, align 1
-  %2368 = zext i8 %2367 to i32
-  %2369 = icmp eq i32 %2368, 6
-  br i1 %2369, label %2370, label %2374
-
-2370:                                             ; preds = %2366
-  %2371 = load i8, ptr %19, align 1
-  %2372 = zext i8 %2371 to i32
-  %2373 = icmp eq i32 %2372, 16
-  br i1 %2373, label %2470, label %2374
-
-2374:                                             ; preds = %2370, %2366, %2362
-  %2375 = load i8, ptr %17, align 1
-  %2376 = zext i8 %2375 to i32
-  %2377 = icmp eq i32 %2376, 16
-  br i1 %2377, label %2378, label %2386
-
-2378:                                             ; preds = %2374
-  %2379 = load i8, ptr %18, align 1
-  %2380 = zext i8 %2379 to i32
-  %2381 = icmp eq i32 %2380, 6
-  br i1 %2381, label %2382, label %2386
-
-2382:                                             ; preds = %2378
-  %2383 = load i8, ptr %19, align 1
-  %2384 = zext i8 %2383 to i32
-  %2385 = icmp eq i32 %2384, 33
-  br i1 %2385, label %2470, label %2386
-
-2386:                                             ; preds = %2382, %2378, %2374
-  %2387 = load i8, ptr %17, align 1
-  %2388 = zext i8 %2387 to i32
-  %2389 = icmp eq i32 %2388, 16
-  br i1 %2389, label %2390, label %2398
-
-2390:                                             ; preds = %2386
-  %2391 = load i8, ptr %18, align 1
-  %2392 = zext i8 %2391 to i32
-  %2393 = icmp eq i32 %2392, 6
-  br i1 %2393, label %2394, label %2398
-
-2394:                                             ; preds = %2390
-  %2395 = load i8, ptr %19, align 1
-  %2396 = zext i8 %2395 to i32
-  %2397 = icmp eq i32 %2396, 36
-  br i1 %2397, label %2470, label %2398
-
-2398:                                             ; preds = %2394, %2390, %2386
-  %2399 = load i8, ptr %17, align 1
-  %2400 = zext i8 %2399 to i32
-  %2401 = icmp eq i32 %2400, 16
-  br i1 %2401, label %2402, label %2410
-
-2402:                                             ; preds = %2398
-  %2403 = load i8, ptr %18, align 1
-  %2404 = zext i8 %2403 to i32
-  %2405 = icmp eq i32 %2404, 6
-  br i1 %2405, label %2406, label %2410
-
-2406:                                             ; preds = %2402
-  %2407 = load i8, ptr %19, align 1
-  %2408 = zext i8 %2407 to i32
-  %2409 = icmp eq i32 %2408, 37
-  br i1 %2409, label %2470, label %2410
-
-2410:                                             ; preds = %2406, %2402, %2398
-  %2411 = load i8, ptr %17, align 1
-  %2412 = zext i8 %2411 to i32
-  %2413 = icmp eq i32 %2412, 16
-  br i1 %2413, label %2414, label %2422
-
-2414:                                             ; preds = %2410
-  %2415 = load i8, ptr %18, align 1
-  %2416 = zext i8 %2415 to i32
-  %2417 = icmp eq i32 %2416, 9
-  br i1 %2417, label %2418, label %2422
-
-2418:                                             ; preds = %2414
-  %2419 = load i8, ptr %19, align 1
-  %2420 = zext i8 %2419 to i32
-  %2421 = icmp eq i32 %2420, 18
-  br i1 %2421, label %2470, label %2422
-
-2422:                                             ; preds = %2418, %2414, %2410
-  %2423 = load i8, ptr %17, align 1
-  %2424 = zext i8 %2423 to i32
-  %2425 = icmp eq i32 %2424, 16
-  br i1 %2425, label %2426, label %2434
-
-2426:                                             ; preds = %2422
-  %2427 = load i8, ptr %18, align 1
-  %2428 = zext i8 %2427 to i32
-  %2429 = icmp eq i32 %2428, 12
-  br i1 %2429, label %2430, label %2434
-
-2430:                                             ; preds = %2426
-  %2431 = load i8, ptr %19, align 1
-  %2432 = zext i8 %2431 to i32
-  %2433 = icmp eq i32 %2432, 4
-  br i1 %2433, label %2470, label %2434
-
-2434:                                             ; preds = %2430, %2426, %2422
-  %2435 = load i8, ptr %17, align 1
-  %2436 = zext i8 %2435 to i32
-  %2437 = icmp eq i32 %2436, 16
-  br i1 %2437, label %2438, label %2446
-
-2438:                                             ; preds = %2434
-  %2439 = load i8, ptr %18, align 1
-  %2440 = zext i8 %2439 to i32
-  %2441 = icmp eq i32 %2440, 12
-  br i1 %2441, label %2442, label %2446
-
-2442:                                             ; preds = %2438
-  %2443 = load i8, ptr %19, align 1
-  %2444 = zext i8 %2443 to i32
-  %2445 = icmp eq i32 %2444, 9
-  br i1 %2445, label %2470, label %2446
-
-2446:                                             ; preds = %2442, %2438, %2434
-  %2447 = load i8, ptr %17, align 1
-  %2448 = zext i8 %2447 to i32
-  %2449 = icmp eq i32 %2448, 16
-  br i1 %2449, label %2450, label %2458
-
-2450:                                             ; preds = %2446
-  %2451 = load i8, ptr %18, align 1
-  %2452 = zext i8 %2451 to i32
-  %2453 = icmp eq i32 %2452, 12
-  br i1 %2453, label %2454, label %2458
-
-2454:                                             ; preds = %2450
-  %2455 = load i8, ptr %19, align 1
-  %2456 = zext i8 %2455 to i32
-  %2457 = icmp eq i32 %2456, 10
-  br i1 %2457, label %2470, label %2458
-
-2458:                                             ; preds = %2454, %2450, %2446
-  %2459 = load i8, ptr %17, align 1
-  %2460 = zext i8 %2459 to i32
-  %2461 = icmp eq i32 %2460, 16
-  br i1 %2461, label %2462, label %2478
-
-2462:                                             ; preds = %2458
-  %2463 = load i8, ptr %18, align 1
-  %2464 = zext i8 %2463 to i32
-  %2465 = icmp eq i32 %2464, 12
-  br i1 %2465, label %2466, label %2478
-
-2466:                                             ; preds = %2462
-  %2467 = load i8, ptr %19, align 1
-  %2468 = zext i8 %2467 to i32
-  %2469 = icmp eq i32 %2468, 11
-  br i1 %2469, label %2470, label %2478
-
-2470:                                             ; preds = %2466, %2454, %2442, %2430, %2418, %2406, %2394, %2382, %2370, %2358, %2346, %2334, %2322, %2310, %2298, %2286, %2274, %2262, %2250, %2238, %2226, %2214, %2202, %2190
-  %2471 = load ptr, ptr %11, align 8
-  %2472 = load ptr, ptr %12, align 8
-  %2473 = load ptr, ptr %13, align 8
-  %2474 = load ptr, ptr %14, align 8
-  %2475 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %2476 = load i32, ptr %16, align 4
-  %2477 = load i32, ptr %20, align 4
-  call void @add_item_value_string(ptr noundef %2471, ptr noundef %2472, ptr noundef %2473, ptr noundef %2474, i32 noundef %2475, i32 noundef %2476, i32 noundef %2477, ptr noundef @.str.61, i32 noundef 1)
+2151:                                             ; preds = %2116, %2112, %2108
+  %2152 = load i8, ptr %17, align 1
+  %2153 = zext i8 %2152 to i32
+  %2154 = icmp eq i32 %2153, 18
+  br i1 %2154, label %2155, label %2163
+
+2155:                                             ; preds = %2151
+  %2156 = load i8, ptr %18, align 1
+  %2157 = zext i8 %2156 to i32
+  %2158 = icmp eq i32 %2157, 9
+  br i1 %2158, label %2159, label %2163
+
+2159:                                             ; preds = %2155
+  %2160 = load i8, ptr %19, align 1
+  %2161 = zext i8 %2160 to i32
+  %2162 = icmp eq i32 %2161, 2
+  br i1 %2162, label %2175, label %2163
+
+2163:                                             ; preds = %2159, %2155, %2151
+  %2164 = load i8, ptr %17, align 1
+  %2165 = zext i8 %2164 to i32
+  %2166 = icmp eq i32 %2165, 16
+  br i1 %2166, label %2167, label %2181
+
+2167:                                             ; preds = %2163
+  %2168 = load i8, ptr %18, align 1
+  %2169 = zext i8 %2168 to i32
+  %2170 = icmp eq i32 %2169, 9
+  br i1 %2170, label %2171, label %2181
+
+2171:                                             ; preds = %2167
+  %2172 = load i8, ptr %19, align 1
+  %2173 = zext i8 %2172 to i32
+  %2174 = icmp eq i32 %2173, 2
+  br i1 %2174, label %2175, label %2181
+
+2175:                                             ; preds = %2171, %2159
+  %2176 = load ptr, ptr %11, align 8
+  %2177 = load ptr, ptr %12, align 8
+  %2178 = load ptr, ptr %14, align 8
+  %2179 = load i32, ptr %16, align 4
+  %2180 = load i32, ptr %20, align 4
+  call void @dissect_sapdiag_dyntatom(ptr noundef %2176, ptr noundef %2177, ptr noundef %2178, i32 noundef %2179, i32 noundef %2180)
   br label %2570
 
-2478:                                             ; preds = %2466, %2462, %2458
-  %2479 = load i8, ptr %17, align 1
-  %2480 = zext i8 %2479 to i32
-  %2481 = icmp eq i32 %2480, 16
-  br i1 %2481, label %2482, label %2492
+2181:                                             ; preds = %2171, %2167, %2163
+  %2182 = load i8, ptr %17, align 1
+  %2183 = zext i8 %2182 to i32
+  %2184 = icmp eq i32 %2183, 16
+  br i1 %2184, label %2185, label %2193
 
-2482:                                             ; preds = %2478
-  %2483 = load i8, ptr %18, align 1
-  %2484 = zext i8 %2483 to i32
-  %2485 = icmp eq i32 %2484, 8
-  br i1 %2485, label %2486, label %2492
+2185:                                             ; preds = %2181
+  %2186 = load i8, ptr %18, align 1
+  %2187 = zext i8 %2186 to i32
+  %2188 = icmp eq i32 %2187, 4
+  br i1 %2188, label %2189, label %2193
 
-2486:                                             ; preds = %2482
-  %2487 = load ptr, ptr %11, align 8
-  %2488 = load ptr, ptr %12, align 8
-  %2489 = load ptr, ptr %15, align 8
-  %2490 = load i32, ptr %16, align 4
-  %2491 = load i32, ptr %20, align 4
-  call void @dissect_sapdiag_rfc_call(ptr noundef %2487, ptr noundef %2488, ptr noundef %2489, i32 noundef %2490, i32 noundef %2491)
+2189:                                             ; preds = %2185
+  %2190 = load i8, ptr %19, align 1
+  %2191 = zext i8 %2190 to i32
+  %2192 = icmp eq i32 %2191, 9
+  br i1 %2192, label %2469, label %2193
+
+2193:                                             ; preds = %2189, %2185, %2181
+  %2194 = load i8, ptr %17, align 1
+  %2195 = zext i8 %2194 to i32
+  %2196 = icmp eq i32 %2195, 16
+  br i1 %2196, label %2197, label %2205
+
+2197:                                             ; preds = %2193
+  %2198 = load i8, ptr %18, align 1
+  %2199 = zext i8 %2198 to i32
+  %2200 = icmp eq i32 %2199, 4
+  br i1 %2200, label %2201, label %2205
+
+2201:                                             ; preds = %2197
+  %2202 = load i8, ptr %19, align 1
+  %2203 = zext i8 %2202 to i32
+  %2204 = icmp eq i32 %2203, 26
+  br i1 %2204, label %2469, label %2205
+
+2205:                                             ; preds = %2201, %2197, %2193
+  %2206 = load i8, ptr %17, align 1
+  %2207 = zext i8 %2206 to i32
+  %2208 = icmp eq i32 %2207, 16
+  br i1 %2208, label %2209, label %2217
+
+2209:                                             ; preds = %2205
+  %2210 = load i8, ptr %18, align 1
+  %2211 = zext i8 %2210 to i32
+  %2212 = icmp eq i32 %2211, 4
+  br i1 %2212, label %2213, label %2217
+
+2213:                                             ; preds = %2209
+  %2214 = load i8, ptr %19, align 1
+  %2215 = zext i8 %2214 to i32
+  %2216 = icmp eq i32 %2215, 27
+  br i1 %2216, label %2469, label %2217
+
+2217:                                             ; preds = %2213, %2209, %2205
+  %2218 = load i8, ptr %17, align 1
+  %2219 = zext i8 %2218 to i32
+  %2220 = icmp eq i32 %2219, 16
+  br i1 %2220, label %2221, label %2229
+
+2221:                                             ; preds = %2217
+  %2222 = load i8, ptr %18, align 1
+  %2223 = zext i8 %2222 to i32
+  %2224 = icmp eq i32 %2223, 4
+  br i1 %2224, label %2225, label %2229
+
+2225:                                             ; preds = %2221
+  %2226 = load i8, ptr %19, align 1
+  %2227 = zext i8 %2226 to i32
+  %2228 = icmp eq i32 %2227, 28
+  br i1 %2228, label %2469, label %2229
+
+2229:                                             ; preds = %2225, %2221, %2217
+  %2230 = load i8, ptr %17, align 1
+  %2231 = zext i8 %2230 to i32
+  %2232 = icmp eq i32 %2231, 16
+  br i1 %2232, label %2233, label %2241
+
+2233:                                             ; preds = %2229
+  %2234 = load i8, ptr %18, align 1
+  %2235 = zext i8 %2234 to i32
+  %2236 = icmp eq i32 %2235, 4
+  br i1 %2236, label %2237, label %2241
+
+2237:                                             ; preds = %2233
+  %2238 = load i8, ptr %19, align 1
+  %2239 = zext i8 %2238 to i32
+  %2240 = icmp eq i32 %2239, 31
+  br i1 %2240, label %2469, label %2241
+
+2241:                                             ; preds = %2237, %2233, %2229
+  %2242 = load i8, ptr %17, align 1
+  %2243 = zext i8 %2242 to i32
+  %2244 = icmp eq i32 %2243, 16
+  br i1 %2244, label %2245, label %2253
+
+2245:                                             ; preds = %2241
+  %2246 = load i8, ptr %18, align 1
+  %2247 = zext i8 %2246 to i32
+  %2248 = icmp eq i32 %2247, 4
+  br i1 %2248, label %2249, label %2253
+
+2249:                                             ; preds = %2245
+  %2250 = load i8, ptr %19, align 1
+  %2251 = zext i8 %2250 to i32
+  %2252 = icmp eq i32 %2251, 32
+  br i1 %2252, label %2469, label %2253
+
+2253:                                             ; preds = %2249, %2245, %2241
+  %2254 = load i8, ptr %17, align 1
+  %2255 = zext i8 %2254 to i32
+  %2256 = icmp eq i32 %2255, 16
+  br i1 %2256, label %2257, label %2265
+
+2257:                                             ; preds = %2253
+  %2258 = load i8, ptr %18, align 1
+  %2259 = zext i8 %2258 to i32
+  %2260 = icmp eq i32 %2259, 4
+  br i1 %2260, label %2261, label %2265
+
+2261:                                             ; preds = %2257
+  %2262 = load i8, ptr %19, align 1
+  %2263 = zext i8 %2262 to i32
+  %2264 = icmp eq i32 %2263, 33
+  br i1 %2264, label %2469, label %2265
+
+2265:                                             ; preds = %2261, %2257, %2253
+  %2266 = load i8, ptr %17, align 1
+  %2267 = zext i8 %2266 to i32
+  %2268 = icmp eq i32 %2267, 16
+  br i1 %2268, label %2269, label %2277
+
+2269:                                             ; preds = %2265
+  %2270 = load i8, ptr %18, align 1
+  %2271 = zext i8 %2270 to i32
+  %2272 = icmp eq i32 %2271, 6
+  br i1 %2272, label %2273, label %2277
+
+2273:                                             ; preds = %2269
+  %2274 = load i8, ptr %19, align 1
+  %2275 = zext i8 %2274 to i32
+  %2276 = icmp eq i32 %2275, 2
+  br i1 %2276, label %2469, label %2277
+
+2277:                                             ; preds = %2273, %2269, %2265
+  %2278 = load i8, ptr %17, align 1
+  %2279 = zext i8 %2278 to i32
+  %2280 = icmp eq i32 %2279, 16
+  br i1 %2280, label %2281, label %2289
+
+2281:                                             ; preds = %2277
+  %2282 = load i8, ptr %18, align 1
+  %2283 = zext i8 %2282 to i32
+  %2284 = icmp eq i32 %2283, 6
+  br i1 %2284, label %2285, label %2289
+
+2285:                                             ; preds = %2281
+  %2286 = load i8, ptr %19, align 1
+  %2287 = zext i8 %2286 to i32
+  %2288 = icmp eq i32 %2287, 3
+  br i1 %2288, label %2469, label %2289
+
+2289:                                             ; preds = %2285, %2281, %2277
+  %2290 = load i8, ptr %17, align 1
+  %2291 = zext i8 %2290 to i32
+  %2292 = icmp eq i32 %2291, 16
+  br i1 %2292, label %2293, label %2301
+
+2293:                                             ; preds = %2289
+  %2294 = load i8, ptr %18, align 1
+  %2295 = zext i8 %2294 to i32
+  %2296 = icmp eq i32 %2295, 6
+  br i1 %2296, label %2297, label %2301
+
+2297:                                             ; preds = %2293
+  %2298 = load i8, ptr %19, align 1
+  %2299 = zext i8 %2298 to i32
+  %2300 = icmp eq i32 %2299, 7
+  br i1 %2300, label %2469, label %2301
+
+2301:                                             ; preds = %2297, %2293, %2289
+  %2302 = load i8, ptr %17, align 1
+  %2303 = zext i8 %2302 to i32
+  %2304 = icmp eq i32 %2303, 16
+  br i1 %2304, label %2305, label %2313
+
+2305:                                             ; preds = %2301
+  %2306 = load i8, ptr %18, align 1
+  %2307 = zext i8 %2306 to i32
+  %2308 = icmp eq i32 %2307, 6
+  br i1 %2308, label %2309, label %2313
+
+2309:                                             ; preds = %2305
+  %2310 = load i8, ptr %19, align 1
+  %2311 = zext i8 %2310 to i32
+  %2312 = icmp eq i32 %2311, 11
+  br i1 %2312, label %2469, label %2313
+
+2313:                                             ; preds = %2309, %2305, %2301
+  %2314 = load i8, ptr %17, align 1
+  %2315 = zext i8 %2314 to i32
+  %2316 = icmp eq i32 %2315, 16
+  br i1 %2316, label %2317, label %2325
+
+2317:                                             ; preds = %2313
+  %2318 = load i8, ptr %18, align 1
+  %2319 = zext i8 %2318 to i32
+  %2320 = icmp eq i32 %2319, 6
+  br i1 %2320, label %2321, label %2325
+
+2321:                                             ; preds = %2317
+  %2322 = load i8, ptr %19, align 1
+  %2323 = zext i8 %2322 to i32
+  %2324 = icmp eq i32 %2323, 12
+  br i1 %2324, label %2469, label %2325
+
+2325:                                             ; preds = %2321, %2317, %2313
+  %2326 = load i8, ptr %17, align 1
+  %2327 = zext i8 %2326 to i32
+  %2328 = icmp eq i32 %2327, 16
+  br i1 %2328, label %2329, label %2337
+
+2329:                                             ; preds = %2325
+  %2330 = load i8, ptr %18, align 1
+  %2331 = zext i8 %2330 to i32
+  %2332 = icmp eq i32 %2331, 6
+  br i1 %2332, label %2333, label %2337
+
+2333:                                             ; preds = %2329
+  %2334 = load i8, ptr %19, align 1
+  %2335 = zext i8 %2334 to i32
+  %2336 = icmp eq i32 %2335, 13
+  br i1 %2336, label %2469, label %2337
+
+2337:                                             ; preds = %2333, %2329, %2325
+  %2338 = load i8, ptr %17, align 1
+  %2339 = zext i8 %2338 to i32
+  %2340 = icmp eq i32 %2339, 16
+  br i1 %2340, label %2341, label %2349
+
+2341:                                             ; preds = %2337
+  %2342 = load i8, ptr %18, align 1
+  %2343 = zext i8 %2342 to i32
+  %2344 = icmp eq i32 %2343, 6
+  br i1 %2344, label %2345, label %2349
+
+2345:                                             ; preds = %2341
+  %2346 = load i8, ptr %19, align 1
+  %2347 = zext i8 %2346 to i32
+  %2348 = icmp eq i32 %2347, 14
+  br i1 %2348, label %2469, label %2349
+
+2349:                                             ; preds = %2345, %2341, %2337
+  %2350 = load i8, ptr %17, align 1
+  %2351 = zext i8 %2350 to i32
+  %2352 = icmp eq i32 %2351, 16
+  br i1 %2352, label %2353, label %2361
+
+2353:                                             ; preds = %2349
+  %2354 = load i8, ptr %18, align 1
+  %2355 = zext i8 %2354 to i32
+  %2356 = icmp eq i32 %2355, 6
+  br i1 %2356, label %2357, label %2361
+
+2357:                                             ; preds = %2353
+  %2358 = load i8, ptr %19, align 1
+  %2359 = zext i8 %2358 to i32
+  %2360 = icmp eq i32 %2359, 15
+  br i1 %2360, label %2469, label %2361
+
+2361:                                             ; preds = %2357, %2353, %2349
+  %2362 = load i8, ptr %17, align 1
+  %2363 = zext i8 %2362 to i32
+  %2364 = icmp eq i32 %2363, 16
+  br i1 %2364, label %2365, label %2373
+
+2365:                                             ; preds = %2361
+  %2366 = load i8, ptr %18, align 1
+  %2367 = zext i8 %2366 to i32
+  %2368 = icmp eq i32 %2367, 6
+  br i1 %2368, label %2369, label %2373
+
+2369:                                             ; preds = %2365
+  %2370 = load i8, ptr %19, align 1
+  %2371 = zext i8 %2370 to i32
+  %2372 = icmp eq i32 %2371, 16
+  br i1 %2372, label %2469, label %2373
+
+2373:                                             ; preds = %2369, %2365, %2361
+  %2374 = load i8, ptr %17, align 1
+  %2375 = zext i8 %2374 to i32
+  %2376 = icmp eq i32 %2375, 16
+  br i1 %2376, label %2377, label %2385
+
+2377:                                             ; preds = %2373
+  %2378 = load i8, ptr %18, align 1
+  %2379 = zext i8 %2378 to i32
+  %2380 = icmp eq i32 %2379, 6
+  br i1 %2380, label %2381, label %2385
+
+2381:                                             ; preds = %2377
+  %2382 = load i8, ptr %19, align 1
+  %2383 = zext i8 %2382 to i32
+  %2384 = icmp eq i32 %2383, 33
+  br i1 %2384, label %2469, label %2385
+
+2385:                                             ; preds = %2381, %2377, %2373
+  %2386 = load i8, ptr %17, align 1
+  %2387 = zext i8 %2386 to i32
+  %2388 = icmp eq i32 %2387, 16
+  br i1 %2388, label %2389, label %2397
+
+2389:                                             ; preds = %2385
+  %2390 = load i8, ptr %18, align 1
+  %2391 = zext i8 %2390 to i32
+  %2392 = icmp eq i32 %2391, 6
+  br i1 %2392, label %2393, label %2397
+
+2393:                                             ; preds = %2389
+  %2394 = load i8, ptr %19, align 1
+  %2395 = zext i8 %2394 to i32
+  %2396 = icmp eq i32 %2395, 36
+  br i1 %2396, label %2469, label %2397
+
+2397:                                             ; preds = %2393, %2389, %2385
+  %2398 = load i8, ptr %17, align 1
+  %2399 = zext i8 %2398 to i32
+  %2400 = icmp eq i32 %2399, 16
+  br i1 %2400, label %2401, label %2409
+
+2401:                                             ; preds = %2397
+  %2402 = load i8, ptr %18, align 1
+  %2403 = zext i8 %2402 to i32
+  %2404 = icmp eq i32 %2403, 6
+  br i1 %2404, label %2405, label %2409
+
+2405:                                             ; preds = %2401
+  %2406 = load i8, ptr %19, align 1
+  %2407 = zext i8 %2406 to i32
+  %2408 = icmp eq i32 %2407, 37
+  br i1 %2408, label %2469, label %2409
+
+2409:                                             ; preds = %2405, %2401, %2397
+  %2410 = load i8, ptr %17, align 1
+  %2411 = zext i8 %2410 to i32
+  %2412 = icmp eq i32 %2411, 16
+  br i1 %2412, label %2413, label %2421
+
+2413:                                             ; preds = %2409
+  %2414 = load i8, ptr %18, align 1
+  %2415 = zext i8 %2414 to i32
+  %2416 = icmp eq i32 %2415, 9
+  br i1 %2416, label %2417, label %2421
+
+2417:                                             ; preds = %2413
+  %2418 = load i8, ptr %19, align 1
+  %2419 = zext i8 %2418 to i32
+  %2420 = icmp eq i32 %2419, 18
+  br i1 %2420, label %2469, label %2421
+
+2421:                                             ; preds = %2417, %2413, %2409
+  %2422 = load i8, ptr %17, align 1
+  %2423 = zext i8 %2422 to i32
+  %2424 = icmp eq i32 %2423, 16
+  br i1 %2424, label %2425, label %2433
+
+2425:                                             ; preds = %2421
+  %2426 = load i8, ptr %18, align 1
+  %2427 = zext i8 %2426 to i32
+  %2428 = icmp eq i32 %2427, 12
+  br i1 %2428, label %2429, label %2433
+
+2429:                                             ; preds = %2425
+  %2430 = load i8, ptr %19, align 1
+  %2431 = zext i8 %2430 to i32
+  %2432 = icmp eq i32 %2431, 4
+  br i1 %2432, label %2469, label %2433
+
+2433:                                             ; preds = %2429, %2425, %2421
+  %2434 = load i8, ptr %17, align 1
+  %2435 = zext i8 %2434 to i32
+  %2436 = icmp eq i32 %2435, 16
+  br i1 %2436, label %2437, label %2445
+
+2437:                                             ; preds = %2433
+  %2438 = load i8, ptr %18, align 1
+  %2439 = zext i8 %2438 to i32
+  %2440 = icmp eq i32 %2439, 12
+  br i1 %2440, label %2441, label %2445
+
+2441:                                             ; preds = %2437
+  %2442 = load i8, ptr %19, align 1
+  %2443 = zext i8 %2442 to i32
+  %2444 = icmp eq i32 %2443, 9
+  br i1 %2444, label %2469, label %2445
+
+2445:                                             ; preds = %2441, %2437, %2433
+  %2446 = load i8, ptr %17, align 1
+  %2447 = zext i8 %2446 to i32
+  %2448 = icmp eq i32 %2447, 16
+  br i1 %2448, label %2449, label %2457
+
+2449:                                             ; preds = %2445
+  %2450 = load i8, ptr %18, align 1
+  %2451 = zext i8 %2450 to i32
+  %2452 = icmp eq i32 %2451, 12
+  br i1 %2452, label %2453, label %2457
+
+2453:                                             ; preds = %2449
+  %2454 = load i8, ptr %19, align 1
+  %2455 = zext i8 %2454 to i32
+  %2456 = icmp eq i32 %2455, 10
+  br i1 %2456, label %2469, label %2457
+
+2457:                                             ; preds = %2453, %2449, %2445
+  %2458 = load i8, ptr %17, align 1
+  %2459 = zext i8 %2458 to i32
+  %2460 = icmp eq i32 %2459, 16
+  br i1 %2460, label %2461, label %2477
+
+2461:                                             ; preds = %2457
+  %2462 = load i8, ptr %18, align 1
+  %2463 = zext i8 %2462 to i32
+  %2464 = icmp eq i32 %2463, 12
+  br i1 %2464, label %2465, label %2477
+
+2465:                                             ; preds = %2461
+  %2466 = load i8, ptr %19, align 1
+  %2467 = zext i8 %2466 to i32
+  %2468 = icmp eq i32 %2467, 11
+  br i1 %2468, label %2469, label %2477
+
+2469:                                             ; preds = %2465, %2453, %2441, %2429, %2417, %2405, %2393, %2381, %2369, %2357, %2345, %2333, %2321, %2309, %2297, %2285, %2273, %2261, %2249, %2237, %2225, %2213, %2201, %2189
+  %2470 = load ptr, ptr %11, align 8
+  %2471 = load ptr, ptr %12, align 8
+  %2472 = load ptr, ptr %13, align 8
+  %2473 = load ptr, ptr %14, align 8
+  %2474 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %2475 = load i32, ptr %16, align 4
+  %2476 = load i32, ptr %20, align 4
+  call void @add_item_value_string(ptr noundef %2470, ptr noundef %2471, ptr noundef %2472, ptr noundef %2473, i32 noundef %2474, i32 noundef %2475, i32 noundef %2476, ptr noundef @.str.61, i32 noundef 1)
   br label %2569
 
-2492:                                             ; preds = %2482, %2478
-  %2493 = load i8, ptr %17, align 1
-  %2494 = zext i8 %2493 to i32
-  %2495 = icmp eq i32 %2494, 17
-  br i1 %2495, label %2496, label %2504
+2477:                                             ; preds = %2465, %2461, %2457
+  %2478 = load i8, ptr %17, align 1
+  %2479 = zext i8 %2478 to i32
+  %2480 = icmp eq i32 %2479, 16
+  br i1 %2480, label %2481, label %2491
 
-2496:                                             ; preds = %2492
-  %2497 = load ptr, ptr %11, align 8
-  %2498 = load ptr, ptr %12, align 8
-  %2499 = load ptr, ptr %13, align 8
-  %2500 = load ptr, ptr %14, align 8
-  %2501 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %2502 = load i32, ptr %16, align 4
-  %2503 = load i32, ptr %20, align 4
-  call void @add_item_value_string(ptr noundef %2497, ptr noundef %2498, ptr noundef %2499, ptr noundef %2500, i32 noundef %2501, i32 noundef %2502, i32 noundef %2503, ptr noundef @.str.61, i32 noundef 0)
+2481:                                             ; preds = %2477
+  %2482 = load i8, ptr %18, align 1
+  %2483 = zext i8 %2482 to i32
+  %2484 = icmp eq i32 %2483, 8
+  br i1 %2484, label %2485, label %2491
+
+2485:                                             ; preds = %2481
+  %2486 = load ptr, ptr %11, align 8
+  %2487 = load ptr, ptr %12, align 8
+  %2488 = load ptr, ptr %15, align 8
+  %2489 = load i32, ptr %16, align 4
+  %2490 = load i32, ptr %20, align 4
+  call void @dissect_sapdiag_rfc_call(ptr noundef %2486, ptr noundef %2487, ptr noundef %2488, i32 noundef %2489, i32 noundef %2490)
   br label %2568
 
-2504:                                             ; preds = %2492
-  %2505 = load i8, ptr %17, align 1
-  %2506 = zext i8 %2505 to i32
-  %2507 = icmp eq i32 %2506, 18
-  br i1 %2507, label %2508, label %2522
+2491:                                             ; preds = %2481, %2477
+  %2492 = load i8, ptr %17, align 1
+  %2493 = zext i8 %2492 to i32
+  %2494 = icmp eq i32 %2493, 17
+  br i1 %2494, label %2495, label %2503
 
-2508:                                             ; preds = %2504
-  %2509 = load i8, ptr %18, align 1
-  %2510 = zext i8 %2509 to i32
-  %2511 = icmp eq i32 %2510, 9
-  br i1 %2511, label %2512, label %2522
-
-2512:                                             ; preds = %2508
-  %2513 = load i8, ptr %19, align 1
-  %2514 = zext i8 %2513 to i32
-  %2515 = icmp eq i32 %2514, 16
-  br i1 %2515, label %2516, label %2522
-
-2516:                                             ; preds = %2512
-  %2517 = load ptr, ptr %11, align 8
-  %2518 = load ptr, ptr %12, align 8
-  %2519 = load ptr, ptr %14, align 8
-  %2520 = load i32, ptr %16, align 4
-  %2521 = load i32, ptr %20, align 4
-  call void @dissect_sapdiag_dyntatom(ptr noundef %2517, ptr noundef %2518, ptr noundef %2519, i32 noundef %2520, i32 noundef %2521)
+2495:                                             ; preds = %2491
+  %2496 = load ptr, ptr %11, align 8
+  %2497 = load ptr, ptr %12, align 8
+  %2498 = load ptr, ptr %13, align 8
+  %2499 = load ptr, ptr %14, align 8
+  %2500 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %2501 = load i32, ptr %16, align 4
+  %2502 = load i32, ptr %20, align 4
+  call void @add_item_value_string(ptr noundef %2496, ptr noundef %2497, ptr noundef %2498, ptr noundef %2499, i32 noundef %2500, i32 noundef %2501, i32 noundef %2502, ptr noundef @.str.61, i32 noundef 0)
   br label %2567
 
-2522:                                             ; preds = %2512, %2508, %2504
-  %2523 = load i8, ptr %17, align 1
-  %2524 = zext i8 %2523 to i32
-  %2525 = icmp eq i32 %2524, 18
-  br i1 %2525, label %2526, label %2536
+2503:                                             ; preds = %2491
+  %2504 = load i8, ptr %17, align 1
+  %2505 = zext i8 %2504 to i32
+  %2506 = icmp eq i32 %2505, 18
+  br i1 %2506, label %2507, label %2521
 
-2526:                                             ; preds = %2522
-  %2527 = load i8, ptr %18, align 1
-  %2528 = zext i8 %2527 to i32
-  %2529 = icmp eq i32 %2528, 11
-  br i1 %2529, label %2530, label %2536
+2507:                                             ; preds = %2503
+  %2508 = load i8, ptr %18, align 1
+  %2509 = zext i8 %2508 to i32
+  %2510 = icmp eq i32 %2509, 9
+  br i1 %2510, label %2511, label %2521
 
-2530:                                             ; preds = %2526
-  %2531 = load ptr, ptr %11, align 8
-  %2532 = load ptr, ptr %12, align 8
-  %2533 = load ptr, ptr %14, align 8
-  %2534 = load i32, ptr %16, align 4
-  %2535 = load i32, ptr %20, align 4
-  call void @dissect_sapdiag_menu(ptr noundef %2531, ptr noundef %2532, ptr noundef %2533, i32 noundef %2534, i32 noundef %2535)
+2511:                                             ; preds = %2507
+  %2512 = load i8, ptr %19, align 1
+  %2513 = zext i8 %2512 to i32
+  %2514 = icmp eq i32 %2513, 16
+  br i1 %2514, label %2515, label %2521
+
+2515:                                             ; preds = %2511
+  %2516 = load ptr, ptr %11, align 8
+  %2517 = load ptr, ptr %12, align 8
+  %2518 = load ptr, ptr %14, align 8
+  %2519 = load i32, ptr %16, align 4
+  %2520 = load i32, ptr %20, align 4
+  call void @dissect_sapdiag_dyntatom(ptr noundef %2516, ptr noundef %2517, ptr noundef %2518, i32 noundef %2519, i32 noundef %2520)
   br label %2566
 
-2536:                                             ; preds = %2526, %2522
-  %2537 = load i8, ptr %17, align 1
-  %2538 = zext i8 %2537 to i32
-  %2539 = icmp eq i32 %2538, 19
-  br i1 %2539, label %2540, label %2551
+2521:                                             ; preds = %2511, %2507, %2503
+  %2522 = load i8, ptr %17, align 1
+  %2523 = zext i8 %2522 to i32
+  %2524 = icmp eq i32 %2523, 18
+  br i1 %2524, label %2525, label %2535
 
-2540:                                             ; preds = %2536
-  %2541 = load ptr, ptr %12, align 8
-  %2542 = load ptr, ptr %14, align 8
-  %2543 = load i32, ptr %20, align 4
-  %2544 = call i32 @check_length(ptr noundef %2541, ptr noundef %2542, i32 noundef 2, i32 noundef %2543, ptr noundef @.str.691)
-  %2545 = load ptr, ptr %11, align 8
-  %2546 = load ptr, ptr %13, align 8
-  %2547 = load ptr, ptr %14, align 8
-  %2548 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %2549 = load i32, ptr %16, align 4
-  %2550 = call zeroext i16 @add_item_value_uint16(ptr noundef %2545, ptr noundef %2546, ptr noundef %2547, i32 noundef %2548, i32 noundef %2549, ptr noundef @.str.1135)
+2525:                                             ; preds = %2521
+  %2526 = load i8, ptr %18, align 1
+  %2527 = zext i8 %2526 to i32
+  %2528 = icmp eq i32 %2527, 11
+  br i1 %2528, label %2529, label %2535
+
+2529:                                             ; preds = %2525
+  %2530 = load ptr, ptr %11, align 8
+  %2531 = load ptr, ptr %12, align 8
+  %2532 = load ptr, ptr %14, align 8
+  %2533 = load i32, ptr %16, align 4
+  %2534 = load i32, ptr %20, align 4
+  call void @dissect_sapdiag_menu(ptr noundef %2530, ptr noundef %2531, ptr noundef %2532, i32 noundef %2533, i32 noundef %2534)
   br label %2565
 
-2551:                                             ; preds = %2536
-  %2552 = load i32, ptr @global_sapdiag_highlight_items, align 4
-  %2553 = icmp ne i32 %2552, 0
-  br i1 %2553, label %2554, label %2564
+2535:                                             ; preds = %2525, %2521
+  %2536 = load i8, ptr %17, align 1
+  %2537 = zext i8 %2536 to i32
+  %2538 = icmp eq i32 %2537, 19
+  br i1 %2538, label %2539, label %2550
 
-2554:                                             ; preds = %2551
-  %2555 = load ptr, ptr %12, align 8
-  %2556 = load ptr, ptr %13, align 8
-  %2557 = load i8, ptr %17, align 1
-  %2558 = zext i8 %2557 to i32
-  %2559 = load i8, ptr %18, align 1
-  %2560 = zext i8 %2559 to i32
-  %2561 = load i8, ptr %19, align 1
-  %2562 = zext i8 %2561 to i32
-  %2563 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2555, ptr noundef %2556, ptr noundef @ei_sapdiag_item_unknown, ptr noundef @.str.1136, i32 noundef %2558, i32 noundef %2560, i32 noundef %2562)
+2539:                                             ; preds = %2535
+  %2540 = load ptr, ptr %12, align 8
+  %2541 = load ptr, ptr %14, align 8
+  %2542 = load i32, ptr %20, align 4
+  %2543 = call zeroext i1 @check_length(ptr noundef %2540, ptr noundef %2541, i32 noundef 2, i32 noundef %2542, ptr noundef @.str.693)
+  %2544 = load ptr, ptr %11, align 8
+  %2545 = load ptr, ptr %13, align 8
+  %2546 = load ptr, ptr %14, align 8
+  %2547 = load i32, ptr @hf_sapdiag_item_value, align 4
+  %2548 = load i32, ptr %16, align 4
+  %2549 = call zeroext i16 @add_item_value_uint16(ptr noundef %2544, ptr noundef %2545, ptr noundef %2546, i32 noundef %2547, i32 noundef %2548, ptr noundef @.str.1165)
   br label %2564
 
-2564:                                             ; preds = %2554, %2551
+2550:                                             ; preds = %2535
+  %2551 = load i8, ptr @global_sapdiag_highlight_items, align 1, !range !6, !noundef !7
+  %2552 = trunc i8 %2551 to i1
+  br i1 %2552, label %2553, label %2563
+
+2553:                                             ; preds = %2550
+  %2554 = load ptr, ptr %12, align 8
+  %2555 = load ptr, ptr %13, align 8
+  %2556 = load i8, ptr %17, align 1
+  %2557 = zext i8 %2556 to i32
+  %2558 = load i8, ptr %18, align 1
+  %2559 = zext i8 %2558 to i32
+  %2560 = load i8, ptr %19, align 1
+  %2561 = zext i8 %2560 to i32
+  %2562 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2554, ptr noundef %2555, ptr noundef @ei_sapdiag_item_unknown, ptr noundef @.str.1166, i32 noundef %2557, i32 noundef %2559, i32 noundef %2561)
+  br label %2563
+
+2563:                                             ; preds = %2553, %2550
+  br label %2564
+
+2564:                                             ; preds = %2563, %2539
   br label %2565
 
-2565:                                             ; preds = %2564, %2540
+2565:                                             ; preds = %2564, %2529
   br label %2566
 
-2566:                                             ; preds = %2565, %2530
+2566:                                             ; preds = %2565, %2515
   br label %2567
 
-2567:                                             ; preds = %2566, %2516
+2567:                                             ; preds = %2566, %2495
   br label %2568
 
-2568:                                             ; preds = %2567, %2496
+2568:                                             ; preds = %2567, %2485
   br label %2569
 
-2569:                                             ; preds = %2568, %2486
+2569:                                             ; preds = %2568, %2469
   br label %2570
 
-2570:                                             ; preds = %2569, %2470
+2570:                                             ; preds = %2569, %2175
   br label %2571
 
-2571:                                             ; preds = %2570, %2176
+2571:                                             ; preds = %2570, %2120
   br label %2572
 
-2572:                                             ; preds = %2571, %2121
+2572:                                             ; preds = %2571, %2102
   br label %2573
 
-2573:                                             ; preds = %2572, %2103
+2573:                                             ; preds = %2572, %2089
   br label %2574
 
-2574:                                             ; preds = %2573, %2090
+2574:                                             ; preds = %2573, %2039
   br label %2575
 
-2575:                                             ; preds = %2574, %2039
+2575:                                             ; preds = %2574, %1881
   br label %2576
 
-2576:                                             ; preds = %2575, %1881
+2576:                                             ; preds = %2575, %1842
   br label %2577
 
-2577:                                             ; preds = %2576, %1842
+2577:                                             ; preds = %2576, %1819
   br label %2578
 
-2578:                                             ; preds = %2577, %1819
+2578:                                             ; preds = %2577, %1772
   br label %2579
 
-2579:                                             ; preds = %2578, %1772
+2579:                                             ; preds = %2578, %1725
   br label %2580
 
-2580:                                             ; preds = %2579, %1725
+2580:                                             ; preds = %2579, %1638
   br label %2581
 
-2581:                                             ; preds = %2580, %1638
+2581:                                             ; preds = %2580, %1575
   br label %2582
 
-2582:                                             ; preds = %2581, %1575
+2582:                                             ; preds = %2581, %1528
   br label %2583
 
-2583:                                             ; preds = %2582, %1528
+2583:                                             ; preds = %2582, %1473
   br label %2584
 
-2584:                                             ; preds = %2583, %1473
+2584:                                             ; preds = %2583, %1418
   br label %2585
 
-2585:                                             ; preds = %2584, %1418
+2585:                                             ; preds = %2584, %1363
   br label %2586
 
-2586:                                             ; preds = %2585, %1363
+2586:                                             ; preds = %2585, %1325
   br label %2587
 
-2587:                                             ; preds = %2586, %1325
+2587:                                             ; preds = %2586, %1270
   br label %2588
 
-2588:                                             ; preds = %2587, %1270
+2588:                                             ; preds = %2587, %1215
   br label %2589
 
-2589:                                             ; preds = %2588, %1215
+2589:                                             ; preds = %2588, %1160
   br label %2590
 
-2590:                                             ; preds = %2589, %1160
+2590:                                             ; preds = %2589, %1147
   br label %2591
 
-2591:                                             ; preds = %2590, %1147
+2591:                                             ; preds = %2590, %1036
   br label %2592
 
-2592:                                             ; preds = %2591, %1035
+2592:                                             ; preds = %2591, %991
   br label %2593
 
-2593:                                             ; preds = %2592, %990
+2593:                                             ; preds = %2592, %946
   br label %2594
 
-2594:                                             ; preds = %2593, %945
+2594:                                             ; preds = %2593, %923
   br label %2595
 
-2595:                                             ; preds = %2594, %922
+2595:                                             ; preds = %2594, %910
   br label %2596
 
-2596:                                             ; preds = %2595, %909
+2596:                                             ; preds = %2595, %831
   br label %2597
 
-2597:                                             ; preds = %2596, %831
+2597:                                             ; preds = %2596, %818
   br label %2598
 
-2598:                                             ; preds = %2597, %818
+2598:                                             ; preds = %2597, %772
   br label %2599
 
-2599:                                             ; preds = %2598, %772
+2599:                                             ; preds = %2598, %759
   br label %2600
 
-2600:                                             ; preds = %2599, %759
+2600:                                             ; preds = %2599, %716
   br label %2601
 
-2601:                                             ; preds = %2600, %716
+2601:                                             ; preds = %2600, %645
   br label %2602
 
-2602:                                             ; preds = %2601, %644
+2602:                                             ; preds = %2601, %622
   br label %2603
 
-2603:                                             ; preds = %2602, %621
+2603:                                             ; preds = %2602, %599
   br label %2604
 
-2604:                                             ; preds = %2603, %598
+2604:                                             ; preds = %2603, %576
   br label %2605
 
-2605:                                             ; preds = %2604, %575
+2605:                                             ; preds = %2604, %545
   br label %2606
 
-2606:                                             ; preds = %2605, %544
+2606:                                             ; preds = %2605, %532
   br label %2607
 
-2607:                                             ; preds = %2606, %531
+2607:                                             ; preds = %2606, %480
   br label %2608
 
-2608:                                             ; preds = %2607, %479
+2608:                                             ; preds = %2607, %457
   br label %2609
 
-2609:                                             ; preds = %2608, %456
+2609:                                             ; preds = %2608, %434
   br label %2610
 
-2610:                                             ; preds = %2609, %433
+2610:                                             ; preds = %2609, %411
   br label %2611
 
-2611:                                             ; preds = %2610, %410
+2611:                                             ; preds = %2610, %364
   br label %2612
 
-2612:                                             ; preds = %2611, %363
+2612:                                             ; preds = %2611, %344
   br label %2613
 
-2613:                                             ; preds = %2612, %343
+2613:                                             ; preds = %2612, %285
   br label %2614
 
-2614:                                             ; preds = %2613, %284
+2614:                                             ; preds = %2613, %246
   br label %2615
 
-2615:                                             ; preds = %2614, %245
+2615:                                             ; preds = %2614, %223
   br label %2616
 
-2616:                                             ; preds = %2615, %222
+2616:                                             ; preds = %2615, %192
   br label %2617
 
-2617:                                             ; preds = %2616, %191
+2617:                                             ; preds = %2616, %161
   br label %2618
 
-2618:                                             ; preds = %2617, %160
-  br label %2619
-
-2619:                                             ; preds = %2618, %867, %155
+2618:                                             ; preds = %908, %2617, %156
   ret void
+
+2619:                                             ; preds = %908
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @check_length(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
-  %6 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @check_length(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i1, align 1
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
@@ -6746,20 +6908,20 @@ define internal i32 @check_length(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %16 = load ptr, ptr %7, align 8
   %17 = load ptr, ptr %8, align 8
   %18 = load ptr, ptr %11, align 8
-  %19 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %16, ptr noundef %17, ptr noundef @ei_sapdiag_item_length_invalid, ptr noundef @.str.1137, ptr noundef %18)
-  store i32 0, ptr %6, align 4
+  %19 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %16, ptr noundef %17, ptr noundef @ei_sapdiag_item_length_invalid, ptr noundef @.str.1167, ptr noundef %18)
+  store i1 false, ptr %6, align 1
   br label %21
 
 20:                                               ; preds = %5
-  store i32 1, ptr %6, align 4
+  store i1 true, ptr %6, align 1
   br label %21
 
 21:                                               ; preds = %20, %15
-  %22 = load i32, ptr %6, align 4
-  ret i32 %22
+  %22 = load i1, ptr %6, align 1
+  ret i1 %22
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i8 @add_item_value_uint8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -6780,23 +6942,23 @@ define internal zeroext i8 @add_item_value_uint8(ptr noundef %0, ptr noundef %1,
   %17 = load ptr, ptr %12, align 8
   %18 = load ptr, ptr %7, align 8
   %19 = load i32, ptr %11, align 4
-  %20 = call zeroext i8 @tvb_get_guint8(ptr noundef %18, i32 noundef %19)
+  %20 = call zeroext i8 @tvb_get_uint8(ptr noundef %18, i32 noundef %19)
   %21 = zext i8 %20 to i32
-  %22 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %13, i32 noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef 1, ptr noundef @.str.1138, ptr noundef %17, i32 noundef %21)
+  %22 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %13, i32 noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef 1, ptr noundef @.str.1168, ptr noundef %17, i32 noundef %21)
   %23 = load ptr, ptr %8, align 8
   %24 = load ptr, ptr %12, align 8
   %25 = load ptr, ptr %7, align 8
   %26 = load i32, ptr %11, align 4
-  %27 = call zeroext i8 @tvb_get_guint8(ptr noundef %25, i32 noundef %26)
+  %27 = call zeroext i8 @tvb_get_uint8(ptr noundef %25, i32 noundef %26)
   %28 = zext i8 %27 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef @.str.1139, ptr noundef %24, i32 noundef %28)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef @.str.1169, ptr noundef %24, i32 noundef %28)
   %29 = load ptr, ptr %7, align 8
   %30 = load i32, ptr %11, align 4
-  %31 = call zeroext i8 @tvb_get_guint8(ptr noundef %29, i32 noundef %30)
+  %31 = call zeroext i8 @tvb_get_uint8(ptr noundef %29, i32 noundef %30)
   ret i8 %31
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @add_item_value_uint32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -6818,20 +6980,20 @@ define internal i32 @add_item_value_uint32(ptr noundef %0, ptr noundef %1, ptr n
   %18 = load ptr, ptr %7, align 8
   %19 = load i32, ptr %11, align 4
   %20 = call i32 @tvb_get_ntohl(ptr noundef %18, i32 noundef %19)
-  %21 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %13, i32 noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef 4, ptr noundef @.str.1138, ptr noundef %17, i32 noundef %20)
+  %21 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %13, i32 noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef 4, ptr noundef @.str.1168, ptr noundef %17, i32 noundef %20)
   %22 = load ptr, ptr %8, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = load ptr, ptr %7, align 8
   %25 = load i32, ptr %11, align 4
   %26 = call i32 @tvb_get_ntohl(ptr noundef %24, i32 noundef %25)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.1139, ptr noundef %23, i32 noundef %26)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.1169, ptr noundef %23, i32 noundef %26)
   %27 = load ptr, ptr %7, align 8
   %28 = load i32, ptr %11, align 4
   %29 = call i32 @tvb_get_ntohl(ptr noundef %27, i32 noundef %28)
   ret i32 %29
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i16 @add_item_value_uint16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -6854,21 +7016,21 @@ define internal zeroext i16 @add_item_value_uint16(ptr noundef %0, ptr noundef %
   %19 = load i32, ptr %11, align 4
   %20 = call zeroext i16 @tvb_get_ntohs(ptr noundef %18, i32 noundef %19)
   %21 = zext i16 %20 to i32
-  %22 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %13, i32 noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef 2, ptr noundef @.str.1138, ptr noundef %17, i32 noundef %21)
+  %22 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %13, i32 noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef 2, ptr noundef @.str.1168, ptr noundef %17, i32 noundef %21)
   %23 = load ptr, ptr %8, align 8
   %24 = load ptr, ptr %12, align 8
   %25 = load ptr, ptr %7, align 8
   %26 = load i32, ptr %11, align 4
   %27 = call zeroext i16 @tvb_get_ntohs(ptr noundef %25, i32 noundef %26)
   %28 = zext i16 %27 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef @.str.1139, ptr noundef %24, i32 noundef %28)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef @.str.1169, ptr noundef %24, i32 noundef %28)
   %29 = load ptr, ptr %7, align 8
   %30 = load i32, ptr %11, align 4
   %31 = call zeroext i16 @tvb_get_ntohs(ptr noundef %29, i32 noundef %30)
   ret i16 %31
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_sapdiag_support_bits(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -8032,7 +8194,7 @@ define internal void @dissect_sapdiag_support_bits(ptr noundef %0, ptr noundef %
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @add_item_value_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8) #0 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
@@ -8053,8 +8215,9 @@ define internal void @add_item_value_string(ptr noundef %0, ptr noundef %1, ptr 
   store i32 %6, ptr %16, align 4
   store ptr %7, ptr %17, align 8
   store i32 %8, ptr %18, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #3
   %20 = load ptr, ptr %11, align 8
-  %21 = getelementptr inbounds %struct._packet_info, ptr %20, i32 0, i32 50
+  %21 = getelementptr inbounds nuw %struct._packet_info, ptr %20, i32 0, i32 51
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %10, align 8
   %24 = load i32, ptr %15, align 4
@@ -8068,7 +8231,7 @@ define internal void @add_item_value_string(ptr noundef %0, ptr noundef %1, ptr 
   %31 = load i32, ptr %16, align 4
   %32 = load ptr, ptr %17, align 8
   %33 = load ptr, ptr %19, align 8
-  %34 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef %30, i32 noundef %31, ptr noundef @.str.1140, ptr noundef %32, ptr noundef %33)
+  %34 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef %30, i32 noundef %31, ptr noundef @.str.1170, ptr noundef %32, ptr noundef %33)
   %35 = load i32, ptr %18, align 4
   %36 = icmp ne i32 %35, 0
   br i1 %36, label %37, label %41
@@ -8077,14 +8240,15 @@ define internal void @add_item_value_string(ptr noundef %0, ptr noundef %1, ptr 
   %38 = load ptr, ptr %12, align 8
   %39 = load ptr, ptr %17, align 8
   %40 = load ptr, ptr %19, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %38, ptr noundef @.str.1141, ptr noundef %39, ptr noundef %40)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %38, ptr noundef @.str.1171, ptr noundef %39, ptr noundef %40)
   br label %41
 
 41:                                               ; preds = %37, %9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #3
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
@@ -8104,12 +8268,14 @@ define internal i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr 
   store i32 %5, ptr %14, align 4
   store ptr %6, ptr %15, align 8
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
   %19 = load ptr, ptr %9, align 8
   %20 = load i32, ptr %14, align 4
   %21 = call i32 @tvb_strsize(ptr noundef %19, i32 noundef %20)
   store i32 %21, ptr %17, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #3
   %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds %struct._packet_info, ptr %22, i32 0, i32 50
+  %23 = getelementptr inbounds nuw %struct._packet_info, ptr %22, i32 0, i32 51
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %9, align 8
   %26 = load i32, ptr %14, align 4
@@ -8124,7 +8290,7 @@ define internal i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr 
   %34 = load i32, ptr %17, align 4
   %35 = load ptr, ptr %15, align 8
   %36 = load ptr, ptr %18, align 8
-  %37 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %30, i32 noundef %31, ptr noundef %32, i32 noundef %33, i32 noundef %34, ptr noundef @.str.1140, ptr noundef %35, ptr noundef %36)
+  %37 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %30, i32 noundef %31, ptr noundef %32, i32 noundef %33, i32 noundef %34, ptr noundef @.str.1170, ptr noundef %35, ptr noundef %36)
   %38 = load i32, ptr %16, align 4
   %39 = icmp ne i32 %38, 0
   br i1 %39, label %40, label %44
@@ -8133,15 +8299,17 @@ define internal i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr 
   %41 = load ptr, ptr %11, align 8
   %42 = load ptr, ptr %15, align 8
   %43 = load ptr, ptr %18, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %41, ptr noundef @.str.1141, ptr noundef %42, ptr noundef %43)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %41, ptr noundef @.str.1171, ptr noundef %42, ptr noundef %43)
   br label %44
 
 44:                                               ; preds = %40, %8
   %45 = load i32, ptr %17, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
   ret i32 %45
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @add_item_value_hexstring(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
@@ -8166,27 +8334,27 @@ define internal void @add_item_value_hexstring(ptr noundef %0, ptr noundef %1, p
   %21 = load i32, ptr %15, align 4
   %22 = load ptr, ptr %16, align 8
   %23 = load ptr, ptr %10, align 8
-  %24 = getelementptr inbounds %struct._packet_info, ptr %23, i32 0, i32 50
+  %24 = getelementptr inbounds nuw %struct._packet_info, ptr %23, i32 0, i32 51
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %9, align 8
   %27 = load i32, ptr %14, align 4
   %28 = load i32, ptr %15, align 4
   %29 = call ptr @tvb_bytes_to_str(ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef %28)
-  %30 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %17, i32 noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21, ptr noundef @.str.1140, ptr noundef %22, ptr noundef %29)
+  %30 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %17, i32 noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21, ptr noundef @.str.1170, ptr noundef %22, ptr noundef %29)
   %31 = load ptr, ptr %11, align 8
   %32 = load ptr, ptr %16, align 8
   %33 = load ptr, ptr %10, align 8
-  %34 = getelementptr inbounds %struct._packet_info, ptr %33, i32 0, i32 50
+  %34 = getelementptr inbounds nuw %struct._packet_info, ptr %33, i32 0, i32 51
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %9, align 8
   %37 = load i32, ptr %14, align 4
   %38 = load i32, ptr %15, align 4
   %39 = call ptr @tvb_bytes_to_str(ptr noundef %35, ptr noundef %36, i32 noundef %37, i32 noundef %38)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %31, ptr noundef @.str.1141, ptr noundef %32, ptr noundef %39)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %31, ptr noundef @.str.1171, ptr noundef %32, ptr noundef %39)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_sapdiag_uievent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -8203,14 +8371,19 @@ define internal void @dissect_sapdiag_uievent(ptr noundef %0, ptr noundef %1, pt
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
   store ptr null, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
   store ptr null, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #3
   store i8 0, ptr %13, align 1
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #3
   store i16 0, ptr %14, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #3
   store i16 0, ptr %15, align 2
   %16 = load ptr, ptr %6, align 8
   %17 = load i32, ptr %9, align 4
-  %18 = call zeroext i8 @tvb_get_guint8(ptr noundef %16, i32 noundef %17)
+  %18 = call zeroext i8 @tvb_get_uint8(ptr noundef %16, i32 noundef %17)
   store i8 %18, ptr %13, align 1
   %19 = load ptr, ptr %8, align 8
   %20 = load i32, ptr @hf_sapdiag_item_ui_event_valid, align 4
@@ -8258,8 +8431,8 @@ define internal void @dissect_sapdiag_uievent(ptr noundef %0, ptr noundef %1, pt
   %58 = load i32, ptr %9, align 4
   %59 = call zeroext i16 @tvb_get_ntohs(ptr noundef %57, i32 noundef %58)
   %60 = zext i16 %59 to i32
-  %61 = call ptr @val_to_str_const(i32 noundef %60, ptr noundef @sapdiag_item_ui_event_event_type_vals, ptr noundef @.str.837)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %56, ptr noundef @.str.1142, ptr noundef %61)
+  %61 = call ptr @val_to_str_const(i32 noundef %60, ptr noundef @sapdiag_item_ui_event_event_type_vals, ptr noundef @.str.850)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %56, ptr noundef @.str.1172, ptr noundef %61)
   %62 = load i32, ptr %9, align 4
   %63 = add i32 %62, 2
   store i32 %63, ptr %9, align 4
@@ -8276,8 +8449,8 @@ define internal void @dissect_sapdiag_uievent(ptr noundef %0, ptr noundef %1, pt
   %73 = load i32, ptr %9, align 4
   %74 = call zeroext i16 @tvb_get_ntohs(ptr noundef %72, i32 noundef %73)
   %75 = zext i16 %74 to i32
-  %76 = call ptr @val_to_str_const(i32 noundef %75, ptr noundef @sapdiag_item_ui_event_control_type_vals, ptr noundef @.str.837)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %71, ptr noundef @.str.1143, ptr noundef %76)
+  %76 = call ptr @val_to_str_const(i32 noundef %75, ptr noundef @sapdiag_item_ui_event_control_type_vals, ptr noundef @.str.850)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %71, ptr noundef @.str.1173, ptr noundef %76)
   %77 = load i32, ptr %9, align 4
   %78 = add i32 %77, 2
   store i32 %78, ptr %9, align 4
@@ -8422,7 +8595,7 @@ define internal void @dissect_sapdiag_uievent(ptr noundef %0, ptr noundef %1, pt
   %182 = load i16, ptr %15, align 2
   %183 = add i16 %182, -1
   store i16 %183, ptr %15, align 2
-  br label %163, !llvm.loop !10
+  br label %163, !llvm.loop !14
 
 184:                                              ; preds = %170
   %185 = load i16, ptr %15, align 2
@@ -8435,14 +8608,19 @@ define internal void @dissect_sapdiag_uievent(ptr noundef %0, ptr noundef %1, pt
   %190 = load ptr, ptr %8, align 8
   %191 = load i16, ptr %14, align 2
   %192 = zext i16 %191 to i32
-  %193 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %189, ptr noundef %190, ptr noundef @ei_sapdiag_dynt_focus_more_cont_ids, ptr noundef @.str.1144, i32 noundef %192)
+  %193 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %189, ptr noundef %190, ptr noundef @ei_sapdiag_dynt_focus_more_cont_ids, ptr noundef @.str.1174, i32 noundef %192)
   br label %194
 
 194:                                              ; preds = %188, %184
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -8465,19 +8643,30 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
   %22 = load i32, ptr %9, align 4
   %23 = load i32, ptr %10, align 4
   %24 = add i32 %22, %23
   store i32 %24, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #3
   store i16 0, ptr %12, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #3
   store i16 0, ptr %13, align 2
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #3
   store i8 0, ptr %14, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #3
   store i8 0, ptr %15, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
   store ptr null, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #3
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #3
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #3
   store ptr null, ptr %19, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #3
   store ptr null, ptr %20, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #3
   store ptr null, ptr %21, align 8
   br label %25
 
@@ -8491,7 +8680,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %30 = load ptr, ptr %6, align 8
   %31 = load i32, ptr %9, align 4
   %32 = add i32 %31, 4
-  %33 = call zeroext i8 @tvb_get_guint8(ptr noundef %30, i32 noundef %32)
+  %33 = call zeroext i8 @tvb_get_uint8(ptr noundef %30, i32 noundef %32)
   store i8 %33, ptr %14, align 1
   %34 = load i8, ptr %14, align 1
   %35 = zext i8 %34 to i32
@@ -8521,8 +8710,8 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %52 = load ptr, ptr %16, align 8
   %53 = load i8, ptr %14, align 1
   %54 = zext i8 %53 to i32
-  %55 = call ptr @val_to_str_const(i32 noundef %54, ptr noundef @sapdiag_item_dynt_atom_item_etype_vals, ptr noundef @.str.837)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %52, ptr noundef @.str.1145, ptr noundef %55)
+  %55 = call ptr @val_to_str_const(i32 noundef %54, ptr noundef @sapdiag_item_dynt_atom_item_etype_vals, ptr noundef @.str.850)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %52, ptr noundef @.str.1175, ptr noundef %55)
   br label %56
 
 56:                                               ; preds = %41, %37, %29
@@ -8556,7 +8745,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %78 = load ptr, ptr %20, align 8
   %79 = load i32, ptr @hf_sapdiag_item_value, align 4
   %80 = load i32, ptr %9, align 4
-  %81 = call zeroext i16 @add_item_value_uint16(ptr noundef %76, ptr noundef %77, ptr noundef %78, i32 noundef %79, i32 noundef %80, ptr noundef @.str.1146)
+  %81 = call zeroext i16 @add_item_value_uint16(ptr noundef %76, ptr noundef %77, ptr noundef %78, i32 noundef %79, i32 noundef %80, ptr noundef @.str.1176)
   store i16 %81, ptr %13, align 2
   %82 = load i16, ptr %13, align 2
   %83 = zext i16 %82 to i32
@@ -8582,7 +8771,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %99 = load ptr, ptr %20, align 8
   %100 = load i32, ptr @hf_sapdiag_item_value, align 4
   %101 = load i32, ptr %9, align 4
-  %102 = call zeroext i8 @add_item_value_uint8(ptr noundef %97, ptr noundef %98, ptr noundef %99, i32 noundef %100, i32 noundef %101, ptr noundef @.str.1147)
+  %102 = call zeroext i8 @add_item_value_uint8(ptr noundef %97, ptr noundef %98, ptr noundef %99, i32 noundef %100, i32 noundef %101, ptr noundef @.str.1177)
   %103 = load i32, ptr %9, align 4
   %104 = add i32 %103, 1
   store i32 %104, ptr %9, align 4
@@ -8596,7 +8785,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %111 = load ptr, ptr %20, align 8
   %112 = load i32, ptr @hf_sapdiag_item_value, align 4
   %113 = load i32, ptr %9, align 4
-  %114 = call zeroext i8 @add_item_value_uint8(ptr noundef %109, ptr noundef %110, ptr noundef %111, i32 noundef %112, i32 noundef %113, ptr noundef @.str.1148)
+  %114 = call zeroext i8 @add_item_value_uint8(ptr noundef %109, ptr noundef %110, ptr noundef %111, i32 noundef %112, i32 noundef %113, ptr noundef @.str.1178)
   %115 = load i32, ptr %9, align 4
   %116 = add i32 %115, 1
   store i32 %116, ptr %9, align 4
@@ -8613,9 +8802,9 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %126 = load ptr, ptr %17, align 8
   %127 = load ptr, ptr %6, align 8
   %128 = load i32, ptr %9, align 4
-  %129 = call zeroext i8 @tvb_get_guint8(ptr noundef %127, i32 noundef %128)
+  %129 = call zeroext i8 @tvb_get_uint8(ptr noundef %127, i32 noundef %128)
   %130 = zext i8 %129 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %126, ptr noundef @.str.1149, i32 noundef %130)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %126, ptr noundef @.str.1179, i32 noundef %130)
   %131 = load i32, ptr %9, align 4
   %132 = add i32 %131, 1
   store i32 %132, ptr %9, align 4
@@ -8629,7 +8818,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %139 = load ptr, ptr %20, align 8
   %140 = load i32, ptr @hf_sapdiag_item_value, align 4
   %141 = load i32, ptr %9, align 4
-  %142 = call zeroext i8 @add_item_value_uint8(ptr noundef %137, ptr noundef %138, ptr noundef %139, i32 noundef %140, i32 noundef %141, ptr noundef @.str.1150)
+  %142 = call zeroext i8 @add_item_value_uint8(ptr noundef %137, ptr noundef %138, ptr noundef %139, i32 noundef %140, i32 noundef %141, ptr noundef @.str.1180)
   %143 = load i32, ptr %9, align 4
   %144 = add i32 %143, 1
   store i32 %144, ptr %9, align 4
@@ -8643,7 +8832,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %151 = load ptr, ptr %20, align 8
   %152 = load i32, ptr @hf_sapdiag_item_value, align 4
   %153 = load i32, ptr %9, align 4
-  %154 = call zeroext i8 @add_item_value_uint8(ptr noundef %149, ptr noundef %150, ptr noundef %151, i32 noundef %152, i32 noundef %153, ptr noundef @.str.1151)
+  %154 = call zeroext i8 @add_item_value_uint8(ptr noundef %149, ptr noundef %150, ptr noundef %151, i32 noundef %152, i32 noundef %153, ptr noundef @.str.1181)
   %155 = load i32, ptr %9, align 4
   %156 = add i32 %155, 1
   store i32 %156, ptr %9, align 4
@@ -8657,7 +8846,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %163 = load ptr, ptr %20, align 8
   %164 = load i32, ptr @hf_sapdiag_item_value, align 4
   %165 = load i32, ptr %9, align 4
-  %166 = call zeroext i8 @add_item_value_uint8(ptr noundef %161, ptr noundef %162, ptr noundef %163, i32 noundef %164, i32 noundef %165, ptr noundef @.str.1152)
+  %166 = call zeroext i8 @add_item_value_uint8(ptr noundef %161, ptr noundef %162, ptr noundef %163, i32 noundef %164, i32 noundef %165, ptr noundef @.str.1182)
   %167 = load i32, ptr %9, align 4
   %168 = add i32 %167, 1
   store i32 %168, ptr %9, align 4
@@ -8671,7 +8860,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %175 = load ptr, ptr %20, align 8
   %176 = load i32, ptr @hf_sapdiag_item_value, align 4
   %177 = load i32, ptr %9, align 4
-  %178 = call zeroext i16 @add_item_value_uint16(ptr noundef %173, ptr noundef %174, ptr noundef %175, i32 noundef %176, i32 noundef %177, ptr noundef @.str.1153)
+  %178 = call zeroext i16 @add_item_value_uint16(ptr noundef %173, ptr noundef %174, ptr noundef %175, i32 noundef %176, i32 noundef %177, ptr noundef @.str.1183)
   %179 = load i32, ptr %9, align 4
   %180 = add i32 %179, 2
   store i32 %180, ptr %9, align 4
@@ -8685,7 +8874,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %187 = load ptr, ptr %20, align 8
   %188 = load i32, ptr @hf_sapdiag_item_value, align 4
   %189 = load i32, ptr %9, align 4
-  %190 = call zeroext i16 @add_item_value_uint16(ptr noundef %185, ptr noundef %186, ptr noundef %187, i32 noundef %188, i32 noundef %189, ptr noundef @.str.1154)
+  %190 = call zeroext i16 @add_item_value_uint16(ptr noundef %185, ptr noundef %186, ptr noundef %187, i32 noundef %188, i32 noundef %189, ptr noundef @.str.1184)
   %191 = load i32, ptr %9, align 4
   %192 = add i32 %191, 2
   store i32 %192, ptr %9, align 4
@@ -8706,12 +8895,12 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   store ptr %204, ptr %21, align 8
   %205 = load ptr, ptr %6, align 8
   %206 = load i32, ptr %9, align 4
-  %207 = call zeroext i8 @tvb_get_guint8(ptr noundef %205, i32 noundef %206)
+  %207 = call zeroext i8 @tvb_get_uint8(ptr noundef %205, i32 noundef %206)
   store i8 %207, ptr %15, align 1
   %208 = load ptr, ptr %17, align 8
   %209 = load i8, ptr %15, align 1
   %210 = zext i8 %209 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %208, ptr noundef @.str.1155, i32 noundef %210)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %208, ptr noundef @.str.1185, i32 noundef %210)
   %211 = load ptr, ptr %21, align 8
   %212 = load i32, ptr @hf_sapdiag_item_dynt_atom_item_attr_DIAG_BSD_PROTECTED, align 4
   %213 = load ptr, ptr %6, align 8
@@ -8801,17 +8990,17 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %274 = load i32, ptr %9, align 4
   %275 = load i16, ptr %13, align 2
   %276 = zext i16 %275 to i32
-  call void @add_item_value_string(ptr noundef %269, ptr noundef %270, ptr noundef %271, ptr noundef %272, i32 noundef %273, i32 noundef %274, i32 noundef %276, ptr noundef @.str.1156, i32 noundef 1)
+  call void @add_item_value_string(ptr noundef %269, ptr noundef %270, ptr noundef %271, ptr noundef %272, i32 noundef %273, i32 noundef %274, i32 noundef %276, ptr noundef @.str.1186, i32 noundef 1)
   %277 = load ptr, ptr %16, align 8
   %278 = load ptr, ptr %7, align 8
-  %279 = getelementptr inbounds %struct._packet_info, ptr %278, i32 0, i32 50
+  %279 = getelementptr inbounds nuw %struct._packet_info, ptr %278, i32 0, i32 51
   %280 = load ptr, ptr %279, align 8
   %281 = load ptr, ptr %6, align 8
   %282 = load i32, ptr %9, align 4
   %283 = load i16, ptr %13, align 2
   %284 = zext i16 %283 to i32
   %285 = call ptr @tvb_get_string_enc(ptr noundef %280, ptr noundef %281, i32 noundef %282, i32 noundef %284, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %277, ptr noundef @.str.1157, ptr noundef %285)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %277, ptr noundef @.str.1187, ptr noundef %285)
   br label %679
 
 286:                                              ; preds = %265
@@ -8820,7 +9009,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %289 = load ptr, ptr %20, align 8
   %290 = load i32, ptr @hf_sapdiag_item_value, align 4
   %291 = load i32, ptr %9, align 4
-  %292 = call zeroext i8 @add_item_value_uint8(ptr noundef %287, ptr noundef %288, ptr noundef %289, i32 noundef %290, i32 noundef %291, ptr noundef @.str.1158)
+  %292 = call zeroext i8 @add_item_value_uint8(ptr noundef %287, ptr noundef %288, ptr noundef %289, i32 noundef %290, i32 noundef %291, ptr noundef @.str.1188)
   %293 = load i32, ptr %9, align 4
   %294 = add i32 %293, 1
   store i32 %294, ptr %9, align 4
@@ -8829,7 +9018,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %297 = load ptr, ptr %20, align 8
   %298 = load i32, ptr @hf_sapdiag_item_value, align 4
   %299 = load i32, ptr %9, align 4
-  %300 = call zeroext i8 @add_item_value_uint8(ptr noundef %295, ptr noundef %296, ptr noundef %297, i32 noundef %298, i32 noundef %299, ptr noundef @.str.1159)
+  %300 = call zeroext i8 @add_item_value_uint8(ptr noundef %295, ptr noundef %296, ptr noundef %297, i32 noundef %298, i32 noundef %299, ptr noundef @.str.1189)
   %301 = load i32, ptr %9, align 4
   %302 = add i32 %301, 1
   store i32 %302, ptr %9, align 4
@@ -8838,7 +9027,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %305 = load ptr, ptr %20, align 8
   %306 = load i32, ptr @hf_sapdiag_item_value, align 4
   %307 = load i32, ptr %9, align 4
-  %308 = call zeroext i16 @add_item_value_uint16(ptr noundef %303, ptr noundef %304, ptr noundef %305, i32 noundef %306, i32 noundef %307, ptr noundef @.str.1160)
+  %308 = call zeroext i16 @add_item_value_uint16(ptr noundef %303, ptr noundef %304, ptr noundef %305, i32 noundef %306, i32 noundef %307, ptr noundef @.str.1190)
   %309 = load i32, ptr %9, align 4
   %310 = add i32 %309, 2
   store i32 %310, ptr %9, align 4
@@ -8847,7 +9036,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %313 = load ptr, ptr %20, align 8
   %314 = load i32, ptr @hf_sapdiag_item_value, align 4
   %315 = load i32, ptr %9, align 4
-  %316 = call zeroext i16 @add_item_value_uint16(ptr noundef %311, ptr noundef %312, ptr noundef %313, i32 noundef %314, i32 noundef %315, ptr noundef @.str.1161)
+  %316 = call zeroext i16 @add_item_value_uint16(ptr noundef %311, ptr noundef %312, ptr noundef %313, i32 noundef %314, i32 noundef %315, ptr noundef @.str.1191)
   %317 = load i32, ptr %9, align 4
   %318 = add i32 %317, 2
   store i32 %318, ptr %9, align 4
@@ -8857,7 +9046,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %322 = load ptr, ptr %20, align 8
   %323 = load i32, ptr @hf_sapdiag_item_value, align 4
   %324 = load i32, ptr %9, align 4
-  %325 = call i32 @add_item_value_stringz(ptr noundef %319, ptr noundef %320, ptr noundef %321, ptr noundef %322, i32 noundef %323, i32 noundef %324, ptr noundef @.str.1156, i32 noundef 1)
+  %325 = call i32 @add_item_value_stringz(ptr noundef %319, ptr noundef %320, ptr noundef %321, ptr noundef %322, i32 noundef %323, i32 noundef %324, ptr noundef @.str.1186, i32 noundef 1)
   %326 = load i32, ptr %9, align 4
   %327 = add i32 %326, %325
   store i32 %327, ptr %9, align 4
@@ -8867,7 +9056,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %331 = load ptr, ptr %20, align 8
   %332 = load i32, ptr @hf_sapdiag_item_value, align 4
   %333 = load i32, ptr %9, align 4
-  %334 = call i32 @add_item_value_stringz(ptr noundef %328, ptr noundef %329, ptr noundef %330, ptr noundef %331, i32 noundef %332, i32 noundef %333, ptr noundef @.str.1162, i32 noundef 1)
+  %334 = call i32 @add_item_value_stringz(ptr noundef %328, ptr noundef %329, ptr noundef %330, ptr noundef %331, i32 noundef %332, i32 noundef %333, ptr noundef @.str.1192, i32 noundef 1)
   br label %679
 
 335:                                              ; preds = %265
@@ -8876,7 +9065,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %338 = load ptr, ptr %20, align 8
   %339 = load i32, ptr @hf_sapdiag_item_value, align 4
   %340 = load i32, ptr %9, align 4
-  %341 = call zeroext i8 @add_item_value_uint8(ptr noundef %336, ptr noundef %337, ptr noundef %338, i32 noundef %339, i32 noundef %340, ptr noundef @.str.1158)
+  %341 = call zeroext i8 @add_item_value_uint8(ptr noundef %336, ptr noundef %337, ptr noundef %338, i32 noundef %339, i32 noundef %340, ptr noundef @.str.1188)
   %342 = load i32, ptr %9, align 4
   %343 = add i32 %342, 1
   store i32 %343, ptr %9, align 4
@@ -8885,7 +9074,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %346 = load ptr, ptr %20, align 8
   %347 = load i32, ptr @hf_sapdiag_item_value, align 4
   %348 = load i32, ptr %9, align 4
-  %349 = call zeroext i8 @add_item_value_uint8(ptr noundef %344, ptr noundef %345, ptr noundef %346, i32 noundef %347, i32 noundef %348, ptr noundef @.str.1159)
+  %349 = call zeroext i8 @add_item_value_uint8(ptr noundef %344, ptr noundef %345, ptr noundef %346, i32 noundef %347, i32 noundef %348, ptr noundef @.str.1189)
   %350 = load i32, ptr %9, align 4
   %351 = add i32 %350, 1
   store i32 %351, ptr %9, align 4
@@ -8894,7 +9083,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %354 = load ptr, ptr %20, align 8
   %355 = load i32, ptr @hf_sapdiag_item_value, align 4
   %356 = load i32, ptr %9, align 4
-  %357 = call zeroext i8 @add_item_value_uint8(ptr noundef %352, ptr noundef %353, ptr noundef %354, i32 noundef %355, i32 noundef %356, ptr noundef @.str.1163)
+  %357 = call zeroext i8 @add_item_value_uint8(ptr noundef %352, ptr noundef %353, ptr noundef %354, i32 noundef %355, i32 noundef %356, ptr noundef @.str.1193)
   %358 = load i32, ptr %9, align 4
   %359 = add i32 %358, 1
   store i32 %359, ptr %9, align 4
@@ -8903,7 +9092,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %362 = load ptr, ptr %20, align 8
   %363 = load i32, ptr @hf_sapdiag_item_value, align 4
   %364 = load i32, ptr %9, align 4
-  %365 = call zeroext i16 @add_item_value_uint16(ptr noundef %360, ptr noundef %361, ptr noundef %362, i32 noundef %363, i32 noundef %364, ptr noundef @.str.1160)
+  %365 = call zeroext i16 @add_item_value_uint16(ptr noundef %360, ptr noundef %361, ptr noundef %362, i32 noundef %363, i32 noundef %364, ptr noundef @.str.1190)
   %366 = load i32, ptr %9, align 4
   %367 = add i32 %366, 2
   store i32 %367, ptr %9, align 4
@@ -8912,7 +9101,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %370 = load ptr, ptr %20, align 8
   %371 = load i32, ptr @hf_sapdiag_item_value, align 4
   %372 = load i32, ptr %9, align 4
-  %373 = call zeroext i16 @add_item_value_uint16(ptr noundef %368, ptr noundef %369, ptr noundef %370, i32 noundef %371, i32 noundef %372, ptr noundef @.str.1161)
+  %373 = call zeroext i16 @add_item_value_uint16(ptr noundef %368, ptr noundef %369, ptr noundef %370, i32 noundef %371, i32 noundef %372, ptr noundef @.str.1191)
   %374 = load i32, ptr %9, align 4
   %375 = add i32 %374, 2
   store i32 %375, ptr %9, align 4
@@ -8921,7 +9110,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %378 = load ptr, ptr %20, align 8
   %379 = load i32, ptr @hf_sapdiag_item_value, align 4
   %380 = load i32, ptr %9, align 4
-  %381 = call zeroext i16 @add_item_value_uint16(ptr noundef %376, ptr noundef %377, ptr noundef %378, i32 noundef %379, i32 noundef %380, ptr noundef @.str.1164)
+  %381 = call zeroext i16 @add_item_value_uint16(ptr noundef %376, ptr noundef %377, ptr noundef %378, i32 noundef %379, i32 noundef %380, ptr noundef @.str.1194)
   %382 = load i32, ptr %9, align 4
   %383 = add i32 %382, 2
   store i32 %383, ptr %9, align 4
@@ -8931,7 +9120,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %387 = load ptr, ptr %20, align 8
   %388 = load i32, ptr @hf_sapdiag_item_value, align 4
   %389 = load i32, ptr %9, align 4
-  %390 = call i32 @add_item_value_stringz(ptr noundef %384, ptr noundef %385, ptr noundef %386, ptr noundef %387, i32 noundef %388, i32 noundef %389, ptr noundef @.str.1156, i32 noundef 1)
+  %390 = call i32 @add_item_value_stringz(ptr noundef %384, ptr noundef %385, ptr noundef %386, ptr noundef %387, i32 noundef %388, i32 noundef %389, ptr noundef @.str.1186, i32 noundef 1)
   %391 = load i32, ptr %9, align 4
   %392 = add i32 %391, %390
   store i32 %392, ptr %9, align 4
@@ -8941,7 +9130,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %396 = load ptr, ptr %20, align 8
   %397 = load i32, ptr @hf_sapdiag_item_value, align 4
   %398 = load i32, ptr %9, align 4
-  %399 = call i32 @add_item_value_stringz(ptr noundef %393, ptr noundef %394, ptr noundef %395, ptr noundef %396, i32 noundef %397, i32 noundef %398, ptr noundef @.str.1162, i32 noundef 1)
+  %399 = call i32 @add_item_value_stringz(ptr noundef %393, ptr noundef %394, ptr noundef %395, ptr noundef %396, i32 noundef %397, i32 noundef %398, ptr noundef @.str.1192, i32 noundef 1)
   %400 = load i32, ptr %9, align 4
   %401 = add i32 %400, %399
   store i32 %401, ptr %9, align 4
@@ -8955,8 +9144,8 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   br label %679
 
 409:                                              ; preds = %265, %265
-  %410 = load i32, ptr @global_sapdiag_highlight_items, align 4
-  %411 = icmp ne i32 %410, 0
+  %410 = load i8, ptr @global_sapdiag_highlight_items, align 1, !range !6, !noundef !7
+  %411 = trunc i8 %410 to i1
   br i1 %411, label %412, label %418
 
 412:                                              ; preds = %409
@@ -8964,7 +9153,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %414 = load ptr, ptr %17, align 8
   %415 = load i8, ptr %14, align 1
   %416 = zext i8 %415 to i32
-  %417 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %413, ptr noundef %414, ptr noundef @ei_sapdiag_atom_item_partial, ptr noundef @.str.1165, i32 noundef %416)
+  %417 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %413, ptr noundef %414, ptr noundef @ei_sapdiag_atom_item_partial, ptr noundef @.str.1195, i32 noundef %416)
   br label %418
 
 418:                                              ; preds = %412, %409
@@ -8979,17 +9168,17 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %425 = load i32, ptr %9, align 4
   %426 = load i16, ptr %13, align 2
   %427 = zext i16 %426 to i32
-  call void @add_item_value_string(ptr noundef %420, ptr noundef %421, ptr noundef %422, ptr noundef %423, i32 noundef %424, i32 noundef %425, i32 noundef %427, ptr noundef @.str.1166, i32 noundef 1)
+  call void @add_item_value_string(ptr noundef %420, ptr noundef %421, ptr noundef %422, ptr noundef %423, i32 noundef %424, i32 noundef %425, i32 noundef %427, ptr noundef @.str.1196, i32 noundef 1)
   %428 = load ptr, ptr %16, align 8
   %429 = load ptr, ptr %7, align 8
-  %430 = getelementptr inbounds %struct._packet_info, ptr %429, i32 0, i32 50
+  %430 = getelementptr inbounds nuw %struct._packet_info, ptr %429, i32 0, i32 51
   %431 = load ptr, ptr %430, align 8
   %432 = load ptr, ptr %6, align 8
   %433 = load i32, ptr %9, align 4
   %434 = load i16, ptr %13, align 2
   %435 = zext i16 %434 to i32
   %436 = call ptr @tvb_get_string_enc(ptr noundef %431, ptr noundef %432, i32 noundef %433, i32 noundef %435, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %428, ptr noundef @.str.1167, ptr noundef %436)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %428, ptr noundef @.str.1197, ptr noundef %436)
   br label %679
 
 437:                                              ; preds = %265, %265, %265
@@ -8998,7 +9187,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %440 = load ptr, ptr %20, align 8
   %441 = load i32, ptr @hf_sapdiag_item_value, align 4
   %442 = load i32, ptr %9, align 4
-  %443 = call zeroext i8 @add_item_value_uint8(ptr noundef %438, ptr noundef %439, ptr noundef %440, i32 noundef %441, i32 noundef %442, ptr noundef @.str.1168)
+  %443 = call zeroext i8 @add_item_value_uint8(ptr noundef %438, ptr noundef %439, ptr noundef %440, i32 noundef %441, i32 noundef %442, ptr noundef @.str.1198)
   %444 = load i32, ptr %9, align 4
   %445 = add i32 %444, 1
   store i32 %445, ptr %9, align 4
@@ -9012,7 +9201,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %452 = load ptr, ptr %20, align 8
   %453 = load i32, ptr @hf_sapdiag_item_value, align 4
   %454 = load i32, ptr %9, align 4
-  %455 = call zeroext i8 @add_item_value_uint8(ptr noundef %450, ptr noundef %451, ptr noundef %452, i32 noundef %453, i32 noundef %454, ptr noundef @.str.1169)
+  %455 = call zeroext i8 @add_item_value_uint8(ptr noundef %450, ptr noundef %451, ptr noundef %452, i32 noundef %453, i32 noundef %454, ptr noundef @.str.1199)
   %456 = load i32, ptr %9, align 4
   %457 = add i32 %456, 1
   store i32 %457, ptr %9, align 4
@@ -9026,7 +9215,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %464 = load ptr, ptr %20, align 8
   %465 = load i32, ptr @hf_sapdiag_item_value, align 4
   %466 = load i32, ptr %9, align 4
-  %467 = call zeroext i8 @add_item_value_uint8(ptr noundef %462, ptr noundef %463, ptr noundef %464, i32 noundef %465, i32 noundef %466, ptr noundef @.str.1170)
+  %467 = call zeroext i8 @add_item_value_uint8(ptr noundef %462, ptr noundef %463, ptr noundef %464, i32 noundef %465, i32 noundef %466, ptr noundef @.str.1200)
   %468 = load i32, ptr %9, align 4
   %469 = add i32 %468, 1
   store i32 %469, ptr %9, align 4
@@ -9040,7 +9229,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %476 = load ptr, ptr %20, align 8
   %477 = load i32, ptr @hf_sapdiag_item_value, align 4
   %478 = load i32, ptr %9, align 4
-  %479 = call zeroext i16 @add_item_value_uint16(ptr noundef %474, ptr noundef %475, ptr noundef %476, i32 noundef %477, i32 noundef %478, ptr noundef @.str.1171)
+  %479 = call zeroext i16 @add_item_value_uint16(ptr noundef %474, ptr noundef %475, ptr noundef %476, i32 noundef %477, i32 noundef %478, ptr noundef @.str.1201)
   %480 = load i32, ptr %9, align 4
   %481 = add i32 %480, 2
   store i32 %481, ptr %9, align 4
@@ -9057,7 +9246,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %491 = load i32, ptr %9, align 4
   %492 = load i16, ptr %13, align 2
   %493 = zext i16 %492 to i32
-  call void @add_item_value_string(ptr noundef %486, ptr noundef %487, ptr noundef %488, ptr noundef %489, i32 noundef %490, i32 noundef %491, i32 noundef %493, ptr noundef @.str.1156, i32 noundef 0)
+  call void @add_item_value_string(ptr noundef %486, ptr noundef %487, ptr noundef %488, ptr noundef %489, i32 noundef %490, i32 noundef %491, i32 noundef %493, ptr noundef @.str.1186, i32 noundef 0)
   br label %679
 
 494:                                              ; preds = %265
@@ -9066,7 +9255,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %497 = load ptr, ptr %20, align 8
   %498 = load i32, ptr @hf_sapdiag_item_value, align 4
   %499 = load i32, ptr %9, align 4
-  %500 = call zeroext i16 @add_item_value_uint16(ptr noundef %495, ptr noundef %496, ptr noundef %497, i32 noundef %498, i32 noundef %499, ptr noundef @.str.1172)
+  %500 = call zeroext i16 @add_item_value_uint16(ptr noundef %495, ptr noundef %496, ptr noundef %497, i32 noundef %498, i32 noundef %499, ptr noundef @.str.1202)
   %501 = load i32, ptr %9, align 4
   %502 = add i32 %501, 2
   store i32 %502, ptr %9, align 4
@@ -9080,7 +9269,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %509 = load ptr, ptr %20, align 8
   %510 = load i32, ptr @hf_sapdiag_item_value, align 4
   %511 = load i32, ptr %9, align 4
-  %512 = call zeroext i16 @add_item_value_uint16(ptr noundef %507, ptr noundef %508, ptr noundef %509, i32 noundef %510, i32 noundef %511, ptr noundef @.str.1173)
+  %512 = call zeroext i16 @add_item_value_uint16(ptr noundef %507, ptr noundef %508, ptr noundef %509, i32 noundef %510, i32 noundef %511, ptr noundef @.str.1203)
   %513 = load i32, ptr %9, align 4
   %514 = add i32 %513, 2
   store i32 %514, ptr %9, align 4
@@ -9097,7 +9286,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %524 = load i32, ptr %9, align 4
   %525 = load i16, ptr %13, align 2
   %526 = zext i16 %525 to i32
-  call void @add_item_value_string(ptr noundef %519, ptr noundef %520, ptr noundef %521, ptr noundef %522, i32 noundef %523, i32 noundef %524, i32 noundef %526, ptr noundef @.str.1156, i32 noundef 1)
+  call void @add_item_value_string(ptr noundef %519, ptr noundef %520, ptr noundef %521, ptr noundef %522, i32 noundef %523, i32 noundef %524, i32 noundef %526, ptr noundef @.str.1186, i32 noundef 1)
   %527 = load i16, ptr %13, align 2
   %528 = zext i16 %527 to i32
   %529 = load i32, ptr %9, align 4
@@ -9111,7 +9300,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %534 = load ptr, ptr %20, align 8
   %535 = load i32, ptr @hf_sapdiag_item_value, align 4
   %536 = load i32, ptr %9, align 4
-  %537 = call zeroext i8 @add_item_value_uint8(ptr noundef %532, ptr noundef %533, ptr noundef %534, i32 noundef %535, i32 noundef %536, ptr noundef @.str.1174)
+  %537 = call zeroext i8 @add_item_value_uint8(ptr noundef %532, ptr noundef %533, ptr noundef %534, i32 noundef %535, i32 noundef %536, ptr noundef @.str.1204)
   %538 = load i32, ptr %9, align 4
   %539 = add i32 %538, 1
   store i32 %539, ptr %9, align 4
@@ -9125,7 +9314,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %546 = load ptr, ptr %20, align 8
   %547 = load i32, ptr @hf_sapdiag_item_value, align 4
   %548 = load i32, ptr %9, align 4
-  %549 = call zeroext i16 @add_item_value_uint16(ptr noundef %544, ptr noundef %545, ptr noundef %546, i32 noundef %547, i32 noundef %548, ptr noundef @.str.1175)
+  %549 = call zeroext i16 @add_item_value_uint16(ptr noundef %544, ptr noundef %545, ptr noundef %546, i32 noundef %547, i32 noundef %548, ptr noundef @.str.1205)
   %550 = load i32, ptr %9, align 4
   %551 = add i32 %550, 2
   store i32 %551, ptr %9, align 4
@@ -9139,7 +9328,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %558 = load ptr, ptr %20, align 8
   %559 = load i32, ptr @hf_sapdiag_item_value, align 4
   %560 = load i32, ptr %9, align 4
-  %561 = call zeroext i16 @add_item_value_uint16(ptr noundef %556, ptr noundef %557, ptr noundef %558, i32 noundef %559, i32 noundef %560, ptr noundef @.str.1176)
+  %561 = call zeroext i16 @add_item_value_uint16(ptr noundef %556, ptr noundef %557, ptr noundef %558, i32 noundef %559, i32 noundef %560, ptr noundef @.str.1206)
   %562 = load i32, ptr %9, align 4
   %563 = add i32 %562, 2
   store i32 %563, ptr %9, align 4
@@ -9153,7 +9342,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %570 = load ptr, ptr %20, align 8
   %571 = load i32, ptr @hf_sapdiag_item_value, align 4
   %572 = load i32, ptr %9, align 4
-  %573 = call zeroext i8 @add_item_value_uint8(ptr noundef %568, ptr noundef %569, ptr noundef %570, i32 noundef %571, i32 noundef %572, ptr noundef @.str.1177)
+  %573 = call zeroext i8 @add_item_value_uint8(ptr noundef %568, ptr noundef %569, ptr noundef %570, i32 noundef %571, i32 noundef %572, ptr noundef @.str.1207)
   %574 = load i32, ptr %9, align 4
   %575 = add i32 %574, 1
   store i32 %575, ptr %9, align 4
@@ -9167,7 +9356,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %582 = load ptr, ptr %20, align 8
   %583 = load i32, ptr @hf_sapdiag_item_value, align 4
   %584 = load i32, ptr %9, align 4
-  %585 = call zeroext i16 @add_item_value_uint16(ptr noundef %580, ptr noundef %581, ptr noundef %582, i32 noundef %583, i32 noundef %584, ptr noundef @.str.1178)
+  %585 = call zeroext i16 @add_item_value_uint16(ptr noundef %580, ptr noundef %581, ptr noundef %582, i32 noundef %583, i32 noundef %584, ptr noundef @.str.1208)
   %586 = load i32, ptr %9, align 4
   %587 = add i32 %586, 2
   store i32 %587, ptr %9, align 4
@@ -9181,7 +9370,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %594 = load ptr, ptr %20, align 8
   %595 = load i32, ptr @hf_sapdiag_item_value, align 4
   %596 = load i32, ptr %9, align 4
-  %597 = call zeroext i16 @add_item_value_uint16(ptr noundef %592, ptr noundef %593, ptr noundef %594, i32 noundef %595, i32 noundef %596, ptr noundef @.str.1179)
+  %597 = call zeroext i16 @add_item_value_uint16(ptr noundef %592, ptr noundef %593, ptr noundef %594, i32 noundef %595, i32 noundef %596, ptr noundef @.str.1209)
   %598 = load i32, ptr %9, align 4
   %599 = add i32 %598, 2
   store i32 %599, ptr %9, align 4
@@ -9198,7 +9387,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %609 = load i32, ptr %9, align 4
   %610 = load i16, ptr %13, align 2
   %611 = zext i16 %610 to i32
-  call void @add_item_value_string(ptr noundef %604, ptr noundef %605, ptr noundef %606, ptr noundef %607, i32 noundef %608, i32 noundef %609, i32 noundef %611, ptr noundef @.str.1156, i32 noundef 1)
+  call void @add_item_value_string(ptr noundef %604, ptr noundef %605, ptr noundef %606, ptr noundef %607, i32 noundef %608, i32 noundef %609, i32 noundef %611, ptr noundef @.str.1186, i32 noundef 1)
   br label %679
 
 612:                                              ; preds = %265, %265, %265
@@ -9207,7 +9396,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %615 = load ptr, ptr %20, align 8
   %616 = load i32, ptr @hf_sapdiag_item_value, align 4
   %617 = load i32, ptr %9, align 4
-  %618 = call zeroext i16 @add_item_value_uint16(ptr noundef %613, ptr noundef %614, ptr noundef %615, i32 noundef %616, i32 noundef %617, ptr noundef @.str.1168)
+  %618 = call zeroext i16 @add_item_value_uint16(ptr noundef %613, ptr noundef %614, ptr noundef %615, i32 noundef %616, i32 noundef %617, ptr noundef @.str.1198)
   %619 = load i32, ptr %9, align 4
   %620 = add i32 %619, 2
   store i32 %620, ptr %9, align 4
@@ -9221,7 +9410,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %627 = load ptr, ptr %20, align 8
   %628 = load i32, ptr @hf_sapdiag_item_value, align 4
   %629 = load i32, ptr %9, align 4
-  %630 = call zeroext i8 @add_item_value_uint8(ptr noundef %625, ptr noundef %626, ptr noundef %627, i32 noundef %628, i32 noundef %629, ptr noundef @.str.1169)
+  %630 = call zeroext i8 @add_item_value_uint8(ptr noundef %625, ptr noundef %626, ptr noundef %627, i32 noundef %628, i32 noundef %629, ptr noundef @.str.1199)
   %631 = load i32, ptr %9, align 4
   %632 = add i32 %631, 1
   store i32 %632, ptr %9, align 4
@@ -9235,7 +9424,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %639 = load ptr, ptr %20, align 8
   %640 = load i32, ptr @hf_sapdiag_item_value, align 4
   %641 = load i32, ptr %9, align 4
-  %642 = call zeroext i8 @add_item_value_uint8(ptr noundef %637, ptr noundef %638, ptr noundef %639, i32 noundef %640, i32 noundef %641, ptr noundef @.str.1170)
+  %642 = call zeroext i8 @add_item_value_uint8(ptr noundef %637, ptr noundef %638, ptr noundef %639, i32 noundef %640, i32 noundef %641, ptr noundef @.str.1200)
   %643 = load i32, ptr %9, align 4
   %644 = add i32 %643, 1
   store i32 %644, ptr %9, align 4
@@ -9249,7 +9438,7 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %651 = load ptr, ptr %20, align 8
   %652 = load i32, ptr @hf_sapdiag_item_value, align 4
   %653 = load i32, ptr %9, align 4
-  %654 = call zeroext i16 @add_item_value_uint16(ptr noundef %649, ptr noundef %650, ptr noundef %651, i32 noundef %652, i32 noundef %653, ptr noundef @.str.1171)
+  %654 = call zeroext i16 @add_item_value_uint16(ptr noundef %649, ptr noundef %650, ptr noundef %651, i32 noundef %652, i32 noundef %653, ptr noundef @.str.1201)
   %655 = load i32, ptr %9, align 4
   %656 = add i32 %655, 2
   store i32 %656, ptr %9, align 4
@@ -9266,12 +9455,12 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %666 = load i32, ptr %9, align 4
   %667 = load i16, ptr %13, align 2
   %668 = zext i16 %667 to i32
-  call void @add_item_value_string(ptr noundef %661, ptr noundef %662, ptr noundef %663, ptr noundef %664, i32 noundef %665, i32 noundef %666, i32 noundef %668, ptr noundef @.str.1156, i32 noundef 0)
+  call void @add_item_value_string(ptr noundef %661, ptr noundef %662, ptr noundef %663, ptr noundef %664, i32 noundef %665, i32 noundef %666, i32 noundef %668, ptr noundef @.str.1186, i32 noundef 0)
   br label %679
 
 669:                                              ; preds = %265
-  %670 = load i32, ptr @global_sapdiag_highlight_items, align 4
-  %671 = icmp ne i32 %670, 0
+  %670 = load i8, ptr @global_sapdiag_highlight_items, align 1, !range !6, !noundef !7
+  %671 = trunc i8 %670 to i1
   br i1 %671, label %672, label %678
 
 672:                                              ; preds = %669
@@ -9279,20 +9468,31 @@ define internal void @dissect_sapdiag_dyntatom(ptr noundef %0, ptr noundef %1, p
   %674 = load ptr, ptr %17, align 8
   %675 = load i8, ptr %14, align 1
   %676 = zext i8 %675 to i32
-  %677 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %673, ptr noundef %674, ptr noundef @ei_sapdiag_atom_item_unknown, ptr noundef @.str.1180, i32 noundef %676)
+  %677 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %673, ptr noundef %674, ptr noundef @ei_sapdiag_atom_item_unknown, ptr noundef @.str.1210, i32 noundef %676)
   br label %678
 
 678:                                              ; preds = %672, %669
   br label %679
 
 679:                                              ; preds = %678, %612, %531, %494, %437, %419, %418, %335, %286, %268
-  br label %25, !llvm.loop !11
+  br label %25, !llvm.loop !15
 
 680:                                              ; preds = %59, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_sapdiag_rfc_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -9306,16 +9506,18 @@ define internal void @dissect_sapdiag_rfc_call(ptr noundef %0, ptr noundef %1, p
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
   store ptr null, ptr %11, align 8
-  %13 = load i32, ptr @global_sapdiag_rfc_dissection, align 4
-  %14 = icmp eq i32 %13, 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  %13 = load i8, ptr @global_sapdiag_rfc_dissection, align 1, !range !6, !noundef !7
+  %14 = trunc i8 %13 to i1
   br i1 %14, label %15, label %34
 
 15:                                               ; preds = %5
   br i1 false, label %16, label %34
 
 16:                                               ; preds = %15
-  %17 = call ptr @find_dissector(ptr noundef @.str.1181)
+  %17 = call ptr @find_dissector(ptr noundef @.str.1211)
   store ptr %17, ptr %12, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = icmp ne ptr %18, null
@@ -9323,9 +9525,9 @@ define internal void @dissect_sapdiag_rfc_call(ptr noundef %0, ptr noundef %1, p
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds %struct._packet_info, ptr %21, i32 0, i32 1
+  %22 = getelementptr inbounds nuw %struct._packet_info, ptr %21, i32 0, i32 1
   %23 = load ptr, ptr %22, align 8
-  call void @col_set_writable(ptr noundef %23, i32 noundef -1, i32 noundef 0)
+  call void @col_set_writable(ptr noundef %23, i32 noundef -1, i1 noundef zeroext false)
   %24 = load ptr, ptr %6, align 8
   %25 = load i32, ptr %9, align 4
   %26 = load i32, ptr %10, align 4
@@ -9342,10 +9544,12 @@ define internal void @dissect_sapdiag_rfc_call(ptr noundef %0, ptr noundef %1, p
   br label %34
 
 34:                                               ; preds = %33, %15, %5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_sapdiag_menu(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -9360,11 +9564,14 @@ define internal void @dissect_sapdiag_menu(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
   %14 = load i32, ptr %9, align 4
   %15 = load i32, ptr %10, align 4
   %16 = add i32 %14, %15
   store i32 %16, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
   store ptr null, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
   store ptr null, ptr %13, align 8
   br label %17
 
@@ -9403,7 +9610,7 @@ define internal void @dissect_sapdiag_menu(ptr noundef %0, ptr noundef %1, ptr n
   %44 = load ptr, ptr %13, align 8
   %45 = load i32, ptr @hf_sapdiag_item_value, align 4
   %46 = load i32, ptr %9, align 4
-  %47 = call zeroext i8 @add_item_value_uint8(ptr noundef %42, ptr noundef %43, ptr noundef %44, i32 noundef %45, i32 noundef %46, ptr noundef @.str.1182)
+  %47 = call zeroext i8 @add_item_value_uint8(ptr noundef %42, ptr noundef %43, ptr noundef %44, i32 noundef %45, i32 noundef %46, ptr noundef @.str.1212)
   %48 = load i32, ptr %9, align 4
   %49 = add i32 %48, 1
   store i32 %49, ptr %9, align 4
@@ -9412,7 +9619,7 @@ define internal void @dissect_sapdiag_menu(ptr noundef %0, ptr noundef %1, ptr n
   %52 = load ptr, ptr %13, align 8
   %53 = load i32, ptr @hf_sapdiag_item_value, align 4
   %54 = load i32, ptr %9, align 4
-  %55 = call zeroext i8 @add_item_value_uint8(ptr noundef %50, ptr noundef %51, ptr noundef %52, i32 noundef %53, i32 noundef %54, ptr noundef @.str.1183)
+  %55 = call zeroext i8 @add_item_value_uint8(ptr noundef %50, ptr noundef %51, ptr noundef %52, i32 noundef %53, i32 noundef %54, ptr noundef @.str.1213)
   %56 = load i32, ptr %9, align 4
   %57 = add i32 %56, 1
   store i32 %57, ptr %9, align 4
@@ -9421,7 +9628,7 @@ define internal void @dissect_sapdiag_menu(ptr noundef %0, ptr noundef %1, ptr n
   %60 = load ptr, ptr %13, align 8
   %61 = load i32, ptr @hf_sapdiag_item_value, align 4
   %62 = load i32, ptr %9, align 4
-  %63 = call zeroext i8 @add_item_value_uint8(ptr noundef %58, ptr noundef %59, ptr noundef %60, i32 noundef %61, i32 noundef %62, ptr noundef @.str.1184)
+  %63 = call zeroext i8 @add_item_value_uint8(ptr noundef %58, ptr noundef %59, ptr noundef %60, i32 noundef %61, i32 noundef %62, ptr noundef @.str.1214)
   %64 = load i32, ptr %9, align 4
   %65 = add i32 %64, 1
   store i32 %65, ptr %9, align 4
@@ -9430,7 +9637,7 @@ define internal void @dissect_sapdiag_menu(ptr noundef %0, ptr noundef %1, ptr n
   %68 = load ptr, ptr %13, align 8
   %69 = load i32, ptr @hf_sapdiag_item_value, align 4
   %70 = load i32, ptr %9, align 4
-  %71 = call zeroext i8 @add_item_value_uint8(ptr noundef %66, ptr noundef %67, ptr noundef %68, i32 noundef %69, i32 noundef %70, ptr noundef @.str.1185)
+  %71 = call zeroext i8 @add_item_value_uint8(ptr noundef %66, ptr noundef %67, ptr noundef %68, i32 noundef %69, i32 noundef %70, ptr noundef @.str.1215)
   %72 = load i32, ptr %9, align 4
   %73 = add i32 %72, 1
   store i32 %73, ptr %9, align 4
@@ -9439,7 +9646,7 @@ define internal void @dissect_sapdiag_menu(ptr noundef %0, ptr noundef %1, ptr n
   %76 = load ptr, ptr %13, align 8
   %77 = load i32, ptr @hf_sapdiag_item_value, align 4
   %78 = load i32, ptr %9, align 4
-  %79 = call zeroext i8 @add_item_value_uint8(ptr noundef %74, ptr noundef %75, ptr noundef %76, i32 noundef %77, i32 noundef %78, ptr noundef @.str.1186)
+  %79 = call zeroext i8 @add_item_value_uint8(ptr noundef %74, ptr noundef %75, ptr noundef %76, i32 noundef %77, i32 noundef %78, ptr noundef @.str.1216)
   %80 = load i32, ptr %9, align 4
   %81 = add i32 %80, 1
   store i32 %81, ptr %9, align 4
@@ -9448,7 +9655,7 @@ define internal void @dissect_sapdiag_menu(ptr noundef %0, ptr noundef %1, ptr n
   %84 = load ptr, ptr %13, align 8
   %85 = load i32, ptr @hf_sapdiag_item_value, align 4
   %86 = load i32, ptr %9, align 4
-  %87 = call zeroext i8 @add_item_value_uint8(ptr noundef %82, ptr noundef %83, ptr noundef %84, i32 noundef %85, i32 noundef %86, ptr noundef @.str.1187)
+  %87 = call zeroext i8 @add_item_value_uint8(ptr noundef %82, ptr noundef %83, ptr noundef %84, i32 noundef %85, i32 noundef %86, ptr noundef @.str.1217)
   %88 = load i32, ptr %9, align 4
   %89 = add i32 %88, 1
   store i32 %89, ptr %9, align 4
@@ -9457,7 +9664,7 @@ define internal void @dissect_sapdiag_menu(ptr noundef %0, ptr noundef %1, ptr n
   %92 = load ptr, ptr %13, align 8
   %93 = load i32, ptr @hf_sapdiag_item_value, align 4
   %94 = load i32, ptr %9, align 4
-  %95 = call zeroext i8 @add_item_value_uint8(ptr noundef %90, ptr noundef %91, ptr noundef %92, i32 noundef %93, i32 noundef %94, ptr noundef @.str.1188)
+  %95 = call zeroext i8 @add_item_value_uint8(ptr noundef %90, ptr noundef %91, ptr noundef %92, i32 noundef %93, i32 noundef %94, ptr noundef @.str.1218)
   %96 = load i32, ptr %9, align 4
   %97 = add i32 %96, 1
   store i32 %97, ptr %9, align 4
@@ -9466,7 +9673,7 @@ define internal void @dissect_sapdiag_menu(ptr noundef %0, ptr noundef %1, ptr n
   %100 = load ptr, ptr %13, align 8
   %101 = load i32, ptr @hf_sapdiag_item_value, align 4
   %102 = load i32, ptr %9, align 4
-  %103 = call zeroext i8 @add_item_value_uint8(ptr noundef %98, ptr noundef %99, ptr noundef %100, i32 noundef %101, i32 noundef %102, ptr noundef @.str.1189)
+  %103 = call zeroext i8 @add_item_value_uint8(ptr noundef %98, ptr noundef %99, ptr noundef %100, i32 noundef %101, i32 noundef %102, ptr noundef @.str.1219)
   %104 = load i32, ptr %9, align 4
   %105 = add i32 %104, 1
   store i32 %105, ptr %9, align 4
@@ -9475,7 +9682,7 @@ define internal void @dissect_sapdiag_menu(ptr noundef %0, ptr noundef %1, ptr n
   %108 = load ptr, ptr %13, align 8
   %109 = load i32, ptr @hf_sapdiag_item_value, align 4
   %110 = load i32, ptr %9, align 4
-  %111 = call zeroext i8 @add_item_value_uint8(ptr noundef %106, ptr noundef %107, ptr noundef %108, i32 noundef %109, i32 noundef %110, ptr noundef @.str.1190)
+  %111 = call zeroext i8 @add_item_value_uint8(ptr noundef %106, ptr noundef %107, ptr noundef %108, i32 noundef %109, i32 noundef %110, ptr noundef @.str.1220)
   %112 = load i32, ptr %9, align 4
   %113 = add i32 %112, 1
   store i32 %113, ptr %9, align 4
@@ -9484,7 +9691,7 @@ define internal void @dissect_sapdiag_menu(ptr noundef %0, ptr noundef %1, ptr n
   %116 = load ptr, ptr %13, align 8
   %117 = load i32, ptr @hf_sapdiag_item_value, align 4
   %118 = load i32, ptr %9, align 4
-  %119 = call zeroext i8 @add_item_value_uint8(ptr noundef %114, ptr noundef %115, ptr noundef %116, i32 noundef %117, i32 noundef %118, ptr noundef @.str.1191)
+  %119 = call zeroext i8 @add_item_value_uint8(ptr noundef %114, ptr noundef %115, ptr noundef %116, i32 noundef %117, i32 noundef %118, ptr noundef @.str.1221)
   %120 = load i32, ptr %9, align 4
   %121 = add i32 %120, 1
   store i32 %121, ptr %9, align 4
@@ -9493,7 +9700,7 @@ define internal void @dissect_sapdiag_menu(ptr noundef %0, ptr noundef %1, ptr n
   %124 = load ptr, ptr %13, align 8
   %125 = load i32, ptr @hf_sapdiag_item_value, align 4
   %126 = load i32, ptr %9, align 4
-  %127 = call zeroext i8 @add_item_value_uint8(ptr noundef %122, ptr noundef %123, ptr noundef %124, i32 noundef %125, i32 noundef %126, ptr noundef @.str.1192)
+  %127 = call zeroext i8 @add_item_value_uint8(ptr noundef %122, ptr noundef %123, ptr noundef %124, i32 noundef %125, i32 noundef %126, ptr noundef @.str.1222)
   %128 = load i32, ptr %9, align 4
   %129 = add i32 %128, 1
   store i32 %129, ptr %9, align 4
@@ -9502,7 +9709,7 @@ define internal void @dissect_sapdiag_menu(ptr noundef %0, ptr noundef %1, ptr n
   %132 = load ptr, ptr %13, align 8
   %133 = load i32, ptr @hf_sapdiag_item_value, align 4
   %134 = load i32, ptr %9, align 4
-  %135 = call zeroext i8 @add_item_value_uint8(ptr noundef %130, ptr noundef %131, ptr noundef %132, i32 noundef %133, i32 noundef %134, ptr noundef @.str.1193)
+  %135 = call zeroext i8 @add_item_value_uint8(ptr noundef %130, ptr noundef %131, ptr noundef %132, i32 noundef %133, i32 noundef %134, ptr noundef @.str.1223)
   %136 = load i32, ptr %9, align 4
   %137 = add i32 %136, 1
   store i32 %137, ptr %9, align 4
@@ -9511,7 +9718,7 @@ define internal void @dissect_sapdiag_menu(ptr noundef %0, ptr noundef %1, ptr n
   %140 = load ptr, ptr %13, align 8
   %141 = load i32, ptr @hf_sapdiag_item_value, align 4
   %142 = load i32, ptr %9, align 4
-  %143 = call zeroext i8 @add_item_value_uint8(ptr noundef %138, ptr noundef %139, ptr noundef %140, i32 noundef %141, i32 noundef %142, ptr noundef @.str.1194)
+  %143 = call zeroext i8 @add_item_value_uint8(ptr noundef %138, ptr noundef %139, ptr noundef %140, i32 noundef %141, i32 noundef %142, ptr noundef @.str.1224)
   %144 = load i32, ptr %9, align 4
   %145 = add i32 %144, 1
   store i32 %145, ptr %9, align 4
@@ -9520,7 +9727,7 @@ define internal void @dissect_sapdiag_menu(ptr noundef %0, ptr noundef %1, ptr n
   %148 = load ptr, ptr %13, align 8
   %149 = load i32, ptr @hf_sapdiag_item_value, align 4
   %150 = load i32, ptr %9, align 4
-  %151 = call zeroext i8 @add_item_value_uint8(ptr noundef %146, ptr noundef %147, ptr noundef %148, i32 noundef %149, i32 noundef %150, ptr noundef @.str.1195)
+  %151 = call zeroext i8 @add_item_value_uint8(ptr noundef %146, ptr noundef %147, ptr noundef %148, i32 noundef %149, i32 noundef %150, ptr noundef @.str.1225)
   %152 = load i32, ptr %9, align 4
   %153 = add i32 %152, 1
   store i32 %153, ptr %9, align 4
@@ -9529,7 +9736,7 @@ define internal void @dissect_sapdiag_menu(ptr noundef %0, ptr noundef %1, ptr n
   %156 = load ptr, ptr %13, align 8
   %157 = load i32, ptr @hf_sapdiag_item_value, align 4
   %158 = load i32, ptr %9, align 4
-  %159 = call zeroext i8 @add_item_value_uint8(ptr noundef %154, ptr noundef %155, ptr noundef %156, i32 noundef %157, i32 noundef %158, ptr noundef @.str.1196)
+  %159 = call zeroext i8 @add_item_value_uint8(ptr noundef %154, ptr noundef %155, ptr noundef %156, i32 noundef %157, i32 noundef %158, ptr noundef @.str.1226)
   %160 = load i32, ptr %9, align 4
   %161 = add i32 %160, 1
   store i32 %161, ptr %9, align 4
@@ -9538,7 +9745,7 @@ define internal void @dissect_sapdiag_menu(ptr noundef %0, ptr noundef %1, ptr n
   %164 = load ptr, ptr %13, align 8
   %165 = load i32, ptr @hf_sapdiag_item_value, align 4
   %166 = load i32, ptr %9, align 4
-  %167 = call zeroext i8 @add_item_value_uint8(ptr noundef %162, ptr noundef %163, ptr noundef %164, i32 noundef %165, i32 noundef %166, ptr noundef @.str.1197)
+  %167 = call zeroext i8 @add_item_value_uint8(ptr noundef %162, ptr noundef %163, ptr noundef %164, i32 noundef %165, i32 noundef %166, ptr noundef @.str.1227)
   %168 = load i32, ptr %9, align 4
   %169 = add i32 %168, 1
   store i32 %169, ptr %9, align 4
@@ -9547,7 +9754,7 @@ define internal void @dissect_sapdiag_menu(ptr noundef %0, ptr noundef %1, ptr n
   %172 = load ptr, ptr %13, align 8
   %173 = load i32, ptr @hf_sapdiag_item_value, align 4
   %174 = load i32, ptr %9, align 4
-  %175 = call zeroext i8 @add_item_value_uint8(ptr noundef %170, ptr noundef %171, ptr noundef %172, i32 noundef %173, i32 noundef %174, ptr noundef @.str.1198)
+  %175 = call zeroext i8 @add_item_value_uint8(ptr noundef %170, ptr noundef %171, ptr noundef %172, i32 noundef %173, i32 noundef %174, ptr noundef @.str.1228)
   %176 = load i32, ptr %9, align 4
   %177 = add i32 %176, 1
   store i32 %177, ptr %9, align 4
@@ -9556,7 +9763,7 @@ define internal void @dissect_sapdiag_menu(ptr noundef %0, ptr noundef %1, ptr n
   %180 = load ptr, ptr %13, align 8
   %181 = load i32, ptr @hf_sapdiag_item_value, align 4
   %182 = load i32, ptr %9, align 4
-  %183 = call zeroext i8 @add_item_value_uint8(ptr noundef %178, ptr noundef %179, ptr noundef %180, i32 noundef %181, i32 noundef %182, ptr noundef @.str.1199)
+  %183 = call zeroext i8 @add_item_value_uint8(ptr noundef %178, ptr noundef %179, ptr noundef %180, i32 noundef %181, i32 noundef %182, ptr noundef @.str.1229)
   %184 = load i32, ptr %9, align 4
   %185 = add i32 %184, 1
   store i32 %185, ptr %9, align 4
@@ -9566,7 +9773,7 @@ define internal void @dissect_sapdiag_menu(ptr noundef %0, ptr noundef %1, ptr n
   %189 = load ptr, ptr %13, align 8
   %190 = load i32, ptr @hf_sapdiag_item_value, align 4
   %191 = load i32, ptr %9, align 4
-  %192 = call i32 @add_item_value_stringz(ptr noundef %186, ptr noundef %187, ptr noundef %188, ptr noundef %189, i32 noundef %190, i32 noundef %191, ptr noundef @.str.1156, i32 noundef 1)
+  %192 = call i32 @add_item_value_stringz(ptr noundef %186, ptr noundef %187, ptr noundef %188, ptr noundef %189, i32 noundef %190, i32 noundef %191, ptr noundef @.str.1186, i32 noundef 1)
   %193 = load i32, ptr %9, align 4
   %194 = add i32 %193, %192
   store i32 %194, ptr %9, align 4
@@ -9576,7 +9783,7 @@ define internal void @dissect_sapdiag_menu(ptr noundef %0, ptr noundef %1, ptr n
   %198 = load ptr, ptr %13, align 8
   %199 = load i32, ptr @hf_sapdiag_item_value, align 4
   %200 = load i32, ptr %9, align 4
-  %201 = call i32 @add_item_value_stringz(ptr noundef %195, ptr noundef %196, ptr noundef %197, ptr noundef %198, i32 noundef %199, i32 noundef %200, ptr noundef @.str.1200, i32 noundef 1)
+  %201 = call i32 @add_item_value_stringz(ptr noundef %195, ptr noundef %196, ptr noundef %197, ptr noundef %198, i32 noundef %199, i32 noundef %200, ptr noundef @.str.1230, i32 noundef 1)
   %202 = load i32, ptr %9, align 4
   %203 = add i32 %202, %201
   store i32 %203, ptr %9, align 4
@@ -9586,46 +9793,64 @@ define internal void @dissect_sapdiag_menu(ptr noundef %0, ptr noundef %1, ptr n
   %207 = load ptr, ptr %13, align 8
   %208 = load i32, ptr @hf_sapdiag_item_value, align 4
   %209 = load i32, ptr %9, align 4
-  %210 = call i32 @add_item_value_stringz(ptr noundef %204, ptr noundef %205, ptr noundef %206, ptr noundef %207, i32 noundef %208, i32 noundef %209, ptr noundef @.str.1201, i32 noundef 1)
-  br label %17, !llvm.loop !12
+  %210 = call i32 @add_item_value_stringz(ptr noundef %204, ptr noundef %205, ptr noundef %206, ptr noundef %207, i32 noundef %208, i32 noundef %209, ptr noundef @.str.1231, i32 noundef 1)
+  br label %17, !llvm.loop !16
 
 211:                                              ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
   ret void
 }
 
-declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
 
-declare i32 @tvb_strsize(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_strsize(ptr noundef, i32 noundef) #2
 
-declare ptr @tvb_bytes_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_bytes_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @find_dissector(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_dissector(ptr noundef) #2
 
-declare void @col_set_writable(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_writable(ptr noundef, i32 noundef, i1 noundef zeroext) #2
 
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @dissector_delete_uint(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_delete_uint(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}

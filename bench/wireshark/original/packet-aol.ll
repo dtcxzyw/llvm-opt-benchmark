@@ -3,11 +3,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -37,7 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_aol_type = internal global i32 0, align 4
 @.str.14 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
 @.str.15 = private unnamed_addr constant [9 x i8] c"aol.type\00", align 1
-@aol_p3_types = internal constant [8 x %struct._value_string] [%struct._value_string { i32 32, ptr @.str.18 }, %struct._value_string { i32 33, ptr @.str.83 }, %struct._value_string { i32 34, ptr @.str.84 }, %struct._value_string { i32 35, ptr @.str.85 }, %struct._value_string { i32 36, ptr @.str.86 }, %struct._value_string { i32 37, ptr @.str.87 }, %struct._value_string { i32 38, ptr @.str.88 }, %struct._value_string zeroinitializer], align 16
 @hf_aol_token = internal global i32 0, align 4
 @.str.16 = private unnamed_addr constant [6 x i8] c"Token\00", align 1
 @.str.17 = private unnamed_addr constant [10 x i8] c"aol.token\00", align 1
@@ -50,7 +46,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_aol_platform = internal global i32 0, align 4
 @.str.22 = private unnamed_addr constant [9 x i8] c"Platform\00", align 1
 @.str.23 = private unnamed_addr constant [18 x i8] c"aol.init.platform\00", align 1
-@aol_platforms = internal constant [3 x %struct._value_string] [%struct._value_string { i32 3, ptr @.str.89 }, %struct._value_string { i32 12, ptr @.str.90 }, %struct._value_string zeroinitializer], align 16
 @hf_aol_version = internal global i32 0, align 4
 @.str.24 = private unnamed_addr constant [15 x i8] c"Client Version\00", align 1
 @.str.25 = private unnamed_addr constant [17 x i8] c"aol.init.version\00", align 1
@@ -102,7 +97,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_aol_wmem_mode = internal global i32 0, align 4
 @.str.56 = private unnamed_addr constant [17 x i8] c"Windows Mem Type\00", align 1
 @.str.57 = private unnamed_addr constant [19 x i8] c"aol.init.wmem_mode\00", align 1
-@aol_wmem_mode = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.91 }, %struct._value_string { i32 1, ptr @.str.92 }, %struct._value_string zeroinitializer], align 16
 @hf_aol_horiz_res = internal global i32 0, align 4
 @.str.58 = private unnamed_addr constant [15 x i8] c"Horizontal Res\00", align 1
 @.str.59 = private unnamed_addr constant [19 x i8] c"aol.init.horiz_res\00", align 1
@@ -127,7 +121,7 @@ target triple = "x86_64-pc-linux-gnu"
 @proto_register_aol.ett = internal global [2 x ptr] [ptr @ett_aol, ptr @ett_aol_data], align 16
 @ett_aol = internal global i32 0, align 4
 @ett_aol_data = internal global i32 0, align 4
-@proto_register_aol.ei = internal global [2 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_aol_pdu_length_bad, %struct.expert_field_info { ptr @.str.72, i32 117440512, i32 8388608, ptr @.str.73, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_aol_end_missing, %struct.expert_field_info { ptr @.str.74, i32 150994944, i32 6291456, ptr @.str.75, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_aol.ei = internal global [2 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_aol_pdu_length_bad, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.72, i32 117440512, i32 8388608, ptr @.str.73, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_aol_end_missing, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.74, i32 150994944, i32 6291456, ptr @.str.75, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_aol_pdu_length_bad = internal global %struct.expert_field zeroinitializer, align 4
 @.str.72 = private unnamed_addr constant [19 x i8] c"aol.pdu_length_bad\00", align 1
 @.str.73 = private unnamed_addr constant [24 x i8] c"pdu length > tvb length\00", align 1
@@ -141,7 +135,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.79 = private unnamed_addr constant [10 x i8] c"desegment\00", align 1
 @.str.80 = private unnamed_addr constant [55 x i8] c"Reassemble AOL messages spanning multiple TCP segments\00", align 1
 @.str.81 = private unnamed_addr constant [204 x i8] c"Whether the AOL dissector should reassemble messages spanning multiple TCP segments. To use this option, you must also enable \22Allow subdissectors to reassemble TCP streams\22 in the TCP protocol settings.\00", align 1
-@aol_desegment = internal global i32 1, align 4
+@aol_desegment = internal global i8 1, align 1
 @aol_handle = internal global ptr null, align 8
 @.str.82 = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
 @.str.83 = private unnamed_addr constant [11 x i8] c"SS Request\00", align 1
@@ -150,19 +144,24 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.86 = private unnamed_addr constant [4 x i8] c"ACK\00", align 1
 @.str.87 = private unnamed_addr constant [4 x i8] c"NAK\00", align 1
 @.str.88 = private unnamed_addr constant [10 x i8] c"Heartbeat\00", align 1
-@.str.89 = private unnamed_addr constant [18 x i8] c"Microsoft Windows\00", align 1
-@.str.90 = private unnamed_addr constant [10 x i8] c"Macintosh\00", align 1
-@.str.91 = private unnamed_addr constant [9 x i8] c"Standard\00", align 1
-@.str.92 = private unnamed_addr constant [9 x i8] c"Enhanced\00", align 1
-@.str.93 = private unnamed_addr constant [12 x i8] c" [Type: %s]\00", align 1
-@.str.94 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
-@.str.95 = private unnamed_addr constant [15 x i8] c" [Token: '%s']\00", align 1
-@.str.96 = private unnamed_addr constant [6 x i8] c"%d.%d\00", align 1
+@aol_p3_types = internal constant [8 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.18 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.83 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.84 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.85 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.87 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.88 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.90 = private unnamed_addr constant [18 x i8] c"Microsoft Windows\00", align 1
+@.str.91 = private unnamed_addr constant [10 x i8] c"Macintosh\00", align 1
+@aol_platforms = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.90 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.91 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.93 = private unnamed_addr constant [9 x i8] c"Standard\00", align 1
+@.str.94 = private unnamed_addr constant [9 x i8] c"Enhanced\00", align 1
+@aol_wmem_mode = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.93 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.94 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.96 = private unnamed_addr constant [12 x i8] c" [Type: %s]\00", align 1
+@.str.97 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
+@.str.98 = private unnamed_addr constant [15 x i8] c" [Token: '%s']\00", align 1
+@.str.99 = private unnamed_addr constant [6 x i8] c"%d.%d\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_aol() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #3
   %3 = call i32 @proto_register_protocol(ptr noundef @.str.76, ptr noundef @.str.77, ptr noundef @.str.78)
   store i32 %3, ptr @proto_aol, align 4
   %4 = load i32, ptr @proto_aol, align 4
@@ -181,26 +180,39 @@ define hidden void @proto_register_aol() #0 {
   %11 = load i32, ptr @proto_aol, align 4
   %12 = call ptr @register_dissector(ptr noundef @.str.78, ptr noundef @dissect_aol, i32 noundef %11)
   store ptr %12, ptr @aol_handle, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #3
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_aol(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -218,48 +230,56 @@ define internal i32 @dissect_aol(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %6, align 8
-  %15 = call zeroext i8 @tvb_get_guint8(ptr noundef %14, i32 noundef 0)
+  %15 = call zeroext i8 @tvb_get_uint8(ptr noundef %14, i32 noundef 0)
   %16 = zext i8 %15 to i32
   %17 = icmp ne i32 %16, 90
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %13
   store i32 0, ptr %5, align 4
-  br label %27
+  br label %28
 
 19:                                               ; preds = %13, %4
   %20 = load ptr, ptr %6, align 8
   %21 = load ptr, ptr %7, align 8
   %22 = load ptr, ptr %8, align 8
-  %23 = load i32, ptr @aol_desegment, align 4
-  %24 = load ptr, ptr %9, align 8
-  call void @tcp_dissect_pdus(ptr noundef %20, ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef 9, ptr noundef @get_aol_pdu_len, ptr noundef @dissect_aol_pdu, ptr noundef %24)
-  %25 = load ptr, ptr %6, align 8
-  %26 = call i32 @tvb_reported_length(ptr noundef %25)
-  store i32 %26, ptr %5, align 4
-  br label %27
+  %23 = load i8, ptr @aol_desegment, align 1, !range !6, !noundef !7
+  %24 = trunc i8 %23 to i1
+  %25 = load ptr, ptr %9, align 8
+  call void @tcp_dissect_pdus(ptr noundef %20, ptr noundef %21, ptr noundef %22, i1 noundef zeroext %24, i32 noundef 9, ptr noundef @get_aol_pdu_len, ptr noundef @dissect_aol_pdu, ptr noundef %25)
+  %26 = load ptr, ptr %6, align 8
+  %27 = call i32 @tvb_reported_length(ptr noundef %26)
+  store i32 %27, ptr %5, align 4
+  br label %28
 
-27:                                               ; preds = %19, %18
-  %28 = load i32, ptr %5, align 4
-  ret i32 %28
+28:                                               ; preds = %19, %18
+  %29 = load i32, ptr %5, align 4
+  ret i32 %29
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_aol() #0 {
   %1 = load ptr, ptr @aol_handle, align 8
   call void @dissector_add_uint_with_preference(ptr noundef @.str.82, i32 noundef 5190, ptr noundef %1)
   ret void
 }
 
-declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare i32 @tvb_reported_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @get_aol_pdu_len(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -270,6 +290,7 @@ define internal i32 @get_aol_pdu_len(ptr noundef %0, ptr noundef %1, i32 noundef
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #3
   %10 = load ptr, ptr %6, align 8
   %11 = load i32, ptr %7, align 4
   %12 = add i32 %11, 3
@@ -278,10 +299,11 @@ define internal i32 @get_aol_pdu_len(ptr noundef %0, ptr noundef %1, i32 noundef
   %14 = load i16, ptr %9, align 2
   %15 = zext i16 %14 to i32
   %16 = add i32 %15, 6
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #3
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_aol_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -298,14 +320,19 @@ define internal i32 @dissect_aol_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
   store i32 0, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #3
   store i8 0, ptr %13, align 1
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %struct._packet_info, ptr %16, i32 0, i32 1
+  %17 = getelementptr inbounds nuw %struct._packet_info, ptr %16, i32 0, i32 1
   %18 = load ptr, ptr %17, align 8
-  call void @col_set_str(ptr noundef %18, i32 noundef 34, ptr noundef @.str.77)
+  call void @col_set_str(ptr noundef %18, i32 noundef 35, ptr noundef @.str.77)
   %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct._packet_info, ptr %19, i32 0, i32 1
+  %20 = getelementptr inbounds nuw %struct._packet_info, ptr %19, i32 0, i32 1
   %21 = load ptr, ptr %20, align 8
   call void @col_set_str(ptr noundef %21, i32 noundef 25, ptr noundef @.str.76)
   %22 = load ptr, ptr %7, align 8
@@ -383,23 +410,23 @@ define internal i32 @dissect_aol_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
 79:                                               ; preds = %75
   %80 = load ptr, ptr %5, align 8
   %81 = load i32, ptr %11, align 4
-  %82 = call zeroext i8 @tvb_get_guint8(ptr noundef %80, i32 noundef %81)
+  %82 = call zeroext i8 @tvb_get_uint8(ptr noundef %80, i32 noundef %81)
   %83 = zext i8 %82 to i32
   %84 = and i32 %83, 63
   %85 = trunc i32 %84 to i8
   store i8 %85, ptr %13, align 1
   %86 = load ptr, ptr %6, align 8
-  %87 = getelementptr inbounds %struct._packet_info, ptr %86, i32 0, i32 1
+  %87 = getelementptr inbounds nuw %struct._packet_info, ptr %86, i32 0, i32 1
   %88 = load ptr, ptr %87, align 8
   %89 = load i8, ptr %13, align 1
   %90 = zext i8 %89 to i32
-  %91 = call ptr @val_to_str_const(i32 noundef %90, ptr noundef @aol_p3_types, ptr noundef @.str.94)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %88, i32 noundef 25, ptr noundef @.str.93, ptr noundef %91)
+  %91 = call ptr @val_to_str_const(i32 noundef %90, ptr noundef @aol_p3_types, ptr noundef @.str.97)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %88, i32 noundef 25, ptr noundef @.str.96, ptr noundef %91)
   %92 = load ptr, ptr %9, align 8
   %93 = load i8, ptr %13, align 1
   %94 = zext i8 %93 to i32
-  %95 = call ptr @val_to_str_const(i32 noundef %94, ptr noundef @aol_p3_types, ptr noundef @.str.94)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %92, ptr noundef @.str.93, ptr noundef %95)
+  %95 = call ptr @val_to_str_const(i32 noundef %94, ptr noundef @aol_p3_types, ptr noundef @.str.97)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %92, ptr noundef @.str.96, ptr noundef %95)
   %96 = load ptr, ptr %10, align 8
   %97 = load i32, ptr @hf_aol_type, align 4
   %98 = load ptr, ptr %5, align 8
@@ -424,6 +451,7 @@ define internal i32 @dissect_aol_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %112, label %113, label %202
 
 113:                                              ; preds = %109
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
   %114 = load i32, ptr %11, align 4
   store i32 %114, ptr %14, align 4
   %115 = load ptr, ptr %5, align 8
@@ -456,22 +484,23 @@ define internal i32 @dissect_aol_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %134, label %135, label %156
 
 135:                                              ; preds = %131
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
   %136 = load ptr, ptr %10, align 8
   %137 = load i32, ptr @hf_aol_token, align 4
   %138 = load ptr, ptr %5, align 8
   %139 = load i32, ptr %11, align 4
   %140 = load ptr, ptr %6, align 8
-  %141 = getelementptr inbounds %struct._packet_info, ptr %140, i32 0, i32 50
+  %141 = getelementptr inbounds nuw %struct._packet_info, ptr %140, i32 0, i32 51
   %142 = load ptr, ptr %141, align 8
   %143 = call ptr @proto_tree_add_item_ret_string(ptr noundef %136, i32 noundef %137, ptr noundef %138, i32 noundef %139, i32 noundef 2, i32 noundef 0, ptr noundef %142, ptr noundef %15)
   %144 = load ptr, ptr %6, align 8
-  %145 = getelementptr inbounds %struct._packet_info, ptr %144, i32 0, i32 1
+  %145 = getelementptr inbounds nuw %struct._packet_info, ptr %144, i32 0, i32 1
   %146 = load ptr, ptr %145, align 8
   %147 = load ptr, ptr %15, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %146, i32 noundef 25, ptr noundef @.str.95, ptr noundef %147)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %146, i32 noundef 25, ptr noundef @.str.98, ptr noundef %147)
   %148 = load ptr, ptr %9, align 8
   %149 = load ptr, ptr %15, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %148, ptr noundef @.str.95, ptr noundef %149)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %148, ptr noundef @.str.98, ptr noundef %149)
   %150 = load i32, ptr %11, align 4
   %151 = add i32 %150, 2
   store i32 %151, ptr %11, align 4
@@ -480,6 +509,7 @@ define internal i32 @dissect_aol_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   %154 = sub i32 %153, 2
   %155 = trunc i32 %154 to i16
   store i16 %155, ptr %12, align 2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
   br label %156
 
 156:                                              ; preds = %135, %131
@@ -544,6 +574,7 @@ define internal i32 @dissect_aol_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %201
 
 201:                                              ; preds = %197, %196
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
   br label %202
 
 202:                                              ; preds = %201, %109
@@ -570,30 +601,45 @@ define internal i32 @dissect_aol_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
 217:                                              ; preds = %213, %207
   %218 = load ptr, ptr %5, align 8
   %219 = call i32 @tvb_reported_length(ptr noundef %218)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret i32 %219
 }
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #2
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_aol_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -607,7 +653,11 @@ define internal i32 @dissect_aol_init(ptr noundef %0, ptr noundef %1, i32 nounde
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #3
   store i16 0, ptr %11, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #3
   store i16 0, ptr %12, align 2
   %13 = load ptr, ptr %8, align 8
   %14 = load i32, ptr @hf_aol_init, align 4
@@ -728,7 +778,7 @@ define internal i32 @dissect_aol_init(ptr noundef %0, ptr noundef %1, i32 nounde
   %115 = load i16, ptr %11, align 2
   %116 = zext i16 %115 to i32
   %117 = and i32 %116, 255
-  %118 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %105, i32 noundef %106, ptr noundef %107, i32 noundef %108, i32 noundef 2, i32 noundef %110, ptr noundef @.str.96, i32 noundef %114, i32 noundef %117)
+  %118 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %105, i32 noundef %106, ptr noundef %107, i32 noundef %108, i32 noundef 2, i32 noundef %110, ptr noundef @.str.99, i32 noundef %114, i32 noundef %117)
   %119 = load i32, ptr %7, align 4
   %120 = add i32 %119, 2
   store i32 %120, ptr %7, align 4
@@ -781,7 +831,7 @@ define internal i32 @dissect_aol_init(ptr noundef %0, ptr noundef %1, i32 nounde
   %162 = load i16, ptr %12, align 2
   %163 = zext i16 %162 to i32
   %164 = and i32 %163, 255
-  %165 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %152, i32 noundef %153, ptr noundef %154, i32 noundef %155, i32 noundef 2, i32 noundef %157, ptr noundef @.str.96, i32 noundef %161, i32 noundef %164)
+  %165 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %152, i32 noundef %153, ptr noundef %154, i32 noundef %155, i32 noundef 2, i32 noundef %157, ptr noundef @.str.99, i32 noundef %161, i32 noundef %164)
   %166 = load i32, ptr %7, align 4
   %167 = add i32 %166, 4
   store i32 %167, ptr %7, align 4
@@ -873,21 +923,34 @@ define internal i32 @dissect_aol_init(ptr noundef %0, ptr noundef %1, i32 nounde
 
 236:                                              ; preds = %235, %213
   %237 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret i32 %237
 }
 
-declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}

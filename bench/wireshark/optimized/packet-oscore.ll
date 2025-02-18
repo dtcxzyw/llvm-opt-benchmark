@@ -12,9 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.expert_field = type { i32, i32 }
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 %struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
-%struct._uat_field_t = type { ptr, ptr, i32, %struct.anon.2, %struct.anon.3, ptr, ptr, ptr }
 %struct.anon.2 = type { ptr, ptr, ptr }
 %struct.anon.3 = type { ptr, ptr, ptr }
 %struct.oscore_context = type { ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
@@ -120,7 +117,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.93 = private unnamed_addr constant [19 x i8] c"oscore.opt.unknown\00", align 1
 @proto_register_oscore.ett = internal global [3 x ptr] [ptr @ett_oscore, ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 184), ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 188)], align 16
 @ett_oscore = internal global i32 0, align 4
-@proto_register_oscore.ei = internal global [14 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_oscore_partial_iv_not_found, %struct.expert_field_info { ptr @.str.94, i32 83886080, i32 6291456, ptr @.str.95, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_oscore_context_not_set, %struct.expert_field_info { ptr @.str.96, i32 83886080, i32 6291456, ptr @.str.97, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_oscore_message_too_small, %struct.expert_field_info { ptr @.str.98, i32 83886080, i32 6291456, ptr @.str.99, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_oscore_truncated, %struct.expert_field_info { ptr @.str.100, i32 83886080, i32 6291456, ptr @.str.101, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_oscore_cbc_mac_failed, %struct.expert_field_info { ptr @.str.102, i32 83886080, i32 6291456, ptr @.str.103, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_oscore_tag_check_failed, %struct.expert_field_info { ptr @.str.104, i32 83886080, i32 6291456, ptr @.str.105, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_oscore_decrypt_error, %struct.expert_field_info { ptr @.str.106, i32 83886080, i32 6291456, ptr @.str.107, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_oscore_info_fetch_failed, %struct.expert_field_info { ptr @.str.108, i32 83886080, i32 6291456, ptr @.str.109, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_oscore_piv_len_invalid, %struct.expert_field_info { ptr @.str.110, i32 83886080, i32 6291456, ptr @.str.111, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 192), %struct.expert_field_info { ptr @.str.112, i32 83886080, i32 6291456, ptr @.str.113, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 200), %struct.expert_field_info { ptr @.str.114, i32 117440512, i32 6291456, ptr @.str.115, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 208), %struct.expert_field_info { ptr @.str.116, i32 117440512, i32 6291456, ptr @.str.117, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 216), %struct.expert_field_info { ptr @.str.118, i32 117440512, i32 6291456, ptr @.str.119, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 224), %struct.expert_field_info { ptr @.str.120, i32 117440512, i32 6291456, ptr @.str.121, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_oscore.ei = internal global [14 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_oscore_partial_iv_not_found, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.94, i32 83886080, i32 6291456, ptr @.str.95, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_oscore_context_not_set, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.96, i32 83886080, i32 6291456, ptr @.str.97, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_oscore_message_too_small, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.98, i32 83886080, i32 6291456, ptr @.str.99, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_oscore_truncated, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.100, i32 83886080, i32 6291456, ptr @.str.101, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_oscore_cbc_mac_failed, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.102, i32 83886080, i32 6291456, ptr @.str.103, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_oscore_tag_check_failed, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.104, i32 83886080, i32 6291456, ptr @.str.105, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_oscore_decrypt_error, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.106, i32 83886080, i32 6291456, ptr @.str.107, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_oscore_info_fetch_failed, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.108, i32 83886080, i32 6291456, ptr @.str.109, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_oscore_piv_len_invalid, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.110, i32 83886080, i32 6291456, ptr @.str.111, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 192), { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.112, i32 83886080, i32 6291456, ptr @.str.113, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 200), { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.114, i32 117440512, i32 6291456, ptr @.str.115, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 208), { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.116, i32 117440512, i32 6291456, ptr @.str.117, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 216), { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.118, i32 117440512, i32 6291456, ptr @.str.119, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr getelementptr (i8, ptr @dissect_oscore_hf, i64 224), { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.120, i32 117440512, i32 6291456, ptr @.str.121, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_oscore_partial_iv_not_found = internal global %struct.expert_field zeroinitializer, align 4
 @.str.94 = private unnamed_addr constant [28 x i8] c"oscore.partial_iv_not_found\00", align 1
 @.str.95 = private unnamed_addr constant [37 x i8] c"Partial IV not found - can't decrypt\00", align 1
@@ -158,7 +155,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.119 = private unnamed_addr constant [18 x i8] c"Option length bad\00", align 1
 @.str.120 = private unnamed_addr constant [25 x i8] c"oscore.option_oscore_bad\00", align 1
 @.str.121 = private unnamed_addr constant [29 x i8] c"Invalid OSCORE Option Format\00", align 1
-@proto_register_oscore.oscore_context_uat_flds = internal global [7 x %struct._uat_field_t] [%struct._uat_field_t { ptr @.str.122, ptr @.str.123, i32 1, %struct.anon.2 { ptr @uat_fld_chk_str, ptr @oscore_context_uat_sender_id_prefs_set_cb, ptr @oscore_context_uat_sender_id_prefs_tostr_cb }, %struct.anon.3 zeroinitializer, ptr null, ptr @.str.124, ptr null }, %struct._uat_field_t { ptr @.str.125, ptr @.str.126, i32 1, %struct.anon.2 { ptr @uat_fld_chk_str, ptr @oscore_context_uat_recipient_id_prefs_set_cb, ptr @oscore_context_uat_recipient_id_prefs_tostr_cb }, %struct.anon.3 zeroinitializer, ptr null, ptr @.str.127, ptr null }, %struct._uat_field_t { ptr @.str.128, ptr @.str.129, i32 1, %struct.anon.2 { ptr @uat_fld_chk_str, ptr @oscore_context_uat_master_secret_prefs_set_cb, ptr @oscore_context_uat_master_secret_prefs_tostr_cb }, %struct.anon.3 zeroinitializer, ptr null, ptr @.str.130, ptr null }, %struct._uat_field_t { ptr @.str.131, ptr @.str.132, i32 1, %struct.anon.2 { ptr @uat_fld_chk_str, ptr @oscore_context_uat_master_salt_prefs_set_cb, ptr @oscore_context_uat_master_salt_prefs_tostr_cb }, %struct.anon.3 zeroinitializer, ptr null, ptr @.str.133, ptr null }, %struct._uat_field_t { ptr @.str.134, ptr @.str.135, i32 1, %struct.anon.2 { ptr @uat_fld_chk_str, ptr @oscore_context_uat_id_context_prefs_set_cb, ptr @oscore_context_uat_id_context_prefs_tostr_cb }, %struct.anon.3 zeroinitializer, ptr null, ptr @.str.136, ptr null }, %struct._uat_field_t { ptr @.str.137, ptr @.str.138, i32 3, %struct.anon.2 { ptr @uat_fld_chk_enum, ptr @oscore_context_uat_algorithm_set_cb, ptr @oscore_context_uat_algorithm_tostr_cb }, %struct.anon.3 { ptr @oscore_context_alg_vals, ptr @oscore_context_alg_vals, ptr @oscore_context_alg_vals }, ptr @oscore_context_alg_vals, ptr @.str.139, ptr null }, %struct._uat_field_t zeroinitializer], align 16
+@proto_register_oscore.oscore_context_uat_flds = internal global [7 x { ptr, ptr, i32, [4 x i8], %struct.anon.2, %struct.anon.3, ptr, ptr, ptr }] [{ ptr, ptr, i32, [4 x i8], %struct.anon.2, %struct.anon.3, ptr, ptr, ptr } { ptr @.str.122, ptr @.str.123, i32 1, [4 x i8] zeroinitializer, %struct.anon.2 { ptr @uat_fld_chk_str, ptr @oscore_context_uat_sender_id_prefs_set_cb, ptr @oscore_context_uat_sender_id_prefs_tostr_cb }, %struct.anon.3 zeroinitializer, ptr null, ptr @.str.124, ptr null }, { ptr, ptr, i32, [4 x i8], %struct.anon.2, %struct.anon.3, ptr, ptr, ptr } { ptr @.str.125, ptr @.str.126, i32 1, [4 x i8] zeroinitializer, %struct.anon.2 { ptr @uat_fld_chk_str, ptr @oscore_context_uat_recipient_id_prefs_set_cb, ptr @oscore_context_uat_recipient_id_prefs_tostr_cb }, %struct.anon.3 zeroinitializer, ptr null, ptr @.str.127, ptr null }, { ptr, ptr, i32, [4 x i8], %struct.anon.2, %struct.anon.3, ptr, ptr, ptr } { ptr @.str.128, ptr @.str.129, i32 1, [4 x i8] zeroinitializer, %struct.anon.2 { ptr @uat_fld_chk_str, ptr @oscore_context_uat_master_secret_prefs_set_cb, ptr @oscore_context_uat_master_secret_prefs_tostr_cb }, %struct.anon.3 zeroinitializer, ptr null, ptr @.str.130, ptr null }, { ptr, ptr, i32, [4 x i8], %struct.anon.2, %struct.anon.3, ptr, ptr, ptr } { ptr @.str.131, ptr @.str.132, i32 1, [4 x i8] zeroinitializer, %struct.anon.2 { ptr @uat_fld_chk_str, ptr @oscore_context_uat_master_salt_prefs_set_cb, ptr @oscore_context_uat_master_salt_prefs_tostr_cb }, %struct.anon.3 zeroinitializer, ptr null, ptr @.str.133, ptr null }, { ptr, ptr, i32, [4 x i8], %struct.anon.2, %struct.anon.3, ptr, ptr, ptr } { ptr @.str.134, ptr @.str.135, i32 1, [4 x i8] zeroinitializer, %struct.anon.2 { ptr @uat_fld_chk_str, ptr @oscore_context_uat_id_context_prefs_set_cb, ptr @oscore_context_uat_id_context_prefs_tostr_cb }, %struct.anon.3 zeroinitializer, ptr null, ptr @.str.136, ptr null }, { ptr, ptr, i32, [4 x i8], %struct.anon.2, %struct.anon.3, ptr, ptr, ptr } { ptr @.str.137, ptr @.str.138, i32 3, [4 x i8] zeroinitializer, %struct.anon.2 { ptr @uat_fld_chk_enum, ptr @oscore_context_uat_algorithm_set_cb, ptr @oscore_context_uat_algorithm_tostr_cb }, %struct.anon.3 { ptr @oscore_context_alg_vals, ptr @oscore_context_alg_vals, ptr @oscore_context_alg_vals }, ptr @oscore_context_alg_vals, ptr @.str.139, ptr null }, { ptr, ptr, i32, [4 x i8], %struct.anon.2, %struct.anon.3, ptr, ptr, ptr } zeroinitializer], align 16
 @.str.122 = private unnamed_addr constant [16 x i8] c"sender_id_prefs\00", align 1
 @.str.123 = private unnamed_addr constant [10 x i8] c"Sender ID\00", align 1
 @.str.124 = private unnamed_addr constant [63 x i8] c"Sender ID as HEX string. Should be 7 bytes or less. Mandatory.\00", align 1
@@ -176,7 +173,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.136 = private unnamed_addr constant [36 x i8] c"ID Context as HEX string. Optional.\00", align 1
 @.str.137 = private unnamed_addr constant [10 x i8] c"algorithm\00", align 1
 @.str.138 = private unnamed_addr constant [10 x i8] c"Algorithm\00", align 1
-@oscore_context_alg_vals = internal constant [2 x %struct._value_string] [%struct._value_string { i32 10, ptr @.str.149 }, %struct._value_string zeroinitializer], align 16
 @.str.139 = private unnamed_addr constant [22 x i8] c"Decryption algorithm.\00", align 1
 @.str.140 = private unnamed_addr constant [53 x i8] c"Object Security for Constrained RESTful Environments\00", align 1
 @.str.141 = private unnamed_addr constant [7 x i8] c"OSCORE\00", align 1
@@ -193,58 +189,65 @@ target triple = "x86_64-pc-linux-gnu"
 @proto_coap = internal unnamed_addr global i32 0, align 4
 @.str.148 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.149 = private unnamed_addr constant [25 x i8] c"AES-CCM-16-64-128 (CCM*)\00", align 1
-@.str.150 = private unnamed_addr constant [22 x i8] c"Sender ID is invalid.\00", align 1
-@.str.151 = private unnamed_addr constant [28 x i8] c"Should be %u bytes or less.\00", align 1
-@.str.152 = private unnamed_addr constant [25 x i8] c"Recipient ID is invalid.\00", align 1
-@.str.153 = private unnamed_addr constant [23 x i8] c"ID Context is invalid.\00", align 1
-@.str.154 = private unnamed_addr constant [26 x i8] c"Master Secret is invalid.\00", align 1
-@.str.155 = private unnamed_addr constant [28 x i8] c"Master Secret is mandatory.\00", align 1
-@.str.156 = private unnamed_addr constant [24 x i8] c"Master Salt is invalid.\00", align 1
-@.str.158 = private unnamed_addr constant [4 x i8] c"Key\00", align 1
-@.str.159 = private unnamed_addr constant [29 x i8] c"%s:%u: failed assertion \22%s\22\00", align 1
-@.str.160 = private unnamed_addr constant [32 x i8] c"epan/dissectors/packet-oscore.c\00", align 1
-@.str.161 = private unnamed_addr constant [49 x i8] c"info_len < (1 + 2 + 7 + 2 + 64 + 2 + 2 + 3 + 2 )\00", align 1
-@.str.162 = private unnamed_addr constant [14 x i8] c"tvb_decrypted\00", align 1
-@.str.165 = private unnamed_addr constant [17 x i8] c"Decrypted OSCORE\00", align 1
-@.str.166 = private unnamed_addr constant [60 x i8] c"external_aad_len < (1 + 2 + 1 + 2 + 2 + 7 + 2 + 5 + 1 + 0 )\00", align 1
-@.str.173 = private unnamed_addr constant [13 x i8] c"piv_len <= 5\00", align 1
-@.str.174 = private unnamed_addr constant [36 x i8] c"piv_generator->len <= nonce_len - 6\00", align 1
+@oscore_context_alg_vals = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.149 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.151 = private unnamed_addr constant [22 x i8] c"Sender ID is invalid.\00", align 1
+@.str.152 = private unnamed_addr constant [28 x i8] c"Should be %u bytes or less.\00", align 1
+@.str.153 = private unnamed_addr constant [25 x i8] c"Recipient ID is invalid.\00", align 1
+@.str.154 = private unnamed_addr constant [23 x i8] c"ID Context is invalid.\00", align 1
+@.str.155 = private unnamed_addr constant [26 x i8] c"Master Secret is invalid.\00", align 1
+@.str.156 = private unnamed_addr constant [28 x i8] c"Master Secret is mandatory.\00", align 1
+@.str.157 = private unnamed_addr constant [24 x i8] c"Master Salt is invalid.\00", align 1
+@.str.158 = private unnamed_addr constant [3 x i8] c"IV\00", align 1
+@.str.159 = private unnamed_addr constant [4 x i8] c"Key\00", align 1
+@.str.160 = private unnamed_addr constant [29 x i8] c"%s:%u: failed assertion \22%s\22\00", align 1
+@.str.161 = private unnamed_addr constant [32 x i8] c"epan/dissectors/packet-oscore.c\00", align 1
+@.str.162 = private unnamed_addr constant [49 x i8] c"info_len < (1 + 2 + 7 + 2 + 64 + 2 + 2 + 3 + 2 )\00", align 1
+@.str.163 = private unnamed_addr constant [14 x i8] c"tvb_decrypted\00", align 1
+@.str.166 = private unnamed_addr constant [17 x i8] c"Decrypted OSCORE\00", align 1
+@.str.167 = private unnamed_addr constant [60 x i8] c"external_aad_len < (1 + 2 + 1 + 2 + 2 + 7 + 2 + 5 + 1 + 0 )\00", align 1
+@.str.172 = private unnamed_addr constant [19 x i8] c"info != ((void*)0)\00", align 1
+@.str.174 = private unnamed_addr constant [13 x i8] c"piv_len <= 5\00", align 1
+@.str.175 = private unnamed_addr constant [36 x i8] c"piv_generator->len <= nonce_len - 6\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_oscore() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.140, ptr noundef nonnull @.str.141, ptr noundef nonnull @.str.142) #9
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.140, ptr noundef nonnull @.str.141, ptr noundef nonnull @.str.142)
   store i32 %1, ptr @proto_oscore, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_oscore.hf, i32 noundef 47) #9
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_oscore.ett, i32 noundef 3) #9
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_oscore.hf, i32 noundef 47)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_oscore.ett, i32 noundef 3)
   %2 = load i32, ptr @proto_oscore, align 4
-  %3 = tail call ptr @expert_register_protocol(i32 noundef %2) #9
-  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_oscore.ei, i32 noundef 14) #9
+  %3 = tail call ptr @expert_register_protocol(i32 noundef %2)
+  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_oscore.ei, i32 noundef 14)
   %4 = load i32, ptr @proto_oscore, align 4
-  %5 = tail call ptr @prefs_register_protocol(i32 noundef %4, ptr noundef null) #9
-  %6 = tail call ptr @uat_new(ptr noundef nonnull @.str.143, i64 noundef 112, ptr noundef nonnull @.str.144, i1 noundef zeroext true, ptr noundef nonnull @oscore_contexts, ptr noundef nonnull @num_oscore_contexts, i32 noundef 1, ptr noundef null, ptr noundef nonnull @oscore_context_copy_cb, ptr noundef nonnull @oscore_context_update_cb, ptr noundef nonnull @oscore_context_free_cb, ptr noundef nonnull @oscore_context_post_update_cb, ptr noundef null, ptr noundef nonnull @proto_register_oscore.oscore_context_uat_flds) #9
+  %5 = tail call ptr @prefs_register_protocol(i32 noundef %4, ptr noundef null)
+  %6 = tail call ptr @uat_new(ptr noundef nonnull @.str.143, i64 noundef 112, ptr noundef nonnull @.str.144, i1 noundef zeroext true, ptr noundef nonnull @oscore_contexts, ptr noundef nonnull @num_oscore_contexts, i32 noundef 1, ptr noundef null, ptr noundef nonnull @oscore_context_copy_cb, ptr noundef nonnull @oscore_context_update_cb, ptr noundef nonnull @oscore_context_free_cb, ptr noundef nonnull @oscore_context_post_update_cb, ptr noundef null, ptr noundef nonnull @proto_register_oscore.oscore_context_uat_flds)
   store ptr %6, ptr @oscore_context_uat, align 8
-  tail call void @prefs_register_uat_preference(ptr noundef %5, ptr noundef nonnull @.str.145, ptr noundef nonnull @.str.143, ptr noundef nonnull @.str.146, ptr noundef %6) #9
+  tail call void @prefs_register_uat_preference(ptr noundef %5, ptr noundef nonnull @.str.145, ptr noundef nonnull @.str.143, ptr noundef nonnull @.str.146, ptr noundef %6)
   %7 = load i32, ptr @proto_oscore, align 4
-  %8 = tail call ptr @register_dissector(ptr noundef nonnull @.str.142, ptr noundef nonnull @oscore_dissect, i32 noundef %7) #9
-  %9 = tail call i32 @proto_get_id_by_short_name(ptr noundef nonnull @.str.147) #9
+  %8 = tail call ptr @register_dissector(ptr noundef nonnull @.str.142, ptr noundef nonnull @oscore_dissect, i32 noundef %7)
+  %9 = tail call i32 @proto_get_id_by_short_name(ptr noundef nonnull @.str.147)
   store i32 %9, ptr @proto_coap, align 4
   ret void
 }
 
-declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @oscore_context_uat_sender_id_prefs_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
-  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
+  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
-  tail call void @g_free(ptr noundef %9) #9
+  tail call void @g_free(ptr noundef %9)
   store ptr %7, ptr %8, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @oscore_context_uat_sender_id_prefs_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -252,15 +255,15 @@ define internal void @oscore_context_uat_sender_id_prefs_tostr_cb(ptr noundef re
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7) #9
+  %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #10
+  %11 = tail call i64 @strlen(ptr noundef %10) #11
   %12 = trunc i64 %11 to i32
   br label %15
 
 13:                                               ; preds = %5
-  %14 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.148) #9
+  %14 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.148)
   store ptr %14, ptr %1, align 8
   br label %15
 
@@ -270,18 +273,18 @@ define internal void @oscore_context_uat_sender_id_prefs_tostr_cb(ptr noundef re
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @oscore_context_uat_recipient_id_prefs_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
-  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
+  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
-  tail call void @g_free(ptr noundef %9) #9
+  tail call void @g_free(ptr noundef %9)
   store ptr %7, ptr %8, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @oscore_context_uat_recipient_id_prefs_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -289,15 +292,15 @@ define internal void @oscore_context_uat_recipient_id_prefs_tostr_cb(ptr noundef
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7) #9
+  %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #10
+  %11 = tail call i64 @strlen(ptr noundef %10) #11
   %12 = trunc i64 %11 to i32
   br label %15
 
 13:                                               ; preds = %5
-  %14 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.148) #9
+  %14 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.148)
   store ptr %14, ptr %1, align 8
   br label %15
 
@@ -307,32 +310,32 @@ define internal void @oscore_context_uat_recipient_id_prefs_tostr_cb(ptr noundef
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @oscore_context_uat_master_secret_prefs_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
-  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
+  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6)
   %8 = load ptr, ptr %0, align 8
-  tail call void @g_free(ptr noundef %8) #9
+  tail call void @g_free(ptr noundef %8)
   store ptr %7, ptr %0, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @oscore_context_uat_master_secret_prefs_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call noalias ptr @g_strdup(ptr noundef nonnull %6) #9
+  %8 = tail call noalias ptr @g_strdup(ptr noundef nonnull %6)
   store ptr %8, ptr %1, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #10
+  %10 = tail call i64 @strlen(ptr noundef %9) #11
   %11 = trunc i64 %10 to i32
   br label %14
 
 12:                                               ; preds = %5
-  %13 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.148) #9
+  %13 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.148)
   store ptr %13, ptr %1, align 8
   br label %14
 
@@ -342,18 +345,18 @@ define internal void @oscore_context_uat_master_secret_prefs_tostr_cb(ptr nounde
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @oscore_context_uat_master_salt_prefs_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
-  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
+  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  tail call void @g_free(ptr noundef %9) #9
+  tail call void @g_free(ptr noundef %9)
   store ptr %7, ptr %8, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @oscore_context_uat_master_salt_prefs_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -361,15 +364,15 @@ define internal void @oscore_context_uat_master_salt_prefs_tostr_cb(ptr noundef 
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7) #9
+  %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #10
+  %11 = tail call i64 @strlen(ptr noundef %10) #11
   %12 = trunc i64 %11 to i32
   br label %15
 
 13:                                               ; preds = %5
-  %14 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.148) #9
+  %14 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.148)
   store ptr %14, ptr %1, align 8
   br label %15
 
@@ -379,18 +382,18 @@ define internal void @oscore_context_uat_master_salt_prefs_tostr_cb(ptr noundef 
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @oscore_context_uat_id_context_prefs_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
-  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
+  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  tail call void @g_free(ptr noundef %9) #9
+  tail call void @g_free(ptr noundef %9)
   store ptr %7, ptr %8, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @oscore_context_uat_id_context_prefs_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -398,15 +401,15 @@ define internal void @oscore_context_uat_id_context_prefs_tostr_cb(ptr noundef r
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7) #9
+  %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #10
+  %11 = tail call i64 @strlen(ptr noundef %10) #11
   %12 = trunc i64 %11 to i32
   br label %15
 
 13:                                               ; preds = %5
-  %14 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.148) #9
+  %14 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.148)
   store ptr %14, ptr %1, align 8
   br label %15
 
@@ -416,12 +419,13 @@ define internal void @oscore_context_uat_id_context_prefs_tostr_cb(ptr noundef r
   ret void
 }
 
-declare zeroext i1 @uat_fld_chk_enum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @uat_fld_chk_enum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @oscore_context_uat_algorithm_set_cb(ptr noundef writeonly captures(none) initializes((40, 44)) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
-  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
+  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 10, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -430,7 +434,7 @@ define internal void @oscore_context_uat_algorithm_set_cb(ptr noundef writeonly 
   br i1 %.not15, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %5
-  %11 = tail call i32 @g_str_equal(ptr noundef nonnull %10, ptr noundef %7) #9
+  %11 = tail call i32 @g_str_equal(ptr noundef nonnull %10, ptr noundef %7)
   %.not1320 = icmp eq i32 %11, 0
   br i1 %.not1320, label %.lr.ph22, label %.lr.ph._crit_edge
 
@@ -442,12 +446,12 @@ define internal void @oscore_context_uat_algorithm_set_cb(ptr noundef writeonly 
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %.lr.ph22
-  %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7) #9
+  %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !4
+  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !6
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -456,11 +460,11 @@ define internal void @oscore_context_uat_algorithm_set_cb(ptr noundef writeonly 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph22, %5, %.lr.ph._crit_edge
-  tail call void @g_free(ptr noundef %7) #9
+  tail call void @g_free(ptr noundef %7)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @oscore_context_uat_algorithm_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -482,23 +486,23 @@ define internal void @oscore_context_uat_algorithm_tostr_cb(ptr noundef readonly
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !6
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !8
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !6
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !8
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
-  %20 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa) #9
+  %20 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %20, ptr %1, align 8
-  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #10
+  %21 = tail call i64 @strlen(ptr noundef %20) #11
   %22 = trunc i64 %21 to i32
   br label %24
 
 ._crit_edge:                                      ; preds = %.lr.ph20, %5
-  %23 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.149) #9
+  %23 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.149)
   store ptr %23, ptr %1, align 8
   br label %24
 
@@ -508,43 +512,50 @@ define internal void @oscore_context_uat_algorithm_tostr_cb(ptr noundef readonly
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef ptr @oscore_context_copy_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 44), (48, 112)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
-  %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #9
+  %5 = tail call noalias ptr @g_strdup(ptr noundef %4)
   store ptr %5, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call noalias ptr @g_strdup(ptr noundef %7) #9
+  %8 = tail call noalias ptr @g_strdup(ptr noundef %7)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noalias ptr @g_strdup(ptr noundef %11) #9
+  %12 = tail call noalias ptr @g_strdup(ptr noundef %11)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call noalias ptr @g_strdup(ptr noundef %15) #9
+  %16 = tail call noalias ptr @g_strdup(ptr noundef %15)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call noalias ptr @g_strdup(ptr noundef %19) #9
+  %20 = tail call noalias ptr @g_strdup(ptr noundef %19)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %20, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -556,131 +567,126 @@ define internal noundef ptr @oscore_context_copy_cb(ptr noundef returned writeon
   ret ptr %0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @oscore_context_update_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
-  %3 = tail call ptr @g_byte_array_new() #9
+  %3 = tail call ptr @g_byte_array_new()
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i32 @hex_str_to_bytes(ptr noundef %5, ptr noundef %3, i32 noundef 0) #9
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %10
+  %6 = tail call zeroext i1 @hex_str_to_bytes(ptr noundef %5, ptr noundef %3, i1 noundef zeroext false)
+  br i1 %6, label %9, label %7
 
-8:                                                ; preds = %2
-  %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.150) #9
+7:                                                ; preds = %2
+  %8 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.151)
   br label %.sink.split
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %12 = load i32, ptr %11, align 8
-  %13 = icmp ugt i32 %12, 7
-  br i1 %13, label %14, label %16
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %11 = load i32, ptr %10, align 8
+  %12 = icmp ugt i32 %11, 7
+  br i1 %12, label %13, label %15
 
-14:                                               ; preds = %10
-  %15 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.151, i32 noundef 7) #9
+13:                                               ; preds = %9
+  %14 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.152, i32 noundef 7)
   br label %.sink.split
 
-16:                                               ; preds = %10
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 @hex_str_to_bytes(ptr noundef %18, ptr noundef nonnull %3, i32 noundef 0) #9
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %23
+15:                                               ; preds = %9
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call zeroext i1 @hex_str_to_bytes(ptr noundef %17, ptr noundef %3, i1 noundef zeroext false)
+  br i1 %18, label %21, label %19
 
-21:                                               ; preds = %16
-  %22 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.152) #9
+19:                                               ; preds = %15
+  %20 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.153)
   br label %.sink.split
 
-23:                                               ; preds = %16
-  %24 = load i32, ptr %11, align 8
-  %25 = icmp ugt i32 %24, 7
-  br i1 %25, label %26, label %28
+21:                                               ; preds = %15
+  %22 = load i32, ptr %10, align 8
+  %23 = icmp ugt i32 %22, 7
+  br i1 %23, label %24, label %26
 
-26:                                               ; preds = %23
-  %27 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.151, i32 noundef 7) #9
+24:                                               ; preds = %21
+  %25 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.152, i32 noundef 7)
   br label %.sink.split
 
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load ptr, ptr %29, align 8
-  %31 = tail call i32 @hex_str_to_bytes(ptr noundef %30, ptr noundef nonnull %3, i32 noundef 0) #9
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %35
+26:                                               ; preds = %21
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call zeroext i1 @hex_str_to_bytes(ptr noundef %28, ptr noundef %3, i1 noundef zeroext false)
+  br i1 %29, label %32, label %30
 
-33:                                               ; preds = %28
-  %34 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.153) #9
+30:                                               ; preds = %26
+  %31 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.154)
   br label %.sink.split
 
-35:                                               ; preds = %28
-  %36 = load i32, ptr %11, align 8
-  %37 = icmp ugt i32 %36, 64
-  br i1 %37, label %38, label %40
+32:                                               ; preds = %26
+  %33 = load i32, ptr %10, align 8
+  %34 = icmp ugt i32 %33, 64
+  br i1 %34, label %35, label %37
 
-38:                                               ; preds = %35
-  %39 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.151, i32 noundef 64) #9
+35:                                               ; preds = %32
+  %36 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.152, i32 noundef 64)
   br label %.sink.split
 
-40:                                               ; preds = %35
-  %41 = load ptr, ptr %0, align 8
-  %42 = tail call i32 @hex_str_to_bytes(ptr noundef %41, ptr noundef nonnull %3, i32 noundef 0) #9
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %46
+37:                                               ; preds = %32
+  %38 = load ptr, ptr %0, align 8
+  %39 = tail call zeroext i1 @hex_str_to_bytes(ptr noundef %38, ptr noundef %3, i1 noundef zeroext false)
+  br i1 %39, label %42, label %40
 
-44:                                               ; preds = %40
-  %45 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.154) #9
+40:                                               ; preds = %37
+  %41 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.155)
   br label %.sink.split
 
-46:                                               ; preds = %40
-  %47 = load i32, ptr %11, align 8
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %51
+42:                                               ; preds = %37
+  %43 = load i32, ptr %10, align 8
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %47
 
-49:                                               ; preds = %46
-  %50 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.155) #9
+45:                                               ; preds = %42
+  %46 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.156)
   br label %.sink.split
 
-51:                                               ; preds = %46
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call i32 @hex_str_to_bytes(ptr noundef %53, ptr noundef nonnull %3, i32 noundef 0) #9
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %58
+47:                                               ; preds = %42
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %49 = load ptr, ptr %48, align 8
+  %50 = tail call zeroext i1 @hex_str_to_bytes(ptr noundef %49, ptr noundef %3, i1 noundef zeroext false)
+  br i1 %50, label %53, label %51
 
-56:                                               ; preds = %51
-  %57 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.156) #9
+51:                                               ; preds = %47
+  %52 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.157)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %8, %14, %21, %26, %33, %38, %44, %49, %56
-  %.sink = phi ptr [ %57, %56 ], [ %50, %49 ], [ %45, %44 ], [ %39, %38 ], [ %34, %33 ], [ %27, %26 ], [ %22, %21 ], [ %15, %14 ], [ %9, %8 ]
+.sink.split:                                      ; preds = %7, %13, %19, %24, %30, %35, %40, %45, %51
+  %.sink = phi ptr [ %52, %51 ], [ %46, %45 ], [ %41, %40 ], [ %36, %35 ], [ %31, %30 ], [ %25, %24 ], [ %20, %19 ], [ %14, %13 ], [ %8, %7 ]
   store ptr %.sink, ptr %1, align 8
-  br label %58
+  br label %53
 
-58:                                               ; preds = %.sink.split, %51
-  %.0 = phi i1 [ true, %51 ], [ false, %.sink.split ]
-  %59 = tail call ptr @g_byte_array_free(ptr noundef %3, i32 noundef 1) #9
+53:                                               ; preds = %.sink.split, %47
+  %.0 = phi i1 [ true, %47 ], [ false, %.sink.split ]
+  %54 = tail call ptr @g_byte_array_free(ptr noundef %3, i32 noundef 1)
   ret i1 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @oscore_context_free_cb(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
-  tail call void @g_free(ptr noundef %2) #9
+  tail call void @g_free(ptr noundef %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  tail call void @g_free(ptr noundef %4) #9
+  tail call void @g_free(ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  tail call void @g_free(ptr noundef %6) #9
+  tail call void @g_free(ptr noundef %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
-  tail call void @g_free(ptr noundef %8) #9
+  tail call void @g_free(ptr noundef %8)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
-  tail call void @g_free(ptr noundef %10) #9
-  tail call fastcc void @oscore_context_free_byte_arrays(ptr noundef nonnull %0)
+  tail call void @g_free(ptr noundef %10)
+  tail call fastcc void @oscore_context_free_byte_arrays(ptr noundef %0)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @oscore_context_post_update_cb() #0 {
   %1 = alloca [32 x i8], align 16
   %2 = alloca [85 x i8], align 16
@@ -699,23 +705,23 @@ define internal void @oscore_context_post_update_cb() #0 {
   %8 = load ptr, ptr @oscore_contexts, align 8
   %9 = getelementptr %struct.oscore_context, ptr %8, i64 %indvars.iv
   call fastcc void @oscore_context_free_byte_arrays(ptr noundef %9)
-  %10 = call ptr @g_byte_array_new() #9
+  %10 = call ptr @g_byte_array_new()
   %11 = load ptr, ptr @oscore_contexts, align 8
   %12 = getelementptr %struct.oscore_context, ptr %11, i64 %indvars.iv, i32 6
   store ptr %10, ptr %12, align 8
-  %13 = call ptr @g_byte_array_new() #9
+  %13 = call ptr @g_byte_array_new()
   %14 = load ptr, ptr @oscore_contexts, align 8
   %15 = getelementptr %struct.oscore_context, ptr %14, i64 %indvars.iv, i32 7
   store ptr %13, ptr %15, align 8
-  %16 = call ptr @g_byte_array_new() #9
+  %16 = call ptr @g_byte_array_new()
   %17 = load ptr, ptr @oscore_contexts, align 8
   %18 = getelementptr %struct.oscore_context, ptr %17, i64 %indvars.iv, i32 8
   store ptr %16, ptr %18, align 8
-  %19 = call ptr @g_byte_array_new() #9
+  %19 = call ptr @g_byte_array_new()
   %20 = load ptr, ptr @oscore_contexts, align 8
   %21 = getelementptr %struct.oscore_context, ptr %20, i64 %indvars.iv, i32 9
   store ptr %19, ptr %21, align 8
-  %22 = call ptr @g_byte_array_new() #9
+  %22 = call ptr @g_byte_array_new()
   %23 = load ptr, ptr @oscore_contexts, align 8
   %24 = getelementptr %struct.oscore_context, ptr %23, i64 %indvars.iv, i32 10
   store ptr %22, ptr %24, align 8
@@ -725,62 +731,62 @@ define internal void @oscore_context_post_update_cb() #0 {
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 72
   %30 = load ptr, ptr %29, align 8
-  %31 = call i32 @hex_str_to_bytes(ptr noundef %28, ptr noundef %30, i32 noundef 0) #9
+  %31 = call zeroext i1 @hex_str_to_bytes(ptr noundef %28, ptr noundef %30, i1 noundef zeroext false)
   %32 = load ptr, ptr @oscore_contexts, align 8
   %33 = getelementptr %struct.oscore_context, ptr %32, i64 %indvars.iv
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 80
   %37 = load ptr, ptr %36, align 8
-  %38 = call i32 @hex_str_to_bytes(ptr noundef %35, ptr noundef %37, i32 noundef 0) #9
+  %38 = call zeroext i1 @hex_str_to_bytes(ptr noundef %35, ptr noundef %37, i1 noundef zeroext false)
   %39 = load ptr, ptr @oscore_contexts, align 8
   %40 = getelementptr %struct.oscore_context, ptr %39, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 64
   %44 = load ptr, ptr %43, align 8
-  %45 = call i32 @hex_str_to_bytes(ptr noundef %42, ptr noundef %44, i32 noundef 0) #9
+  %45 = call zeroext i1 @hex_str_to_bytes(ptr noundef %42, ptr noundef %44, i1 noundef zeroext false)
   %46 = load ptr, ptr @oscore_contexts, align 8
   %47 = getelementptr %struct.oscore_context, ptr %46, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %50 = load ptr, ptr %49, align 8
-  %51 = call i32 @hex_str_to_bytes(ptr noundef %48, ptr noundef %50, i32 noundef 0) #9
+  %51 = call zeroext i1 @hex_str_to_bytes(ptr noundef %48, ptr noundef %50, i1 noundef zeroext false)
   %52 = load ptr, ptr @oscore_contexts, align 8
   %53 = getelementptr %struct.oscore_context, ptr %52, i64 %indvars.iv
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 56
   %57 = load ptr, ptr %56, align 8
-  %58 = call i32 @hex_str_to_bytes(ptr noundef %55, ptr noundef %57, i32 noundef 0) #9
+  %58 = call zeroext i1 @hex_str_to_bytes(ptr noundef %55, ptr noundef %57, i1 noundef zeroext false)
   %59 = load ptr, ptr @oscore_contexts, align 8
   %60 = getelementptr %struct.oscore_context, ptr %59, i64 %indvars.iv, i32 5
   %61 = load i32, ptr %60, align 8
   %cond.i = icmp eq i32 %61, 10
   %..i = select i1 %cond.i, i32 16, i32 0
   %..i28 = select i1 %cond.i, i32 13, i32 0
-  %62 = call ptr @g_byte_array_sized_new(i32 noundef %..i) #9
+  %62 = call ptr @g_byte_array_sized_new(i32 noundef %..i)
   %63 = load ptr, ptr @oscore_contexts, align 8
   %64 = getelementptr %struct.oscore_context, ptr %63, i64 %indvars.iv, i32 11
   store ptr %62, ptr %64, align 8
-  %65 = call ptr @g_byte_array_sized_new(i32 noundef %..i) #9
+  %65 = call ptr @g_byte_array_sized_new(i32 noundef %..i)
   %66 = load ptr, ptr @oscore_contexts, align 8
   %67 = getelementptr %struct.oscore_context, ptr %66, i64 %indvars.iv, i32 12
   store ptr %65, ptr %67, align 8
-  %68 = call ptr @g_byte_array_sized_new(i32 noundef %..i28) #9
+  %68 = call ptr @g_byte_array_sized_new(i32 noundef %..i28)
   %69 = load ptr, ptr @oscore_contexts, align 8
   %70 = getelementptr %struct.oscore_context, ptr %69, i64 %indvars.iv, i32 13
   store ptr %68, ptr %70, align 8
   %71 = load ptr, ptr @oscore_contexts, align 8
   %72 = getelementptr %struct.oscore_context, ptr %71, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 85, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #12
+  call void @llvm.lifetime.start.p0(i64 85, ptr nonnull %2) #12
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 40
   %74 = load i32, ptr %73, align 8
   %cond.i.i = icmp eq i32 %74, 10
   %..i.i = select i1 %cond.i.i, i32 16, i32 0
   %..i108.i = select i1 %cond.i.i, i32 13, i32 0
-  %75 = call ptr @g_byte_array_new() #9
+  %75 = call ptr @g_byte_array_new()
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 56
   %77 = load ptr, ptr %76, align 8
   %78 = load ptr, ptr %77, align 8
@@ -793,7 +799,7 @@ define internal void @oscore_context_post_update_cb() #0 {
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %86 = load i32, ptr %85, align 8
   %87 = zext i32 %86 to i64
-  %88 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %1, ptr noundef %84, i64 noundef range(i64 0, 4294967296) %87, ptr noundef %78, i64 noundef range(i64 0, 4294967296) %81) #9
+  %88 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %1, ptr noundef %84, i64 noundef range(i64 0, 4294967296) %87, ptr noundef %78, i64 noundef range(i64 0, 4294967296) %81)
   store i8 -123, ptr %2, align 16
   %89 = getelementptr inbounds nuw i8, ptr %72, i64 72
   %90 = load ptr, ptr %89, align 8
@@ -826,371 +832,395 @@ define internal void @oscore_context_post_update_cb() #0 {
   %104 = getelementptr i8, ptr %4, i64 %103
   %.mask.i = and i32 %93, 255
   %105 = zext nneg i32 %.mask.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %104, ptr nonnull readonly align 1 %91, i64 %105, i1 false)
-  %106 = add i8 %.0.i.i, %94
+  %106 = sub nuw nsw i64 84, %103
+  %107 = call ptr @__memcpy_chk(ptr noundef %104, ptr noundef nonnull readonly %91, i64 noundef range(i64 0, 4294967296) %105, i64 noundef %106) #12, !alias.scope !9
+  %108 = add i8 %.0.i.i, %94
   br label %cborencoder_put_bytes.exit.i
 
 cborencoder_put_bytes.exit.i:                     ; preds = %102, %99
-  %.1.i.i = phi i8 [ %106, %102 ], [ %.0.i.i, %99 ]
-  %107 = zext i8 %.1.i.i to i32
-  %108 = add nuw nsw i32 %107, 1
-  %109 = getelementptr inbounds nuw i8, ptr %72, i64 64
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %112 = load i32, ptr %111, align 8
-  %.not.i = icmp eq i32 %112, 0
-  %113 = zext nneg i32 %108 to i64
-  %114 = getelementptr [85 x i8], ptr %2, i64 0, i64 %113
-  br i1 %.not.i, label %133, label %115
+  %.1.i.i = phi i8 [ %108, %102 ], [ %.0.i.i, %99 ]
+  %109 = zext i8 %.1.i.i to i32
+  %110 = add nuw nsw i32 %109, 1
+  %111 = getelementptr inbounds nuw i8, ptr %72, i64 64
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %114 = load i32, ptr %113, align 8
+  %.not.i = icmp eq i32 %114, 0
+  %115 = zext nneg i32 %110 to i64
+  %116 = getelementptr [85 x i8], ptr %2, i64 0, i64 %115
+  br i1 %.not.i, label %138, label %117
 
-115:                                              ; preds = %cborencoder_put_bytes.exit.i
-  %116 = load ptr, ptr %110, align 8
-  %117 = trunc i32 %112 to i8
-  %118 = icmp ugt i8 %117, 23
-  br i1 %118, label %119, label %121
+117:                                              ; preds = %cborencoder_put_bytes.exit.i
+  %118 = load ptr, ptr %112, align 8
+  %119 = trunc i32 %114 to i8
+  %120 = icmp ugt i8 %119, 23
+  br i1 %120, label %121, label %123
 
-119:                                              ; preds = %115
-  %120 = getelementptr i8, ptr %114, i64 1
-  store i8 %117, ptr %120, align 1
-  br label %123
+121:                                              ; preds = %117
+  %122 = getelementptr i8, ptr %116, i64 1
+  store i8 %119, ptr %122, align 1
+  br label %125
 
-121:                                              ; preds = %115
-  %122 = or disjoint i8 %117, 64
-  br label %123
+123:                                              ; preds = %117
+  %124 = or disjoint i8 %119, 64
+  br label %125
 
-123:                                              ; preds = %121, %119
-  %.sink.i109.i = phi i8 [ 88, %119 ], [ %122, %121 ]
-  %.0.i110.i = phi i8 [ 2, %119 ], [ 1, %121 ]
-  store i8 %.sink.i109.i, ptr %114, align 1
-  %124 = icmp ne i8 %117, 0
-  %125 = icmp ne ptr %116, null
-  %or.cond.i111.i = and i1 %124, %125
-  br i1 %or.cond.i111.i, label %126, label %cborencoder_put_bytes.exit113.i
+125:                                              ; preds = %123, %121
+  %.sink.i109.i = phi i8 [ 88, %121 ], [ %124, %123 ]
+  %.0.i110.i = phi i8 [ 2, %121 ], [ 1, %123 ]
+  store i8 %.sink.i109.i, ptr %116, align 1
+  %126 = icmp ne i8 %119, 0
+  %127 = icmp ne ptr %118, null
+  %or.cond.i111.i = and i1 %126, %127
+  br i1 %or.cond.i111.i, label %128, label %cborencoder_put_bytes.exit113.i
 
-126:                                              ; preds = %123
-  %127 = zext nneg i8 %.0.i110.i to i64
-  %128 = getelementptr i8, ptr %114, i64 %127
-  %.mask152.i = and i32 %112, 255
-  %129 = zext nneg i32 %.mask152.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %128, ptr nonnull readonly align 1 %116, i64 %129, i1 false)
-  %130 = add i8 %.0.i110.i, %117
+128:                                              ; preds = %125
+  %129 = zext nneg i8 %.0.i110.i to i64
+  %130 = add nuw nsw i64 %129, %115
+  %131 = getelementptr i8, ptr %116, i64 %129
+  %.mask152.i = and i32 %114, 255
+  %132 = zext nneg i32 %.mask152.i to i64
+  %133 = call i64 @llvm.usub.sat.i64(i64 85, i64 %130)
+  %134 = call ptr @__memcpy_chk(ptr noundef %131, ptr noundef nonnull readonly %118, i64 noundef range(i64 0, 4294967296) %132, i64 noundef %133) #12, !alias.scope !13
+  %135 = add i8 %.0.i110.i, %119
   br label %cborencoder_put_bytes.exit113.i
 
-cborencoder_put_bytes.exit113.i:                  ; preds = %126, %123
-  %.1.i112.i = phi i8 [ %130, %126 ], [ %.0.i110.i, %123 ]
-  %131 = zext i8 %.1.i112.i to i32
-  %132 = add nuw nsw i32 %108, %131
-  br label %135
+cborencoder_put_bytes.exit113.i:                  ; preds = %128, %125
+  %.1.i112.i = phi i8 [ %135, %128 ], [ %.0.i110.i, %125 ]
+  %136 = zext i8 %.1.i112.i to i32
+  %137 = add nuw nsw i32 %110, %136
+  br label %140
 
-133:                                              ; preds = %cborencoder_put_bytes.exit.i
-  store i8 -10, ptr %114, align 1
-  %134 = add nuw nsw i32 %107, 2
-  br label %135
+138:                                              ; preds = %cborencoder_put_bytes.exit.i
+  store i8 -10, ptr %116, align 1
+  %139 = add nuw nsw i32 %109, 2
+  br label %140
 
-135:                                              ; preds = %133, %cborencoder_put_bytes.exit113.i
-  %.0.i = phi i32 [ %132, %cborencoder_put_bytes.exit113.i ], [ %134, %133 ]
-  %136 = zext nneg i32 %.0.i to i64
-  %137 = getelementptr [85 x i8], ptr %2, i64 0, i64 %136
-  %138 = load i32, ptr %73, align 8
-  %139 = trunc i32 %138 to i8
-  %140 = icmp ugt i8 %139, 23
-  br i1 %140, label %141, label %cborencoder_put_unsigned.exit.i
+140:                                              ; preds = %138, %cborencoder_put_bytes.exit113.i
+  %.0.i = phi i32 [ %137, %cborencoder_put_bytes.exit113.i ], [ %139, %138 ]
+  %141 = zext nneg i32 %.0.i to i64
+  %142 = getelementptr [85 x i8], ptr %2, i64 0, i64 %141
+  %143 = load i32, ptr %73, align 8
+  %144 = trunc i32 %143 to i8
+  %145 = icmp ugt i8 %144, 23
+  br i1 %145, label %146, label %cborencoder_put_unsigned.exit.i
 
-141:                                              ; preds = %135
-  %142 = getelementptr i8, ptr %137, i64 1
-  store i8 %139, ptr %142, align 1
+146:                                              ; preds = %140
+  %147 = getelementptr i8, ptr %142, i64 1
+  store i8 %144, ptr %147, align 1
   br label %cborencoder_put_unsigned.exit.i
 
-cborencoder_put_unsigned.exit.i:                  ; preds = %141, %135
-  %.sink.i114.i = phi i8 [ 24, %141 ], [ %139, %135 ]
-  %.0.i115.i = phi i32 [ 2, %141 ], [ 1, %135 ]
-  store i8 %.sink.i114.i, ptr %137, align 1
-  %143 = add nuw nsw i32 %.0.i115.i, %.0.i
-  %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr [85 x i8], ptr %2, i64 0, i64 %144
-  store i8 99, ptr %145, align 1
-  %146 = getelementptr i8, ptr %145, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %146, ptr noundef nonnull align 1 dereferenceable(3) @.str.158, i64 3, i1 false)
-  %147 = add nuw nsw i32 %143, 4
-  %148 = zext nneg i32 %147 to i64
-  %149 = getelementptr [85 x i8], ptr %2, i64 0, i64 %148
-  %150 = trunc nuw nsw i32 %..i.i to i8
-  store i8 %150, ptr %149, align 1
-  %151 = icmp samesign ult i32 %143, 80
-  br i1 %151, label %153, label %152
+cborencoder_put_unsigned.exit.i:                  ; preds = %146, %140
+  %.sink.i114.i = phi i8 [ 24, %146 ], [ %144, %140 ]
+  %.0.i115.i = phi i32 [ 2, %146 ], [ 1, %140 ]
+  store i8 %.sink.i114.i, ptr %142, align 1
+  %148 = add nuw nsw i32 %.0.i115.i, %.0.i
+  %149 = zext nneg i32 %148 to i64
+  %150 = getelementptr [85 x i8], ptr %2, i64 0, i64 %149
+  store i8 99, ptr %150, align 1
+  %151 = getelementptr i8, ptr %150, i64 1
+  %152 = sub nsw i64 84, %149
+  %153 = icmp samesign ugt i32 %148, 84
+  %154 = select i1 %153, i64 0, i64 %152
+  %155 = icmp ne i64 %154, -1
+  call void @llvm.assume(i1 %155)
+  %156 = call ptr @__memcpy_chk(ptr noundef %151, ptr noundef nonnull @.str.159, i64 noundef range(i64 0, 4294967296) 3, i64 noundef %154) #12, !alias.scope !17
+  %157 = add nuw nsw i32 %148, 4
+  %158 = zext nneg i32 %157 to i64
+  %159 = getelementptr [85 x i8], ptr %2, i64 0, i64 %158
+  %160 = trunc nuw nsw i32 %..i.i to i8
+  store i8 %160, ptr %159, align 1
+  %161 = icmp samesign ult i32 %148, 80
+  br i1 %161, label %163, label %162
 
-152:                                              ; preds = %cborencoder_put_unsigned.exit.i
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.159, ptr noundef nonnull @.str.160, i32 noundef 335, ptr noundef nonnull @.str.161) #11
+162:                                              ; preds = %cborencoder_put_unsigned.exit.i
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.160, ptr noundef nonnull @.str.161, i32 noundef 335, ptr noundef nonnull @.str.162) #13
   unreachable
 
-153:                                              ; preds = %cborencoder_put_unsigned.exit.i
-  %154 = add nuw nsw i32 %143, 5
-  %155 = call ptr @g_byte_array_append(ptr noundef %75, ptr noundef nonnull %2, i32 noundef %154) #9
-  %156 = getelementptr inbounds nuw i8, ptr %72, i64 88
-  %157 = load ptr, ptr %156, align 8
-  %158 = call ptr @g_byte_array_set_size(ptr noundef %157, i32 noundef %..i.i) #9
-  %159 = load ptr, ptr %75, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %161 = load i32, ptr %160, align 8
-  %162 = load ptr, ptr %156, align 8
-  %163 = load ptr, ptr %162, align 8
-  %164 = call i32 @hkdf_expand(i32 noundef 8, ptr noundef nonnull %1, i32 noundef 32, ptr noundef %159, i32 noundef %161, ptr noundef %163, i32 noundef %..i.i) #9
-  %165 = call ptr @g_byte_array_set_size(ptr noundef nonnull %75, i32 noundef 0) #9
-  store i8 -123, ptr %2, align 16
-  %166 = getelementptr inbounds nuw i8, ptr %72, i64 80
+163:                                              ; preds = %cborencoder_put_unsigned.exit.i
+  %164 = add nuw nsw i32 %148, 5
+  %165 = call ptr @g_byte_array_append(ptr noundef %75, ptr noundef nonnull %2, i32 noundef %164)
+  %166 = getelementptr inbounds nuw i8, ptr %72, i64 88
   %167 = load ptr, ptr %166, align 8
-  %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  %170 = load i32, ptr %169, align 8
-  %171 = trunc i32 %170 to i8
-  %172 = icmp ugt i8 %171, 23
-  br i1 %172, label %173, label %174
+  %168 = call ptr @g_byte_array_set_size(ptr noundef %167, i32 noundef %..i.i)
+  %169 = load ptr, ptr %75, align 8
+  %170 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %171 = load i32, ptr %170, align 8
+  %172 = load ptr, ptr %166, align 8
+  %173 = load ptr, ptr %172, align 8
+  %174 = call i32 @hkdf_expand(i32 noundef 8, ptr noundef nonnull %1, i32 noundef 32, ptr noundef %169, i32 noundef %171, ptr noundef %173, i32 noundef %..i.i)
+  %175 = call ptr @g_byte_array_set_size(ptr noundef %75, i32 noundef 0)
+  store i8 -123, ptr %2, align 16
+  %176 = getelementptr inbounds nuw i8, ptr %72, i64 80
+  %177 = load ptr, ptr %176, align 8
+  %178 = load ptr, ptr %177, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %177, i64 8
+  %180 = load i32, ptr %179, align 8
+  %181 = trunc i32 %180 to i8
+  %182 = icmp ugt i8 %181, 23
+  br i1 %182, label %183, label %184
 
-173:                                              ; preds = %153
-  store i8 %171, ptr %5, align 2
-  br label %176
+183:                                              ; preds = %163
+  store i8 %181, ptr %5, align 2
+  br label %186
 
-174:                                              ; preds = %153
-  %175 = or disjoint i8 %171, 64
-  br label %176
+184:                                              ; preds = %163
+  %185 = or disjoint i8 %181, 64
+  br label %186
 
-176:                                              ; preds = %174, %173
-  %.sink.i120.i = phi i8 [ 88, %173 ], [ %175, %174 ]
-  %.0.i121.i = phi i8 [ 2, %173 ], [ 1, %174 ]
+186:                                              ; preds = %184, %183
+  %.sink.i120.i = phi i8 [ 88, %183 ], [ %185, %184 ]
+  %.0.i121.i = phi i8 [ 2, %183 ], [ 1, %184 ]
   store i8 %.sink.i120.i, ptr %4, align 1
-  %177 = icmp ne i8 %171, 0
-  %178 = icmp ne ptr %168, null
-  %or.cond.i122.i = and i1 %178, %177
-  br i1 %or.cond.i122.i, label %179, label %cborencoder_put_bytes.exit124.i
+  %187 = icmp ne i8 %181, 0
+  %188 = icmp ne ptr %178, null
+  %or.cond.i122.i = and i1 %188, %187
+  br i1 %or.cond.i122.i, label %189, label %cborencoder_put_bytes.exit124.i
 
-179:                                              ; preds = %176
-  %180 = zext nneg i8 %.0.i121.i to i64
-  %181 = getelementptr i8, ptr %4, i64 %180
-  %.mask153.i = and i32 %170, 255
-  %182 = zext nneg i32 %.mask153.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %181, ptr nonnull readonly align 1 %168, i64 %182, i1 false)
-  %183 = add i8 %.0.i121.i, %171
+189:                                              ; preds = %186
+  %190 = zext nneg i8 %.0.i121.i to i64
+  %191 = getelementptr i8, ptr %4, i64 %190
+  %.mask153.i = and i32 %180, 255
+  %192 = zext nneg i32 %.mask153.i to i64
+  %193 = sub nuw nsw i64 84, %190
+  %194 = call ptr @__memcpy_chk(ptr noundef %191, ptr noundef nonnull readonly %178, i64 noundef range(i64 0, 4294967296) %192, i64 noundef %193) #12, !alias.scope !21
+  %195 = add i8 %.0.i121.i, %181
   br label %cborencoder_put_bytes.exit124.i
 
-cborencoder_put_bytes.exit124.i:                  ; preds = %179, %176
-  %.1.i123.i = phi i8 [ %183, %179 ], [ %.0.i121.i, %176 ]
-  %184 = zext i8 %.1.i123.i to i32
-  %185 = add nuw nsw i32 %184, 1
-  %186 = load ptr, ptr %109, align 8
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %188 = load i32, ptr %187, align 8
-  %.not105.i = icmp eq i32 %188, 0
-  %189 = zext nneg i32 %185 to i64
-  %190 = getelementptr [85 x i8], ptr %2, i64 0, i64 %189
-  br i1 %.not105.i, label %209, label %191
+cborencoder_put_bytes.exit124.i:                  ; preds = %189, %186
+  %.1.i123.i = phi i8 [ %195, %189 ], [ %.0.i121.i, %186 ]
+  %196 = zext i8 %.1.i123.i to i32
+  %197 = add nuw nsw i32 %196, 1
+  %198 = load ptr, ptr %111, align 8
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 8
+  %200 = load i32, ptr %199, align 8
+  %.not105.i = icmp eq i32 %200, 0
+  %201 = zext nneg i32 %197 to i64
+  %202 = getelementptr [85 x i8], ptr %2, i64 0, i64 %201
+  br i1 %.not105.i, label %224, label %203
 
-191:                                              ; preds = %cborencoder_put_bytes.exit124.i
-  %192 = load ptr, ptr %186, align 8
-  %193 = trunc i32 %188 to i8
-  %194 = icmp ugt i8 %193, 23
-  br i1 %194, label %195, label %197
+203:                                              ; preds = %cborencoder_put_bytes.exit124.i
+  %204 = load ptr, ptr %198, align 8
+  %205 = trunc i32 %200 to i8
+  %206 = icmp ugt i8 %205, 23
+  br i1 %206, label %207, label %209
 
-195:                                              ; preds = %191
-  %196 = getelementptr i8, ptr %190, i64 1
-  store i8 %193, ptr %196, align 1
-  br label %199
+207:                                              ; preds = %203
+  %208 = getelementptr i8, ptr %202, i64 1
+  store i8 %205, ptr %208, align 1
+  br label %211
 
-197:                                              ; preds = %191
-  %198 = or disjoint i8 %193, 64
-  br label %199
+209:                                              ; preds = %203
+  %210 = or disjoint i8 %205, 64
+  br label %211
 
-199:                                              ; preds = %197, %195
-  %.sink.i125.i = phi i8 [ 88, %195 ], [ %198, %197 ]
-  %.0.i126.i = phi i8 [ 2, %195 ], [ 1, %197 ]
-  store i8 %.sink.i125.i, ptr %190, align 1
-  %200 = icmp ne i8 %193, 0
-  %201 = icmp ne ptr %192, null
-  %or.cond.i127.i = and i1 %200, %201
-  br i1 %or.cond.i127.i, label %202, label %cborencoder_put_bytes.exit129.i
+211:                                              ; preds = %209, %207
+  %.sink.i125.i = phi i8 [ 88, %207 ], [ %210, %209 ]
+  %.0.i126.i = phi i8 [ 2, %207 ], [ 1, %209 ]
+  store i8 %.sink.i125.i, ptr %202, align 1
+  %212 = icmp ne i8 %205, 0
+  %213 = icmp ne ptr %204, null
+  %or.cond.i127.i = and i1 %212, %213
+  br i1 %or.cond.i127.i, label %214, label %cborencoder_put_bytes.exit129.i
 
-202:                                              ; preds = %199
-  %203 = zext nneg i8 %.0.i126.i to i64
-  %204 = getelementptr i8, ptr %190, i64 %203
-  %.mask154.i = and i32 %188, 255
-  %205 = zext nneg i32 %.mask154.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %204, ptr nonnull readonly align 1 %192, i64 %205, i1 false)
-  %206 = add i8 %.0.i126.i, %193
+214:                                              ; preds = %211
+  %215 = zext nneg i8 %.0.i126.i to i64
+  %216 = add nuw nsw i64 %215, %201
+  %217 = getelementptr i8, ptr %202, i64 %215
+  %.mask154.i = and i32 %200, 255
+  %218 = zext nneg i32 %.mask154.i to i64
+  %219 = call i64 @llvm.usub.sat.i64(i64 85, i64 %216)
+  %220 = call ptr @__memcpy_chk(ptr noundef %217, ptr noundef nonnull readonly %204, i64 noundef range(i64 0, 4294967296) %218, i64 noundef %219) #12, !alias.scope !25
+  %221 = add i8 %.0.i126.i, %205
   br label %cborencoder_put_bytes.exit129.i
 
-cborencoder_put_bytes.exit129.i:                  ; preds = %202, %199
-  %.1.i128.i = phi i8 [ %206, %202 ], [ %.0.i126.i, %199 ]
-  %207 = zext i8 %.1.i128.i to i32
-  %208 = add nuw nsw i32 %185, %207
-  br label %211
+cborencoder_put_bytes.exit129.i:                  ; preds = %214, %211
+  %.1.i128.i = phi i8 [ %221, %214 ], [ %.0.i126.i, %211 ]
+  %222 = zext i8 %.1.i128.i to i32
+  %223 = add nuw nsw i32 %197, %222
+  br label %226
 
-209:                                              ; preds = %cborencoder_put_bytes.exit124.i
-  store i8 -10, ptr %190, align 1
-  %210 = add nuw nsw i32 %184, 2
-  br label %211
+224:                                              ; preds = %cborencoder_put_bytes.exit124.i
+  store i8 -10, ptr %202, align 1
+  %225 = add nuw nsw i32 %196, 2
+  br label %226
 
-211:                                              ; preds = %209, %cborencoder_put_bytes.exit129.i
-  %.1.i = phi i32 [ %208, %cborencoder_put_bytes.exit129.i ], [ %210, %209 ]
-  %212 = zext nneg i32 %.1.i to i64
-  %213 = getelementptr [85 x i8], ptr %2, i64 0, i64 %212
-  %214 = load i32, ptr %73, align 8
-  %215 = trunc i32 %214 to i8
-  %216 = icmp ugt i8 %215, 23
-  br i1 %216, label %217, label %cborencoder_put_unsigned.exit136.i
+226:                                              ; preds = %224, %cborencoder_put_bytes.exit129.i
+  %.1.i = phi i32 [ %223, %cborencoder_put_bytes.exit129.i ], [ %225, %224 ]
+  %227 = zext nneg i32 %.1.i to i64
+  %228 = getelementptr [85 x i8], ptr %2, i64 0, i64 %227
+  %229 = load i32, ptr %73, align 8
+  %230 = trunc i32 %229 to i8
+  %231 = icmp ugt i8 %230, 23
+  br i1 %231, label %232, label %cborencoder_put_unsigned.exit136.i
 
-217:                                              ; preds = %211
-  %218 = getelementptr i8, ptr %213, i64 1
-  store i8 %215, ptr %218, align 1
+232:                                              ; preds = %226
+  %233 = getelementptr i8, ptr %228, i64 1
+  store i8 %230, ptr %233, align 1
   br label %cborencoder_put_unsigned.exit136.i
 
-cborencoder_put_unsigned.exit136.i:               ; preds = %217, %211
-  %.sink.i130.i = phi i8 [ 24, %217 ], [ %215, %211 ]
-  %.0.i131.i = phi i32 [ 2, %217 ], [ 1, %211 ]
-  store i8 %.sink.i130.i, ptr %213, align 1
-  %219 = add nuw nsw i32 %.0.i131.i, %.1.i
-  %220 = zext nneg i32 %219 to i64
-  %221 = getelementptr [85 x i8], ptr %2, i64 0, i64 %220
-  store i8 99, ptr %221, align 1
-  %222 = getelementptr i8, ptr %221, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %222, ptr noundef nonnull align 1 dereferenceable(3) @.str.158, i64 3, i1 false)
-  %223 = add nuw nsw i32 %219, 4
-  %224 = zext nneg i32 %223 to i64
-  %225 = getelementptr [85 x i8], ptr %2, i64 0, i64 %224
-  store i8 %150, ptr %225, align 1
-  %226 = icmp samesign ult i32 %219, 80
-  br i1 %226, label %228, label %227
+cborencoder_put_unsigned.exit136.i:               ; preds = %232, %226
+  %.sink.i130.i = phi i8 [ 24, %232 ], [ %230, %226 ]
+  %.0.i131.i = phi i32 [ 2, %232 ], [ 1, %226 ]
+  store i8 %.sink.i130.i, ptr %228, align 1
+  %234 = add nuw nsw i32 %.0.i131.i, %.1.i
+  %235 = zext nneg i32 %234 to i64
+  %236 = getelementptr [85 x i8], ptr %2, i64 0, i64 %235
+  store i8 99, ptr %236, align 1
+  %237 = getelementptr i8, ptr %236, i64 1
+  %238 = sub nsw i64 84, %235
+  %239 = icmp samesign ugt i32 %234, 84
+  %240 = select i1 %239, i64 0, i64 %238
+  %241 = icmp ne i64 %240, -1
+  call void @llvm.assume(i1 %241)
+  %242 = call ptr @__memcpy_chk(ptr noundef %237, ptr noundef nonnull @.str.159, i64 noundef range(i64 0, 4294967296) 3, i64 noundef %240) #12, !alias.scope !29
+  %243 = add nuw nsw i32 %234, 4
+  %244 = zext nneg i32 %243 to i64
+  %245 = getelementptr [85 x i8], ptr %2, i64 0, i64 %244
+  store i8 %160, ptr %245, align 1
+  %246 = icmp samesign ult i32 %234, 80
+  br i1 %246, label %248, label %247
 
-227:                                              ; preds = %cborencoder_put_unsigned.exit136.i
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.159, ptr noundef nonnull @.str.160, i32 noundef 357, ptr noundef nonnull @.str.161) #11
+247:                                              ; preds = %cborencoder_put_unsigned.exit136.i
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.160, ptr noundef nonnull @.str.161, i32 noundef 357, ptr noundef nonnull @.str.162) #13
   unreachable
 
-228:                                              ; preds = %cborencoder_put_unsigned.exit136.i
-  %229 = add nuw nsw i32 %219, 5
-  %230 = call ptr @g_byte_array_append(ptr noundef nonnull %75, ptr noundef nonnull %2, i32 noundef %229) #9
-  %231 = getelementptr inbounds nuw i8, ptr %72, i64 96
-  %232 = load ptr, ptr %231, align 8
-  %233 = call ptr @g_byte_array_set_size(ptr noundef %232, i32 noundef %..i.i) #9
-  %234 = load ptr, ptr %75, align 8
-  %235 = load i32, ptr %160, align 8
-  %236 = load ptr, ptr %231, align 8
-  %237 = load ptr, ptr %236, align 8
-  %238 = call i32 @hkdf_expand(i32 noundef 8, ptr noundef nonnull %1, i32 noundef 32, ptr noundef %234, i32 noundef %235, ptr noundef %237, i32 noundef %..i.i) #9
-  %239 = call ptr @g_byte_array_set_size(ptr noundef nonnull %75, i32 noundef 0) #9
+248:                                              ; preds = %cborencoder_put_unsigned.exit136.i
+  %249 = add nuw nsw i32 %234, 5
+  %250 = call ptr @g_byte_array_append(ptr noundef %75, ptr noundef nonnull %2, i32 noundef %249)
+  %251 = getelementptr inbounds nuw i8, ptr %72, i64 96
+  %252 = load ptr, ptr %251, align 8
+  %253 = call ptr @g_byte_array_set_size(ptr noundef %252, i32 noundef %..i.i)
+  %254 = load ptr, ptr %75, align 8
+  %255 = load i32, ptr %170, align 8
+  %256 = load ptr, ptr %251, align 8
+  %257 = load ptr, ptr %256, align 8
+  %258 = call i32 @hkdf_expand(i32 noundef 8, ptr noundef nonnull %1, i32 noundef 32, ptr noundef %254, i32 noundef %255, ptr noundef %257, i32 noundef %..i.i)
+  %259 = call ptr @g_byte_array_set_size(ptr noundef %75, i32 noundef 0)
   store i8 -123, ptr %2, align 16
   store i8 64, ptr %4, align 1
-  %240 = load ptr, ptr %109, align 8
-  %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
-  %242 = load i32, ptr %241, align 8
-  %.not106.i = icmp eq i32 %242, 0
-  br i1 %.not106.i, label %260, label %243
+  %260 = load ptr, ptr %111, align 8
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 8
+  %262 = load i32, ptr %261, align 8
+  %.not106.i = icmp eq i32 %262, 0
+  br i1 %.not106.i, label %282, label %263
 
-243:                                              ; preds = %228
-  %244 = load ptr, ptr %240, align 8
-  %245 = trunc i32 %242 to i8
-  %246 = icmp ugt i8 %245, 23
-  br i1 %246, label %247, label %248
+263:                                              ; preds = %248
+  %264 = load ptr, ptr %260, align 8
+  %265 = trunc i32 %262 to i8
+  %266 = icmp ugt i8 %265, 23
+  br i1 %266, label %267, label %268
 
-247:                                              ; preds = %243
-  store i8 %245, ptr %6, align 1
-  br label %250
+267:                                              ; preds = %263
+  store i8 %265, ptr %6, align 1
+  br label %270
 
-248:                                              ; preds = %243
-  %249 = or disjoint i8 %245, 64
-  br label %250
+268:                                              ; preds = %263
+  %269 = or disjoint i8 %265, 64
+  br label %270
 
-250:                                              ; preds = %248, %247
-  %.sink.i140.i = phi i8 [ 88, %247 ], [ %249, %248 ]
-  %.0.i141.i = phi i8 [ 2, %247 ], [ 1, %248 ]
+270:                                              ; preds = %268, %267
+  %.sink.i140.i = phi i8 [ 88, %267 ], [ %269, %268 ]
+  %.0.i141.i = phi i8 [ 2, %267 ], [ 1, %268 ]
   store i8 %.sink.i140.i, ptr %5, align 2
-  %251 = icmp ne i8 %245, 0
-  %252 = icmp ne ptr %244, null
-  %or.cond.i142.i = and i1 %251, %252
-  br i1 %or.cond.i142.i, label %253, label %cborencoder_put_bytes.exit144.i
+  %271 = icmp ne i8 %265, 0
+  %272 = icmp ne ptr %264, null
+  %or.cond.i142.i = and i1 %271, %272
+  br i1 %or.cond.i142.i, label %273, label %cborencoder_put_bytes.exit144.i
 
-253:                                              ; preds = %250
-  %254 = zext nneg i8 %.0.i141.i to i64
-  %255 = getelementptr i8, ptr %5, i64 %254
-  %.mask155.i = and i32 %242, 255
-  %256 = zext nneg i32 %.mask155.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %255, ptr nonnull readonly align 1 %244, i64 %256, i1 false)
-  %257 = add i8 %.0.i141.i, %245
+273:                                              ; preds = %270
+  %274 = zext nneg i8 %.0.i141.i to i64
+  %275 = getelementptr i8, ptr %5, i64 %274
+  %.mask155.i = and i32 %262, 255
+  %276 = zext nneg i32 %.mask155.i to i64
+  %277 = sub nuw nsw i64 83, %274
+  %278 = call ptr @__memcpy_chk(ptr noundef %275, ptr noundef nonnull readonly %264, i64 noundef range(i64 0, 4294967296) %276, i64 noundef %277) #12, !alias.scope !33
+  %279 = add i8 %.0.i141.i, %265
   br label %cborencoder_put_bytes.exit144.i
 
-cborencoder_put_bytes.exit144.i:                  ; preds = %253, %250
-  %.1.i143.i = phi i8 [ %257, %253 ], [ %.0.i141.i, %250 ]
-  %258 = zext i8 %.1.i143.i to i32
-  %259 = add nuw nsw i32 %258, 2
-  br label %261
+cborencoder_put_bytes.exit144.i:                  ; preds = %273, %270
+  %.1.i143.i = phi i8 [ %279, %273 ], [ %.0.i141.i, %270 ]
+  %280 = zext i8 %.1.i143.i to i32
+  %281 = add nuw nsw i32 %280, 2
+  br label %283
 
-260:                                              ; preds = %228
+282:                                              ; preds = %248
   store i8 -10, ptr %5, align 2
-  br label %261
+  br label %283
 
-261:                                              ; preds = %260, %cborencoder_put_bytes.exit144.i
-  %.2.i = phi i32 [ %259, %cborencoder_put_bytes.exit144.i ], [ 3, %260 ]
-  %262 = zext nneg i32 %.2.i to i64
-  %263 = getelementptr [85 x i8], ptr %2, i64 0, i64 %262
-  %264 = load i32, ptr %73, align 8
-  %265 = trunc i32 %264 to i8
-  %266 = icmp ugt i8 %265, 23
-  br i1 %266, label %267, label %cborencoder_put_unsigned.exit147.i
+283:                                              ; preds = %282, %cborencoder_put_bytes.exit144.i
+  %.2.i = phi i32 [ %281, %cborencoder_put_bytes.exit144.i ], [ 3, %282 ]
+  %284 = zext nneg i32 %.2.i to i64
+  %285 = getelementptr [85 x i8], ptr %2, i64 0, i64 %284
+  %286 = load i32, ptr %73, align 8
+  %287 = trunc i32 %286 to i8
+  %288 = icmp ugt i8 %287, 23
+  br i1 %288, label %289, label %cborencoder_put_unsigned.exit147.i
 
-267:                                              ; preds = %261
-  %268 = getelementptr i8, ptr %263, i64 1
-  store i8 %265, ptr %268, align 1
+289:                                              ; preds = %283
+  %290 = getelementptr i8, ptr %285, i64 1
+  store i8 %287, ptr %290, align 1
   br label %cborencoder_put_unsigned.exit147.i
 
-cborencoder_put_unsigned.exit147.i:               ; preds = %267, %261
-  %.sink.i145.i = phi i8 [ 24, %267 ], [ %265, %261 ]
-  %.0.i146.i = phi i32 [ 2, %267 ], [ 1, %261 ]
-  store i8 %.sink.i145.i, ptr %263, align 1
-  %269 = add nuw nsw i32 %.0.i146.i, %.2.i
-  %270 = zext nneg i32 %269 to i64
-  %271 = getelementptr [85 x i8], ptr %2, i64 0, i64 %270
-  store i8 98, ptr %271, align 1
-  %272 = getelementptr i8, ptr %271, i64 1
-  store i16 22089, ptr %272, align 1
-  %273 = add nuw nsw i32 %269, 3
-  %274 = zext nneg i32 %273 to i64
-  %275 = getelementptr [85 x i8], ptr %2, i64 0, i64 %274
-  %276 = trunc nuw nsw i32 %..i108.i to i8
-  store i8 %276, ptr %275, align 1
-  %277 = icmp samesign ult i32 %269, 81
-  br i1 %277, label %oscore_context_derive_params.exit, label %278
+cborencoder_put_unsigned.exit147.i:               ; preds = %289, %283
+  %.sink.i145.i = phi i8 [ 24, %289 ], [ %287, %283 ]
+  %.0.i146.i = phi i32 [ 2, %289 ], [ 1, %283 ]
+  store i8 %.sink.i145.i, ptr %285, align 1
+  %291 = add nuw nsw i32 %.0.i146.i, %.2.i
+  %292 = zext nneg i32 %291 to i64
+  %293 = getelementptr [85 x i8], ptr %2, i64 0, i64 %292
+  store i8 98, ptr %293, align 1
+  %294 = getelementptr i8, ptr %293, i64 1
+  %295 = sub nsw i64 84, %292
+  %296 = icmp samesign ugt i32 %291, 84
+  %297 = select i1 %296, i64 0, i64 %295
+  %298 = icmp ne i64 %297, -1
+  call void @llvm.assume(i1 %298)
+  %299 = call ptr @__memcpy_chk(ptr noundef %294, ptr noundef nonnull @.str.158, i64 noundef range(i64 0, 4294967296) 2, i64 noundef %297) #12, !alias.scope !37
+  %300 = add nuw nsw i32 %291, 3
+  %301 = zext nneg i32 %300 to i64
+  %302 = getelementptr [85 x i8], ptr %2, i64 0, i64 %301
+  %303 = trunc nuw nsw i32 %..i108.i to i8
+  store i8 %303, ptr %302, align 1
+  %304 = icmp samesign ult i32 %291, 81
+  br i1 %304, label %oscore_context_derive_params.exit, label %305
 
-278:                                              ; preds = %cborencoder_put_unsigned.exit147.i
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.159, ptr noundef nonnull @.str.160, i32 noundef 376, ptr noundef nonnull @.str.161) #11
+305:                                              ; preds = %cborencoder_put_unsigned.exit147.i
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.160, ptr noundef nonnull @.str.161, i32 noundef 376, ptr noundef nonnull @.str.162) #13
   unreachable
 
 oscore_context_derive_params.exit:                ; preds = %cborencoder_put_unsigned.exit147.i
-  %279 = add nuw nsw i32 %269, 4
-  %280 = call ptr @g_byte_array_append(ptr noundef nonnull %75, ptr noundef nonnull %2, i32 noundef %279) #9
-  %281 = getelementptr inbounds nuw i8, ptr %72, i64 104
-  %282 = load ptr, ptr %281, align 8
-  %283 = call ptr @g_byte_array_set_size(ptr noundef %282, i32 noundef %..i108.i) #9
-  %284 = load ptr, ptr %75, align 8
-  %285 = load i32, ptr %160, align 8
-  %286 = load ptr, ptr %281, align 8
-  %287 = load ptr, ptr %286, align 8
-  %288 = call i32 @hkdf_expand(i32 noundef 8, ptr noundef nonnull %1, i32 noundef 32, ptr noundef %284, i32 noundef %285, ptr noundef %287, i32 noundef %..i108.i) #9
-  %289 = call ptr @g_byte_array_free(ptr noundef nonnull %75, i32 noundef 1) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 85, ptr nonnull %2)
+  %306 = add nuw nsw i32 %291, 4
+  %307 = call ptr @g_byte_array_append(ptr noundef %75, ptr noundef nonnull %2, i32 noundef %306)
+  %308 = getelementptr inbounds nuw i8, ptr %72, i64 104
+  %309 = load ptr, ptr %308, align 8
+  %310 = call ptr @g_byte_array_set_size(ptr noundef %309, i32 noundef %..i108.i)
+  %311 = load ptr, ptr %75, align 8
+  %312 = load i32, ptr %170, align 8
+  %313 = load ptr, ptr %308, align 8
+  %314 = load ptr, ptr %313, align 8
+  %315 = call i32 @hkdf_expand(i32 noundef 8, ptr noundef nonnull %1, i32 noundef 32, ptr noundef %311, i32 noundef %312, ptr noundef %314, i32 noundef %..i108.i)
+  %316 = call ptr @g_byte_array_free(ptr noundef %75, i32 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 85, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %290 = load i32, ptr @num_oscore_contexts, align 4
-  %291 = zext i32 %290 to i64
-  %292 = icmp samesign ult i64 %indvars.iv.next, %291
-  br i1 %292, label %7, label %._crit_edge, !llvm.loop !7
+  %317 = load i32, ptr @num_oscore_contexts, align 4
+  %318 = zext i32 %317 to i64
+  %319 = icmp samesign ult i64 %indvars.iv.next, %318
+  br i1 %319, label %7, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %oscore_context_derive_params.exit, %0
   ret void
 }
 
-declare void @prefs_register_uat_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_uat_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @oscore_dissect(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @oscore_dissect(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca [13 x i8], align 1
   %6 = alloca [13 x i8], align 1
   %7 = alloca [16 x i8], align 16
@@ -1200,19 +1230,21 @@ define internal i32 @oscore_dissect(ptr noundef %0, ptr noundef %1, ptr noundef 
   %11 = alloca [37 x i8], align 16
   %12 = alloca i32, align 4
   %13 = alloca i8, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
   store i32 0, ptr %12, align 4
-  %14 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #12
+  %14 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %15 = icmp ult i32 %14, 9
-  br i1 %15, label %248, label %16
+  br i1 %15, label %266, label %16
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
-  tail call void @col_set_str(ptr noundef %18, i32 noundef 34, ptr noundef nonnull @.str.141) #9
+  tail call void @col_set_str(ptr noundef %18, i32 noundef 35, ptr noundef nonnull @.str.141)
   %19 = load i32, ptr @proto_oscore, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #9
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %21 = load i32, ptr @ett_oscore, align 4
-  %22 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %21) #9
+  %22 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %21)
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
@@ -1225,9 +1257,9 @@ define internal i32 @oscore_dissect(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %26
-  %31 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %22, ptr noundef nonnull @ei_oscore_partial_iv_not_found) #9
-  %32 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
-  br label %248
+  %31 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %22, ptr noundef nonnull @ei_oscore_partial_iv_not_found)
+  %32 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  br label %266
 
 33:                                               ; preds = %26, %16
   %34 = load i32, ptr @num_oscore_contexts, align 4
@@ -1283,7 +1315,7 @@ define internal i32 @oscore_dissect(ptr noundef %0, ptr noundef %1, ptr noundef 
 66:                                               ; preds = %61, %53, %49, %42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %oscore_find_context.exit.thread, label %42, !llvm.loop !8
+  br i1 %exitcond.not.i, label %oscore_find_context.exit.thread, label %42, !llvm.loop !42
 
 oscore_find_context.exit:                         ; preds = %61
   %67 = getelementptr inbounds nuw i8, ptr %43, i64 72
@@ -1291,9 +1323,9 @@ oscore_find_context.exit:                         ; preds = %61
   br i1 %68, label %oscore_find_context.exit.thread, label %71
 
 oscore_find_context.exit.thread:                  ; preds = %66, %33, %oscore_find_context.exit
-  %69 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %22, ptr noundef nonnull @ei_oscore_context_not_set) #9
-  %70 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
-  br label %248
+  %69 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %22, ptr noundef nonnull @ei_oscore_context_not_set)
+  %70 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  br label %266
 
 71:                                               ; preds = %oscore_find_context.exit
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -1302,451 +1334,482 @@ oscore_find_context.exit.thread:                  ; preds = %66, %33, %oscore_fi
   br i1 %74, label %75, label %78
 
 75:                                               ; preds = %71
-  %76 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %22, ptr noundef nonnull @ei_oscore_piv_len_invalid) #9
-  %77 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
-  br label %248
+  %76 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %22, ptr noundef nonnull @ei_oscore_piv_len_invalid)
+  %77 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  br label %266
 
 78:                                               ; preds = %71
-  call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 37, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(i64 37, ptr nonnull %11) #12
   %79 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %80 = load i32, ptr %79, align 8
   %cond.i.not.i = icmp ne i32 %80, 10
   %..i.i = select i1 %cond.i.not.i, i32 0, i32 8
-  %81 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %..i.i) #9
+  %81 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %..i.i)
   %82 = icmp eq i32 %81, 0
-  br i1 %82, label %oscore_decrypt_and_verify.exit.thread79, label %85
+  br i1 %82, label %oscore_decrypt_and_verify.exit.thread78, label %85
 
-oscore_decrypt_and_verify.exit.thread79:          ; preds = %78
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 37, ptr nonnull %11)
-  %83 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %22, ptr noundef nonnull @ei_oscore_message_too_small) #9
-  %84 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
-  br label %248
+oscore_decrypt_and_verify.exit.thread78:          ; preds = %78
+  call void @llvm.lifetime.end.p0(i64 37, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %6) #12
+  %83 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %22, ptr noundef nonnull @ei_oscore_message_too_small)
+  %84 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  br label %266
 
 85:                                               ; preds = %78
-  %86 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef %81) #9
-  %.not.i61 = icmp eq i32 %86, 0
-  br i1 %.not.i61, label %87, label %89
+  %86 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef %81)
+  br i1 %86, label %89, label %87
 
 87:                                               ; preds = %85
-  %88 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #9
+  %88 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0)
   br label %89
 
 89:                                               ; preds = %87, %85
   %.087.i = phi i32 [ %88, %87 ], [ %81, %85 ]
-  %90 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %81, i32 noundef %..i.i) #9
-  %.not94.i = icmp eq i32 %90, 0
-  br i1 %.not94.i, label %94, label %91
+  %90 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %81, i32 noundef %..i.i)
+  br i1 %90, label %91, label %94
 
 91:                                               ; preds = %89
   %92 = zext nneg i32 %..i.i to i64
-  %93 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %81, i64 noundef %92) #9
+  %93 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %81, i64 noundef %92)
   br label %94
 
 94:                                               ; preds = %91, %89
-  %95 = getelementptr inbounds nuw i8, ptr %3, i64 60
-  %96 = load i32, ptr %95, align 4
-  %.not95.i = icmp eq i32 %96, 0
-  %.088.in.in.v.i = select i1 %.not95.i, i64 88, i64 96
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 57
+  %96 = load i8, ptr %95, align 1, !range !43, !noundef !44
+  %97 = trunc nuw i8 %96 to i1
+  %.088.in.in.v.i = select i1 %97, i64 96, i64 88
   %.088.in.in.i = getelementptr inbounds nuw i8, ptr %43, i64 %.088.in.in.v.i
   %.088.in.i = load ptr, ptr %.088.in.in.i, align 8
   %.088.i = load ptr, ptr %.088.in.i, align 8
-  call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %5)
-  %97 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %97, i8 0, i64 12, i1 false)
-  %98 = load i32, ptr %79, align 8
-  %cond.i.i.i = icmp eq i32 %98, 10
-  %..i.i.i = select i1 %cond.i.i.i, i32 13, i32 0
-  br i1 %.not95.i, label %103, label %99
+  call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %5) #12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %5, i8 0, i64 13, i1 false)
+  %.not41.i.i = icmp eq ptr %3, null
+  br i1 %.not41.i.i, label %98, label %99
+
+98:                                               ; preds = %94
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.160, ptr noundef nonnull @.str.161, i32 noundef 521, ptr noundef nonnull @.str.172) #13
+  unreachable
 
 99:                                               ; preds = %94
-  %100 = load i8, ptr %72, align 8
-  %.not42.i.i = icmp eq i8 %100, 0
-  br i1 %.not42.i.i, label %103, label %101
+  %100 = load i32, ptr %79, align 8
+  %cond.i.i.i = icmp eq i32 %100, 10
+  %..i.i.i = select i1 %cond.i.i.i, i32 13, i32 0
+  br i1 %97, label %101, label %105
 
 101:                                              ; preds = %99
-  %102 = getelementptr inbounds nuw i8, ptr %43, i64 80
-  br label %107
+  %102 = load i8, ptr %72, align 8
+  %.not42.i.i = icmp eq i8 %102, 0
+  br i1 %.not42.i.i, label %105, label %103
 
-103:                                              ; preds = %99, %94
-  %104 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %105 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %106 = load i8, ptr %105, align 8
-  br label %107
+103:                                              ; preds = %101
+  %104 = getelementptr inbounds nuw i8, ptr %43, i64 80
+  br label %109
 
-107:                                              ; preds = %103, %101
-  %.033.in.i.i = phi ptr [ %23, %101 ], [ %104, %103 ]
-  %.032.i.i = phi i8 [ %100, %101 ], [ %106, %103 ]
-  %.0.in.i.i = phi ptr [ %102, %101 ], [ %67, %103 ]
+105:                                              ; preds = %101, %99
+  %106 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %107 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %108 = load i8, ptr %107, align 8
+  br label %109
+
+109:                                              ; preds = %105, %103
+  %.033.in.i.i = phi ptr [ %23, %103 ], [ %106, %105 ]
+  %.032.i.i = phi i8 [ %102, %103 ], [ %108, %105 ]
+  %.0.in.i.i = phi ptr [ %104, %103 ], [ %67, %105 ]
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
-  %108 = icmp ult i8 %.032.i.i, 6
-  br i1 %108, label %110, label %109
+  %110 = icmp ult i8 %.032.i.i, 6
+  br i1 %110, label %112, label %111
 
-109:                                              ; preds = %107
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.159, ptr noundef nonnull @.str.160, i32 noundef 544, ptr noundef nonnull @.str.173) #11
+111:                                              ; preds = %109
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.160, ptr noundef nonnull @.str.161, i32 noundef 544, ptr noundef nonnull @.str.174) #13
   unreachable
 
-110:                                              ; preds = %107
-  %111 = zext nneg i8 %.032.i.i to i32
+112:                                              ; preds = %109
+  %113 = zext nneg i8 %.032.i.i to i32
   %.033.i.i = load ptr, ptr %.033.in.i.i, align 8
-  %112 = sub nsw i32 %..i.i.i, %111
-  %113 = zext i32 %112 to i64
-  %114 = getelementptr [13 x i8], ptr %5, i64 0, i64 %113
-  %115 = zext nneg i8 %.032.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %114, ptr align 1 %.033.i.i, i64 %115, i1 false)
-  %116 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  %117 = load i32, ptr %116, align 8
-  %118 = add nsw i32 %..i.i.i, -6
-  %.not43.i.i = icmp ugt i32 %117, %118
-  br i1 %.not43.i.i, label %119, label %120
+  %114 = sub nsw i32 %..i.i.i, %113
+  %115 = zext i32 %114 to i64
+  %116 = getelementptr [13 x i8], ptr %5, i64 0, i64 %115
+  %117 = zext nneg i8 %.032.i.i to i64
+  %118 = sub nsw i64 13, %115
+  %119 = icmp ugt i32 %114, 13
+  %120 = select i1 %119, i64 0, i64 %118
+  %121 = icmp ne i64 %120, -1
+  call void @llvm.assume(i1 %121)
+  %122 = call ptr @__memcpy_chk(ptr noundef %116, ptr noundef %.033.i.i, i64 noundef range(i64 0, 4294967296) %117, i64 noundef %120) #12, !alias.scope !45
+  %123 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
+  %124 = load i32, ptr %123, align 8
+  %125 = add nsw i32 %..i.i.i, -6
+  %.not43.i.i = icmp ugt i32 %124, %125
+  br i1 %.not43.i.i, label %126, label %127
 
-119:                                              ; preds = %110
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.159, ptr noundef nonnull @.str.160, i32 noundef 548, ptr noundef nonnull @.str.174) #11
+126:                                              ; preds = %112
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.160, ptr noundef nonnull @.str.161, i32 noundef 548, ptr noundef nonnull @.str.175) #13
   unreachable
 
-120:                                              ; preds = %110
-  %121 = add nsw i32 %..i.i.i, -5
-  %122 = sub i32 %121, %117
-  %123 = zext i32 %122 to i64
-  %124 = getelementptr [13 x i8], ptr %5, i64 0, i64 %123
-  %125 = load ptr, ptr %.0.i.i, align 8
-  %126 = zext i32 %117 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %124, ptr align 1 %125, i64 %126, i1 false)
-  %127 = trunc i32 %117 to i8
-  store i8 %127, ptr %5, align 1
+127:                                              ; preds = %112
+  %128 = add nsw i32 %..i.i.i, -5
+  %129 = sub i32 %128, %124
+  %130 = zext i32 %129 to i64
+  %131 = getelementptr [13 x i8], ptr %5, i64 0, i64 %130
+  %132 = load ptr, ptr %.0.i.i, align 8
+  %133 = zext i32 %124 to i64
+  %134 = sub nsw i64 13, %130
+  %135 = icmp ugt i32 %129, 13
+  %136 = select i1 %135, i64 0, i64 %134
+  %137 = icmp ne i64 %136, -1
+  call void @llvm.assume(i1 %137)
+  %138 = call ptr @__memcpy_chk(ptr noundef %131, ptr noundef %132, i64 noundef range(i64 0, 4294967296) %133, i64 noundef %136) #12, !alias.scope !49
+  %139 = trunc i32 %124 to i8
+  store i8 %139, ptr %5, align 1
   br i1 %cond.i.i.i, label %.lr.ph.i.i, label %oscore_create_nonce.exit.i
 
-.lr.ph.i.i:                                       ; preds = %120
-  %128 = getelementptr inbounds nuw i8, ptr %43, i64 104
-  %129 = load ptr, ptr %128, align 8
-  %.pre.i = load ptr, ptr %129, align 8
-  br label %130
+.lr.ph.i.i:                                       ; preds = %127
+  %140 = getelementptr inbounds nuw i8, ptr %43, i64 104
+  %141 = load ptr, ptr %140, align 8
+  %.pre.i = load ptr, ptr %141, align 8
+  br label %142
 
-130:                                              ; preds = %130, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %130 ]
-  %131 = getelementptr [13 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i
-  %132 = load i8, ptr %131, align 1
-  %133 = getelementptr i8, ptr %.pre.i, i64 %indvars.iv.i.i
-  %134 = load i8, ptr %133, align 1
-  %135 = xor i8 %134, %132
-  %136 = getelementptr i8, ptr %6, i64 %indvars.iv.i.i
-  store i8 %135, ptr %136, align 1
+142:                                              ; preds = %142, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %142 ]
+  %143 = getelementptr [13 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i
+  %144 = load i8, ptr %143, align 1
+  %145 = getelementptr i8, ptr %.pre.i, i64 %indvars.iv.i.i
+  %146 = load i8, ptr %145, align 1
+  %147 = xor i8 %146, %144
+  %148 = getelementptr i8, ptr %6, i64 %indvars.iv.i.i
+  store i8 %147, ptr %148, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 13
-  br i1 %exitcond.not.i.i, label %oscore_create_nonce.exit.i, label %130, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %oscore_create_nonce.exit.i, label %142, !llvm.loop !53
 
-oscore_create_nonce.exit.i:                       ; preds = %130, %120
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %5)
-  call void @ccm_init_block(ptr noundef nonnull %7, i32 noundef 0, i32 noundef 0, i64 noundef 0, i32 noundef 0, i8 noundef zeroext 0, i32 noundef 0, ptr noundef nonnull %6) #9
-  %137 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %138 = load ptr, ptr %137, align 8
-  %139 = sext i32 %.087.i to i64
-  %140 = call ptr @tvb_memdup(ptr noundef %138, ptr noundef %0, i32 noundef 0, i64 noundef %139) #9
-  %141 = call i32 @ccm_ctr_encrypt(ptr noundef %.088.i, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %140, i32 noundef %.087.i) #9
-  %142 = icmp eq i32 %141, 0
-  br i1 %142, label %oscore_decrypt_and_verify.exit.thread73, label %145
+oscore_create_nonce.exit.i:                       ; preds = %142, %127
+  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %5) #12
+  call void @ccm_init_block(ptr noundef nonnull %7, i1 noundef zeroext false, i32 noundef 0, i64 noundef 0, i32 noundef 0, i8 noundef zeroext 0, i32 noundef 0, ptr noundef nonnull %6)
+  %149 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %150 = load ptr, ptr %149, align 8
+  %151 = sext i32 %.087.i to i64
+  %152 = call ptr @tvb_memdup(ptr noundef %150, ptr noundef %0, i32 noundef 0, i64 noundef %151)
+  %153 = call zeroext i1 @ccm_ctr_encrypt(ptr noundef %.088.i, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %152, i32 noundef %.087.i)
+  br i1 %153, label %156, label %oscore_decrypt_and_verify.exit.thread72
 
-oscore_decrypt_and_verify.exit.thread73:          ; preds = %oscore_create_nonce.exit.i
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 37, ptr nonnull %11)
-  %143 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %22, ptr noundef nonnull @ei_oscore_decrypt_error) #9
-  %144 = call i32 @tvb_reported_length(ptr noundef %0) #9
-  br label %248
+oscore_decrypt_and_verify.exit.thread72:          ; preds = %oscore_create_nonce.exit.i
+  call void @llvm.lifetime.end.p0(i64 37, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %6) #12
+  %154 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %22, ptr noundef nonnull @ei_oscore_decrypt_error)
+  %155 = call i32 @tvb_reported_length(ptr noundef %0)
+  br label %266
 
-145:                                              ; preds = %oscore_create_nonce.exit.i
-  %146 = call ptr @tvb_new_real_data(ptr noundef %140, i32 noundef %.087.i, i32 noundef %81) #9
-  call void @tvb_set_child_real_data_tvbuff(ptr noundef %0, ptr noundef %146) #9
-  call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %146, ptr noundef nonnull @.str.165) #9
-  br i1 %.not94.i, label %oscore_decrypt_and_verify.exit.thread82, label %148
+156:                                              ; preds = %oscore_create_nonce.exit.i
+  %157 = call ptr @tvb_new_real_data(ptr noundef %152, i32 noundef %.087.i, i32 noundef %81)
+  call void @tvb_set_child_real_data_tvbuff(ptr noundef %0, ptr noundef %157)
+  call void @add_new_data_source(ptr noundef %1, ptr noundef %157, ptr noundef nonnull @.str.166)
+  br i1 %90, label %159, label %oscore_decrypt_and_verify.exit.thread81
 
-oscore_decrypt_and_verify.exit.thread82:          ; preds = %145
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 37, ptr nonnull %11)
-  %147 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %22, ptr noundef nonnull @ei_oscore_truncated) #9
-  br label %229
+oscore_decrypt_and_verify.exit.thread81:          ; preds = %156
+  call void @llvm.lifetime.end.p0(i64 37, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %6) #12
+  %158 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %22, ptr noundef nonnull @ei_oscore_truncated)
+  br label %247
 
-148:                                              ; preds = %145
+159:                                              ; preds = %156
   store i8 -123, ptr %10, align 16
-  %149 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  store i8 1, ptr %149, align 1
-  %150 = getelementptr inbounds nuw i8, ptr %10, i64 2
-  store i8 -127, ptr %150, align 2
-  %151 = getelementptr inbounds nuw i8, ptr %10, i64 3
-  %152 = load i32, ptr %79, align 8
-  %153 = trunc i32 %152 to i8
-  %154 = icmp ugt i8 %153, 23
-  br i1 %154, label %155, label %cborencoder_put_unsigned.exit.i
+  %160 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  store i8 1, ptr %160, align 1
+  %161 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  store i8 -127, ptr %161, align 2
+  %162 = getelementptr inbounds nuw i8, ptr %10, i64 3
+  %163 = load i32, ptr %79, align 8
+  %164 = trunc i32 %163 to i8
+  %165 = icmp ugt i8 %164, 23
+  br i1 %165, label %166, label %cborencoder_put_unsigned.exit.i
 
-155:                                              ; preds = %148
-  %156 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i8 %153, ptr %156, align 4
+166:                                              ; preds = %159
+  %167 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  store i8 %164, ptr %167, align 4
   br label %cborencoder_put_unsigned.exit.i
 
-cborencoder_put_unsigned.exit.i:                  ; preds = %155, %148
-  %.sink.i.i = phi i8 [ 24, %155 ], [ %153, %148 ]
-  %.0.i103.i = phi i8 [ 5, %155 ], [ 4, %148 ]
-  store i8 %.sink.i.i, ptr %151, align 1
-  %157 = zext nneg i8 %.0.i103.i to i64
-  %158 = getelementptr [23 x i8], ptr %10, i64 0, i64 %157
-  %159 = load ptr, ptr %3, align 8
-  %160 = load i8, ptr %35, align 8
-  %161 = icmp ugt i8 %160, 23
-  br i1 %161, label %162, label %164
+cborencoder_put_unsigned.exit.i:                  ; preds = %166, %159
+  %.sink.i.i = phi i8 [ 24, %166 ], [ %164, %159 ]
+  %.0.i99.i = phi i8 [ 5, %166 ], [ 4, %159 ]
+  store i8 %.sink.i.i, ptr %162, align 1
+  %168 = zext nneg i8 %.0.i99.i to i64
+  %169 = getelementptr [23 x i8], ptr %10, i64 0, i64 %168
+  %170 = load ptr, ptr %3, align 8
+  %171 = load i8, ptr %35, align 8
+  %172 = icmp ugt i8 %171, 23
+  br i1 %172, label %173, label %175
 
-162:                                              ; preds = %cborencoder_put_unsigned.exit.i
-  %163 = getelementptr i8, ptr %158, i64 1
-  store i8 %160, ptr %163, align 1
-  br label %166
+173:                                              ; preds = %cborencoder_put_unsigned.exit.i
+  %174 = getelementptr i8, ptr %169, i64 1
+  store i8 %171, ptr %174, align 1
+  br label %177
 
-164:                                              ; preds = %cborencoder_put_unsigned.exit.i
-  %165 = or disjoint i8 %160, 64
-  br label %166
+175:                                              ; preds = %cborencoder_put_unsigned.exit.i
+  %176 = or disjoint i8 %171, 64
+  br label %177
 
-166:                                              ; preds = %164, %162
-  %.sink.i104.i = phi i8 [ 88, %162 ], [ %165, %164 ]
-  %.0.i105.i = phi i8 [ 2, %162 ], [ 1, %164 ]
-  store i8 %.sink.i104.i, ptr %158, align 1
-  %167 = icmp ne i8 %160, 0
-  %168 = icmp ne ptr %159, null
-  %or.cond.i.i = and i1 %168, %167
-  br i1 %or.cond.i.i, label %169, label %cborencoder_put_bytes.exit.i
+177:                                              ; preds = %175, %173
+  %.sink.i100.i = phi i8 [ 88, %173 ], [ %176, %175 ]
+  %.0.i101.i = phi i8 [ 2, %173 ], [ 1, %175 ]
+  store i8 %.sink.i100.i, ptr %169, align 1
+  %178 = icmp ne i8 %171, 0
+  %179 = icmp ne ptr %170, null
+  %or.cond.i.i = and i1 %179, %178
+  br i1 %or.cond.i.i, label %180, label %cborencoder_put_bytes.exit.i
 
-169:                                              ; preds = %166
-  %170 = zext nneg i8 %.0.i105.i to i64
-  %171 = getelementptr i8, ptr %158, i64 %170
-  %172 = zext i8 %160 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %171, ptr nonnull readonly align 1 %159, i64 %172, i1 false)
-  %173 = add i8 %.0.i105.i, %160
+180:                                              ; preds = %177
+  %181 = zext nneg i8 %.0.i101.i to i64
+  %182 = getelementptr i8, ptr %169, i64 %181
+  %183 = zext i8 %171 to i64
+  %184 = add nuw nsw i64 %168, %181
+  %185 = sub nuw nsw i64 23, %184
+  %186 = call ptr @__memcpy_chk(ptr noundef %182, ptr noundef nonnull readonly %170, i64 noundef range(i64 0, 4294967296) %183, i64 noundef %185) #12, !alias.scope !54
+  %187 = add i8 %.0.i101.i, %171
   br label %cborencoder_put_bytes.exit.i
 
-cborencoder_put_bytes.exit.i:                     ; preds = %169, %166
-  %.1.i.i = phi i8 [ %173, %169 ], [ %.0.i105.i, %166 ]
-  %174 = add i8 %.1.i.i, %.0.i103.i
-  %175 = zext i8 %174 to i64
-  %176 = getelementptr [23 x i8], ptr %10, i64 0, i64 %175
-  %177 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %180 = load i8, ptr %179, align 8
-  %181 = icmp ugt i8 %180, 23
-  br i1 %181, label %182, label %184
+cborencoder_put_bytes.exit.i:                     ; preds = %180, %177
+  %.1.i.i = phi i8 [ %187, %180 ], [ %.0.i101.i, %177 ]
+  %188 = add i8 %.1.i.i, %.0.i99.i
+  %189 = zext i8 %188 to i64
+  %190 = getelementptr [23 x i8], ptr %10, i64 0, i64 %189
+  %191 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %192 = load ptr, ptr %191, align 8
+  %193 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %194 = load i8, ptr %193, align 8
+  %195 = icmp ugt i8 %194, 23
+  br i1 %195, label %196, label %198
 
-182:                                              ; preds = %cborencoder_put_bytes.exit.i
-  %183 = getelementptr i8, ptr %176, i64 1
-  store i8 %180, ptr %183, align 1
-  br label %186
+196:                                              ; preds = %cborencoder_put_bytes.exit.i
+  %197 = getelementptr i8, ptr %190, i64 1
+  store i8 %194, ptr %197, align 1
+  br label %200
 
-184:                                              ; preds = %cborencoder_put_bytes.exit.i
-  %185 = or disjoint i8 %180, 64
-  br label %186
+198:                                              ; preds = %cborencoder_put_bytes.exit.i
+  %199 = or disjoint i8 %194, 64
+  br label %200
 
-186:                                              ; preds = %184, %182
-  %.sink.i106.i = phi i8 [ 88, %182 ], [ %185, %184 ]
-  %.0.i107.i = phi i8 [ 2, %182 ], [ 1, %184 ]
-  store i8 %.sink.i106.i, ptr %176, align 1
-  %187 = icmp ne i8 %180, 0
-  %188 = icmp ne ptr %178, null
-  %or.cond.i108.i = and i1 %188, %187
-  br i1 %or.cond.i108.i, label %189, label %cborencoder_put_bytes.exit110.i
+200:                                              ; preds = %198, %196
+  %.sink.i102.i = phi i8 [ 88, %196 ], [ %199, %198 ]
+  %.0.i103.i = phi i8 [ 2, %196 ], [ 1, %198 ]
+  store i8 %.sink.i102.i, ptr %190, align 1
+  %201 = icmp ne i8 %194, 0
+  %202 = icmp ne ptr %192, null
+  %or.cond.i104.i = and i1 %202, %201
+  br i1 %or.cond.i104.i, label %203, label %cborencoder_put_bytes.exit106.i
 
-189:                                              ; preds = %186
-  %190 = zext nneg i8 %.0.i107.i to i64
-  %191 = getelementptr i8, ptr %176, i64 %190
-  %192 = zext i8 %180 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %191, ptr nonnull readonly align 1 %178, i64 %192, i1 false)
-  %193 = add i8 %.0.i107.i, %180
-  br label %cborencoder_put_bytes.exit110.i
+203:                                              ; preds = %200
+  %204 = zext nneg i8 %.0.i103.i to i64
+  %205 = add nuw nsw i64 %204, %189
+  %206 = getelementptr i8, ptr %190, i64 %204
+  %207 = zext i8 %194 to i64
+  %208 = call i64 @llvm.usub.sat.i64(i64 23, i64 %205)
+  %209 = call ptr @__memcpy_chk(ptr noundef %206, ptr noundef nonnull readonly %192, i64 noundef range(i64 0, 4294967296) %207, i64 noundef %208) #12, !alias.scope !58
+  %210 = add i8 %.0.i103.i, %194
+  br label %cborencoder_put_bytes.exit106.i
 
-cborencoder_put_bytes.exit110.i:                  ; preds = %189, %186
-  %.1.i109.i = phi i8 [ %193, %189 ], [ %.0.i107.i, %186 ]
-  %194 = add i8 %.1.i109.i, %174
-  %195 = zext i8 %194 to i64
-  %196 = getelementptr [23 x i8], ptr %10, i64 0, i64 %195
-  store i8 64, ptr %196, align 1
-  %197 = add i8 %194, 1
-  %198 = icmp ult i8 %197, 23
-  br i1 %198, label %200, label %199
+cborencoder_put_bytes.exit106.i:                  ; preds = %203, %200
+  %.1.i105.i = phi i8 [ %210, %203 ], [ %.0.i103.i, %200 ]
+  %211 = add i8 %.1.i105.i, %188
+  %212 = zext i8 %211 to i64
+  %213 = getelementptr [23 x i8], ptr %10, i64 0, i64 %212
+  store i8 64, ptr %213, align 1
+  %214 = add i8 %211, 1
+  %215 = icmp ult i8 %214, 23
+  br i1 %215, label %217, label %216
 
-199:                                              ; preds = %cborencoder_put_bytes.exit110.i
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.159, ptr noundef nonnull @.str.160, i32 noundef 664, ptr noundef nonnull @.str.166) #11
+216:                                              ; preds = %cborencoder_put_bytes.exit106.i
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.160, ptr noundef nonnull @.str.161, i32 noundef 664, ptr noundef nonnull @.str.167) #13
   unreachable
 
-200:                                              ; preds = %cborencoder_put_bytes.exit110.i
+217:                                              ; preds = %cborencoder_put_bytes.exit106.i
   store i8 -125, ptr %11, align 16
-  %201 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  store i8 104, ptr %201, align 1
-  %202 = getelementptr inbounds nuw i8, ptr %11, i64 2
-  store i64 3491539278031449669, ptr %202, align 2
-  %203 = getelementptr inbounds nuw i8, ptr %11, i64 10
-  store i8 64, ptr %203, align 2
-  %204 = getelementptr inbounds nuw i8, ptr %11, i64 11
-  %205 = or disjoint i8 %197, 64
-  store i8 %205, ptr %204, align 1
-  %.not124.i = icmp eq i8 %197, 0
-  br i1 %.not124.i, label %cborencoder_put_bytes.exit122.i, label %206
+  %218 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  store i8 104, ptr %218, align 1
+  %219 = getelementptr inbounds nuw i8, ptr %11, i64 2
+  store i64 3491539278031449669, ptr %219, align 2
+  %220 = getelementptr inbounds nuw i8, ptr %11, i64 10
+  store i8 64, ptr %220, align 2
+  %221 = getelementptr inbounds nuw i8, ptr %11, i64 11
+  %222 = or disjoint i8 %214, 64
+  store i8 %222, ptr %221, align 1
+  %.not119.i = icmp eq i8 %214, 0
+  br i1 %.not119.i, label %cborencoder_put_bytes.exit118.i, label %223
 
-206:                                              ; preds = %200
-  %207 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %208 = zext nneg i8 %197 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %207, ptr nonnull readonly align 16 %10, i64 %208, i1 false)
-  %209 = add nuw nsw i8 %194, 13
-  %210 = zext nneg i8 %209 to i32
-  br label %cborencoder_put_bytes.exit122.i
+223:                                              ; preds = %217
+  %224 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %225 = zext nneg i8 %214 to i64
+  %226 = call ptr @__memcpy_chk(ptr noundef nonnull %224, ptr noundef nonnull readonly %10, i64 noundef range(i64 0, 4294967296) %225, i64 noundef 25) #12, !alias.scope !62
+  %227 = add nuw nsw i8 %211, 13
+  %228 = zext nneg i8 %227 to i32
+  br label %cborencoder_put_bytes.exit118.i
 
-cborencoder_put_bytes.exit122.i:                  ; preds = %206, %200
-  %.1.i121.i = phi i32 [ %210, %206 ], [ 12, %200 ]
-  call void @ccm_init_block(ptr noundef nonnull %7, i32 noundef 1, i32 noundef %..i.i, i64 noundef 0, i32 noundef 0, i8 noundef zeroext 0, i32 noundef %.087.i, ptr noundef nonnull %6) #9
-  %211 = call i32 @ccm_cbc_mac(ptr noundef %.088.i, ptr noundef nonnull %7, ptr noundef nonnull %11, i32 noundef %.1.i121.i, ptr noundef %140, i32 noundef %.087.i, ptr noundef nonnull %9) #9
-  %.not99.i = icmp eq i32 %211, 0
-  br i1 %.not99.i, label %oscore_decrypt_and_verify.exit.thread76, label %214
+cborencoder_put_bytes.exit118.i:                  ; preds = %223, %217
+  %.1.i117.i = phi i32 [ %228, %223 ], [ 12, %217 ]
+  call void @ccm_init_block(ptr noundef nonnull %7, i1 noundef zeroext true, i32 noundef %..i.i, i64 noundef 0, i32 noundef 0, i8 noundef zeroext 0, i32 noundef %.087.i, ptr noundef nonnull %6)
+  %229 = call zeroext i1 @ccm_cbc_mac(ptr noundef %.088.i, ptr noundef nonnull %7, ptr noundef nonnull %11, i32 noundef %.1.i117.i, ptr noundef %152, i32 noundef %.087.i, ptr noundef nonnull %9)
+  br i1 %229, label %232, label %oscore_decrypt_and_verify.exit.thread75
 
-oscore_decrypt_and_verify.exit.thread76:          ; preds = %cborencoder_put_bytes.exit122.i
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 37, ptr nonnull %11)
-  %212 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %22, ptr noundef nonnull @ei_oscore_cbc_mac_failed) #9
-  %213 = call i32 @tvb_reported_length(ptr noundef %0) #9
-  br label %248
+oscore_decrypt_and_verify.exit.thread75:          ; preds = %cborencoder_put_bytes.exit118.i
+  call void @llvm.lifetime.end.p0(i64 37, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %6) #12
+  %230 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %22, ptr noundef nonnull @ei_oscore_cbc_mac_failed)
+  %231 = call i32 @tvb_reported_length(ptr noundef %0)
+  br label %266
 
-214:                                              ; preds = %cborencoder_put_bytes.exit122.i
-  %215 = zext nneg i32 %..i.i to i64
-  %bcmp.i62 = call i32 @bcmp(ptr nonnull %9, ptr nonnull %8, i64 %215)
-  %.not100.i = icmp ne i32 %bcmp.i62, 0
-  %brmerge.i = or i1 %cond.i.not.i, %.not100.i
-  br i1 %brmerge.i, label %oscore_decrypt_and_verify.exit, label %216
+232:                                              ; preds = %cborencoder_put_bytes.exit118.i
+  %233 = zext nneg i32 %..i.i to i64
+  %bcmp.i61 = call i32 @bcmp(ptr nonnull %9, ptr nonnull %8, i64 %233)
+  %.not.i62 = icmp ne i32 %bcmp.i61, 0
+  %brmerge.i = or i1 %cond.i.not.i, %.not.i62
+  br i1 %brmerge.i, label %oscore_decrypt_and_verify.exit, label %234
 
-216:                                              ; preds = %214
-  %217 = load i32, ptr @hf_oscore_tag, align 4
-  %218 = call ptr @proto_tree_add_bytes(ptr noundef %22, i32 noundef %217, ptr noundef %0, i32 noundef %.087.i, i32 noundef 8, ptr noundef nonnull %8) #9
-  %.not.i123.i = icmp eq ptr %218, null
-  br i1 %.not.i123.i, label %oscore_decrypt_and_verify.exit.thread, label %219
+234:                                              ; preds = %232
+  %235 = load i32, ptr @hf_oscore_tag, align 4
+  %236 = call ptr @proto_tree_add_bytes(ptr noundef %22, i32 noundef %235, ptr noundef %0, i32 noundef %.087.i, i32 noundef 8, ptr noundef nonnull %8)
+  %.not.i.i = icmp eq ptr %236, null
+  br i1 %.not.i.i, label %oscore_decrypt_and_verify.exit.thread, label %237
 
-219:                                              ; preds = %216
-  %220 = getelementptr inbounds nuw i8, ptr %218, i64 32
-  %221 = load ptr, ptr %220, align 8
-  %.not5.i.i = icmp eq ptr %221, null
-  br i1 %.not5.i.i, label %oscore_decrypt_and_verify.exit.thread, label %222
+237:                                              ; preds = %234
+  %238 = getelementptr inbounds nuw i8, ptr %236, i64 40
+  %239 = load ptr, ptr %238, align 8
+  %.not5.i.i = icmp eq ptr %239, null
+  br i1 %.not5.i.i, label %oscore_decrypt_and_verify.exit.thread, label %240
 
-222:                                              ; preds = %219
-  %223 = getelementptr inbounds nuw i8, ptr %221, i64 28
-  %224 = load i32, ptr %223, align 4
-  %225 = or i32 %224, 2
-  store i32 %225, ptr %223, align 4
+240:                                              ; preds = %237
+  %241 = getelementptr inbounds nuw i8, ptr %239, i64 28
+  %242 = load i32, ptr %241, align 4
+  %243 = or i32 %242, 2
+  store i32 %243, ptr %241, align 4
   br label %oscore_decrypt_and_verify.exit.thread
 
-oscore_decrypt_and_verify.exit.thread:            ; preds = %216, %219, %222
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 37, ptr nonnull %11)
-  br label %229
+oscore_decrypt_and_verify.exit.thread:            ; preds = %234, %237, %240
+  call void @llvm.lifetime.end.p0(i64 37, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %6) #12
+  br label %247
 
-oscore_decrypt_and_verify.exit:                   ; preds = %214
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 37, ptr nonnull %11)
-  br i1 %.not100.i, label %226, label %229
+oscore_decrypt_and_verify.exit:                   ; preds = %232
+  call void @llvm.lifetime.end.p0(i64 37, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %6) #12
+  br i1 %.not.i62, label %244, label %247
 
-226:                                              ; preds = %oscore_decrypt_and_verify.exit
-  %227 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %22, ptr noundef nonnull @ei_oscore_tag_check_failed) #9
-  %228 = call i32 @tvb_reported_length(ptr noundef %0) #9
-  br label %248
+244:                                              ; preds = %oscore_decrypt_and_verify.exit
+  %245 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %22, ptr noundef nonnull @ei_oscore_tag_check_failed)
+  %246 = call i32 @tvb_reported_length(ptr noundef %0)
+  br label %266
 
-229:                                              ; preds = %oscore_decrypt_and_verify.exit, %oscore_decrypt_and_verify.exit.thread, %oscore_decrypt_and_verify.exit.thread82
-  %.not = icmp eq ptr %146, null
-  br i1 %.not, label %230, label %231
+247:                                              ; preds = %oscore_decrypt_and_verify.exit, %oscore_decrypt_and_verify.exit.thread, %oscore_decrypt_and_verify.exit.thread81
+  %.not = icmp eq ptr %157, null
+  br i1 %.not, label %248, label %249
 
-230:                                              ; preds = %229
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.159, ptr noundef nonnull @.str.160, i32 noundef 775, ptr noundef nonnull @.str.162) #11
+248:                                              ; preds = %247
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.160, ptr noundef nonnull @.str.161, i32 noundef 775, ptr noundef nonnull @.str.163) #13
   unreachable
 
-231:                                              ; preds = %229
-  %232 = call i32 @tvb_reported_length(ptr noundef nonnull %146) #9
-  %233 = call ptr @wmem_file_scope() #9
-  %234 = load i32, ptr @proto_coap, align 4
-  %235 = call ptr @p_get_proto_data(ptr noundef %233, ptr noundef nonnull %1, i32 noundef %234, i32 noundef 0) #9
-  %.not60 = icmp eq ptr %235, null
-  br i1 %.not60, label %244, label %236
+249:                                              ; preds = %247
+  %250 = call i32 @tvb_reported_length(ptr noundef nonnull %157)
+  %251 = call ptr @wmem_file_scope()
+  %252 = load i32, ptr @proto_coap, align 4
+  %253 = call ptr @p_get_proto_data(ptr noundef %251, ptr noundef %1, i32 noundef %252, i32 noundef 0)
+  %.not60 = icmp eq ptr %253, null
+  br i1 %.not60, label %262, label %254
 
-236:                                              ; preds = %231
-  %237 = call zeroext i8 @dissect_coap_code(ptr noundef nonnull %146, ptr noundef %22, ptr noundef nonnull %12, ptr noundef nonnull @dissect_oscore_hf, ptr noundef nonnull %13) #9
-  %238 = load i32, ptr %12, align 4
-  %239 = load i8, ptr %13, align 1
-  %240 = call i32 @dissect_coap_options(ptr noundef nonnull %146, ptr noundef nonnull %1, ptr noundef %22, i32 noundef %238, i32 noundef %232, i8 noundef zeroext %239, ptr noundef nonnull %235, ptr noundef nonnull @dissect_oscore_hf) #9
-  store i32 %240, ptr %12, align 4
-  %241 = icmp sgt i32 %232, %240
-  br i1 %241, label %242, label %246
+254:                                              ; preds = %249
+  %255 = call zeroext i8 @dissect_coap_code(ptr noundef nonnull %157, ptr noundef %22, ptr noundef nonnull %12, ptr noundef nonnull @dissect_oscore_hf, ptr noundef nonnull %13)
+  %256 = load i32, ptr %12, align 4
+  %257 = load i8, ptr %13, align 1
+  %258 = call i32 @dissect_coap_options(ptr noundef nonnull %157, ptr noundef %1, ptr noundef %22, i32 noundef %256, i32 noundef %250, i8 noundef zeroext %257, ptr noundef nonnull %253, ptr noundef nonnull @dissect_oscore_hf)
+  store i32 %258, ptr %12, align 4
+  %259 = icmp sgt i32 %250, %258
+  br i1 %259, label %260, label %264
 
-242:                                              ; preds = %236
-  %243 = load i8, ptr %13, align 1
-  call void @dissect_coap_payload(ptr noundef nonnull %146, ptr noundef nonnull %1, ptr noundef %22, ptr noundef %2, i32 noundef %240, i32 noundef %232, i8 noundef zeroext %243, ptr noundef nonnull %235, ptr noundef nonnull @dissect_oscore_hf, i32 noundef 1) #9
-  br label %246
+260:                                              ; preds = %254
+  %261 = load i8, ptr %13, align 1
+  call void @dissect_coap_payload(ptr noundef nonnull %157, ptr noundef %1, ptr noundef %22, ptr noundef %2, i32 noundef %258, i32 noundef %250, i8 noundef zeroext %261, ptr noundef nonnull %253, ptr noundef nonnull @dissect_oscore_hf, i1 noundef zeroext true)
+  br label %264
 
-244:                                              ; preds = %231
-  %245 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %22, ptr noundef nonnull @ei_oscore_info_fetch_failed) #9
-  br label %246
+262:                                              ; preds = %249
+  %263 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %22, ptr noundef nonnull @ei_oscore_info_fetch_failed)
+  br label %264
 
-246:                                              ; preds = %236, %242, %244
-  %247 = call i32 @tvb_captured_length(ptr noundef %0) #9
-  br label %248
+264:                                              ; preds = %254, %260, %262
+  %265 = call i32 @tvb_captured_length(ptr noundef %0)
+  br label %266
 
-248:                                              ; preds = %4, %246, %oscore_decrypt_and_verify.exit.thread79, %226, %oscore_decrypt_and_verify.exit.thread76, %oscore_decrypt_and_verify.exit.thread73, %75, %oscore_find_context.exit.thread, %30
-  %.0 = phi i32 [ %32, %30 ], [ %70, %oscore_find_context.exit.thread ], [ %77, %75 ], [ %247, %246 ], [ %84, %oscore_decrypt_and_verify.exit.thread79 ], [ %228, %226 ], [ %213, %oscore_decrypt_and_verify.exit.thread76 ], [ %144, %oscore_decrypt_and_verify.exit.thread73 ], [ 0, %4 ]
+266:                                              ; preds = %4, %264, %oscore_decrypt_and_verify.exit.thread78, %244, %oscore_decrypt_and_verify.exit.thread75, %oscore_decrypt_and_verify.exit.thread72, %75, %oscore_find_context.exit.thread, %30
+  %.0 = phi i32 [ %32, %30 ], [ %70, %oscore_find_context.exit.thread ], [ %77, %75 ], [ %265, %264 ], [ %84, %oscore_decrypt_and_verify.exit.thread78 ], [ %246, %244 ], [ %231, %oscore_decrypt_and_verify.exit.thread75 ], [ %155, %oscore_decrypt_and_verify.exit.thread72 ], [ 0, %4 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
   ret i32 %.0
 }
 
-declare i32 @proto_get_id_by_short_name(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_get_id_by_short_name(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @proto_reg_handoff_oscore() local_unnamed_addr #2 {
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
+define hidden void @proto_reg_handoff_oscore() local_unnamed_addr #3 {
   ret void
 }
 
-declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @g_free(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @g_free(ptr noundef) local_unnamed_addr #2
 
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
-declare i32 @g_str_equal(ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_str_equal(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @g_byte_array_new() local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_byte_array_new() local_unnamed_addr #2
 
-declare i32 @hex_str_to_bytes(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @hex_str_to_bytes(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare ptr @g_byte_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_byte_array_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @oscore_context_free_byte_arrays(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
@@ -1754,7 +1817,7 @@ define internal fastcc void @oscore_context_free_byte_arrays(ptr noundef readonl
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @g_byte_array_free(ptr noundef nonnull %3, i32 noundef 1) #9
+  %5 = tail call ptr @g_byte_array_free(ptr noundef nonnull %3, i32 noundef 1)
   br label %6
 
 6:                                                ; preds = %4, %1
@@ -1764,7 +1827,7 @@ define internal fastcc void @oscore_context_free_byte_arrays(ptr noundef readonl
   br i1 %.not23, label %11, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @g_byte_array_free(ptr noundef nonnull %8, i32 noundef 1) #9
+  %10 = tail call ptr @g_byte_array_free(ptr noundef nonnull %8, i32 noundef 1)
   br label %11
 
 11:                                               ; preds = %9, %6
@@ -1774,7 +1837,7 @@ define internal fastcc void @oscore_context_free_byte_arrays(ptr noundef readonl
   br i1 %.not24, label %16, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call ptr @g_byte_array_free(ptr noundef nonnull %13, i32 noundef 1) #9
+  %15 = tail call ptr @g_byte_array_free(ptr noundef nonnull %13, i32 noundef 1)
   br label %16
 
 16:                                               ; preds = %14, %11
@@ -1784,7 +1847,7 @@ define internal fastcc void @oscore_context_free_byte_arrays(ptr noundef readonl
   br i1 %.not25, label %21, label %19
 
 19:                                               ; preds = %16
-  %20 = tail call ptr @g_byte_array_free(ptr noundef nonnull %18, i32 noundef 1) #9
+  %20 = tail call ptr @g_byte_array_free(ptr noundef nonnull %18, i32 noundef 1)
   br label %21
 
 21:                                               ; preds = %19, %16
@@ -1794,7 +1857,7 @@ define internal fastcc void @oscore_context_free_byte_arrays(ptr noundef readonl
   br i1 %.not26, label %26, label %24
 
 24:                                               ; preds = %21
-  %25 = tail call ptr @g_byte_array_free(ptr noundef nonnull %23, i32 noundef 1) #9
+  %25 = tail call ptr @g_byte_array_free(ptr noundef nonnull %23, i32 noundef 1)
   br label %26
 
 26:                                               ; preds = %24, %21
@@ -1804,7 +1867,7 @@ define internal fastcc void @oscore_context_free_byte_arrays(ptr noundef readonl
   br i1 %.not27, label %31, label %29
 
 29:                                               ; preds = %26
-  %30 = tail call ptr @g_byte_array_free(ptr noundef nonnull %28, i32 noundef 1) #9
+  %30 = tail call ptr @g_byte_array_free(ptr noundef nonnull %28, i32 noundef 1)
   br label %31
 
 31:                                               ; preds = %29, %26
@@ -1814,7 +1877,7 @@ define internal fastcc void @oscore_context_free_byte_arrays(ptr noundef readonl
   br i1 %.not28, label %36, label %34
 
 34:                                               ; preds = %31
-  %35 = tail call ptr @g_byte_array_free(ptr noundef nonnull %33, i32 noundef 1) #9
+  %35 = tail call ptr @g_byte_array_free(ptr noundef nonnull %33, i32 noundef 1)
   br label %36
 
 36:                                               ; preds = %34, %31
@@ -1824,109 +1887,195 @@ define internal fastcc void @oscore_context_free_byte_arrays(ptr noundef readonl
   br i1 %.not29, label %41, label %39
 
 39:                                               ; preds = %36
-  %40 = tail call ptr @g_byte_array_free(ptr noundef nonnull %38, i32 noundef 1) #9
+  %40 = tail call ptr @g_byte_array_free(ptr noundef nonnull %38, i32 noundef 1)
   br label %41
 
 41:                                               ; preds = %39, %36
   ret void
 }
 
-declare ptr @g_byte_array_sized_new(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_byte_array_sized_new(i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: noreturn
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #4
+; Function Attrs: noreturn null_pointer_is_valid
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #5
 
-declare ptr @g_byte_array_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_byte_array_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @g_byte_array_set_size(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_byte_array_set_size(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @hkdf_expand(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @hkdf_expand(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @ws_hmac_buffer(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @ws_hmac_buffer(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+; Function Attrs: nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
+declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #6
 
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @wmem_file_scope() local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_file_scope() local_unnamed_addr #2
 
-declare zeroext i8 @dissect_coap_code(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @dissect_coap_code(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @dissect_coap_options(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_coap_options(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @dissect_coap_payload(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissect_coap_payload(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @ccm_init_block(ptr noundef, i32 noundef, i32 noundef, i64 noundef, i32 noundef, i8 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @ccm_init_block(ptr noundef, i1 noundef zeroext, i32 noundef, i64 noundef, i32 noundef, i8 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @tvb_memdup(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_memdup(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @ccm_ctr_encrypt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @ccm_ctr_encrypt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @tvb_new_real_data(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_real_data(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @tvb_set_child_real_data_tvbuff(ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @tvb_set_child_real_data_tvbuff(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @ccm_cbc_mac(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @ccm_cbc_mac(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_bytes(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bytes(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #9
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #10
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { noreturn nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = !{!10, !12}
+!10 = distinct !{!10, !11, !"memcpy.inline: argument 0"}
+!11 = distinct !{!11, !"memcpy.inline"}
+!12 = distinct !{!12, !11, !"memcpy.inline: argument 1"}
+!13 = !{!14, !16}
+!14 = distinct !{!14, !15, !"memcpy.inline: argument 0"}
+!15 = distinct !{!15, !"memcpy.inline"}
+!16 = distinct !{!16, !15, !"memcpy.inline: argument 1"}
+!17 = !{!18, !20}
+!18 = distinct !{!18, !19, !"memcpy.inline: argument 0"}
+!19 = distinct !{!19, !"memcpy.inline"}
+!20 = distinct !{!20, !19, !"memcpy.inline: argument 1"}
+!21 = !{!22, !24}
+!22 = distinct !{!22, !23, !"memcpy.inline: argument 0"}
+!23 = distinct !{!23, !"memcpy.inline"}
+!24 = distinct !{!24, !23, !"memcpy.inline: argument 1"}
+!25 = !{!26, !28}
+!26 = distinct !{!26, !27, !"memcpy.inline: argument 0"}
+!27 = distinct !{!27, !"memcpy.inline"}
+!28 = distinct !{!28, !27, !"memcpy.inline: argument 1"}
+!29 = !{!30, !32}
+!30 = distinct !{!30, !31, !"memcpy.inline: argument 0"}
+!31 = distinct !{!31, !"memcpy.inline"}
+!32 = distinct !{!32, !31, !"memcpy.inline: argument 1"}
+!33 = !{!34, !36}
+!34 = distinct !{!34, !35, !"memcpy.inline: argument 0"}
+!35 = distinct !{!35, !"memcpy.inline"}
+!36 = distinct !{!36, !35, !"memcpy.inline: argument 1"}
+!37 = !{!38, !40}
+!38 = distinct !{!38, !39, !"memcpy.inline: argument 0"}
+!39 = distinct !{!39, !"memcpy.inline"}
+!40 = distinct !{!40, !39, !"memcpy.inline: argument 1"}
+!41 = distinct !{!41, !7}
+!42 = distinct !{!42, !7}
+!43 = !{i8 0, i8 2}
+!44 = !{}
+!45 = !{!46, !48}
+!46 = distinct !{!46, !47, !"memcpy.inline: argument 0"}
+!47 = distinct !{!47, !"memcpy.inline"}
+!48 = distinct !{!48, !47, !"memcpy.inline: argument 1"}
+!49 = !{!50, !52}
+!50 = distinct !{!50, !51, !"memcpy.inline: argument 0"}
+!51 = distinct !{!51, !"memcpy.inline"}
+!52 = distinct !{!52, !51, !"memcpy.inline: argument 1"}
+!53 = distinct !{!53, !7}
+!54 = !{!55, !57}
+!55 = distinct !{!55, !56, !"memcpy.inline: argument 0"}
+!56 = distinct !{!56, !"memcpy.inline"}
+!57 = distinct !{!57, !56, !"memcpy.inline: argument 1"}
+!58 = !{!59, !61}
+!59 = distinct !{!59, !60, !"memcpy.inline: argument 0"}
+!60 = distinct !{!60, !"memcpy.inline"}
+!61 = distinct !{!61, !60, !"memcpy.inline: argument 1"}
+!62 = !{!63, !65}
+!63 = distinct !{!63, !64, !"memcpy.inline: argument 0"}
+!64 = distinct !{!64, !"memcpy.inline"}
+!65 = distinct !{!65, !64, !"memcpy.inline: argument 1"}

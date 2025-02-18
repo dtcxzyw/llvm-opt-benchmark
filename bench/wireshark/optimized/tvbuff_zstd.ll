@@ -13,23 +13,25 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [12 x i8] c"count < 100\00", align 1
 @.str.5 = private unnamed_addr constant [29 x i8] c"MAX_LOOP_ITERATIONS exceeded\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noundef ptr @tvb_uncompress_zstd(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.ZSTD_inBuffer_s, align 8
   %5 = alloca %struct.ZSTD_outBuffer_s, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #6
   %6 = sext i32 %2 to i64
-  %7 = tail call ptr @tvb_memdup(ptr noundef null, ptr noundef %0, i32 noundef %1, i64 noundef %6) #5
+  %7 = tail call ptr @tvb_memdup(ptr noundef null, ptr noundef %0, i32 noundef %1, i64 noundef %6)
   store ptr %7, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %6, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %9, align 8
-  %10 = tail call ptr @ZSTD_createDStream() #5
-  %11 = tail call i64 @ZSTD_DStreamOutSize() #5
-  %12 = tail call noalias ptr @g_malloc(i64 noundef %11) #6
+  %10 = tail call ptr @ZSTD_createDStream()
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #6
+  %11 = tail call i64 @ZSTD_DStreamOutSize()
+  %12 = tail call noalias ptr @g_malloc(i64 noundef %11) #7
   store ptr %12, ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %14 = tail call i64 @ZSTD_DStreamOutSize() #5
+  %14 = tail call i64 @ZSTD_DStreamOutSize()
   store i64 %14, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %15, align 8
@@ -41,14 +43,14 @@ define noundef ptr @tvb_uncompress_zstd(ptr noundef %0, i32 noundef %1, i32 noun
   %18 = load i64, ptr %9, align 8
   %19 = load i64, ptr %8, align 8
   %20 = icmp ult i64 %18, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !4
+  br i1 %20, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %3, %16
   %.02650 = phi i32 [ %17, %16 ], [ 0, %3 ]
   %.02849 = phi i64 [ %.1, %16 ], [ 0, %3 ]
   %.02948 = phi ptr [ %.130, %16 ], [ null, %3 ]
-  %21 = call i64 @ZSTD_decompressStream(ptr noundef %10, ptr noundef nonnull %5, ptr noundef nonnull %4) #5
-  %22 = call i32 @ZSTD_isError(i64 noundef %21) #5
+  %21 = call i64 @ZSTD_decompressStream(ptr noundef %10, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  %22 = call i32 @ZSTD_isError(i64 noundef %21)
   %.not34 = icmp eq i32 %22, 0
   br i1 %.not34, label %23, label %.critedge
 
@@ -66,16 +68,16 @@ define noundef ptr @tvb_uncompress_zstd(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %26
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 60, ptr noundef nonnull @.str.2) #7
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 60, ptr noundef nonnull @.str.2) #8
   unreachable
 
 29:                                               ; preds = %26
-  %30 = call noalias ptr @g_malloc(i64 noundef %24) #6
+  %30 = call noalias ptr @g_malloc(i64 noundef %24) #7
   br label %34
 
 31:                                               ; preds = %25
   %32 = add i64 %24, %.02849
-  %33 = call ptr @g_realloc(ptr noundef nonnull %.02948, i64 noundef %32) #5
+  %33 = call ptr @g_realloc(ptr noundef nonnull %.02948, i64 noundef %32)
   br label %34
 
 34:                                               ; preds = %31, %29
@@ -83,7 +85,7 @@ define noundef ptr @tvb_uncompress_zstd(ptr noundef %0, i32 noundef %1, i32 noun
   %35 = getelementptr i8, ptr %.2, i64 %.02849
   %36 = load ptr, ptr %5, align 8
   %37 = load i64, ptr %15, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr align 1 %36, i64 %37, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %35, ptr noundef align 1 %36, i64 noundef %37, i1 noundef false) #6
   %38 = load i64, ptr %15, align 8
   %39 = add i64 %38, %.02849
   store i64 0, ptr %15, align 8
@@ -93,10 +95,10 @@ define noundef ptr @tvb_uncompress_zstd(ptr noundef %0, i32 noundef %1, i32 noun
   %.130 = phi ptr [ %.2, %34 ], [ %.02948, %23 ]
   %.1 = phi i64 [ %39, %34 ], [ %.02849, %23 ]
   %exitcond.not = icmp eq i32 %.02650, 99
-  br i1 %exitcond.not, label %41, label %16, !llvm.loop !4
+  br i1 %exitcond.not, label %41, label %16, !llvm.loop !6
 
 41:                                               ; preds = %40
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 71, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #7
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 71, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #8
   unreachable
 
 ._crit_edge.loopexit:                             ; preds = %16
@@ -110,23 +112,23 @@ define noundef ptr @tvb_uncompress_zstd(ptr noundef %0, i32 noundef %1, i32 noun
   %.031.lcssa = phi i1 [ true, %3 ], [ %42, %._crit_edge.loopexit ]
   %.029.lcssa = phi ptr [ null, %3 ], [ %.130, %._crit_edge.loopexit ]
   %.028.lcssa = phi i32 [ 0, %3 ], [ %43, %._crit_edge.loopexit ]
-  call void @g_free(ptr noundef %44) #5
+  call void @g_free(ptr noundef %44)
   %45 = load ptr, ptr %4, align 8
-  call void @wmem_free(ptr noundef null, ptr noundef %45) #5
-  %46 = call i64 @ZSTD_freeDStream(ptr noundef %10) #5
+  call void @wmem_free(ptr noundef null, ptr noundef %45)
+  %46 = call i64 @ZSTD_freeDStream(ptr noundef %10)
   br i1 %.031.lcssa, label %47, label %52
 
 47:                                               ; preds = %._crit_edge
-  %48 = call ptr @tvb_new_real_data(ptr noundef %.029.lcssa, i32 noundef %.028.lcssa, i32 noundef %.028.lcssa) #5
-  call void @tvb_set_free_cb(ptr noundef %48, ptr noundef nonnull @g_free) #5
+  %48 = call ptr @tvb_new_real_data(ptr noundef %.029.lcssa, i32 noundef %.028.lcssa, i32 noundef %.028.lcssa)
+  call void @tvb_set_free_cb(ptr noundef %48, ptr noundef nonnull @g_free)
   br label %54
 
 .critedge:                                        ; preds = %.lr.ph
   %49 = load ptr, ptr %5, align 8
-  call void @g_free(ptr noundef %49) #5
+  call void @g_free(ptr noundef %49)
   %50 = load ptr, ptr %4, align 8
-  call void @wmem_free(ptr noundef null, ptr noundef %50) #5
-  %51 = call i64 @ZSTD_freeDStream(ptr noundef %10) #5
+  call void @wmem_free(ptr noundef null, ptr noundef %50)
+  %51 = call i64 @ZSTD_freeDStream(ptr noundef %10)
   br label %52
 
 52:                                               ; preds = %.critedge, %._crit_edge
@@ -135,75 +137,98 @@ define noundef ptr @tvb_uncompress_zstd(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %.not37, label %54, label %53
 
 53:                                               ; preds = %52
-  call void @g_free(ptr noundef nonnull %.02944) #5
+  call void @g_free(ptr noundef nonnull %.02944)
   br label %54
 
 54:                                               ; preds = %52, %53, %47
   %.0 = phi ptr [ %48, %47 ], [ null, %53 ], [ null, %52 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #6
   ret ptr %.0
 }
 
-declare ptr @tvb_memdup(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @ZSTD_createDStream() local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_memdup(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @ZSTD_createDStream() local_unnamed_addr #2
 
-declare i64 @ZSTD_DStreamOutSize() local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid allocsize(0)
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #3
 
-declare i64 @ZSTD_decompressStream(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @ZSTD_DStreamOutSize() local_unnamed_addr #2
 
-declare i32 @ZSTD_isError(i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @ZSTD_decompressStream(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: noreturn
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare i32 @ZSTD_isError(i64 noundef) local_unnamed_addr #2
 
-declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: noreturn null_pointer_is_valid
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @g_free(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @g_free(ptr noundef) #2
 
-declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @ZSTD_freeDStream(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @ZSTD_freeDStream(ptr noundef) local_unnamed_addr #2
 
-declare ptr @tvb_new_real_data(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_real_data(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @tvb_set_free_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @tvb_set_free_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noundef ptr @tvb_child_uncompress_zstd(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @tvb_uncompress_zstd(ptr noundef %1, i32 noundef %2, i32 noundef %3)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %4
-  tail call void @tvb_add_to_chain(ptr noundef %0, ptr noundef nonnull %5) #5
+  tail call void @tvb_add_to_chain(ptr noundef %0, ptr noundef nonnull %5)
   br label %7
 
 7:                                                ; preds = %4, %6
   ret ptr %5
 }
 
-declare void @tvb_add_to_chain(ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @tvb_add_to_chain(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind allocsize(0) }
-attributes #7 = { noreturn nounwind }
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind }
+attributes #7 = { allocsize(0) }
+attributes #8 = { noreturn }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

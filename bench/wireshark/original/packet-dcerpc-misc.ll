@@ -1,12 +1,13 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._value_string = type { i32, ptr }
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
+%struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 %struct._e_guid_t = type { i32, i16, i16, [8 x i8] }
 %struct._dcerpc_sub_dissector = type { i16, ptr, ptr, ptr }
-%struct._dcerpc_info = type { ptr, i32, i64, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr }
+%struct._dcerpc_info = type { ptr, i32, i64, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, %struct.anon }
+%struct.anon = type { i8, ptr, ptr, ptr, i8 }
 %struct._dcerpc_call_value = type { %struct._e_guid_t, i16, %struct._e_guid_t, i16, i32, %struct.nstime_t, i32, i32, ptr, ptr, ptr, i32 }
 %struct.nstime_t = type { i64, i32 }
 
@@ -18,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [16 x i8] c"SEC_CHAN_LANMAN\00", align 1
 @.str.6 = private unnamed_addr constant [13 x i8] c"SEC_CHAN_BDC\00", align 1
 @.str.7 = private unnamed_addr constant [14 x i8] c"SEC_CHAN_RODC\00", align 1
-@misc_netr_SchannelType_vals = hidden constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str }, %struct._value_string { i32 1, ptr @.str.1 }, %struct._value_string { i32 2, ptr @.str.2 }, %struct._value_string { i32 3, ptr @.str.3 }, %struct._value_string { i32 4, ptr @.str.4 }, %struct._value_string { i32 5, ptr @.str.5 }, %struct._value_string { i32 6, ptr @.str.6 }, %struct._value_string { i32 7, ptr @.str.7 }, %struct._value_string zeroinitializer], align 16
+@misc_netr_SchannelType_vals = hidden constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.2 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.3 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.4 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.5 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.6 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.7 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @.str.8 = private unnamed_addr constant [9 x i8] c"REG_NONE\00", align 1
 @.str.9 = private unnamed_addr constant [7 x i8] c"REG_SZ\00", align 1
 @.str.10 = private unnamed_addr constant [14 x i8] c"REG_EXPAND_SZ\00", align 1
@@ -31,62 +32,62 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.17 = private unnamed_addr constant [29 x i8] c"REG_FULL_RESOURCE_DESCRIPTOR\00", align 1
 @.str.18 = private unnamed_addr constant [31 x i8] c"REG_RESOURCE_REQUIREMENTS_LIST\00", align 1
 @.str.19 = private unnamed_addr constant [10 x i8] c"REG_QWORD\00", align 1
-@misc_winreg_Type_vals = hidden constant [13 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.8 }, %struct._value_string { i32 1, ptr @.str.9 }, %struct._value_string { i32 2, ptr @.str.10 }, %struct._value_string { i32 3, ptr @.str.11 }, %struct._value_string { i32 4, ptr @.str.12 }, %struct._value_string { i32 5, ptr @.str.13 }, %struct._value_string { i32 6, ptr @.str.14 }, %struct._value_string { i32 7, ptr @.str.15 }, %struct._value_string { i32 8, ptr @.str.16 }, %struct._value_string { i32 9, ptr @.str.17 }, %struct._value_string { i32 10, ptr @.str.18 }, %struct._value_string { i32 11, ptr @.str.19 }, %struct._value_string zeroinitializer], align 16
-@ett_misc_GUID = internal global i32 -1, align 4
-@ett_misc_ndr_syntax_id = internal global i32 -1, align 4
-@ett_misc_policy_handle = internal global i32 -1, align 4
-@ett_misc_KRB5_EDATA_NTSTATUS = internal global i32 -1, align 4
-@proto_register_dcerpc_misc.hf = internal global [13 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_misc_GUID_clock_seq, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_misc_GUID_node, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_misc_GUID_time_hi_and_version, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_misc_GUID_time_low, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_misc_GUID_time_mid, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_misc_KRB5_EDATA_NTSTATUS_ntstatus, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 7, i32 1, ptr @NT_errors, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_misc_KRB5_EDATA_NTSTATUS_unknown1, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_misc_KRB5_EDATA_NTSTATUS_unknown2, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_misc_ndr_syntax_id_if_version, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_misc_ndr_syntax_id_uuid, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_misc_opnum, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_misc_policy_handle_handle_type, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_misc_policy_handle_uuid, %struct._header_field_info { ptr @.str.38, ptr @.str.44, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
-@hf_misc_GUID_clock_seq = internal global i32 -1, align 4
+@misc_winreg_Type_vals = hidden constant [13 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.8 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.9 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.10 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.11 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.12 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.13 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.14 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.15 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.16 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.17 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.18 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.19 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@ett_misc_GUID = internal global i32 0, align 4
+@ett_misc_ndr_syntax_id = internal global i32 0, align 4
+@ett_misc_policy_handle = internal global i32 0, align 4
+@ett_misc_KRB5_EDATA_NTSTATUS = internal global i32 0, align 4
+@proto_register_dcerpc_misc.hf = internal global [13 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_misc_GUID_clock_seq, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_misc_GUID_node, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_misc_GUID_time_hi_and_version, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_misc_GUID_time_low, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_misc_GUID_time_mid, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_misc_KRB5_EDATA_NTSTATUS_ntstatus, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 7, i32 514, ptr @NT_errors_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_misc_KRB5_EDATA_NTSTATUS_unknown1, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_misc_KRB5_EDATA_NTSTATUS_unknown2, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_misc_ndr_syntax_id_if_version, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_misc_ndr_syntax_id_uuid, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_misc_opnum, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_misc_policy_handle_handle_type, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_misc_policy_handle_uuid, %struct._header_field_info { ptr @.str.38, ptr @.str.44, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@hf_misc_GUID_clock_seq = internal global i32 0, align 4
 @.str.20 = private unnamed_addr constant [10 x i8] c"Clock Seq\00", align 1
 @.str.21 = private unnamed_addr constant [20 x i8] c"misc.GUID.clock_seq\00", align 1
-@hf_misc_GUID_node = internal global i32 -1, align 4
+@hf_misc_GUID_node = internal global i32 0, align 4
 @.str.22 = private unnamed_addr constant [5 x i8] c"Node\00", align 1
 @.str.23 = private unnamed_addr constant [15 x i8] c"misc.GUID.node\00", align 1
-@hf_misc_GUID_time_hi_and_version = internal global i32 -1, align 4
+@hf_misc_GUID_time_hi_and_version = internal global i32 0, align 4
 @.str.24 = private unnamed_addr constant [20 x i8] c"Time Hi And Version\00", align 1
 @.str.25 = private unnamed_addr constant [30 x i8] c"misc.GUID.time_hi_and_version\00", align 1
-@hf_misc_GUID_time_low = internal global i32 -1, align 4
+@hf_misc_GUID_time_low = internal global i32 0, align 4
 @.str.26 = private unnamed_addr constant [9 x i8] c"Time Low\00", align 1
 @.str.27 = private unnamed_addr constant [19 x i8] c"misc.GUID.time_low\00", align 1
-@hf_misc_GUID_time_mid = internal global i32 -1, align 4
+@hf_misc_GUID_time_mid = internal global i32 0, align 4
 @.str.28 = private unnamed_addr constant [9 x i8] c"Time Mid\00", align 1
 @.str.29 = private unnamed_addr constant [19 x i8] c"misc.GUID.time_mid\00", align 1
-@hf_misc_KRB5_EDATA_NTSTATUS_ntstatus = internal global i32 -1, align 4
+@hf_misc_KRB5_EDATA_NTSTATUS_ntstatus = internal global i32 0, align 4
 @.str.30 = private unnamed_addr constant [9 x i8] c"Ntstatus\00", align 1
 @.str.31 = private unnamed_addr constant [34 x i8] c"misc.KRB5_EDATA_NTSTATUS.ntstatus\00", align 1
-@NT_errors = external constant [0 x %struct._value_string], align 8
-@hf_misc_KRB5_EDATA_NTSTATUS_unknown1 = internal global i32 -1, align 4
+@NT_errors_ext = external global %struct._value_string_ext, align 8
+@hf_misc_KRB5_EDATA_NTSTATUS_unknown1 = internal global i32 0, align 4
 @.str.32 = private unnamed_addr constant [9 x i8] c"Unknown1\00", align 1
 @.str.33 = private unnamed_addr constant [34 x i8] c"misc.KRB5_EDATA_NTSTATUS.unknown1\00", align 1
-@hf_misc_KRB5_EDATA_NTSTATUS_unknown2 = internal global i32 -1, align 4
+@hf_misc_KRB5_EDATA_NTSTATUS_unknown2 = internal global i32 0, align 4
 @.str.34 = private unnamed_addr constant [9 x i8] c"Unknown2\00", align 1
 @.str.35 = private unnamed_addr constant [34 x i8] c"misc.KRB5_EDATA_NTSTATUS.unknown2\00", align 1
-@hf_misc_ndr_syntax_id_if_version = internal global i32 -1, align 4
+@hf_misc_ndr_syntax_id_if_version = internal global i32 0, align 4
 @.str.36 = private unnamed_addr constant [11 x i8] c"If Version\00", align 1
 @.str.37 = private unnamed_addr constant [30 x i8] c"misc.ndr_syntax_id.if_version\00", align 1
-@hf_misc_ndr_syntax_id_uuid = internal global i32 -1, align 4
+@hf_misc_ndr_syntax_id_uuid = internal global i32 0, align 4
 @.str.38 = private unnamed_addr constant [5 x i8] c"Uuid\00", align 1
 @.str.39 = private unnamed_addr constant [24 x i8] c"misc.ndr_syntax_id.uuid\00", align 1
-@hf_misc_opnum = internal global i32 -1, align 4
+@hf_misc_opnum = internal global i32 0, align 4
 @.str.40 = private unnamed_addr constant [10 x i8] c"Operation\00", align 1
 @.str.41 = private unnamed_addr constant [11 x i8] c"misc.opnum\00", align 1
-@hf_misc_policy_handle_handle_type = internal global i32 -1, align 4
+@hf_misc_policy_handle_handle_type = internal global i32 0, align 4
 @.str.42 = private unnamed_addr constant [12 x i8] c"Handle Type\00", align 1
 @.str.43 = private unnamed_addr constant [31 x i8] c"misc.policy_handle.handle_type\00", align 1
-@hf_misc_policy_handle_uuid = internal global i32 -1, align 4
+@hf_misc_policy_handle_uuid = internal global i32 0, align 4
 @.str.44 = private unnamed_addr constant [24 x i8] c"misc.policy_handle.uuid\00", align 1
 @proto_register_dcerpc_misc.ett = internal global [5 x ptr] [ptr @ett_dcerpc_misc, ptr @ett_misc_GUID, ptr @ett_misc_ndr_syntax_id, ptr @ett_misc_policy_handle, ptr @ett_misc_KRB5_EDATA_NTSTATUS], align 16
-@ett_dcerpc_misc = internal global i32 -1, align 4
+@ett_dcerpc_misc = internal global i32 0, align 4
 @.str.45 = private unnamed_addr constant [12 x i8] c"MISC (pidl)\00", align 1
 @.str.46 = private unnamed_addr constant [5 x i8] c"MISC\00", align 1
 @.str.47 = private unnamed_addr constant [5 x i8] c"misc\00", align 1
-@proto_dcerpc_misc = internal global i32 -1, align 4
+@proto_dcerpc_misc = internal global i32 0, align 4
 @uuid_dcerpc_misc = internal global %struct._e_guid_t { i32 305419896, i16 4660, i16 4660, [8 x i8] c"\124\AB\CD\EF\124V" }, align 4
 @ver_dcerpc_misc = internal global i16 1, align 2
-@misc_dissectors = internal global [1 x %struct._dcerpc_sub_dissector] zeroinitializer, align 16
+@misc_dissectors = internal constant [1 x %struct._dcerpc_sub_dissector] zeroinitializer, align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @misc_dissect_struct_GUID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -107,12 +108,15 @@ define hidden i32 @misc_dissect_struct_GUID(ptr noundef %0, i32 noundef %1, ptr 
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #3
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #3
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #3
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -198,9 +202,9 @@ define hidden i32 @misc_dissect_struct_GUID(ptr noundef %0, i32 noundef %1, ptr 
   %85 = sub i32 %83, %84
   call void @proto_item_set_len(ptr noundef %82, i32 noundef %85)
   %86 = load ptr, ptr %13, align 8
-  %87 = getelementptr inbounds %struct._dcerpc_info, ptr %86, i32 0, i32 14
+  %87 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %86, i32 0, i32 14
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds %struct._dcerpc_call_value, ptr %88, i32 0, i32 11
+  %89 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %88, i32 0, i32 11
   %90 = load i32, ptr %89, align 8
   %91 = and i32 %90, 1
   %92 = icmp ne i32 %91, 0
@@ -208,9 +212,9 @@ define hidden i32 @misc_dissect_struct_GUID(ptr noundef %0, i32 noundef %1, ptr 
 
 93:                                               ; preds = %46
   %94 = load ptr, ptr %13, align 8
-  %95 = getelementptr inbounds %struct._dcerpc_info, ptr %94, i32 0, i32 4
-  %96 = load i32, ptr %95, align 4
-  %97 = icmp ne i32 %96, 0
+  %95 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %94, i32 0, i32 4
+  %96 = load i8, ptr %95, align 1, !range !6, !noundef !7
+  %97 = trunc i8 %96 to i1
   br i1 %97, label %107, label %98
 
 98:                                               ; preds = %93
@@ -234,14 +238,22 @@ define hidden i32 @misc_dissect_struct_GUID(ptr noundef %0, i32 noundef %1, ptr 
 
 108:                                              ; preds = %107, %46
   %109 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #3
   ret i32 %109
 }
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @misc_dissect_element_GUID_time_low(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -268,7 +280,7 @@ define internal i32 @misc_dissect_element_GUID_time_low(ptr noundef %0, i32 noun
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @misc_dissect_element_GUID_time_mid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -295,7 +307,7 @@ define internal i32 @misc_dissect_element_GUID_time_mid(ptr noundef %0, i32 noun
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @misc_dissect_element_GUID_time_hi_and_version(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -322,7 +334,7 @@ define internal i32 @misc_dissect_element_GUID_time_hi_and_version(ptr noundef %
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @misc_dissect_element_GUID_clock_seq(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -337,6 +349,7 @@ define internal i32 @misc_dissect_element_GUID_clock_seq(ptr noundef %0, i32 nou
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
   store i32 0, ptr %13, align 4
   br label %14
 
@@ -360,14 +373,15 @@ define internal i32 @misc_dissect_element_GUID_clock_seq(ptr noundef %0, i32 nou
   %26 = load i32, ptr %13, align 4
   %27 = add i32 %26, 1
   store i32 %27, ptr %13, align 4
-  br label %14, !llvm.loop !4
+  br label %14, !llvm.loop !8
 
 28:                                               ; preds = %14
   %29 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
   ret i32 %29
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @misc_dissect_element_GUID_node(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -382,6 +396,7 @@ define internal i32 @misc_dissect_element_GUID_node(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
   store i32 0, ptr %13, align 4
   br label %14
 
@@ -405,16 +420,21 @@ define internal i32 @misc_dissect_element_GUID_node(ptr noundef %0, i32 noundef 
   %26 = load i32, ptr %13, align 4
   %27 = add i32 %26, 1
   store i32 %27, ptr %13, align 4
-  br label %14, !llvm.loop !6
+  br label %14, !llvm.loop !10
 
 28:                                               ; preds = %14
   %29 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
   ret i32 %29
 }
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @misc_dissect_struct_ndr_syntax_id(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -435,12 +455,15 @@ define hidden i32 @misc_dissect_struct_ndr_syntax_id(ptr noundef %0, i32 noundef
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #3
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #3
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #3
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -502,9 +525,9 @@ define hidden i32 @misc_dissect_struct_ndr_syntax_id(ptr noundef %0, i32 noundef
   %64 = sub i32 %62, %63
   call void @proto_item_set_len(ptr noundef %61, i32 noundef %64)
   %65 = load ptr, ptr %13, align 8
-  %66 = getelementptr inbounds %struct._dcerpc_info, ptr %65, i32 0, i32 14
+  %66 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %65, i32 0, i32 14
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds %struct._dcerpc_call_value, ptr %67, i32 0, i32 11
+  %68 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %67, i32 0, i32 11
   %69 = load i32, ptr %68, align 8
   %70 = and i32 %69, 1
   %71 = icmp ne i32 %70, 0
@@ -512,9 +535,9 @@ define hidden i32 @misc_dissect_struct_ndr_syntax_id(ptr noundef %0, i32 noundef
 
 72:                                               ; preds = %46
   %73 = load ptr, ptr %13, align 8
-  %74 = getelementptr inbounds %struct._dcerpc_info, ptr %73, i32 0, i32 4
-  %75 = load i32, ptr %74, align 4
-  %76 = icmp ne i32 %75, 0
+  %74 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %73, i32 0, i32 4
+  %75 = load i8, ptr %74, align 1, !range !6, !noundef !7
+  %76 = trunc i8 %75 to i1
   br i1 %76, label %86, label %77
 
 77:                                               ; preds = %72
@@ -538,10 +561,13 @@ define hidden i32 @misc_dissect_struct_ndr_syntax_id(ptr noundef %0, i32 noundef
 
 87:                                               ; preds = %86, %46
   %88 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #3
   ret i32 %88
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @misc_dissect_element_ndr_syntax_id_uuid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -568,7 +594,7 @@ define internal i32 @misc_dissect_element_ndr_syntax_id_uuid(ptr noundef %0, i32
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @misc_dissect_element_ndr_syntax_id_if_version(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -595,7 +621,7 @@ define internal i32 @misc_dissect_element_ndr_syntax_id_if_version(ptr noundef %
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @misc_dissect_struct_policy_handle(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -616,12 +642,15 @@ define hidden i32 @misc_dissect_struct_policy_handle(ptr noundef %0, i32 noundef
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #3
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #3
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #3
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -683,9 +712,9 @@ define hidden i32 @misc_dissect_struct_policy_handle(ptr noundef %0, i32 noundef
   %64 = sub i32 %62, %63
   call void @proto_item_set_len(ptr noundef %61, i32 noundef %64)
   %65 = load ptr, ptr %13, align 8
-  %66 = getelementptr inbounds %struct._dcerpc_info, ptr %65, i32 0, i32 14
+  %66 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %65, i32 0, i32 14
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds %struct._dcerpc_call_value, ptr %67, i32 0, i32 11
+  %68 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %67, i32 0, i32 11
   %69 = load i32, ptr %68, align 8
   %70 = and i32 %69, 1
   %71 = icmp ne i32 %70, 0
@@ -693,9 +722,9 @@ define hidden i32 @misc_dissect_struct_policy_handle(ptr noundef %0, i32 noundef
 
 72:                                               ; preds = %46
   %73 = load ptr, ptr %13, align 8
-  %74 = getelementptr inbounds %struct._dcerpc_info, ptr %73, i32 0, i32 4
-  %75 = load i32, ptr %74, align 4
-  %76 = icmp ne i32 %75, 0
+  %74 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %73, i32 0, i32 4
+  %75 = load i8, ptr %74, align 1, !range !6, !noundef !7
+  %76 = trunc i8 %75 to i1
   br i1 %76, label %86, label %77
 
 77:                                               ; preds = %72
@@ -719,10 +748,13 @@ define hidden i32 @misc_dissect_struct_policy_handle(ptr noundef %0, i32 noundef
 
 87:                                               ; preds = %86, %46
   %88 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #3
   ret i32 %88
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @misc_dissect_element_policy_handle_handle_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -749,7 +781,7 @@ define internal i32 @misc_dissect_element_policy_handle_handle_type(ptr noundef 
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @misc_dissect_element_policy_handle_uuid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -776,7 +808,7 @@ define internal i32 @misc_dissect_element_policy_handle_uuid(ptr noundef %0, i32
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @misc_dissect_enum_netr_SchannelType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -795,6 +827,7 @@ define hidden i32 @misc_dissect_enum_netr_SchannelType(ptr noundef %0, i32 nound
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
   store i32 0, ptr %17, align 4
   %18 = load ptr, ptr %16, align 8
   %19 = icmp ne ptr %18, null
@@ -828,12 +861,14 @@ define hidden i32 @misc_dissect_enum_netr_SchannelType(ptr noundef %0, i32 nound
 
 37:                                               ; preds = %34, %23
   %38 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
   ret i32 %38
 }
 
-declare i32 @dissect_ndr_uint1632(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_uint1632(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @misc_dissect_struct_KRB5_EDATA_NTSTATUS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -854,12 +889,15 @@ define hidden i32 @misc_dissect_struct_KRB5_EDATA_NTSTATUS(ptr noundef %0, i32 n
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #3
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #3
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #3
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -929,9 +967,9 @@ define hidden i32 @misc_dissect_struct_KRB5_EDATA_NTSTATUS(ptr noundef %0, i32 n
   %71 = sub i32 %69, %70
   call void @proto_item_set_len(ptr noundef %68, i32 noundef %71)
   %72 = load ptr, ptr %13, align 8
-  %73 = getelementptr inbounds %struct._dcerpc_info, ptr %72, i32 0, i32 14
+  %73 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %72, i32 0, i32 14
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds %struct._dcerpc_call_value, ptr %74, i32 0, i32 11
+  %75 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %74, i32 0, i32 11
   %76 = load i32, ptr %75, align 8
   %77 = and i32 %76, 1
   %78 = icmp ne i32 %77, 0
@@ -939,9 +977,9 @@ define hidden i32 @misc_dissect_struct_KRB5_EDATA_NTSTATUS(ptr noundef %0, i32 n
 
 79:                                               ; preds = %46
   %80 = load ptr, ptr %13, align 8
-  %81 = getelementptr inbounds %struct._dcerpc_info, ptr %80, i32 0, i32 4
-  %82 = load i32, ptr %81, align 4
-  %83 = icmp ne i32 %82, 0
+  %81 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %80, i32 0, i32 4
+  %82 = load i8, ptr %81, align 1, !range !6, !noundef !7
+  %83 = trunc i8 %82 to i1
   br i1 %83, label %93, label %84
 
 84:                                               ; preds = %79
@@ -965,10 +1003,13 @@ define hidden i32 @misc_dissect_struct_KRB5_EDATA_NTSTATUS(ptr noundef %0, i32 n
 
 94:                                               ; preds = %93, %46
   %95 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #3
   ret i32 %95
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @misc_dissect_element_KRB5_EDATA_NTSTATUS_ntstatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -995,7 +1036,7 @@ define internal i32 @misc_dissect_element_KRB5_EDATA_NTSTATUS_ntstatus(ptr nound
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @misc_dissect_element_KRB5_EDATA_NTSTATUS_unknown1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1022,7 +1063,7 @@ define internal i32 @misc_dissect_element_KRB5_EDATA_NTSTATUS_unknown1(ptr nound
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @misc_dissect_element_KRB5_EDATA_NTSTATUS_unknown2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1049,7 +1090,7 @@ define internal i32 @misc_dissect_element_KRB5_EDATA_NTSTATUS_unknown2(ptr nound
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @misc_dissect_enum_winreg_Type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1068,6 +1109,7 @@ define hidden i32 @misc_dissect_enum_winreg_Type(ptr noundef %0, i32 noundef %1,
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
   store i32 0, ptr %17, align 4
   %18 = load ptr, ptr %16, align 8
   %19 = icmp ne ptr %18, null
@@ -1101,12 +1143,14 @@ define hidden i32 @misc_dissect_enum_winreg_Type(ptr noundef %0, i32 noundef %1,
 
 37:                                               ; preds = %34, %23
   %38 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
   ret i32 %38
 }
 
-declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_dcerpc_misc() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.45, ptr noundef @.str.46, ptr noundef @.str.47)
   store i32 %1, ptr @proto_dcerpc_misc, align 4
@@ -1116,13 +1160,16 @@ define hidden void @proto_register_dcerpc_misc() #0 {
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_dcerpc_misc() #0 {
   %1 = load i32, ptr @proto_dcerpc_misc, align 4
   %2 = load i32, ptr @ett_dcerpc_misc, align 4
@@ -1132,13 +1179,16 @@ define hidden void @proto_reg_handoff_dcerpc_misc() #0 {
   ret void
 }
 
-declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) #2
 
-declare i32 @PIDL_dissect_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @PIDL_dissect_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @PIDL_dissect_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @PIDL_dissect_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @misc_dissect_element_GUID_clock_seq_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1165,9 +1215,10 @@ define internal i32 @misc_dissect_element_GUID_clock_seq_(ptr noundef %0, i32 no
   ret i32 %21
 }
 
-declare i32 @PIDL_dissect_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @PIDL_dissect_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @misc_dissect_element_GUID_node_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1194,17 +1245,24 @@ define internal i32 @misc_dissect_element_GUID_node_(ptr noundef %0, i32 noundef
   ret i32 %21
 }
 
-declare i32 @dissect_ndr_uuid_t(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_uuid_t(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}

@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct._ber_choice_t = type { i32, ptr, i8, i32, i32, ptr }
-%struct._ber_sequence_t = type { ptr, i8, i32, i32, ptr }
 %struct.except_id_t = type { i64, i64 }
 %struct._asn1_ctx_t = type { i32, i32, i8, ptr, ptr, ptr, ptr, ptr, %struct.anon.0, %struct.anon.3, %struct.anon.4, ptr }
 %struct.anon.0 = type { i32, i8, i8, i8, ptr, ptr, i32, i32, ptr, ptr, ptr, %union.anon }
@@ -28,7 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_t125_ConnectMCSPDU_PDU = internal global i32 0, align 4
 @.str = private unnamed_addr constant [14 x i8] c"ConnectMCSPDU\00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"t125.ConnectMCSPDU\00", align 1
-@t125_ConnectMCSPDU_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 101, ptr @.str.45 }, %struct._value_string { i32 102, ptr @.str.47 }, %struct._value_string { i32 103, ptr @.str.49 }, %struct._value_string { i32 104, ptr @.str.51 }, %struct._value_string zeroinitializer], align 16
 @hf_t125_maxChannelIds = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [14 x i8] c"maxChannelIds\00", align 1
 @.str.3 = private unnamed_addr constant [19 x i8] c"t125.maxChannelIds\00", align 1
@@ -81,7 +77,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_t125_result = internal global i32 0, align 4
 @.str.36 = private unnamed_addr constant [7 x i8] c"result\00", align 1
 @.str.37 = private unnamed_addr constant [12 x i8] c"t125.result\00", align 1
-@t125_Result_vals = internal constant [17 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.63 }, %struct._value_string { i32 1, ptr @.str.64 }, %struct._value_string { i32 2, ptr @.str.65 }, %struct._value_string { i32 3, ptr @.str.66 }, %struct._value_string { i32 4, ptr @.str.67 }, %struct._value_string { i32 5, ptr @.str.68 }, %struct._value_string { i32 6, ptr @.str.69 }, %struct._value_string { i32 7, ptr @.str.70 }, %struct._value_string { i32 8, ptr @.str.71 }, %struct._value_string { i32 9, ptr @.str.72 }, %struct._value_string { i32 10, ptr @.str.73 }, %struct._value_string { i32 11, ptr @.str.74 }, %struct._value_string { i32 12, ptr @.str.75 }, %struct._value_string { i32 13, ptr @.str.76 }, %struct._value_string { i32 14, ptr @.str.77 }, %struct._value_string { i32 15, ptr @.str.78 }, %struct._value_string zeroinitializer], align 16
 @hf_t125_calledConnectId = internal global i32 0, align 4
 @.str.38 = private unnamed_addr constant [16 x i8] c"calledConnectId\00", align 1
 @.str.39 = private unnamed_addr constant [21 x i8] c"t125.calledConnectId\00", align 1
@@ -93,7 +88,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_t125_dataPriority = internal global i32 0, align 4
 @.str.43 = private unnamed_addr constant [13 x i8] c"dataPriority\00", align 1
 @.str.44 = private unnamed_addr constant [18 x i8] c"t125.dataPriority\00", align 1
-@t125_DataPriority_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.79 }, %struct._value_string { i32 1, ptr @.str.80 }, %struct._value_string { i32 2, ptr @.str.81 }, %struct._value_string { i32 3, ptr @.str.82 }, %struct._value_string zeroinitializer], align 16
 @hf_t125_connect_initial = internal global i32 0, align 4
 @.str.45 = private unnamed_addr constant [16 x i8] c"connect-initial\00", align 1
 @.str.46 = private unnamed_addr constant [29 x i8] c"t125.connect_initial_element\00", align 1
@@ -126,77 +120,88 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.60 = private unnamed_addr constant [8 x i8] c"cotp_is\00", align 1
 @.str.61 = private unnamed_addr constant [34 x i8] c"T.125 over COTP (inactive subset)\00", align 1
 @.str.62 = private unnamed_addr constant [13 x i8] c"t125_cotp_is\00", align 1
-@.str.63 = private unnamed_addr constant [14 x i8] c"rt-successful\00", align 1
-@.str.64 = private unnamed_addr constant [18 x i8] c"rt-domain-merging\00", align 1
-@.str.65 = private unnamed_addr constant [27 x i8] c"rt-domain-not-hierarchical\00", align 1
-@.str.66 = private unnamed_addr constant [19 x i8] c"rt-no-such-channel\00", align 1
-@.str.67 = private unnamed_addr constant [18 x i8] c"rt-no-such-domain\00", align 1
-@.str.68 = private unnamed_addr constant [16 x i8] c"rt-no-such-user\00", align 1
-@.str.69 = private unnamed_addr constant [16 x i8] c"rt-not-admitted\00", align 1
-@.str.70 = private unnamed_addr constant [17 x i8] c"rt-other-user-id\00", align 1
-@.str.71 = private unnamed_addr constant [27 x i8] c"rt-parameters-unacceptable\00", align 1
-@.str.72 = private unnamed_addr constant [23 x i8] c"rt-token-not-available\00", align 1
-@.str.73 = private unnamed_addr constant [23 x i8] c"rt-token-not-possessed\00", align 1
-@.str.74 = private unnamed_addr constant [21 x i8] c"rt-too-many-channels\00", align 1
-@.str.75 = private unnamed_addr constant [19 x i8] c"rt-too-many-tokens\00", align 1
-@.str.76 = private unnamed_addr constant [18 x i8] c"rt-too-many-users\00", align 1
-@.str.77 = private unnamed_addr constant [23 x i8] c"rt-unspecified-failure\00", align 1
-@.str.78 = private unnamed_addr constant [17 x i8] c"rt-user-rejected\00", align 1
-@.str.79 = private unnamed_addr constant [4 x i8] c"top\00", align 1
-@.str.80 = private unnamed_addr constant [5 x i8] c"high\00", align 1
-@.str.81 = private unnamed_addr constant [7 x i8] c"medium\00", align 1
-@.str.82 = private unnamed_addr constant [4 x i8] c"low\00", align 1
+@t125_ConnectMCSPDU_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 101, [4 x i8] zeroinitializer, ptr @.str.45 }, { i32, [4 x i8], ptr } { i32 102, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 103, [4 x i8] zeroinitializer, ptr @.str.49 }, { i32, [4 x i8], ptr } { i32 104, [4 x i8] zeroinitializer, ptr @.str.51 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.64 = private unnamed_addr constant [14 x i8] c"rt-successful\00", align 1
+@.str.65 = private unnamed_addr constant [18 x i8] c"rt-domain-merging\00", align 1
+@.str.66 = private unnamed_addr constant [27 x i8] c"rt-domain-not-hierarchical\00", align 1
+@.str.67 = private unnamed_addr constant [19 x i8] c"rt-no-such-channel\00", align 1
+@.str.68 = private unnamed_addr constant [18 x i8] c"rt-no-such-domain\00", align 1
+@.str.69 = private unnamed_addr constant [16 x i8] c"rt-no-such-user\00", align 1
+@.str.70 = private unnamed_addr constant [16 x i8] c"rt-not-admitted\00", align 1
+@.str.71 = private unnamed_addr constant [17 x i8] c"rt-other-user-id\00", align 1
+@.str.72 = private unnamed_addr constant [27 x i8] c"rt-parameters-unacceptable\00", align 1
+@.str.73 = private unnamed_addr constant [23 x i8] c"rt-token-not-available\00", align 1
+@.str.74 = private unnamed_addr constant [23 x i8] c"rt-token-not-possessed\00", align 1
+@.str.75 = private unnamed_addr constant [21 x i8] c"rt-too-many-channels\00", align 1
+@.str.76 = private unnamed_addr constant [19 x i8] c"rt-too-many-tokens\00", align 1
+@.str.77 = private unnamed_addr constant [18 x i8] c"rt-too-many-users\00", align 1
+@.str.78 = private unnamed_addr constant [23 x i8] c"rt-unspecified-failure\00", align 1
+@.str.79 = private unnamed_addr constant [17 x i8] c"rt-user-rejected\00", align 1
+@t125_Result_vals = internal constant [17 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.64 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.65 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.66 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.67 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.68 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.69 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.70 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.71 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.72 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.73 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.74 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.75 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.76 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.77 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.78 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.79 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.81 = private unnamed_addr constant [4 x i8] c"top\00", align 1
+@.str.82 = private unnamed_addr constant [5 x i8] c"high\00", align 1
+@.str.83 = private unnamed_addr constant [7 x i8] c"medium\00", align 1
+@.str.84 = private unnamed_addr constant [4 x i8] c"low\00", align 1
+@t125_DataPriority_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.81 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.82 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.83 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.84 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @top_tree = internal unnamed_addr global ptr null, align 8
-@ConnectMCSPDU_choice = internal constant [5 x %struct._ber_choice_t] [%struct._ber_choice_t { i32 101, ptr @hf_t125_connect_initial, i8 1, i32 101, i32 4, ptr @dissect_t125_Connect_Initial }, %struct._ber_choice_t { i32 102, ptr @hf_t125_connect_response, i8 1, i32 102, i32 4, ptr @dissect_t125_Connect_Response }, %struct._ber_choice_t { i32 103, ptr @hf_t125_connect_additional, i8 1, i32 103, i32 4, ptr @dissect_t125_Connect_Additional }, %struct._ber_choice_t { i32 104, ptr @hf_t125_connect_result, i8 1, i32 104, i32 4, ptr @dissect_t125_Connect_Result }, %struct._ber_choice_t zeroinitializer], align 16
-@Connect_Initial_U_sequence = internal constant [8 x %struct._ber_sequence_t] [%struct._ber_sequence_t { ptr @hf_t125_callingDomainSelector, i8 0, i32 4, i32 4, ptr @dissect_t125_OCTET_STRING }, %struct._ber_sequence_t { ptr @hf_t125_calledDomainSelector, i8 0, i32 4, i32 4, ptr @dissect_t125_OCTET_STRING }, %struct._ber_sequence_t { ptr @hf_t125_upwardFlag, i8 0, i32 1, i32 4, ptr @dissect_t125_BOOLEAN }, %struct._ber_sequence_t { ptr @hf_t125_targetParameters, i8 0, i32 16, i32 4, ptr @dissect_t125_DomainParameters }, %struct._ber_sequence_t { ptr @hf_t125_minimumParameters, i8 0, i32 16, i32 4, ptr @dissect_t125_DomainParameters }, %struct._ber_sequence_t { ptr @hf_t125_maximumParameters, i8 0, i32 16, i32 4, ptr @dissect_t125_DomainParameters }, %struct._ber_sequence_t { ptr @hf_t125_userData, i8 0, i32 4, i32 4, ptr @dissect_t125_T_userData }, %struct._ber_sequence_t zeroinitializer], align 16
-@DomainParameters_sequence = internal constant [9 x %struct._ber_sequence_t] [%struct._ber_sequence_t { ptr @hf_t125_maxChannelIds, i8 0, i32 2, i32 4, ptr @dissect_t125_INTEGER_0_MAX }, %struct._ber_sequence_t { ptr @hf_t125_maxUserIds, i8 0, i32 2, i32 4, ptr @dissect_t125_INTEGER_0_MAX }, %struct._ber_sequence_t { ptr @hf_t125_maxTokenIds, i8 0, i32 2, i32 4, ptr @dissect_t125_INTEGER_0_MAX }, %struct._ber_sequence_t { ptr @hf_t125_numPriorities, i8 0, i32 2, i32 4, ptr @dissect_t125_INTEGER_0_MAX }, %struct._ber_sequence_t { ptr @hf_t125_minThroughput, i8 0, i32 2, i32 4, ptr @dissect_t125_INTEGER_0_MAX }, %struct._ber_sequence_t { ptr @hf_t125_maxHeight, i8 0, i32 2, i32 4, ptr @dissect_t125_INTEGER_0_MAX }, %struct._ber_sequence_t { ptr @hf_t125_maxMCSPDUsize, i8 0, i32 2, i32 4, ptr @dissect_t125_INTEGER_0_MAX }, %struct._ber_sequence_t { ptr @hf_t125_protocolVersion, i8 0, i32 2, i32 4, ptr @dissect_t125_INTEGER_0_MAX }, %struct._ber_sequence_t zeroinitializer], align 16
-@Connect_Response_U_sequence = internal constant [5 x %struct._ber_sequence_t] [%struct._ber_sequence_t { ptr @hf_t125_result, i8 0, i32 10, i32 4, ptr @dissect_t125_Result }, %struct._ber_sequence_t { ptr @hf_t125_calledConnectId, i8 0, i32 2, i32 4, ptr @dissect_t125_INTEGER_0_MAX }, %struct._ber_sequence_t { ptr @hf_t125_domainParameters, i8 0, i32 16, i32 4, ptr @dissect_t125_DomainParameters }, %struct._ber_sequence_t { ptr @hf_t125_userData_01, i8 0, i32 4, i32 4, ptr @dissect_t125_T_userData_01 }, %struct._ber_sequence_t zeroinitializer], align 16
-@Connect_Additional_U_sequence = internal constant [3 x %struct._ber_sequence_t] [%struct._ber_sequence_t { ptr @hf_t125_calledConnectId, i8 0, i32 2, i32 4, ptr @dissect_t125_INTEGER_0_MAX }, %struct._ber_sequence_t { ptr @hf_t125_dataPriority, i8 0, i32 10, i32 4, ptr @dissect_t125_DataPriority }, %struct._ber_sequence_t zeroinitializer], align 16
-@Connect_Result_U_sequence = internal constant [2 x %struct._ber_sequence_t] [%struct._ber_sequence_t { ptr @hf_t125_result, i8 0, i32 10, i32 4, ptr @dissect_t125_Result }, %struct._ber_sequence_t zeroinitializer], align 16
+@ConnectMCSPDU_choice = internal constant [5 x { i32, [4 x i8], ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { i32 101, [4 x i8] zeroinitializer, ptr @hf_t125_connect_initial, i8 1, [3 x i8] zeroinitializer, i32 101, i32 4, [4 x i8] zeroinitializer, ptr @dissect_t125_Connect_Initial }, { i32, [4 x i8], ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { i32 102, [4 x i8] zeroinitializer, ptr @hf_t125_connect_response, i8 1, [3 x i8] zeroinitializer, i32 102, i32 4, [4 x i8] zeroinitializer, ptr @dissect_t125_Connect_Response }, { i32, [4 x i8], ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { i32 103, [4 x i8] zeroinitializer, ptr @hf_t125_connect_additional, i8 1, [3 x i8] zeroinitializer, i32 103, i32 4, [4 x i8] zeroinitializer, ptr @dissect_t125_Connect_Additional }, { i32, [4 x i8], ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { i32 104, [4 x i8] zeroinitializer, ptr @hf_t125_connect_result, i8 1, [3 x i8] zeroinitializer, i32 104, i32 4, [4 x i8] zeroinitializer, ptr @dissect_t125_Connect_Result }, { i32, [4 x i8], ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } zeroinitializer], align 16
+@Connect_Initial_U_sequence = internal constant [8 x { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr }] [{ ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_t125_callingDomainSelector, i8 0, [3 x i8] zeroinitializer, i32 4, i32 4, [4 x i8] zeroinitializer, ptr @dissect_t125_OCTET_STRING }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_t125_calledDomainSelector, i8 0, [3 x i8] zeroinitializer, i32 4, i32 4, [4 x i8] zeroinitializer, ptr @dissect_t125_OCTET_STRING }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_t125_upwardFlag, i8 0, [3 x i8] zeroinitializer, i32 1, i32 4, [4 x i8] zeroinitializer, ptr @dissect_t125_BOOLEAN }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_t125_targetParameters, i8 0, [3 x i8] zeroinitializer, i32 16, i32 4, [4 x i8] zeroinitializer, ptr @dissect_t125_DomainParameters }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_t125_minimumParameters, i8 0, [3 x i8] zeroinitializer, i32 16, i32 4, [4 x i8] zeroinitializer, ptr @dissect_t125_DomainParameters }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_t125_maximumParameters, i8 0, [3 x i8] zeroinitializer, i32 16, i32 4, [4 x i8] zeroinitializer, ptr @dissect_t125_DomainParameters }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_t125_userData, i8 0, [3 x i8] zeroinitializer, i32 4, i32 4, [4 x i8] zeroinitializer, ptr @dissect_t125_T_userData }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } zeroinitializer], align 16
+@DomainParameters_sequence = internal constant [9 x { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr }] [{ ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_t125_maxChannelIds, i8 0, [3 x i8] zeroinitializer, i32 2, i32 4, [4 x i8] zeroinitializer, ptr @dissect_t125_INTEGER_0_MAX }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_t125_maxUserIds, i8 0, [3 x i8] zeroinitializer, i32 2, i32 4, [4 x i8] zeroinitializer, ptr @dissect_t125_INTEGER_0_MAX }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_t125_maxTokenIds, i8 0, [3 x i8] zeroinitializer, i32 2, i32 4, [4 x i8] zeroinitializer, ptr @dissect_t125_INTEGER_0_MAX }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_t125_numPriorities, i8 0, [3 x i8] zeroinitializer, i32 2, i32 4, [4 x i8] zeroinitializer, ptr @dissect_t125_INTEGER_0_MAX }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_t125_minThroughput, i8 0, [3 x i8] zeroinitializer, i32 2, i32 4, [4 x i8] zeroinitializer, ptr @dissect_t125_INTEGER_0_MAX }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_t125_maxHeight, i8 0, [3 x i8] zeroinitializer, i32 2, i32 4, [4 x i8] zeroinitializer, ptr @dissect_t125_INTEGER_0_MAX }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_t125_maxMCSPDUsize, i8 0, [3 x i8] zeroinitializer, i32 2, i32 4, [4 x i8] zeroinitializer, ptr @dissect_t125_INTEGER_0_MAX }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_t125_protocolVersion, i8 0, [3 x i8] zeroinitializer, i32 2, i32 4, [4 x i8] zeroinitializer, ptr @dissect_t125_INTEGER_0_MAX }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } zeroinitializer], align 16
+@Connect_Response_U_sequence = internal constant [5 x { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr }] [{ ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_t125_result, i8 0, [3 x i8] zeroinitializer, i32 10, i32 4, [4 x i8] zeroinitializer, ptr @dissect_t125_Result }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_t125_calledConnectId, i8 0, [3 x i8] zeroinitializer, i32 2, i32 4, [4 x i8] zeroinitializer, ptr @dissect_t125_INTEGER_0_MAX }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_t125_domainParameters, i8 0, [3 x i8] zeroinitializer, i32 16, i32 4, [4 x i8] zeroinitializer, ptr @dissect_t125_DomainParameters }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_t125_userData_01, i8 0, [3 x i8] zeroinitializer, i32 4, i32 4, [4 x i8] zeroinitializer, ptr @dissect_t125_T_userData_01 }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } zeroinitializer], align 16
+@Connect_Additional_U_sequence = internal constant [3 x { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr }] [{ ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_t125_calledConnectId, i8 0, [3 x i8] zeroinitializer, i32 2, i32 4, [4 x i8] zeroinitializer, ptr @dissect_t125_INTEGER_0_MAX }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_t125_dataPriority, i8 0, [3 x i8] zeroinitializer, i32 10, i32 4, [4 x i8] zeroinitializer, ptr @dissect_t125_DataPriority }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } zeroinitializer], align 16
+@Connect_Result_U_sequence = internal constant [2 x { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr }] [{ ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_t125_result, i8 0, [3 x i8] zeroinitializer, i32 10, i32 4, [4 x i8] zeroinitializer, ptr @dissect_t125_Result }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } zeroinitializer], align 16
 @dissect_t125_heur.catch_spec = internal constant [1 x %struct.except_id_t] [%struct.except_id_t { i64 1, i64 0 }], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_t125() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55) #5
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55)
   store i32 %1, ptr @proto_t125, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_t125.hf, i32 noundef 25) #5
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_t125.ett, i32 noundef 7) #5
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_t125.hf, i32 noundef 25)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_t125.ett, i32 noundef 7)
   %2 = load i32, ptr @proto_t125, align 4
-  %3 = tail call ptr @register_heur_dissector_list_with_description(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef %2) #5
+  %3 = tail call ptr @register_heur_dissector_list_with_description(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef %2)
   store ptr %3, ptr @t125_heur_subdissector_list, align 8
   %4 = load i32, ptr @proto_t125, align 4
-  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.55, ptr noundef nonnull @dissect_t125, i32 noundef %4) #5
+  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.55, ptr noundef nonnull @dissect_t125, i32 noundef %4)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_heur_dissector_list_with_description(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_t125(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
   store ptr %2, ptr @top_tree, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
-  tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.54) #5
+  tail call void @col_set_str(ptr noundef %10, i32 noundef 35, ptr noundef nonnull @.str.54)
   %11 = load ptr, ptr %9, align 8
-  tail call void @col_clear(ptr noundef %11, i32 noundef 25) #5
+  tail call void @col_clear(ptr noundef %11, i32 noundef 25)
   %12 = load i32, ptr @proto_t125, align 4
-  %13 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef %13, i32 noundef 0) #5
+  %13 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef %13, i32 noundef 0)
   %15 = load i32, ptr @ett_t125, align 4
-  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #5
-  %17 = call i32 @get_ber_identifier(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
+  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15)
+  %17 = call i32 @get_ber_identifier(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %18 = load i8, ptr %6, align 1
   %19 = icmp eq i8 %18, 1
   %20 = load i32, ptr %8, align 4
@@ -206,38 +211,42 @@ define internal i32 @dissect_t125(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %or.cond3, label %23, label %27
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5)
-  call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %1) #5
+  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #5
+  call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %24 = load i32, ptr @hf_t125_ConnectMCSPDU_PDU, align 4
   %25 = load i32, ptr @ett_t125_ConnectMCSPDU, align 4
-  %26 = call i32 @dissect_ber_choice(ptr noundef nonnull %5, ptr noundef %16, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ConnectMCSPDU_choice, i32 noundef %24, i32 noundef %25, ptr noundef null) #5
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5)
+  %26 = call i32 @dissect_ber_choice(ptr noundef nonnull %5, ptr noundef %16, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ConnectMCSPDU_choice, i32 noundef %24, i32 noundef %25, ptr noundef null)
+  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #5
   br label %30
 
 27:                                               ; preds = %4
   %28 = load ptr, ptr @top_tree, align 8
-  call void @t124_set_top_tree(ptr noundef %28) #5
-  %29 = call i32 @dissect_DomainMCSPDU_PDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %16) #5
+  call void @t124_set_top_tree(ptr noundef %28)
+  %29 = call i32 @dissect_DomainMCSPDU_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %16)
   br label %30
 
 30:                                               ; preds = %27, %23
-  %31 = call i32 @tvb_captured_length(ptr noundef %0) #5
+  %31 = call i32 @tvb_captured_length(ptr noundef %0)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #5
   ret i32 %31
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_t125() local_unnamed_addr #0 {
   %1 = load i32, ptr @proto_t125, align 4
-  tail call void @heur_dissector_add(ptr noundef nonnull @.str.57, ptr noundef nonnull @dissect_t125_heur, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, i32 noundef %1, i32 noundef 1) #5
+  tail call void @heur_dissector_add(ptr noundef nonnull @.str.57, ptr noundef nonnull @dissect_t125_heur, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, i32 noundef %1, i32 noundef 1)
   %2 = load i32, ptr @proto_t125, align 4
-  tail call void @heur_dissector_add(ptr noundef nonnull @.str.60, ptr noundef nonnull @dissect_t125_heur, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i32 noundef %2, i32 noundef 1) #5
+  tail call void @heur_dissector_add(ptr noundef nonnull @.str.60, ptr noundef nonnull @dissect_t125_heur, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i32 noundef %2, i32 noundef 1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_t125_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal noundef zeroext i1 @dissect_t125_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
@@ -246,9 +255,17 @@ define internal range(i32 0, 2) i32 @dissect_t125_heur(ptr noundef %0, ptr nound
   %10 = alloca i32, align 4
   %11 = alloca %struct.except_stacknode, align 8
   %12 = alloca %struct.except_catch, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   store volatile i8 0, ptr %8, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store volatile i32 0, ptr %10, align 4
-  call void @except_setup_try(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull @dissect_t125_heur.catch_spec, i64 noundef 1) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %12) #5
+  call void @except_setup_try(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull @dissect_t125_heur.catch_spec, i64 noundef 1)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = call i32 @_setjmp(ptr noundef nonnull %13) #6
   %.not = icmp eq i32 %14, 0
@@ -280,7 +297,7 @@ define internal range(i32 0, 2) i32 @dissect_t125_heur(ptr noundef %0, ptr nound
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %22
-  %25 = call i32 @get_ber_identifier(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
+  %25 = call i32 @get_ber_identifier(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   br label %26
 
 26:                                               ; preds = %24, %22, %19
@@ -354,10 +371,14 @@ define internal range(i32 0, 2) i32 @dissect_t125_heur(ptr noundef %0, ptr nound
 55:                                               ; preds = %53, %51
   %56 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %57 = load volatile ptr, ptr %56, align 8
-  call void @except_free(ptr noundef %57) #5
-  %58 = call ptr @except_pop() #5
-  %.0..0..0..0.19 = load volatile i8, ptr %8, align 1
-  %59 = trunc i8 %.0..0..0..0.19 to i1
+  call void @except_free(ptr noundef %57)
+  %58 = call ptr @except_pop()
+  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %12) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  %.0..0..0..0.19 = load volatile i8, ptr %8, align 1, !range !6, !noundef !7
+  %59 = trunc nuw i8 %.0..0..0..0.19 to i1
   br i1 %59, label %70, label %60
 
 60:                                               ; preds = %55
@@ -370,7 +391,7 @@ define internal range(i32 0, 2) i32 @dissect_t125_heur(ptr noundef %0, ptr nound
   br i1 %or.cond3, label %.sink.split, label %66
 
 66:                                               ; preds = %60
-  %67 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
+  %67 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %68 = lshr i8 %67, 2
   switch i8 %68, label %70 [
     i8 1, label %.sink.split
@@ -388,90 +409,114 @@ define internal range(i32 0, 2) i32 @dissect_t125_heur(ptr noundef %0, ptr nound
   br label %70
 
 70:                                               ; preds = %.sink.split, %66, %55
-  %.0 = phi i32 [ 0, %55 ], [ 0, %66 ], [ 1, %.sink.split ]
-  ret i32 %.0
+  %.0 = phi i1 [ false, %55 ], [ false, %66 ], [ true, %.sink.split ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #5
+  ret i1 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @get_ber_identifier(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @t124_set_top_tree(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_DomainMCSPDU_PDU(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare void @asn1_ctx_init(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ber_choice(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_t125_Connect_Initial(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = tail call i32 @dissect_ber_tagged_type(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, i8 noundef signext 1, i32 noundef 101, i1 noundef zeroext true, ptr noundef nonnull @dissect_t125_Connect_Initial_U) #5
+  %7 = tail call i32 @dissect_ber_tagged_type(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, i8 noundef signext 1, i32 noundef 101, i1 noundef zeroext true, ptr noundef nonnull @dissect_t125_Connect_Initial_U)
   ret i32 %7
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_t125_Connect_Response(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = tail call i32 @dissect_ber_tagged_type(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, i8 noundef signext 1, i32 noundef 102, i1 noundef zeroext true, ptr noundef nonnull @dissect_t125_Connect_Response_U) #5
+  %7 = tail call i32 @dissect_ber_tagged_type(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, i8 noundef signext 1, i32 noundef 102, i1 noundef zeroext true, ptr noundef nonnull @dissect_t125_Connect_Response_U)
   ret i32 %7
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_t125_Connect_Additional(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = tail call i32 @dissect_ber_tagged_type(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, i8 noundef signext 1, i32 noundef 103, i1 noundef zeroext true, ptr noundef nonnull @dissect_t125_Connect_Additional_U) #5
+  %7 = tail call i32 @dissect_ber_tagged_type(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, i8 noundef signext 1, i32 noundef 103, i1 noundef zeroext true, ptr noundef nonnull @dissect_t125_Connect_Additional_U)
   ret i32 %7
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_t125_Connect_Result(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = tail call i32 @dissect_ber_tagged_type(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, i8 noundef signext 1, i32 noundef 104, i1 noundef zeroext true, ptr noundef nonnull @dissect_t125_Connect_Result_U) #5
+  %7 = tail call i32 @dissect_ber_tagged_type(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, i8 noundef signext 1, i32 noundef 104, i1 noundef zeroext true, ptr noundef nonnull @dissect_t125_Connect_Result_U)
   ret i32 %7
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ber_tagged_type(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef signext, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_t125_Connect_Initial_U(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @ett_t125_Connect_Initial_U, align 4
-  %8 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @Connect_Initial_U_sequence, i32 noundef %5, i32 noundef %7) #5
+  %8 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @Connect_Initial_U_sequence, i32 noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ber_sequence(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_t125_OCTET_STRING(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = tail call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef null) #5
+  %7 = tail call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef null)
   ret i32 %7
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_t125_BOOLEAN(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = tail call i32 @dissect_ber_boolean(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef null) #5
+  %7 = tail call i32 @dissect_ber_boolean(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef null)
   ret i32 %7
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_t125_DomainParameters(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @ett_t125_DomainParameters, align 4
-  %8 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @DomainParameters_sequence, i32 noundef %5, i32 noundef %7) #5
+  %8 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @DomainParameters_sequence, i32 noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_t125_T_userData(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
   store ptr null, ptr %7, align 8
-  %9 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
+  %9 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %17, label %11
@@ -481,46 +526,54 @@ define internal i32 @dissect_t125_T_userData(i1 noundef zeroext %0, ptr noundef 
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr @top_tree, align 8
-  %16 = call i32 @dissector_try_heuristic(ptr noundef %12, ptr noundef nonnull %10, ptr noundef %14, ptr noundef %15, ptr noundef nonnull %8, ptr noundef null) #5
+  %16 = call zeroext i1 @dissector_try_heuristic(ptr noundef %12, ptr noundef nonnull %10, ptr noundef %14, ptr noundef %15, ptr noundef nonnull %8, ptr noundef null)
   br label %17
 
 17:                                               ; preds = %11, %6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
   ret i32 %9
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ber_octet_string(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ber_boolean(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_t125_INTEGER_0_MAX(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = tail call i32 @dissect_ber_integer64(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef null) #5
+  %7 = tail call i32 @dissect_ber_integer64(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef null)
   ret i32 %7
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ber_integer64(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @dissector_try_heuristic(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @dissector_try_heuristic(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_t125_Connect_Response_U(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @ett_t125_Connect_Response_U, align 4
-  %8 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @Connect_Response_U_sequence, i32 noundef %5, i32 noundef %7) #5
+  %8 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @Connect_Response_U_sequence, i32 noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_t125_Result(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef null) #5
+  %7 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef null)
   ret i32 %7
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_t125_T_userData_01(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
   store ptr null, ptr %7, align 8
-  %9 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
+  %9 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %17, label %11
@@ -530,67 +583,72 @@ define internal i32 @dissect_t125_T_userData_01(i1 noundef zeroext %0, ptr nound
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr @top_tree, align 8
-  %16 = call i32 @dissector_try_heuristic(ptr noundef %12, ptr noundef nonnull %10, ptr noundef %14, ptr noundef %15, ptr noundef nonnull %8, ptr noundef null) #5
+  %16 = call zeroext i1 @dissector_try_heuristic(ptr noundef %12, ptr noundef nonnull %10, ptr noundef %14, ptr noundef %15, ptr noundef nonnull %8, ptr noundef null)
   br label %17
 
 17:                                               ; preds = %11, %6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
   ret i32 %9
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ber_integer(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_t125_Connect_Additional_U(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @ett_t125_Connect_Additional_U, align 4
-  %8 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @Connect_Additional_U_sequence, i32 noundef %5, i32 noundef %7) #5
+  %8 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @Connect_Additional_U_sequence, i32 noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_t125_DataPriority(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef null) #5
+  %7 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef null)
   ret i32 %7
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_t125_Connect_Result_U(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @ett_t125_Connect_Result_U, align 4
-  %8 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @Connect_Result_U_sequence, i32 noundef %5, i32 noundef %7) #5
+  %8 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @Connect_Result_U_sequence, i32 noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #2
+; Function Attrs: nounwind null_pointer_is_valid returns_twice
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: noreturn
-declare void @except_rethrow(ptr noundef) local_unnamed_addr #3
+; Function Attrs: noreturn null_pointer_is_valid
+declare void @except_rethrow(ptr noundef) local_unnamed_addr #4
 
+; Function Attrs: null_pointer_is_valid
 declare void @except_free(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @except_pop() local_unnamed_addr #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind null_pointer_is_valid returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind returns_twice }
-attributes #7 = { noreturn nounwind }
+attributes #7 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}

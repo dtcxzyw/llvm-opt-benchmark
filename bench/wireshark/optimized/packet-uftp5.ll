@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 
@@ -18,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_uftp_func = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
 @.str.3 = private unnamed_addr constant [11 x i8] c"uftp5.func\00", align 1
-@messages = internal constant [22 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.22 }, %struct._value_string { i32 2, ptr @.str.96 }, %struct._value_string { i32 3, ptr @.str.107 }, %struct._value_string { i32 4, ptr @.str.117 }, %struct._value_string { i32 5, ptr @.str.122 }, %struct._value_string { i32 6, ptr @.str.137 }, %struct._value_string { i32 7, ptr @.str.145 }, %struct._value_string { i32 8, ptr @.str.169 }, %struct._value_string { i32 9, ptr @.str.180 }, %struct._value_string { i32 10, ptr @.str.201 }, %struct._value_string { i32 11, ptr @.str.208 }, %struct._value_string { i32 12, ptr @.str.217 }, %struct._value_string { i32 13, ptr @.str.232 }, %struct._value_string { i32 14, ptr @.str.237 }, %struct._value_string { i32 15, ptr @.str.248 }, %struct._value_string { i32 16, ptr @.str.341 }, %struct._value_string { i32 17, ptr @.str.256 }, %struct._value_string { i32 18, ptr @.str.314 }, %struct._value_string { i32 19, ptr @.str.322 }, %struct._value_string { i32 20, ptr @.str.267 }, %struct._value_string { i32 21, ptr @.str.293 }, %struct._value_string zeroinitializer], align 16
 @hf_uftp_seq = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [16 x i8] c"Sequence Number\00", align 1
 @.str.5 = private unnamed_addr constant [10 x i8] c"uftp5.seq\00", align 1
@@ -74,7 +70,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_uftp_announce_cc_type = internal global i32 0, align 4
 @.str.38 = private unnamed_addr constant [24 x i8] c"Congestion Control Type\00", align 1
 @.str.39 = private unnamed_addr constant [23 x i8] c"uftp5.announce.cc_type\00", align 1
-@cc_types = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.342 }, %struct._value_string { i32 1, ptr @.str.343 }, %struct._value_string { i32 2, ptr @.str.344 }, %struct._value_string { i32 3, ptr @.str.345 }, %struct._value_string zeroinitializer], align 16
 @hf_uftp_announce_reserved = internal global i32 0, align 4
 @.str.40 = private unnamed_addr constant [24 x i8] c"uftp5.announce.reserved\00", align 1
 @hf_uftp_announce_blocksize = internal global i32 0, align 4
@@ -99,7 +94,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_uftp_encinfo_exttype = internal global i32 0, align 4
 @.str.53 = private unnamed_addr constant [15 x i8] c"Extension Type\00", align 1
 @.str.54 = private unnamed_addr constant [22 x i8] c"uftp5.encinfo.exttype\00", align 1
-@extensions = internal constant [8 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.51 }, %struct._value_string { i32 2, ptr @.str.189 }, %struct._value_string { i32 3, ptr @.str.298 }, %struct._value_string { i32 4, ptr @.str.346 }, %struct._value_string { i32 5, ptr @.str.347 }, %struct._value_string { i32 6, ptr @.str.348 }, %struct._value_string { i32 7, ptr @.str.225 }, %struct._value_string zeroinitializer], align 16
 @hf_uftp_encinfo_extlen = internal global i32 0, align 4
 @.str.55 = private unnamed_addr constant [17 x i8] c"Extension Length\00", align 1
 @.str.56 = private unnamed_addr constant [21 x i8] c"uftp5.encinfo.extlen\00", align 1
@@ -115,11 +109,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_uftp_encinfo_keytype = internal global i32 0, align 4
 @.str.62 = private unnamed_addr constant [9 x i8] c"Key Type\00", align 1
 @.str.63 = private unnamed_addr constant [22 x i8] c"uftp5.encinfo.keytype\00", align 1
-@key_types = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.342 }, %struct._value_string { i32 1, ptr @.str.349 }, %struct._value_string { i32 2, ptr @.str.350 }, %struct._value_string { i32 3, ptr @.str.351 }, %struct._value_string { i32 4, ptr @.str.352 }, %struct._value_string { i32 5, ptr @.str.353 }, %struct._value_string { i32 6, ptr @.str.354 }, %struct._value_string { i32 7, ptr @.str.355 }, %struct._value_string { i32 8, ptr @.str.356 }, %struct._value_string zeroinitializer], align 16
 @hf_uftp_encinfo_hashtype = internal global i32 0, align 4
 @.str.64 = private unnamed_addr constant [10 x i8] c"Hash Type\00", align 1
 @.str.65 = private unnamed_addr constant [23 x i8] c"uftp5.encinfo.hashtype\00", align 1
-@hash_types = internal constant [7 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.342 }, %struct._value_string { i32 1, ptr @.str.357 }, %struct._value_string { i32 2, ptr @.str.358 }, %struct._value_string { i32 3, ptr @.str.359 }, %struct._value_string { i32 4, ptr @.str.360 }, %struct._value_string { i32 5, ptr @.str.361 }, %struct._value_string zeroinitializer], align 16
 @hf_uftp_encinfo_keylen = internal global i32 0, align 4
 @.str.66 = private unnamed_addr constant [18 x i8] c"Public Key Length\00", align 1
 @.str.67 = private unnamed_addr constant [21 x i8] c"uftp5.encinfo.keylen\00", align 1
@@ -144,7 +136,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_uftp_rsablob_blobtype = internal global i32 0, align 4
 @.str.80 = private unnamed_addr constant [13 x i8] c"Keyblob Type\00", align 1
 @.str.81 = private unnamed_addr constant [23 x i8] c"uftp5.rsablob.blobtype\00", align 1
-@keyblob_types = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.362 }, %struct._value_string { i32 2, ptr @.str.363 }, %struct._value_string zeroinitializer], align 16
 @hf_uftp_rsablob_reserved = internal global i32 0, align 4
 @.str.82 = private unnamed_addr constant [23 x i8] c"uftp5.rsablob.reserved\00", align 1
 @hf_uftp_rsablob_modlen = internal global i32 0, align 4
@@ -161,7 +152,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_uftp_ecblob_curve = internal global i32 0, align 4
 @.str.90 = private unnamed_addr constant [6 x i8] c"Curve\00", align 1
 @.str.91 = private unnamed_addr constant [19 x i8] c"uftp5.ecblob.curve\00", align 1
-@curves = internal constant [26 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.364 }, %struct._value_string { i32 2, ptr @.str.365 }, %struct._value_string { i32 3, ptr @.str.366 }, %struct._value_string { i32 4, ptr @.str.367 }, %struct._value_string { i32 5, ptr @.str.368 }, %struct._value_string { i32 6, ptr @.str.369 }, %struct._value_string { i32 7, ptr @.str.370 }, %struct._value_string { i32 8, ptr @.str.371 }, %struct._value_string { i32 9, ptr @.str.372 }, %struct._value_string { i32 10, ptr @.str.373 }, %struct._value_string { i32 11, ptr @.str.374 }, %struct._value_string { i32 12, ptr @.str.375 }, %struct._value_string { i32 13, ptr @.str.376 }, %struct._value_string { i32 14, ptr @.str.377 }, %struct._value_string { i32 15, ptr @.str.378 }, %struct._value_string { i32 16, ptr @.str.379 }, %struct._value_string { i32 17, ptr @.str.380 }, %struct._value_string { i32 18, ptr @.str.381 }, %struct._value_string { i32 19, ptr @.str.382 }, %struct._value_string { i32 20, ptr @.str.383 }, %struct._value_string { i32 21, ptr @.str.384 }, %struct._value_string { i32 22, ptr @.str.385 }, %struct._value_string { i32 23, ptr @.str.386 }, %struct._value_string { i32 24, ptr @.str.387 }, %struct._value_string { i32 25, ptr @.str.388 }, %struct._value_string zeroinitializer], align 16
 @hf_uftp_ecblob_keylen = internal global i32 0, align 4
 @.str.92 = private unnamed_addr constant [11 x i8] c"Key Length\00", align 1
 @.str.93 = private unnamed_addr constant [20 x i8] c"uftp5.ecblob.keylen\00", align 1
@@ -263,7 +253,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_uftp_fileinfo_ftype = internal global i32 0, align 4
 @.str.151 = private unnamed_addr constant [10 x i8] c"File Type\00", align 1
 @.str.152 = private unnamed_addr constant [21 x i8] c"uftp5.fileinfo.ftype\00", align 1
-@file_types = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.389 }, %struct._value_string { i32 1, ptr @.str.390 }, %struct._value_string { i32 2, ptr @.str.391 }, %struct._value_string { i32 3, ptr @.str.392 }, %struct._value_string { i32 4, ptr @.str.393 }, %struct._value_string zeroinitializer], align 16
 @hf_uftp_fileinfo_reserved = internal global i32 0, align 4
 @.str.153 = private unnamed_addr constant [24 x i8] c"uftp5.fileinfo.reserved\00", align 1
 @hf_uftp_fileinfo_ftstamp_hi = internal global i32 0, align 4
@@ -384,7 +373,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_uftp_complete_status = internal global i32 0, align 4
 @.str.222 = private unnamed_addr constant [18 x i8] c"Completion Status\00", align 1
 @.str.223 = private unnamed_addr constant [22 x i8] c"uftp5.complete.status\00", align 1
-@comp_status = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.394 }, %struct._value_string { i32 1, ptr @.str.395 }, %struct._value_string { i32 2, ptr @.str.396 }, %struct._value_string { i32 3, ptr @.str.397 }, %struct._value_string zeroinitializer], align 16
 @hf_uftp_complete_reserved = internal global i32 0, align 4
 @.str.224 = private unnamed_addr constant [24 x i8] c"uftp5.complete.reserved\00", align 1
 @hf_uftp_freespace = internal global i32 0, align 4
@@ -438,7 +426,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_uftp_hbresp_authenticated = internal global i32 0, align 4
 @.str.252 = private unnamed_addr constant [14 x i8] c"Authenticated\00", align 1
 @.str.253 = private unnamed_addr constant [27 x i8] c"uftp5.hbresp.authenticated\00", align 1
-@hb_auth_types = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.398 }, %struct._value_string { i32 1, ptr @.str.399 }, %struct._value_string { i32 2, ptr @.str.400 }, %struct._value_string zeroinitializer], align 16
 @hf_uftp_hbresp_reserved = internal global i32 0, align 4
 @.str.254 = private unnamed_addr constant [22 x i8] c"uftp5.hbresp.reserved\00", align 1
 @hf_uftp_hbresp_nonce = internal global i32 0, align 4
@@ -618,7 +605,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_uftp_destlist = internal global i32 0, align 4
 @ett_uftp_rsablob = internal global i32 0, align 4
 @ett_uftp_ecblob = internal global i32 0, align 4
-@proto_register_uftp5.ei = internal global [2 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_uftp_length_invalid, %struct.expert_field_info { ptr @.str.334, i32 117440512, i32 8388608, ptr @.str.335, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_uftp_func_unknown, %struct.expert_field_info { ptr @.str.336, i32 117440512, i32 8388608, ptr @.str.337, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_uftp5.ei = internal global [2 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_uftp_length_invalid, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.334, i32 117440512, i32 8388608, ptr @.str.335, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_uftp_func_unknown, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.336, i32 117440512, i32 8388608, ptr @.str.337, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_uftp_length_invalid = internal global %struct.expert_field zeroinitializer, align 4
 @.str.334 = private unnamed_addr constant [21 x i8] c"uftp5.length.invalid\00", align 1
 @.str.335 = private unnamed_addr constant [18 x i8] c"Length is invalid\00", align 1
@@ -630,148 +617,165 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.340 = private unnamed_addr constant [6 x i8] c"uftp5\00", align 1
 @proto_uftp = internal unnamed_addr global i32 0, align 4
 @.str.341 = private unnamed_addr constant [19 x i8] c"KEY_REQ (obsolete)\00", align 1
-@.str.342 = private unnamed_addr constant [5 x i8] c"NONE\00", align 1
-@.str.343 = private unnamed_addr constant [17 x i8] c"UFTP3 (obsolete)\00", align 1
-@.str.344 = private unnamed_addr constant [6 x i8] c"TFMCC\00", align 1
-@.str.345 = private unnamed_addr constant [6 x i8] c"PGMCC\00", align 1
-@.str.346 = private unnamed_addr constant [20 x i8] c"EXT_PGMCC_DATA_INFO\00", align 1
-@.str.347 = private unnamed_addr constant [19 x i8] c"EXT_PGMCC_NAK_INFO\00", align 1
-@.str.348 = private unnamed_addr constant [19 x i8] c"EXT_PGMCC_ACK_INFO\00", align 1
-@.str.349 = private unnamed_addr constant [15 x i8] c"DES (obsolete)\00", align 1
-@.str.350 = private unnamed_addr constant [28 x i8] c"3 Key Triple DES (obsolete)\00", align 1
-@.str.351 = private unnamed_addr constant [23 x i8] c"AES-128-CBC (obsolete)\00", align 1
-@.str.352 = private unnamed_addr constant [23 x i8] c"AES-256-CBC (obsolete)\00", align 1
-@.str.353 = private unnamed_addr constant [12 x i8] c"AES-128-GCM\00", align 1
-@.str.354 = private unnamed_addr constant [12 x i8] c"AES-256-GCM\00", align 1
-@.str.355 = private unnamed_addr constant [12 x i8] c"AES-128-CCM\00", align 1
-@.str.356 = private unnamed_addr constant [12 x i8] c"AES-256-CCM\00", align 1
-@.str.357 = private unnamed_addr constant [15 x i8] c"MD5 (obsolete)\00", align 1
-@.str.358 = private unnamed_addr constant [17 x i8] c"SHA-1 (obsolete)\00", align 1
-@.str.359 = private unnamed_addr constant [8 x i8] c"SHA-256\00", align 1
-@.str.360 = private unnamed_addr constant [8 x i8] c"SHA-384\00", align 1
-@.str.361 = private unnamed_addr constant [8 x i8] c"SHA-512\00", align 1
-@.str.362 = private unnamed_addr constant [4 x i8] c"RSA\00", align 1
-@.str.363 = private unnamed_addr constant [3 x i8] c"EC\00", align 1
-@.str.364 = private unnamed_addr constant [21 x i8] c"sect163k1 (obsolete)\00", align 1
-@.str.365 = private unnamed_addr constant [21 x i8] c"sect163r1 (obsolete)\00", align 1
-@.str.366 = private unnamed_addr constant [21 x i8] c"sect163r2 (obsolete)\00", align 1
-@.str.367 = private unnamed_addr constant [21 x i8] c"sect193r1 (obsolete)\00", align 1
-@.str.368 = private unnamed_addr constant [21 x i8] c"sect193r2 (obsolete)\00", align 1
-@.str.369 = private unnamed_addr constant [21 x i8] c"sect233k1 (obsolete)\00", align 1
-@.str.370 = private unnamed_addr constant [21 x i8] c"sect233r1 (obsolete)\00", align 1
-@.str.371 = private unnamed_addr constant [21 x i8] c"sect239k1 (obsolete)\00", align 1
-@.str.372 = private unnamed_addr constant [21 x i8] c"sect283k1 (obsolete)\00", align 1
-@.str.373 = private unnamed_addr constant [21 x i8] c"sect283r1 (obsolete)\00", align 1
-@.str.374 = private unnamed_addr constant [21 x i8] c"sect409k1 (obsolete)\00", align 1
-@.str.375 = private unnamed_addr constant [21 x i8] c"sect409r1 (obsolete)\00", align 1
-@.str.376 = private unnamed_addr constant [21 x i8] c"sect571k1 (obsolete)\00", align 1
-@.str.377 = private unnamed_addr constant [21 x i8] c"sect571r1 (obsolete)\00", align 1
-@.str.378 = private unnamed_addr constant [21 x i8] c"secp160k1 (obsolete)\00", align 1
-@.str.379 = private unnamed_addr constant [21 x i8] c"secp160r1 (obsolete)\00", align 1
-@.str.380 = private unnamed_addr constant [21 x i8] c"secp160r2 (obsolete)\00", align 1
-@.str.381 = private unnamed_addr constant [21 x i8] c"secp192k1 (obsolete)\00", align 1
-@.str.382 = private unnamed_addr constant [22 x i8] c"prime192v1 (obsolete)\00", align 1
-@.str.383 = private unnamed_addr constant [21 x i8] c"secp224k1 (obsolete)\00", align 1
-@.str.384 = private unnamed_addr constant [21 x i8] c"secp224r1 (obsolete)\00", align 1
-@.str.385 = private unnamed_addr constant [21 x i8] c"secp256k1 (obsolete)\00", align 1
-@.str.386 = private unnamed_addr constant [11 x i8] c"prime256v1\00", align 1
-@.str.387 = private unnamed_addr constant [10 x i8] c"secp384r1\00", align 1
-@.str.388 = private unnamed_addr constant [10 x i8] c"secp521r1\00", align 1
-@.str.389 = private unnamed_addr constant [13 x i8] c"Regular file\00", align 1
-@.str.390 = private unnamed_addr constant [10 x i8] c"Directory\00", align 1
-@.str.391 = private unnamed_addr constant [14 x i8] c"Symbolic link\00", align 1
-@.str.392 = private unnamed_addr constant [15 x i8] c"Delete request\00", align 1
-@.str.393 = private unnamed_addr constant [19 x i8] c"Free space request\00", align 1
-@.str.394 = private unnamed_addr constant [7 x i8] c"Normal\00", align 1
-@.str.395 = private unnamed_addr constant [8 x i8] c"Skipped\00", align 1
-@.str.396 = private unnamed_addr constant [10 x i8] c"Overwrite\00", align 1
-@.str.397 = private unnamed_addr constant [9 x i8] c"Rejected\00", align 1
-@.str.398 = private unnamed_addr constant [21 x i8] c"Authorization Failed\00", align 1
-@.str.399 = private unnamed_addr constant [24 x i8] c"Authorization Succeeded\00", align 1
-@.str.400 = private unnamed_addr constant [23 x i8] c"Authorization Required\00", align 1
-@.str.401 = private unnamed_addr constant [5 x i8] c"UFTP\00", align 1
-@.str.402 = private unnamed_addr constant [6 x i8] c"%-12s\00", align 1
-@.str.403 = private unnamed_addr constant [13 x i8] c"Unknown (%d)\00", align 1
-@.str.404 = private unnamed_addr constant [9 x i8] c" ID=%08X\00", align 1
-@.str.405 = private unnamed_addr constant [21 x i8] c"Function unknown: %d\00", align 1
-@.str.406 = private unnamed_addr constant [19 x i8] c"Invalid length: %d\00", align 1
-@.str.407 = private unnamed_addr constant [36 x i8] c"Invalid length, len = %d, hlen = %d\00", align 1
-@.str.408 = private unnamed_addr constant [14 x i8] c"%d bytes (%d)\00", align 1
+@messages = internal constant [22 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.22 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.96 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.107 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.117 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.122 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.137 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.145 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.169 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.180 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.201 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.208 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.217 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.232 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.237 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.248 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.341 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.256 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.314 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.322 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.293 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.343 = private unnamed_addr constant [5 x i8] c"NONE\00", align 1
+@.str.344 = private unnamed_addr constant [17 x i8] c"UFTP3 (obsolete)\00", align 1
+@.str.345 = private unnamed_addr constant [6 x i8] c"TFMCC\00", align 1
+@.str.346 = private unnamed_addr constant [6 x i8] c"PGMCC\00", align 1
+@cc_types = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.343 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.344 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.345 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.346 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.348 = private unnamed_addr constant [20 x i8] c"EXT_PGMCC_DATA_INFO\00", align 1
+@.str.349 = private unnamed_addr constant [19 x i8] c"EXT_PGMCC_NAK_INFO\00", align 1
+@.str.350 = private unnamed_addr constant [19 x i8] c"EXT_PGMCC_ACK_INFO\00", align 1
+@extensions = internal constant [8 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.51 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.189 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.298 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.348 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.349 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.350 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.225 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.352 = private unnamed_addr constant [15 x i8] c"DES (obsolete)\00", align 1
+@.str.353 = private unnamed_addr constant [28 x i8] c"3 Key Triple DES (obsolete)\00", align 1
+@.str.354 = private unnamed_addr constant [23 x i8] c"AES-128-CBC (obsolete)\00", align 1
+@.str.355 = private unnamed_addr constant [23 x i8] c"AES-256-CBC (obsolete)\00", align 1
+@.str.356 = private unnamed_addr constant [12 x i8] c"AES-128-GCM\00", align 1
+@.str.357 = private unnamed_addr constant [12 x i8] c"AES-256-GCM\00", align 1
+@.str.358 = private unnamed_addr constant [12 x i8] c"AES-128-CCM\00", align 1
+@.str.359 = private unnamed_addr constant [12 x i8] c"AES-256-CCM\00", align 1
+@key_types = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.343 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.352 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.353 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.354 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.355 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.356 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.357 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.358 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.359 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.361 = private unnamed_addr constant [15 x i8] c"MD5 (obsolete)\00", align 1
+@.str.362 = private unnamed_addr constant [17 x i8] c"SHA-1 (obsolete)\00", align 1
+@.str.363 = private unnamed_addr constant [8 x i8] c"SHA-256\00", align 1
+@.str.364 = private unnamed_addr constant [8 x i8] c"SHA-384\00", align 1
+@.str.365 = private unnamed_addr constant [8 x i8] c"SHA-512\00", align 1
+@hash_types = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.343 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.361 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.362 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.363 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.364 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.365 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.367 = private unnamed_addr constant [4 x i8] c"RSA\00", align 1
+@.str.368 = private unnamed_addr constant [3 x i8] c"EC\00", align 1
+@keyblob_types = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.367 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.368 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.370 = private unnamed_addr constant [21 x i8] c"sect163k1 (obsolete)\00", align 1
+@.str.371 = private unnamed_addr constant [21 x i8] c"sect163r1 (obsolete)\00", align 1
+@.str.372 = private unnamed_addr constant [21 x i8] c"sect163r2 (obsolete)\00", align 1
+@.str.373 = private unnamed_addr constant [21 x i8] c"sect193r1 (obsolete)\00", align 1
+@.str.374 = private unnamed_addr constant [21 x i8] c"sect193r2 (obsolete)\00", align 1
+@.str.375 = private unnamed_addr constant [21 x i8] c"sect233k1 (obsolete)\00", align 1
+@.str.376 = private unnamed_addr constant [21 x i8] c"sect233r1 (obsolete)\00", align 1
+@.str.377 = private unnamed_addr constant [21 x i8] c"sect239k1 (obsolete)\00", align 1
+@.str.378 = private unnamed_addr constant [21 x i8] c"sect283k1 (obsolete)\00", align 1
+@.str.379 = private unnamed_addr constant [21 x i8] c"sect283r1 (obsolete)\00", align 1
+@.str.380 = private unnamed_addr constant [21 x i8] c"sect409k1 (obsolete)\00", align 1
+@.str.381 = private unnamed_addr constant [21 x i8] c"sect409r1 (obsolete)\00", align 1
+@.str.382 = private unnamed_addr constant [21 x i8] c"sect571k1 (obsolete)\00", align 1
+@.str.383 = private unnamed_addr constant [21 x i8] c"sect571r1 (obsolete)\00", align 1
+@.str.384 = private unnamed_addr constant [21 x i8] c"secp160k1 (obsolete)\00", align 1
+@.str.385 = private unnamed_addr constant [21 x i8] c"secp160r1 (obsolete)\00", align 1
+@.str.386 = private unnamed_addr constant [21 x i8] c"secp160r2 (obsolete)\00", align 1
+@.str.387 = private unnamed_addr constant [21 x i8] c"secp192k1 (obsolete)\00", align 1
+@.str.388 = private unnamed_addr constant [22 x i8] c"prime192v1 (obsolete)\00", align 1
+@.str.389 = private unnamed_addr constant [21 x i8] c"secp224k1 (obsolete)\00", align 1
+@.str.390 = private unnamed_addr constant [21 x i8] c"secp224r1 (obsolete)\00", align 1
+@.str.391 = private unnamed_addr constant [21 x i8] c"secp256k1 (obsolete)\00", align 1
+@.str.392 = private unnamed_addr constant [11 x i8] c"prime256v1\00", align 1
+@.str.393 = private unnamed_addr constant [10 x i8] c"secp384r1\00", align 1
+@.str.394 = private unnamed_addr constant [10 x i8] c"secp521r1\00", align 1
+@curves = internal constant [26 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.370 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.371 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.372 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.373 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.374 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.375 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.376 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.377 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.378 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.379 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.380 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.381 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.382 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.383 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.384 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.385 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.386 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.387 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.388 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.389 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.390 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.391 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.392 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.393 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.394 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.396 = private unnamed_addr constant [13 x i8] c"Regular file\00", align 1
+@.str.397 = private unnamed_addr constant [10 x i8] c"Directory\00", align 1
+@.str.398 = private unnamed_addr constant [14 x i8] c"Symbolic link\00", align 1
+@.str.399 = private unnamed_addr constant [15 x i8] c"Delete request\00", align 1
+@.str.400 = private unnamed_addr constant [19 x i8] c"Free space request\00", align 1
+@file_types = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.396 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.397 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.398 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.399 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.400 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.402 = private unnamed_addr constant [7 x i8] c"Normal\00", align 1
+@.str.403 = private unnamed_addr constant [8 x i8] c"Skipped\00", align 1
+@.str.404 = private unnamed_addr constant [10 x i8] c"Overwrite\00", align 1
+@.str.405 = private unnamed_addr constant [9 x i8] c"Rejected\00", align 1
+@comp_status = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.402 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.403 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.404 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.405 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.407 = private unnamed_addr constant [21 x i8] c"Authorization Failed\00", align 1
+@.str.408 = private unnamed_addr constant [24 x i8] c"Authorization Succeeded\00", align 1
+@.str.409 = private unnamed_addr constant [23 x i8] c"Authorization Required\00", align 1
+@hb_auth_types = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.407 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.408 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.409 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.411 = private unnamed_addr constant [5 x i8] c"UFTP\00", align 1
+@.str.412 = private unnamed_addr constant [6 x i8] c"%-12s\00", align 1
+@.str.413 = private unnamed_addr constant [13 x i8] c"Unknown (%d)\00", align 1
+@.str.414 = private unnamed_addr constant [9 x i8] c" ID=%08X\00", align 1
+@.str.415 = private unnamed_addr constant [21 x i8] c"Function unknown: %d\00", align 1
+@.str.416 = private unnamed_addr constant [19 x i8] c"Invalid length: %d\00", align 1
+@.str.417 = private unnamed_addr constant [36 x i8] c"Invalid length, len = %d, hlen = %d\00", align 1
+@.str.418 = private unnamed_addr constant [14 x i8] c"%d bytes (%d)\00", align 1
 @announce_flags = internal constant [5 x ptr] [ptr @hf_uftp_announce_flags_sync, ptr @hf_uftp_announce_flags_syncpreview, ptr @hf_uftp_announce_flags_ipv6, ptr @hf_uftp_announce_flags_reserved, ptr null], align 16
-@.str.409 = private unnamed_addr constant [74 x i8] c"Invalid length, len = %d, hlen = %d, keylen = %d, dhlen = %d, siglen = %d\00", align 1
+@.str.419 = private unnamed_addr constant [74 x i8] c"Invalid length, len = %d, hlen = %d, keylen = %d, dhlen = %d, siglen = %d\00", align 1
 @encinfo_flags = internal constant [3 x ptr] [ptr @hf_uftp_encinfo_flags_client_auth, ptr @hf_uftp_encinfo_flags_reserved, ptr null], align 16
-@.str.410 = private unnamed_addr constant [25 x i8] c"Invalid length, len = %d\00", align 1
-@.str.411 = private unnamed_addr constant [49 x i8] c"Invalid length, len = %d, hlen = %d, keylen = %d\00", align 1
-@.str.412 = private unnamed_addr constant [64 x i8] c"Invalid length, len = %d, hlen = %d, keylen = %d verifylen = %d\00", align 1
-@.str.413 = private unnamed_addr constant [49 x i8] c"Invalid length, len = %d, hlen = %d, siglen = %d\00", align 1
-@.str.414 = private unnamed_addr constant [64 x i8] c"Invalid length, len = %d, hlen = %d, namelen = %d, linklen = %d\00", align 1
-@.str.415 = private unnamed_addr constant [6 x i8] c":%04X\00", align 1
+@.str.420 = private unnamed_addr constant [25 x i8] c"Invalid length, len = %d\00", align 1
+@.str.421 = private unnamed_addr constant [49 x i8] c"Invalid length, len = %d, hlen = %d, keylen = %d\00", align 1
+@.str.422 = private unnamed_addr constant [64 x i8] c"Invalid length, len = %d, hlen = %d, keylen = %d verifylen = %d\00", align 1
+@.str.423 = private unnamed_addr constant [49 x i8] c"Invalid length, len = %d, hlen = %d, siglen = %d\00", align 1
+@.str.424 = private unnamed_addr constant [64 x i8] c"Invalid length, len = %d, hlen = %d, namelen = %d, linklen = %d\00", align 1
+@.str.425 = private unnamed_addr constant [6 x i8] c":%04X\00", align 1
 @fileinfoack_flags = internal constant [3 x ptr] [ptr @hf_uftp_fileinfoack_flags_partial, ptr @hf_uftp_fileinfoack_flags_reserved, ptr null], align 16
-@.str.416 = private unnamed_addr constant [28 x i8] c":%04X  Section=%d  Block=%d\00", align 1
-@.str.417 = private unnamed_addr constant [18 x i8] c":%04X  Section=%d\00", align 1
+@.str.426 = private unnamed_addr constant [28 x i8] c":%04X  Section=%d  Block=%d\00", align 1
+@.str.427 = private unnamed_addr constant [18 x i8] c":%04X  Section=%d\00", align 1
 @tfmcc_ack_flags = internal constant [6 x ptr] [ptr @hf_uftp_tfmccack_flags_clr, ptr @hf_uftp_tfmccack_flags_rtt, ptr @hf_uftp_tfmccack_flags_start, ptr @hf_uftp_tfmccack_flags_leave, ptr @hf_uftp_tfmccack_flags_reserved, ptr null], align 16
-@.str.418 = private unnamed_addr constant [57 x i8] c"Invalid length, len = %d, hlen = %d, keylen=%d siglen=%d\00", align 1
-@.str.419 = private unnamed_addr constant [68 x i8] c"Invalid length, len = %d, hlen = %d, keylen=%d, dhlen=%d, siglen=%d\00", align 1
+@.str.428 = private unnamed_addr constant [57 x i8] c"Invalid length, len = %d, hlen = %d, keylen=%d siglen=%d\00", align 1
+@.str.429 = private unnamed_addr constant [68 x i8] c"Invalid length, len = %d, hlen = %d, keylen=%d, dhlen=%d, siglen=%d\00", align 1
 @cc_item_flags = internal constant [6 x ptr] [ptr @hf_uftp_congctrl_item_flags_clr, ptr @hf_uftp_congctrl_item_flags_rtt, ptr @hf_uftp_congctrl_item_flags_start, ptr @hf_uftp_congctrl_item_flags_leave, ptr @hf_uftp_congctrl_item_flags_reserved, ptr null], align 16
-@.str.420 = private unnamed_addr constant [37 x i8] c"Invalid length, len = %d, payload=%d\00", align 1
+@.str.430 = private unnamed_addr constant [37 x i8] c"Invalid length, len = %d, payload=%d\00", align 1
 @abort_flags = internal constant [3 x ptr] [ptr @hf_uftp_abort_flags_curfile, ptr @hf_uftp_abort_flags_reserved, ptr null], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_uftp5() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.338, ptr noundef nonnull @.str.339, ptr noundef nonnull @.str.340) #4
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.338, ptr noundef nonnull @.str.339, ptr noundef nonnull @.str.340)
   store i32 %1, ptr @proto_uftp, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_uftp5.hf, i32 noundef 224) #4
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_uftp5.ett, i32 noundef 37) #4
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_uftp5.hf, i32 noundef 224)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_uftp5.ett, i32 noundef 37)
   %2 = load i32, ptr @proto_uftp, align 4
-  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.340, ptr noundef nonnull @dissect_uftp, i32 noundef %2) #4
+  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.340, ptr noundef nonnull @dissect_uftp, i32 noundef %2)
   %4 = load i32, ptr @proto_uftp, align 4
-  %5 = tail call ptr @expert_register_protocol(i32 noundef %4) #4
-  tail call void @expert_register_field_array(ptr noundef %5, ptr noundef nonnull @proto_register_uftp5.ei, i32 noundef 2) #4
+  %5 = tail call ptr @expert_register_protocol(i32 noundef %4)
+  tail call void @expert_register_field_array(ptr noundef %5, ptr noundef nonnull @proto_register_uftp5.ei, i32 noundef 2)
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_uftp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
-  %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %6 = icmp ult i32 %5, 20
   br i1 %6, label %95, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
-  %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
-  %10 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #4
+  %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
+  %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %10 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8)
   %.not = icmp eq i8 %8, 80
   br i1 %.not, label %11, label %95
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
-  tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.401) #4
+  tail call void @col_set_str(ptr noundef %13, i32 noundef 35, ptr noundef nonnull @.str.411)
   %14 = load ptr, ptr %12, align 8
-  tail call void @col_clear(ptr noundef %14, i32 noundef 25) #4
+  tail call void @col_clear(ptr noundef %14, i32 noundef 25)
   %15 = load ptr, ptr %12, align 8
   %16 = zext i8 %9 to i32
-  %17 = tail call ptr @val_to_str(i32 noundef %16, ptr noundef nonnull @messages, ptr noundef nonnull @.str.403) #4
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.402, ptr noundef %17) #4
+  %17 = tail call ptr @val_to_str(i32 noundef %16, ptr noundef nonnull @messages, ptr noundef nonnull @.str.413)
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.412, ptr noundef %17)
   %18 = add i8 %9, -16
   %or.cond = icmp ult i8 %18, -2
   br i1 %or.cond, label %19, label %21
 
 19:                                               ; preds = %11
   %20 = load ptr, ptr %12, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.404, i32 noundef %10) #4
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.414, i32 noundef %10)
   br label %21
 
 21:                                               ; preds = %19, %11
-  %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 13) #4
+  %22 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 13)
   %23 = zext i8 %22 to i32
   %24 = icmp ult i8 %22, 32
   br i1 %24, label %25, label %29
@@ -786,13 +790,13 @@ define internal i32 @dissect_uftp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %30 = xor i32 %23, 255
   %31 = uitofp nneg i32 %30 to double
   %32 = fdiv double %31, 1.300000e+01
-  %33 = tail call double @exp(double noundef %32) #4
+  %33 = tail call double @exp(double noundef %32) #5
   %34 = fdiv double 1.000000e+03, %33
   br label %unquantize_grtt.exit
 
 unquantize_grtt.exit:                             ; preds = %25, %29
   %35 = phi double [ %28, %25 ], [ %34, %29 ]
-  %36 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 14) #4
+  %36 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 14)
   %37 = zext i8 %36 to i32
   %38 = and i32 %37, 7
   %39 = lshr i32 %37, 3
@@ -807,37 +811,37 @@ unquantize_grtt.exit:                             ; preds = %25, %29
   %42 = fmul double %.08.i, 1.000000e+01
   %43 = add nuw nsw i32 %.067.i, 1
   %exitcond.not.i = icmp eq i32 %43, %38
-  br i1 %exitcond.not.i, label %unquantize_gsize.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %unquantize_gsize.exit, label %.lr.ph.i, !llvm.loop !6
 
 unquantize_gsize.exit:                            ; preds = %.lr.ph.i, %unquantize_grtt.exit
   %.0.lcssa.i = phi double [ %41, %unquantize_grtt.exit ], [ %42, %.lr.ph.i ]
   %44 = fadd double %.0.lcssa.i, 5.000000e-01
   %45 = fptoui double %44 to i32
   %46 = load i32, ptr @proto_uftp, align 4
-  %47 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %46, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %47 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %46, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %48 = load i32, ptr @ett_uftp, align 4
-  %49 = tail call ptr @proto_item_add_subtree(ptr noundef %47, i32 noundef %48) #4
+  %49 = tail call ptr @proto_item_add_subtree(ptr noundef %47, i32 noundef %48)
   %50 = load i32, ptr @hf_uftp_version, align 4
-  %51 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %50, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %50, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %52 = load i32, ptr @hf_uftp_func, align 4
-  %53 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %52, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
+  %53 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %52, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %54 = load i32, ptr @hf_uftp_seq, align 4
-  %55 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %54, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
+  %55 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %54, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %56 = load i32, ptr @hf_uftp_src_id, align 4
-  %57 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %56, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #4
+  %57 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %56, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0)
   %58 = load i32, ptr @hf_uftp_group_id, align 4
-  %59 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %58, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #4
+  %59 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %58, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0)
   %60 = load i32, ptr @hf_uftp_group_inst, align 4
-  %61 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %60, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0) #4
+  %61 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %60, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0)
   %62 = load i32, ptr @hf_uftp_grtt, align 4
-  %63 = tail call ptr @proto_tree_add_double(ptr noundef %49, i32 noundef %62, ptr noundef %0, i32 noundef 13, i32 noundef 1, double noundef %35) #4
+  %63 = tail call ptr @proto_tree_add_double(ptr noundef %49, i32 noundef %62, ptr noundef %0, i32 noundef 13, i32 noundef 1, double noundef %35)
   %64 = load i32, ptr @hf_uftp_gsize, align 4
-  %65 = tail call ptr @proto_tree_add_uint(ptr noundef %49, i32 noundef %64, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef %45) #4
+  %65 = tail call ptr @proto_tree_add_uint(ptr noundef %49, i32 noundef %64, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef %45)
   %66 = load i32, ptr @hf_uftp_reserved, align 4
-  %67 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %66, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0) #4
-  %68 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %66, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
+  %68 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %69 = add i32 %68, -16
-  %70 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 16, i32 noundef %69) #4
+  %70 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 16, i32 noundef %69)
   switch i8 %9, label %91 [
     i8 1, label %71
     i8 2, label %72
@@ -942,11 +946,11 @@ unquantize_gsize.exit:                            ; preds = %.lr.ph.i, %unquanti
   br label %93
 
 91:                                               ; preds = %unquantize_gsize.exit
-  %92 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_func_unknown, ptr noundef %0, i32 noundef 16, i32 noundef -1, ptr noundef nonnull @.str.405, i32 noundef %16) #4
+  %92 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_func_unknown, ptr noundef %0, i32 noundef 16, i32 noundef -1, ptr noundef nonnull @.str.415, i32 noundef %16)
   br label %93
 
 93:                                               ; preds = %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71
-  %94 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %94 = tail call i32 @tvb_reported_length(ptr noundef %0)
   br label %95
 
 95:                                               ; preds = %7, %4, %93
@@ -954,145 +958,164 @@ unquantize_gsize.exit:                            ; preds = %.lr.ph.i, %unquanti
   ret i32 %.0
 }
 
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
 
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_double(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, double noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_double(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, double noundef) local_unnamed_addr #2
 
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_uftp_announce(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
-  %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
+  %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %6 = icmp ult i32 %5, 16
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
-  %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %9 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.406, i32 noundef %8) #4
+  %8 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %9 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.416, i32 noundef %8)
   br label %.loopexit
 
 10:                                               ; preds = %3
-  %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
+  %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %12 = zext i8 %11 to i32
   %13 = shl nuw nsw i32 %12, 2
-  %14 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %14 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %15 = icmp slt i32 %14, %13
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %10
-  %17 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %18 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.407, i32 noundef %17, i32 noundef %13) #4
+  %17 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %18 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.417, i32 noundef %17, i32 noundef %13)
   br label %.loopexit
 
 19:                                               ; preds = %10
-  %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #4
+  %20 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
   %21 = load i32, ptr @hf_uftp_announce, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %23 = load i32, ptr @ett_uftp_announce, align 4
-  %24 = tail call ptr @proto_item_add_subtree(ptr noundef %22, i32 noundef %23) #4
+  %24 = tail call ptr @proto_item_add_subtree(ptr noundef %22, i32 noundef %23)
   %25 = load i32, ptr @hf_uftp_announce_func, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %27 = load i32, ptr @hf_uftp_announce_hlen, align 4
-  %28 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %24, i32 noundef %27, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %13, ptr noundef nonnull @.str.408, i32 noundef %13, i32 noundef %12) #4
+  %28 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %24, i32 noundef %27, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %13, ptr noundef nonnull @.str.418, i32 noundef %13, i32 noundef %12)
   %29 = load i32, ptr @hf_uftp_announce_flags, align 4
   %30 = load i32, ptr @ett_uftp_announce_flags, align 4
-  %31 = tail call ptr @proto_tree_add_bitmask(ptr noundef %24, ptr noundef %0, i32 noundef 2, i32 noundef %29, i32 noundef %30, ptr noundef nonnull @announce_flags, i32 noundef 0) #4
+  %31 = tail call ptr @proto_tree_add_bitmask(ptr noundef %24, ptr noundef %0, i32 noundef 2, i32 noundef %29, i32 noundef %30, ptr noundef nonnull @announce_flags, i32 noundef 0)
   %32 = load i32, ptr @hf_uftp_announce_robust, align 4
-  %33 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %32, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #4
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %32, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %34 = load i32, ptr @hf_uftp_announce_cc_type, align 4
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %34, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #4
+  %35 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %34, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %36 = load i32, ptr @hf_uftp_announce_reserved, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %36, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #4
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %36, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
   %38 = load i32, ptr @hf_uftp_announce_blocksize, align 4
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %38, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #4
-  %40 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef 8) #4
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %38, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0)
+  %40 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef 8)
   %41 = udiv i64 %40, 1000000
   %42 = urem i64 %40, 1000000
   %43 = trunc nuw nsw i64 %42 to i32
   %44 = mul nuw nsw i32 %43, 1000
   store i64 %41, ptr %4, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %44, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 %44, ptr %.sroa.4.0..sroa_idx, align 8
   %45 = load i32, ptr @hf_uftp_announce_tstamp, align 4
-  %46 = call ptr @proto_tree_add_time(ptr noundef %24, i32 noundef %45, ptr noundef %0, i32 noundef 8, i32 noundef 8, ptr noundef nonnull %4) #4
+  %46 = call ptr @proto_tree_add_time(ptr noundef %24, i32 noundef %45, ptr noundef %0, i32 noundef 8, i32 noundef 8, ptr noundef nonnull %4)
   %47 = and i8 %20, 4
   %.not = icmp eq i8 %47, 0
   br i1 %.not, label %53, label %48
 
 48:                                               ; preds = %19
   %49 = load i32, ptr @hf_uftp_announce_publicmcast_ipv6, align 4
-  %50 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %49, ptr noundef %0, i32 noundef 16, i32 noundef 16, i32 noundef 0) #4
+  %50 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %49, ptr noundef %0, i32 noundef 16, i32 noundef 16, i32 noundef 0)
   %51 = load i32, ptr @hf_uftp_announce_privatemcast_ipv6, align 4
-  %52 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %51, ptr noundef %0, i32 noundef 32, i32 noundef 16, i32 noundef 0) #4
+  %52 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %51, ptr noundef %0, i32 noundef 32, i32 noundef 16, i32 noundef 0)
   br label %58
 
 53:                                               ; preds = %19
   %54 = load i32, ptr @hf_uftp_announce_publicmcast_ipv4, align 4
-  %55 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %54, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #4
+  %55 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %54, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0)
   %56 = load i32, ptr @hf_uftp_announce_privatemcast_ipv4, align 4
-  %57 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %56, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0) #4
+  %57 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %56, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0)
   br label %58
 
 58:                                               ; preds = %53, %48
-  %.0115 = phi i32 [ 48, %48 ], [ 24, %53 ]
-  %59 = sub nsw i32 %13, %.0115
+  %.0117 = phi i32 [ 48, %48 ], [ 24, %53 ]
+  %59 = sub nsw i32 %13, %.0117
   %60 = icmp sgt i32 %59, 0
   br i1 %60, label %.lr.ph, label %dissect_uftp_encinfo.exit.thread
 
 .lr.ph:                                           ; preds = %58, %dissect_uftp_encinfo.exit
-  %.1132 = phi i32 [ %143, %dissect_uftp_encinfo.exit ], [ %.0115, %58 ]
-  %.0117131 = phi i32 [ %142, %dissect_uftp_encinfo.exit ], [ %59, %58 ]
-  %61 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.1132, i32 noundef %.0117131) #4
-  %62 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1132) #4
+  %.1135 = phi i32 [ %143, %dissect_uftp_encinfo.exit ], [ %.0117, %58 ]
+  %.0119134 = phi i32 [ %142, %dissect_uftp_encinfo.exit ], [ %59, %58 ]
+  %61 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.1135, i32 noundef %.0119134)
+  %62 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.1135)
   %cond = icmp eq i8 %62, 1
   br i1 %cond, label %63, label %dissect_uftp_encinfo.exit.thread
 
 63:                                               ; preds = %.lr.ph
-  %64 = call i32 @tvb_reported_length(ptr noundef %61) #4
+  %64 = call i32 @tvb_reported_length(ptr noundef %61)
   %65 = icmp ult i32 %64, 44
   br i1 %65, label %66, label %69
 
 66:                                               ; preds = %63
-  %67 = call i32 @tvb_reported_length(ptr noundef %61) #4
-  %68 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %24, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %61, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.406, i32 noundef %67) #4
+  %67 = call i32 @tvb_reported_length(ptr noundef %61)
+  %68 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %24, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %61, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.416, i32 noundef %67)
   br label %dissect_uftp_encinfo.exit.thread
 
 69:                                               ; preds = %63
-  %70 = call zeroext i8 @tvb_get_guint8(ptr noundef %61, i32 noundef 1) #4
+  %70 = call zeroext i8 @tvb_get_uint8(ptr noundef %61, i32 noundef 1)
   %71 = zext i8 %70 to i32
   %72 = shl nuw nsw i32 %71, 2
-  %73 = call zeroext i16 @tvb_get_ntohs(ptr noundef %61, i32 noundef 6) #4
+  %73 = call zeroext i16 @tvb_get_ntohs(ptr noundef %61, i32 noundef 6)
   %74 = zext i16 %73 to i32
-  %75 = call zeroext i16 @tvb_get_ntohs(ptr noundef %61, i32 noundef 8) #4
+  %75 = call zeroext i16 @tvb_get_ntohs(ptr noundef %61, i32 noundef 8)
   %76 = zext i16 %75 to i32
-  %77 = call zeroext i16 @tvb_get_ntohs(ptr noundef %61, i32 noundef 10) #4
+  %77 = call zeroext i16 @tvb_get_ntohs(ptr noundef %61, i32 noundef 10)
   %78 = zext i16 %77 to i32
-  %79 = call i32 @tvb_reported_length(ptr noundef %61) #4
+  %79 = call i32 @tvb_reported_length(ptr noundef %61)
   %80 = icmp slt i32 %79, %72
   br i1 %80, label %86, label %81
 
@@ -1104,42 +1127,42 @@ define internal fastcc void @dissect_uftp_announce(ptr noundef %0, ptr noundef %
   br i1 %85, label %86, label %89
 
 86:                                               ; preds = %81, %69
-  %87 = call i32 @tvb_reported_length(ptr noundef %61) #4
-  %88 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %24, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %61, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.409, i32 noundef %87, i32 noundef %72, i32 noundef %74, i32 noundef %76, i32 noundef %78) #4
+  %87 = call i32 @tvb_reported_length(ptr noundef %61)
+  %88 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %24, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %61, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.419, i32 noundef %87, i32 noundef %72, i32 noundef %74, i32 noundef %76, i32 noundef %78)
   br label %dissect_uftp_encinfo.exit.thread
 
 89:                                               ; preds = %81
   %90 = load i32, ptr @hf_uftp_encinfo, align 4
-  %91 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %90, ptr noundef %61, i32 noundef 0, i32 noundef %84, i32 noundef 0) #4
+  %91 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %90, ptr noundef %61, i32 noundef 0, i32 noundef %84, i32 noundef 0)
   %92 = load i32, ptr @ett_uftp_encinfo, align 4
-  %93 = call ptr @proto_item_add_subtree(ptr noundef %91, i32 noundef %92) #4
+  %93 = call ptr @proto_item_add_subtree(ptr noundef %91, i32 noundef %92)
   %94 = load i32, ptr @hf_uftp_encinfo_exttype, align 4
-  %95 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %94, ptr noundef %61, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %95 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %94, ptr noundef %61, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %96 = load i32, ptr @hf_uftp_encinfo_extlen, align 4
-  %97 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %93, i32 noundef %96, ptr noundef %61, i32 noundef 1, i32 noundef 1, i32 noundef %72, ptr noundef nonnull @.str.408, i32 noundef %72, i32 noundef %71) #4
+  %97 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %93, i32 noundef %96, ptr noundef %61, i32 noundef 1, i32 noundef 1, i32 noundef %72, ptr noundef nonnull @.str.418, i32 noundef %72, i32 noundef %71)
   %98 = load i32, ptr @hf_uftp_encinfo_flags, align 4
   %99 = load i32, ptr @ett_uftp_encinfo_flags, align 4
-  %100 = call ptr @proto_tree_add_bitmask(ptr noundef %93, ptr noundef %61, i32 noundef 2, i32 noundef %98, i32 noundef %99, ptr noundef nonnull @encinfo_flags, i32 noundef 0) #4
+  %100 = call ptr @proto_tree_add_bitmask(ptr noundef %93, ptr noundef %61, i32 noundef 2, i32 noundef %98, i32 noundef %99, ptr noundef nonnull @encinfo_flags, i32 noundef 0)
   %101 = load i32, ptr @hf_uftp_encinfo_reserved, align 4
-  %102 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %101, ptr noundef %61, i32 noundef 3, i32 noundef 1, i32 noundef 0) #4
+  %102 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %101, ptr noundef %61, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %103 = load i32, ptr @hf_uftp_encinfo_keytype, align 4
-  %104 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %103, ptr noundef %61, i32 noundef 4, i32 noundef 1, i32 noundef 0) #4
+  %104 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %103, ptr noundef %61, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %105 = load i32, ptr @hf_uftp_encinfo_hashtype, align 4
-  %106 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %105, ptr noundef %61, i32 noundef 5, i32 noundef 1, i32 noundef 0) #4
+  %106 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %105, ptr noundef %61, i32 noundef 5, i32 noundef 1, i32 noundef 0)
   %107 = load i32, ptr @hf_uftp_encinfo_keylen, align 4
-  %108 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %107, ptr noundef %61, i32 noundef 6, i32 noundef 2, i32 noundef 0) #4
+  %108 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %107, ptr noundef %61, i32 noundef 6, i32 noundef 2, i32 noundef 0)
   %109 = load i32, ptr @hf_uftp_encinfo_dhlen, align 4
-  %110 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %109, ptr noundef %61, i32 noundef 8, i32 noundef 2, i32 noundef 0) #4
+  %110 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %109, ptr noundef %61, i32 noundef 8, i32 noundef 2, i32 noundef 0)
   %111 = load i32, ptr @hf_uftp_encinfo_siglen, align 4
-  %112 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %111, ptr noundef %61, i32 noundef 10, i32 noundef 2, i32 noundef 0) #4
+  %112 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %111, ptr noundef %61, i32 noundef 10, i32 noundef 2, i32 noundef 0)
   %113 = load i32, ptr @hf_uftp_encinfo_rand1, align 4
-  %114 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %113, ptr noundef %61, i32 noundef 12, i32 noundef 32, i32 noundef 0) #4
+  %114 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %113, ptr noundef %61, i32 noundef 12, i32 noundef 32, i32 noundef 0)
   %.not.i = icmp eq i16 %73, 0
   br i1 %.not.i, label %126, label %115
 
 115:                                              ; preds = %89
-  %116 = call ptr @tvb_new_subset_length(ptr noundef %61, i32 noundef 44, i32 noundef %74) #4
-  %117 = call zeroext i8 @tvb_get_guint8(ptr noundef %61, i32 noundef 44) #4
+  %116 = call ptr @tvb_new_subset_length(ptr noundef %61, i32 noundef 44, i32 noundef %74)
+  %117 = call zeroext i8 @tvb_get_uint8(ptr noundef %61, i32 noundef 44)
   switch i8 %117, label %124 [
     i8 1, label %118
     i8 2, label %121
@@ -1166,8 +1189,8 @@ define internal fastcc void @dissect_uftp_announce(ptr noundef %0, ptr noundef %
   br i1 %.not121.i, label %138, label %127
 
 127:                                              ; preds = %126
-  %128 = call ptr @tvb_new_subset_length(ptr noundef %61, i32 noundef %.0115.i, i32 noundef %76) #4
-  %129 = call zeroext i8 @tvb_get_guint8(ptr noundef %61, i32 noundef %.0115.i) #4
+  %128 = call ptr @tvb_new_subset_length(ptr noundef %61, i32 noundef %.0115.i, i32 noundef %76)
+  %129 = call zeroext i8 @tvb_get_uint8(ptr noundef %61, i32 noundef %.0115.i)
   switch i8 %129, label %136 [
     i8 1, label %130
     i8 2, label %133
@@ -1195,63 +1218,65 @@ define internal fastcc void @dissect_uftp_announce(ptr noundef %0, ptr noundef %
 
 139:                                              ; preds = %138
   %140 = load i32, ptr @hf_uftp_encinfo_sig, align 4
-  %141 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %140, ptr noundef %61, i32 noundef %.1.i, i32 noundef %78, i32 noundef 0) #4
+  %141 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %140, ptr noundef %61, i32 noundef %.1.i, i32 noundef %78, i32 noundef 0)
   br label %dissect_uftp_encinfo.exit
 
-dissect_uftp_encinfo.exit:                        ; preds = %138, %139
-  %142 = sub nsw i32 %.0117131, %84
-  %143 = add i32 %84, %.1132
+dissect_uftp_encinfo.exit:                        ; preds = %139, %138
+  %142 = sub nsw i32 %.0119134, %84
+  %143 = add i32 %84, %.1135
   %144 = icmp sgt i32 %142, 0
-  br i1 %144, label %.lr.ph, label %dissect_uftp_encinfo.exit.thread, !llvm.loop !6
+  br i1 %144, label %.lr.ph, label %dissect_uftp_encinfo.exit.thread
 
 dissect_uftp_encinfo.exit.thread:                 ; preds = %dissect_uftp_encinfo.exit, %.lr.ph, %58, %86, %66
-  %145 = call i32 @tvb_reported_length(ptr noundef %0) #4
+  %145 = call i32 @tvb_reported_length(ptr noundef %0)
   %146 = sub i32 %145, %13
-  %.not123 = icmp ult i32 %146, 4
-  br i1 %.not123, label %.loopexit, label %.lr.ph136.preheader
+  %.not126 = icmp ult i32 %146, 4
+  br i1 %.not126, label %.loopexit, label %.lr.ph139.preheader
 
-.lr.ph136.preheader:                              ; preds = %dissect_uftp_encinfo.exit.thread
+.lr.ph139.preheader:                              ; preds = %dissect_uftp_encinfo.exit.thread
   %147 = lshr i32 %146, 2
   %148 = load i32, ptr @hf_uftp_destlist, align 4
   %149 = and i32 %146, -4
-  %150 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %148, ptr noundef %0, i32 noundef %13, i32 noundef %149, i32 noundef 0) #4
+  %150 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %148, ptr noundef %0, i32 noundef %13, i32 noundef %149, i32 noundef 0)
   %151 = load i32, ptr @ett_uftp_destlist, align 4
-  %152 = call ptr @proto_item_add_subtree(ptr noundef %150, i32 noundef %151) #4
+  %152 = call ptr @proto_item_add_subtree(ptr noundef %150, i32 noundef %151)
   %umax = call i32 @llvm.umax.i32(i32 %147, i32 1)
-  br label %.lr.ph136
+  br label %.lr.ph139
 
-.lr.ph136:                                        ; preds = %.lr.ph136.preheader, %.lr.ph136
-  %.2135 = phi i32 [ %155, %.lr.ph136 ], [ %13, %.lr.ph136.preheader ]
-  %.0118134 = phi i32 [ %156, %.lr.ph136 ], [ 0, %.lr.ph136.preheader ]
+.lr.ph139:                                        ; preds = %.lr.ph139.preheader, %.lr.ph139
+  %.3138 = phi i32 [ %155, %.lr.ph139 ], [ %13, %.lr.ph139.preheader ]
+  %.0121137 = phi i32 [ %156, %.lr.ph139 ], [ 0, %.lr.ph139.preheader ]
   %153 = load i32, ptr @hf_uftp_dest, align 4
-  %154 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %153, ptr noundef %0, i32 noundef %.2135, i32 noundef 4, i32 noundef 0) #4
-  %155 = add i32 %.2135, 4
-  %156 = add nuw nsw i32 %.0118134, 1
+  %154 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %153, ptr noundef %0, i32 noundef %.3138, i32 noundef 4, i32 noundef 0)
+  %155 = add i32 %.3138, 4
+  %156 = add nuw nsw i32 %.0121137, 1
   %exitcond.not = icmp eq i32 %156, %umax
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph136, !llvm.loop !7
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph139, !llvm.loop !8
 
-.loopexit:                                        ; preds = %.lr.ph136, %dissect_uftp_encinfo.exit.thread, %16, %7
+.loopexit:                                        ; preds = %.lr.ph139, %dissect_uftp_encinfo.exit.thread, %16, %7
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_uftp_register(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
-  %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
+  %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %6 = icmp ult i32 %5, 44
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
-  %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %9 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.406, i32 noundef %8) #4
+  %8 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %9 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.416, i32 noundef %8)
   br label %.loopexit
 
 10:                                               ; preds = %3
-  %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
+  %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %12 = zext i8 %11 to i32
   %13 = shl nuw nsw i32 %12, 2
-  %14 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #4
-  %15 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %14 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2)
+  %15 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %16 = icmp slt i32 %15, %13
   %.pre = zext i16 %14 to i32
   %17 = add nuw nsw i32 %.pre, 44
@@ -1260,43 +1285,43 @@ define internal fastcc void @dissect_uftp_register(ptr noundef %0, ptr noundef %
   br i1 %or.cond, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %10
-  %19 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %20 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.411, i32 noundef %19, i32 noundef %13, i32 noundef %.pre) #4
+  %19 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %20 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.421, i32 noundef %19, i32 noundef %13, i32 noundef %.pre)
   br label %.loopexit
 
 21:                                               ; preds = %10
   %22 = load i32, ptr @hf_uftp_register, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %24 = load i32, ptr @ett_uftp_register, align 4
-  %25 = tail call ptr @proto_item_add_subtree(ptr noundef %23, i32 noundef %24) #4
+  %25 = tail call ptr @proto_item_add_subtree(ptr noundef %23, i32 noundef %24)
   %26 = load i32, ptr @hf_uftp_register_func, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %28 = load i32, ptr @hf_uftp_register_hlen, align 4
-  %29 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %25, i32 noundef %28, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %13, ptr noundef nonnull @.str.408, i32 noundef %13, i32 noundef %12) #4
+  %29 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %25, i32 noundef %28, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %13, ptr noundef nonnull @.str.418, i32 noundef %13, i32 noundef %12)
   %30 = load i32, ptr @hf_uftp_register_dhlen, align 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %30, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
-  %32 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef 4) #4
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %30, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
+  %32 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef 4)
   %33 = udiv i64 %32, 1000000
   %34 = urem i64 %32, 1000000
   %35 = trunc nuw nsw i64 %34 to i32
   %36 = mul nuw nsw i32 %35, 1000
   store i64 %33, ptr %4, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %36, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 %36, ptr %.sroa.4.0..sroa_idx, align 8
   %37 = load i32, ptr @hf_uftp_register_tstamp, align 4
-  %38 = call ptr @proto_tree_add_time(ptr noundef %25, i32 noundef %37, ptr noundef %0, i32 noundef 4, i32 noundef 8, ptr noundef nonnull %4) #4
+  %38 = call ptr @proto_tree_add_time(ptr noundef %25, i32 noundef %37, ptr noundef %0, i32 noundef 4, i32 noundef 8, ptr noundef nonnull %4)
   %39 = load i32, ptr @hf_uftp_register_rand2, align 4
-  %40 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %39, ptr noundef %0, i32 noundef 12, i32 noundef 32, i32 noundef 0) #4
+  %40 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %39, ptr noundef %0, i32 noundef 12, i32 noundef 32, i32 noundef 0)
   %.not = icmp eq i16 %14, 0
   br i1 %.not, label %44, label %41
 
 41:                                               ; preds = %21
   %42 = load i32, ptr @hf_uftp_register_dhkey, align 4
-  %43 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %42, ptr noundef %0, i32 noundef 44, i32 noundef %.pre, i32 noundef 0) #4
+  %43 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %42, ptr noundef %0, i32 noundef 44, i32 noundef %.pre, i32 noundef 0)
   br label %44
 
 44:                                               ; preds = %41, %21
-  %45 = call i32 @tvb_reported_length(ptr noundef %0) #4
+  %45 = call i32 @tvb_reported_length(ptr noundef %0)
   %46 = sub i32 %45, %13
   %47 = lshr i32 %46, 2
   %48 = and i32 %47, 65535
@@ -1306,43 +1331,44 @@ define internal fastcc void @dissect_uftp_register(ptr noundef %0, ptr noundef %
 .lr.ph.preheader:                                 ; preds = %44
   %49 = load i32, ptr @hf_uftp_destlist, align 4
   %50 = shl nuw nsw i32 %48, 2
-  %51 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %49, ptr noundef %0, i32 noundef %13, i32 noundef %50, i32 noundef 0) #4
+  %51 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %49, ptr noundef %0, i32 noundef %13, i32 noundef %50, i32 noundef 0)
   %52 = load i32, ptr @ett_uftp_destlist, align 4
-  %53 = call ptr @proto_item_add_subtree(ptr noundef %51, i32 noundef %52) #4
+  %53 = call ptr @proto_item_add_subtree(ptr noundef %51, i32 noundef %52)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i32 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.06974 = phi i32 [ %13, %.lr.ph.preheader ], [ %56, %.lr.ph ]
   %54 = load i32, ptr @hf_uftp_dest, align 4
-  %55 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %54, ptr noundef %0, i32 noundef %.06974, i32 noundef 4, i32 noundef 0) #4
+  %55 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %54, ptr noundef %0, i32 noundef %.06974, i32 noundef 4, i32 noundef 0)
   %56 = add nuw nsw i32 %.06974, 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %48
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %44, %._crit_edge, %7
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_uftp_clientkey(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %4 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %5 = icmp ult i32 %4, 8
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.406, i32 noundef %7) #4
+  %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.416, i32 noundef %7)
   br label %55
 
 9:                                                ; preds = %3
-  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
+  %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 2
-  %13 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4) #4
-  %14 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6) #4
-  %15 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %13 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4)
+  %14 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6)
+  %15 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %16 = icmp slt i32 %15, %12
   %.pre = zext i16 %13 to i32
   br i1 %16, label %._crit_edge, label %17
@@ -1360,31 +1386,31 @@ define internal fastcc void @dissect_uftp_clientkey(ptr noundef %0, ptr noundef 
 
 22:                                               ; preds = %._crit_edge, %17
   %.pre-phi74 = phi i32 [ %.pre73, %._crit_edge ], [ %19, %17 ]
-  %23 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %24 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.412, i32 noundef %23, i32 noundef %12, i32 noundef %.pre, i32 noundef %.pre-phi74) #4
+  %23 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %24 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.422, i32 noundef %23, i32 noundef %12, i32 noundef %.pre, i32 noundef %.pre-phi74)
   br label %55
 
 25:                                               ; preds = %17
   %26 = load i32, ptr @hf_uftp_clientkey, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %28 = load i32, ptr @ett_uftp_clientkey, align 4
-  %29 = tail call ptr @proto_item_add_subtree(ptr noundef %27, i32 noundef %28) #4
+  %29 = tail call ptr @proto_item_add_subtree(ptr noundef %27, i32 noundef %28)
   %30 = load i32, ptr @hf_uftp_clientkey_func, align 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %32 = load i32, ptr @hf_uftp_clientkey_hlen, align 4
-  %33 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %29, i32 noundef %32, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.408, i32 noundef %12, i32 noundef %11) #4
+  %33 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %29, i32 noundef %32, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.418, i32 noundef %12, i32 noundef %11)
   %34 = load i32, ptr @hf_uftp_clientkey_reserved, align 4
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %34, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
+  %35 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %34, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %36 = load i32, ptr @hf_uftp_clientkey_bloblen, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %36, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #4
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %36, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
   %38 = load i32, ptr @hf_uftp_clientkey_siglen, align 4
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %38, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #4
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %38, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0)
   %.not = icmp eq i16 %13, 0
   br i1 %.not, label %51, label %40
 
 40:                                               ; preds = %25
-  %41 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 8, i32 noundef %.pre) #4
-  %42 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #4
+  %41 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 8, i32 noundef %.pre)
+  %42 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 8)
   switch i8 %42, label %49 [
     i8 1, label %43
     i8 2, label %46
@@ -1412,51 +1438,51 @@ define internal fastcc void @dissect_uftp_clientkey(ptr noundef %0, ptr noundef 
 
 52:                                               ; preds = %51
   %53 = load i32, ptr @hf_uftp_clientkey_verify, align 4
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %53, ptr noundef %0, i32 noundef %.068, i32 noundef %19, i32 noundef 0) #4
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %53, ptr noundef %0, i32 noundef %.068, i32 noundef %19, i32 noundef 0)
   br label %55
 
-55:                                               ; preds = %52, %51, %22, %6
+55:                                               ; preds = %51, %52, %22, %6
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_uftp_regconf(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %4 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %5 = icmp ult i32 %4, 4
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.406, i32 noundef %7) #4
+  %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.416, i32 noundef %7)
   br label %.loopexit
 
 9:                                                ; preds = %3
-  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
+  %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 2
-  %13 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %13 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %14 = icmp slt i32 %13, %12
   %15 = icmp eq i8 %10, 0
   %or.cond = select i1 %14, i1 true, i1 %15
   br i1 %or.cond, label %16, label %19
 
 16:                                               ; preds = %9
-  %17 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %18 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.407, i32 noundef %17, i32 noundef %12) #4
+  %17 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %18 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.417, i32 noundef %17, i32 noundef %12)
   br label %.loopexit
 
 19:                                               ; preds = %9
   %20 = load i32, ptr @hf_uftp_regconf, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %22 = load i32, ptr @ett_uftp_regconf, align 4
-  %23 = tail call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22) #4
+  %23 = tail call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22)
   %24 = load i32, ptr @hf_uftp_regconf_func, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %24, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %24, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %26 = load i32, ptr @hf_uftp_regconf_hlen, align 4
-  %27 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %23, i32 noundef %26, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.408, i32 noundef %12, i32 noundef %11) #4
+  %27 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %23, i32 noundef %26, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.418, i32 noundef %12, i32 noundef %11)
   %28 = load i32, ptr @hf_uftp_regconf_reserved, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
-  %30 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
+  %30 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %31 = sub i32 %30, %12
   %32 = lshr i32 %31, 2
   %33 = and i32 %32, 65535
@@ -1466,43 +1492,43 @@ define internal fastcc void @dissect_uftp_regconf(ptr noundef %0, ptr noundef %1
 .lr.ph.preheader:                                 ; preds = %19
   %34 = load i32, ptr @hf_uftp_destlist, align 4
   %35 = shl nuw nsw i32 %33, 2
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %34, ptr noundef %0, i32 noundef %12, i32 noundef %35, i32 noundef 0) #4
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %34, ptr noundef %0, i32 noundef %12, i32 noundef %35, i32 noundef 0)
   %37 = load i32, ptr @ett_uftp_destlist, align 4
-  %38 = tail call ptr @proto_item_add_subtree(ptr noundef %36, i32 noundef %37) #4
+  %38 = tail call ptr @proto_item_add_subtree(ptr noundef %36, i32 noundef %37)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i32 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.05054 = phi i32 [ %12, %.lr.ph.preheader ], [ %41, %.lr.ph ]
   %39 = load i32, ptr @hf_uftp_dest, align 4
-  %40 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %39, ptr noundef %0, i32 noundef %.05054, i32 noundef 4, i32 noundef 0) #4
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %39, ptr noundef %0, i32 noundef %.05054, i32 noundef 4, i32 noundef 0)
   %41 = add nuw nsw i32 %.05054, 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %33
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %19, %16, %6
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_uftp_keyinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %4 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %5 = icmp ult i32 %4, 12
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.406, i32 noundef %7) #4
+  %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.416, i32 noundef %7)
   br label %.loopexit
 
 9:                                                ; preds = %3
-  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
+  %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 2
-  %13 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #4
+  %13 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2)
   %14 = zext i16 %13 to i32
-  %15 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %15 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %16 = icmp slt i32 %15, %12
   %17 = add nuw nsw i32 %14, 12
   %18 = icmp samesign ult i32 %12, %17
@@ -1510,26 +1536,26 @@ define internal fastcc void @dissect_uftp_keyinfo(ptr noundef %0, ptr noundef %1
   br i1 %or.cond, label %19, label %22
 
 19:                                               ; preds = %9
-  %20 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %21 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.413, i32 noundef %20, i32 noundef %12, i32 noundef %14) #4
+  %20 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %21 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.423, i32 noundef %20, i32 noundef %12, i32 noundef %14)
   br label %.loopexit
 
 22:                                               ; preds = %9
   %23 = load i32, ptr @hf_uftp_keyinfo, align 4
-  %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %25 = load i32, ptr @ett_uftp_keyinfo, align 4
-  %26 = tail call ptr @proto_item_add_subtree(ptr noundef %24, i32 noundef %25) #4
+  %26 = tail call ptr @proto_item_add_subtree(ptr noundef %24, i32 noundef %25)
   %27 = load i32, ptr @hf_uftp_keyinfo_func, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %29 = load i32, ptr @hf_uftp_keyinfo_hlen, align 4
-  %30 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %26, i32 noundef %29, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.408, i32 noundef %12, i32 noundef %11) #4
+  %30 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %26, i32 noundef %29, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.418, i32 noundef %12, i32 noundef %11)
   %31 = load i32, ptr @hf_uftp_keyinfo_siglen, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %31, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %31, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %33 = load i32, ptr @hf_uftp_keyinfo_ivctr, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %33, ptr noundef %0, i32 noundef 4, i32 noundef 8, i32 noundef 0) #4
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %33, ptr noundef %0, i32 noundef 4, i32 noundef 8, i32 noundef 0)
   %35 = load i32, ptr @hf_uftp_keyinfo_sig, align 4
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %35, ptr noundef %0, i32 noundef 12, i32 noundef %14, i32 noundef 0) #4
-  %37 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %35, ptr noundef %0, i32 noundef 12, i32 noundef %14, i32 noundef 0)
+  %37 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %38 = sub i32 %37, %12
   %39 = udiv i32 %38, 52
   %40 = and i32 %39, 255
@@ -1539,50 +1565,50 @@ define internal fastcc void @dissect_uftp_keyinfo(ptr noundef %0, ptr noundef %1
 .lr.ph.preheader:                                 ; preds = %22
   %41 = load i32, ptr @hf_uftp_destlist, align 4
   %42 = mul nuw nsw i32 %40, 52
-  %43 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %41, ptr noundef %0, i32 noundef %12, i32 noundef %42, i32 noundef 0) #4
+  %43 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %41, ptr noundef %0, i32 noundef %12, i32 noundef %42, i32 noundef 0)
   %44 = load i32, ptr @ett_uftp_destlist, align 4
-  %45 = tail call ptr @proto_item_add_subtree(ptr noundef %43, i32 noundef %44) #4
+  %45 = tail call ptr @proto_item_add_subtree(ptr noundef %43, i32 noundef %44)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i32 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.06974 = phi i32 [ %12, %.lr.ph.preheader ], [ %55, %.lr.ph ]
   %46 = load i32, ptr @hf_uftp_keyinfo_destkey, align 4
-  %47 = tail call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %46, ptr noundef %0, i32 noundef %.06974, i32 noundef 52, i32 noundef 0) #4
+  %47 = tail call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %46, ptr noundef %0, i32 noundef %.06974, i32 noundef 52, i32 noundef 0)
   %48 = load i32, ptr @ett_uftp_keyinfo_destkey, align 4
-  %49 = tail call ptr @proto_item_add_subtree(ptr noundef %47, i32 noundef %48) #4
+  %49 = tail call ptr @proto_item_add_subtree(ptr noundef %47, i32 noundef %48)
   %50 = load i32, ptr @hf_uftp_keyinfo_destid, align 4
-  %51 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %50, ptr noundef %0, i32 noundef %.06974, i32 noundef 4, i32 noundef 0) #4
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %50, ptr noundef %0, i32 noundef %.06974, i32 noundef 4, i32 noundef 0)
   %52 = add nuw nsw i32 %.06974, 4
   %53 = load i32, ptr @hf_uftp_keyinfo_groupmaster, align 4
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %53, ptr noundef %0, i32 noundef %52, i32 noundef 48, i32 noundef 0) #4
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %53, ptr noundef %0, i32 noundef %52, i32 noundef 48, i32 noundef 0)
   %55 = add nuw nsw i32 %.06974, 52
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %40
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %22, %19, %6
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_uftp_keyinfoack(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %4 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %5 = icmp ult i32 %4, 4
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.406, i32 noundef %7) #4
+  %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.416, i32 noundef %7)
   br label %35
 
 9:                                                ; preds = %3
-  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
+  %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 2
-  %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #4
+  %13 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
   %14 = zext i8 %13 to i32
-  %15 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %15 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %16 = icmp slt i32 %15, %12
   %17 = add nuw nsw i32 %14, 4
   %18 = icmp samesign ult i32 %12, %17
@@ -1590,53 +1616,55 @@ define internal fastcc void @dissect_uftp_keyinfoack(ptr noundef %0, ptr noundef
   br i1 %or.cond, label %19, label %22
 
 19:                                               ; preds = %9
-  %20 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %21 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.407, i32 noundef %20, i32 noundef %12) #4
+  %20 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %21 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.417, i32 noundef %20, i32 noundef %12)
   br label %35
 
 22:                                               ; preds = %9
   %23 = load i32, ptr @hf_uftp_keyinfoack, align 4
-  %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %25 = load i32, ptr @ett_uftp_keyinfoack, align 4
-  %26 = tail call ptr @proto_item_add_subtree(ptr noundef %24, i32 noundef %25) #4
+  %26 = tail call ptr @proto_item_add_subtree(ptr noundef %24, i32 noundef %25)
   %27 = load i32, ptr @hf_uftp_keyinfoack_func, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %29 = load i32, ptr @hf_uftp_keyinfoack_hlen, align 4
-  %30 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %26, i32 noundef %29, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.408, i32 noundef %12, i32 noundef %11) #4
+  %30 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %26, i32 noundef %29, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.418, i32 noundef %12, i32 noundef %11)
   %31 = load i32, ptr @hf_uftp_keyinfoack_verify_len, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %31, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %31, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %33 = load i32, ptr @hf_uftp_keyinfoack_verify_data, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %33, ptr noundef %0, i32 noundef 4, i32 noundef %14, i32 noundef 0) #4
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %33, ptr noundef %0, i32 noundef 4, i32 noundef %14, i32 noundef 0)
   br label %35
 
 35:                                               ; preds = %22, %19, %6
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_uftp_fileinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = alloca %struct.nstime_t, align 8
-  %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
+  %6 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %7 = icmp ult i32 %6, 28
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %3
-  %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %10 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.406, i32 noundef %9) #4
+  %9 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %10 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.416, i32 noundef %9)
   br label %.loopexit
 
 11:                                               ; preds = %3
-  %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
+  %12 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %13 = zext i8 %12 to i32
   %14 = shl nuw nsw i32 %13, 2
-  %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #4
+  %15 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 8)
   %16 = zext i8 %15 to i32
   %.pre = shl nuw nsw i32 %16, 2
-  %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 9) #4
+  %17 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 9)
   %18 = zext i8 %17 to i16
   %19 = shl nuw nsw i16 %18, 2
-  %20 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %20 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %21 = icmp slt i32 %20, %14
   br i1 %21, label %._crit_edge, label %22
 
@@ -1653,71 +1681,71 @@ define internal fastcc void @dissect_uftp_fileinfo(ptr noundef %0, ptr noundef %
 
 27:                                               ; preds = %._crit_edge, %22
   %.pre-phi119 = phi i32 [ %.pre118, %._crit_edge ], [ %24, %22 ]
-  %28 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %29 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.414, i32 noundef %28, i32 noundef %14, i32 noundef %.pre, i32 noundef %.pre-phi119) #4
+  %28 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %29 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.424, i32 noundef %28, i32 noundef %14, i32 noundef %.pre, i32 noundef %.pre-phi119)
   br label %.loopexit
 
 30:                                               ; preds = %22
-  %31 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #4
+  %31 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2)
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = zext i16 %31 to i32
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %33, i32 noundef 25, ptr noundef nonnull @.str.415, i32 noundef %34) #4
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %33, i32 noundef 25, ptr noundef nonnull @.str.425, i32 noundef %34)
   %35 = load i32, ptr @hf_uftp_fileinfo, align 4
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %37 = load i32, ptr @ett_uftp_fileinfo, align 4
-  %38 = tail call ptr @proto_item_add_subtree(ptr noundef %36, i32 noundef %37) #4
+  %38 = tail call ptr @proto_item_add_subtree(ptr noundef %36, i32 noundef %37)
   %39 = load i32, ptr @hf_uftp_fileinfo_func, align 4
-  %40 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %39, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %39, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %41 = load i32, ptr @hf_uftp_fileinfo_hlen, align 4
-  %42 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %38, i32 noundef %41, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %14, ptr noundef nonnull @.str.408, i32 noundef %14, i32 noundef %13) #4
+  %42 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %38, i32 noundef %41, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %14, ptr noundef nonnull @.str.418, i32 noundef %14, i32 noundef %13)
   %43 = load i32, ptr @hf_uftp_fileinfo_file_id, align 4
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %43, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %43, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %45 = load i32, ptr @hf_uftp_fileinfo_ftype, align 4
-  %46 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %45, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #4
+  %46 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %45, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %47 = load i32, ptr @hf_uftp_fileinfo_reserved, align 4
-  %48 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %47, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #4
-  %49 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6) #4
+  %48 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %47, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
+  %49 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6)
   %50 = zext i16 %49 to i64
   %51 = shl nuw nsw i64 %50, 16
   %52 = load i32, ptr @hf_uftp_fileinfo_ftstamp_hi, align 4
-  %53 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %52, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #4
+  %53 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %52, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0)
   %54 = load i32, ptr @hf_uftp_fileinfo_namelen, align 4
-  %55 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %54, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #4
+  %55 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %54, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0)
   %56 = load i32, ptr @hf_uftp_fileinfo_linklen, align 4
-  %57 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %56, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #4
+  %57 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %56, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0)
   %58 = load i32, ptr @hf_uftp_fileinfo_fsize, align 4
-  %59 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %58, ptr noundef %0, i32 noundef 10, i32 noundef 6, i32 noundef 0) #4
-  %60 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16) #4
+  %59 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %58, ptr noundef %0, i32 noundef 10, i32 noundef 6, i32 noundef 0)
+  %60 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16)
   %61 = zext i32 %60 to i64
   %62 = or i64 %51, %61
   store i64 %62, ptr %4, align 8
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %63, align 8
   %64 = load i32, ptr @hf_uftp_fileinfo_ftstamp, align 4
-  %65 = call ptr @proto_tree_add_time(ptr noundef %38, i32 noundef %64, ptr noundef %0, i32 noundef 16, i32 noundef 4, ptr noundef nonnull %4) #4
-  %66 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef 20) #4
+  %65 = call ptr @proto_tree_add_time(ptr noundef %38, i32 noundef %64, ptr noundef %0, i32 noundef 16, i32 noundef 4, ptr noundef nonnull %4)
+  %66 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef 20)
   %67 = udiv i64 %66, 1000000
   %68 = urem i64 %66, 1000000
   %69 = trunc nuw nsw i64 %68 to i32
   %70 = mul nuw nsw i32 %69, 1000
   store i64 %67, ptr %5, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %70, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 %70, ptr %.sroa.4.0..sroa_idx, align 8
   %71 = load i32, ptr @hf_uftp_fileinfo_tstamp, align 4
-  %72 = call ptr @proto_tree_add_time(ptr noundef %38, i32 noundef %71, ptr noundef %0, i32 noundef 20, i32 noundef 8, ptr noundef nonnull %5) #4
+  %72 = call ptr @proto_tree_add_time(ptr noundef %38, i32 noundef %71, ptr noundef %0, i32 noundef 20, i32 noundef 8, ptr noundef nonnull %5)
   %73 = load i32, ptr @hf_uftp_fileinfo_name, align 4
-  %74 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %73, ptr noundef %0, i32 noundef 28, i32 noundef %.pre, i32 noundef 0) #4
+  %74 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %73, ptr noundef %0, i32 noundef 28, i32 noundef %.pre, i32 noundef 0)
   %.not = icmp eq i8 %17, 0
   br i1 %.not, label %78, label %75
 
 75:                                               ; preds = %30
   %76 = load i32, ptr @hf_uftp_fileinfo_link, align 4
-  %77 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %76, ptr noundef %0, i32 noundef %23, i32 noundef %24, i32 noundef 0) #4
+  %77 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %76, ptr noundef %0, i32 noundef %23, i32 noundef %24, i32 noundef 0)
   br label %78
 
 78:                                               ; preds = %75, %30
-  %79 = call i32 @tvb_reported_length(ptr noundef %0) #4
+  %79 = call i32 @tvb_reported_length(ptr noundef %0)
   %80 = sub i32 %79, %14
   %81 = lshr i32 %80, 2
   %82 = and i32 %81, 65535
@@ -1727,54 +1755,57 @@ define internal fastcc void @dissect_uftp_fileinfo(ptr noundef %0, ptr noundef %
 .lr.ph.preheader:                                 ; preds = %78
   %83 = load i32, ptr @hf_uftp_destlist, align 4
   %84 = shl nuw nsw i32 %82, 2
-  %85 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %83, ptr noundef %0, i32 noundef %14, i32 noundef %84, i32 noundef 0) #4
+  %85 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %83, ptr noundef %0, i32 noundef %14, i32 noundef %84, i32 noundef 0)
   %86 = load i32, ptr @ett_uftp_destlist, align 4
-  %87 = call ptr @proto_item_add_subtree(ptr noundef %85, i32 noundef %86) #4
+  %87 = call ptr @proto_item_add_subtree(ptr noundef %85, i32 noundef %86)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i32 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0108115 = phi i32 [ %14, %.lr.ph.preheader ], [ %90, %.lr.ph ]
   %88 = load i32, ptr @hf_uftp_dest, align 4
-  %89 = call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %88, ptr noundef %0, i32 noundef %.0108115, i32 noundef 4, i32 noundef 0) #4
+  %89 = call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %88, ptr noundef %0, i32 noundef %.0108115, i32 noundef 4, i32 noundef 0)
   %90 = add nuw nsw i32 %.0108115, 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %82
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %78, %27, %8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_uftp_fileinfoack(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
-  %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
+  %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %6 = icmp ult i32 %5, 16
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
-  %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %9 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.406, i32 noundef %8) #4
+  %8 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %9 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.416, i32 noundef %8)
   br label %.loopexit
 
 10:                                               ; preds = %3
-  %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
+  %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %12 = zext i8 %11 to i32
   %13 = shl nuw nsw i32 %12, 2
-  %14 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %14 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %15 = icmp slt i32 %14, %13
   %16 = icmp ult i8 %11, 4
   %or.cond = select i1 %15, i1 true, i1 %16
   br i1 %or.cond, label %17, label %20
 
 17:                                               ; preds = %10
-  %18 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %19 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.407, i32 noundef %18, i32 noundef %13) #4
+  %18 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %19 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.417, i32 noundef %18, i32 noundef %13)
   br label %.loopexit
 
 20:                                               ; preds = %10
-  %21 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #4
+  %21 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2)
   %.not = icmp eq i16 %21, 0
   br i1 %.not, label %26, label %22
 
@@ -1782,36 +1813,36 @@ define internal fastcc void @dissect_uftp_fileinfoack(ptr noundef %0, ptr nounde
   %23 = zext i16 %21 to i32
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.415, i32 noundef %23) #4
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.425, i32 noundef %23)
   br label %26
 
 26:                                               ; preds = %22, %20
   %27 = load i32, ptr @hf_uftp_fileinfoack, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %29 = load i32, ptr @ett_uftp_fileinfoack, align 4
-  %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
+  %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29)
   %31 = load i32, ptr @hf_uftp_fileinfoack_func, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %31, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %31, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %33 = load i32, ptr @hf_uftp_fileinfoack_hlen, align 4
-  %34 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %30, i32 noundef %33, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %13, ptr noundef nonnull @.str.408, i32 noundef %13, i32 noundef %12) #4
+  %34 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %30, i32 noundef %33, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %13, ptr noundef nonnull @.str.418, i32 noundef %13, i32 noundef %12)
   %35 = load i32, ptr @hf_uftp_fileinfoack_file_id, align 4
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %35, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %35, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %37 = load i32, ptr @hf_uftp_fileinfoack_flags, align 4
   %38 = load i32, ptr @ett_uftp_fileinfoack_flags, align 4
-  %39 = tail call ptr @proto_tree_add_bitmask(ptr noundef %30, ptr noundef %0, i32 noundef 4, i32 noundef %37, i32 noundef %38, ptr noundef nonnull @fileinfoack_flags, i32 noundef 0) #4
+  %39 = tail call ptr @proto_tree_add_bitmask(ptr noundef %30, ptr noundef %0, i32 noundef 4, i32 noundef %37, i32 noundef %38, ptr noundef nonnull @fileinfoack_flags, i32 noundef 0)
   %40 = load i32, ptr @hf_uftp_fileinfoack_reserved, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %40, ptr noundef %0, i32 noundef 5, i32 noundef 3, i32 noundef 0) #4
-  %42 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef 8) #4
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %40, ptr noundef %0, i32 noundef 5, i32 noundef 3, i32 noundef 0)
+  %42 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef 8)
   %43 = udiv i64 %42, 1000000
   %44 = urem i64 %42, 1000000
   %45 = trunc nuw nsw i64 %44 to i32
   %46 = mul nuw nsw i32 %45, 1000
   store i64 %43, ptr %4, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %46, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 %46, ptr %.sroa.4.0..sroa_idx, align 8
   %47 = load i32, ptr @hf_uftp_fileinfoack_tstamp, align 4
-  %48 = call ptr @proto_tree_add_time(ptr noundef %30, i32 noundef %47, ptr noundef %0, i32 noundef 8, i32 noundef 8, ptr noundef nonnull %4) #4
-  %49 = call i32 @tvb_reported_length(ptr noundef %0) #4
+  %48 = call ptr @proto_tree_add_time(ptr noundef %30, i32 noundef %47, ptr noundef %0, i32 noundef 8, i32 noundef 8, ptr noundef nonnull %4)
+  %49 = call i32 @tvb_reported_length(ptr noundef %0)
   %50 = sub i32 %49, %13
   %51 = lshr i32 %50, 2
   %52 = and i32 %51, 65535
@@ -1821,114 +1852,115 @@ define internal fastcc void @dissect_uftp_fileinfoack(ptr noundef %0, ptr nounde
 .lr.ph.preheader:                                 ; preds = %26
   %53 = load i32, ptr @hf_uftp_destlist, align 4
   %54 = shl nuw nsw i32 %52, 2
-  %55 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %53, ptr noundef %0, i32 noundef %13, i32 noundef %54, i32 noundef 0) #4
+  %55 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %53, ptr noundef %0, i32 noundef %13, i32 noundef %54, i32 noundef 0)
   %56 = load i32, ptr @ett_uftp_destlist, align 4
-  %57 = call ptr @proto_item_add_subtree(ptr noundef %55, i32 noundef %56) #4
+  %57 = call ptr @proto_item_add_subtree(ptr noundef %55, i32 noundef %56)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i32 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.06974 = phi i32 [ %13, %.lr.ph.preheader ], [ %60, %.lr.ph ]
   %58 = load i32, ptr @hf_uftp_dest, align 4
-  %59 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %58, ptr noundef %0, i32 noundef %.06974, i32 noundef 4, i32 noundef 0) #4
+  %59 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %58, ptr noundef %0, i32 noundef %.06974, i32 noundef 4, i32 noundef 0)
   %60 = add nuw nsw i32 %.06974, 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %52
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %26, %17, %7
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_uftp_fileseg(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %4 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %5 = icmp ult i32 %4, 8
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.406, i32 noundef %7) #4
+  %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.416, i32 noundef %7)
   br label %98
 
 9:                                                ; preds = %3
-  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
+  %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 2
-  %13 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %13 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %14 = icmp slt i32 %13, %12
   %15 = icmp ult i8 %10, 2
   %or.cond = select i1 %14, i1 true, i1 %15
   br i1 %or.cond, label %16, label %19
 
 16:                                               ; preds = %9
-  %17 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %18 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.407, i32 noundef %17, i32 noundef %12) #4
+  %17 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %18 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.417, i32 noundef %17, i32 noundef %12)
   br label %98
 
 19:                                               ; preds = %9
-  %20 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #4
-  %21 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4) #4
-  %22 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6) #4
+  %20 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2)
+  %21 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4)
+  %22 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = zext i16 %20 to i32
   %26 = zext i16 %21 to i32
   %27 = zext i16 %22 to i32
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.416, i32 noundef %25, i32 noundef %26, i32 noundef %27) #4
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.426, i32 noundef %25, i32 noundef %26, i32 noundef %27)
   %28 = load i32, ptr @hf_uftp_fileseg, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %30 = load i32, ptr @ett_uftp_fileseg, align 4
-  %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #4
+  %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30)
   %32 = load i32, ptr @hf_uftp_fileseg_func, align 4
-  %33 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %32, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %32, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %34 = load i32, ptr @hf_uftp_fileseg_hlen, align 4
-  %35 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %31, i32 noundef %34, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.408, i32 noundef %12, i32 noundef %11) #4
+  %35 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %31, i32 noundef %34, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.418, i32 noundef %12, i32 noundef %11)
   %36 = load i32, ptr @hf_uftp_fileseg_file_id, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %36, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %36, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %38 = load i32, ptr @hf_uftp_fileseg_section, align 4
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %38, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #4
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %38, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
   %40 = load i32, ptr @hf_uftp_fileseg_sec_block, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %40, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #4
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %40, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0)
   %42 = icmp ugt i8 %10, 2
   br i1 %42, label %.lr.ph, label %dissect_uftp_tfmccdata.exit.thread
 
-.lr.ph:                                           ; preds = %19, %.loopexit
-  %.07181.in = phi i32 [ %.07181, %.loopexit ], [ %12, %19 ]
-  %.07080 = phi i32 [ %94, %.loopexit ], [ 8, %19 ]
-  %.07181 = add nsw i32 %.07181.in, -8
-  %43 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.07080, i32 noundef %.07181) #4
-  %44 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.07080) #4
+.lr.ph:                                           ; preds = %19, %dissect_uftp_tfmccdata.exit
+  %.07384.in = phi i32 [ %.07384, %dissect_uftp_tfmccdata.exit ], [ %12, %19 ]
+  %.07283 = phi i32 [ %94, %dissect_uftp_tfmccdata.exit ], [ 8, %19 ]
+  %.07384 = add nsw i32 %.07384.in, -8
+  %43 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.07283, i32 noundef %.07384)
+  %44 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.07283)
   %cond = icmp eq i8 %44, 2
   br i1 %cond, label %45, label %dissect_uftp_tfmccdata.exit.thread
 
 45:                                               ; preds = %.lr.ph
-  %46 = tail call i32 @tvb_reported_length(ptr noundef %43) #4
+  %46 = tail call i32 @tvb_reported_length(ptr noundef %43)
   %47 = icmp ult i32 %46, 8
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %45
-  %49 = tail call i32 @tvb_reported_length(ptr noundef %43) #4
-  %50 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %31, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %43, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.406, i32 noundef %49) #4
+  %49 = tail call i32 @tvb_reported_length(ptr noundef %43)
+  %50 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %31, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %43, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.416, i32 noundef %49)
   br label %dissect_uftp_tfmccdata.exit.thread
 
 51:                                               ; preds = %45
-  %52 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %43, i32 noundef 1) #4
+  %52 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef 1)
   %53 = zext i8 %52 to i32
   %54 = shl nuw nsw i32 %53, 2
-  %55 = tail call i32 @tvb_reported_length(ptr noundef %43) #4
+  %55 = tail call i32 @tvb_reported_length(ptr noundef %43)
   %56 = icmp slt i32 %55, %54
   %57 = icmp ult i8 %52, 2
   %or.cond.i = select i1 %56, i1 true, i1 %57
   br i1 %or.cond.i, label %58, label %61
 
 58:                                               ; preds = %51
-  %59 = tail call i32 @tvb_reported_length(ptr noundef %43) #4
-  %60 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %31, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %43, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.407, i32 noundef %59, i32 noundef %54) #4
+  %59 = tail call i32 @tvb_reported_length(ptr noundef %43)
+  %60 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %31, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %43, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.417, i32 noundef %59, i32 noundef %54)
   br label %dissect_uftp_tfmccdata.exit.thread
 
 61:                                               ; preds = %51
-  %62 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %43, i32 noundef 6) #4
+  %62 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %43, i32 noundef 6)
   %63 = zext i16 %62 to i32
   %64 = and i32 %63, 15
   %65 = lshr i32 %63, 4
@@ -1943,19 +1975,19 @@ define internal fastcc void @dissect_uftp_fileseg(ptr noundef %0, ptr noundef %1
   %68 = fmul double %.08.i.i, 1.000000e+01
   %69 = add nuw nsw i32 %.067.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %69, %64
-  br i1 %exitcond.not.i.i, label %unquantize_rate.exit.i, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %unquantize_rate.exit.i, label %.lr.ph.i.i, !llvm.loop !14
 
 unquantize_rate.exit.i:                           ; preds = %.lr.ph.i.i, %61
   %.0.lcssa.i.i = phi double [ %67, %61 ], [ %68, %.lr.ph.i.i ]
   %70 = fptoui double %.0.lcssa.i.i to i32
-  %71 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %43, i32 noundef 2) #4
+  %71 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %43, i32 noundef 2)
   %72 = zext i16 %71 to i32
   %73 = and i32 %72, 15
   %74 = lshr i32 %72, 4
   %75 = uitofp nneg i32 %74 to double
   %76 = fmul double %75, 0x3F64000000000000
   %.not.i48.i = icmp eq i32 %73, 0
-  br i1 %.not.i48.i, label %.loopexit, label %.lr.ph.i49.i
+  br i1 %.not.i48.i, label %dissect_uftp_tfmccdata.exit, label %.lr.ph.i49.i
 
 .lr.ph.i49.i:                                     ; preds = %unquantize_rate.exit.i, %.lr.ph.i49.i
   %.08.i50.i = phi double [ %77, %.lr.ph.i49.i ], [ %76, %unquantize_rate.exit.i ]
@@ -1963,67 +1995,67 @@ unquantize_rate.exit.i:                           ; preds = %.lr.ph.i.i, %61
   %77 = fmul double %.08.i50.i, 1.000000e+01
   %78 = add nuw nsw i32 %.067.i51.i, 1
   %exitcond.not.i52.i = icmp eq i32 %78, %73
-  br i1 %exitcond.not.i52.i, label %.loopexit, label %.lr.ph.i49.i, !llvm.loop !13
+  br i1 %exitcond.not.i52.i, label %dissect_uftp_tfmccdata.exit, label %.lr.ph.i49.i, !llvm.loop !14
 
-.loopexit:                                        ; preds = %.lr.ph.i49.i, %unquantize_rate.exit.i
+dissect_uftp_tfmccdata.exit:                      ; preds = %.lr.ph.i49.i, %unquantize_rate.exit.i
   %.0.lcssa.i53.i = phi double [ %76, %unquantize_rate.exit.i ], [ %77, %.lr.ph.i49.i ]
   %79 = fptoui double %.0.lcssa.i53.i to i32
   %80 = load i32, ptr @hf_uftp_tfmccdata, align 4
-  %81 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %80, ptr noundef %43, i32 noundef 0, i32 noundef 8, i32 noundef 0) #4
+  %81 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %80, ptr noundef %43, i32 noundef 0, i32 noundef 8, i32 noundef 0)
   %82 = load i32, ptr @ett_uftp_tfmccdata, align 4
-  %83 = tail call ptr @proto_item_add_subtree(ptr noundef %81, i32 noundef %82) #4
+  %83 = tail call ptr @proto_item_add_subtree(ptr noundef %81, i32 noundef %82)
   %84 = load i32, ptr @hf_uftp_tfmccdata_exttype, align 4
-  %85 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %84, ptr noundef %43, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %85 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %84, ptr noundef %43, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %86 = load i32, ptr @hf_uftp_tfmccdata_extlen, align 4
-  %87 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %83, i32 noundef %86, ptr noundef %43, i32 noundef 1, i32 noundef 1, i32 noundef %54, ptr noundef nonnull @.str.408, i32 noundef %54, i32 noundef %53) #4
+  %87 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %83, i32 noundef %86, ptr noundef %43, i32 noundef 1, i32 noundef 1, i32 noundef %54, ptr noundef nonnull @.str.418, i32 noundef %54, i32 noundef %53)
   %88 = load i32, ptr @hf_uftp_tfmccdata_send_rate, align 4
-  %89 = tail call ptr @proto_tree_add_uint(ptr noundef %83, i32 noundef %88, ptr noundef %43, i32 noundef 2, i32 noundef 2, i32 noundef %79) #4
+  %89 = tail call ptr @proto_tree_add_uint(ptr noundef %83, i32 noundef %88, ptr noundef %43, i32 noundef 2, i32 noundef 2, i32 noundef %79)
   %90 = load i32, ptr @hf_uftp_tfmccdata_cc_seq, align 4
-  %91 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %90, ptr noundef %43, i32 noundef 4, i32 noundef 2, i32 noundef 0) #4
+  %91 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %90, ptr noundef %43, i32 noundef 4, i32 noundef 2, i32 noundef 0)
   %92 = load i32, ptr @hf_uftp_tfmccdata_cc_rate, align 4
-  %93 = tail call ptr @proto_tree_add_uint(ptr noundef %83, i32 noundef %92, ptr noundef %43, i32 noundef 6, i32 noundef 2, i32 noundef %70) #4
-  %94 = add nuw nsw i32 %.07080, 8
-  %95 = icmp sgt i32 %.07181.in, 16
-  br i1 %95, label %.lr.ph, label %dissect_uftp_tfmccdata.exit.thread, !llvm.loop !14
+  %93 = tail call ptr @proto_tree_add_uint(ptr noundef %83, i32 noundef %92, ptr noundef %43, i32 noundef 6, i32 noundef 2, i32 noundef %70)
+  %94 = add nuw nsw i32 %.07283, 8
+  %95 = icmp sgt i32 %.07384.in, 16
+  br i1 %95, label %.lr.ph, label %dissect_uftp_tfmccdata.exit.thread
 
-dissect_uftp_tfmccdata.exit.thread:               ; preds = %.loopexit, %.lr.ph, %19, %58, %48
+dissect_uftp_tfmccdata.exit.thread:               ; preds = %dissect_uftp_tfmccdata.exit, %.lr.ph, %19, %58, %48
   %96 = load i32, ptr @hf_uftp_fileseg_data, align 4
-  %97 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %96, ptr noundef %0, i32 noundef %12, i32 noundef -1, i32 noundef 0) #4
+  %97 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %96, ptr noundef %0, i32 noundef %12, i32 noundef -1, i32 noundef 0)
   br label %98
 
 98:                                               ; preds = %dissect_uftp_tfmccdata.exit.thread, %16, %6
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_uftp_done(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %4 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %5 = icmp ult i32 %4, 8
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.406, i32 noundef %7) #4
+  %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.416, i32 noundef %7)
   br label %.loopexit
 
 9:                                                ; preds = %3
-  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
+  %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 2
-  %13 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %13 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %14 = icmp slt i32 %13, %12
   %15 = icmp ult i8 %10, 2
   %or.cond = select i1 %14, i1 true, i1 %15
   br i1 %or.cond, label %16, label %19
 
 16:                                               ; preds = %9
-  %17 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %18 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.407, i32 noundef %17, i32 noundef %12) #4
+  %17 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %18 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.417, i32 noundef %17, i32 noundef %12)
   br label %.loopexit
 
 19:                                               ; preds = %9
-  %20 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #4
-  %21 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6) #4
+  %20 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2)
+  %21 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6)
   %.not = icmp eq i16 %20, 0
   br i1 %.not, label %27, label %22
 
@@ -2032,25 +2064,25 @@ define internal fastcc void @dissect_uftp_done(ptr noundef %0, ptr noundef %1, p
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = zext i16 %21 to i32
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.417, i32 noundef %23, i32 noundef %26) #4
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.427, i32 noundef %23, i32 noundef %26)
   br label %27
 
 27:                                               ; preds = %22, %19
   %28 = load i32, ptr @hf_uftp_done, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %30 = load i32, ptr @ett_uftp_done, align 4
-  %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #4
+  %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30)
   %32 = load i32, ptr @hf_uftp_done_func, align 4
-  %33 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %32, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %32, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %34 = load i32, ptr @hf_uftp_done_hlen, align 4
-  %35 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %31, i32 noundef %34, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.408, i32 noundef %12, i32 noundef %11) #4
+  %35 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %31, i32 noundef %34, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.418, i32 noundef %12, i32 noundef %11)
   %36 = load i32, ptr @hf_uftp_done_file_id, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %36, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %36, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %38 = load i32, ptr @hf_uftp_done_section, align 4
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %38, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #4
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %38, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
   %40 = load i32, ptr @hf_uftp_done_reserved, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %40, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #4
-  %42 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %40, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0)
+  %42 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %43 = sub i32 %42, %12
   %44 = lshr i32 %43, 2
   %45 = and i32 %44, 65535
@@ -2060,16 +2092,16 @@ define internal fastcc void @dissect_uftp_done(ptr noundef %0, ptr noundef %1, p
 .lr.ph.preheader:                                 ; preds = %27
   %46 = load i32, ptr @hf_uftp_destlist, align 4
   %47 = shl nuw nsw i32 %45, 2
-  %48 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %46, ptr noundef %0, i32 noundef %12, i32 noundef %47, i32 noundef 0) #4
+  %48 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %46, ptr noundef %0, i32 noundef %12, i32 noundef %47, i32 noundef 0)
   %49 = load i32, ptr @ett_uftp_destlist, align 4
-  %50 = tail call ptr @proto_item_add_subtree(ptr noundef %48, i32 noundef %49) #4
+  %50 = tail call ptr @proto_item_add_subtree(ptr noundef %48, i32 noundef %49)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i32 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.06570 = phi i32 [ %12, %.lr.ph.preheader ], [ %53, %.lr.ph ]
   %51 = load i32, ptr @hf_uftp_dest, align 4
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %51, ptr noundef %0, i32 noundef %.06570, i32 noundef 4, i32 noundef 0) #4
+  %52 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %51, ptr noundef %0, i32 noundef %.06570, i32 noundef 4, i32 noundef 0)
   %53 = add nuw nsw i32 %.06570, 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %45
@@ -2079,117 +2111,113 @@ define internal fastcc void @dissect_uftp_done(ptr noundef %0, ptr noundef %1, p
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_uftp_status(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %4 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %5 = icmp ult i32 %4, 8
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.406, i32 noundef %7) #4
+  %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.416, i32 noundef %7)
   br label %52
 
 9:                                                ; preds = %3
-  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
+  %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 2
-  %13 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %13 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %14 = icmp slt i32 %13, %12
   %15 = icmp ult i8 %10, 2
   %or.cond = select i1 %14, i1 true, i1 %15
   br i1 %or.cond, label %16, label %19
 
 16:                                               ; preds = %9
-  %17 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %18 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.407, i32 noundef %17, i32 noundef %12) #4
+  %17 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %18 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.417, i32 noundef %17, i32 noundef %12)
   br label %52
 
 19:                                               ; preds = %9
-  %20 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #4
-  %21 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4) #4
+  %20 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2)
+  %21 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = zext i16 %20 to i32
   %25 = zext i16 %21 to i32
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.417, i32 noundef %24, i32 noundef %25) #4
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.427, i32 noundef %24, i32 noundef %25)
   %26 = load i32, ptr @hf_uftp_status, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %28 = load i32, ptr @ett_uftp_status, align 4
-  %29 = tail call ptr @proto_item_add_subtree(ptr noundef %27, i32 noundef %28) #4
+  %29 = tail call ptr @proto_item_add_subtree(ptr noundef %27, i32 noundef %28)
   %30 = load i32, ptr @hf_uftp_status_func, align 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %32 = load i32, ptr @hf_uftp_status_hlen, align 4
-  %33 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %29, i32 noundef %32, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.408, i32 noundef %12, i32 noundef %11) #4
+  %33 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %29, i32 noundef %32, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.418, i32 noundef %12, i32 noundef %11)
   %34 = load i32, ptr @hf_uftp_status_file_id, align 4
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %34, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
+  %35 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %34, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %36 = load i32, ptr @hf_uftp_status_section, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %36, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #4
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %36, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
   %38 = load i32, ptr @hf_uftp_status_reserved, align 4
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %38, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #4
-  %40 = icmp ugt i8 %10, 2
-  br i1 %40, label %.lr.ph.preheader, label %.thread
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %38, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0)
+  %40 = add nsw i32 %12, -8
+  br label %41
 
-.lr.ph.preheader:                                 ; preds = %19
-  %41 = add nsw i32 %12, -8
-  br label %.lr.ph
+41:                                               ; preds = %46, %19
+  %.071 = phi i32 [ %40, %19 ], [ %48, %46 ]
+  %.070 = phi i32 [ 8, %19 ], [ %49, %46 ]
+  %42 = icmp sgt i32 %.071, 0
+  br i1 %42, label %43, label %.thread
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %46
-  %.06874 = phi i32 [ %48, %46 ], [ 8, %.lr.ph.preheader ]
-  %.06973 = phi i32 [ %47, %46 ], [ %41, %.lr.ph.preheader ]
-  %42 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.06874, i32 noundef %.06973) #4
-  %43 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.06874) #4
-  %cond = icmp eq i8 %43, 3
-  br i1 %cond, label %44, label %.thread
+43:                                               ; preds = %41
+  %44 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.070, i32 noundef %.071)
+  %45 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.070)
+  %cond = icmp eq i8 %45, 3
+  br i1 %cond, label %46, label %.thread
 
-44:                                               ; preds = %.lr.ph
-  %45 = tail call fastcc i32 @dissect_uftp_tfmccack(ptr noundef %42, ptr noundef %1, ptr noundef %29)
-  %.not = icmp eq i32 %45, 0
-  br i1 %.not, label %.thread, label %46
+46:                                               ; preds = %43
+  %47 = tail call fastcc i32 @dissect_uftp_tfmccack(ptr noundef %44, ptr noundef %1, ptr noundef %29)
+  %.not = icmp eq i32 %47, 0
+  %48 = sub nsw i32 %.071, %47
+  %49 = add i32 %47, %.070
+  br i1 %.not, label %.thread, label %41
 
-46:                                               ; preds = %44
-  %47 = sub nsw i32 %.06973, %45
-  %48 = add i32 %45, %.06874
-  %49 = icmp sgt i32 %47, 0
-  br i1 %49, label %.lr.ph, label %.thread, !llvm.loop !16
-
-.thread:                                          ; preds = %46, %44, %.lr.ph, %19
+.thread:                                          ; preds = %43, %46, %41
   %50 = load i32, ptr @hf_uftp_status_naks, align 4
-  %51 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %50, ptr noundef %0, i32 noundef %12, i32 noundef -1, i32 noundef 0) #4
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %50, ptr noundef %0, i32 noundef %12, i32 noundef -1, i32 noundef 0)
   br label %52
 
 52:                                               ; preds = %.thread, %16, %6
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_uftp_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %4 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %5 = icmp ult i32 %4, 8
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.406, i32 noundef %7) #4
+  %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.416, i32 noundef %7)
   br label %.loopexit
 
 9:                                                ; preds = %3
-  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
+  %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 2
-  %13 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %13 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %14 = icmp slt i32 %13, %12
   %15 = icmp ult i8 %10, 2
   %or.cond = select i1 %14, i1 true, i1 %15
   br i1 %or.cond, label %16, label %19
 
 16:                                               ; preds = %9
-  %17 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %18 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.407, i32 noundef %17, i32 noundef %12) #4
+  %17 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %18 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.417, i32 noundef %17, i32 noundef %12)
   br label %.loopexit
 
 19:                                               ; preds = %9
-  %20 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #4
+  %20 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2)
   %.not = icmp eq i16 %20, 0
   br i1 %.not, label %25, label %21
 
@@ -2197,24 +2225,24 @@ define internal fastcc void @dissect_uftp_complete(ptr noundef %0, ptr noundef %
   %22 = zext i16 %20 to i32
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.415, i32 noundef %22) #4
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.425, i32 noundef %22)
   br label %25
 
 25:                                               ; preds = %21, %19
   %26 = load i32, ptr @hf_uftp_complete, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %28 = load i32, ptr @ett_uftp_complete, align 4
-  %29 = tail call ptr @proto_item_add_subtree(ptr noundef %27, i32 noundef %28) #4
+  %29 = tail call ptr @proto_item_add_subtree(ptr noundef %27, i32 noundef %28)
   %30 = load i32, ptr @hf_uftp_complete_func, align 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %32 = load i32, ptr @hf_uftp_complete_hlen, align 4
-  %33 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %29, i32 noundef %32, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.408, i32 noundef %12, i32 noundef %11) #4
+  %33 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %29, i32 noundef %32, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.418, i32 noundef %12, i32 noundef %11)
   %34 = load i32, ptr @hf_uftp_complete_file_id, align 4
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %34, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
+  %35 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %34, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %36 = load i32, ptr @hf_uftp_complete_status, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %36, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #4
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %36, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %38 = load i32, ptr @hf_uftp_complete_reserved, align 4
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %38, ptr noundef %0, i32 noundef 5, i32 noundef 3, i32 noundef 0) #4
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %38, ptr noundef %0, i32 noundef 5, i32 noundef 3, i32 noundef 0)
   %40 = icmp ugt i8 %10, 2
   br i1 %40, label %.lr.ph.preheader, label %dissect_uftp_freespace.exit.thread
 
@@ -2222,125 +2250,125 @@ define internal fastcc void @dissect_uftp_complete(ptr noundef %0, ptr noundef %
   %41 = add nsw i32 %12, -8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %60
-  %.08193 = phi i32 [ %73, %60 ], [ %41, %.lr.ph.preheader ]
-  %.08292 = phi i32 [ %74, %60 ], [ 8, %.lr.ph.preheader ]
-  %42 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.08292, i32 noundef %.08193) #4
-  %43 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.08292) #4
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %dissect_uftp_freespace.exit
+  %.08396 = phi i32 [ %72, %dissect_uftp_freespace.exit ], [ %41, %.lr.ph.preheader ]
+  %.08495 = phi i32 [ %73, %dissect_uftp_freespace.exit ], [ 8, %.lr.ph.preheader ]
+  %42 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.08495, i32 noundef %.08396)
+  %43 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.08495)
   %cond = icmp eq i8 %43, 7
   br i1 %cond, label %44, label %dissect_uftp_freespace.exit.thread
 
 44:                                               ; preds = %.lr.ph
-  %45 = tail call i32 @tvb_reported_length(ptr noundef %42) #4
+  %45 = tail call i32 @tvb_reported_length(ptr noundef %42)
   %46 = icmp ult i32 %45, 12
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %44
-  %48 = tail call i32 @tvb_reported_length(ptr noundef %42) #4
-  %49 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %29, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %42, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.406, i32 noundef %48) #4
+  %48 = tail call i32 @tvb_reported_length(ptr noundef %42)
+  %49 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %29, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %42, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.416, i32 noundef %48)
   br label %dissect_uftp_freespace.exit.thread
 
 50:                                               ; preds = %44
-  %51 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %42, i32 noundef 1) #4
+  %51 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %42, i32 noundef 1)
   %52 = zext i8 %51 to i32
   %53 = shl nuw nsw i32 %52, 2
-  %54 = tail call i32 @tvb_reported_length(ptr noundef %42) #4
+  %54 = tail call i32 @tvb_reported_length(ptr noundef %42)
   %55 = icmp slt i32 %54, %53
   %56 = icmp ult i8 %51, 3
   %or.cond.i = select i1 %55, i1 true, i1 %56
-  br i1 %or.cond.i, label %57, label %60
+  br i1 %or.cond.i, label %57, label %dissect_uftp_freespace.exit
 
 57:                                               ; preds = %50
-  %58 = tail call i32 @tvb_reported_length(ptr noundef %42) #4
-  %59 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %29, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %42, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.407, i32 noundef %58, i32 noundef %53) #4
+  %58 = tail call i32 @tvb_reported_length(ptr noundef %42)
+  %59 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %29, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %42, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.417, i32 noundef %58, i32 noundef %53)
   br label %dissect_uftp_freespace.exit.thread
 
-60:                                               ; preds = %50
-  %61 = load i32, ptr @hf_uftp_freespace, align 4
-  %62 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %61, ptr noundef %42, i32 noundef 0, i32 noundef 12, i32 noundef 0) #4
-  %63 = load i32, ptr @ett_uftp_freespace, align 4
-  %64 = tail call ptr @proto_item_add_subtree(ptr noundef %62, i32 noundef %63) #4
-  %65 = load i32, ptr @hf_uftp_freespace_exttype, align 4
-  %66 = tail call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %65, ptr noundef %42, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
-  %67 = load i32, ptr @hf_uftp_freespace_extlen, align 4
-  %68 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %64, i32 noundef %67, ptr noundef %42, i32 noundef 1, i32 noundef 1, i32 noundef %53, ptr noundef nonnull @.str.408, i32 noundef %53, i32 noundef %52) #4
-  %69 = load i32, ptr @hf_uftp_freespace_reserved, align 4
-  %70 = tail call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %69, ptr noundef %42, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
-  %71 = load i32, ptr @hf_uftp_freespace_freespace, align 4
-  %72 = tail call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %71, ptr noundef %42, i32 noundef 4, i32 noundef 8, i32 noundef 0) #4
-  %73 = add nsw i32 %.08193, -12
-  %74 = add nuw nsw i32 %.08292, 12
-  %75 = icmp sgt i32 %.08193, 12
-  br i1 %75, label %.lr.ph, label %dissect_uftp_freespace.exit.thread, !llvm.loop !17
+dissect_uftp_freespace.exit:                      ; preds = %50
+  %60 = load i32, ptr @hf_uftp_freespace, align 4
+  %61 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %60, ptr noundef %42, i32 noundef 0, i32 noundef 12, i32 noundef 0)
+  %62 = load i32, ptr @ett_uftp_freespace, align 4
+  %63 = tail call ptr @proto_item_add_subtree(ptr noundef %61, i32 noundef %62)
+  %64 = load i32, ptr @hf_uftp_freespace_exttype, align 4
+  %65 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %64, ptr noundef %42, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %66 = load i32, ptr @hf_uftp_freespace_extlen, align 4
+  %67 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %63, i32 noundef %66, ptr noundef %42, i32 noundef 1, i32 noundef 1, i32 noundef %53, ptr noundef nonnull @.str.418, i32 noundef %53, i32 noundef %52)
+  %68 = load i32, ptr @hf_uftp_freespace_reserved, align 4
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %68, ptr noundef %42, i32 noundef 2, i32 noundef 2, i32 noundef 0)
+  %70 = load i32, ptr @hf_uftp_freespace_freespace, align 4
+  %71 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %70, ptr noundef %42, i32 noundef 4, i32 noundef 8, i32 noundef 0)
+  %72 = add nsw i32 %.08396, -12
+  %73 = add nuw nsw i32 %.08495, 12
+  %74 = icmp sgt i32 %.08396, 12
+  br i1 %74, label %.lr.ph, label %dissect_uftp_freespace.exit.thread
 
-dissect_uftp_freespace.exit.thread:               ; preds = %60, %.lr.ph, %25, %57, %47
-  %76 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %77 = sub i32 %76, %12
-  %78 = lshr i32 %77, 2
-  %79 = and i32 %78, 65535
-  %.not87 = icmp eq i32 %79, 0
-  br i1 %.not87, label %.loopexit, label %.lr.ph97.preheader
+dissect_uftp_freespace.exit.thread:               ; preds = %dissect_uftp_freespace.exit, %.lr.ph, %25, %57, %47
+  %75 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %76 = sub i32 %75, %12
+  %77 = lshr i32 %76, 2
+  %78 = and i32 %77, 65535
+  %.not90 = icmp eq i32 %78, 0
+  br i1 %.not90, label %.loopexit, label %.lr.ph100.preheader
 
-.lr.ph97.preheader:                               ; preds = %dissect_uftp_freespace.exit.thread
-  %80 = load i32, ptr @hf_uftp_destlist, align 4
-  %81 = shl nuw nsw i32 %79, 2
-  %82 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %80, ptr noundef %0, i32 noundef %12, i32 noundef %81, i32 noundef 0) #4
-  %83 = load i32, ptr @ett_uftp_destlist, align 4
-  %84 = tail call ptr @proto_item_add_subtree(ptr noundef %82, i32 noundef %83) #4
-  br label %.lr.ph97
+.lr.ph100.preheader:                              ; preds = %dissect_uftp_freespace.exit.thread
+  %79 = load i32, ptr @hf_uftp_destlist, align 4
+  %80 = shl nuw nsw i32 %78, 2
+  %81 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %79, ptr noundef %0, i32 noundef %12, i32 noundef %80, i32 noundef 0)
+  %82 = load i32, ptr @ett_uftp_destlist, align 4
+  %83 = tail call ptr @proto_item_add_subtree(ptr noundef %81, i32 noundef %82)
+  br label %.lr.ph100
 
-.lr.ph97:                                         ; preds = %.lr.ph97.preheader, %.lr.ph97
-  %indvars.iv = phi i32 [ 0, %.lr.ph97.preheader ], [ %indvars.iv.next, %.lr.ph97 ]
-  %.195 = phi i32 [ %12, %.lr.ph97.preheader ], [ %87, %.lr.ph97 ]
-  %85 = load i32, ptr @hf_uftp_dest, align 4
-  %86 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %85, ptr noundef %0, i32 noundef %.195, i32 noundef 4, i32 noundef 0) #4
-  %87 = add nuw nsw i32 %.195, 4
+.lr.ph100:                                        ; preds = %.lr.ph100.preheader, %.lr.ph100
+  %indvars.iv = phi i32 [ 0, %.lr.ph100.preheader ], [ %indvars.iv.next, %.lr.ph100 ]
+  %.298 = phi i32 [ %12, %.lr.ph100.preheader ], [ %86, %.lr.ph100 ]
+  %84 = load i32, ptr @hf_uftp_dest, align 4
+  %85 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %84, ptr noundef %0, i32 noundef %.298, i32 noundef 4, i32 noundef 0)
+  %86 = add nuw nsw i32 %.298, 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
-  %exitcond.not = icmp eq i32 %indvars.iv.next, %79
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph97, !llvm.loop !18
+  %exitcond.not = icmp eq i32 %indvars.iv.next, %78
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph100, !llvm.loop !16
 
-.loopexit:                                        ; preds = %.lr.ph97, %dissect_uftp_freespace.exit.thread, %16, %6
+.loopexit:                                        ; preds = %.lr.ph100, %dissect_uftp_freespace.exit.thread, %16, %6
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_uftp_doneconf(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %4 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %5 = icmp ult i32 %4, 4
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.406, i32 noundef %7) #4
+  %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.416, i32 noundef %7)
   br label %.loopexit
 
 9:                                                ; preds = %3
-  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
+  %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 2
-  %13 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %13 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %14 = icmp slt i32 %13, %12
   %15 = icmp eq i8 %10, 0
   %or.cond = select i1 %14, i1 true, i1 %15
   br i1 %or.cond, label %16, label %19
 
 16:                                               ; preds = %9
-  %17 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %18 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.407, i32 noundef %17, i32 noundef %12) #4
+  %17 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %18 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.417, i32 noundef %17, i32 noundef %12)
   br label %.loopexit
 
 19:                                               ; preds = %9
   %20 = load i32, ptr @hf_uftp_doneconf, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %22 = load i32, ptr @ett_uftp_doneconf, align 4
-  %23 = tail call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22) #4
+  %23 = tail call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22)
   %24 = load i32, ptr @hf_uftp_doneconf_func, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %24, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %24, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %26 = load i32, ptr @hf_uftp_doneconf_hlen, align 4
-  %27 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %23, i32 noundef %26, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.408, i32 noundef %12, i32 noundef %11) #4
+  %27 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %23, i32 noundef %26, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.418, i32 noundef %12, i32 noundef %11)
   %28 = load i32, ptr @hf_uftp_doneconf_reserved, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
-  %30 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
+  %30 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %31 = sub i32 %30, %12
   %32 = lshr i32 %31, 2
   %33 = and i32 %32, 65535
@@ -2350,43 +2378,43 @@ define internal fastcc void @dissect_uftp_doneconf(ptr noundef %0, ptr noundef %
 .lr.ph.preheader:                                 ; preds = %19
   %34 = load i32, ptr @hf_uftp_destlist, align 4
   %35 = shl nuw nsw i32 %33, 2
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %34, ptr noundef %0, i32 noundef %12, i32 noundef %35, i32 noundef 0) #4
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %34, ptr noundef %0, i32 noundef %12, i32 noundef %35, i32 noundef 0)
   %37 = load i32, ptr @ett_uftp_destlist, align 4
-  %38 = tail call ptr @proto_item_add_subtree(ptr noundef %36, i32 noundef %37) #4
+  %38 = tail call ptr @proto_item_add_subtree(ptr noundef %36, i32 noundef %37)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i32 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.05054 = phi i32 [ %12, %.lr.ph.preheader ], [ %41, %.lr.ph ]
   %39 = load i32, ptr @hf_uftp_dest, align 4
-  %40 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %39, ptr noundef %0, i32 noundef %.05054, i32 noundef 4, i32 noundef 0) #4
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %39, ptr noundef %0, i32 noundef %.05054, i32 noundef 4, i32 noundef 0)
   %41 = add nuw nsw i32 %.05054, 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %33
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph, %19, %16, %6
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_uftp_hbreq(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %4 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %5 = icmp ult i32 %4, 12
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.406, i32 noundef %7) #4
+  %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.416, i32 noundef %7)
   br label %57
 
 9:                                                ; preds = %3
-  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
+  %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 2
-  %13 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4) #4
-  %14 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6) #4
-  %15 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %13 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4)
+  %14 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6)
+  %15 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %16 = icmp slt i32 %15, %12
   %.pre = zext i16 %13 to i32
   br i1 %16, label %._crit_edge, label %17
@@ -2404,33 +2432,33 @@ define internal fastcc void @dissect_uftp_hbreq(ptr noundef %0, ptr noundef %1, 
 
 22:                                               ; preds = %._crit_edge, %17
   %.pre-phi78 = phi i32 [ %.pre77, %._crit_edge ], [ %19, %17 ]
-  %23 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %24 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.418, i32 noundef %23, i32 noundef %12, i32 noundef %.pre, i32 noundef %.pre-phi78) #4
+  %23 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %24 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.428, i32 noundef %23, i32 noundef %12, i32 noundef %.pre, i32 noundef %.pre-phi78)
   br label %57
 
 25:                                               ; preds = %17
   %26 = load i32, ptr @hf_uftp_hbreq, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %28 = load i32, ptr @ett_uftp_hbreq, align 4
-  %29 = tail call ptr @proto_item_add_subtree(ptr noundef %27, i32 noundef %28) #4
+  %29 = tail call ptr @proto_item_add_subtree(ptr noundef %27, i32 noundef %28)
   %30 = load i32, ptr @hf_uftp_hbreq_func, align 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %32 = load i32, ptr @hf_uftp_hbreq_hlen, align 4
-  %33 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %29, i32 noundef %32, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.408, i32 noundef %12, i32 noundef %11) #4
+  %33 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %29, i32 noundef %32, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.418, i32 noundef %12, i32 noundef %11)
   %34 = load i32, ptr @hf_uftp_hbreq_reserved, align 4
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %34, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
+  %35 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %34, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %36 = load i32, ptr @hf_uftp_hbreq_bloblen, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %36, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #4
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %36, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
   %38 = load i32, ptr @hf_uftp_hbreq_siglen, align 4
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %38, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #4
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %38, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0)
   %40 = load i32, ptr @hf_uftp_hbreq_nonce, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %40, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #4
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %40, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0)
   %.not = icmp eq i16 %13, 0
   br i1 %.not, label %53, label %42
 
 42:                                               ; preds = %25
-  %43 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 12, i32 noundef %.pre) #4
-  %44 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 12) #4
+  %43 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 12, i32 noundef %.pre)
+  %44 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 12)
   switch i8 %44, label %51 [
     i8 1, label %45
     i8 2, label %48
@@ -2458,79 +2486,79 @@ define internal fastcc void @dissect_uftp_hbreq(ptr noundef %0, ptr noundef %1, 
 
 54:                                               ; preds = %53
   %55 = load i32, ptr @hf_uftp_hbreq_verify, align 4
-  %56 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %55, ptr noundef %0, i32 noundef %.072, i32 noundef %19, i32 noundef 0) #4
+  %56 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %55, ptr noundef %0, i32 noundef %.072, i32 noundef %19, i32 noundef 0)
   br label %57
 
-57:                                               ; preds = %54, %53, %22, %6
+57:                                               ; preds = %53, %54, %22, %6
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_uftp_hbresp(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %4 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %5 = icmp ult i32 %4, 8
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.406, i32 noundef %7) #4
+  %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.416, i32 noundef %7)
   br label %34
 
 9:                                                ; preds = %3
-  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
+  %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 2
-  %13 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %13 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %14 = icmp slt i32 %13, %12
   %15 = icmp ult i8 %10, 2
   %or.cond = select i1 %14, i1 true, i1 %15
   br i1 %or.cond, label %16, label %19
 
 16:                                               ; preds = %9
-  %17 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %18 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.407, i32 noundef %17, i32 noundef %12) #4
+  %17 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %18 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.417, i32 noundef %17, i32 noundef %12)
   br label %34
 
 19:                                               ; preds = %9
   %20 = load i32, ptr @hf_uftp_hbresp, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %22 = load i32, ptr @ett_uftp_hbresp, align 4
-  %23 = tail call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22) #4
+  %23 = tail call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22)
   %24 = load i32, ptr @hf_uftp_hbresp_func, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %24, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %24, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %26 = load i32, ptr @hf_uftp_hbresp_hlen, align 4
-  %27 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %23, i32 noundef %26, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.408, i32 noundef %12, i32 noundef %11) #4
+  %27 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %23, i32 noundef %26, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.418, i32 noundef %12, i32 noundef %11)
   %28 = load i32, ptr @hf_uftp_hbresp_authenticated, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %30 = load i32, ptr @hf_uftp_hbresp_reserved, align 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %30, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #4
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %30, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %32 = load i32, ptr @hf_uftp_hbresp_nonce, align 4
-  %33 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %32, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #4
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %32, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0)
   br label %34
 
 34:                                               ; preds = %19, %16, %6
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_uftp_proxykey(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %4 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %5 = icmp ult i32 %4, 8
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.406, i32 noundef %7) #4
+  %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.416, i32 noundef %7)
   br label %70
 
 9:                                                ; preds = %3
-  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
+  %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 2
-  %13 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #4
-  %14 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4) #4
-  %15 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6) #4
-  %16 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %13 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2)
+  %14 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4)
+  %15 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6)
+  %16 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %17 = icmp slt i32 %16, %12
   %.pre = zext i16 %13 to i32
   br i1 %17, label %._crit_edge, label %18
@@ -2552,31 +2580,31 @@ define internal fastcc void @dissect_uftp_proxykey(ptr noundef %0, ptr noundef %
 25:                                               ; preds = %._crit_edge, %18
   %.pre-phi97 = phi i32 [ %.pre96, %._crit_edge ], [ %22, %18 ]
   %.pre-phi95 = phi i32 [ %.pre94, %._crit_edge ], [ %20, %18 ]
-  %26 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %27 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.419, i32 noundef %26, i32 noundef %12, i32 noundef %.pre, i32 noundef %.pre-phi95, i32 noundef %.pre-phi97) #4
+  %26 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %27 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.429, i32 noundef %26, i32 noundef %12, i32 noundef %.pre, i32 noundef %.pre-phi95, i32 noundef %.pre-phi97)
   br label %70
 
 28:                                               ; preds = %18
   %29 = load i32, ptr @hf_uftp_proxykey, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %31 = load i32, ptr @ett_uftp_proxykey, align 4
-  %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #4
+  %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31)
   %33 = load i32, ptr @hf_uftp_proxykey_func, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %33, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %33, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %35 = load i32, ptr @hf_uftp_proxykey_hlen, align 4
-  %36 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %32, i32 noundef %35, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.408, i32 noundef %12, i32 noundef %11) #4
+  %36 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %32, i32 noundef %35, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.418, i32 noundef %12, i32 noundef %11)
   %37 = load i32, ptr @hf_uftp_proxykey_bloblen, align 4
-  %38 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %37, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %37, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %39 = load i32, ptr @hf_uftp_proxykey_dhlen, align 4
-  %40 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %39, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #4
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %39, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
   %41 = load i32, ptr @hf_uftp_proxykey_siglen, align 4
-  %42 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %41, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #4
+  %42 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %41, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0)
   %.not = icmp eq i16 %13, 0
   br i1 %.not, label %54, label %43
 
 43:                                               ; preds = %28
-  %44 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 8, i32 noundef %.pre) #4
-  %45 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #4
+  %44 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 8, i32 noundef %.pre)
+  %45 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 8)
   switch i8 %45, label %52 [
     i8 1, label %46
     i8 2, label %49
@@ -2603,8 +2631,8 @@ define internal fastcc void @dissect_uftp_proxykey(ptr noundef %0, ptr noundef %
   br i1 %.not92, label %66, label %55
 
 55:                                               ; preds = %54
-  %56 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.087, i32 noundef %20) #4
-  %57 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.087) #4
+  %56 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.087, i32 noundef %20)
+  %57 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.087)
   switch i8 %57, label %64 [
     i8 1, label %58
     i8 2, label %61
@@ -2632,42 +2660,43 @@ define internal fastcc void @dissect_uftp_proxykey(ptr noundef %0, ptr noundef %
 
 67:                                               ; preds = %66
   %68 = load i32, ptr @hf_uftp_proxykey_sig, align 4
-  %69 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %68, ptr noundef %0, i32 noundef %.1, i32 noundef %22, i32 noundef 0) #4
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %68, ptr noundef %0, i32 noundef %.1, i32 noundef %22, i32 noundef 0)
   br label %70
 
-70:                                               ; preds = %67, %66, %25, %6
+70:                                               ; preds = %66, %67, %25, %6
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_uftp_congctrl(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
-  %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
+  %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %6 = icmp ult i32 %5, 16
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
-  %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %9 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.406, i32 noundef %8) #4
+  %8 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %9 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.416, i32 noundef %8)
   br label %.loopexit
 
 10:                                               ; preds = %3
-  %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
+  %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %12 = zext i8 %11 to i32
   %13 = shl nuw nsw i32 %12, 2
-  %14 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %14 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %15 = icmp slt i32 %14, %13
   %16 = icmp ult i8 %11, 4
   %or.cond = select i1 %15, i1 true, i1 %16
   br i1 %or.cond, label %17, label %20
 
 17:                                               ; preds = %10
-  %18 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %19 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.407, i32 noundef %18, i32 noundef %13) #4
+  %18 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %19 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.417, i32 noundef %18, i32 noundef %13)
   br label %.loopexit
 
 20:                                               ; preds = %10
-  %21 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6) #4
+  %21 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6)
   %22 = zext i16 %21 to i32
   %23 = and i32 %22, 15
   %24 = lshr i32 %22, 4
@@ -2682,36 +2711,36 @@ define internal fastcc void @dissect_uftp_congctrl(ptr noundef %0, ptr noundef %
   %27 = fmul double %.08.i, 1.000000e+01
   %28 = add nuw nsw i32 %.067.i, 1
   %exitcond.not.i = icmp eq i32 %28, %23
-  br i1 %exitcond.not.i, label %unquantize_rate.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %unquantize_rate.exit, label %.lr.ph.i, !llvm.loop !14
 
 unquantize_rate.exit:                             ; preds = %.lr.ph.i, %20
   %.0.lcssa.i = phi double [ %26, %20 ], [ %27, %.lr.ph.i ]
   %29 = fptoui double %.0.lcssa.i to i32
   %30 = load i32, ptr @hf_uftp_congctrl, align 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %32 = load i32, ptr @ett_uftp_congctrl, align 4
-  %33 = tail call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32) #4
+  %33 = tail call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32)
   %34 = load i32, ptr @hf_uftp_congctrl_func, align 4
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %34, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %35 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %34, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %36 = load i32, ptr @hf_uftp_congctrl_hlen, align 4
-  %37 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %33, i32 noundef %36, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %13, ptr noundef nonnull @.str.408, i32 noundef %13, i32 noundef %12) #4
+  %37 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %33, i32 noundef %36, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %13, ptr noundef nonnull @.str.418, i32 noundef %13, i32 noundef %12)
   %38 = load i32, ptr @hf_uftp_congctrl_reserved, align 4
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %38, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %38, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %40 = load i32, ptr @hf_uftp_congctrl_cc_seq, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %40, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #4
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %40, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
   %42 = load i32, ptr @hf_uftp_congctrl_cc_rate, align 4
-  %43 = tail call ptr @proto_tree_add_uint(ptr noundef %33, i32 noundef %42, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef %29) #4
-  %44 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef 8) #4
+  %43 = tail call ptr @proto_tree_add_uint(ptr noundef %33, i32 noundef %42, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef %29)
+  %44 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef 8)
   %45 = udiv i64 %44, 1000000
   %46 = urem i64 %44, 1000000
   %47 = trunc nuw nsw i64 %46 to i32
   %48 = mul nuw nsw i32 %47, 1000
   store i64 %45, ptr %4, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %48, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 %48, ptr %.sroa.4.0..sroa_idx, align 8
   %49 = load i32, ptr @hf_uftp_congctrl_tstamp, align 4
-  %50 = call ptr @proto_tree_add_time(ptr noundef %33, i32 noundef %49, ptr noundef %0, i32 noundef 8, i32 noundef 8, ptr noundef nonnull %4) #4
-  %51 = call i32 @tvb_reported_length(ptr noundef %0) #4
+  %50 = call ptr @proto_tree_add_time(ptr noundef %33, i32 noundef %49, ptr noundef %0, i32 noundef 8, i32 noundef 8, ptr noundef nonnull %4)
+  %51 = call i32 @tvb_reported_length(ptr noundef %0)
   %52 = sub i32 %51, %13
   %53 = lshr i32 %52, 3
   %54 = and i32 %53, 255
@@ -2721,16 +2750,16 @@ unquantize_rate.exit:                             ; preds = %.lr.ph.i, %20
 .lr.ph.preheader:                                 ; preds = %unquantize_rate.exit
   %55 = load i32, ptr @hf_uftp_congctrl_cclist, align 4
   %56 = shl nuw nsw i32 %54, 3
-  %57 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %55, ptr noundef %0, i32 noundef %13, i32 noundef %56, i32 noundef 0) #4
+  %57 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %55, ptr noundef %0, i32 noundef %13, i32 noundef %56, i32 noundef 0)
   %58 = load i32, ptr @ett_uftp_congctrl_cclist, align 4
-  %59 = call ptr @proto_item_add_subtree(ptr noundef %57, i32 noundef %58) #4
+  %59 = call ptr @proto_item_add_subtree(ptr noundef %57, i32 noundef %58)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %unquantize_rate.exit98
   %indvars.iv = phi i32 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %unquantize_rate.exit98 ]
   %.089100 = phi i32 [ %13, %.lr.ph.preheader ], [ %99, %unquantize_rate.exit98 ]
   %60 = add nuw nsw i32 %.089100, 5
-  %61 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %60) #4
+  %61 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %60)
   %62 = zext i8 %61 to i32
   %63 = icmp ult i8 %61, 32
   br i1 %63, label %64, label %68
@@ -2745,14 +2774,14 @@ unquantize_rate.exit:                             ; preds = %.lr.ph.i, %20
   %69 = xor i32 %62, 255
   %70 = uitofp nneg i32 %69 to double
   %71 = fdiv double %70, 1.300000e+01
-  %72 = call double @exp(double noundef %71) #4
+  %72 = call double @exp(double noundef %71) #5
   %73 = fdiv double 1.000000e+03, %72
   br label %unquantize_grtt.exit
 
 unquantize_grtt.exit:                             ; preds = %64, %68
   %74 = phi double [ %67, %64 ], [ %73, %68 ]
   %75 = add nuw nsw i32 %.089100, 6
-  %76 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %75) #4
+  %76 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %75)
   %77 = zext i16 %76 to i32
   %78 = and i32 %77, 15
   %79 = lshr i32 %77, 4
@@ -2767,247 +2796,250 @@ unquantize_grtt.exit:                             ; preds = %64, %68
   %82 = fmul double %.08.i94, 1.000000e+01
   %83 = add nuw nsw i32 %.067.i95, 1
   %exitcond.not.i96 = icmp eq i32 %83, %78
-  br i1 %exitcond.not.i96, label %unquantize_rate.exit98, label %.lr.ph.i93, !llvm.loop !13
+  br i1 %exitcond.not.i96, label %unquantize_rate.exit98, label %.lr.ph.i93, !llvm.loop !14
 
 unquantize_rate.exit98:                           ; preds = %.lr.ph.i93, %unquantize_grtt.exit
   %.0.lcssa.i97 = phi double [ %81, %unquantize_grtt.exit ], [ %82, %.lr.ph.i93 ]
   %84 = fptoui double %.0.lcssa.i97 to i32
   %85 = load i32, ptr @hf_uftp_congctrl_item, align 4
-  %86 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %85, ptr noundef %0, i32 noundef %.089100, i32 noundef 8, i32 noundef 0) #4
+  %86 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %85, ptr noundef %0, i32 noundef %.089100, i32 noundef 8, i32 noundef 0)
   %87 = load i32, ptr @ett_uftp_congctrl_item, align 4
-  %88 = call ptr @proto_item_add_subtree(ptr noundef %86, i32 noundef %87) #4
+  %88 = call ptr @proto_item_add_subtree(ptr noundef %86, i32 noundef %87)
   %89 = load i32, ptr @hf_uftp_congctrl_item_destid, align 4
-  %90 = call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %89, ptr noundef %0, i32 noundef %.089100, i32 noundef 4, i32 noundef 0) #4
+  %90 = call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %89, ptr noundef %0, i32 noundef %.089100, i32 noundef 4, i32 noundef 0)
   %91 = add nuw nsw i32 %.089100, 4
   %92 = load i32, ptr @hf_uftp_congctrl_item_flags, align 4
   %93 = load i32, ptr @ett_uftp_congctrl_item_flags, align 4
-  %94 = call ptr @proto_tree_add_bitmask(ptr noundef %88, ptr noundef %0, i32 noundef %91, i32 noundef %92, i32 noundef %93, ptr noundef nonnull @cc_item_flags, i32 noundef 0) #4
+  %94 = call ptr @proto_tree_add_bitmask(ptr noundef %88, ptr noundef %0, i32 noundef %91, i32 noundef %92, i32 noundef %93, ptr noundef nonnull @cc_item_flags, i32 noundef 0)
   %95 = load i32, ptr @hf_uftp_congctrl_item_rtt, align 4
-  %96 = call ptr @proto_tree_add_double(ptr noundef %88, i32 noundef %95, ptr noundef %0, i32 noundef %60, i32 noundef 1, double noundef %74) #4
+  %96 = call ptr @proto_tree_add_double(ptr noundef %88, i32 noundef %95, ptr noundef %0, i32 noundef %60, i32 noundef 1, double noundef %74)
   %97 = load i32, ptr @hf_uftp_congctrl_item_rate, align 4
-  %98 = call ptr @proto_tree_add_uint(ptr noundef %88, i32 noundef %97, ptr noundef %0, i32 noundef %75, i32 noundef 2, i32 noundef %84) #4
+  %98 = call ptr @proto_tree_add_uint(ptr noundef %88, i32 noundef %97, ptr noundef %0, i32 noundef %75, i32 noundef 2, i32 noundef %84)
   %99 = add nuw nsw i32 %.089100, 8
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %54
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit:                                        ; preds = %unquantize_rate.exit98, %unquantize_rate.exit, %17, %7
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_uftp_ccack(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %4 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %5 = icmp ult i32 %4, 4
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.406, i32 noundef %7) #4
+  %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.416, i32 noundef %7)
   br label %.thread
 
 9:                                                ; preds = %3
-  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
+  %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 2
-  %13 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %13 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %14 = icmp slt i32 %13, %12
   %15 = icmp eq i8 %10, 0
   %or.cond = select i1 %14, i1 true, i1 %15
   br i1 %or.cond, label %16, label %19
 
 16:                                               ; preds = %9
-  %17 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %18 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.407, i32 noundef %17, i32 noundef %12) #4
+  %17 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %18 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.417, i32 noundef %17, i32 noundef %12)
   br label %.thread
 
 19:                                               ; preds = %9
   %20 = load i32, ptr @hf_uftp_ccack, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %22 = load i32, ptr @ett_uftp_ccack, align 4
-  %23 = tail call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22) #4
+  %23 = tail call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22)
   %24 = load i32, ptr @hf_uftp_ccack_func, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %24, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %24, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %26 = load i32, ptr @hf_uftp_ccack_hlen, align 4
-  %27 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %23, i32 noundef %26, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.408, i32 noundef %12, i32 noundef %11) #4
+  %27 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %23, i32 noundef %26, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.418, i32 noundef %12, i32 noundef %11)
   %28 = load i32, ptr @hf_uftp_ccack_reserved, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
-  %30 = icmp ugt i8 %10, 1
-  br i1 %30, label %.lr.ph.preheader, label %.thread
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
+  %30 = add nsw i32 %12, -4
+  br label %31
 
-.lr.ph.preheader:                                 ; preds = %19
-  %31 = add nsw i32 %12, -4
-  br label %.lr.ph
+31:                                               ; preds = %36, %19
+  %.054 = phi i32 [ 4, %19 ], [ %39, %36 ]
+  %.053 = phi i32 [ %30, %19 ], [ %38, %36 ]
+  %32 = icmp sgt i32 %.053, 0
+  br i1 %32, label %33, label %.thread
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %36
-  %.05157 = phi i32 [ %37, %36 ], [ %31, %.lr.ph.preheader ]
-  %.05256 = phi i32 [ %38, %36 ], [ 4, %.lr.ph.preheader ]
-  %32 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.05256, i32 noundef %.05157) #4
-  %33 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.05256) #4
-  %cond = icmp eq i8 %33, 3
-  br i1 %cond, label %34, label %.thread
+33:                                               ; preds = %31
+  %34 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.054, i32 noundef %.053)
+  %35 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.054)
+  %cond = icmp eq i8 %35, 3
+  br i1 %cond, label %36, label %.thread
 
-34:                                               ; preds = %.lr.ph
-  %35 = tail call fastcc i32 @dissect_uftp_tfmccack(ptr noundef %32, ptr noundef %1, ptr noundef %23)
-  %.not = icmp eq i32 %35, 0
-  br i1 %.not, label %.thread, label %36
+36:                                               ; preds = %33
+  %37 = tail call fastcc i32 @dissect_uftp_tfmccack(ptr noundef %34, ptr noundef %1, ptr noundef %23)
+  %.not = icmp eq i32 %37, 0
+  %38 = sub nsw i32 %.053, %37
+  %39 = add i32 %37, %.054
+  br i1 %.not, label %.thread, label %31
 
-36:                                               ; preds = %34
-  %37 = sub nsw i32 %.05157, %35
-  %38 = add i32 %35, %.05256
-  %39 = icmp sgt i32 %37, 0
-  br i1 %39, label %.lr.ph, label %.thread, !llvm.loop !21
-
-.thread:                                          ; preds = %36, %34, %.lr.ph, %19, %16, %6
+.thread:                                          ; preds = %33, %36, %31, %16, %6
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_uftp_encrypted(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %4 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %5 = icmp ult i32 %4, 12
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.406, i32 noundef %7) #4
+  %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.416, i32 noundef %7)
   br label %31
 
 9:                                                ; preds = %3
-  %10 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 10) #4
-  %11 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %10 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 10)
+  %11 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %12 = zext i16 %10 to i32
   %13 = add nuw nsw i32 %12, 12
   %14 = icmp slt i32 %11, %13
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %9
-  %16 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %17 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.420, i32 noundef %16, i32 noundef %12) #4
+  %16 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %17 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.430, i32 noundef %16, i32 noundef %12)
   br label %31
 
 18:                                               ; preds = %9
   %19 = load i32, ptr @hf_uftp_encrypted, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %21 = load i32, ptr @ett_uftp_encrypted, align 4
-  %22 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %21) #4
+  %22 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %21)
   %23 = load i32, ptr @hf_uftp_encrypted_ivctr, align 4
-  %24 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %23, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #4
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %23, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0)
   %25 = load i32, ptr @hf_uftp_encrypted_reserved, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %25, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef 0) #4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %25, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef 0)
   %27 = load i32, ptr @hf_uftp_encrypted_payload_len, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %27, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %27, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef 0)
   %29 = load i32, ptr @hf_uftp_encrypted_payload, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %29, ptr noundef %0, i32 noundef 12, i32 noundef %12, i32 noundef 0) #4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %29, ptr noundef %0, i32 noundef 12, i32 noundef %12, i32 noundef 0)
   br label %31
 
 31:                                               ; preds = %18, %15, %6
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_uftp_abort(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %4 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %5 = icmp ult i32 %4, 308
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.406, i32 noundef %7) #4
+  %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.416, i32 noundef %7)
   br label %37
 
 9:                                                ; preds = %3
-  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
+  %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 2
-  %13 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %13 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %14 = icmp slt i32 %13, %12
   %15 = icmp ult i8 %10, 77
   %or.cond = select i1 %14, i1 true, i1 %15
   br i1 %or.cond, label %16, label %19
 
 16:                                               ; preds = %9
-  %17 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %18 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.407, i32 noundef %17, i32 noundef %12) #4
+  %17 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %18 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.417, i32 noundef %17, i32 noundef %12)
   br label %37
 
 19:                                               ; preds = %9
   %20 = load i32, ptr @hf_uftp_abort, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %22 = load i32, ptr @ett_uftp_abort, align 4
-  %23 = tail call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22) #4
+  %23 = tail call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22)
   %24 = load i32, ptr @hf_uftp_abort_func, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %24, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %24, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %26 = load i32, ptr @hf_uftp_abort_hlen, align 4
-  %27 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %23, i32 noundef %26, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.408, i32 noundef %12, i32 noundef %11) #4
+  %27 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %23, i32 noundef %26, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %12, ptr noundef nonnull @.str.418, i32 noundef %12, i32 noundef %11)
   %28 = load i32, ptr @hf_uftp_abort_flags, align 4
   %29 = load i32, ptr @ett_uftp_abort_flags, align 4
-  %30 = tail call ptr @proto_tree_add_bitmask(ptr noundef %23, ptr noundef %0, i32 noundef 2, i32 noundef %28, i32 noundef %29, ptr noundef nonnull @abort_flags, i32 noundef 0) #4
+  %30 = tail call ptr @proto_tree_add_bitmask(ptr noundef %23, ptr noundef %0, i32 noundef 2, i32 noundef %28, i32 noundef %29, ptr noundef nonnull @abort_flags, i32 noundef 0)
   %31 = load i32, ptr @hf_uftp_abort_reserved, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %31, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #4
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %31, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %33 = load i32, ptr @hf_uftp_abort_clientid, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %33, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #4
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %33, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0)
   %35 = load i32, ptr @hf_uftp_abort_message, align 4
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %35, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef 0) #4
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %35, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef 0)
   br label %37
 
 37:                                               ; preds = %19, %16, %6
   ret void
 }
 
-declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @exp(double noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(write)
+declare double @exp(double noundef) local_unnamed_addr #3
 
-declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc range(i32 0, 65544) i32 @dissect_uftp_rsablob(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %6 = icmp ult i32 %5, 8
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %9 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.406, i32 noundef %8) #4
+  %8 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %9 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.416, i32 noundef %8)
   br label %33
 
 10:                                               ; preds = %4
-  %11 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #4
+  %11 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2)
   %12 = zext i16 %11 to i32
-  %13 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %13 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %14 = add nuw nsw i32 %12, 8
   %15 = icmp slt i32 %13, %14
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %10
-  %17 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %18 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.410, i32 noundef %17) #4
+  %17 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %18 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.420, i32 noundef %17)
   br label %33
 
 19:                                               ; preds = %10
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef 0, i32 noundef %14, i32 noundef 0) #4
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef 0, i32 noundef %14, i32 noundef 0)
   %21 = load i32, ptr @ett_uftp_rsablob, align 4
-  %22 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %21) #4
+  %22 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %21)
   %23 = load i32, ptr @hf_uftp_rsablob_blobtype, align 4
-  %24 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %23, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %23, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %25 = load i32, ptr @hf_uftp_rsablob_reserved, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %25, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %25, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %27 = load i32, ptr @hf_uftp_rsablob_modlen, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %27, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %27, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %29 = load i32, ptr @hf_uftp_rsablob_exponent, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %29, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %29, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0)
   %31 = load i32, ptr @hf_uftp_rsablob_modulus, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %31, ptr noundef %0, i32 noundef 8, i32 noundef %12, i32 noundef 0) #4
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %31, ptr noundef %0, i32 noundef 8, i32 noundef %12, i32 noundef 0)
   br label %33
 
 33:                                               ; preds = %19, %16, %7
@@ -3015,42 +3047,42 @@ define internal fastcc range(i32 0, 65544) i32 @dissect_uftp_rsablob(ptr noundef
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc range(i32 0, 65540) i32 @dissect_uftp_ecblob(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %6 = icmp ult i32 %5, 4
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %9 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.406, i32 noundef %8) #4
+  %8 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %9 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.416, i32 noundef %8)
   br label %31
 
 10:                                               ; preds = %4
-  %11 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #4
+  %11 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2)
   %12 = zext i16 %11 to i32
-  %13 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %13 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %14 = add nuw nsw i32 %12, 4
   %15 = icmp slt i32 %13, %14
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %10
-  %17 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %18 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.410, i32 noundef %17) #4
+  %17 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %18 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.420, i32 noundef %17)
   br label %31
 
 19:                                               ; preds = %10
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef 0, i32 noundef %14, i32 noundef 0) #4
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef 0, i32 noundef %14, i32 noundef 0)
   %21 = load i32, ptr @ett_uftp_ecblob, align 4
-  %22 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %21) #4
+  %22 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %21)
   %23 = load i32, ptr @hf_uftp_ecblob_blobtype, align 4
-  %24 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %23, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %23, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %25 = load i32, ptr @hf_uftp_ecblob_curve, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %25, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %25, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %27 = load i32, ptr @hf_uftp_ecblob_keylen, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %27, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %27, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %29 = load i32, ptr @hf_uftp_ecblob_key, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %29, ptr noundef %0, i32 noundef 4, i32 noundef %12, i32 noundef 0) #4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %29, ptr noundef %0, i32 noundef 4, i32 noundef %12, i32 noundef 0)
   br label %31
 
 31:                                               ; preds = %19, %16, %7
@@ -3058,35 +3090,36 @@ define internal fastcc range(i32 0, 65540) i32 @dissect_uftp_ecblob(ptr noundef 
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc range(i32 0, 21) i32 @dissect_uftp_tfmccack(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
-  %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
+  %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %6 = icmp ult i32 %5, 20
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
-  %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %9 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.406, i32 noundef %8) #4
+  %8 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %9 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.416, i32 noundef %8)
   br label %56
 
 10:                                               ; preds = %3
-  %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
+  %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %12 = zext i8 %11 to i32
   %13 = shl nuw nsw i32 %12, 2
-  %14 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
+  %14 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %15 = icmp slt i32 %14, %13
   %16 = icmp ult i8 %11, 5
   %or.cond = select i1 %15, i1 true, i1 %16
   br i1 %or.cond, label %17, label %20
 
 17:                                               ; preds = %10
-  %18 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %19 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.407, i32 noundef %18, i32 noundef %13) #4
+  %18 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %19 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_uftp_length_invalid, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.417, i32 noundef %18, i32 noundef %13)
   br label %56
 
 20:                                               ; preds = %10
-  %21 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6) #4
+  %21 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6)
   %22 = zext i16 %21 to i32
   %23 = and i32 %22, 15
   %24 = lshr i32 %22, 4
@@ -3101,77 +3134,76 @@ define internal fastcc range(i32 0, 21) i32 @dissect_uftp_tfmccack(ptr noundef %
   %27 = fmul double %.08.i, 1.000000e+01
   %28 = add nuw nsw i32 %.067.i, 1
   %exitcond.not.i = icmp eq i32 %28, %23
-  br i1 %exitcond.not.i, label %unquantize_rate.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %unquantize_rate.exit, label %.lr.ph.i, !llvm.loop !14
 
 unquantize_rate.exit:                             ; preds = %.lr.ph.i, %20
   %.0.lcssa.i = phi double [ %26, %20 ], [ %27, %.lr.ph.i ]
   %29 = fptoui double %.0.lcssa.i to i32
   %30 = load i32, ptr @hf_uftp_tfmccack, align 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef 20, i32 noundef 0) #4
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef 20, i32 noundef 0)
   %32 = load i32, ptr @ett_uftp_tfmccack, align 4
-  %33 = tail call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32) #4
+  %33 = tail call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32)
   %34 = load i32, ptr @hf_uftp_tfmccack_exttype, align 4
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %34, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %35 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %34, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %36 = load i32, ptr @hf_uftp_tfmccack_extlen, align 4
-  %37 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %33, i32 noundef %36, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %13, ptr noundef nonnull @.str.408, i32 noundef %13, i32 noundef %12) #4
+  %37 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %33, i32 noundef %36, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %13, ptr noundef nonnull @.str.418, i32 noundef %13, i32 noundef %12)
   %38 = load i32, ptr @hf_uftp_tfmccack_flags, align 4
   %39 = load i32, ptr @ett_uftp_tfmccack_flags, align 4
-  %40 = tail call ptr @proto_tree_add_bitmask(ptr noundef %33, ptr noundef %0, i32 noundef 2, i32 noundef %38, i32 noundef %39, ptr noundef nonnull @tfmcc_ack_flags, i32 noundef 0) #4
+  %40 = tail call ptr @proto_tree_add_bitmask(ptr noundef %33, ptr noundef %0, i32 noundef 2, i32 noundef %38, i32 noundef %39, ptr noundef nonnull @tfmcc_ack_flags, i32 noundef 0)
   %41 = load i32, ptr @hf_uftp_tfmccack_reserved, align 4
-  %42 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %41, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #4
+  %42 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %41, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %43 = load i32, ptr @hf_uftp_tfmccack_cc_seq, align 4
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %43, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #4
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %43, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
   %45 = load i32, ptr @hf_uftp_tfmccack_cc_rate, align 4
-  %46 = tail call ptr @proto_tree_add_uint(ptr noundef %33, i32 noundef %45, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef %29) #4
+  %46 = tail call ptr @proto_tree_add_uint(ptr noundef %33, i32 noundef %45, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef %29)
   %47 = load i32, ptr @hf_uftp_tfmccack_client_id, align 4
-  %48 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %47, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #4
-  %49 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef 12) #4
+  %48 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %47, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0)
+  %49 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef 12)
   %50 = udiv i64 %49, 1000000
   %51 = urem i64 %49, 1000000
   %52 = trunc nuw nsw i64 %51 to i32
   %53 = mul nuw nsw i32 %52, 1000
   store i64 %50, ptr %4, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %53, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 %53, ptr %.sroa.4.0..sroa_idx, align 8
   %54 = load i32, ptr @hf_uftp_tfmccack_tstamp, align 4
-  %55 = call ptr @proto_tree_add_time(ptr noundef %33, i32 noundef %54, ptr noundef %0, i32 noundef 12, i32 noundef 8, ptr noundef nonnull %4) #4
+  %55 = call ptr @proto_tree_add_time(ptr noundef %33, i32 noundef %54, ptr noundef %0, i32 noundef 12, i32 noundef 8, ptr noundef nonnull %4)
   br label %56
 
 56:                                               ; preds = %unquantize_rate.exit, %17, %7
   %.0 = phi i32 [ 0, %7 ], [ 0, %17 ], [ 20, %unquantize_rate.exit ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
   ret i32 %.0
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #3
+declare i32 @llvm.umax.i32(i32, i32) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}

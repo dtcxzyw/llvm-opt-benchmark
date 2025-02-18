@@ -3,24 +3,21 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.unit_name_string = type { ptr, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
+%struct._value_string = type { i32, ptr }
 %struct.expert_field = type { i32, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
 
-@proto_register_ubx.hf = internal global [293 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_ubx_preamble, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_msg_class_id, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 5, i32 2, ptr @UBX_MSG_CLASS_ID, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_payload_len, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_chksum, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_ack_ack, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_ack_ack_msg_class_id, %struct._header_field_info { ptr @.str.2, ptr @.str.10, i32 5, i32 2, ptr @UBX_MSG_CLASS_ID, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_ack_nak, %struct._header_field_info { ptr @.str.11, ptr @.str.12, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_ack_nak_msg_class_id, %struct._header_field_info { ptr @.str.2, ptr @.str.13, i32 5, i32 2, ptr @UBX_MSG_CLASS_ID, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_version, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_numtrkchhw, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_numtrkchuse, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_numconfigblocks, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_blk_gnssid, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 4, i32 1, ptr @UBX_GNSS_ID, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_blk_restrkch, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_blk_maxtrkch, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_blk_reserved1, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_blk_enable, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 7, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_blk_sigcfgmask, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 7, i32 2, ptr null, i64 16711680, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_blk_gps_sigcfgmask, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 7, i32 2, ptr @UBX_CFG_GNSS_GPS_SIGCFGMASK, i64 16711680, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_blk_sbas_sigcfgmask, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 7, i32 2, ptr @UBX_CFG_GNSS_SBAS_SIGCFGMASK, i64 16711680, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_blk_gal_sigcfgmask, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 7, i32 2, ptr @UBX_CFG_GNSS_GAL_SIGCFGMASK, i64 16711680, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_blk_bds_sigcfgmask, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 7, i32 2, ptr @UBX_CFG_GNSS_BDS_SIGCFGMASK, i64 16711680, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_blk_imes_sigcfgmask, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 7, i32 2, ptr @UBX_CFG_GNSS_IMES_SIGCFGMASK, i64 16711680, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_blk_qzss_sigcfgmask, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 7, i32 2, ptr @UBX_CFG_GNSS_QZSS_SIGCFGMASK, i64 16711680, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_blk_glo_sigcfgmask, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 7, i32 2, ptr @UBX_CFG_GNSS_GLO_SIGCFGMASK, i64 16711680, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_mode, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_mode_enabled, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_mode_test, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 4, i32 2, ptr @UBX_SBAS_TESTBED, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_usage_range, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 4, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_usage_diffcorr, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 4, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_usage_integrity, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 4, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_max_sbas, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn158, %struct._header_field_info { ptr @.str.52, ptr @.str.53, i32 4, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn157, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 4, i32 2, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn156, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 4, i32 2, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn155, %struct._header_field_info { ptr @.str.58, ptr @.str.59, i32 4, i32 2, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn154, %struct._header_field_info { ptr @.str.60, ptr @.str.61, i32 4, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn153, %struct._header_field_info { ptr @.str.62, ptr @.str.63, i32 4, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn152, %struct._header_field_info { ptr @.str.64, ptr @.str.65, i32 4, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn151, %struct._header_field_info { ptr @.str.66, ptr @.str.67, i32 7, i32 2, ptr null, i64 2147483648, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn150, %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 7, i32 2, ptr null, i64 1073741824, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn149, %struct._header_field_info { ptr @.str.70, ptr @.str.71, i32 7, i32 2, ptr null, i64 536870912, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn148, %struct._header_field_info { ptr @.str.72, ptr @.str.73, i32 7, i32 2, ptr null, i64 268435456, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn147, %struct._header_field_info { ptr @.str.74, ptr @.str.75, i32 7, i32 2, ptr null, i64 134217728, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn146, %struct._header_field_info { ptr @.str.76, ptr @.str.77, i32 7, i32 2, ptr null, i64 67108864, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn145, %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 7, i32 2, ptr null, i64 33554432, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn144, %struct._header_field_info { ptr @.str.80, ptr @.str.81, i32 7, i32 2, ptr null, i64 16777216, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn143, %struct._header_field_info { ptr @.str.82, ptr @.str.83, i32 7, i32 2, ptr null, i64 8388608, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn142, %struct._header_field_info { ptr @.str.84, ptr @.str.85, i32 7, i32 2, ptr null, i64 4194304, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn141, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 7, i32 2, ptr null, i64 2097152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn140, %struct._header_field_info { ptr @.str.88, ptr @.str.89, i32 7, i32 2, ptr null, i64 1048576, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn139, %struct._header_field_info { ptr @.str.90, ptr @.str.91, i32 7, i32 2, ptr null, i64 524288, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn138, %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 7, i32 2, ptr null, i64 262144, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn137, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 7, i32 2, ptr null, i64 131072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn136, %struct._header_field_info { ptr @.str.96, ptr @.str.97, i32 7, i32 2, ptr null, i64 65536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn135, %struct._header_field_info { ptr @.str.98, ptr @.str.99, i32 7, i32 2, ptr null, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn134, %struct._header_field_info { ptr @.str.100, ptr @.str.101, i32 7, i32 2, ptr null, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn133, %struct._header_field_info { ptr @.str.102, ptr @.str.103, i32 7, i32 2, ptr null, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn132, %struct._header_field_info { ptr @.str.104, ptr @.str.105, i32 7, i32 2, ptr null, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn131, %struct._header_field_info { ptr @.str.106, ptr @.str.107, i32 7, i32 2, ptr null, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn130, %struct._header_field_info { ptr @.str.108, ptr @.str.109, i32 7, i32 2, ptr null, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn129, %struct._header_field_info { ptr @.str.110, ptr @.str.111, i32 7, i32 2, ptr null, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn128, %struct._header_field_info { ptr @.str.112, ptr @.str.113, i32 7, i32 2, ptr null, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn127, %struct._header_field_info { ptr @.str.114, ptr @.str.115, i32 7, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn126, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 7, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn125, %struct._header_field_info { ptr @.str.118, ptr @.str.119, i32 7, i32 2, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn124, %struct._header_field_info { ptr @.str.120, ptr @.str.121, i32 7, i32 2, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn123, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 7, i32 2, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn122, %struct._header_field_info { ptr @.str.124, ptr @.str.125, i32 7, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn121, %struct._header_field_info { ptr @.str.126, ptr @.str.127, i32 7, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn120, %struct._header_field_info { ptr @.str.128, ptr @.str.129, i32 7, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_dop, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_dop_itow, %struct._header_field_info { ptr @.str.132, ptr @.str.133, i32 7, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_dop_gdop, %struct._header_field_info { ptr @.str.134, ptr @.str.135, i32 5, i32 6, ptr @fmt_dop, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_dop_pdop, %struct._header_field_info { ptr @.str.136, ptr @.str.137, i32 5, i32 6, ptr @fmt_dop, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_dop_tdop, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 5, i32 6, ptr @fmt_dop, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_dop_vdop, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 5, i32 6, ptr @fmt_dop, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_dop_hdop, %struct._header_field_info { ptr @.str.142, ptr @.str.143, i32 5, i32 6, ptr @fmt_dop, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_dop_ndop, %struct._header_field_info { ptr @.str.144, ptr @.str.145, i32 5, i32 6, ptr @fmt_dop, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_dop_edop, %struct._header_field_info { ptr @.str.146, ptr @.str.147, i32 5, i32 6, ptr @fmt_dop, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_eoe, %struct._header_field_info { ptr @.str.148, ptr @.str.149, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_eoe_itow, %struct._header_field_info { ptr @.str.132, ptr @.str.150, i32 7, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_odo, %struct._header_field_info { ptr @.str.151, ptr @.str.152, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_odo_version, %struct._header_field_info { ptr @.str.16, ptr @.str.153, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_odo_reserved1, %struct._header_field_info { ptr @.str.30, ptr @.str.154, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_odo_itow, %struct._header_field_info { ptr @.str.132, ptr @.str.155, i32 7, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_odo_distance, %struct._header_field_info { ptr @.str.156, ptr @.str.157, i32 7, i32 4097, ptr @units_meter_meters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_odo_totaldistance, %struct._header_field_info { ptr @.str.158, ptr @.str.159, i32 7, i32 4097, ptr @units_meter_meters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_odo_distancestd, %struct._header_field_info { ptr @.str.160, ptr @.str.161, i32 7, i32 4097, ptr @units_meter_meters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_posecef, %struct._header_field_info { ptr @.str.162, ptr @.str.163, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_posecef_itow, %struct._header_field_info { ptr @.str.132, ptr @.str.164, i32 7, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_posecef_ecefx, %struct._header_field_info { ptr @.str.165, ptr @.str.166, i32 15, i32 4097, ptr @units_centimeters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_posecef_ecefy, %struct._header_field_info { ptr @.str.167, ptr @.str.168, i32 15, i32 4097, ptr @units_centimeters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_posecef_ecefz, %struct._header_field_info { ptr @.str.169, ptr @.str.170, i32 15, i32 4097, ptr @units_centimeters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_posecef_pacc, %struct._header_field_info { ptr @.str.171, ptr @.str.172, i32 7, i32 4097, ptr @units_centimeters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt, %struct._header_field_info { ptr @.str.173, ptr @.str.174, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_itow, %struct._header_field_info { ptr @.str.132, ptr @.str.175, i32 7, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_year, %struct._header_field_info { ptr @.str.176, ptr @.str.177, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_month, %struct._header_field_info { ptr @.str.178, ptr @.str.179, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_day, %struct._header_field_info { ptr @.str.180, ptr @.str.181, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_hour, %struct._header_field_info { ptr @.str.182, ptr @.str.183, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_min, %struct._header_field_info { ptr @.str.184, ptr @.str.185, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_sec, %struct._header_field_info { ptr @.str.186, ptr @.str.187, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_valid, %struct._header_field_info { ptr @.str.188, ptr @.str.189, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_validmag, %struct._header_field_info { ptr @.str.190, ptr @.str.191, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_fullyresolved, %struct._header_field_info { ptr @.str.192, ptr @.str.193, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_validtime, %struct._header_field_info { ptr @.str.194, ptr @.str.195, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_validdate, %struct._header_field_info { ptr @.str.196, ptr @.str.197, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_tacc, %struct._header_field_info { ptr @.str.198, ptr @.str.199, i32 7, i32 4097, ptr @units_nanoseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_nano, %struct._header_field_info { ptr @.str.200, ptr @.str.201, i32 15, i32 4097, ptr @units_nanoseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_fixtype, %struct._header_field_info { ptr @.str.202, ptr @.str.203, i32 4, i32 1, ptr @UBX_GNSS_FIX_TYPE, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_flags, %struct._header_field_info { ptr @.str.204, ptr @.str.205, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_headvehvalid, %struct._header_field_info { ptr @.str.206, ptr @.str.207, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_psmstate, %struct._header_field_info { ptr @.str.208, ptr @.str.209, i32 4, i32 1, ptr null, i64 28, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_diffsoln, %struct._header_field_info { ptr @.str.210, ptr @.str.211, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_gnssfixok, %struct._header_field_info { ptr @.str.212, ptr @.str.213, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_flags2, %struct._header_field_info { ptr @.str.214, ptr @.str.215, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_confirmedtime, %struct._header_field_info { ptr @.str.216, ptr @.str.217, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_confirmeddate, %struct._header_field_info { ptr @.str.218, ptr @.str.219, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_confirmedavai, %struct._header_field_info { ptr @.str.220, ptr @.str.221, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_numsv, %struct._header_field_info { ptr @.str.222, ptr @.str.223, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_lon, %struct._header_field_info { ptr @.str.224, ptr @.str.225, i32 15, i32 6, ptr @fmt_lat_lon, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_lat, %struct._header_field_info { ptr @.str.226, ptr @.str.227, i32 15, i32 6, ptr @fmt_lat_lon, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_height, %struct._header_field_info { ptr @.str.228, ptr @.str.229, i32 15, i32 4097, ptr @units_millimeters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_hmsl, %struct._header_field_info { ptr @.str.230, ptr @.str.231, i32 15, i32 4097, ptr @units_millimeters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_hacc, %struct._header_field_info { ptr @.str.232, ptr @.str.233, i32 7, i32 4097, ptr @units_millimeters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_vacc, %struct._header_field_info { ptr @.str.234, ptr @.str.235, i32 7, i32 4097, ptr @units_millimeters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_veln, %struct._header_field_info { ptr @.str.236, ptr @.str.237, i32 15, i32 4097, ptr @units_mm_s, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_vele, %struct._header_field_info { ptr @.str.238, ptr @.str.239, i32 15, i32 4097, ptr @units_mm_s, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_veld, %struct._header_field_info { ptr @.str.240, ptr @.str.241, i32 15, i32 4097, ptr @units_mm_s, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_gspeed, %struct._header_field_info { ptr @.str.242, ptr @.str.243, i32 15, i32 4097, ptr @units_mm_s, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_headmot, %struct._header_field_info { ptr @.str.244, ptr @.str.245, i32 15, i32 6, ptr @fmt_heading, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_sacc, %struct._header_field_info { ptr @.str.246, ptr @.str.247, i32 7, i32 4097, ptr @units_mm_s, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_headacc, %struct._header_field_info { ptr @.str.248, ptr @.str.249, i32 7, i32 6, ptr @fmt_heading_acc, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_pdop, %struct._header_field_info { ptr @.str.136, ptr @.str.250, i32 5, i32 6, ptr @fmt_dop, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_lastcorrectionage, %struct._header_field_info { ptr @.str.251, ptr @.str.252, i32 5, i32 1, ptr @UBX_LAST_CORRECTION_AGE, i64 30, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_invalidllh, %struct._header_field_info { ptr @.str.253, ptr @.str.254, i32 2, i32 16, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_reserved1, %struct._header_field_info { ptr @.str.255, ptr @.str.256, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_headveh, %struct._header_field_info { ptr @.str.257, ptr @.str.258, i32 15, i32 6, ptr @fmt_heading, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_magdec, %struct._header_field_info { ptr @.str.259, ptr @.str.260, i32 13, i32 6, ptr @fmt_decl, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_magacc, %struct._header_field_info { ptr @.str.261, ptr @.str.262, i32 5, i32 6, ptr @fmt_decl_acc, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat, %struct._header_field_info { ptr @.str.263, ptr @.str.264, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_itow, %struct._header_field_info { ptr @.str.132, ptr @.str.265, i32 7, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_version, %struct._header_field_info { ptr @.str.16, ptr @.str.266, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_num_svs, %struct._header_field_info { ptr @.str.267, ptr @.str.268, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_reserved1, %struct._header_field_info { ptr @.str.30, ptr @.str.269, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_gnss_id, %struct._header_field_info { ptr @.str.24, ptr @.str.270, i32 4, i32 1, ptr @UBX_GNSS_ID, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_sv_id, %struct._header_field_info { ptr @.str.271, ptr @.str.272, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_cn0, %struct._header_field_info { ptr @.str.273, ptr @.str.274, i32 4, i32 4097, ptr @units_dbhz, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_elev, %struct._header_field_info { ptr @.str.275, ptr @.str.276, i32 12, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_azim, %struct._header_field_info { ptr @.str.277, ptr @.str.278, i32 13, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_pr_res, %struct._header_field_info { ptr @.str.279, ptr @.str.280, i32 13, i32 6, ptr @fmt_pr_res, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_flags, %struct._header_field_info { ptr @.str.281, ptr @.str.282, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_quality_ind, %struct._header_field_info { ptr @.str.283, ptr @.str.284, i32 7, i32 2, ptr @UBX_SIGNAL_QUALITY_INDICATOR, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_sv_used, %struct._header_field_info { ptr @.str.285, ptr @.str.286, i32 7, i32 2, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_health, %struct._header_field_info { ptr @.str.287, ptr @.str.288, i32 7, i32 2, ptr @UBX_SIGNAL_HEALTH, i64 48, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_diff_corr, %struct._header_field_info { ptr @.str.289, ptr @.str.290, i32 7, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_smoothed, %struct._header_field_info { ptr @.str.291, ptr @.str.292, i32 7, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_orbit_src, %struct._header_field_info { ptr @.str.293, ptr @.str.294, i32 7, i32 2, ptr @UBX_ORBIT_SOURCE, i64 1792, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_eph_avail, %struct._header_field_info { ptr @.str.295, ptr @.str.296, i32 7, i32 2, ptr null, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_alm_avail, %struct._header_field_info { ptr @.str.297, ptr @.str.298, i32 7, i32 2, ptr null, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_ano_avail, %struct._header_field_info { ptr @.str.299, ptr @.str.300, i32 7, i32 2, ptr null, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_aop_avail, %struct._header_field_info { ptr @.str.301, ptr @.str.302, i32 7, i32 2, ptr null, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_sbas_corr_used, %struct._header_field_info { ptr @.str.303, ptr @.str.304, i32 7, i32 2, ptr null, i64 65536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_rtcm_corr_used, %struct._header_field_info { ptr @.str.305, ptr @.str.306, i32 7, i32 2, ptr null, i64 131072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_slas_corr_used, %struct._header_field_info { ptr @.str.307, ptr @.str.308, i32 7, i32 2, ptr null, i64 262144, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_spartn_corr_used, %struct._header_field_info { ptr @.str.309, ptr @.str.310, i32 7, i32 2, ptr null, i64 524288, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_pr_corr_used, %struct._header_field_info { ptr @.str.311, ptr @.str.312, i32 7, i32 2, ptr null, i64 1048576, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_cr_corr_used, %struct._header_field_info { ptr @.str.313, ptr @.str.314, i32 7, i32 2, ptr null, i64 2097152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_do_corr_used, %struct._header_field_info { ptr @.str.315, ptr @.str.316, i32 7, i32 2, ptr null, i64 4194304, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas, %struct._header_field_info { ptr @.str.317, ptr @.str.318, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_itow, %struct._header_field_info { ptr @.str.132, ptr @.str.319, i32 7, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_geo, %struct._header_field_info { ptr @.str.320, ptr @.str.321, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_mode, %struct._header_field_info { ptr @.str.322, ptr @.str.323, i32 4, i32 1, ptr @UBX_SBAS_MODE, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_sys, %struct._header_field_info { ptr @.str.324, ptr @.str.325, i32 12, i32 1, ptr @UBX_SBAS_SYSTEM, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_service, %struct._header_field_info { ptr @.str.326, ptr @.str.327, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_service_ranging, %struct._header_field_info { ptr @.str.328, ptr @.str.329, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_service_corrections, %struct._header_field_info { ptr @.str.330, ptr @.str.331, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_service_integrity, %struct._header_field_info { ptr @.str.332, ptr @.str.333, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_service_testmode, %struct._header_field_info { ptr @.str.334, ptr @.str.335, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_service_bad, %struct._header_field_info { ptr @.str.336, ptr @.str.337, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_cnt, %struct._header_field_info { ptr @.str.338, ptr @.str.339, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_reserved1, %struct._header_field_info { ptr @.str.30, ptr @.str.340, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_sv_id, %struct._header_field_info { ptr @.str.271, ptr @.str.341, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_flags, %struct._header_field_info { ptr @.str.342, ptr @.str.343, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_udre, %struct._header_field_info { ptr @.str.344, ptr @.str.345, i32 4, i32 1, ptr @UDREI_EVALUATION, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_sv_sys, %struct._header_field_info { ptr @.str.346, ptr @.str.347, i32 12, i32 1, ptr @UBX_SBAS_SYSTEM, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_sv_service, %struct._header_field_info { ptr @.str.348, ptr @.str.349, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_reserved2, %struct._header_field_info { ptr @.str.30, ptr @.str.350, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_prc, %struct._header_field_info { ptr @.str.351, ptr @.str.352, i32 13, i32 4097, ptr @units_centimeter_centimeters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_reserved3, %struct._header_field_info { ptr @.str.30, ptr @.str.353, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_ic, %struct._header_field_info { ptr @.str.354, ptr @.str.355, i32 13, i32 4097, ptr @units_centimeter_centimeters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timegps, %struct._header_field_info { ptr @.str.356, ptr @.str.357, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timegps_itow, %struct._header_field_info { ptr @.str.132, ptr @.str.358, i32 7, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timegps_ftow, %struct._header_field_info { ptr @.str.359, ptr @.str.360, i32 15, i32 4097, ptr @units_nanoseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timegps_week, %struct._header_field_info { ptr @.str.361, ptr @.str.362, i32 13, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timegps_leaps, %struct._header_field_info { ptr @.str.363, ptr @.str.364, i32 12, i32 4097, ptr @units_seconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timegps_valid, %struct._header_field_info { ptr @.str.188, ptr @.str.365, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timegps_towvalid, %struct._header_field_info { ptr @.str.366, ptr @.str.367, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timegps_weekvalid, %struct._header_field_info { ptr @.str.368, ptr @.str.369, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timegps_leapsvalid, %struct._header_field_info { ptr @.str.370, ptr @.str.371, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timegps_tacc, %struct._header_field_info { ptr @.str.198, ptr @.str.372, i32 7, i32 4097, ptr @units_seconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc, %struct._header_field_info { ptr @.str.373, ptr @.str.374, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_itow, %struct._header_field_info { ptr @.str.132, ptr @.str.375, i32 7, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_tacc, %struct._header_field_info { ptr @.str.376, ptr @.str.377, i32 7, i32 4097, ptr @units_nanoseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_nano, %struct._header_field_info { ptr @.str.378, ptr @.str.379, i32 15, i32 4097, ptr @units_nanoseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_year, %struct._header_field_info { ptr @.str.176, ptr @.str.380, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_month, %struct._header_field_info { ptr @.str.178, ptr @.str.381, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_day, %struct._header_field_info { ptr @.str.180, ptr @.str.382, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_hour, %struct._header_field_info { ptr @.str.383, ptr @.str.384, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_min, %struct._header_field_info { ptr @.str.385, ptr @.str.386, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_sec, %struct._header_field_info { ptr @.str.387, ptr @.str.388, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_valid, %struct._header_field_info { ptr @.str.188, ptr @.str.389, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_validtow, %struct._header_field_info { ptr @.str.390, ptr @.str.391, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_validwkn, %struct._header_field_info { ptr @.str.392, ptr @.str.393, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_validutc, %struct._header_field_info { ptr @.str.394, ptr @.str.395, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_utcstandard, %struct._header_field_info { ptr @.str.396, ptr @.str.397, i32 4, i32 1, ptr @UBX_UTC_STD_ID, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_velecef, %struct._header_field_info { ptr @.str.398, ptr @.str.399, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_velecef_itow, %struct._header_field_info { ptr @.str.132, ptr @.str.400, i32 7, i32 4097, ptr @units_seconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_velecef_ecefvx, %struct._header_field_info { ptr @.str.401, ptr @.str.402, i32 15, i32 4097, ptr @units_cm_s, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_velecef_ecefvy, %struct._header_field_info { ptr @.str.403, ptr @.str.404, i32 15, i32 4097, ptr @units_cm_s, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_velecef_ecefvz, %struct._header_field_info { ptr @.str.405, ptr @.str.406, i32 15, i32 4097, ptr @units_cm_s, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_velecef_sacc, %struct._header_field_info { ptr @.str.246, ptr @.str.407, i32 7, i32 4097, ptr @units_cm_s, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx, %struct._header_field_info { ptr @.str.408, ptr @.str.409, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_version, %struct._header_field_info { ptr @.str.410, ptr @.str.411, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_reserved1, %struct._header_field_info { ptr @.str.30, ptr @.str.412, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_gpstow, %struct._header_field_info { ptr @.str.413, ptr @.str.414, i32 7, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_glotow, %struct._header_field_info { ptr @.str.415, ptr @.str.416, i32 7, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_bdstow, %struct._header_field_info { ptr @.str.417, ptr @.str.418, i32 7, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_reserved2, %struct._header_field_info { ptr @.str.30, ptr @.str.419, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_qzsstow, %struct._header_field_info { ptr @.str.420, ptr @.str.421, i32 7, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_gpstowacc, %struct._header_field_info { ptr @.str.422, ptr @.str.423, i32 5, i32 6, ptr @fmt_towacc, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_glotowacc, %struct._header_field_info { ptr @.str.424, ptr @.str.425, i32 5, i32 6, ptr @fmt_towacc, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_bdstowacc, %struct._header_field_info { ptr @.str.426, ptr @.str.427, i32 5, i32 6, ptr @fmt_towacc, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_reserved3, %struct._header_field_info { ptr @.str.30, ptr @.str.428, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_qzsstowacc, %struct._header_field_info { ptr @.str.429, ptr @.str.430, i32 5, i32 6, ptr @fmt_towacc, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_numsv, %struct._header_field_info { ptr @.str.431, ptr @.str.432, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_flags_towset, %struct._header_field_info { ptr @.str.433, ptr @.str.434, i32 2, i32 2, ptr null, i64 3, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_reserved4, %struct._header_field_info { ptr @.str.30, ptr @.str.435, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_gnssid, %struct._header_field_info { ptr @.str.24, ptr @.str.436, i32 4, i32 1, ptr @UBX_GNSS_ID, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_svid, %struct._header_field_info { ptr @.str.437, ptr @.str.438, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_cn0, %struct._header_field_info { ptr @.str.273, ptr @.str.439, i32 4, i32 4097, ptr @units_dbhz, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_mpathindic, %struct._header_field_info { ptr @.str.440, ptr @.str.441, i32 4, i32 1, ptr @UBX_RXM_MEASX_MULTIPATH_INDEX, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_dopplerms, %struct._header_field_info { ptr @.str.442, ptr @.str.443, i32 15, i32 6, ptr @fmt_dopplerms, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_dopplerhz, %struct._header_field_info { ptr @.str.442, ptr @.str.444, i32 15, i32 6, ptr @fmt_dopplerhz, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_wholechips, %struct._header_field_info { ptr @.str.445, ptr @.str.446, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_fracchips, %struct._header_field_info { ptr @.str.447, ptr @.str.448, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_codephase, %struct._header_field_info { ptr @.str.449, ptr @.str.450, i32 7, i32 6, ptr @fmt_codephase, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_intcodephase, %struct._header_field_info { ptr @.str.451, ptr @.str.452, i32 4, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_pseurangermserr, %struct._header_field_info { ptr @.str.453, ptr @.str.454, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_reserved5, %struct._header_field_info { ptr @.str.30, ptr @.str.455, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx, %struct._header_field_info { ptr @.str.456, ptr @.str.457, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_rcvtow, %struct._header_field_info { ptr @.str.458, ptr @.str.459, i32 23, i32 4097, ptr @units_seconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_week, %struct._header_field_info { ptr @.str.460, ptr @.str.461, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_leaps, %struct._header_field_info { ptr @.str.363, ptr @.str.462, i32 12, i32 4097, ptr @units_seconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_nummeas, %struct._header_field_info { ptr @.str.463, ptr @.str.464, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_recstat, %struct._header_field_info { ptr @.str.465, ptr @.str.466, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_recstat_leapsec, %struct._header_field_info { ptr @.str.467, ptr @.str.468, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_recstat_clkreset, %struct._header_field_info { ptr @.str.469, ptr @.str.470, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_version, %struct._header_field_info { ptr @.str.410, ptr @.str.471, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_reserved1, %struct._header_field_info { ptr @.str.30, ptr @.str.472, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_prmes, %struct._header_field_info { ptr @.str.473, ptr @.str.474, i32 23, i32 4097, ptr @units_meter_meters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_cpmes, %struct._header_field_info { ptr @.str.475, ptr @.str.476, i32 23, i32 4097, ptr @units_cycle_cycles, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_domes, %struct._header_field_info { ptr @.str.442, ptr @.str.477, i32 22, i32 4097, ptr @units_hz, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_gnssid, %struct._header_field_info { ptr @.str.24, ptr @.str.478, i32 4, i32 1, ptr @UBX_GNSS_ID, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_svid, %struct._header_field_info { ptr @.str.437, ptr @.str.479, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_sigid, %struct._header_field_info { ptr @.str.480, ptr @.str.481, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_freqid, %struct._header_field_info { ptr @.str.482, ptr @.str.483, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_locktime, %struct._header_field_info { ptr @.str.484, ptr @.str.485, i32 5, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_cn0, %struct._header_field_info { ptr @.str.273, ptr @.str.486, i32 4, i32 4097, ptr @units_dbhz, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_prstdev, %struct._header_field_info { ptr @.str.487, ptr @.str.488, i32 4, i32 6, ptr @fmt_prstdev, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_cpstdev, %struct._header_field_info { ptr @.str.489, ptr @.str.490, i32 4, i32 6, ptr @fmt_cpstdev, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_dostdev, %struct._header_field_info { ptr @.str.491, ptr @.str.492, i32 4, i32 6, ptr @fmt_dostdev, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_trkstat, %struct._header_field_info { ptr @.str.493, ptr @.str.494, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_trkstat_prvalid, %struct._header_field_info { ptr @.str.495, ptr @.str.496, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_trkstat_cpvalid, %struct._header_field_info { ptr @.str.497, ptr @.str.498, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_trkstat_halfcyc, %struct._header_field_info { ptr @.str.499, ptr @.str.500, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_trkstat_subhalfcyc, %struct._header_field_info { ptr @.str.501, ptr @.str.502, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_reserved2, %struct._header_field_info { ptr @.str.30, ptr @.str.503, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_sfrbx, %struct._header_field_info { ptr @.str.504, ptr @.str.505, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_sfrbx_gnssid, %struct._header_field_info { ptr @.str.24, ptr @.str.506, i32 4, i32 1, ptr @UBX_GNSS_ID, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_sfrbx_svid, %struct._header_field_info { ptr @.str.437, ptr @.str.507, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_sfrbx_sigid, %struct._header_field_info { ptr @.str.508, ptr @.str.509, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_sfrbx_freqid, %struct._header_field_info { ptr @.str.510, ptr @.str.511, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_sfrbx_numwords, %struct._header_field_info { ptr @.str.512, ptr @.str.513, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_sfrbx_chn, %struct._header_field_info { ptr @.str.514, ptr @.str.515, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_sfrbx_version, %struct._header_field_info { ptr @.str.410, ptr @.str.516, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_sfrbx_dwrd, %struct._header_field_info { ptr @.str.517, ptr @.str.518, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_sfrbx_reserved1, %struct._header_field_info { ptr @.str.255, ptr @.str.519, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_sfrbx_reserved2, %struct._header_field_info { ptr @.str.520, ptr @.str.521, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_sfrbx_reserved3, %struct._header_field_info { ptr @.str.522, ptr @.str.523, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@proto_register_ubx.hf = internal global [293 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_ubx_preamble, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_msg_class_id, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 5, i32 2, ptr @UBX_MSG_CLASS_ID, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_payload_len, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_chksum, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_ack_ack, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_ack_ack_msg_class_id, %struct._header_field_info { ptr @.str.2, ptr @.str.10, i32 5, i32 2, ptr @UBX_MSG_CLASS_ID, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_ack_nak, %struct._header_field_info { ptr @.str.11, ptr @.str.12, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_ack_nak_msg_class_id, %struct._header_field_info { ptr @.str.2, ptr @.str.13, i32 5, i32 2, ptr @UBX_MSG_CLASS_ID, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_version, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_numtrkchhw, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_numtrkchuse, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_numconfigblocks, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_blk_gnssid, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 4, i32 1, ptr @UBX_GNSS_ID, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_blk_restrkch, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_blk_maxtrkch, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_blk_reserved1, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_blk_enable, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 7, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_blk_sigcfgmask, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 7, i32 2, ptr null, i64 16711680, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_blk_gps_sigcfgmask, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 7, i32 2, ptr @UBX_CFG_GNSS_GPS_SIGCFGMASK, i64 16711680, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_blk_sbas_sigcfgmask, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 7, i32 2, ptr @UBX_CFG_GNSS_SBAS_SIGCFGMASK, i64 16711680, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_blk_gal_sigcfgmask, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 7, i32 2, ptr @UBX_CFG_GNSS_GAL_SIGCFGMASK, i64 16711680, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_blk_bds_sigcfgmask, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 7, i32 2, ptr @UBX_CFG_GNSS_BDS_SIGCFGMASK, i64 16711680, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_blk_imes_sigcfgmask, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 7, i32 2, ptr @UBX_CFG_GNSS_IMES_SIGCFGMASK, i64 16711680, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_blk_qzss_sigcfgmask, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 7, i32 2, ptr @UBX_CFG_GNSS_QZSS_SIGCFGMASK, i64 16711680, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_gnss_blk_glo_sigcfgmask, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 7, i32 2, ptr @UBX_CFG_GNSS_GLO_SIGCFGMASK, i64 16711680, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_mode, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_mode_enabled, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_mode_test, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 4, i32 2, ptr @UBX_SBAS_TESTBED, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_usage_range, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 4, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_usage_diffcorr, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 4, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_usage_integrity, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 4, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_max_sbas, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn158, %struct._header_field_info { ptr @.str.52, ptr @.str.53, i32 4, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn157, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 4, i32 2, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn156, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 4, i32 2, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn155, %struct._header_field_info { ptr @.str.58, ptr @.str.59, i32 4, i32 2, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn154, %struct._header_field_info { ptr @.str.60, ptr @.str.61, i32 4, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn153, %struct._header_field_info { ptr @.str.62, ptr @.str.63, i32 4, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn152, %struct._header_field_info { ptr @.str.64, ptr @.str.65, i32 4, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn151, %struct._header_field_info { ptr @.str.66, ptr @.str.67, i32 7, i32 2, ptr null, i64 2147483648, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn150, %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 7, i32 2, ptr null, i64 1073741824, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn149, %struct._header_field_info { ptr @.str.70, ptr @.str.71, i32 7, i32 2, ptr null, i64 536870912, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn148, %struct._header_field_info { ptr @.str.72, ptr @.str.73, i32 7, i32 2, ptr null, i64 268435456, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn147, %struct._header_field_info { ptr @.str.74, ptr @.str.75, i32 7, i32 2, ptr null, i64 134217728, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn146, %struct._header_field_info { ptr @.str.76, ptr @.str.77, i32 7, i32 2, ptr null, i64 67108864, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn145, %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 7, i32 2, ptr null, i64 33554432, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn144, %struct._header_field_info { ptr @.str.80, ptr @.str.81, i32 7, i32 2, ptr null, i64 16777216, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn143, %struct._header_field_info { ptr @.str.82, ptr @.str.83, i32 7, i32 2, ptr null, i64 8388608, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn142, %struct._header_field_info { ptr @.str.84, ptr @.str.85, i32 7, i32 2, ptr null, i64 4194304, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn141, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 7, i32 2, ptr null, i64 2097152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn140, %struct._header_field_info { ptr @.str.88, ptr @.str.89, i32 7, i32 2, ptr null, i64 1048576, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn139, %struct._header_field_info { ptr @.str.90, ptr @.str.91, i32 7, i32 2, ptr null, i64 524288, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn138, %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 7, i32 2, ptr null, i64 262144, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn137, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 7, i32 2, ptr null, i64 131072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn136, %struct._header_field_info { ptr @.str.96, ptr @.str.97, i32 7, i32 2, ptr null, i64 65536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn135, %struct._header_field_info { ptr @.str.98, ptr @.str.99, i32 7, i32 2, ptr null, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn134, %struct._header_field_info { ptr @.str.100, ptr @.str.101, i32 7, i32 2, ptr null, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn133, %struct._header_field_info { ptr @.str.102, ptr @.str.103, i32 7, i32 2, ptr null, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn132, %struct._header_field_info { ptr @.str.104, ptr @.str.105, i32 7, i32 2, ptr null, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn131, %struct._header_field_info { ptr @.str.106, ptr @.str.107, i32 7, i32 2, ptr null, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn130, %struct._header_field_info { ptr @.str.108, ptr @.str.109, i32 7, i32 2, ptr null, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn129, %struct._header_field_info { ptr @.str.110, ptr @.str.111, i32 7, i32 2, ptr null, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn128, %struct._header_field_info { ptr @.str.112, ptr @.str.113, i32 7, i32 2, ptr null, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn127, %struct._header_field_info { ptr @.str.114, ptr @.str.115, i32 7, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn126, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 7, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn125, %struct._header_field_info { ptr @.str.118, ptr @.str.119, i32 7, i32 2, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn124, %struct._header_field_info { ptr @.str.120, ptr @.str.121, i32 7, i32 2, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn123, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 7, i32 2, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn122, %struct._header_field_info { ptr @.str.124, ptr @.str.125, i32 7, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn121, %struct._header_field_info { ptr @.str.126, ptr @.str.127, i32 7, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_cfg_sbas_scanmode_prn120, %struct._header_field_info { ptr @.str.128, ptr @.str.129, i32 7, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_dop, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_dop_itow, %struct._header_field_info { ptr @.str.132, ptr @.str.133, i32 7, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_dop_gdop, %struct._header_field_info { ptr @.str.134, ptr @.str.135, i32 5, i32 6, ptr @fmt_dop, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_dop_pdop, %struct._header_field_info { ptr @.str.136, ptr @.str.137, i32 5, i32 6, ptr @fmt_dop, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_dop_tdop, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 5, i32 6, ptr @fmt_dop, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_dop_vdop, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 5, i32 6, ptr @fmt_dop, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_dop_hdop, %struct._header_field_info { ptr @.str.142, ptr @.str.143, i32 5, i32 6, ptr @fmt_dop, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_dop_ndop, %struct._header_field_info { ptr @.str.144, ptr @.str.145, i32 5, i32 6, ptr @fmt_dop, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_dop_edop, %struct._header_field_info { ptr @.str.146, ptr @.str.147, i32 5, i32 6, ptr @fmt_dop, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_eoe, %struct._header_field_info { ptr @.str.148, ptr @.str.149, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_eoe_itow, %struct._header_field_info { ptr @.str.132, ptr @.str.150, i32 7, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_odo, %struct._header_field_info { ptr @.str.151, ptr @.str.152, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_odo_version, %struct._header_field_info { ptr @.str.16, ptr @.str.153, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_odo_reserved1, %struct._header_field_info { ptr @.str.30, ptr @.str.154, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_odo_itow, %struct._header_field_info { ptr @.str.132, ptr @.str.155, i32 7, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_odo_distance, %struct._header_field_info { ptr @.str.156, ptr @.str.157, i32 7, i32 4097, ptr @units_meter_meters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_odo_totaldistance, %struct._header_field_info { ptr @.str.158, ptr @.str.159, i32 7, i32 4097, ptr @units_meter_meters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_odo_distancestd, %struct._header_field_info { ptr @.str.160, ptr @.str.161, i32 7, i32 4097, ptr @units_meter_meters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_posecef, %struct._header_field_info { ptr @.str.162, ptr @.str.163, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_posecef_itow, %struct._header_field_info { ptr @.str.132, ptr @.str.164, i32 7, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_posecef_ecefx, %struct._header_field_info { ptr @.str.165, ptr @.str.166, i32 15, i32 4097, ptr @units_centimeters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_posecef_ecefy, %struct._header_field_info { ptr @.str.167, ptr @.str.168, i32 15, i32 4097, ptr @units_centimeters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_posecef_ecefz, %struct._header_field_info { ptr @.str.169, ptr @.str.170, i32 15, i32 4097, ptr @units_centimeters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_posecef_pacc, %struct._header_field_info { ptr @.str.171, ptr @.str.172, i32 7, i32 4097, ptr @units_centimeters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt, %struct._header_field_info { ptr @.str.173, ptr @.str.174, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_itow, %struct._header_field_info { ptr @.str.132, ptr @.str.175, i32 7, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_year, %struct._header_field_info { ptr @.str.176, ptr @.str.177, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_month, %struct._header_field_info { ptr @.str.178, ptr @.str.179, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_day, %struct._header_field_info { ptr @.str.180, ptr @.str.181, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_hour, %struct._header_field_info { ptr @.str.182, ptr @.str.183, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_min, %struct._header_field_info { ptr @.str.184, ptr @.str.185, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_sec, %struct._header_field_info { ptr @.str.186, ptr @.str.187, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_valid, %struct._header_field_info { ptr @.str.188, ptr @.str.189, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_validmag, %struct._header_field_info { ptr @.str.190, ptr @.str.191, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_fullyresolved, %struct._header_field_info { ptr @.str.192, ptr @.str.193, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_validtime, %struct._header_field_info { ptr @.str.194, ptr @.str.195, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_validdate, %struct._header_field_info { ptr @.str.196, ptr @.str.197, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_tacc, %struct._header_field_info { ptr @.str.198, ptr @.str.199, i32 7, i32 4097, ptr @units_nanoseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_nano, %struct._header_field_info { ptr @.str.200, ptr @.str.201, i32 15, i32 4097, ptr @units_nanoseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_fixtype, %struct._header_field_info { ptr @.str.202, ptr @.str.203, i32 4, i32 1, ptr @UBX_GNSS_FIX_TYPE, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_flags, %struct._header_field_info { ptr @.str.204, ptr @.str.205, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_headvehvalid, %struct._header_field_info { ptr @.str.206, ptr @.str.207, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_psmstate, %struct._header_field_info { ptr @.str.208, ptr @.str.209, i32 4, i32 1, ptr null, i64 28, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_diffsoln, %struct._header_field_info { ptr @.str.210, ptr @.str.211, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_gnssfixok, %struct._header_field_info { ptr @.str.212, ptr @.str.213, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_flags2, %struct._header_field_info { ptr @.str.214, ptr @.str.215, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_confirmedtime, %struct._header_field_info { ptr @.str.216, ptr @.str.217, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_confirmeddate, %struct._header_field_info { ptr @.str.218, ptr @.str.219, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_confirmedavai, %struct._header_field_info { ptr @.str.220, ptr @.str.221, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_numsv, %struct._header_field_info { ptr @.str.222, ptr @.str.223, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_lon, %struct._header_field_info { ptr @.str.224, ptr @.str.225, i32 15, i32 6, ptr @fmt_lat_lon, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_lat, %struct._header_field_info { ptr @.str.226, ptr @.str.227, i32 15, i32 6, ptr @fmt_lat_lon, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_height, %struct._header_field_info { ptr @.str.228, ptr @.str.229, i32 15, i32 4097, ptr @units_millimeters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_hmsl, %struct._header_field_info { ptr @.str.230, ptr @.str.231, i32 15, i32 4097, ptr @units_millimeters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_hacc, %struct._header_field_info { ptr @.str.232, ptr @.str.233, i32 7, i32 4097, ptr @units_millimeters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_vacc, %struct._header_field_info { ptr @.str.234, ptr @.str.235, i32 7, i32 4097, ptr @units_millimeters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_veln, %struct._header_field_info { ptr @.str.236, ptr @.str.237, i32 15, i32 4097, ptr @units_mm_s, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_vele, %struct._header_field_info { ptr @.str.238, ptr @.str.239, i32 15, i32 4097, ptr @units_mm_s, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_veld, %struct._header_field_info { ptr @.str.240, ptr @.str.241, i32 15, i32 4097, ptr @units_mm_s, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_gspeed, %struct._header_field_info { ptr @.str.242, ptr @.str.243, i32 15, i32 4097, ptr @units_mm_s, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_headmot, %struct._header_field_info { ptr @.str.244, ptr @.str.245, i32 15, i32 6, ptr @fmt_heading, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_sacc, %struct._header_field_info { ptr @.str.246, ptr @.str.247, i32 7, i32 4097, ptr @units_mm_s, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_headacc, %struct._header_field_info { ptr @.str.248, ptr @.str.249, i32 7, i32 6, ptr @fmt_heading_acc, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_pdop, %struct._header_field_info { ptr @.str.136, ptr @.str.250, i32 5, i32 6, ptr @fmt_dop, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_lastcorrectionage, %struct._header_field_info { ptr @.str.251, ptr @.str.252, i32 5, i32 1, ptr @UBX_LAST_CORRECTION_AGE, i64 30, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_invalidllh, %struct._header_field_info { ptr @.str.253, ptr @.str.254, i32 2, i32 16, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_reserved1, %struct._header_field_info { ptr @.str.255, ptr @.str.256, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_headveh, %struct._header_field_info { ptr @.str.257, ptr @.str.258, i32 15, i32 6, ptr @fmt_heading, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_magdec, %struct._header_field_info { ptr @.str.259, ptr @.str.260, i32 13, i32 6, ptr @fmt_decl, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_pvt_magacc, %struct._header_field_info { ptr @.str.261, ptr @.str.262, i32 5, i32 6, ptr @fmt_decl_acc, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat, %struct._header_field_info { ptr @.str.263, ptr @.str.264, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_itow, %struct._header_field_info { ptr @.str.132, ptr @.str.265, i32 7, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_version, %struct._header_field_info { ptr @.str.16, ptr @.str.266, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_num_svs, %struct._header_field_info { ptr @.str.267, ptr @.str.268, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_reserved1, %struct._header_field_info { ptr @.str.30, ptr @.str.269, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_gnss_id, %struct._header_field_info { ptr @.str.24, ptr @.str.270, i32 4, i32 1, ptr @UBX_GNSS_ID, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_sv_id, %struct._header_field_info { ptr @.str.271, ptr @.str.272, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_cn0, %struct._header_field_info { ptr @.str.273, ptr @.str.274, i32 4, i32 4097, ptr @units_dbhz, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_elev, %struct._header_field_info { ptr @.str.275, ptr @.str.276, i32 12, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_azim, %struct._header_field_info { ptr @.str.277, ptr @.str.278, i32 13, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_pr_res, %struct._header_field_info { ptr @.str.279, ptr @.str.280, i32 13, i32 6, ptr @fmt_pr_res, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_flags, %struct._header_field_info { ptr @.str.281, ptr @.str.282, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_quality_ind, %struct._header_field_info { ptr @.str.283, ptr @.str.284, i32 7, i32 2, ptr @UBX_SIGNAL_QUALITY_INDICATOR, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_sv_used, %struct._header_field_info { ptr @.str.285, ptr @.str.286, i32 7, i32 2, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_health, %struct._header_field_info { ptr @.str.287, ptr @.str.288, i32 7, i32 2, ptr @UBX_SIGNAL_HEALTH, i64 48, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_diff_corr, %struct._header_field_info { ptr @.str.289, ptr @.str.290, i32 7, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_smoothed, %struct._header_field_info { ptr @.str.291, ptr @.str.292, i32 7, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_orbit_src, %struct._header_field_info { ptr @.str.293, ptr @.str.294, i32 7, i32 2, ptr @UBX_ORBIT_SOURCE, i64 1792, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_eph_avail, %struct._header_field_info { ptr @.str.295, ptr @.str.296, i32 7, i32 2, ptr null, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_alm_avail, %struct._header_field_info { ptr @.str.297, ptr @.str.298, i32 7, i32 2, ptr null, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_ano_avail, %struct._header_field_info { ptr @.str.299, ptr @.str.300, i32 7, i32 2, ptr null, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_aop_avail, %struct._header_field_info { ptr @.str.301, ptr @.str.302, i32 7, i32 2, ptr null, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_sbas_corr_used, %struct._header_field_info { ptr @.str.303, ptr @.str.304, i32 7, i32 2, ptr null, i64 65536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_rtcm_corr_used, %struct._header_field_info { ptr @.str.305, ptr @.str.306, i32 7, i32 2, ptr null, i64 131072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_slas_corr_used, %struct._header_field_info { ptr @.str.307, ptr @.str.308, i32 7, i32 2, ptr null, i64 262144, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_spartn_corr_used, %struct._header_field_info { ptr @.str.309, ptr @.str.310, i32 7, i32 2, ptr null, i64 524288, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_pr_corr_used, %struct._header_field_info { ptr @.str.311, ptr @.str.312, i32 7, i32 2, ptr null, i64 1048576, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_cr_corr_used, %struct._header_field_info { ptr @.str.313, ptr @.str.314, i32 7, i32 2, ptr null, i64 2097152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sat_do_corr_used, %struct._header_field_info { ptr @.str.315, ptr @.str.316, i32 7, i32 2, ptr null, i64 4194304, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas, %struct._header_field_info { ptr @.str.317, ptr @.str.318, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_itow, %struct._header_field_info { ptr @.str.132, ptr @.str.319, i32 7, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_geo, %struct._header_field_info { ptr @.str.320, ptr @.str.321, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_mode, %struct._header_field_info { ptr @.str.322, ptr @.str.323, i32 4, i32 1, ptr @UBX_SBAS_MODE, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_sys, %struct._header_field_info { ptr @.str.324, ptr @.str.325, i32 12, i32 1, ptr @UBX_SBAS_SYSTEM, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_service, %struct._header_field_info { ptr @.str.326, ptr @.str.327, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_service_ranging, %struct._header_field_info { ptr @.str.328, ptr @.str.329, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_service_corrections, %struct._header_field_info { ptr @.str.330, ptr @.str.331, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_service_integrity, %struct._header_field_info { ptr @.str.332, ptr @.str.333, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_service_testmode, %struct._header_field_info { ptr @.str.334, ptr @.str.335, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_service_bad, %struct._header_field_info { ptr @.str.336, ptr @.str.337, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_cnt, %struct._header_field_info { ptr @.str.338, ptr @.str.339, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_reserved1, %struct._header_field_info { ptr @.str.30, ptr @.str.340, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_sv_id, %struct._header_field_info { ptr @.str.271, ptr @.str.341, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_flags, %struct._header_field_info { ptr @.str.342, ptr @.str.343, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_udre, %struct._header_field_info { ptr @.str.344, ptr @.str.345, i32 4, i32 1, ptr @UDREI_EVALUATION, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_sv_sys, %struct._header_field_info { ptr @.str.346, ptr @.str.347, i32 12, i32 1, ptr @UBX_SBAS_SYSTEM, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_sv_service, %struct._header_field_info { ptr @.str.348, ptr @.str.349, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_reserved2, %struct._header_field_info { ptr @.str.30, ptr @.str.350, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_prc, %struct._header_field_info { ptr @.str.351, ptr @.str.352, i32 13, i32 4097, ptr @units_centimeter_centimeters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_reserved3, %struct._header_field_info { ptr @.str.30, ptr @.str.353, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_sbas_ic, %struct._header_field_info { ptr @.str.354, ptr @.str.355, i32 13, i32 4097, ptr @units_centimeter_centimeters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timegps, %struct._header_field_info { ptr @.str.356, ptr @.str.357, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timegps_itow, %struct._header_field_info { ptr @.str.132, ptr @.str.358, i32 7, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timegps_ftow, %struct._header_field_info { ptr @.str.359, ptr @.str.360, i32 15, i32 4097, ptr @units_nanoseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timegps_week, %struct._header_field_info { ptr @.str.361, ptr @.str.362, i32 13, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timegps_leaps, %struct._header_field_info { ptr @.str.363, ptr @.str.364, i32 12, i32 4097, ptr @units_seconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timegps_valid, %struct._header_field_info { ptr @.str.188, ptr @.str.365, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timegps_towvalid, %struct._header_field_info { ptr @.str.366, ptr @.str.367, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timegps_weekvalid, %struct._header_field_info { ptr @.str.368, ptr @.str.369, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timegps_leapsvalid, %struct._header_field_info { ptr @.str.370, ptr @.str.371, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timegps_tacc, %struct._header_field_info { ptr @.str.198, ptr @.str.372, i32 7, i32 4097, ptr @units_seconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc, %struct._header_field_info { ptr @.str.373, ptr @.str.374, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_itow, %struct._header_field_info { ptr @.str.132, ptr @.str.375, i32 7, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_tacc, %struct._header_field_info { ptr @.str.376, ptr @.str.377, i32 7, i32 4097, ptr @units_nanoseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_nano, %struct._header_field_info { ptr @.str.378, ptr @.str.379, i32 15, i32 4097, ptr @units_nanoseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_year, %struct._header_field_info { ptr @.str.176, ptr @.str.380, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_month, %struct._header_field_info { ptr @.str.178, ptr @.str.381, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_day, %struct._header_field_info { ptr @.str.180, ptr @.str.382, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_hour, %struct._header_field_info { ptr @.str.383, ptr @.str.384, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_min, %struct._header_field_info { ptr @.str.385, ptr @.str.386, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_sec, %struct._header_field_info { ptr @.str.387, ptr @.str.388, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_valid, %struct._header_field_info { ptr @.str.188, ptr @.str.389, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_validtow, %struct._header_field_info { ptr @.str.390, ptr @.str.391, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_validwkn, %struct._header_field_info { ptr @.str.392, ptr @.str.393, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_validutc, %struct._header_field_info { ptr @.str.394, ptr @.str.395, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_timeutc_utcstandard, %struct._header_field_info { ptr @.str.396, ptr @.str.397, i32 4, i32 1, ptr @UBX_UTC_STD_ID, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_velecef, %struct._header_field_info { ptr @.str.398, ptr @.str.399, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_velecef_itow, %struct._header_field_info { ptr @.str.132, ptr @.str.400, i32 7, i32 4097, ptr @units_seconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_velecef_ecefvx, %struct._header_field_info { ptr @.str.401, ptr @.str.402, i32 15, i32 4097, ptr @units_cm_s, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_velecef_ecefvy, %struct._header_field_info { ptr @.str.403, ptr @.str.404, i32 15, i32 4097, ptr @units_cm_s, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_velecef_ecefvz, %struct._header_field_info { ptr @.str.405, ptr @.str.406, i32 15, i32 4097, ptr @units_cm_s, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_nav_velecef_sacc, %struct._header_field_info { ptr @.str.246, ptr @.str.407, i32 7, i32 4097, ptr @units_cm_s, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx, %struct._header_field_info { ptr @.str.408, ptr @.str.409, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_version, %struct._header_field_info { ptr @.str.410, ptr @.str.411, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_reserved1, %struct._header_field_info { ptr @.str.30, ptr @.str.412, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_gpstow, %struct._header_field_info { ptr @.str.413, ptr @.str.414, i32 7, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_glotow, %struct._header_field_info { ptr @.str.415, ptr @.str.416, i32 7, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_bdstow, %struct._header_field_info { ptr @.str.417, ptr @.str.418, i32 7, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_reserved2, %struct._header_field_info { ptr @.str.30, ptr @.str.419, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_qzsstow, %struct._header_field_info { ptr @.str.420, ptr @.str.421, i32 7, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_gpstowacc, %struct._header_field_info { ptr @.str.422, ptr @.str.423, i32 5, i32 6, ptr @fmt_towacc, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_glotowacc, %struct._header_field_info { ptr @.str.424, ptr @.str.425, i32 5, i32 6, ptr @fmt_towacc, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_bdstowacc, %struct._header_field_info { ptr @.str.426, ptr @.str.427, i32 5, i32 6, ptr @fmt_towacc, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_reserved3, %struct._header_field_info { ptr @.str.30, ptr @.str.428, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_qzsstowacc, %struct._header_field_info { ptr @.str.429, ptr @.str.430, i32 5, i32 6, ptr @fmt_towacc, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_numsv, %struct._header_field_info { ptr @.str.431, ptr @.str.432, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_flags_towset, %struct._header_field_info { ptr @.str.433, ptr @.str.434, i32 2, i32 8, ptr null, i64 3, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_reserved4, %struct._header_field_info { ptr @.str.30, ptr @.str.435, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_gnssid, %struct._header_field_info { ptr @.str.24, ptr @.str.436, i32 4, i32 1, ptr @UBX_GNSS_ID, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_svid, %struct._header_field_info { ptr @.str.437, ptr @.str.438, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_cn0, %struct._header_field_info { ptr @.str.273, ptr @.str.439, i32 4, i32 4097, ptr @units_dbhz, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_mpathindic, %struct._header_field_info { ptr @.str.440, ptr @.str.441, i32 4, i32 1, ptr @UBX_RXM_MEASX_MULTIPATH_INDEX, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_dopplerms, %struct._header_field_info { ptr @.str.442, ptr @.str.443, i32 15, i32 6, ptr @fmt_dopplerms, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_dopplerhz, %struct._header_field_info { ptr @.str.442, ptr @.str.444, i32 15, i32 6, ptr @fmt_dopplerhz, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_wholechips, %struct._header_field_info { ptr @.str.445, ptr @.str.446, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_fracchips, %struct._header_field_info { ptr @.str.447, ptr @.str.448, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_codephase, %struct._header_field_info { ptr @.str.449, ptr @.str.450, i32 7, i32 6, ptr @fmt_codephase, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_intcodephase, %struct._header_field_info { ptr @.str.451, ptr @.str.452, i32 4, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_pseurangermserr, %struct._header_field_info { ptr @.str.453, ptr @.str.454, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_measx_reserved5, %struct._header_field_info { ptr @.str.30, ptr @.str.455, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx, %struct._header_field_info { ptr @.str.456, ptr @.str.457, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_rcvtow, %struct._header_field_info { ptr @.str.458, ptr @.str.459, i32 23, i32 4097, ptr @units_seconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_week, %struct._header_field_info { ptr @.str.460, ptr @.str.461, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_leaps, %struct._header_field_info { ptr @.str.363, ptr @.str.462, i32 12, i32 4097, ptr @units_seconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_nummeas, %struct._header_field_info { ptr @.str.463, ptr @.str.464, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_recstat, %struct._header_field_info { ptr @.str.465, ptr @.str.466, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_recstat_leapsec, %struct._header_field_info { ptr @.str.467, ptr @.str.468, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_recstat_clkreset, %struct._header_field_info { ptr @.str.469, ptr @.str.470, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_version, %struct._header_field_info { ptr @.str.410, ptr @.str.471, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_reserved1, %struct._header_field_info { ptr @.str.30, ptr @.str.472, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_prmes, %struct._header_field_info { ptr @.str.473, ptr @.str.474, i32 23, i32 4097, ptr @units_meter_meters, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_cpmes, %struct._header_field_info { ptr @.str.475, ptr @.str.476, i32 23, i32 4097, ptr @units_cycle_cycles, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_domes, %struct._header_field_info { ptr @.str.442, ptr @.str.477, i32 22, i32 4097, ptr @units_hz, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_gnssid, %struct._header_field_info { ptr @.str.24, ptr @.str.478, i32 4, i32 1, ptr @UBX_GNSS_ID, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_svid, %struct._header_field_info { ptr @.str.437, ptr @.str.479, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_sigid, %struct._header_field_info { ptr @.str.480, ptr @.str.481, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_freqid, %struct._header_field_info { ptr @.str.482, ptr @.str.483, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_locktime, %struct._header_field_info { ptr @.str.484, ptr @.str.485, i32 5, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_cn0, %struct._header_field_info { ptr @.str.273, ptr @.str.486, i32 4, i32 4097, ptr @units_dbhz, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_prstdev, %struct._header_field_info { ptr @.str.487, ptr @.str.488, i32 4, i32 6, ptr @fmt_prstdev, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_cpstdev, %struct._header_field_info { ptr @.str.489, ptr @.str.490, i32 4, i32 6, ptr @fmt_cpstdev, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_dostdev, %struct._header_field_info { ptr @.str.491, ptr @.str.492, i32 4, i32 6, ptr @fmt_dostdev, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_trkstat, %struct._header_field_info { ptr @.str.493, ptr @.str.494, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_trkstat_prvalid, %struct._header_field_info { ptr @.str.495, ptr @.str.496, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_trkstat_cpvalid, %struct._header_field_info { ptr @.str.497, ptr @.str.498, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_trkstat_halfcyc, %struct._header_field_info { ptr @.str.499, ptr @.str.500, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_trkstat_subhalfcyc, %struct._header_field_info { ptr @.str.501, ptr @.str.502, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_rawx_reserved2, %struct._header_field_info { ptr @.str.30, ptr @.str.503, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_sfrbx, %struct._header_field_info { ptr @.str.504, ptr @.str.505, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_sfrbx_gnssid, %struct._header_field_info { ptr @.str.24, ptr @.str.506, i32 4, i32 1, ptr @UBX_GNSS_ID, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_sfrbx_svid, %struct._header_field_info { ptr @.str.437, ptr @.str.507, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_sfrbx_sigid, %struct._header_field_info { ptr @.str.508, ptr @.str.509, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_sfrbx_freqid, %struct._header_field_info { ptr @.str.510, ptr @.str.511, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_sfrbx_numwords, %struct._header_field_info { ptr @.str.512, ptr @.str.513, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_sfrbx_chn, %struct._header_field_info { ptr @.str.514, ptr @.str.515, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_sfrbx_version, %struct._header_field_info { ptr @.str.410, ptr @.str.516, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_sfrbx_dwrd, %struct._header_field_info { ptr @.str.517, ptr @.str.518, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_sfrbx_reserved1, %struct._header_field_info { ptr @.str.255, ptr @.str.519, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_sfrbx_reserved2, %struct._header_field_info { ptr @.str.520, ptr @.str.521, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ubx_rxm_sfrbx_reserved3, %struct._header_field_info { ptr @.str.522, ptr @.str.523, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_ubx_preamble = internal global i32 0, align 4
 @.str = private unnamed_addr constant [9 x i8] c"Preamble\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"ubx.preamble\00", align 1
 @hf_ubx_msg_class_id = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [15 x i8] c"Msg Class & ID\00", align 1
 @.str.3 = private unnamed_addr constant [17 x i8] c"ubx.msg_class_id\00", align 1
-@UBX_MSG_CLASS_ID = internal constant [149 x %struct._value_string] [%struct._value_string { i32 1281, ptr @.str.8 }, %struct._value_string { i32 1280, ptr @.str.11 }, %struct._value_string { i32 2864, ptr @.str.531 }, %struct._value_string { i32 2867, ptr @.str.532 }, %struct._value_string { i32 2865, ptr @.str.533 }, %struct._value_string { i32 2818, ptr @.str.534 }, %struct._value_string { i32 2817, ptr @.str.535 }, %struct._value_string { i32 1555, ptr @.str.536 }, %struct._value_string { i32 1683, ptr @.str.537 }, %struct._value_string { i32 1545, ptr @.str.538 }, %struct._value_string { i32 1542, ptr @.str.539 }, %struct._value_string { i32 1648, ptr @.str.540 }, %struct._value_string { i32 1633, ptr @.str.541 }, %struct._value_string { i32 1622, ptr @.str.542 }, %struct._value_string { i32 1612, ptr @.str.543 }, %struct._value_string { i32 1613, ptr @.str.544 }, %struct._value_string { i32 1666, ptr @.str.545 }, %struct._value_string { i32 1632, ptr @.str.546 }, %struct._value_string { i32 1641, ptr @.str.547 }, %struct._value_string { i32 1598, ptr @.str.14 }, %struct._value_string { i32 1628, ptr @.str.548 }, %struct._value_string { i32 1538, ptr @.str.549 }, %struct._value_string { i32 1593, ptr @.str.550 }, %struct._value_string { i32 1607, ptr @.str.551 }, %struct._value_string { i32 1537, ptr @.str.552 }, %struct._value_string { i32 1572, ptr @.str.553 }, %struct._value_string { i32 1571, ptr @.str.554 }, %struct._value_string { i32 1559, ptr @.str.555 }, %struct._value_string { i32 1566, ptr @.str.556 }, %struct._value_string { i32 1595, ptr @.str.557 }, %struct._value_string { i32 1670, ptr @.str.558 }, %struct._value_string { i32 1536, ptr @.str.559 }, %struct._value_string { i32 1623, ptr @.str.560 }, %struct._value_string { i32 1544, ptr @.str.561 }, %struct._value_string { i32 1588, ptr @.str.562 }, %struct._value_string { i32 1540, ptr @.str.563 }, %struct._value_string { i32 1553, ptr @.str.564 }, %struct._value_string { i32 1558, ptr @.str.36 }, %struct._value_string { i32 1672, ptr @.str.565 }, %struct._value_string { i32 1677, ptr @.str.566 }, %struct._value_string { i32 1634, ptr @.str.567 }, %struct._value_string { i32 1636, ptr @.str.568 }, %struct._value_string { i32 1597, ptr @.str.569 }, %struct._value_string { i32 1649, ptr @.str.570 }, %struct._value_string { i32 1585, ptr @.str.571 }, %struct._value_string { i32 1619, ptr @.str.572 }, %struct._value_string { i32 1563, ptr @.str.573 }, %struct._value_string { i32 4116, ptr @.str.574 }, %struct._value_string { i32 4117, ptr @.str.575 }, %struct._value_string { i32 4098, ptr @.str.576 }, %struct._value_string { i32 4099, ptr @.str.577 }, %struct._value_string { i32 4112, ptr @.str.578 }, %struct._value_string { i32 10241, ptr @.str.579 }, %struct._value_string { i32 10242, ptr @.str.580 }, %struct._value_string { i32 10240, ptr @.str.581 }, %struct._value_string { i32 1028, ptr @.str.582 }, %struct._value_string { i32 1024, ptr @.str.583 }, %struct._value_string { i32 1026, ptr @.str.584 }, %struct._value_string { i32 1027, ptr @.str.585 }, %struct._value_string { i32 1025, ptr @.str.586 }, %struct._value_string { i32 8465, ptr @.str.587 }, %struct._value_string { i32 8455, ptr @.str.588 }, %struct._value_string { i32 8451, ptr @.str.589 }, %struct._value_string { i32 8462, ptr @.str.590 }, %struct._value_string { i32 8456, ptr @.str.591 }, %struct._value_string { i32 8464, ptr @.str.592 }, %struct._value_string { i32 8463, ptr @.str.593 }, %struct._value_string { i32 8459, ptr @.str.594 }, %struct._value_string { i32 8461, ptr @.str.595 }, %struct._value_string { i32 8457, ptr @.str.596 }, %struct._value_string { i32 8452, ptr @.str.597 }, %struct._value_string { i32 4960, ptr @.str.598 }, %struct._value_string { i32 4896, ptr @.str.599 }, %struct._value_string { i32 4867, ptr @.str.600 }, %struct._value_string { i32 4992, ptr @.str.601 }, %struct._value_string { i32 4897, ptr @.str.602 }, %struct._value_string { i32 4866, ptr @.str.603 }, %struct._value_string { i32 4870, ptr @.str.604 }, %struct._value_string { i32 4864, ptr @.str.605 }, %struct._value_string { i32 4928, ptr @.str.606 }, %struct._value_string { i32 4869, ptr @.str.607 }, %struct._value_string { i32 2610, ptr @.str.608 }, %struct._value_string { i32 2600, ptr @.str.609 }, %struct._value_string { i32 2571, ptr @.str.610 }, %struct._value_string { i32 2569, ptr @.str.611 }, %struct._value_string { i32 2562, ptr @.str.612 }, %struct._value_string { i32 2566, ptr @.str.613 }, %struct._value_string { i32 2599, ptr @.str.614 }, %struct._value_string { i32 2567, ptr @.str.615 }, %struct._value_string { i32 2593, ptr @.str.616 }, %struct._value_string { i32 2606, ptr @.str.617 }, %struct._value_string { i32 2607, ptr @.str.618 }, %struct._value_string { i32 2568, ptr @.str.619 }, %struct._value_string { i32 2564, ptr @.str.620 }, %struct._value_string { i32 352, ptr @.str.621 }, %struct._value_string { i32 261, ptr @.str.622 }, %struct._value_string { i32 290, ptr @.str.623 }, %struct._value_string { i32 310, ptr @.str.624 }, %struct._value_string { i32 305, ptr @.str.625 }, %struct._value_string { i32 260, ptr @.str.130 }, %struct._value_string { i32 317, ptr @.str.626 }, %struct._value_string { i32 353, ptr @.str.148 }, %struct._value_string { i32 313, ptr @.str.627 }, %struct._value_string { i32 275, ptr @.str.628 }, %struct._value_string { i32 276, ptr @.str.629 }, %struct._value_string { i32 296, ptr @.str.630 }, %struct._value_string { i32 265, ptr @.str.151 }, %struct._value_string { i32 308, ptr @.str.631 }, %struct._value_string { i32 257, ptr @.str.162 }, %struct._value_string { i32 258, ptr @.str.632 }, %struct._value_string { i32 263, ptr @.str.173 }, %struct._value_string { i32 316, ptr @.str.633 }, %struct._value_string { i32 272, ptr @.str.634 }, %struct._value_string { i32 309, ptr @.str.263 }, %struct._value_string { i32 306, ptr @.str.317 }, %struct._value_string { i32 322, ptr @.str.635 }, %struct._value_string { i32 262, ptr @.str.636 }, %struct._value_string { i32 259, ptr @.str.637 }, %struct._value_string { i32 304, ptr @.str.638 }, %struct._value_string { i32 315, ptr @.str.639 }, %struct._value_string { i32 292, ptr @.str.640 }, %struct._value_string { i32 293, ptr @.str.641 }, %struct._value_string { i32 291, ptr @.str.642 }, %struct._value_string { i32 288, ptr @.str.356 }, %struct._value_string { i32 294, ptr @.str.643 }, %struct._value_string { i32 289, ptr @.str.373 }, %struct._value_string { i32 273, ptr @.str.398 }, %struct._value_string { i32 274, ptr @.str.644 }, %struct._value_string { i32 609, ptr @.str.645 }, %struct._value_string { i32 532, ptr @.str.408 }, %struct._value_string { i32 577, ptr @.str.646 }, %struct._value_string { i32 533, ptr @.str.456 }, %struct._value_string { i32 601, ptr @.str.647 }, %struct._value_string { i32 562, ptr @.str.648 }, %struct._value_string { i32 531, ptr @.str.504 }, %struct._value_string { i32 544, ptr @.str.649 }, %struct._value_string { i32 9987, ptr @.str.650 }, %struct._value_string { i32 3345, ptr @.str.651 }, %struct._value_string { i32 3350, ptr @.str.652 }, %struct._value_string { i32 3351, ptr @.str.653 }, %struct._value_string { i32 3347, ptr @.str.654 }, %struct._value_string { i32 3332, ptr @.str.655 }, %struct._value_string { i32 3331, ptr @.str.656 }, %struct._value_string { i32 3346, ptr @.str.657 }, %struct._value_string { i32 3329, ptr @.str.658 }, %struct._value_string { i32 3349, ptr @.str.659 }, %struct._value_string { i32 3334, ptr @.str.660 }, %struct._value_string { i32 2324, ptr @.str.661 }, %struct._value_string zeroinitializer], align 16
 @hf_ubx_payload_len = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [15 x i8] c"Payload Length\00", align 1
 @.str.5 = private unnamed_addr constant [16 x i8] c"ubx.payload_len\00", align 1
@@ -55,7 +52,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ubx_cfg_gnss_blk_gnssid = internal global i32 0, align 4
 @.str.24 = private unnamed_addr constant [8 x i8] c"GNSS ID\00", align 1
 @.str.25 = private unnamed_addr constant [20 x i8] c"ubx.cfg.gnss.gnssid\00", align 1
-@UBX_GNSS_ID = internal constant [8 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.662 }, %struct._value_string { i32 1, ptr @.str.663 }, %struct._value_string { i32 2, ptr @.str.664 }, %struct._value_string { i32 3, ptr @.str.665 }, %struct._value_string { i32 4, ptr @.str.666 }, %struct._value_string { i32 5, ptr @.str.667 }, %struct._value_string { i32 6, ptr @.str.668 }, %struct._value_string zeroinitializer], align 16
 @hf_ubx_cfg_gnss_blk_restrkch = internal global i32 0, align 4
 @.str.26 = private unnamed_addr constant [47 x i8] c"Number of reserved (minimum) tracking channels\00", align 1
 @.str.27 = private unnamed_addr constant [22 x i8] c"ubx.cfg.gnss.restrkch\00", align 1
@@ -72,19 +68,12 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.34 = private unnamed_addr constant [26 x i8] c"Signal configuration mask\00", align 1
 @.str.35 = private unnamed_addr constant [24 x i8] c"ubx.cfg.gnss.sigcfgmask\00", align 1
 @hf_ubx_cfg_gnss_blk_gps_sigcfgmask = internal global i32 0, align 4
-@UBX_CFG_GNSS_GPS_SIGCFGMASK = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.669 }, %struct._value_string { i32 16, ptr @.str.670 }, %struct._value_string zeroinitializer], align 16
 @hf_ubx_cfg_gnss_blk_sbas_sigcfgmask = internal global i32 0, align 4
-@UBX_CFG_GNSS_SBAS_SIGCFGMASK = internal constant [2 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.671 }, %struct._value_string zeroinitializer], align 16
 @hf_ubx_cfg_gnss_blk_gal_sigcfgmask = internal global i32 0, align 4
-@UBX_CFG_GNSS_GAL_SIGCFGMASK = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.672 }, %struct._value_string { i32 32, ptr @.str.673 }, %struct._value_string zeroinitializer], align 16
 @hf_ubx_cfg_gnss_blk_bds_sigcfgmask = internal global i32 0, align 4
-@UBX_CFG_GNSS_BDS_SIGCFGMASK = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.674 }, %struct._value_string { i32 16, ptr @.str.675 }, %struct._value_string zeroinitializer], align 16
 @hf_ubx_cfg_gnss_blk_imes_sigcfgmask = internal global i32 0, align 4
-@UBX_CFG_GNSS_IMES_SIGCFGMASK = internal constant [2 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.676 }, %struct._value_string zeroinitializer], align 16
 @hf_ubx_cfg_gnss_blk_qzss_sigcfgmask = internal global i32 0, align 4
-@UBX_CFG_GNSS_QZSS_SIGCFGMASK = internal constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.677 }, %struct._value_string { i32 4, ptr @.str.678 }, %struct._value_string { i32 16, ptr @.str.679 }, %struct._value_string zeroinitializer], align 16
 @hf_ubx_cfg_gnss_blk_glo_sigcfgmask = internal global i32 0, align 4
-@UBX_CFG_GNSS_GLO_SIGCFGMASK = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.680 }, %struct._value_string { i32 16, ptr @.str.681 }, %struct._value_string zeroinitializer], align 16
 @hf_ubx_cfg_sbas = internal global i32 0, align 4
 @.str.36 = private unnamed_addr constant [13 x i8] c"UBX-CFG-SBAS\00", align 1
 @.str.37 = private unnamed_addr constant [13 x i8] c"ubx.cfg.sbas\00", align 1
@@ -97,7 +86,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ubx_cfg_sbas_mode_test = internal global i32 0, align 4
 @.str.42 = private unnamed_addr constant [13 x i8] c"SBAS testbed\00", align 1
 @.str.43 = private unnamed_addr constant [23 x i8] c"ubx.cfg.sbas.mode.test\00", align 1
-@UBX_SBAS_TESTBED = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.682 }, %struct._value_string { i32 1, ptr @.str.683 }, %struct._value_string zeroinitializer], align 16
 @hf_ubx_cfg_sbas_usage_range = internal global i32 0, align 4
 @.str.44 = private unnamed_addr constant [51 x i8] c"Use SBAS GEOs as a ranging source (for navigation)\00", align 1
 @.str.45 = private unnamed_addr constant [25 x i8] c"ubx.cfg.sbas.usage.range\00", align 1
@@ -345,7 +333,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ubx_nav_pvt_fixtype = internal global i32 0, align 4
 @.str.202 = private unnamed_addr constant [14 x i8] c"GNSS fix type\00", align 1
 @.str.203 = private unnamed_addr constant [20 x i8] c"ubx.nav.pvt.fixtype\00", align 1
-@UBX_GNSS_FIX_TYPE = internal constant [7 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.685 }, %struct._value_string { i32 1, ptr @.str.686 }, %struct._value_string { i32 2, ptr @.str.687 }, %struct._value_string { i32 3, ptr @.str.688 }, %struct._value_string { i32 4, ptr @.str.689 }, %struct._value_string { i32 5, ptr @.str.690 }, %struct._value_string zeroinitializer], align 16
 @hf_ubx_nav_pvt_flags = internal global i32 0, align 4
 @.str.204 = private unnamed_addr constant [17 x i8] c"Fix status flags\00", align 1
 @.str.205 = private unnamed_addr constant [18 x i8] c"ubx.nav.pvt.flags\00", align 1
@@ -422,7 +409,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ubx_nav_pvt_lastcorrectionage = internal global i32 0, align 4
 @.str.251 = private unnamed_addr constant [58 x i8] c"Age of the most recently received differential correction\00", align 1
 @.str.252 = private unnamed_addr constant [30 x i8] c"ubx.nav.pvt.lastcorrectionage\00", align 1
-@UBX_LAST_CORRECTION_AGE = internal constant [17 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.696 }, %struct._value_string { i32 1, ptr @.str.697 }, %struct._value_string { i32 2, ptr @.str.698 }, %struct._value_string { i32 3, ptr @.str.699 }, %struct._value_string { i32 4, ptr @.str.700 }, %struct._value_string { i32 5, ptr @.str.701 }, %struct._value_string { i32 6, ptr @.str.702 }, %struct._value_string { i32 7, ptr @.str.703 }, %struct._value_string { i32 8, ptr @.str.704 }, %struct._value_string { i32 9, ptr @.str.705 }, %struct._value_string { i32 10, ptr @.str.706 }, %struct._value_string { i32 11, ptr @.str.707 }, %struct._value_string { i32 12, ptr @.str.708 }, %struct._value_string { i32 13, ptr @.str.708 }, %struct._value_string { i32 14, ptr @.str.708 }, %struct._value_string { i32 15, ptr @.str.708 }, %struct._value_string zeroinitializer], align 16
 @hf_ubx_nav_pvt_invalidllh = internal global i32 0, align 4
 @.str.253 = private unnamed_addr constant [35 x i8] c"Invalid lon, lat, height, and hMSL\00", align 1
 @.str.254 = private unnamed_addr constant [23 x i8] c"ubx.nav.pvt.invalidllh\00", align 1
@@ -474,14 +460,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ubx_nav_sat_quality_ind = internal global i32 0, align 4
 @.str.283 = private unnamed_addr constant [25 x i8] c"Signal quality indicator\00", align 1
 @.str.284 = private unnamed_addr constant [30 x i8] c"ubx.nav.sat.flags.quality_ind\00", align 1
-@UBX_SIGNAL_QUALITY_INDICATOR = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.713 }, %struct._value_string { i32 1, ptr @.str.714 }, %struct._value_string { i32 2, ptr @.str.715 }, %struct._value_string { i32 3, ptr @.str.716 }, %struct._value_string { i32 4, ptr @.str.717 }, %struct._value_string { i32 5, ptr @.str.718 }, %struct._value_string { i32 6, ptr @.str.718 }, %struct._value_string { i32 7, ptr @.str.718 }, %struct._value_string zeroinitializer], align 16
 @hf_ubx_nav_sat_sv_used = internal global i32 0, align 4
 @.str.285 = private unnamed_addr constant [27 x i8] c"Signal used for navigation\00", align 1
 @.str.286 = private unnamed_addr constant [26 x i8] c"ubx.nav.sat.flags.sv_used\00", align 1
 @hf_ubx_nav_sat_health = internal global i32 0, align 4
 @.str.287 = private unnamed_addr constant [14 x i8] c"Signal health\00", align 1
 @.str.288 = private unnamed_addr constant [25 x i8] c"ubx.nav.sat.flags.health\00", align 1
-@UBX_SIGNAL_HEALTH = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.719 }, %struct._value_string { i32 1, ptr @.str.720 }, %struct._value_string { i32 2, ptr @.str.721 }, %struct._value_string zeroinitializer], align 16
 @hf_ubx_nav_sat_diff_corr = internal global i32 0, align 4
 @.str.289 = private unnamed_addr constant [34 x i8] c"Differential correction available\00", align 1
 @.str.290 = private unnamed_addr constant [28 x i8] c"ubx.nav.sat.flags.diff_corr\00", align 1
@@ -491,7 +475,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ubx_nav_sat_orbit_src = internal global i32 0, align 4
 @.str.293 = private unnamed_addr constant [13 x i8] c"Orbit source\00", align 1
 @.str.294 = private unnamed_addr constant [28 x i8] c"ubx.nav.sat.flags.orbit_src\00", align 1
-@UBX_ORBIT_SOURCE = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.722 }, %struct._value_string { i32 1, ptr @.str.723 }, %struct._value_string { i32 2, ptr @.str.724 }, %struct._value_string { i32 3, ptr @.str.725 }, %struct._value_string { i32 4, ptr @.str.726 }, %struct._value_string { i32 5, ptr @.str.727 }, %struct._value_string { i32 6, ptr @.str.727 }, %struct._value_string { i32 7, ptr @.str.727 }, %struct._value_string zeroinitializer], align 16
 @hf_ubx_nav_sat_eph_avail = internal global i32 0, align 4
 @.str.295 = private unnamed_addr constant [20 x i8] c"Ephemeris available\00", align 1
 @.str.296 = private unnamed_addr constant [28 x i8] c"ubx.nav.sat.flags.eph_avail\00", align 1
@@ -536,11 +519,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ubx_nav_sbas_mode = internal global i32 0, align 4
 @.str.322 = private unnamed_addr constant [10 x i8] c"SBAS Mode\00", align 1
 @.str.323 = private unnamed_addr constant [18 x i8] c"ubx.nav.sbas.mode\00", align 1
-@UBX_SBAS_MODE = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.728 }, %struct._value_string { i32 1, ptr @.str.729 }, %struct._value_string { i32 3, ptr @.str.730 }, %struct._value_string zeroinitializer], align 16
 @hf_ubx_nav_sbas_sys = internal global i32 0, align 4
 @.str.324 = private unnamed_addr constant [12 x i8] c"SBAS System\00", align 1
 @.str.325 = private unnamed_addr constant [17 x i8] c"ubx.nav.sbas.sys\00", align 1
-@UBX_SBAS_SYSTEM = internal constant [7 x %struct._value_string] [%struct._value_string { i32 -1, ptr @.str.731 }, %struct._value_string { i32 0, ptr @.str.732 }, %struct._value_string { i32 1, ptr @.str.733 }, %struct._value_string { i32 2, ptr @.str.734 }, %struct._value_string { i32 3, ptr @.str.735 }, %struct._value_string { i32 16, ptr @.str.662 }, %struct._value_string zeroinitializer], align 16
 @hf_ubx_nav_sbas_service = internal global i32 0, align 4
 @.str.326 = private unnamed_addr constant [24 x i8] c"SBAS Services available\00", align 1
 @.str.327 = private unnamed_addr constant [21 x i8] c"ubx.nav.sbas.service\00", align 1
@@ -658,7 +639,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ubx_nav_timeutc_utcstandard = internal global i32 0, align 4
 @.str.396 = private unnamed_addr constant [12 x i8] c"utcStandard\00", align 1
 @.str.397 = private unnamed_addr constant [34 x i8] c"ubx.nav.timeutc.valid.utcstandard\00", align 1
-@UBX_UTC_STD_ID = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.736 }, %struct._value_string { i32 1, ptr @.str.737 }, %struct._value_string { i32 2, ptr @.str.738 }, %struct._value_string { i32 3, ptr @.str.739 }, %struct._value_string { i32 4, ptr @.str.740 }, %struct._value_string { i32 5, ptr @.str.741 }, %struct._value_string { i32 6, ptr @.str.742 }, %struct._value_string { i32 7, ptr @.str.743 }, %struct._value_string { i32 15, ptr @.str.731 }, %struct._value_string zeroinitializer], align 16
 @hf_ubx_nav_velecef = internal global i32 0, align 4
 @.str.398 = private unnamed_addr constant [16 x i8] c"UBX-NAV-VELECEF\00", align 1
 @.str.399 = private unnamed_addr constant [16 x i8] c"ubx.nav.velecef\00", align 1
@@ -730,7 +710,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ubx_rxm_measx_mpathindic = internal global i32 0, align 4
 @.str.440 = private unnamed_addr constant [16 x i8] c"multipath index\00", align 1
 @.str.441 = private unnamed_addr constant [25 x i8] c"ubx.rxm.measx.mpathindic\00", align 1
-@UBX_RXM_MEASX_MULTIPATH_INDEX = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.745 }, %struct._value_string { i32 1, ptr @.str.746 }, %struct._value_string { i32 2, ptr @.str.747 }, %struct._value_string { i32 3, ptr @.str.748 }, %struct._value_string zeroinitializer], align 16
 @hf_ubx_rxm_measx_dopplerms = internal global i32 0, align 4
 @.str.442 = private unnamed_addr constant [20 x i8] c"Doppler measurement\00", align 1
 @.str.443 = private unnamed_addr constant [24 x i8] c"ubx.rxm.measx.dopplerms\00", align 1
@@ -863,7 +842,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ubx_rxm_sfrbx_reserved3 = internal global i32 0, align 4
 @.str.522 = private unnamed_addr constant [11 x i8] c"Reserved 3\00", align 1
 @.str.523 = private unnamed_addr constant [24 x i8] c"ubx.rxm.sfrbx.reserved3\00", align 1
-@proto_register_ubx.ei = internal global [1 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_ubx_chksum, %struct.expert_field_info { ptr @.str.524, i32 16777216, i32 6291456, ptr @.str.525, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_ubx.ei = internal global [1 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_ubx_chksum, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.524, i32 16777216, i32 6291456, ptr @.str.525, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_ubx_chksum = internal global %struct.expert_field zeroinitializer, align 4
 @.str.524 = private unnamed_addr constant [11 x i8] c"ubx.chksum\00", align 1
 @.str.525 = private unnamed_addr constant [7 x i8] c"Chksum\00", align 1
@@ -1045,125 +1024,146 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.659 = private unnamed_addr constant [15 x i8] c"UBX-TIM-VCOCAL\00", align 1
 @.str.660 = private unnamed_addr constant [13 x i8] c"UBX-TIM-VRFY\00", align 1
 @.str.661 = private unnamed_addr constant [12 x i8] c"UBX-UPD-SOS\00", align 1
-@.str.662 = private unnamed_addr constant [4 x i8] c"GPS\00", align 1
-@.str.663 = private unnamed_addr constant [5 x i8] c"SBAS\00", align 1
-@.str.664 = private unnamed_addr constant [8 x i8] c"Galileo\00", align 1
-@.str.665 = private unnamed_addr constant [7 x i8] c"Beidou\00", align 1
-@.str.666 = private unnamed_addr constant [5 x i8] c"IMES\00", align 1
-@.str.667 = private unnamed_addr constant [5 x i8] c"QZSS\00", align 1
-@.str.668 = private unnamed_addr constant [8 x i8] c"Glonass\00", align 1
-@.str.669 = private unnamed_addr constant [10 x i8] c"GPS L1C/A\00", align 1
-@.str.670 = private unnamed_addr constant [8 x i8] c"GPS L2C\00", align 1
-@.str.671 = private unnamed_addr constant [11 x i8] c"SBAS L1C/A\00", align 1
-@.str.672 = private unnamed_addr constant [11 x i8] c"Galileo E1\00", align 1
-@.str.673 = private unnamed_addr constant [12 x i8] c"Galileo E5b\00", align 1
-@.str.674 = private unnamed_addr constant [11 x i8] c"BeiDou B1I\00", align 1
-@.str.675 = private unnamed_addr constant [11 x i8] c"BeiDou B2I\00", align 1
-@.str.676 = private unnamed_addr constant [8 x i8] c"IMES L1\00", align 1
-@.str.677 = private unnamed_addr constant [11 x i8] c"QZSS L1C/A\00", align 1
-@.str.678 = private unnamed_addr constant [9 x i8] c"QZSS L1S\00", align 1
-@.str.679 = private unnamed_addr constant [9 x i8] c"QZSS L2C\00", align 1
-@.str.680 = private unnamed_addr constant [11 x i8] c"Glonass L1\00", align 1
-@.str.681 = private unnamed_addr constant [11 x i8] c"Glonass L2\00", align 1
-@.str.682 = private unnamed_addr constant [43 x i8] c"Ignore data when in test mode (SBAS msg 0)\00", align 1
-@.str.683 = private unnamed_addr constant [16 x i8] c"Use data anyhow\00", align 1
-@.str.684 = private unnamed_addr constant [8 x i8] c"%i.%02i\00", align 1
-@.str.685 = private unnamed_addr constant [7 x i8] c"no fix\00", align 1
-@.str.686 = private unnamed_addr constant [20 x i8] c"dead reckoning only\00", align 1
-@.str.687 = private unnamed_addr constant [7 x i8] c"2D-fix\00", align 1
-@.str.688 = private unnamed_addr constant [7 x i8] c"3D-fix\00", align 1
-@.str.689 = private unnamed_addr constant [31 x i8] c"GNSS + dead reckoning combined\00", align 1
-@.str.690 = private unnamed_addr constant [14 x i8] c"time only fix\00", align 1
-@.str.691 = private unnamed_addr constant [10 x i8] c"%d.%07d%s\00", align 1
-@.str.692 = private unnamed_addr constant [3 x i8] c"\C2\B0\00", align 1
-@.str.693 = private unnamed_addr constant [11 x i8] c"-%d.%07d%s\00", align 1
-@.str.694 = private unnamed_addr constant [10 x i8] c"%d.%05d%s\00", align 1
-@.str.695 = private unnamed_addr constant [11 x i8] c"-%d.%05d%s\00", align 1
-@.str.696 = private unnamed_addr constant [14 x i8] c"not available\00", align 1
-@.str.697 = private unnamed_addr constant [27 x i8] c"age between 0 and 1 second\00", align 1
-@.str.698 = private unnamed_addr constant [40 x i8] c"age between 1 (inclusive) and 2 seconds\00", align 1
-@.str.699 = private unnamed_addr constant [40 x i8] c"age between 2 (inclusive) and 5 seconds\00", align 1
-@.str.700 = private unnamed_addr constant [41 x i8] c"age between 5 (inclusive) and 10 seconds\00", align 1
-@.str.701 = private unnamed_addr constant [42 x i8] c"age between 10 (inclusive) and 15 seconds\00", align 1
-@.str.702 = private unnamed_addr constant [42 x i8] c"age between 15 (inclusive) and 20 seconds\00", align 1
-@.str.703 = private unnamed_addr constant [42 x i8] c"age between 20 (inclusive) and 30 seconds\00", align 1
-@.str.704 = private unnamed_addr constant [42 x i8] c"age between 30 (inclusive) and 45 seconds\00", align 1
-@.str.705 = private unnamed_addr constant [42 x i8] c"age between 45 (inclusive) and 60 seconds\00", align 1
-@.str.706 = private unnamed_addr constant [42 x i8] c"age between 60 (inclusive) and 90 seconds\00", align 1
-@.str.707 = private unnamed_addr constant [43 x i8] c"age between 90 (inclusive) and 120 seconds\00", align 1
-@.str.708 = private unnamed_addr constant [38 x i8] c"age greater or equal than 120 seconds\00", align 1
-@.str.709 = private unnamed_addr constant [10 x i8] c"%d.%02d%s\00", align 1
-@.str.710 = private unnamed_addr constant [11 x i8] c"-%d.%02d%s\00", align 1
-@.str.711 = private unnamed_addr constant [9 x i8] c"%d.%01dm\00", align 1
-@.str.712 = private unnamed_addr constant [10 x i8] c"-%d.%01dm\00", align 1
-@.str.713 = private unnamed_addr constant [10 x i8] c"no signal\00", align 1
-@.str.714 = private unnamed_addr constant [17 x i8] c"searching signal\00", align 1
-@.str.715 = private unnamed_addr constant [16 x i8] c"signal acquired\00", align 1
-@.str.716 = private unnamed_addr constant [29 x i8] c"signal detected but unusable\00", align 1
-@.str.717 = private unnamed_addr constant [34 x i8] c"code locked and time synchronized\00", align 1
-@.str.718 = private unnamed_addr constant [46 x i8] c"code and carrier locked and time synchronized\00", align 1
-@.str.719 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
-@.str.720 = private unnamed_addr constant [8 x i8] c"healthy\00", align 1
-@.str.721 = private unnamed_addr constant [10 x i8] c"unhealthy\00", align 1
-@.str.722 = private unnamed_addr constant [31 x i8] c"no orbit information available\00", align 1
-@.str.723 = private unnamed_addr constant [18 x i8] c"ephemeris is used\00", align 1
-@.str.724 = private unnamed_addr constant [16 x i8] c"almanac is used\00", align 1
-@.str.725 = private unnamed_addr constant [32 x i8] c"AssistNow Offline orbit is used\00", align 1
-@.str.726 = private unnamed_addr constant [35 x i8] c"AssistNow Autonomous orbit is used\00", align 1
-@.str.727 = private unnamed_addr constant [32 x i8] c"other orbit information is used\00", align 1
-@.str.728 = private unnamed_addr constant [9 x i8] c"Disabled\00", align 1
-@.str.729 = private unnamed_addr constant [18 x i8] c"Enabled integrity\00", align 1
-@.str.730 = private unnamed_addr constant [18 x i8] c"Enabled test mode\00", align 1
-@.str.731 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
-@.str.732 = private unnamed_addr constant [5 x i8] c"WAAS\00", align 1
-@.str.733 = private unnamed_addr constant [6 x i8] c"EGNOS\00", align 1
-@.str.734 = private unnamed_addr constant [5 x i8] c"MSAS\00", align 1
-@.str.735 = private unnamed_addr constant [6 x i8] c"GAGAN\00", align 1
-@.str.736 = private unnamed_addr constant [26 x i8] c"Information not available\00", align 1
-@.str.737 = private unnamed_addr constant [55 x i8] c"Communications Research Laboratory (CRL), Tokyo, Japan\00", align 1
-@.str.738 = private unnamed_addr constant [54 x i8] c"National Institute of Standards and Technology (NIST)\00", align 1
-@.str.739 = private unnamed_addr constant [30 x i8] c"U.S. Naval Observatory (USNO)\00", align 1
-@.str.740 = private unnamed_addr constant [52 x i8] c"International Bureau of Weights and Measures (BIPM)\00", align 1
-@.str.741 = private unnamed_addr constant [22 x i8] c"European laboratories\00", align 1
-@.str.742 = private unnamed_addr constant [25 x i8] c"Former Soviet Union (SU)\00", align 1
-@.str.743 = private unnamed_addr constant [43 x i8] c"National Time Service Center (NTSC), China\00", align 1
-@.str.744 = private unnamed_addr constant [10 x i8] c"%d.%04dms\00", align 1
-@.str.745 = private unnamed_addr constant [13 x i8] c"not measured\00", align 1
-@.str.746 = private unnamed_addr constant [4 x i8] c"low\00", align 1
-@.str.747 = private unnamed_addr constant [7 x i8] c"medium\00", align 1
-@.str.748 = private unnamed_addr constant [5 x i8] c"high\00", align 1
-@.str.749 = private unnamed_addr constant [12 x i8] c"%d.%02d m/s\00", align 1
-@.str.750 = private unnamed_addr constant [13 x i8] c"-%d.%02d m/s\00", align 1
-@.str.751 = private unnamed_addr constant [11 x i8] c"%d.%01d Hz\00", align 1
-@.str.752 = private unnamed_addr constant [12 x i8] c"-%d.%01d Hz\00", align 1
-@.str.753 = private unnamed_addr constant [14 x i8] c"%d * 2^-21 ms\00", align 1
-@.str.754 = private unnamed_addr constant [9 x i8] c"%d.%02dm\00", align 1
-@.str.755 = private unnamed_addr constant [15 x i8] c"%d.%03d cycles\00", align 1
-@.str.756 = private unnamed_addr constant [11 x i8] c"%d.%03d Hz\00", align 1
-@.str.757 = private unnamed_addr constant [38 x i8] c"%-7s (Res Trk Ch %2d, Max Trk Ch %2d)\00", align 1
-@.str.758 = private unnamed_addr constant [16 x i8] c"Unknown GNSS ID\00", align 1
+@UBX_MSG_CLASS_ID = internal constant [149 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1281, [4 x i8] zeroinitializer, ptr @.str.8 }, { i32, [4 x i8], ptr } { i32 1280, [4 x i8] zeroinitializer, ptr @.str.11 }, { i32, [4 x i8], ptr } { i32 2864, [4 x i8] zeroinitializer, ptr @.str.531 }, { i32, [4 x i8], ptr } { i32 2867, [4 x i8] zeroinitializer, ptr @.str.532 }, { i32, [4 x i8], ptr } { i32 2865, [4 x i8] zeroinitializer, ptr @.str.533 }, { i32, [4 x i8], ptr } { i32 2818, [4 x i8] zeroinitializer, ptr @.str.534 }, { i32, [4 x i8], ptr } { i32 2817, [4 x i8] zeroinitializer, ptr @.str.535 }, { i32, [4 x i8], ptr } { i32 1555, [4 x i8] zeroinitializer, ptr @.str.536 }, { i32, [4 x i8], ptr } { i32 1683, [4 x i8] zeroinitializer, ptr @.str.537 }, { i32, [4 x i8], ptr } { i32 1545, [4 x i8] zeroinitializer, ptr @.str.538 }, { i32, [4 x i8], ptr } { i32 1542, [4 x i8] zeroinitializer, ptr @.str.539 }, { i32, [4 x i8], ptr } { i32 1648, [4 x i8] zeroinitializer, ptr @.str.540 }, { i32, [4 x i8], ptr } { i32 1633, [4 x i8] zeroinitializer, ptr @.str.541 }, { i32, [4 x i8], ptr } { i32 1622, [4 x i8] zeroinitializer, ptr @.str.542 }, { i32, [4 x i8], ptr } { i32 1612, [4 x i8] zeroinitializer, ptr @.str.543 }, { i32, [4 x i8], ptr } { i32 1613, [4 x i8] zeroinitializer, ptr @.str.544 }, { i32, [4 x i8], ptr } { i32 1666, [4 x i8] zeroinitializer, ptr @.str.545 }, { i32, [4 x i8], ptr } { i32 1632, [4 x i8] zeroinitializer, ptr @.str.546 }, { i32, [4 x i8], ptr } { i32 1641, [4 x i8] zeroinitializer, ptr @.str.547 }, { i32, [4 x i8], ptr } { i32 1598, [4 x i8] zeroinitializer, ptr @.str.14 }, { i32, [4 x i8], ptr } { i32 1628, [4 x i8] zeroinitializer, ptr @.str.548 }, { i32, [4 x i8], ptr } { i32 1538, [4 x i8] zeroinitializer, ptr @.str.549 }, { i32, [4 x i8], ptr } { i32 1593, [4 x i8] zeroinitializer, ptr @.str.550 }, { i32, [4 x i8], ptr } { i32 1607, [4 x i8] zeroinitializer, ptr @.str.551 }, { i32, [4 x i8], ptr } { i32 1537, [4 x i8] zeroinitializer, ptr @.str.552 }, { i32, [4 x i8], ptr } { i32 1572, [4 x i8] zeroinitializer, ptr @.str.553 }, { i32, [4 x i8], ptr } { i32 1571, [4 x i8] zeroinitializer, ptr @.str.554 }, { i32, [4 x i8], ptr } { i32 1559, [4 x i8] zeroinitializer, ptr @.str.555 }, { i32, [4 x i8], ptr } { i32 1566, [4 x i8] zeroinitializer, ptr @.str.556 }, { i32, [4 x i8], ptr } { i32 1595, [4 x i8] zeroinitializer, ptr @.str.557 }, { i32, [4 x i8], ptr } { i32 1670, [4 x i8] zeroinitializer, ptr @.str.558 }, { i32, [4 x i8], ptr } { i32 1536, [4 x i8] zeroinitializer, ptr @.str.559 }, { i32, [4 x i8], ptr } { i32 1623, [4 x i8] zeroinitializer, ptr @.str.560 }, { i32, [4 x i8], ptr } { i32 1544, [4 x i8] zeroinitializer, ptr @.str.561 }, { i32, [4 x i8], ptr } { i32 1588, [4 x i8] zeroinitializer, ptr @.str.562 }, { i32, [4 x i8], ptr } { i32 1540, [4 x i8] zeroinitializer, ptr @.str.563 }, { i32, [4 x i8], ptr } { i32 1553, [4 x i8] zeroinitializer, ptr @.str.564 }, { i32, [4 x i8], ptr } { i32 1558, [4 x i8] zeroinitializer, ptr @.str.36 }, { i32, [4 x i8], ptr } { i32 1672, [4 x i8] zeroinitializer, ptr @.str.565 }, { i32, [4 x i8], ptr } { i32 1677, [4 x i8] zeroinitializer, ptr @.str.566 }, { i32, [4 x i8], ptr } { i32 1634, [4 x i8] zeroinitializer, ptr @.str.567 }, { i32, [4 x i8], ptr } { i32 1636, [4 x i8] zeroinitializer, ptr @.str.568 }, { i32, [4 x i8], ptr } { i32 1597, [4 x i8] zeroinitializer, ptr @.str.569 }, { i32, [4 x i8], ptr } { i32 1649, [4 x i8] zeroinitializer, ptr @.str.570 }, { i32, [4 x i8], ptr } { i32 1585, [4 x i8] zeroinitializer, ptr @.str.571 }, { i32, [4 x i8], ptr } { i32 1619, [4 x i8] zeroinitializer, ptr @.str.572 }, { i32, [4 x i8], ptr } { i32 1563, [4 x i8] zeroinitializer, ptr @.str.573 }, { i32, [4 x i8], ptr } { i32 4116, [4 x i8] zeroinitializer, ptr @.str.574 }, { i32, [4 x i8], ptr } { i32 4117, [4 x i8] zeroinitializer, ptr @.str.575 }, { i32, [4 x i8], ptr } { i32 4098, [4 x i8] zeroinitializer, ptr @.str.576 }, { i32, [4 x i8], ptr } { i32 4099, [4 x i8] zeroinitializer, ptr @.str.577 }, { i32, [4 x i8], ptr } { i32 4112, [4 x i8] zeroinitializer, ptr @.str.578 }, { i32, [4 x i8], ptr } { i32 10241, [4 x i8] zeroinitializer, ptr @.str.579 }, { i32, [4 x i8], ptr } { i32 10242, [4 x i8] zeroinitializer, ptr @.str.580 }, { i32, [4 x i8], ptr } { i32 10240, [4 x i8] zeroinitializer, ptr @.str.581 }, { i32, [4 x i8], ptr } { i32 1028, [4 x i8] zeroinitializer, ptr @.str.582 }, { i32, [4 x i8], ptr } { i32 1024, [4 x i8] zeroinitializer, ptr @.str.583 }, { i32, [4 x i8], ptr } { i32 1026, [4 x i8] zeroinitializer, ptr @.str.584 }, { i32, [4 x i8], ptr } { i32 1027, [4 x i8] zeroinitializer, ptr @.str.585 }, { i32, [4 x i8], ptr } { i32 1025, [4 x i8] zeroinitializer, ptr @.str.586 }, { i32, [4 x i8], ptr } { i32 8465, [4 x i8] zeroinitializer, ptr @.str.587 }, { i32, [4 x i8], ptr } { i32 8455, [4 x i8] zeroinitializer, ptr @.str.588 }, { i32, [4 x i8], ptr } { i32 8451, [4 x i8] zeroinitializer, ptr @.str.589 }, { i32, [4 x i8], ptr } { i32 8462, [4 x i8] zeroinitializer, ptr @.str.590 }, { i32, [4 x i8], ptr } { i32 8456, [4 x i8] zeroinitializer, ptr @.str.591 }, { i32, [4 x i8], ptr } { i32 8464, [4 x i8] zeroinitializer, ptr @.str.592 }, { i32, [4 x i8], ptr } { i32 8463, [4 x i8] zeroinitializer, ptr @.str.593 }, { i32, [4 x i8], ptr } { i32 8459, [4 x i8] zeroinitializer, ptr @.str.594 }, { i32, [4 x i8], ptr } { i32 8461, [4 x i8] zeroinitializer, ptr @.str.595 }, { i32, [4 x i8], ptr } { i32 8457, [4 x i8] zeroinitializer, ptr @.str.596 }, { i32, [4 x i8], ptr } { i32 8452, [4 x i8] zeroinitializer, ptr @.str.597 }, { i32, [4 x i8], ptr } { i32 4960, [4 x i8] zeroinitializer, ptr @.str.598 }, { i32, [4 x i8], ptr } { i32 4896, [4 x i8] zeroinitializer, ptr @.str.599 }, { i32, [4 x i8], ptr } { i32 4867, [4 x i8] zeroinitializer, ptr @.str.600 }, { i32, [4 x i8], ptr } { i32 4992, [4 x i8] zeroinitializer, ptr @.str.601 }, { i32, [4 x i8], ptr } { i32 4897, [4 x i8] zeroinitializer, ptr @.str.602 }, { i32, [4 x i8], ptr } { i32 4866, [4 x i8] zeroinitializer, ptr @.str.603 }, { i32, [4 x i8], ptr } { i32 4870, [4 x i8] zeroinitializer, ptr @.str.604 }, { i32, [4 x i8], ptr } { i32 4864, [4 x i8] zeroinitializer, ptr @.str.605 }, { i32, [4 x i8], ptr } { i32 4928, [4 x i8] zeroinitializer, ptr @.str.606 }, { i32, [4 x i8], ptr } { i32 4869, [4 x i8] zeroinitializer, ptr @.str.607 }, { i32, [4 x i8], ptr } { i32 2610, [4 x i8] zeroinitializer, ptr @.str.608 }, { i32, [4 x i8], ptr } { i32 2600, [4 x i8] zeroinitializer, ptr @.str.609 }, { i32, [4 x i8], ptr } { i32 2571, [4 x i8] zeroinitializer, ptr @.str.610 }, { i32, [4 x i8], ptr } { i32 2569, [4 x i8] zeroinitializer, ptr @.str.611 }, { i32, [4 x i8], ptr } { i32 2562, [4 x i8] zeroinitializer, ptr @.str.612 }, { i32, [4 x i8], ptr } { i32 2566, [4 x i8] zeroinitializer, ptr @.str.613 }, { i32, [4 x i8], ptr } { i32 2599, [4 x i8] zeroinitializer, ptr @.str.614 }, { i32, [4 x i8], ptr } { i32 2567, [4 x i8] zeroinitializer, ptr @.str.615 }, { i32, [4 x i8], ptr } { i32 2593, [4 x i8] zeroinitializer, ptr @.str.616 }, { i32, [4 x i8], ptr } { i32 2606, [4 x i8] zeroinitializer, ptr @.str.617 }, { i32, [4 x i8], ptr } { i32 2607, [4 x i8] zeroinitializer, ptr @.str.618 }, { i32, [4 x i8], ptr } { i32 2568, [4 x i8] zeroinitializer, ptr @.str.619 }, { i32, [4 x i8], ptr } { i32 2564, [4 x i8] zeroinitializer, ptr @.str.620 }, { i32, [4 x i8], ptr } { i32 352, [4 x i8] zeroinitializer, ptr @.str.621 }, { i32, [4 x i8], ptr } { i32 261, [4 x i8] zeroinitializer, ptr @.str.622 }, { i32, [4 x i8], ptr } { i32 290, [4 x i8] zeroinitializer, ptr @.str.623 }, { i32, [4 x i8], ptr } { i32 310, [4 x i8] zeroinitializer, ptr @.str.624 }, { i32, [4 x i8], ptr } { i32 305, [4 x i8] zeroinitializer, ptr @.str.625 }, { i32, [4 x i8], ptr } { i32 260, [4 x i8] zeroinitializer, ptr @.str.130 }, { i32, [4 x i8], ptr } { i32 317, [4 x i8] zeroinitializer, ptr @.str.626 }, { i32, [4 x i8], ptr } { i32 353, [4 x i8] zeroinitializer, ptr @.str.148 }, { i32, [4 x i8], ptr } { i32 313, [4 x i8] zeroinitializer, ptr @.str.627 }, { i32, [4 x i8], ptr } { i32 275, [4 x i8] zeroinitializer, ptr @.str.628 }, { i32, [4 x i8], ptr } { i32 276, [4 x i8] zeroinitializer, ptr @.str.629 }, { i32, [4 x i8], ptr } { i32 296, [4 x i8] zeroinitializer, ptr @.str.630 }, { i32, [4 x i8], ptr } { i32 265, [4 x i8] zeroinitializer, ptr @.str.151 }, { i32, [4 x i8], ptr } { i32 308, [4 x i8] zeroinitializer, ptr @.str.631 }, { i32, [4 x i8], ptr } { i32 257, [4 x i8] zeroinitializer, ptr @.str.162 }, { i32, [4 x i8], ptr } { i32 258, [4 x i8] zeroinitializer, ptr @.str.632 }, { i32, [4 x i8], ptr } { i32 263, [4 x i8] zeroinitializer, ptr @.str.173 }, { i32, [4 x i8], ptr } { i32 316, [4 x i8] zeroinitializer, ptr @.str.633 }, { i32, [4 x i8], ptr } { i32 272, [4 x i8] zeroinitializer, ptr @.str.634 }, { i32, [4 x i8], ptr } { i32 309, [4 x i8] zeroinitializer, ptr @.str.263 }, { i32, [4 x i8], ptr } { i32 306, [4 x i8] zeroinitializer, ptr @.str.317 }, { i32, [4 x i8], ptr } { i32 322, [4 x i8] zeroinitializer, ptr @.str.635 }, { i32, [4 x i8], ptr } { i32 262, [4 x i8] zeroinitializer, ptr @.str.636 }, { i32, [4 x i8], ptr } { i32 259, [4 x i8] zeroinitializer, ptr @.str.637 }, { i32, [4 x i8], ptr } { i32 304, [4 x i8] zeroinitializer, ptr @.str.638 }, { i32, [4 x i8], ptr } { i32 315, [4 x i8] zeroinitializer, ptr @.str.639 }, { i32, [4 x i8], ptr } { i32 292, [4 x i8] zeroinitializer, ptr @.str.640 }, { i32, [4 x i8], ptr } { i32 293, [4 x i8] zeroinitializer, ptr @.str.641 }, { i32, [4 x i8], ptr } { i32 291, [4 x i8] zeroinitializer, ptr @.str.642 }, { i32, [4 x i8], ptr } { i32 288, [4 x i8] zeroinitializer, ptr @.str.356 }, { i32, [4 x i8], ptr } { i32 294, [4 x i8] zeroinitializer, ptr @.str.643 }, { i32, [4 x i8], ptr } { i32 289, [4 x i8] zeroinitializer, ptr @.str.373 }, { i32, [4 x i8], ptr } { i32 273, [4 x i8] zeroinitializer, ptr @.str.398 }, { i32, [4 x i8], ptr } { i32 274, [4 x i8] zeroinitializer, ptr @.str.644 }, { i32, [4 x i8], ptr } { i32 609, [4 x i8] zeroinitializer, ptr @.str.645 }, { i32, [4 x i8], ptr } { i32 532, [4 x i8] zeroinitializer, ptr @.str.408 }, { i32, [4 x i8], ptr } { i32 577, [4 x i8] zeroinitializer, ptr @.str.646 }, { i32, [4 x i8], ptr } { i32 533, [4 x i8] zeroinitializer, ptr @.str.456 }, { i32, [4 x i8], ptr } { i32 601, [4 x i8] zeroinitializer, ptr @.str.647 }, { i32, [4 x i8], ptr } { i32 562, [4 x i8] zeroinitializer, ptr @.str.648 }, { i32, [4 x i8], ptr } { i32 531, [4 x i8] zeroinitializer, ptr @.str.504 }, { i32, [4 x i8], ptr } { i32 544, [4 x i8] zeroinitializer, ptr @.str.649 }, { i32, [4 x i8], ptr } { i32 9987, [4 x i8] zeroinitializer, ptr @.str.650 }, { i32, [4 x i8], ptr } { i32 3345, [4 x i8] zeroinitializer, ptr @.str.651 }, { i32, [4 x i8], ptr } { i32 3350, [4 x i8] zeroinitializer, ptr @.str.652 }, { i32, [4 x i8], ptr } { i32 3351, [4 x i8] zeroinitializer, ptr @.str.653 }, { i32, [4 x i8], ptr } { i32 3347, [4 x i8] zeroinitializer, ptr @.str.654 }, { i32, [4 x i8], ptr } { i32 3332, [4 x i8] zeroinitializer, ptr @.str.655 }, { i32, [4 x i8], ptr } { i32 3331, [4 x i8] zeroinitializer, ptr @.str.656 }, { i32, [4 x i8], ptr } { i32 3346, [4 x i8] zeroinitializer, ptr @.str.657 }, { i32, [4 x i8], ptr } { i32 3329, [4 x i8] zeroinitializer, ptr @.str.658 }, { i32, [4 x i8], ptr } { i32 3349, [4 x i8] zeroinitializer, ptr @.str.659 }, { i32, [4 x i8], ptr } { i32 3334, [4 x i8] zeroinitializer, ptr @.str.660 }, { i32, [4 x i8], ptr } { i32 2324, [4 x i8] zeroinitializer, ptr @.str.661 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.663 = private unnamed_addr constant [4 x i8] c"GPS\00", align 1
+@.str.664 = private unnamed_addr constant [5 x i8] c"SBAS\00", align 1
+@.str.665 = private unnamed_addr constant [8 x i8] c"Galileo\00", align 1
+@.str.666 = private unnamed_addr constant [7 x i8] c"Beidou\00", align 1
+@.str.667 = private unnamed_addr constant [5 x i8] c"IMES\00", align 1
+@.str.668 = private unnamed_addr constant [5 x i8] c"QZSS\00", align 1
+@.str.669 = private unnamed_addr constant [8 x i8] c"Glonass\00", align 1
+@UBX_GNSS_ID = internal constant [8 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.663 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.664 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.665 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.666 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.667 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.668 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.669 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.671 = private unnamed_addr constant [10 x i8] c"GPS L1C/A\00", align 1
+@.str.672 = private unnamed_addr constant [8 x i8] c"GPS L2C\00", align 1
+@UBX_CFG_GNSS_GPS_SIGCFGMASK = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.671 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.672 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.674 = private unnamed_addr constant [11 x i8] c"SBAS L1C/A\00", align 1
+@UBX_CFG_GNSS_SBAS_SIGCFGMASK = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.674 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.676 = private unnamed_addr constant [11 x i8] c"Galileo E1\00", align 1
+@.str.677 = private unnamed_addr constant [12 x i8] c"Galileo E5b\00", align 1
+@UBX_CFG_GNSS_GAL_SIGCFGMASK = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.676 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.677 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.679 = private unnamed_addr constant [11 x i8] c"BeiDou B1I\00", align 1
+@.str.680 = private unnamed_addr constant [11 x i8] c"BeiDou B2I\00", align 1
+@UBX_CFG_GNSS_BDS_SIGCFGMASK = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.679 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.680 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.682 = private unnamed_addr constant [8 x i8] c"IMES L1\00", align 1
+@UBX_CFG_GNSS_IMES_SIGCFGMASK = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.682 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.684 = private unnamed_addr constant [11 x i8] c"QZSS L1C/A\00", align 1
+@.str.685 = private unnamed_addr constant [9 x i8] c"QZSS L1S\00", align 1
+@.str.686 = private unnamed_addr constant [9 x i8] c"QZSS L2C\00", align 1
+@UBX_CFG_GNSS_QZSS_SIGCFGMASK = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.684 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.685 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.686 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.688 = private unnamed_addr constant [11 x i8] c"Glonass L1\00", align 1
+@.str.689 = private unnamed_addr constant [11 x i8] c"Glonass L2\00", align 1
+@UBX_CFG_GNSS_GLO_SIGCFGMASK = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.688 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.689 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.691 = private unnamed_addr constant [43 x i8] c"Ignore data when in test mode (SBAS msg 0)\00", align 1
+@.str.692 = private unnamed_addr constant [16 x i8] c"Use data anyhow\00", align 1
+@UBX_SBAS_TESTBED = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.691 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.692 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.694 = private unnamed_addr constant [8 x i8] c"%i.%02i\00", align 1
+@.str.695 = private unnamed_addr constant [7 x i8] c"no fix\00", align 1
+@.str.696 = private unnamed_addr constant [20 x i8] c"dead reckoning only\00", align 1
+@.str.697 = private unnamed_addr constant [7 x i8] c"2D-fix\00", align 1
+@.str.698 = private unnamed_addr constant [7 x i8] c"3D-fix\00", align 1
+@.str.699 = private unnamed_addr constant [31 x i8] c"GNSS + dead reckoning combined\00", align 1
+@.str.700 = private unnamed_addr constant [14 x i8] c"time only fix\00", align 1
+@UBX_GNSS_FIX_TYPE = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.695 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.696 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.697 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.698 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.699 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.700 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.702 = private unnamed_addr constant [10 x i8] c"%d.%07d%s\00", align 1
+@.str.703 = private unnamed_addr constant [3 x i8] c"\C2\B0\00", align 1
+@.str.704 = private unnamed_addr constant [11 x i8] c"-%d.%07d%s\00", align 1
+@.str.705 = private unnamed_addr constant [10 x i8] c"%d.%05d%s\00", align 1
+@.str.706 = private unnamed_addr constant [11 x i8] c"-%d.%05d%s\00", align 1
+@.str.707 = private unnamed_addr constant [14 x i8] c"not available\00", align 1
+@.str.708 = private unnamed_addr constant [27 x i8] c"age between 0 and 1 second\00", align 1
+@.str.709 = private unnamed_addr constant [40 x i8] c"age between 1 (inclusive) and 2 seconds\00", align 1
+@.str.710 = private unnamed_addr constant [40 x i8] c"age between 2 (inclusive) and 5 seconds\00", align 1
+@.str.711 = private unnamed_addr constant [41 x i8] c"age between 5 (inclusive) and 10 seconds\00", align 1
+@.str.712 = private unnamed_addr constant [42 x i8] c"age between 10 (inclusive) and 15 seconds\00", align 1
+@.str.713 = private unnamed_addr constant [42 x i8] c"age between 15 (inclusive) and 20 seconds\00", align 1
+@.str.714 = private unnamed_addr constant [42 x i8] c"age between 20 (inclusive) and 30 seconds\00", align 1
+@.str.715 = private unnamed_addr constant [42 x i8] c"age between 30 (inclusive) and 45 seconds\00", align 1
+@.str.716 = private unnamed_addr constant [42 x i8] c"age between 45 (inclusive) and 60 seconds\00", align 1
+@.str.717 = private unnamed_addr constant [42 x i8] c"age between 60 (inclusive) and 90 seconds\00", align 1
+@.str.718 = private unnamed_addr constant [43 x i8] c"age between 90 (inclusive) and 120 seconds\00", align 1
+@.str.719 = private unnamed_addr constant [38 x i8] c"age greater or equal than 120 seconds\00", align 1
+@UBX_LAST_CORRECTION_AGE = internal constant [17 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.707 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.708 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.709 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.710 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.711 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.712 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.713 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.714 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.715 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.716 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.717 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.718 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.719 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.719 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.719 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.719 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.721 = private unnamed_addr constant [10 x i8] c"%d.%02d%s\00", align 1
+@.str.722 = private unnamed_addr constant [11 x i8] c"-%d.%02d%s\00", align 1
+@.str.723 = private unnamed_addr constant [9 x i8] c"%d.%01dm\00", align 1
+@.str.724 = private unnamed_addr constant [10 x i8] c"-%d.%01dm\00", align 1
+@.str.725 = private unnamed_addr constant [10 x i8] c"no signal\00", align 1
+@.str.726 = private unnamed_addr constant [17 x i8] c"searching signal\00", align 1
+@.str.727 = private unnamed_addr constant [16 x i8] c"signal acquired\00", align 1
+@.str.728 = private unnamed_addr constant [29 x i8] c"signal detected but unusable\00", align 1
+@.str.729 = private unnamed_addr constant [34 x i8] c"code locked and time synchronized\00", align 1
+@.str.730 = private unnamed_addr constant [46 x i8] c"code and carrier locked and time synchronized\00", align 1
+@UBX_SIGNAL_QUALITY_INDICATOR = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.725 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.726 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.727 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.728 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.729 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.730 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.730 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.730 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.732 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
+@.str.733 = private unnamed_addr constant [8 x i8] c"healthy\00", align 1
+@.str.734 = private unnamed_addr constant [10 x i8] c"unhealthy\00", align 1
+@UBX_SIGNAL_HEALTH = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.732 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.733 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.734 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.736 = private unnamed_addr constant [31 x i8] c"no orbit information available\00", align 1
+@.str.737 = private unnamed_addr constant [18 x i8] c"ephemeris is used\00", align 1
+@.str.738 = private unnamed_addr constant [16 x i8] c"almanac is used\00", align 1
+@.str.739 = private unnamed_addr constant [32 x i8] c"AssistNow Offline orbit is used\00", align 1
+@.str.740 = private unnamed_addr constant [35 x i8] c"AssistNow Autonomous orbit is used\00", align 1
+@.str.741 = private unnamed_addr constant [32 x i8] c"other orbit information is used\00", align 1
+@UBX_ORBIT_SOURCE = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.736 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.737 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.738 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.739 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.740 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.741 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.741 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.741 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.743 = private unnamed_addr constant [9 x i8] c"Disabled\00", align 1
+@.str.744 = private unnamed_addr constant [18 x i8] c"Enabled integrity\00", align 1
+@.str.745 = private unnamed_addr constant [18 x i8] c"Enabled test mode\00", align 1
+@UBX_SBAS_MODE = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.743 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.744 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.745 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.747 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
+@.str.748 = private unnamed_addr constant [5 x i8] c"WAAS\00", align 1
+@.str.749 = private unnamed_addr constant [6 x i8] c"EGNOS\00", align 1
+@.str.750 = private unnamed_addr constant [5 x i8] c"MSAS\00", align 1
+@.str.751 = private unnamed_addr constant [6 x i8] c"GAGAN\00", align 1
+@UBX_SBAS_SYSTEM = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 -1, [4 x i8] zeroinitializer, ptr @.str.747 }, { i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.748 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.749 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.750 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.751 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.663 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.753 = private unnamed_addr constant [26 x i8] c"Information not available\00", align 1
+@.str.754 = private unnamed_addr constant [55 x i8] c"Communications Research Laboratory (CRL), Tokyo, Japan\00", align 1
+@.str.755 = private unnamed_addr constant [54 x i8] c"National Institute of Standards and Technology (NIST)\00", align 1
+@.str.756 = private unnamed_addr constant [30 x i8] c"U.S. Naval Observatory (USNO)\00", align 1
+@.str.757 = private unnamed_addr constant [52 x i8] c"International Bureau of Weights and Measures (BIPM)\00", align 1
+@.str.758 = private unnamed_addr constant [22 x i8] c"European laboratories\00", align 1
+@.str.759 = private unnamed_addr constant [25 x i8] c"Former Soviet Union (SU)\00", align 1
+@.str.760 = private unnamed_addr constant [43 x i8] c"National Time Service Center (NTSC), China\00", align 1
+@UBX_UTC_STD_ID = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.753 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.754 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.755 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.756 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.757 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.758 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.759 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.760 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.747 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.762 = private unnamed_addr constant [10 x i8] c"%d.%04dms\00", align 1
+@.str.763 = private unnamed_addr constant [13 x i8] c"not measured\00", align 1
+@.str.764 = private unnamed_addr constant [4 x i8] c"low\00", align 1
+@.str.765 = private unnamed_addr constant [7 x i8] c"medium\00", align 1
+@.str.766 = private unnamed_addr constant [5 x i8] c"high\00", align 1
+@UBX_RXM_MEASX_MULTIPATH_INDEX = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.763 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.764 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.765 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.766 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.768 = private unnamed_addr constant [12 x i8] c"%d.%02d m/s\00", align 1
+@.str.769 = private unnamed_addr constant [13 x i8] c"-%d.%02d m/s\00", align 1
+@.str.770 = private unnamed_addr constant [11 x i8] c"%d.%01d Hz\00", align 1
+@.str.771 = private unnamed_addr constant [12 x i8] c"-%d.%01d Hz\00", align 1
+@.str.772 = private unnamed_addr constant [14 x i8] c"%d * 2^-21 ms\00", align 1
+@.str.773 = private unnamed_addr constant [9 x i8] c"%d.%02dm\00", align 1
+@.str.774 = private unnamed_addr constant [15 x i8] c"%d.%03d cycles\00", align 1
+@.str.775 = private unnamed_addr constant [11 x i8] c"%d.%03d Hz\00", align 1
+@.str.776 = private unnamed_addr constant [38 x i8] c"%-7s (Res Trk Ch %2d, Max Trk Ch %2d)\00", align 1
+@.str.777 = private unnamed_addr constant [16 x i8] c"Unknown GNSS ID\00", align 1
 @ubx_cfg_sbas_mode_fields = internal constant [3 x ptr] [ptr @hf_ubx_cfg_sbas_mode_enabled, ptr @hf_ubx_cfg_sbas_mode_test, ptr null], align 16
-@.str.759 = private unnamed_addr constant [17 x i8] c"Scanmode bitmask\00", align 1
-@.str.760 = private unnamed_addr constant [41 x i8] c"Date/time: %04d-%02d-%02d %02d:%02d:%02d\00", align 1
+@.str.778 = private unnamed_addr constant [17 x i8] c"Scanmode bitmask\00", align 1
+@.str.779 = private unnamed_addr constant [41 x i8] c"Date/time: %04d-%02d-%02d %02d:%02d:%02d\00", align 1
 @ubx_nav_pvt_valid_fields = internal constant [5 x ptr] [ptr @hf_ubx_nav_pvt_validdate, ptr @hf_ubx_nav_pvt_validtime, ptr @hf_ubx_nav_pvt_fullyresolved, ptr @hf_ubx_nav_pvt_validmag, ptr null], align 16
 @ubx_nav_pvt_flags_fields = internal constant [5 x ptr] [ptr @hf_ubx_nav_pvt_gnssfixok, ptr @hf_ubx_nav_pvt_diffsoln, ptr @hf_ubx_nav_pvt_psmstate, ptr @hf_ubx_nav_pvt_headvehvalid, ptr null], align 16
 @ubx_nav_pvt_flags2_fields = internal constant [4 x ptr] [ptr @hf_ubx_nav_pvt_confirmedavai, ptr @hf_ubx_nav_pvt_confirmeddate, ptr @hf_ubx_nav_pvt_confirmedtime, ptr null], align 16
-@.str.761 = private unnamed_addr constant [26 x i8] c"%-7s / SV ID %3d, used %d\00", align 1
+@.str.780 = private unnamed_addr constant [26 x i8] c"%-7s / SV ID %3d, used %d\00", align 1
 @ubx_nav_sat_flags_fields = internal constant [18 x ptr] [ptr @hf_ubx_nav_sat_quality_ind, ptr @hf_ubx_nav_sat_sv_used, ptr @hf_ubx_nav_sat_health, ptr @hf_ubx_nav_sat_diff_corr, ptr @hf_ubx_nav_sat_smoothed, ptr @hf_ubx_nav_sat_orbit_src, ptr @hf_ubx_nav_sat_eph_avail, ptr @hf_ubx_nav_sat_alm_avail, ptr @hf_ubx_nav_sat_ano_avail, ptr @hf_ubx_nav_sat_aop_avail, ptr @hf_ubx_nav_sat_sbas_corr_used, ptr @hf_ubx_nav_sat_rtcm_corr_used, ptr @hf_ubx_nav_sat_slas_corr_used, ptr @hf_ubx_nav_sat_spartn_corr_used, ptr @hf_ubx_nav_sat_pr_corr_used, ptr @hf_ubx_nav_sat_cr_corr_used, ptr @hf_ubx_nav_sat_do_corr_used, ptr null], align 16
 @ubx_nav_sbas_service_fields = internal constant [6 x ptr] [ptr @hf_ubx_nav_sbas_service_ranging, ptr @hf_ubx_nav_sbas_service_corrections, ptr @hf_ubx_nav_sbas_service_integrity, ptr @hf_ubx_nav_sbas_service_testmode, ptr @hf_ubx_nav_sbas_service_bad, ptr null], align 16
-@.str.762 = private unnamed_addr constant [10 x i8] c"SV ID %3d\00", align 1
-@.str.763 = private unnamed_addr constant [14 x i8] c"TOW: %d.%09ds\00", align 1
+@.str.781 = private unnamed_addr constant [10 x i8] c"SV ID %3d\00", align 1
+@.str.782 = private unnamed_addr constant [14 x i8] c"TOW: %d.%09ds\00", align 1
 @ubx_nav_timegps_valid_fields = internal constant [4 x ptr] [ptr @hf_ubx_nav_timegps_towvalid, ptr @hf_ubx_nav_timegps_weekvalid, ptr @hf_ubx_nav_timegps_leapsvalid, ptr null], align 16
 @ubx_nav_timeutc_valid_fields = internal constant [5 x ptr] [ptr @hf_ubx_nav_timeutc_validtow, ptr @hf_ubx_nav_timeutc_validwkn, ptr @hf_ubx_nav_timeutc_validutc, ptr @hf_ubx_nav_timeutc_utcstandard, ptr null], align 16
-@.str.764 = private unnamed_addr constant [33 x i8] c"%-7s / SV ID %3d / C/N0 %d dB-Hz\00", align 1
+@.str.783 = private unnamed_addr constant [33 x i8] c"%-7s / SV ID %3d / C/N0 %d dB-Hz\00", align 1
 @ubx_rxm_rawx_recstat_fields = internal constant [3 x ptr] [ptr @hf_ubx_rxm_rawx_recstat_leapsec, ptr @hf_ubx_rxm_rawx_recstat_clkreset, ptr null], align 16
 @ubx_rxm_rawx_trkstat_fields = internal constant [5 x ptr] [ptr @hf_ubx_rxm_rawx_trkstat_prvalid, ptr @hf_ubx_rxm_rawx_trkstat_cpvalid, ptr @hf_ubx_rxm_rawx_trkstat_halfcyc, ptr @hf_ubx_rxm_rawx_trkstat_subhalfcyc, ptr null], align 16
-@.str.765 = private unnamed_addr constant [24 x i8] c"GNSS navigation message\00", align 1
+@.str.784 = private unnamed_addr constant [24 x i8] c"GNSS navigation message\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_ubx() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca i16, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 2, ptr %2) #7
   store i16 0, ptr %2, align 2
   br label %3
 
@@ -1188,7 +1188,7 @@ define hidden void @proto_register_ubx() #0 {
   %16 = load i16, ptr %2, align 2
   %17 = add i16 %16, 1
   store i16 %17, ptr %2, align 2
-  br label %3, !llvm.loop !4
+  br label %3, !llvm.loop !6
 
 18:                                               ; preds = %3
   store i16 0, ptr %2, align 2
@@ -1215,7 +1215,7 @@ define hidden void @proto_register_ubx() #0 {
   %32 = load i16, ptr %2, align 2
   %33 = add i16 %32, 1
   store i16 %33, ptr %2, align 2
-  br label %19, !llvm.loop !6
+  br label %19, !llvm.loop !8
 
 34:                                               ; preds = %19
   store i16 0, ptr %2, align 2
@@ -1243,7 +1243,7 @@ define hidden void @proto_register_ubx() #0 {
   %49 = load i16, ptr %2, align 2
   %50 = add i16 %49, 1
   store i16 %50, ptr %2, align 2
-  br label %35, !llvm.loop !7
+  br label %35, !llvm.loop !9
 
 51:                                               ; preds = %35
   store i16 0, ptr %2, align 2
@@ -1272,7 +1272,7 @@ define hidden void @proto_register_ubx() #0 {
   %67 = load i16, ptr %2, align 2
   %68 = add i16 %67, 1
   store i16 %68, ptr %2, align 2
-  br label %52, !llvm.loop !8
+  br label %52, !llvm.loop !10
 
 69:                                               ; preds = %52
   store i16 0, ptr %2, align 2
@@ -1302,7 +1302,7 @@ define hidden void @proto_register_ubx() #0 {
   %86 = load i16, ptr %2, align 2
   %87 = add i16 %86, 1
   store i16 %87, ptr %2, align 2
-  br label %70, !llvm.loop !9
+  br label %70, !llvm.loop !11
 
 88:                                               ; preds = %70
   store i16 0, ptr %2, align 2
@@ -1333,7 +1333,7 @@ define hidden void @proto_register_ubx() #0 {
   %106 = load i16, ptr %2, align 2
   %107 = add i16 %106, 1
   store i16 %107, ptr %2, align 2
-  br label %89, !llvm.loop !10
+  br label %89, !llvm.loop !12
 
 108:                                              ; preds = %89
   %109 = call i32 @proto_register_protocol(ptr noundef @.str.526, ptr noundef @.str.527, ptr noundef @.str.528)
@@ -1355,25 +1355,29 @@ define hidden void @proto_register_ubx() #0 {
   %118 = load i32, ptr @proto_ubx, align 4
   %119 = call ptr @register_dissector_table(ptr noundef @.str.506, ptr noundef @.str.530, i32 noundef %118, i32 noundef 4, i32 noundef 1)
   store ptr %119, ptr @ubx_gnssid_dissector_table, align 8
+  call void @llvm.lifetime.end.p0(i64 2, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @fmt_dop(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
-  %7 = udiv i32 %6, 100
+  %6 = load ptr, ptr %3, align 8
+  %7 = call i64 @llvm.objectsize.i64.p0(ptr %6, i1 false, i1 true, i1 true)
   %8 = load i32, ptr %4, align 4
-  %9 = urem i32 %8, 100
-  %10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %5, i64 noundef 240, ptr noundef @.str.684, i32 noundef %7, i32 noundef %9) #3
+  %9 = udiv i32 %8, 100
+  %10 = load i32, ptr %4, align 4
+  %11 = urem i32 %10, 100
+  %12 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %5, i64 noundef 240, i32 noundef 2, i64 noundef %7, ptr noundef @.str.694, i32 noundef %9, i32 noundef %11)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @fmt_lat_lon(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -1381,33 +1385,37 @@ define internal void @fmt_lat_lon(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %1, ptr %4, align 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sge i32 %5, 0
-  br i1 %6, label %7, label %14
+  br i1 %6, label %7, label %16
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %3, align 8
-  %9 = load i32, ptr %4, align 4
-  %10 = sdiv i32 %9, 10000000
+  %9 = load ptr, ptr %3, align 8
+  %10 = call i64 @llvm.objectsize.i64.p0(ptr %9, i1 false, i1 true, i1 true)
   %11 = load i32, ptr %4, align 4
-  %12 = srem i32 %11, 10000000
-  %13 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %8, i64 noundef 240, ptr noundef @.str.691, i32 noundef %10, i32 noundef %12, ptr noundef @.str.692) #3
-  br label %23
+  %12 = sdiv i32 %11, 10000000
+  %13 = load i32, ptr %4, align 4
+  %14 = srem i32 %13, 10000000
+  %15 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %8, i64 noundef 240, i32 noundef 2, i64 noundef %10, ptr noundef @.str.702, i32 noundef %12, i32 noundef %14, ptr noundef @.str.703)
+  br label %27
 
-14:                                               ; preds = %2
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = sub i32 0, %16
-  %18 = sdiv i32 %17, 10000000
-  %19 = load i32, ptr %4, align 4
-  %20 = sub i32 0, %19
-  %21 = srem i32 %20, 10000000
-  %22 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %15, i64 noundef 240, ptr noundef @.str.693, i32 noundef %18, i32 noundef %21, ptr noundef @.str.692) #3
-  br label %23
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %3, align 8
+  %18 = load ptr, ptr %3, align 8
+  %19 = call i64 @llvm.objectsize.i64.p0(ptr %18, i1 false, i1 true, i1 true)
+  %20 = load i32, ptr %4, align 4
+  %21 = sub i32 0, %20
+  %22 = sdiv i32 %21, 10000000
+  %23 = load i32, ptr %4, align 4
+  %24 = sub i32 0, %23
+  %25 = srem i32 %24, 10000000
+  %26 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %17, i64 noundef 240, i32 noundef 2, i64 noundef %19, ptr noundef @.str.704, i32 noundef %22, i32 noundef %25, ptr noundef @.str.703)
+  br label %27
 
-23:                                               ; preds = %14, %7
+27:                                               ; preds = %16, %7
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @fmt_heading(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -1415,48 +1423,54 @@ define internal void @fmt_heading(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %1, ptr %4, align 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sge i32 %5, 0
-  br i1 %6, label %7, label %14
+  br i1 %6, label %7, label %16
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %3, align 8
-  %9 = load i32, ptr %4, align 4
-  %10 = sdiv i32 %9, 100000
+  %9 = load ptr, ptr %3, align 8
+  %10 = call i64 @llvm.objectsize.i64.p0(ptr %9, i1 false, i1 true, i1 true)
   %11 = load i32, ptr %4, align 4
-  %12 = srem i32 %11, 100000
-  %13 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %8, i64 noundef 240, ptr noundef @.str.694, i32 noundef %10, i32 noundef %12, ptr noundef @.str.692) #3
-  br label %23
+  %12 = sdiv i32 %11, 100000
+  %13 = load i32, ptr %4, align 4
+  %14 = srem i32 %13, 100000
+  %15 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %8, i64 noundef 240, i32 noundef 2, i64 noundef %10, ptr noundef @.str.705, i32 noundef %12, i32 noundef %14, ptr noundef @.str.703)
+  br label %27
 
-14:                                               ; preds = %2
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = sub i32 0, %16
-  %18 = sdiv i32 %17, 100000
-  %19 = load i32, ptr %4, align 4
-  %20 = sub i32 0, %19
-  %21 = srem i32 %20, 100000
-  %22 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %15, i64 noundef 240, ptr noundef @.str.695, i32 noundef %18, i32 noundef %21, ptr noundef @.str.692) #3
-  br label %23
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %3, align 8
+  %18 = load ptr, ptr %3, align 8
+  %19 = call i64 @llvm.objectsize.i64.p0(ptr %18, i1 false, i1 true, i1 true)
+  %20 = load i32, ptr %4, align 4
+  %21 = sub i32 0, %20
+  %22 = sdiv i32 %21, 100000
+  %23 = load i32, ptr %4, align 4
+  %24 = sub i32 0, %23
+  %25 = srem i32 %24, 100000
+  %26 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %17, i64 noundef 240, i32 noundef 2, i64 noundef %19, ptr noundef @.str.706, i32 noundef %22, i32 noundef %25, ptr noundef @.str.703)
+  br label %27
 
-23:                                               ; preds = %14, %7
+27:                                               ; preds = %16, %7
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @fmt_heading_acc(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
-  %7 = udiv i32 %6, 100000
+  %6 = load ptr, ptr %3, align 8
+  %7 = call i64 @llvm.objectsize.i64.p0(ptr %6, i1 false, i1 true, i1 true)
   %8 = load i32, ptr %4, align 4
-  %9 = urem i32 %8, 100000
-  %10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %5, i64 noundef 240, ptr noundef @.str.694, i32 noundef %7, i32 noundef %9, ptr noundef @.str.692) #3
+  %9 = udiv i32 %8, 100000
+  %10 = load i32, ptr %4, align 4
+  %11 = urem i32 %10, 100000
+  %12 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %5, i64 noundef 240, i32 noundef 2, i64 noundef %7, ptr noundef @.str.705, i32 noundef %9, i32 noundef %11, ptr noundef @.str.703)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @fmt_decl(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -1464,48 +1478,54 @@ define internal void @fmt_decl(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %1, ptr %4, align 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sge i32 %5, 0
-  br i1 %6, label %7, label %14
+  br i1 %6, label %7, label %16
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %3, align 8
-  %9 = load i32, ptr %4, align 4
-  %10 = sdiv i32 %9, 100
+  %9 = load ptr, ptr %3, align 8
+  %10 = call i64 @llvm.objectsize.i64.p0(ptr %9, i1 false, i1 true, i1 true)
   %11 = load i32, ptr %4, align 4
-  %12 = srem i32 %11, 100
-  %13 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %8, i64 noundef 240, ptr noundef @.str.709, i32 noundef %10, i32 noundef %12, ptr noundef @.str.692) #3
-  br label %23
+  %12 = sdiv i32 %11, 100
+  %13 = load i32, ptr %4, align 4
+  %14 = srem i32 %13, 100
+  %15 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %8, i64 noundef 240, i32 noundef 2, i64 noundef %10, ptr noundef @.str.721, i32 noundef %12, i32 noundef %14, ptr noundef @.str.703)
+  br label %27
 
-14:                                               ; preds = %2
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = sub i32 0, %16
-  %18 = sdiv i32 %17, 100
-  %19 = load i32, ptr %4, align 4
-  %20 = sub i32 0, %19
-  %21 = srem i32 %20, 100
-  %22 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %15, i64 noundef 240, ptr noundef @.str.710, i32 noundef %18, i32 noundef %21, ptr noundef @.str.692) #3
-  br label %23
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %3, align 8
+  %18 = load ptr, ptr %3, align 8
+  %19 = call i64 @llvm.objectsize.i64.p0(ptr %18, i1 false, i1 true, i1 true)
+  %20 = load i32, ptr %4, align 4
+  %21 = sub i32 0, %20
+  %22 = sdiv i32 %21, 100
+  %23 = load i32, ptr %4, align 4
+  %24 = sub i32 0, %23
+  %25 = srem i32 %24, 100
+  %26 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %17, i64 noundef 240, i32 noundef 2, i64 noundef %19, ptr noundef @.str.722, i32 noundef %22, i32 noundef %25, ptr noundef @.str.703)
+  br label %27
 
-23:                                               ; preds = %14, %7
+27:                                               ; preds = %16, %7
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @fmt_decl_acc(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
-  %7 = udiv i32 %6, 100
+  %6 = load ptr, ptr %3, align 8
+  %7 = call i64 @llvm.objectsize.i64.p0(ptr %6, i1 false, i1 true, i1 true)
   %8 = load i32, ptr %4, align 4
-  %9 = urem i32 %8, 100
-  %10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %5, i64 noundef 240, ptr noundef @.str.709, i32 noundef %7, i32 noundef %9, ptr noundef @.str.692) #3
+  %9 = udiv i32 %8, 100
+  %10 = load i32, ptr %4, align 4
+  %11 = urem i32 %10, 100
+  %12 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %5, i64 noundef 240, i32 noundef 2, i64 noundef %7, ptr noundef @.str.721, i32 noundef %9, i32 noundef %11, ptr noundef @.str.703)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @fmt_pr_res(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -1513,50 +1533,56 @@ define internal void @fmt_pr_res(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %1, ptr %4, align 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sge i32 %5, 0
-  br i1 %6, label %7, label %14
+  br i1 %6, label %7, label %16
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %3, align 8
-  %9 = load i32, ptr %4, align 4
-  %10 = sdiv i32 %9, 10
+  %9 = load ptr, ptr %3, align 8
+  %10 = call i64 @llvm.objectsize.i64.p0(ptr %9, i1 false, i1 true, i1 true)
   %11 = load i32, ptr %4, align 4
-  %12 = srem i32 %11, 10
-  %13 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %8, i64 noundef 240, ptr noundef @.str.711, i32 noundef %10, i32 noundef %12) #3
-  br label %23
+  %12 = sdiv i32 %11, 10
+  %13 = load i32, ptr %4, align 4
+  %14 = srem i32 %13, 10
+  %15 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %8, i64 noundef 240, i32 noundef 2, i64 noundef %10, ptr noundef @.str.723, i32 noundef %12, i32 noundef %14)
+  br label %27
 
-14:                                               ; preds = %2
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = sub i32 0, %16
-  %18 = sdiv i32 %17, 10
-  %19 = load i32, ptr %4, align 4
-  %20 = sub i32 0, %19
-  %21 = srem i32 %20, 10
-  %22 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %15, i64 noundef 240, ptr noundef @.str.712, i32 noundef %18, i32 noundef %21) #3
-  br label %23
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %3, align 8
+  %18 = load ptr, ptr %3, align 8
+  %19 = call i64 @llvm.objectsize.i64.p0(ptr %18, i1 false, i1 true, i1 true)
+  %20 = load i32, ptr %4, align 4
+  %21 = sub i32 0, %20
+  %22 = sdiv i32 %21, 10
+  %23 = load i32, ptr %4, align 4
+  %24 = sub i32 0, %23
+  %25 = srem i32 %24, 10
+  %26 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %17, i64 noundef 240, i32 noundef 2, i64 noundef %19, ptr noundef @.str.724, i32 noundef %22, i32 noundef %25)
+  br label %27
 
-23:                                               ; preds = %14, %7
+27:                                               ; preds = %16, %7
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @fmt_towacc(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
-  %7 = udiv i32 %6, 16
+  %6 = load ptr, ptr %3, align 8
+  %7 = call i64 @llvm.objectsize.i64.p0(ptr %6, i1 false, i1 true, i1 true)
   %8 = load i32, ptr %4, align 4
-  %9 = mul i32 %8, 10000
-  %10 = udiv i32 %9, 16
-  %11 = urem i32 %10, 10000
-  %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %5, i64 noundef 240, ptr noundef @.str.744, i32 noundef %7, i32 noundef %11) #3
+  %9 = udiv i32 %8, 16
+  %10 = load i32, ptr %4, align 4
+  %11 = mul i32 %10, 10000
+  %12 = udiv i32 %11, 16
+  %13 = urem i32 %12, 10000
+  %14 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %5, i64 noundef 240, i32 noundef 2, i64 noundef %7, ptr noundef @.str.762, i32 noundef %9, i32 noundef %13)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @fmt_dopplerms(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -1564,37 +1590,41 @@ define internal void @fmt_dopplerms(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %1, ptr %4, align 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sge i32 %5, 0
-  br i1 %6, label %7, label %16
+  br i1 %6, label %7, label %18
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %3, align 8
-  %9 = load i32, ptr %4, align 4
-  %10 = mul i32 %9, 4
-  %11 = sdiv i32 %10, 100
-  %12 = load i32, ptr %4, align 4
-  %13 = mul i32 %12, 4
-  %14 = srem i32 %13, 100
-  %15 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %8, i64 noundef 240, ptr noundef @.str.749, i32 noundef %11, i32 noundef %14) #3
-  br label %27
+  %9 = load ptr, ptr %3, align 8
+  %10 = call i64 @llvm.objectsize.i64.p0(ptr %9, i1 false, i1 true, i1 true)
+  %11 = load i32, ptr %4, align 4
+  %12 = mul i32 %11, 4
+  %13 = sdiv i32 %12, 100
+  %14 = load i32, ptr %4, align 4
+  %15 = mul i32 %14, 4
+  %16 = srem i32 %15, 100
+  %17 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %8, i64 noundef 240, i32 noundef 2, i64 noundef %10, ptr noundef @.str.768, i32 noundef %13, i32 noundef %16)
+  br label %31
 
-16:                                               ; preds = %2
-  %17 = load ptr, ptr %3, align 8
-  %18 = load i32, ptr %4, align 4
-  %19 = sub i32 0, %18
-  %20 = mul i32 %19, 4
-  %21 = sdiv i32 %20, 100
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %3, align 8
+  %20 = load ptr, ptr %3, align 8
+  %21 = call i64 @llvm.objectsize.i64.p0(ptr %20, i1 false, i1 true, i1 true)
   %22 = load i32, ptr %4, align 4
   %23 = sub i32 0, %22
   %24 = mul i32 %23, 4
-  %25 = srem i32 %24, 100
-  %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %17, i64 noundef 240, ptr noundef @.str.750, i32 noundef %21, i32 noundef %25) #3
-  br label %27
+  %25 = sdiv i32 %24, 100
+  %26 = load i32, ptr %4, align 4
+  %27 = sub i32 0, %26
+  %28 = mul i32 %27, 4
+  %29 = srem i32 %28, 100
+  %30 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %19, i64 noundef 240, i32 noundef 2, i64 noundef %21, ptr noundef @.str.769, i32 noundef %25, i32 noundef %29)
+  br label %31
 
-27:                                               ; preds = %16, %7
+31:                                               ; preds = %18, %7
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @fmt_dopplerhz(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -1602,106 +1632,123 @@ define internal void @fmt_dopplerhz(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %1, ptr %4, align 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sge i32 %5, 0
-  br i1 %6, label %7, label %16
+  br i1 %6, label %7, label %18
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %3, align 8
-  %9 = load i32, ptr %4, align 4
-  %10 = mul i32 %9, 2
-  %11 = sdiv i32 %10, 10
-  %12 = load i32, ptr %4, align 4
-  %13 = mul i32 %12, 2
-  %14 = srem i32 %13, 10
-  %15 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %8, i64 noundef 240, ptr noundef @.str.751, i32 noundef %11, i32 noundef %14) #3
-  br label %27
+  %9 = load ptr, ptr %3, align 8
+  %10 = call i64 @llvm.objectsize.i64.p0(ptr %9, i1 false, i1 true, i1 true)
+  %11 = load i32, ptr %4, align 4
+  %12 = mul i32 %11, 2
+  %13 = sdiv i32 %12, 10
+  %14 = load i32, ptr %4, align 4
+  %15 = mul i32 %14, 2
+  %16 = srem i32 %15, 10
+  %17 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %8, i64 noundef 240, i32 noundef 2, i64 noundef %10, ptr noundef @.str.770, i32 noundef %13, i32 noundef %16)
+  br label %31
 
-16:                                               ; preds = %2
-  %17 = load ptr, ptr %3, align 8
-  %18 = load i32, ptr %4, align 4
-  %19 = sub i32 0, %18
-  %20 = mul i32 %19, 2
-  %21 = sdiv i32 %20, 10
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %3, align 8
+  %20 = load ptr, ptr %3, align 8
+  %21 = call i64 @llvm.objectsize.i64.p0(ptr %20, i1 false, i1 true, i1 true)
   %22 = load i32, ptr %4, align 4
   %23 = sub i32 0, %22
   %24 = mul i32 %23, 2
-  %25 = srem i32 %24, 10
-  %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %17, i64 noundef 240, ptr noundef @.str.752, i32 noundef %21, i32 noundef %25) #3
-  br label %27
+  %25 = sdiv i32 %24, 10
+  %26 = load i32, ptr %4, align 4
+  %27 = sub i32 0, %26
+  %28 = mul i32 %27, 2
+  %29 = srem i32 %28, 10
+  %30 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %19, i64 noundef 240, i32 noundef 2, i64 noundef %21, ptr noundef @.str.771, i32 noundef %25, i32 noundef %29)
+  br label %31
 
-27:                                               ; preds = %16, %7
+31:                                               ; preds = %18, %7
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @fmt_codephase(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
-  %7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %5, i64 noundef 240, ptr noundef @.str.753, i32 noundef %6) #3
+  %6 = load ptr, ptr %3, align 8
+  %7 = call i64 @llvm.objectsize.i64.p0(ptr %6, i1 false, i1 true, i1 true)
+  %8 = load i32, ptr %4, align 4
+  %9 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %5, i64 noundef 240, i32 noundef 2, i64 noundef %7, ptr noundef @.str.772, i32 noundef %8)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @fmt_prstdev(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
-  %7 = shl i32 1, %6
-  %8 = sdiv i32 %7, 100
-  %9 = load i32, ptr %4, align 4
-  %10 = shl i32 1, %9
-  %11 = srem i32 %10, 100
-  %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %5, i64 noundef 240, ptr noundef @.str.754, i32 noundef %8, i32 noundef %11) #3
+  %6 = load ptr, ptr %3, align 8
+  %7 = call i64 @llvm.objectsize.i64.p0(ptr %6, i1 false, i1 true, i1 true)
+  %8 = load i32, ptr %4, align 4
+  %9 = shl i32 1, %8
+  %10 = sdiv i32 %9, 100
+  %11 = load i32, ptr %4, align 4
+  %12 = shl i32 1, %11
+  %13 = srem i32 %12, 100
+  %14 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %5, i64 noundef 240, i32 noundef 2, i64 noundef %7, ptr noundef @.str.773, i32 noundef %10, i32 noundef %13)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @fmt_cpstdev(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
-  %7 = mul i32 %6, 4
-  %8 = udiv i32 %7, 1000
-  %9 = load i32, ptr %4, align 4
-  %10 = mul i32 %9, 4
-  %11 = urem i32 %10, 1000
-  %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %5, i64 noundef 240, ptr noundef @.str.755, i32 noundef %8, i32 noundef %11) #3
+  %6 = load ptr, ptr %3, align 8
+  %7 = call i64 @llvm.objectsize.i64.p0(ptr %6, i1 false, i1 true, i1 true)
+  %8 = load i32, ptr %4, align 4
+  %9 = mul i32 %8, 4
+  %10 = udiv i32 %9, 1000
+  %11 = load i32, ptr %4, align 4
+  %12 = mul i32 %11, 4
+  %13 = urem i32 %12, 1000
+  %14 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %5, i64 noundef 240, i32 noundef 2, i64 noundef %7, ptr noundef @.str.774, i32 noundef %10, i32 noundef %13)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @fmt_dostdev(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
-  %7 = shl i32 1, %6
-  %8 = mul i32 %7, 2
-  %9 = sdiv i32 %8, 1000
-  %10 = load i32, ptr %4, align 4
-  %11 = shl i32 1, %10
-  %12 = mul i32 %11, 2
-  %13 = srem i32 %12, 1000
-  %14 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %5, i64 noundef 240, ptr noundef @.str.756, i32 noundef %9, i32 noundef %13) #3
+  %6 = load ptr, ptr %3, align 8
+  %7 = call i64 @llvm.objectsize.i64.p0(ptr %6, i1 false, i1 true, i1 true)
+  %8 = load i32, ptr %4, align 4
+  %9 = shl i32 1, %8
+  %10 = mul i32 %9, 2
+  %11 = sdiv i32 %10, 1000
+  %12 = load i32, ptr %4, align 4
+  %13 = shl i32 1, %12
+  %14 = mul i32 %13, 2
+  %15 = srem i32 %14, 1000
+  %16 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %5, i64 noundef 240, i32 noundef 2, i64 noundef %7, ptr noundef @.str.775, i32 noundef %11, i32 noundef %15)
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ubx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1717,18 +1764,23 @@ define internal i32 @dissect_ubx(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct._packet_info, ptr %15, i32 0, i32 1
+  %16 = getelementptr inbounds nuw %struct._packet_info, ptr %15, i32 0, i32 1
   %17 = load ptr, ptr %16, align 8
-  call void @col_set_str(ptr noundef %17, i32 noundef 34, ptr noundef @.str.527)
+  call void @col_set_str(ptr noundef %17, i32 noundef 35, ptr noundef @.str.527)
   %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct._packet_info, ptr %18, i32 0, i32 1
+  %19 = getelementptr inbounds nuw %struct._packet_info, ptr %18, i32 0, i32 1
   %20 = load ptr, ptr %19, align 8
   call void @col_clear(ptr noundef %20, i32 noundef 25)
   %21 = load ptr, ptr %5, align 8
-  %22 = call zeroext i16 @tvb_get_guint16(ptr noundef %21, i32 noundef 4, i32 noundef -2147483648)
+  %22 = call zeroext i16 @tvb_get_uint16(ptr noundef %21, i32 noundef 4, i32 noundef -2147483648)
   %23 = zext i16 %22 to i32
   store i32 %23, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
   %24 = load ptr, ptr %7, align 8
   %25 = load i32, ptr @proto_ubx, align 4
   %26 = load ptr, ptr %5, align 8
@@ -1737,6 +1789,7 @@ define internal i32 @dissect_ubx(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %29 = add i32 %28, 2
   %30 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %25, ptr noundef %26, i32 noundef 0, i32 noundef %29, i32 noundef 0)
   store ptr %30, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
   %31 = load ptr, ptr %13, align 8
   %32 = load i32, ptr @ett_ubx, align 4
   %33 = call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32)
@@ -1754,7 +1807,7 @@ define internal i32 @dissect_ubx(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %44 = load ptr, ptr %5, align 8
   %45 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648)
   %46 = load ptr, ptr %6, align 8
-  %47 = getelementptr inbounds %struct._packet_info, ptr %46, i32 0, i32 50
+  %47 = getelementptr inbounds nuw %struct._packet_info, ptr %46, i32 0, i32 51
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %5, align 8
   %50 = load i32, ptr %11, align 4
@@ -1798,20 +1851,34 @@ define internal i32 @dissect_ubx(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 82:                                               ; preds = %77, %4
   %83 = load ptr, ptr %5, align 8
   %84 = call i32 @tvb_captured_length(ptr noundef %83)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret i32 %84
 }
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_ubx() #0 {
   %1 = load i32, ptr @proto_ubx, align 4
   %2 = call ptr @create_dissector_handle(ptr noundef @dissect_ubx_ack_ack, i32 noundef %1)
@@ -1867,11 +1934,13 @@ define hidden void @proto_reg_handoff_ubx() #0 {
   ret void
 }
 
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @create_dissector_handle(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @create_dissector_handle(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ubx_ack_ack(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1884,18 +1953,20 @@ define internal i32 @dissect_ubx_ack_ack(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct._packet_info, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct._packet_info, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
-  call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef @.str.8)
+  call void @col_set_str(ptr noundef %13, i32 noundef 35, ptr noundef @.str.8)
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct._packet_info, ptr %14, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct._packet_info, ptr %14, i32 0, i32 1
   %16 = load ptr, ptr %15, align 8
   call void @col_clear(ptr noundef %16, i32 noundef 25)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
   %17 = load ptr, ptr %7, align 8
   %18 = load i32, ptr @hf_ubx_ack_ack, align 4
   %19 = load ptr, ptr %5, align 8
   %20 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %19, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   store ptr %20, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
   %21 = load ptr, ptr %9, align 8
   %22 = load i32, ptr @ett_ubx_ack_ack, align 4
   %23 = call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22)
@@ -1906,10 +1977,12 @@ define internal i32 @dissect_ubx_ack_ack(ptr noundef %0, ptr noundef %1, ptr nou
   %27 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %25, ptr noundef %26, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   %28 = load ptr, ptr %5, align 8
   %29 = call i32 @tvb_captured_length(ptr noundef %28)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret i32 %29
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ubx_ack_nak(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1922,18 +1995,20 @@ define internal i32 @dissect_ubx_ack_nak(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct._packet_info, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct._packet_info, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
-  call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef @.str.11)
+  call void @col_set_str(ptr noundef %13, i32 noundef 35, ptr noundef @.str.11)
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct._packet_info, ptr %14, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct._packet_info, ptr %14, i32 0, i32 1
   %16 = load ptr, ptr %15, align 8
   call void @col_clear(ptr noundef %16, i32 noundef 25)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
   %17 = load ptr, ptr %7, align 8
   %18 = load i32, ptr @hf_ubx_ack_nak, align 4
   %19 = load ptr, ptr %5, align 8
   %20 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %19, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   store ptr %20, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
   %21 = load ptr, ptr %9, align 8
   %22 = load i32, ptr @ett_ubx_ack_nak, align 4
   %23 = call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22)
@@ -1944,10 +2019,12 @@ define internal i32 @dissect_ubx_ack_nak(ptr noundef %0, ptr noundef %1, ptr nou
   %27 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %25, ptr noundef %26, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   %28 = load ptr, ptr %5, align 8
   %29 = call i32 @tvb_captured_length(ptr noundef %28)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret i32 %29
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ubx_cfg_gnss(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1966,17 +2043,20 @@ define internal i32 @dissect_ubx_cfg_gnss(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #7
   %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct._packet_info, ptr %18, i32 0, i32 1
+  %19 = getelementptr inbounds nuw %struct._packet_info, ptr %18, i32 0, i32 1
   %20 = load ptr, ptr %19, align 8
-  call void @col_set_str(ptr noundef %20, i32 noundef 34, ptr noundef @.str.14)
+  call void @col_set_str(ptr noundef %20, i32 noundef 35, ptr noundef @.str.14)
   %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct._packet_info, ptr %21, i32 0, i32 1
+  %22 = getelementptr inbounds nuw %struct._packet_info, ptr %21, i32 0, i32 1
   %23 = load ptr, ptr %22, align 8
   call void @col_clear(ptr noundef %23, i32 noundef 25)
   %24 = load ptr, ptr %5, align 8
-  %25 = call zeroext i8 @tvb_get_guint8(ptr noundef %24, i32 noundef 3)
+  %25 = call zeroext i8 @tvb_get_uint8(ptr noundef %24, i32 noundef 3)
   store i8 %25, ptr %10, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
   %26 = load ptr, ptr %7, align 8
   %27 = load i32, ptr @hf_ubx_cfg_gnss, align 4
   %28 = load ptr, ptr %5, align 8
@@ -1986,6 +2066,7 @@ define internal i32 @dissect_ubx_cfg_gnss(ptr noundef %0, ptr noundef %1, ptr no
   %32 = add i32 4, %31
   %33 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %28, i32 noundef 0, i32 noundef %32, i32 noundef 0)
   store ptr %33, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
   %34 = load ptr, ptr %11, align 8
   %35 = load i32, ptr @ett_ubx_cfg_gnss, align 4
   %36 = call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %35)
@@ -2018,27 +2099,31 @@ define internal i32 @dissect_ubx_cfg_gnss(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %58, label %59, label %166
 
 59:                                               ; preds = %53
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #7
   %60 = load ptr, ptr %5, align 8
   %61 = load i8, ptr %9, align 1
   %62 = zext i8 %61 to i32
   %63 = mul i32 8, %62
   %64 = add i32 4, %63
-  %65 = call zeroext i8 @tvb_get_guint8(ptr noundef %60, i32 noundef %64)
+  %65 = call zeroext i8 @tvb_get_uint8(ptr noundef %60, i32 noundef %64)
   store i8 %65, ptr %13, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #7
   %66 = load ptr, ptr %5, align 8
   %67 = load i8, ptr %9, align 1
   %68 = zext i8 %67 to i32
   %69 = mul i32 8, %68
   %70 = add i32 5, %69
-  %71 = call zeroext i8 @tvb_get_guint8(ptr noundef %66, i32 noundef %70)
+  %71 = call zeroext i8 @tvb_get_uint8(ptr noundef %66, i32 noundef %70)
   store i8 %71, ptr %14, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #7
   %72 = load ptr, ptr %5, align 8
   %73 = load i8, ptr %9, align 1
   %74 = zext i8 %73 to i32
   %75 = mul i32 8, %74
   %76 = add i32 6, %75
-  %77 = call zeroext i8 @tvb_get_guint8(ptr noundef %72, i32 noundef %76)
+  %77 = call zeroext i8 @tvb_get_uint8(ptr noundef %72, i32 noundef %76)
   store i8 %77, ptr %15, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
   %78 = load ptr, ptr %12, align 8
   %79 = load ptr, ptr %5, align 8
   %80 = load i8, ptr %9, align 1
@@ -2051,12 +2136,12 @@ define internal i32 @dissect_ubx_cfg_gnss(ptr noundef %0, ptr noundef %1, ptr no
   %87 = load i32, ptr %86, align 4
   %88 = load i8, ptr %13, align 1
   %89 = zext i8 %88 to i32
-  %90 = call ptr @val_to_str_const(i32 noundef %89, ptr noundef @UBX_GNSS_ID, ptr noundef @.str.758)
+  %90 = call ptr @val_to_str_const(i32 noundef %89, ptr noundef @UBX_GNSS_ID, ptr noundef @.str.777)
   %91 = load i8, ptr %14, align 1
   %92 = zext i8 %91 to i32
   %93 = load i8, ptr %15, align 1
   %94 = zext i8 %93 to i32
-  %95 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %78, ptr noundef %79, i32 noundef %83, i32 noundef 8, i32 noundef %87, ptr noundef null, ptr noundef @.str.757, ptr noundef %90, i32 noundef %92, i32 noundef %94)
+  %95 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %78, ptr noundef %79, i32 noundef %83, i32 noundef 8, i32 noundef %87, ptr noundef null, ptr noundef @.str.776, ptr noundef %90, i32 noundef %92, i32 noundef %94)
   store ptr %95, ptr %16, align 8
   %96 = load ptr, ptr %16, align 8
   %97 = load i32, ptr @hf_ubx_cfg_gnss_blk_gnssid, align 4
@@ -2098,6 +2183,7 @@ define internal i32 @dissect_ubx_cfg_gnss(ptr noundef %0, ptr noundef %1, ptr no
   %133 = mul i32 8, %132
   %134 = add i32 8, %133
   %135 = call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %129, ptr noundef %130, i32 noundef %134, i32 noundef 4, i32 noundef -2147483648)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #7
   %136 = load i8, ptr %13, align 1
   %137 = zext i8 %136 to i32
   switch i32 %137, label %152 [
@@ -2159,21 +2245,30 @@ define internal i32 @dissect_ubx_cfg_gnss(ptr noundef %0, ptr noundef %1, ptr no
   %160 = mul i32 8, %159
   %161 = add i32 8, %160
   %162 = call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %156, ptr noundef %157, i32 noundef %161, i32 noundef 4, i32 noundef -2147483648)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #7
   br label %163
 
 163:                                              ; preds = %154
   %164 = load i8, ptr %9, align 1
   %165 = add i8 %164, 1
   store i8 %165, ptr %9, align 1
-  br label %53, !llvm.loop !11
+  br label %53, !llvm.loop !13
 
 166:                                              ; preds = %53
   %167 = load ptr, ptr %5, align 8
   %168 = call i32 @tvb_captured_length(ptr noundef %167)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #7
   ret i32 %168
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ubx_cfg_sbas(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2187,18 +2282,20 @@ define internal i32 @dissect_ubx_cfg_sbas(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct._packet_info, ptr %12, i32 0, i32 1
+  %13 = getelementptr inbounds nuw %struct._packet_info, ptr %12, i32 0, i32 1
   %14 = load ptr, ptr %13, align 8
-  call void @col_set_str(ptr noundef %14, i32 noundef 34, ptr noundef @.str.36)
+  call void @col_set_str(ptr noundef %14, i32 noundef 35, ptr noundef @.str.36)
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct._packet_info, ptr %15, i32 0, i32 1
+  %16 = getelementptr inbounds nuw %struct._packet_info, ptr %15, i32 0, i32 1
   %17 = load ptr, ptr %16, align 8
   call void @col_clear(ptr noundef %17, i32 noundef 25)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
   %18 = load ptr, ptr %7, align 8
   %19 = load i32, ptr @hf_ubx_cfg_sbas, align 4
   %20 = load ptr, ptr %5, align 8
   %21 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %19, ptr noundef %20, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   store ptr %21, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
   %22 = load ptr, ptr %9, align 8
   %23 = load i32, ptr @ett_ubx_cfg_sbas, align 4
   %24 = call ptr @proto_item_add_subtree(ptr noundef %22, i32 noundef %23)
@@ -2224,10 +2321,11 @@ define internal i32 @dissect_ubx_cfg_sbas(ptr noundef %0, ptr noundef %1, ptr no
   %43 = load i32, ptr @hf_ubx_cfg_sbas_max_sbas, align 4
   %44 = load ptr, ptr %5, align 8
   %45 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
   %46 = load ptr, ptr %10, align 8
   %47 = load ptr, ptr %5, align 8
   %48 = load i32, ptr @ett_ubx_cfg_sbas_scanmode, align 4
-  %49 = call ptr @proto_tree_add_subtree(ptr noundef %46, ptr noundef %47, i32 noundef 3, i32 noundef 5, i32 noundef %48, ptr noundef null, ptr noundef @.str.759)
+  %49 = call ptr @proto_tree_add_subtree(ptr noundef %46, ptr noundef %47, i32 noundef 3, i32 noundef 5, i32 noundef %48, ptr noundef null, ptr noundef @.str.778)
   store ptr %49, ptr %11, align 8
   %50 = load ptr, ptr %11, align 8
   %51 = load i32, ptr @hf_ubx_cfg_sbas_scanmode_prn120, align 4
@@ -2387,10 +2485,13 @@ define internal i32 @dissect_ubx_cfg_sbas(ptr noundef %0, ptr noundef %1, ptr no
   %205 = call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %203, ptr noundef %204, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %206 = load ptr, ptr %5, align 8
   %207 = call i32 @tvb_captured_length(ptr noundef %206)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret i32 %207
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ubx_nav_dop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2403,18 +2504,20 @@ define internal i32 @dissect_ubx_nav_dop(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct._packet_info, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct._packet_info, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
-  call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef @.str.130)
+  call void @col_set_str(ptr noundef %13, i32 noundef 35, ptr noundef @.str.130)
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct._packet_info, ptr %14, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct._packet_info, ptr %14, i32 0, i32 1
   %16 = load ptr, ptr %15, align 8
   call void @col_clear(ptr noundef %16, i32 noundef 25)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
   %17 = load ptr, ptr %7, align 8
   %18 = load i32, ptr @hf_ubx_nav_dop, align 4
   %19 = load ptr, ptr %5, align 8
   %20 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %19, i32 noundef 0, i32 noundef 18, i32 noundef 0)
   store ptr %20, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
   %21 = load ptr, ptr %9, align 8
   %22 = load i32, ptr @ett_ubx_nav_dop, align 4
   %23 = call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22)
@@ -2453,10 +2556,12 @@ define internal i32 @dissect_ubx_nav_dop(ptr noundef %0, ptr noundef %1, ptr nou
   %55 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %53, ptr noundef %54, i32 noundef 16, i32 noundef 2, i32 noundef -2147483648)
   %56 = load ptr, ptr %5, align 8
   %57 = call i32 @tvb_captured_length(ptr noundef %56)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret i32 %57
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ubx_nav_eoe(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2469,18 +2574,20 @@ define internal i32 @dissect_ubx_nav_eoe(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct._packet_info, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct._packet_info, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
-  call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef @.str.148)
+  call void @col_set_str(ptr noundef %13, i32 noundef 35, ptr noundef @.str.148)
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct._packet_info, ptr %14, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct._packet_info, ptr %14, i32 0, i32 1
   %16 = load ptr, ptr %15, align 8
   call void @col_clear(ptr noundef %16, i32 noundef 25)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
   %17 = load ptr, ptr %7, align 8
   %18 = load i32, ptr @hf_ubx_nav_eoe, align 4
   %19 = load ptr, ptr %5, align 8
   %20 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %19, i32 noundef 0, i32 noundef 4, i32 noundef 0)
   store ptr %20, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
   %21 = load ptr, ptr %9, align 8
   %22 = load i32, ptr @ett_ubx_nav_eoe, align 4
   %23 = call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22)
@@ -2491,10 +2598,12 @@ define internal i32 @dissect_ubx_nav_eoe(ptr noundef %0, ptr noundef %1, ptr nou
   %27 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %25, ptr noundef %26, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
   %28 = load ptr, ptr %5, align 8
   %29 = call i32 @tvb_captured_length(ptr noundef %28)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret i32 %29
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ubx_nav_odo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2507,18 +2616,20 @@ define internal i32 @dissect_ubx_nav_odo(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct._packet_info, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct._packet_info, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
-  call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef @.str.151)
+  call void @col_set_str(ptr noundef %13, i32 noundef 35, ptr noundef @.str.151)
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct._packet_info, ptr %14, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct._packet_info, ptr %14, i32 0, i32 1
   %16 = load ptr, ptr %15, align 8
   call void @col_clear(ptr noundef %16, i32 noundef 25)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
   %17 = load ptr, ptr %7, align 8
   %18 = load i32, ptr @hf_ubx_nav_odo, align 4
   %19 = load ptr, ptr %5, align 8
   %20 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %19, i32 noundef 0, i32 noundef 20, i32 noundef 0)
   store ptr %20, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
   %21 = load ptr, ptr %9, align 8
   %22 = load i32, ptr @ett_ubx_nav_odo, align 4
   %23 = call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22)
@@ -2549,10 +2660,12 @@ define internal i32 @dissect_ubx_nav_odo(ptr noundef %0, ptr noundef %1, ptr nou
   %47 = call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %45, ptr noundef %46, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648)
   %48 = load ptr, ptr %5, align 8
   %49 = call i32 @tvb_captured_length(ptr noundef %48)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret i32 %49
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ubx_nav_posecef(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2565,18 +2678,20 @@ define internal i32 @dissect_ubx_nav_posecef(ptr noundef %0, ptr noundef %1, ptr
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct._packet_info, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct._packet_info, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
-  call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef @.str.162)
+  call void @col_set_str(ptr noundef %13, i32 noundef 35, ptr noundef @.str.162)
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct._packet_info, ptr %14, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct._packet_info, ptr %14, i32 0, i32 1
   %16 = load ptr, ptr %15, align 8
   call void @col_clear(ptr noundef %16, i32 noundef 25)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
   %17 = load ptr, ptr %7, align 8
   %18 = load i32, ptr @hf_ubx_nav_posecef, align 4
   %19 = load ptr, ptr %5, align 8
   %20 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %19, i32 noundef 0, i32 noundef 20, i32 noundef 0)
   store ptr %20, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
   %21 = load ptr, ptr %9, align 8
   %22 = load i32, ptr @ett_ubx_nav_posecef, align 4
   %23 = call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22)
@@ -2603,10 +2718,12 @@ define internal i32 @dissect_ubx_nav_posecef(ptr noundef %0, ptr noundef %1, ptr
   %43 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648)
   %44 = load ptr, ptr %5, align 8
   %45 = call i32 @tvb_captured_length(ptr noundef %44)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret i32 %45
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ubx_nav_pvt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2626,18 +2743,20 @@ define internal i32 @dissect_ubx_nav_pvt(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
   %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct._packet_info, ptr %18, i32 0, i32 1
+  %19 = getelementptr inbounds nuw %struct._packet_info, ptr %18, i32 0, i32 1
   %20 = load ptr, ptr %19, align 8
-  call void @col_set_str(ptr noundef %20, i32 noundef 34, ptr noundef @.str.173)
+  call void @col_set_str(ptr noundef %20, i32 noundef 35, ptr noundef @.str.173)
   %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct._packet_info, ptr %21, i32 0, i32 1
+  %22 = getelementptr inbounds nuw %struct._packet_info, ptr %21, i32 0, i32 1
   %23 = load ptr, ptr %22, align 8
   call void @col_clear(ptr noundef %23, i32 noundef 25)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
   %24 = load ptr, ptr %7, align 8
   %25 = load i32, ptr @hf_ubx_nav_pvt, align 4
   %26 = load ptr, ptr %5, align 8
   %27 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %25, ptr noundef %26, i32 noundef 0, i32 noundef 92, i32 noundef 0)
   store ptr %27, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
   %28 = load ptr, ptr %9, align 8
   %29 = load i32, ptr @ett_ubx_nav_pvt, align 4
   %30 = call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29)
@@ -2646,24 +2765,31 @@ define internal i32 @dissect_ubx_nav_pvt(ptr noundef %0, ptr noundef %1, ptr nou
   %32 = load i32, ptr @hf_ubx_nav_pvt_itow, align 4
   %33 = load ptr, ptr %5, align 8
   %34 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %32, ptr noundef %33, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #7
   %35 = load ptr, ptr %5, align 8
-  %36 = call signext i16 @tvb_get_gint16(ptr noundef %35, i32 noundef 4, i32 noundef -2147483648)
+  %36 = call signext i16 @tvb_get_int16(ptr noundef %35, i32 noundef 4, i32 noundef -2147483648)
   store i16 %36, ptr %11, align 2
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #7
   %37 = load ptr, ptr %5, align 8
-  %38 = call signext i8 @tvb_get_gint8(ptr noundef %37, i32 noundef 6)
+  %38 = call signext i8 @tvb_get_int8(ptr noundef %37, i32 noundef 6)
   store i8 %38, ptr %12, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #7
   %39 = load ptr, ptr %5, align 8
-  %40 = call signext i8 @tvb_get_gint8(ptr noundef %39, i32 noundef 7)
+  %40 = call signext i8 @tvb_get_int8(ptr noundef %39, i32 noundef 7)
   store i8 %40, ptr %13, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #7
   %41 = load ptr, ptr %5, align 8
-  %42 = call signext i8 @tvb_get_gint8(ptr noundef %41, i32 noundef 8)
+  %42 = call signext i8 @tvb_get_int8(ptr noundef %41, i32 noundef 8)
   store i8 %42, ptr %14, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #7
   %43 = load ptr, ptr %5, align 8
-  %44 = call signext i8 @tvb_get_gint8(ptr noundef %43, i32 noundef 9)
+  %44 = call signext i8 @tvb_get_int8(ptr noundef %43, i32 noundef 9)
   store i8 %44, ptr %15, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #7
   %45 = load ptr, ptr %5, align 8
-  %46 = call signext i8 @tvb_get_gint8(ptr noundef %45, i32 noundef 10)
+  %46 = call signext i8 @tvb_get_int8(ptr noundef %45, i32 noundef 10)
   store i8 %46, ptr %16, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
   %47 = load ptr, ptr %10, align 8
   %48 = load ptr, ptr %5, align 8
   %49 = load i32, ptr @ett_ubx_nav_pvt_datetime, align 4
@@ -2679,7 +2805,7 @@ define internal i32 @dissect_ubx_nav_pvt(ptr noundef %0, ptr noundef %1, ptr nou
   %59 = zext i8 %58 to i32
   %60 = load i8, ptr %16, align 1
   %61 = zext i8 %60 to i32
-  %62 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %47, ptr noundef %48, i32 noundef 4, i32 noundef 7, i32 noundef %49, ptr noundef null, ptr noundef @.str.760, i32 noundef %51, i32 noundef %53, i32 noundef %55, i32 noundef %57, i32 noundef %59, i32 noundef %61)
+  %62 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %47, ptr noundef %48, i32 noundef 4, i32 noundef 7, i32 noundef %49, ptr noundef null, ptr noundef @.str.779, i32 noundef %51, i32 noundef %53, i32 noundef %55, i32 noundef %57, i32 noundef %59, i32 noundef %61)
   store ptr %62, ptr %17, align 8
   %63 = load ptr, ptr %17, align 8
   %64 = load i32, ptr @hf_ubx_nav_pvt_year, align 4
@@ -2818,10 +2944,19 @@ define internal i32 @dissect_ubx_nav_pvt(ptr noundef %0, ptr noundef %1, ptr nou
   %197 = call ptr @proto_tree_add_item(ptr noundef %194, i32 noundef %195, ptr noundef %196, i32 noundef 90, i32 noundef 2, i32 noundef -2147483648)
   %198 = load ptr, ptr %5, align 8
   %199 = call i32 @tvb_captured_length(ptr noundef %198)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret i32 %199
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ubx_nav_sat(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2839,18 +2974,21 @@ define internal i32 @dissect_ubx_nav_sat(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
   %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct._packet_info, ptr %17, i32 0, i32 1
+  %18 = getelementptr inbounds nuw %struct._packet_info, ptr %17, i32 0, i32 1
   %19 = load ptr, ptr %18, align 8
-  call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef @.str.263)
+  call void @col_set_str(ptr noundef %19, i32 noundef 35, ptr noundef @.str.263)
   %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct._packet_info, ptr %20, i32 0, i32 1
+  %21 = getelementptr inbounds nuw %struct._packet_info, ptr %20, i32 0, i32 1
   %22 = load ptr, ptr %21, align 8
   call void @col_clear(ptr noundef %22, i32 noundef 25)
   %23 = load ptr, ptr %5, align 8
-  %24 = call zeroext i8 @tvb_get_guint8(ptr noundef %23, i32 noundef 5)
+  %24 = call zeroext i8 @tvb_get_uint8(ptr noundef %23, i32 noundef 5)
   %25 = zext i8 %24 to i32
   store i32 %25, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
   %26 = load ptr, ptr %7, align 8
   %27 = load i32, ptr @hf_ubx_nav_sat, align 4
   %28 = load ptr, ptr %5, align 8
@@ -2859,6 +2997,7 @@ define internal i32 @dissect_ubx_nav_sat(ptr noundef %0, ptr noundef %1, ptr nou
   %31 = add i32 8, %30
   %32 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %28, i32 noundef 0, i32 noundef %31, i32 noundef 0)
   store ptr %32, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
   %33 = load ptr, ptr %11, align 8
   %34 = load i32, ptr @ett_ubx_nav_sat, align 4
   %35 = call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34)
@@ -2890,29 +3029,33 @@ define internal i32 @dissect_ubx_nav_sat(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %56, label %57, label %155
 
 57:                                               ; preds = %52
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #7
   %58 = load ptr, ptr %5, align 8
   %59 = load i16, ptr %9, align 2
   %60 = zext i16 %59 to i32
   %61 = mul i32 12, %60
   %62 = add i32 8, %61
-  %63 = call zeroext i8 @tvb_get_guint8(ptr noundef %58, i32 noundef %62)
+  %63 = call zeroext i8 @tvb_get_uint8(ptr noundef %58, i32 noundef %62)
   store i8 %63, ptr %13, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #7
   %64 = load ptr, ptr %5, align 8
   %65 = load i16, ptr %9, align 2
   %66 = zext i16 %65 to i32
   %67 = mul i32 12, %66
   %68 = add i32 9, %67
-  %69 = call zeroext i8 @tvb_get_guint8(ptr noundef %64, i32 noundef %68)
+  %69 = call zeroext i8 @tvb_get_uint8(ptr noundef %64, i32 noundef %68)
   store i8 %69, ptr %14, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #7
   %70 = load ptr, ptr %5, align 8
   %71 = load i16, ptr %9, align 2
   %72 = zext i16 %71 to i32
   %73 = mul i32 12, %72
   %74 = add i32 16, %73
-  %75 = call i32 @tvb_get_guint32(ptr noundef %70, i32 noundef %74, i32 noundef -2147483648)
+  %75 = call i32 @tvb_get_uint32(ptr noundef %70, i32 noundef %74, i32 noundef -2147483648)
   %76 = and i32 %75, 8
   %77 = lshr i32 %76, 3
   store i32 %77, ptr %15, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
   %78 = load ptr, ptr %12, align 8
   %79 = load ptr, ptr %5, align 8
   %80 = load i16, ptr %9, align 2
@@ -2925,11 +3068,11 @@ define internal i32 @dissect_ubx_nav_sat(ptr noundef %0, ptr noundef %1, ptr nou
   %87 = load i32, ptr %86, align 4
   %88 = load i8, ptr %13, align 1
   %89 = zext i8 %88 to i32
-  %90 = call ptr @val_to_str_const(i32 noundef %89, ptr noundef @UBX_GNSS_ID, ptr noundef @.str.758)
+  %90 = call ptr @val_to_str_const(i32 noundef %89, ptr noundef @UBX_GNSS_ID, ptr noundef @.str.777)
   %91 = load i8, ptr %14, align 1
   %92 = zext i8 %91 to i32
   %93 = load i32, ptr %15, align 4
-  %94 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %78, ptr noundef %79, i32 noundef %83, i32 noundef 12, i32 noundef %87, ptr noundef null, ptr noundef @.str.761, ptr noundef %90, i32 noundef %92, i32 noundef %93)
+  %94 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %78, ptr noundef %79, i32 noundef %83, i32 noundef 12, i32 noundef %87, ptr noundef null, ptr noundef @.str.780, ptr noundef %90, i32 noundef %92, i32 noundef %93)
   store ptr %94, ptr %16, align 8
   %95 = load ptr, ptr %16, align 8
   %96 = load i32, ptr @hf_ubx_nav_sat_gnss_id, align 4
@@ -2988,21 +3131,29 @@ define internal i32 @dissect_ubx_nav_sat(ptr noundef %0, ptr noundef %1, ptr nou
   %149 = load i32, ptr @hf_ubx_nav_sat_flags, align 4
   %150 = load i32, ptr @ett_ubx_nav_sat_flags, align 4
   %151 = call ptr @proto_tree_add_bitmask(ptr noundef %143, ptr noundef %144, i32 noundef %148, i32 noundef %149, i32 noundef %150, ptr noundef @ubx_nav_sat_flags_fields, i32 noundef -2147483648)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #7
   br label %152
 
 152:                                              ; preds = %57
   %153 = load i16, ptr %9, align 2
   %154 = add i16 %153, 1
   store i16 %154, ptr %9, align 2
-  br label %52, !llvm.loop !12
+  br label %52, !llvm.loop !14
 
 155:                                              ; preds = %52
   %156 = load ptr, ptr %5, align 8
   %157 = call i32 @tvb_captured_length(ptr noundef %156)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #7
   ret i32 %157
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ubx_nav_sbas(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3018,18 +3169,21 @@ define internal i32 @dissect_ubx_nav_sbas(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct._packet_info, ptr %15, i32 0, i32 1
+  %16 = getelementptr inbounds nuw %struct._packet_info, ptr %15, i32 0, i32 1
   %17 = load ptr, ptr %16, align 8
-  call void @col_set_str(ptr noundef %17, i32 noundef 34, ptr noundef @.str.317)
+  call void @col_set_str(ptr noundef %17, i32 noundef 35, ptr noundef @.str.317)
   %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct._packet_info, ptr %18, i32 0, i32 1
+  %19 = getelementptr inbounds nuw %struct._packet_info, ptr %18, i32 0, i32 1
   %20 = load ptr, ptr %19, align 8
   call void @col_clear(ptr noundef %20, i32 noundef 25)
   %21 = load ptr, ptr %5, align 8
-  %22 = call zeroext i8 @tvb_get_guint8(ptr noundef %21, i32 noundef 8)
+  %22 = call zeroext i8 @tvb_get_uint8(ptr noundef %21, i32 noundef 8)
   %23 = zext i8 %22 to i32
   store i32 %23, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
   %24 = load ptr, ptr %7, align 8
   %25 = load i32, ptr @hf_ubx_nav_sbas, align 4
   %26 = load ptr, ptr %5, align 8
@@ -3038,6 +3192,7 @@ define internal i32 @dissect_ubx_nav_sbas(ptr noundef %0, ptr noundef %1, ptr no
   %29 = add i32 12, %28
   %30 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %25, ptr noundef %26, i32 noundef 0, i32 noundef %29, i32 noundef 0)
   store ptr %30, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
   %31 = load ptr, ptr %11, align 8
   %32 = load i32, ptr @ett_ubx_nav_sbas, align 4
   %33 = call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32)
@@ -3082,13 +3237,15 @@ define internal i32 @dissect_ubx_nav_sbas(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %67, label %68, label %163
 
 68:                                               ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #7
   %69 = load ptr, ptr %5, align 8
   %70 = load i16, ptr %9, align 2
   %71 = zext i16 %70 to i32
   %72 = mul i32 12, %71
   %73 = add i32 12, %72
-  %74 = call zeroext i8 @tvb_get_guint8(ptr noundef %69, i32 noundef %73)
+  %74 = call zeroext i8 @tvb_get_uint8(ptr noundef %69, i32 noundef %73)
   store i8 %74, ptr %13, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
   %75 = load ptr, ptr %12, align 8
   %76 = load ptr, ptr %5, align 8
   %77 = load i16, ptr %9, align 2
@@ -3101,7 +3258,7 @@ define internal i32 @dissect_ubx_nav_sbas(ptr noundef %0, ptr noundef %1, ptr no
   %84 = load i32, ptr %83, align 4
   %85 = load i8, ptr %13, align 1
   %86 = zext i8 %85 to i32
-  %87 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %75, ptr noundef %76, i32 noundef %80, i32 noundef 12, i32 noundef %84, ptr noundef null, ptr noundef @.str.762, i32 noundef %86)
+  %87 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %75, ptr noundef %76, i32 noundef %80, i32 noundef 12, i32 noundef %84, ptr noundef null, ptr noundef @.str.781, i32 noundef %86)
   store ptr %87, ptr %14, align 8
   %88 = load ptr, ptr %14, align 8
   %89 = load i32, ptr @hf_ubx_nav_sbas_sv_id, align 4
@@ -3175,21 +3332,27 @@ define internal i32 @dissect_ubx_nav_sbas(ptr noundef %0, ptr noundef %1, ptr no
   %157 = mul i32 12, %156
   %158 = add i32 22, %157
   %159 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %153, ptr noundef %154, i32 noundef %158, i32 noundef 2, i32 noundef -2147483648)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #7
   br label %160
 
 160:                                              ; preds = %68
   %161 = load i16, ptr %9, align 2
   %162 = add i16 %161, 1
   store i16 %162, ptr %9, align 2
-  br label %63, !llvm.loop !13
+  br label %63, !llvm.loop !15
 
 163:                                              ; preds = %63
   %164 = load ptr, ptr %5, align 8
   %165 = call i32 @tvb_captured_length(ptr noundef %164)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #7
   ret i32 %165
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ubx_nav_timegps(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3204,28 +3367,32 @@ define internal i32 @dissect_ubx_nav_timegps(ptr noundef %0, ptr noundef %1, ptr
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct._packet_info, ptr %14, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct._packet_info, ptr %14, i32 0, i32 1
   %16 = load ptr, ptr %15, align 8
-  call void @col_set_str(ptr noundef %16, i32 noundef 34, ptr noundef @.str.356)
+  call void @col_set_str(ptr noundef %16, i32 noundef 35, ptr noundef @.str.356)
   %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct._packet_info, ptr %17, i32 0, i32 1
+  %18 = getelementptr inbounds nuw %struct._packet_info, ptr %17, i32 0, i32 1
   %19 = load ptr, ptr %18, align 8
   call void @col_clear(ptr noundef %19, i32 noundef 25)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
   %20 = load ptr, ptr %7, align 8
   %21 = load i32, ptr @hf_ubx_nav_timegps, align 4
   %22 = load ptr, ptr %5, align 8
   %23 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %21, ptr noundef %22, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   store ptr %23, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
   %24 = load ptr, ptr %11, align 8
   %25 = load i32, ptr @ett_ubx_nav_timegps, align 4
   %26 = call ptr @proto_item_add_subtree(ptr noundef %24, i32 noundef %25)
   store ptr %26, ptr %12, align 8
   %27 = load ptr, ptr %5, align 8
-  %28 = call i32 @tvb_get_guint32(ptr noundef %27, i32 noundef 0, i32 noundef -2147483648)
+  %28 = call i32 @tvb_get_uint32(ptr noundef %27, i32 noundef 0, i32 noundef -2147483648)
   store i32 %28, ptr %9, align 4
   %29 = load ptr, ptr %5, align 8
-  %30 = call i32 @tvb_get_gint32(ptr noundef %29, i32 noundef 4, i32 noundef -2147483648)
+  %30 = call i32 @tvb_get_int32(ptr noundef %29, i32 noundef 4, i32 noundef -2147483648)
   store i32 %30, ptr %10, align 4
   %31 = load i32, ptr %9, align 4
   %32 = urem i32 %31, 1000
@@ -3250,12 +3417,13 @@ define internal i32 @dissect_ubx_nav_timegps(ptr noundef %0, ptr noundef %1, ptr
   br label %45
 
 45:                                               ; preds = %40, %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
   %46 = load ptr, ptr %12, align 8
   %47 = load ptr, ptr %5, align 8
   %48 = load i32, ptr @ett_ubx_nav_timegps_tow, align 4
   %49 = load i32, ptr %9, align 4
   %50 = load i32, ptr %10, align 4
-  %51 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %46, ptr noundef %47, i32 noundef 0, i32 noundef 8, i32 noundef %48, ptr noundef null, ptr noundef @.str.763, i32 noundef %49, i32 noundef %50)
+  %51 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %46, ptr noundef %47, i32 noundef 0, i32 noundef 8, i32 noundef %48, ptr noundef null, ptr noundef @.str.782, i32 noundef %49, i32 noundef %50)
   store ptr %51, ptr %13, align 8
   %52 = load ptr, ptr %13, align 8
   %53 = load i32, ptr @hf_ubx_nav_timegps_itow, align 4
@@ -3284,10 +3452,15 @@ define internal i32 @dissect_ubx_nav_timegps(ptr noundef %0, ptr noundef %1, ptr
   %76 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %74, ptr noundef %75, i32 noundef 12, i32 noundef 4, i32 noundef -2147483648)
   %77 = load ptr, ptr %5, align 8
   %78 = call i32 @tvb_captured_length(ptr noundef %77)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
   ret i32 %78
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ubx_nav_timeutc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3300,18 +3473,20 @@ define internal i32 @dissect_ubx_nav_timeutc(ptr noundef %0, ptr noundef %1, ptr
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct._packet_info, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct._packet_info, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
-  call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef @.str.373)
+  call void @col_set_str(ptr noundef %13, i32 noundef 35, ptr noundef @.str.373)
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct._packet_info, ptr %14, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct._packet_info, ptr %14, i32 0, i32 1
   %16 = load ptr, ptr %15, align 8
   call void @col_clear(ptr noundef %16, i32 noundef 25)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
   %17 = load ptr, ptr %7, align 8
   %18 = load i32, ptr @hf_ubx_nav_timeutc, align 4
   %19 = load ptr, ptr %5, align 8
   %20 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %19, i32 noundef 0, i32 noundef 20, i32 noundef 0)
   store ptr %20, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
   %21 = load ptr, ptr %9, align 8
   %22 = load i32, ptr @ett_ubx_nav_timeutc, align 4
   %23 = call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22)
@@ -3359,10 +3534,12 @@ define internal i32 @dissect_ubx_nav_timeutc(ptr noundef %0, ptr noundef %1, ptr
   %64 = call ptr @proto_tree_add_bitmask(ptr noundef %60, ptr noundef %61, i32 noundef 19, i32 noundef %62, i32 noundef %63, ptr noundef @ubx_nav_timeutc_valid_fields, i32 noundef 0)
   %65 = load ptr, ptr %5, align 8
   %66 = call i32 @tvb_captured_length(ptr noundef %65)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret i32 %66
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ubx_nav_velecef(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3375,18 +3552,20 @@ define internal i32 @dissect_ubx_nav_velecef(ptr noundef %0, ptr noundef %1, ptr
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct._packet_info, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct._packet_info, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
-  call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef @.str.398)
+  call void @col_set_str(ptr noundef %13, i32 noundef 35, ptr noundef @.str.398)
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct._packet_info, ptr %14, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct._packet_info, ptr %14, i32 0, i32 1
   %16 = load ptr, ptr %15, align 8
   call void @col_clear(ptr noundef %16, i32 noundef 25)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
   %17 = load ptr, ptr %7, align 8
   %18 = load i32, ptr @hf_ubx_nav_velecef, align 4
   %19 = load ptr, ptr %5, align 8
   %20 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %19, i32 noundef 0, i32 noundef 20, i32 noundef 0)
   store ptr %20, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
   %21 = load ptr, ptr %9, align 8
   %22 = load i32, ptr @ett_ubx_nav_velecef, align 4
   %23 = call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22)
@@ -3413,10 +3592,12 @@ define internal i32 @dissect_ubx_nav_velecef(ptr noundef %0, ptr noundef %1, ptr
   %43 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648)
   %44 = load ptr, ptr %5, align 8
   %45 = call i32 @tvb_captured_length(ptr noundef %44)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret i32 %45
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ubx_rxm_measx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3434,18 +3615,21 @@ define internal i32 @dissect_ubx_rxm_measx(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
   %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct._packet_info, ptr %17, i32 0, i32 1
+  %18 = getelementptr inbounds nuw %struct._packet_info, ptr %17, i32 0, i32 1
   %19 = load ptr, ptr %18, align 8
-  call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef @.str.408)
+  call void @col_set_str(ptr noundef %19, i32 noundef 35, ptr noundef @.str.408)
   %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct._packet_info, ptr %20, i32 0, i32 1
+  %21 = getelementptr inbounds nuw %struct._packet_info, ptr %20, i32 0, i32 1
   %22 = load ptr, ptr %21, align 8
   call void @col_clear(ptr noundef %22, i32 noundef 25)
   %23 = load ptr, ptr %5, align 8
-  %24 = call zeroext i8 @tvb_get_guint8(ptr noundef %23, i32 noundef 34)
+  %24 = call zeroext i8 @tvb_get_uint8(ptr noundef %23, i32 noundef 34)
   %25 = zext i8 %24 to i32
   store i32 %25, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
   %26 = load ptr, ptr %7, align 8
   %27 = load i32, ptr @hf_ubx_rxm_measx, align 4
   %28 = load ptr, ptr %5, align 8
@@ -3454,6 +3638,7 @@ define internal i32 @dissect_ubx_rxm_measx(ptr noundef %0, ptr noundef %1, ptr n
   %31 = add i32 44, %30
   %32 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %28, i32 noundef 0, i32 noundef %31, i32 noundef 0)
   store ptr %32, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
   %33 = load ptr, ptr %11, align 8
   %34 = load i32, ptr @ett_ubx_rxm_measx, align 4
   %35 = call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34)
@@ -3528,24 +3713,28 @@ define internal i32 @dissect_ubx_rxm_measx(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %99, label %100, label %220
 
 100:                                              ; preds = %96
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #7
   %101 = load ptr, ptr %5, align 8
   %102 = load i32, ptr %9, align 4
   %103 = mul i32 24, %102
   %104 = add i32 44, %103
-  %105 = call zeroext i8 @tvb_get_guint8(ptr noundef %101, i32 noundef %104)
+  %105 = call zeroext i8 @tvb_get_uint8(ptr noundef %101, i32 noundef %104)
   store i8 %105, ptr %13, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #7
   %106 = load ptr, ptr %5, align 8
   %107 = load i32, ptr %9, align 4
   %108 = mul i32 24, %107
   %109 = add i32 45, %108
-  %110 = call zeroext i8 @tvb_get_guint8(ptr noundef %106, i32 noundef %109)
+  %110 = call zeroext i8 @tvb_get_uint8(ptr noundef %106, i32 noundef %109)
   store i8 %110, ptr %14, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #7
   %111 = load ptr, ptr %5, align 8
   %112 = load i32, ptr %9, align 4
   %113 = mul i32 24, %112
   %114 = add i32 46, %113
-  %115 = call zeroext i8 @tvb_get_guint8(ptr noundef %111, i32 noundef %114)
+  %115 = call zeroext i8 @tvb_get_uint8(ptr noundef %111, i32 noundef %114)
   store i8 %115, ptr %15, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
   %116 = load ptr, ptr %12, align 8
   %117 = load ptr, ptr %5, align 8
   %118 = load i32, ptr %9, align 4
@@ -3557,12 +3746,12 @@ define internal i32 @dissect_ubx_rxm_measx(ptr noundef %0, ptr noundef %1, ptr n
   %124 = load i32, ptr %123, align 4
   %125 = load i8, ptr %13, align 1
   %126 = zext i8 %125 to i32
-  %127 = call ptr @val_to_str_const(i32 noundef %126, ptr noundef @UBX_GNSS_ID, ptr noundef @.str.758)
+  %127 = call ptr @val_to_str_const(i32 noundef %126, ptr noundef @UBX_GNSS_ID, ptr noundef @.str.777)
   %128 = load i8, ptr %14, align 1
   %129 = zext i8 %128 to i32
   %130 = load i8, ptr %15, align 1
   %131 = zext i8 %130 to i32
-  %132 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %116, ptr noundef %117, i32 noundef %120, i32 noundef 24, i32 noundef %124, ptr noundef null, ptr noundef @.str.764, ptr noundef %127, i32 noundef %129, i32 noundef %131)
+  %132 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %116, ptr noundef %117, i32 noundef %120, i32 noundef 24, i32 noundef %124, ptr noundef null, ptr noundef @.str.783, ptr noundef %127, i32 noundef %129, i32 noundef %131)
   store ptr %132, ptr %16, align 8
   %133 = load ptr, ptr %16, align 8
   %134 = load i32, ptr @hf_ubx_rxm_measx_gnssid, align 4
@@ -3648,21 +3837,29 @@ define internal i32 @dissect_ubx_rxm_measx(ptr noundef %0, ptr noundef %1, ptr n
   %214 = mul i32 24, %213
   %215 = add i32 66, %214
   %216 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %211, ptr noundef %212, i32 noundef %215, i32 noundef 2, i32 noundef -2147483648)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #7
   br label %217
 
 217:                                              ; preds = %100
   %218 = load i32, ptr %9, align 4
   %219 = add i32 %218, 1
   store i32 %219, ptr %9, align 4
-  br label %96, !llvm.loop !14
+  br label %96, !llvm.loop !16
 
 220:                                              ; preds = %96
   %221 = load ptr, ptr %5, align 8
   %222 = call i32 @tvb_captured_length(ptr noundef %221)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
   ret i32 %222
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ubx_rxm_rawx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3680,18 +3877,21 @@ define internal i32 @dissect_ubx_rxm_rawx(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
   %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct._packet_info, ptr %17, i32 0, i32 1
+  %18 = getelementptr inbounds nuw %struct._packet_info, ptr %17, i32 0, i32 1
   %19 = load ptr, ptr %18, align 8
-  call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef @.str.456)
+  call void @col_set_str(ptr noundef %19, i32 noundef 35, ptr noundef @.str.456)
   %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct._packet_info, ptr %20, i32 0, i32 1
+  %21 = getelementptr inbounds nuw %struct._packet_info, ptr %20, i32 0, i32 1
   %22 = load ptr, ptr %21, align 8
   call void @col_clear(ptr noundef %22, i32 noundef 25)
   %23 = load ptr, ptr %5, align 8
-  %24 = call zeroext i8 @tvb_get_guint8(ptr noundef %23, i32 noundef 11)
+  %24 = call zeroext i8 @tvb_get_uint8(ptr noundef %23, i32 noundef 11)
   %25 = zext i8 %24 to i32
   store i32 %25, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
   %26 = load ptr, ptr %7, align 8
   %27 = load i32, ptr @hf_ubx_rxm_rawx, align 4
   %28 = load ptr, ptr %5, align 8
@@ -3700,6 +3900,7 @@ define internal i32 @dissect_ubx_rxm_rawx(ptr noundef %0, ptr noundef %1, ptr no
   %31 = add i32 16, %30
   %32 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %28, i32 noundef 0, i32 noundef %31, i32 noundef 0)
   store ptr %32, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
   %33 = load ptr, ptr %11, align 8
   %34 = load i32, ptr @ett_ubx_rxm_rawx, align 4
   %35 = call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34)
@@ -3736,31 +3937,35 @@ define internal i32 @dissect_ubx_rxm_rawx(ptr noundef %0, ptr noundef %1, ptr no
   store i32 0, ptr %9, align 4
   br label %65
 
-65:                                               ; preds = %198, %4
+65:                                               ; preds = %201, %4
   %66 = load i32, ptr %9, align 4
   %67 = load i32, ptr %10, align 4
   %68 = icmp ult i32 %66, %67
-  br i1 %68, label %69, label %201
+  br i1 %68, label %69, label %204
 
 69:                                               ; preds = %65
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #7
   %70 = load ptr, ptr %5, align 8
   %71 = load i32, ptr %9, align 4
   %72 = mul i32 32, %71
   %73 = add i32 36, %72
-  %74 = call zeroext i8 @tvb_get_guint8(ptr noundef %70, i32 noundef %73)
+  %74 = call zeroext i8 @tvb_get_uint8(ptr noundef %70, i32 noundef %73)
   store i8 %74, ptr %13, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #7
   %75 = load ptr, ptr %5, align 8
   %76 = load i32, ptr %9, align 4
   %77 = mul i32 32, %76
   %78 = add i32 37, %77
-  %79 = call zeroext i8 @tvb_get_guint8(ptr noundef %75, i32 noundef %78)
+  %79 = call zeroext i8 @tvb_get_uint8(ptr noundef %75, i32 noundef %78)
   store i8 %79, ptr %14, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #7
   %80 = load ptr, ptr %5, align 8
   %81 = load i32, ptr %9, align 4
   %82 = mul i32 32, %81
   %83 = add i32 42, %82
-  %84 = call zeroext i8 @tvb_get_guint8(ptr noundef %80, i32 noundef %83)
+  %84 = call zeroext i8 @tvb_get_uint8(ptr noundef %80, i32 noundef %83)
   store i8 %84, ptr %15, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
   %85 = load ptr, ptr %12, align 8
   %86 = load ptr, ptr %5, align 8
   %87 = load i32, ptr %9, align 4
@@ -3772,12 +3977,12 @@ define internal i32 @dissect_ubx_rxm_rawx(ptr noundef %0, ptr noundef %1, ptr no
   %93 = load i32, ptr %92, align 4
   %94 = load i8, ptr %13, align 1
   %95 = zext i8 %94 to i32
-  %96 = call ptr @val_to_str_const(i32 noundef %95, ptr noundef @UBX_GNSS_ID, ptr noundef @.str.758)
+  %96 = call ptr @val_to_str_const(i32 noundef %95, ptr noundef @UBX_GNSS_ID, ptr noundef @.str.777)
   %97 = load i8, ptr %14, align 1
   %98 = zext i8 %97 to i32
   %99 = load i8, ptr %15, align 1
   %100 = zext i8 %99 to i32
-  %101 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %85, ptr noundef %86, i32 noundef %89, i32 noundef 32, i32 noundef %93, ptr noundef null, ptr noundef @.str.764, ptr noundef %96, i32 noundef %98, i32 noundef %100)
+  %101 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %85, ptr noundef %86, i32 noundef %89, i32 noundef 32, i32 noundef %93, ptr noundef null, ptr noundef @.str.783, ptr noundef %96, i32 noundef %98, i32 noundef %100)
   store ptr %101, ptr %16, align 8
   %102 = load ptr, ptr %16, align 8
   %103 = load i32, ptr @hf_ubx_rxm_rawx_prmes, align 4
@@ -3865,31 +4070,42 @@ define internal i32 @dissect_ubx_rxm_rawx(ptr noundef %0, ptr noundef %1, ptr no
   %185 = call ptr @proto_tree_add_item(ptr noundef %179, i32 noundef %180, ptr noundef %181, i32 noundef %184, i32 noundef 1, i32 noundef 0)
   %186 = load ptr, ptr %16, align 8
   %187 = load ptr, ptr %5, align 8
-  %188 = load i32, ptr @hf_ubx_rxm_rawx_trkstat, align 4
-  %189 = load i32, ptr @ett_ubx_rxm_rawx_trkstat, align 4
-  %190 = call ptr @proto_tree_add_bitmask(ptr noundef %186, ptr noundef %187, i32 noundef 46, i32 noundef %188, i32 noundef %189, ptr noundef @ubx_rxm_rawx_trkstat_fields, i32 noundef 0)
-  %191 = load ptr, ptr %16, align 8
-  %192 = load i32, ptr @hf_ubx_rxm_rawx_reserved2, align 4
-  %193 = load ptr, ptr %5, align 8
-  %194 = load i32, ptr %9, align 4
-  %195 = mul i32 32, %194
-  %196 = add i32 47, %195
-  %197 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %192, ptr noundef %193, i32 noundef %196, i32 noundef 1, i32 noundef 0)
-  br label %198
+  %188 = load i32, ptr %9, align 4
+  %189 = mul i32 32, %188
+  %190 = add i32 46, %189
+  %191 = load i32, ptr @hf_ubx_rxm_rawx_trkstat, align 4
+  %192 = load i32, ptr @ett_ubx_rxm_rawx_trkstat, align 4
+  %193 = call ptr @proto_tree_add_bitmask(ptr noundef %186, ptr noundef %187, i32 noundef %190, i32 noundef %191, i32 noundef %192, ptr noundef @ubx_rxm_rawx_trkstat_fields, i32 noundef 0)
+  %194 = load ptr, ptr %16, align 8
+  %195 = load i32, ptr @hf_ubx_rxm_rawx_reserved2, align 4
+  %196 = load ptr, ptr %5, align 8
+  %197 = load i32, ptr %9, align 4
+  %198 = mul i32 32, %197
+  %199 = add i32 47, %198
+  %200 = call ptr @proto_tree_add_item(ptr noundef %194, i32 noundef %195, ptr noundef %196, i32 noundef %199, i32 noundef 1, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #7
+  br label %201
 
-198:                                              ; preds = %69
-  %199 = load i32, ptr %9, align 4
-  %200 = add i32 %199, 1
-  store i32 %200, ptr %9, align 4
-  br label %65, !llvm.loop !15
+201:                                              ; preds = %69
+  %202 = load i32, ptr %9, align 4
+  %203 = add i32 %202, 1
+  store i32 %203, ptr %9, align 4
+  br label %65, !llvm.loop !17
 
-201:                                              ; preds = %65
-  %202 = load ptr, ptr %5, align 8
-  %203 = call i32 @tvb_captured_length(ptr noundef %202)
-  ret i32 %203
+204:                                              ; preds = %65
+  %205 = load ptr, ptr %5, align 8
+  %206 = call i32 @tvb_captured_length(ptr noundef %205)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
+  ret i32 %206
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ubx_rxm_sfrbx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3907,22 +4123,29 @@ define internal i32 @dissect_ubx_rxm_sfrbx(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
   %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct._packet_info, ptr %17, i32 0, i32 1
+  %18 = getelementptr inbounds nuw %struct._packet_info, ptr %17, i32 0, i32 1
   %19 = load ptr, ptr %18, align 8
-  call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef @.str.504)
+  call void @col_set_str(ptr noundef %19, i32 noundef 35, ptr noundef @.str.504)
   %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct._packet_info, ptr %20, i32 0, i32 1
+  %21 = getelementptr inbounds nuw %struct._packet_info, ptr %20, i32 0, i32 1
   %22 = load ptr, ptr %21, align 8
   call void @col_clear(ptr noundef %22, i32 noundef 25)
   %23 = load ptr, ptr %5, align 8
-  %24 = call zeroext i8 @tvb_get_guint8(ptr noundef %23, i32 noundef 4)
+  %24 = call zeroext i8 @tvb_get_uint8(ptr noundef %23, i32 noundef 4)
   %25 = zext i8 %24 to i32
   store i32 %25, ptr %13, align 4
   %26 = load ptr, ptr %5, align 8
-  %27 = call zeroext i8 @tvb_get_guint8(ptr noundef %26, i32 noundef 6)
+  %27 = call zeroext i8 @tvb_get_uint8(ptr noundef %26, i32 noundef 6)
   %28 = zext i8 %27 to i32
   store i32 %28, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
   %29 = load ptr, ptr %7, align 8
   %30 = load i32, ptr @hf_ubx_rxm_sfrbx, align 4
   %31 = load ptr, ptr %5, align 8
@@ -3931,6 +4154,7 @@ define internal i32 @dissect_ubx_rxm_sfrbx(ptr noundef %0, ptr noundef %1, ptr n
   %34 = add i32 8, %33
   %35 = call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %30, ptr noundef %31, i32 noundef 0, i32 noundef %34, i32 noundef 0)
   store ptr %35, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
   %36 = load ptr, ptr %15, align 8
   %37 = load i32, ptr @ett_ubx_rxm_sfrbx, align 4
   %38 = call ptr @proto_item_add_subtree(ptr noundef %36, i32 noundef %37)
@@ -3963,7 +4187,7 @@ define internal i32 @dissect_ubx_rxm_sfrbx(ptr noundef %0, ptr noundef %1, ptr n
   %57 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %55, ptr noundef %56, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   br label %58
 
-58:                                               ; preds = %53, %48, %4
+58:                                               ; preds = %4, %53, %48
   %59 = load ptr, ptr %16, align 8
   %60 = load i32, ptr @hf_ubx_rxm_sfrbx_freqid, align 4
   %61 = load ptr, ptr %5, align 8
@@ -3992,7 +4216,7 @@ define internal i32 @dissect_ubx_rxm_sfrbx(ptr noundef %0, ptr noundef %1, ptr n
   %77 = call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %75, ptr noundef %76, i32 noundef 5, i32 noundef 1, i32 noundef 0)
   br label %78
 
-78:                                               ; preds = %73, %68, %58
+78:                                               ; preds = %58, %73, %68
   %79 = load ptr, ptr %16, align 8
   %80 = load i32, ptr @hf_ubx_rxm_sfrbx_version, align 4
   %81 = load ptr, ptr %5, align 8
@@ -4017,7 +4241,7 @@ define internal i32 @dissect_ubx_rxm_sfrbx(ptr noundef %0, ptr noundef %1, ptr n
   %93 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %91, ptr noundef %92, i32 noundef 7, i32 noundef 1, i32 noundef 0)
   br label %94
 
-94:                                               ; preds = %89, %84, %78
+94:                                               ; preds = %78, %89, %84
   %95 = load ptr, ptr %16, align 8
   %96 = load i32, ptr @hf_ubx_rxm_sfrbx_dwrd, align 4
   %97 = load ptr, ptr %5, align 8
@@ -4038,12 +4262,12 @@ define internal i32 @dissect_ubx_rxm_sfrbx(ptr noundef %0, ptr noundef %1, ptr n
 
 108:                                              ; preds = %94
   %109 = load ptr, ptr %6, align 8
-  %110 = getelementptr inbounds %struct._packet_info, ptr %109, i32 0, i32 50
+  %110 = getelementptr inbounds nuw %struct._packet_info, ptr %109, i32 0, i32 51
   %111 = load ptr, ptr %110, align 8
   %112 = load i32, ptr %13, align 4
   %113 = mul i32 %112, 4
   %114 = zext i32 %113 to i64
-  %115 = call noalias ptr @wmem_alloc(ptr noundef %111, i64 noundef %114)
+  %115 = call noalias ptr @wmem_alloc(ptr noundef %111, i64 noundef %114) #8
   store ptr %115, ptr %10, align 8
   store i8 0, ptr %11, align 1
   br label %116
@@ -4067,7 +4291,7 @@ define internal i32 @dissect_ubx_rxm_sfrbx(ptr noundef %0, ptr noundef %1, ptr n
   %130 = zext i8 %129 to i32
   %131 = mul i32 %130, 4
   %132 = add i32 8, %131
-  %133 = call i32 @tvb_get_guint32(ptr noundef %128, i32 noundef %132, i32 noundef -2147483648)
+  %133 = call i32 @tvb_get_uint32(ptr noundef %128, i32 noundef %132, i32 noundef -2147483648)
   call void @phton32(ptr noundef %127, i32 noundef %133)
   br label %134
 
@@ -4075,7 +4299,7 @@ define internal i32 @dissect_ubx_rxm_sfrbx(ptr noundef %0, ptr noundef %1, ptr n
   %135 = load i8, ptr %11, align 1
   %136 = add i8 %135, 1
   store i8 %136, ptr %11, align 1
-  br label %116, !llvm.loop !16
+  br label %116, !llvm.loop !18
 
 137:                                              ; preds = %116
   %138 = load ptr, ptr %5, align 8
@@ -4088,7 +4312,7 @@ define internal i32 @dissect_ubx_rxm_sfrbx(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %144, ptr %9, align 8
   %145 = load ptr, ptr %6, align 8
   %146 = load ptr, ptr %9, align 8
-  call void @add_new_data_source(ptr noundef %145, ptr noundef %146, ptr noundef @.str.765)
+  call void @add_new_data_source(ptr noundef %145, ptr noundef %146, ptr noundef @.str.784)
   br label %147
 
 147:                                              ; preds = %137, %103
@@ -4097,40 +4321,59 @@ define internal i32 @dissect_ubx_rxm_sfrbx(ptr noundef %0, ptr noundef %1, ptr n
   %150 = load ptr, ptr %9, align 8
   %151 = load ptr, ptr %6, align 8
   %152 = load ptr, ptr %7, align 8
-  %153 = call i32 @dissector_try_uint(ptr noundef %148, i32 noundef %149, ptr noundef %150, ptr noundef %151, ptr noundef %152)
-  %154 = icmp ne i32 %153, 0
-  br i1 %154, label %160, label %155
+  %153 = load ptr, ptr %5, align 8
+  %154 = call ptr @tvb_get_ptr(ptr noundef %153, i32 noundef 1, i32 noundef 1)
+  %155 = call i32 @dissector_try_uint_with_data(ptr noundef %148, i32 noundef %149, ptr noundef %150, ptr noundef %151, ptr noundef %152, i1 noundef zeroext true, ptr noundef %154)
+  %156 = icmp ne i32 %155, 0
+  br i1 %156, label %162, label %157
 
-155:                                              ; preds = %147
-  %156 = load ptr, ptr %9, align 8
-  %157 = load ptr, ptr %6, align 8
-  %158 = load ptr, ptr %7, align 8
-  %159 = call i32 @call_data_dissector(ptr noundef %156, ptr noundef %157, ptr noundef %158)
-  br label %160
+157:                                              ; preds = %147
+  %158 = load ptr, ptr %9, align 8
+  %159 = load ptr, ptr %6, align 8
+  %160 = load ptr, ptr %7, align 8
+  %161 = call i32 @call_data_dissector(ptr noundef %158, ptr noundef %159, ptr noundef %160)
+  br label %162
 
-160:                                              ; preds = %155, %147
-  %161 = load ptr, ptr %5, align 8
-  %162 = call i32 @tvb_captured_length(ptr noundef %161)
-  ret i32 %162
+162:                                              ; preds = %157, %147
+  %163 = load ptr, ptr %5, align 8
+  %164 = call i32 @tvb_captured_length(ptr noundef %163)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  ret i32 %164
 }
 
-; Function Attrs: nounwind
-declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.objectsize.i64.p0(ptr, i1 immarg, i1 immarg, i1 immarg) #3
 
-declare void @col_clear(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_clear(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_uint16(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i16 @chksum_fletcher_8(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #2
+
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i16 @chksum_fletcher_8(ptr noundef %0, i32 noundef %1) #4 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
@@ -4138,8 +4381,11 @@ define internal zeroext i16 @chksum_fletcher_8(ptr noundef %0, i32 noundef %1) #
   %7 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #7
   store i8 0, ptr %5, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #7
   store i8 0, ptr %6, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
   store i32 0, ptr %7, align 4
   br label %8
 
@@ -4174,7 +4420,7 @@ define internal zeroext i16 @chksum_fletcher_8(ptr noundef %0, i32 noundef %1) #
   %30 = load i32, ptr %7, align 4
   %31 = add i32 %30, 1
   store i32 %31, ptr %7, align 4
-  br label %8, !llvm.loop !17
+  br label %8, !llvm.loop !19
 
 32:                                               ; preds = %8
   %33 = load i8, ptr %6, align 1
@@ -4184,43 +4430,62 @@ define internal zeroext i16 @chksum_fletcher_8(ptr noundef %0, i32 noundef %1) #
   %37 = zext i8 %36 to i32
   %38 = or i32 %35, %37
   %39 = trunc i32 %38 to i16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #7
   ret i16 %39
 }
 
-declare ptr @tvb_memdup(ptr noundef, ptr noundef, i32 noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_memdup(ptr noundef, ptr noundef, i32 noundef, i64 noundef) #2
 
-declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @dissector_try_uint(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissector_try_uint(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #2
 
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-declare signext i16 @tvb_get_gint16(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare signext i16 @tvb_get_int16(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare signext i8 @tvb_get_gint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare signext i8 @tvb_get_int8(ptr noundef, i32 noundef) #2
 
-declare i32 @tvb_get_guint32(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_uint32(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @tvb_get_gint32(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_int32(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #5
 
-; Function Attrs: nounwind uwtable
-define internal void @phton32(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @phton32(ptr noundef %0, i32 noundef %1) #6 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
@@ -4252,32 +4517,47 @@ define internal void @phton32(ptr noundef %0, i32 noundef %1) #0 {
   ret void
 }
 
-declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissector_try_uint_with_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) #2
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) #2
+
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { allocsize(1) }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}

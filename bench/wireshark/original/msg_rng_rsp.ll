@@ -5,9 +5,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
 %struct.unit_name_string = type { ptr, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.tlv_info_t = type { i8, i8, i8, i8, i32, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -60,55 +59,42 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rng_rsp_ho_process_optimization_0 = internal global i32 0, align 4
 @.str.28 = private unnamed_addr constant [7 x i8] c"Bit #0\00", align 1
 @.str.29 = private unnamed_addr constant [49 x i8] c"wmx.rng_rsp.ho_process_optimization.omit_sbc_req\00", align 1
-@vals_rng_rsp_ho_process_optimization_0 = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.114 }, %struct._value_string { i32 1, ptr @.str.115 }, %struct._value_string zeroinitializer], align 16
 @hf_rng_rsp_ho_process_optimization_1_2 = internal global i32 0, align 4
 @.str.30 = private unnamed_addr constant [10 x i8] c"Bits #1-2\00", align 1
 @.str.31 = private unnamed_addr constant [61 x i8] c"wmx.rng_rsp.ho_process_optimization.perform_reauthentication\00", align 1
-@vals_rng_rsp_ho_process_optimization_1_2 = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.116 }, %struct._value_string { i32 1, ptr @.str.117 }, %struct._value_string { i32 2, ptr @.str.87 }, %struct._value_string { i32 3, ptr @.str.118 }, %struct._value_string zeroinitializer], align 16
 @hf_rng_rsp_ho_process_optimization_3 = internal global i32 0, align 4
 @.str.32 = private unnamed_addr constant [7 x i8] c"Bit #3\00", align 1
 @.str.33 = private unnamed_addr constant [57 x i8] c"wmx.rng_rsp.ho_process_optimization.omit_network_address\00", align 1
-@vals_rng_rsp_ho_process_optimization_3 = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.119 }, %struct._value_string { i32 1, ptr @.str.120 }, %struct._value_string zeroinitializer], align 16
 @hf_rng_rsp_ho_process_optimization_4 = internal global i32 0, align 4
 @.str.34 = private unnamed_addr constant [7 x i8] c"Bit #4\00", align 1
 @.str.35 = private unnamed_addr constant [53 x i8] c"wmx.rng_rsp.ho_process_optimization.omit_time_of_day\00", align 1
-@vals_rng_rsp_ho_process_optimization_4 = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.121 }, %struct._value_string { i32 1, ptr @.str.122 }, %struct._value_string zeroinitializer], align 16
 @hf_rng_rsp_ho_process_optimization_5 = internal global i32 0, align 4
 @.str.36 = private unnamed_addr constant [7 x i8] c"Bit #5\00", align 1
 @.str.37 = private unnamed_addr constant [46 x i8] c"wmx.rng_rsp.ho_process_optimization.omit_tftp\00", align 1
-@vals_rng_rsp_ho_process_optimization_5 = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.123 }, %struct._value_string { i32 1, ptr @.str.124 }, %struct._value_string zeroinitializer], align 16
 @hf_rng_rsp_ho_process_optimization_6 = internal global i32 0, align 4
 @.str.38 = private unnamed_addr constant [7 x i8] c"Bit #6\00", align 1
 @.str.39 = private unnamed_addr constant [56 x i8] c"wmx.rng_rsp.ho_process_optimization.transfer_or_sharing\00", align 1
-@vals_rng_rsp_ho_process_optimization_6 = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.125 }, %struct._value_string { i32 1, ptr @.str.126 }, %struct._value_string zeroinitializer], align 16
 @hf_rng_rsp_ho_process_optimization_7 = internal global i32 0, align 4
 @.str.40 = private unnamed_addr constant [7 x i8] c"Bit #7\00", align 1
 @.str.41 = private unnamed_addr constant [49 x i8] c"wmx.rng_rsp.ho_process_optimization.omit_reg_req\00", align 1
-@vals_rng_rsp_ho_process_optimization_7 = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.127 }, %struct._value_string { i32 1, ptr @.str.128 }, %struct._value_string zeroinitializer], align 16
 @hf_rng_rsp_ho_process_optimization_8 = internal global i32 0, align 4
 @.str.42 = private unnamed_addr constant [7 x i8] c"Bit #8\00", align 1
 @.str.43 = private unnamed_addr constant [56 x i8] c"wmx.rng_rsp.ho_process_optimization.unsolicited_sbc_rsp\00", align 1
-@vals_rng_rsp_ho_process_optimization_8 = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.129 }, %struct._value_string { i32 1, ptr @.str.130 }, %struct._value_string zeroinitializer], align 16
 @hf_rng_rsp_ho_process_optimization_9 = internal global i32 0, align 4
 @.str.44 = private unnamed_addr constant [7 x i8] c"Bit #9\00", align 1
 @.str.45 = private unnamed_addr constant [52 x i8] c"wmx.rng_rsp.ho_process_optimization.post_ho_reentry\00", align 1
-@vals_rng_rsp_ho_process_optimization_9 = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.131 }, %struct._value_string { i32 1, ptr @.str.132 }, %struct._value_string zeroinitializer], align 16
 @hf_rng_rsp_ho_process_optimization_10 = internal global i32 0, align 4
 @.str.46 = private unnamed_addr constant [8 x i8] c"Bit #10\00", align 1
 @.str.47 = private unnamed_addr constant [56 x i8] c"wmx.rng_rsp.ho_process_optimization.unsolicited_reg_rsp\00", align 1
-@vals_rng_rsp_ho_process_optimization_10 = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.133 }, %struct._value_string { i32 1, ptr @.str.134 }, %struct._value_string zeroinitializer], align 16
 @hf_rng_rsp_ho_process_optimization_11 = internal global i32 0, align 4
 @.str.48 = private unnamed_addr constant [8 x i8] c"Bit #11\00", align 1
 @.str.49 = private unnamed_addr constant [51 x i8] c"wmx.rng_rsp.ho_process_optimization.virtual_sdu_sn\00", align 1
-@vals_rng_rsp_ho_process_optimization_11 = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.135 }, %struct._value_string { i32 1, ptr @.str.136 }, %struct._value_string zeroinitializer], align 16
 @hf_rng_rsp_ho_process_optimization_12 = internal global i32 0, align 4
 @.str.50 = private unnamed_addr constant [8 x i8] c"Bit #12\00", align 1
 @.str.51 = private unnamed_addr constant [54 x i8] c"wmx.rng_rsp.ho_process_optimization.send_notification\00", align 1
-@vals_rng_rsp_ho_process_optimization_12 = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.137 }, %struct._value_string { i32 1, ptr @.str.138 }, %struct._value_string zeroinitializer], align 16
 @hf_rng_rsp_ho_process_optimization_13 = internal global i32 0, align 4
 @.str.52 = private unnamed_addr constant [8 x i8] c"Bit #13\00", align 1
 @.str.53 = private unnamed_addr constant [66 x i8] c"wmx.rng_rsp.ho_process_optimization.trigger_higher_layer_protocol\00", align 1
-@vals_rng_rsp_ho_process_optimization_13 = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.139 }, %struct._value_string { i32 1, ptr @.str.140 }, %struct._value_string zeroinitializer], align 16
 @hf_rng_rsp_ho_process_optimization_14 = internal global i32 0, align 4
 @.str.54 = private unnamed_addr constant [18 x i8] c"Bit #14: Reserved\00", align 1
 @.str.55 = private unnamed_addr constant [45 x i8] c"wmx.rng_rsp.ho_process_optimization.reserved\00", align 1
@@ -123,7 +109,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rng_rsp_location_update_response = internal global i32 0, align 4
 @.str.61 = private unnamed_addr constant [25 x i8] c"Location Update Response\00", align 1
 @.str.62 = private unnamed_addr constant [37 x i8] c"wmx.rng_rsp.location_update_response\00", align 1
-@vals_rng_rsp_location_update_response = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.141 }, %struct._value_string { i32 1, ptr @.str.142 }, %struct._value_string { i32 3, ptr @.str.143 }, %struct._value_string { i32 4, ptr @.str.87 }, %struct._value_string zeroinitializer], align 16
 @hf_rng_rsp_offset_freq_adjust = internal global i32 0, align 4
 @.str.63 = private unnamed_addr constant [24 x i8] c"Offset Frequency Adjust\00", align 1
 @.str.64 = private unnamed_addr constant [31 x i8] c"wmx.rng_rsp.offset_freq_adjust\00", align 1
@@ -154,25 +139,22 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rng_rsp_ranging_status = internal global i32 0, align 4
 @.str.81 = private unnamed_addr constant [15 x i8] c"Ranging status\00", align 1
 @.str.82 = private unnamed_addr constant [27 x i8] c"wmx.rng_rsp.ranging_status\00", align 1
-@vals_rng_rsp_ranging_status = internal constant [5 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.144 }, %struct._value_string { i32 2, ptr @.str.145 }, %struct._value_string { i32 3, ptr @.str.146 }, %struct._value_string { i32 4, ptr @.str.147 }, %struct._value_string zeroinitializer], align 16
 @hf_rng_rsp_ranging_subchan = internal global i32 0, align 4
 @.str.83 = private unnamed_addr constant [24 x i8] c"Ranging code attributes\00", align 1
 @.str.84 = private unnamed_addr constant [31 x i8] c"wmx.rng_rsp.ranging_subchannel\00", align 1
 @hf_rng_rsp_repetition_coding_indication = internal global i32 0, align 4
 @.str.85 = private unnamed_addr constant [29 x i8] c"Repetition Coding Indication\00", align 1
 @.str.86 = private unnamed_addr constant [41 x i8] c"wmx.rng_rsp.repetition_coding_indication\00", align 1
-@vals_rng_rsp_repetition_coding_indication = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.148 }, %struct._value_string { i32 1, ptr @.str.149 }, %struct._value_string { i32 2, ptr @.str.150 }, %struct._value_string { i32 3, ptr @.str.151 }, %struct._value_string zeroinitializer], align 16
 @hf_rng_req_reserved = internal global i32 0, align 4
 @.str.87 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
 @.str.88 = private unnamed_addr constant [21 x i8] c"wmx.rng_rsp.reserved\00", align 1
 @hf_rng_rsp_resource_retain_flag = internal global i32 0, align 4
 @.str.89 = private unnamed_addr constant [41 x i8] c"The connection information for the MS is\00", align 1
 @.str.90 = private unnamed_addr constant [33 x i8] c"wmx.rng_rsp.resource_retain_flag\00", align 1
-@tfs_rng_rsp_resource_retain_flag = internal constant %struct.true_false_string { ptr @.str.152, ptr @.str.153 }, align 8
+@tfs_rng_rsp_resource_retain_flag = internal constant %struct.true_false_string { ptr @.str.168, ptr @.str.169 }, align 8
 @hf_rng_rsp_service_level_prediction = internal global i32 0, align 4
 @.str.91 = private unnamed_addr constant [25 x i8] c"Service Level Prediction\00", align 1
 @.str.92 = private unnamed_addr constant [37 x i8] c"wmx.rng_rsp.service_level_prediction\00", align 1
-@vals_rng_rsp_level_of_service = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.154 }, %struct._value_string { i32 1, ptr @.str.155 }, %struct._value_string { i32 2, ptr @.str.156 }, %struct._value_string { i32 3, ptr @.str.157 }, %struct._value_string zeroinitializer], align 16
 @hf_rng_rsp_ss_mac_address = internal global i32 0, align 4
 @.str.93 = private unnamed_addr constant [15 x i8] c"SS MAC Address\00", align 1
 @.str.94 = private unnamed_addr constant [27 x i8] c"wmx.rng_rsp.ss_mac_address\00", align 1
@@ -209,69 +191,86 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.113 = private unnamed_addr constant [48 x i8] c"SS may issue contention-based Bandwidth Request\00", align 1
 @.str.114 = private unnamed_addr constant [72 x i8] c"SBC-REQ management messages during current re-entry processing required\00", align 1
 @.str.115 = private unnamed_addr constant [68 x i8] c"Omit SBC-REQ management messages during current re-entry processing\00", align 1
-@.str.116 = private unnamed_addr constant [217 x i8] c"Perform re-authentication and SA-TEK 3-way handshake. BS should include SA-TEK-Update TLV in the SA-TEK-Response message. In addition, the RNG-RSP message does not include SA-TEK-Update TLV or SA Challenge Tuple TLV.\00", align 1
-@.str.117 = private unnamed_addr constant [175 x i8] c"SA-TEK-Update TLV is included in the RNG-RSP message. In this case, SA-TEK 3-way handshake is avoided and SA Challenge Tuple TLV shall not be included in the RNG-RSP message.\00", align 1
-@.str.118 = private unnamed_addr constant [199 x i8] c"Re-authentication and SA-TEK 3-way handshake is not performed. The RNG-RSP message does not include SA-TEK-Update TLV nor SA Challenge Tuple TLV. All the TEKs received from the serving BS are reused\00", align 1
-@.str.119 = private unnamed_addr constant [91 x i8] c"Network Address Acquisition management messages during current reentry processing required\00", align 1
-@.str.120 = private unnamed_addr constant [87 x i8] c"Omit Network Address Acquisition management messages during current reentry processing\00", align 1
-@.str.121 = private unnamed_addr constant [87 x i8] c"Time of Day Acquisition management messages during current reentry processing required\00", align 1
-@.str.122 = private unnamed_addr constant [83 x i8] c"Omit Time of Day Acquisition management messages during current reentry processing\00", align 1
-@.str.123 = private unnamed_addr constant [69 x i8] c"TFTP management messages during current re-entry processing required\00", align 1
-@.str.124 = private unnamed_addr constant [65 x i8] c"Omit TFTP management messages during current re-entry processing\00", align 1
-@.str.125 = private unnamed_addr constant [97 x i8] c"Full service and operational state transfer or sharing between Serving BS and Target BS required\00", align 1
-@.str.126 = private unnamed_addr constant [93 x i8] c"Omit Full service and operational state transfer or sharing between Serving BS and Target BS\00", align 1
-@.str.127 = private unnamed_addr constant [71 x i8] c"REG-REQ management message during current re-entry processing required\00", align 1
-@.str.128 = private unnamed_addr constant [67 x i8] c"Omit REG-REQ management message during current re-entry processing\00", align 1
-@.str.129 = private unnamed_addr constant [65 x i8] c"BS shall send not send an unsolicited SBC-RSP management message\00", align 1
-@.str.130 = private unnamed_addr constant [56 x i8] c"BS shall send an unsolicited SBC-RSP management message\00", align 1
-@.str.131 = private unnamed_addr constant [52 x i8] c"No post-HO re-entry MS DL data pending at target BS\00", align 1
-@.str.132 = private unnamed_addr constant [49 x i8] c"post-HO re-entry MS DL data pending at target BS\00", align 1
-@.str.133 = private unnamed_addr constant [60 x i8] c"BS shall not send an unsolicited REG-RSP management message\00", align 1
-@.str.134 = private unnamed_addr constant [56 x i8] c"BS shall send an unsolicited REG-RSP management message\00", align 1
-@.str.135 = private unnamed_addr constant [44 x i8] c"(Target) BS does not support virtual SDU SN\00", align 1
-@.str.136 = private unnamed_addr constant [36 x i8] c"(Target} BS supports virtual SDU SN\00", align 1
-@.str.137 = private unnamed_addr constant [74 x i8] c"MS shall not send a notification of MS's successful re-entry registration\00", align 1
-@.str.138 = private unnamed_addr constant [70 x i8] c"MS shall send a notification of MS's successful re-entry registration\00", align 1
-@.str.139 = private unnamed_addr constant [88 x i8] c"MS shall not trigger a higher layer protocol required to refresh its traffic IP address\00", align 1
-@.str.140 = private unnamed_addr constant [84 x i8] c"MS shall trigger a higher layer protocol required to refresh its traffic IP address\00", align 1
-@.str.141 = private unnamed_addr constant [27 x i8] c"Success of Location Update\00", align 1
-@.str.142 = private unnamed_addr constant [27 x i8] c"Failure of Location Update\00", align 1
-@.str.143 = private unnamed_addr constant [50 x i8] c"Success of location update and DL traffic pending\00", align 1
-@.str.144 = private unnamed_addr constant [9 x i8] c"continue\00", align 1
-@.str.145 = private unnamed_addr constant [6 x i8] c"abort\00", align 1
-@.str.146 = private unnamed_addr constant [8 x i8] c"success\00", align 1
-@.str.147 = private unnamed_addr constant [8 x i8] c"rerange\00", align 1
-@.str.148 = private unnamed_addr constant [21 x i8] c"No repetition coding\00", align 1
-@.str.149 = private unnamed_addr constant [23 x i8] c"Repetition coding of 2\00", align 1
-@.str.150 = private unnamed_addr constant [23 x i8] c"Repetition coding of 4\00", align 1
-@.str.151 = private unnamed_addr constant [23 x i8] c"Repetition coding of 6\00", align 1
-@.str.152 = private unnamed_addr constant [19 x i8] c"Retained by the BS\00", align 1
-@.str.153 = private unnamed_addr constant [18 x i8] c"Deleted by the BS\00", align 1
-@.str.154 = private unnamed_addr constant [32 x i8] c"No service possible for this MS\00", align 1
-@.str.155 = private unnamed_addr constant [81 x i8] c"Some service is available for one or several service flows authorized for the MS\00", align 1
-@.str.156 = private unnamed_addr constant [118 x i8] c"For each authorized service flow, a MAC connection can be established with QoS specified by the AuthorizedQoSParamSet\00", align 1
-@.str.157 = private unnamed_addr constant [38 x i8] c"No service level prediction available\00", align 1
-@.str.158 = private unnamed_addr constant [32 x i8] c"MAC Management Message, RNG-RSP\00", align 1
-@.str.159 = private unnamed_addr constant [18 x i8] c"RNG-RSP TLV error\00", align 1
-@.str.160 = private unnamed_addr constant [25 x i8] c" %.2f modulation symbols\00", align 1
-@.str.161 = private unnamed_addr constant [49 x i8] c" (during periodic ranging shall not exceed +- 2)\00", align 1
-@.str.162 = private unnamed_addr constant [9 x i8] c" %.2f dB\00", align 1
-@.str.163 = private unnamed_addr constant [17 x i8] c" (may not be 0!)\00", align 1
-@.str.164 = private unnamed_addr constant [18 x i8] c"SBC-RSP Encodings\00", align 1
-@.str.165 = private unnamed_addr constant [18 x i8] c"REG-RSP Encodings\00", align 1
-@.str.166 = private unnamed_addr constant [30 x i8] c"Power Saving Class Parameters\00", align 1
-@.str.167 = private unnamed_addr constant [19 x i8] c"SA Challenge Tuple\00", align 1
-@.str.168 = private unnamed_addr constant [22 x i8] c"Uplink QOS Parameters\00", align 1
-@.str.169 = private unnamed_addr constant [24 x i8] c"Downlink QOS Parameters\00", align 1
-@include_cor2_changes = external global i32, align 4
-@.str.170 = private unnamed_addr constant [17 x i8] c"Short HMAC Tuple\00", align 1
-@.str.171 = private unnamed_addr constant [68 x i8] c" (shall be set to 2 because Downlink Frequency Override is present)\00", align 1
-@.str.172 = private unnamed_addr constant [43 x i8] c" (mutually exclusive with SS MAC Address!)\00", align 1
-@.str.173 = private unnamed_addr constant [41 x i8] c" (mutually exclusive with Frame Number!)\00", align 1
-@.str.174 = private unnamed_addr constant [63 x i8] c" (mutually exclusive with Initial Ranging Opportunity Number!)\00", align 1
-@.str.175 = private unnamed_addr constant [30 x i8] c" (Ranging status is missing!)\00", align 1
+@vals_rng_rsp_ho_process_optimization_0 = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.114 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.115 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.117 = private unnamed_addr constant [217 x i8] c"Perform re-authentication and SA-TEK 3-way handshake. BS should include SA-TEK-Update TLV in the SA-TEK-Response message. In addition, the RNG-RSP message does not include SA-TEK-Update TLV or SA Challenge Tuple TLV.\00", align 1
+@.str.118 = private unnamed_addr constant [175 x i8] c"SA-TEK-Update TLV is included in the RNG-RSP message. In this case, SA-TEK 3-way handshake is avoided and SA Challenge Tuple TLV shall not be included in the RNG-RSP message.\00", align 1
+@.str.119 = private unnamed_addr constant [199 x i8] c"Re-authentication and SA-TEK 3-way handshake is not performed. The RNG-RSP message does not include SA-TEK-Update TLV nor SA Challenge Tuple TLV. All the TEKs received from the serving BS are reused\00", align 1
+@vals_rng_rsp_ho_process_optimization_1_2 = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.117 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.118 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.87 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.119 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.121 = private unnamed_addr constant [91 x i8] c"Network Address Acquisition management messages during current reentry processing required\00", align 1
+@.str.122 = private unnamed_addr constant [87 x i8] c"Omit Network Address Acquisition management messages during current reentry processing\00", align 1
+@vals_rng_rsp_ho_process_optimization_3 = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.122 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.124 = private unnamed_addr constant [87 x i8] c"Time of Day Acquisition management messages during current reentry processing required\00", align 1
+@.str.125 = private unnamed_addr constant [83 x i8] c"Omit Time of Day Acquisition management messages during current reentry processing\00", align 1
+@vals_rng_rsp_ho_process_optimization_4 = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.124 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.125 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.127 = private unnamed_addr constant [69 x i8] c"TFTP management messages during current re-entry processing required\00", align 1
+@.str.128 = private unnamed_addr constant [65 x i8] c"Omit TFTP management messages during current re-entry processing\00", align 1
+@vals_rng_rsp_ho_process_optimization_5 = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.127 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.128 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.130 = private unnamed_addr constant [97 x i8] c"Full service and operational state transfer or sharing between Serving BS and Target BS required\00", align 1
+@.str.131 = private unnamed_addr constant [93 x i8] c"Omit Full service and operational state transfer or sharing between Serving BS and Target BS\00", align 1
+@vals_rng_rsp_ho_process_optimization_6 = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.130 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.131 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.133 = private unnamed_addr constant [71 x i8] c"REG-REQ management message during current re-entry processing required\00", align 1
+@.str.134 = private unnamed_addr constant [67 x i8] c"Omit REG-REQ management message during current re-entry processing\00", align 1
+@vals_rng_rsp_ho_process_optimization_7 = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.133 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.134 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.136 = private unnamed_addr constant [65 x i8] c"BS shall send not send an unsolicited SBC-RSP management message\00", align 1
+@.str.137 = private unnamed_addr constant [56 x i8] c"BS shall send an unsolicited SBC-RSP management message\00", align 1
+@vals_rng_rsp_ho_process_optimization_8 = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.136 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.137 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.139 = private unnamed_addr constant [52 x i8] c"No post-HO re-entry MS DL data pending at target BS\00", align 1
+@.str.140 = private unnamed_addr constant [49 x i8] c"post-HO re-entry MS DL data pending at target BS\00", align 1
+@vals_rng_rsp_ho_process_optimization_9 = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.139 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.140 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.142 = private unnamed_addr constant [60 x i8] c"BS shall not send an unsolicited REG-RSP management message\00", align 1
+@.str.143 = private unnamed_addr constant [56 x i8] c"BS shall send an unsolicited REG-RSP management message\00", align 1
+@vals_rng_rsp_ho_process_optimization_10 = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.143 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.145 = private unnamed_addr constant [44 x i8] c"(Target) BS does not support virtual SDU SN\00", align 1
+@.str.146 = private unnamed_addr constant [36 x i8] c"(Target} BS supports virtual SDU SN\00", align 1
+@vals_rng_rsp_ho_process_optimization_11 = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.145 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.146 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.148 = private unnamed_addr constant [74 x i8] c"MS shall not send a notification of MS's successful re-entry registration\00", align 1
+@.str.149 = private unnamed_addr constant [70 x i8] c"MS shall send a notification of MS's successful re-entry registration\00", align 1
+@vals_rng_rsp_ho_process_optimization_12 = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.148 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.149 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.151 = private unnamed_addr constant [88 x i8] c"MS shall not trigger a higher layer protocol required to refresh its traffic IP address\00", align 1
+@.str.152 = private unnamed_addr constant [84 x i8] c"MS shall trigger a higher layer protocol required to refresh its traffic IP address\00", align 1
+@vals_rng_rsp_ho_process_optimization_13 = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.151 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.152 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.154 = private unnamed_addr constant [27 x i8] c"Success of Location Update\00", align 1
+@.str.155 = private unnamed_addr constant [27 x i8] c"Failure of Location Update\00", align 1
+@.str.156 = private unnamed_addr constant [50 x i8] c"Success of location update and DL traffic pending\00", align 1
+@vals_rng_rsp_location_update_response = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.154 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.155 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.156 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.87 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.158 = private unnamed_addr constant [9 x i8] c"continue\00", align 1
+@.str.159 = private unnamed_addr constant [6 x i8] c"abort\00", align 1
+@.str.160 = private unnamed_addr constant [8 x i8] c"success\00", align 1
+@.str.161 = private unnamed_addr constant [8 x i8] c"rerange\00", align 1
+@vals_rng_rsp_ranging_status = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.158 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.159 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.160 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.161 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.163 = private unnamed_addr constant [21 x i8] c"No repetition coding\00", align 1
+@.str.164 = private unnamed_addr constant [23 x i8] c"Repetition coding of 2\00", align 1
+@.str.165 = private unnamed_addr constant [23 x i8] c"Repetition coding of 4\00", align 1
+@.str.166 = private unnamed_addr constant [23 x i8] c"Repetition coding of 6\00", align 1
+@vals_rng_rsp_repetition_coding_indication = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.163 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.164 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.168 = private unnamed_addr constant [19 x i8] c"Retained by the BS\00", align 1
+@.str.169 = private unnamed_addr constant [18 x i8] c"Deleted by the BS\00", align 1
+@.str.170 = private unnamed_addr constant [32 x i8] c"No service possible for this MS\00", align 1
+@.str.171 = private unnamed_addr constant [81 x i8] c"Some service is available for one or several service flows authorized for the MS\00", align 1
+@.str.172 = private unnamed_addr constant [118 x i8] c"For each authorized service flow, a MAC connection can be established with QoS specified by the AuthorizedQoSParamSet\00", align 1
+@.str.173 = private unnamed_addr constant [38 x i8] c"No service level prediction available\00", align 1
+@vals_rng_rsp_level_of_service = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.170 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.171 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.172 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.173 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.175 = private unnamed_addr constant [32 x i8] c"MAC Management Message, RNG-RSP\00", align 1
+@.str.176 = private unnamed_addr constant [18 x i8] c"RNG-RSP TLV error\00", align 1
+@.str.177 = private unnamed_addr constant [25 x i8] c" %.2f modulation symbols\00", align 1
+@.str.178 = private unnamed_addr constant [49 x i8] c" (during periodic ranging shall not exceed +- 2)\00", align 1
+@.str.179 = private unnamed_addr constant [9 x i8] c" %.2f dB\00", align 1
+@.str.180 = private unnamed_addr constant [17 x i8] c" (may not be 0!)\00", align 1
+@.str.181 = private unnamed_addr constant [18 x i8] c"SBC-RSP Encodings\00", align 1
+@.str.182 = private unnamed_addr constant [18 x i8] c"REG-RSP Encodings\00", align 1
+@.str.183 = private unnamed_addr constant [30 x i8] c"Power Saving Class Parameters\00", align 1
+@.str.184 = private unnamed_addr constant [19 x i8] c"SA Challenge Tuple\00", align 1
+@.str.185 = private unnamed_addr constant [22 x i8] c"Uplink QOS Parameters\00", align 1
+@.str.186 = private unnamed_addr constant [24 x i8] c"Downlink QOS Parameters\00", align 1
+@include_cor2_changes = external global i8, align 1
+@.str.187 = private unnamed_addr constant [17 x i8] c"Short HMAC Tuple\00", align 1
+@.str.188 = private unnamed_addr constant [68 x i8] c" (shall be set to 2 because Downlink Frequency Override is present)\00", align 1
+@.str.189 = private unnamed_addr constant [43 x i8] c" (mutually exclusive with SS MAC Address!)\00", align 1
+@.str.190 = private unnamed_addr constant [41 x i8] c" (mutually exclusive with Frame Number!)\00", align 1
+@.str.191 = private unnamed_addr constant [63 x i8] c" (mutually exclusive with Initial Ranging Opportunity Number!)\00", align 1
+@.str.192 = private unnamed_addr constant [30 x i8] c" (Ranging status is missing!)\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_mac_mgmt_msg_rng_rsp() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.105, ptr noundef @.str.106, ptr noundef @.str.107)
   store i32 %1, ptr @proto_mac_mgmt_msg_rng_rsp_decoder, align 4
@@ -284,15 +283,19 @@ define hidden void @proto_register_mac_mgmt_msg_rng_rsp() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -325,15 +328,38 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
   store ptr null, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
   store ptr null, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
   store ptr null, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
   store ptr null, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
   store ptr null, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
   store i32 0, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #3
   store ptr null, ptr %19, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #3
   store ptr null, ptr %21, align 8
+  call void @llvm.lifetime.start.p0(i64 12, ptr %22) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #3
   store i32 0, ptr %25, align 4
+  call void @llvm.lifetime.start.p0(i64 12, ptr %26) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %29) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %31) #3
   %32 = load ptr, ptr %5, align 8
   %33 = call i32 @tvb_reported_length(ptr noundef %32)
   store i32 %33, ptr %16, align 4
@@ -342,7 +368,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
   %36 = load ptr, ptr %5, align 8
   %37 = load i32, ptr %14, align 4
   %38 = load i32, ptr %16, align 4
-  %39 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %34, i32 noundef %35, ptr noundef %36, i32 noundef %37, i32 noundef %38, ptr noundef @.str.158)
+  %39 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %34, i32 noundef %35, ptr noundef %36, i32 noundef %37, i32 noundef %38, ptr noundef @.str.175)
   store ptr %39, ptr %17, align 8
   %40 = load ptr, ptr %17, align 8
   %41 = load i32, ptr @ett_mac_mgmt_msg_rng_rsp_decoder, align 4
@@ -388,9 +414,9 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
 
 68:                                               ; preds = %65, %62, %54
   %69 = load ptr, ptr %6, align 8
-  %70 = getelementptr inbounds %struct._packet_info, ptr %69, i32 0, i32 1
+  %70 = getelementptr inbounds nuw %struct._packet_info, ptr %69, i32 0, i32 1
   %71 = load ptr, ptr %70, align 8
-  call void @col_append_sep_str(ptr noundef %71, i32 noundef 25, ptr noundef null, ptr noundef @.str.159)
+  call void @col_append_sep_str(ptr noundef %71, i32 noundef 25, ptr noundef null, ptr noundef @.str.176)
   %72 = load ptr, ptr %20, align 8
   %73 = load i32, ptr @hf_rng_invalid_tlv, align 4
   %74 = load ptr, ptr %5, align 8
@@ -459,7 +485,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
   %101 = load float, ptr %30, align 4
   %102 = load float, ptr %30, align 4
   %103 = fpext float %102 to double
-  %104 = call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %97, i32 noundef %98, ptr noundef %99, i32 noundef %100, i32 noundef 4, float noundef %101, ptr noundef @.str.160, double noundef %103)
+  %104 = call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %97, i32 noundef %98, ptr noundef %99, i32 noundef %100, i32 noundef 4, float noundef %101, ptr noundef @.str.177, double noundef %103)
   store ptr %104, ptr %19, align 8
   %105 = load float, ptr %30, align 4
   %106 = fcmp olt float %105, -2.000000e+00
@@ -472,7 +498,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
 
 110:                                              ; preds = %107, %85
   %111 = load ptr, ptr %19, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %111, ptr noundef @.str.161)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %111, ptr noundef @.str.178)
   br label %112
 
 112:                                              ; preds = %110, %107
@@ -487,7 +513,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
   store ptr %118, ptr %21, align 8
   %119 = load ptr, ptr %5, align 8
   %120 = load i32, ptr %15, align 4
-  %121 = call zeroext i8 @tvb_get_guint8(ptr noundef %119, i32 noundef %120)
+  %121 = call zeroext i8 @tvb_get_uint8(ptr noundef %119, i32 noundef %120)
   %122 = zext i8 %121 to i32
   %123 = sitofp i32 %122 to double
   %124 = fdiv double %123, 4.000000e+00
@@ -500,7 +526,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
   %130 = load float, ptr %31, align 4
   %131 = load float, ptr %31, align 4
   %132 = fpext float %131 to double
-  %133 = call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %126, i32 noundef %127, ptr noundef %128, i32 noundef %129, i32 noundef 1, float noundef %130, ptr noundef @.str.162, double noundef %132)
+  %133 = call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %126, i32 noundef %127, ptr noundef %128, i32 noundef %129, i32 noundef 1, float noundef %130, ptr noundef @.str.179, double noundef %132)
   br label %588
 
 134:                                              ; preds = %80
@@ -633,7 +659,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
 
 227:                                              ; preds = %217
   %228 = load ptr, ptr %13, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %228, ptr noundef @.str.163)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %228, ptr noundef @.str.180)
   br label %229
 
 229:                                              ; preds = %227, %217
@@ -750,7 +776,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
   %330 = load ptr, ptr %5, align 8
   %331 = load i32, ptr %14, align 4
   %332 = load i32, ptr %24, align 4
-  %333 = call ptr @add_protocol_subtree(ptr noundef %22, i32 noundef %327, ptr noundef %328, i32 noundef %329, ptr noundef %330, i32 noundef %331, i32 noundef %332, ptr noundef @.str.164)
+  %333 = call ptr @add_protocol_subtree(ptr noundef %22, i32 noundef %327, ptr noundef %328, i32 noundef %329, ptr noundef %330, i32 noundef %331, i32 noundef %332, ptr noundef @.str.181)
   store ptr %333, ptr %21, align 8
   %334 = load ptr, ptr @sbc_rsp_handle, align 8
   %335 = load ptr, ptr %5, align 8
@@ -769,7 +795,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
   %346 = load ptr, ptr %5, align 8
   %347 = load i32, ptr %14, align 4
   %348 = load i32, ptr %24, align 4
-  %349 = call ptr @add_protocol_subtree(ptr noundef %22, i32 noundef %343, ptr noundef %344, i32 noundef %345, ptr noundef %346, i32 noundef %347, i32 noundef %348, ptr noundef @.str.165)
+  %349 = call ptr @add_protocol_subtree(ptr noundef %22, i32 noundef %343, ptr noundef %344, i32 noundef %345, ptr noundef %346, i32 noundef %347, i32 noundef %348, ptr noundef @.str.182)
   store ptr %349, ptr %21, align 8
   %350 = load ptr, ptr @reg_rsp_handle, align 8
   %351 = load ptr, ptr %5, align 8
@@ -862,7 +888,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
   %424 = load ptr, ptr %5, align 8
   %425 = load i32, ptr %14, align 4
   %426 = load i32, ptr %24, align 4
-  %427 = call ptr @add_protocol_subtree(ptr noundef %22, i32 noundef %421, ptr noundef %422, i32 noundef %423, ptr noundef %424, i32 noundef %425, i32 noundef %426, ptr noundef @.str.166)
+  %427 = call ptr @add_protocol_subtree(ptr noundef %22, i32 noundef %421, ptr noundef %422, i32 noundef %423, ptr noundef %424, i32 noundef %425, i32 noundef %426, ptr noundef @.str.183)
   store ptr %427, ptr %21, align 8
   %428 = load ptr, ptr %21, align 8
   %429 = load i32, ptr %23, align 4
@@ -880,7 +906,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
   %438 = load ptr, ptr %5, align 8
   %439 = load i32, ptr %14, align 4
   %440 = load i32, ptr %24, align 4
-  %441 = call ptr @add_protocol_subtree(ptr noundef %22, i32 noundef %435, ptr noundef %436, i32 noundef %437, ptr noundef %438, i32 noundef %439, i32 noundef %440, ptr noundef @.str.167)
+  %441 = call ptr @add_protocol_subtree(ptr noundef %22, i32 noundef %435, ptr noundef %436, i32 noundef %437, ptr noundef %438, i32 noundef %439, i32 noundef %440, ptr noundef @.str.184)
   store ptr %441, ptr %21, align 8
   %442 = load i32, ptr %15, align 4
   store i32 %442, ptr %25, align 4
@@ -916,9 +942,9 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
 
 461:                                              ; preds = %458, %455, %447
   %462 = load ptr, ptr %6, align 8
-  %463 = getelementptr inbounds %struct._packet_info, ptr %462, i32 0, i32 1
+  %463 = getelementptr inbounds nuw %struct._packet_info, ptr %462, i32 0, i32 1
   %464 = load ptr, ptr %463, align 8
-  call void @col_append_sep_str(ptr noundef %464, i32 noundef 25, ptr noundef null, ptr noundef @.str.159)
+  call void @col_append_sep_str(ptr noundef %464, i32 noundef 25, ptr noundef null, ptr noundef @.str.176)
   %465 = load ptr, ptr %20, align 8
   %466 = load i32, ptr @hf_rng_invalid_tlv, align 4
   %467 = load ptr, ptr %5, align 8
@@ -969,7 +995,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
   %498 = load i32, ptr %29, align 4
   %499 = add i32 %497, %498
   store i32 %499, ptr %25, align 4
-  br label %443, !llvm.loop !4
+  br label %443, !llvm.loop !6
 
 500:                                              ; preds = %461, %443
   br label %588
@@ -981,7 +1007,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
   %505 = load ptr, ptr %5, align 8
   %506 = load i32, ptr %14, align 4
   %507 = load i32, ptr %24, align 4
-  %508 = call ptr @add_protocol_subtree(ptr noundef %22, i32 noundef %502, ptr noundef %503, i32 noundef %504, ptr noundef %505, i32 noundef %506, i32 noundef %507, ptr noundef @.str.168)
+  %508 = call ptr @add_protocol_subtree(ptr noundef %22, i32 noundef %502, ptr noundef %503, i32 noundef %504, ptr noundef %505, i32 noundef %506, i32 noundef %507, ptr noundef @.str.185)
   store ptr %508, ptr %21, align 8
   %509 = load ptr, ptr %5, align 8
   %510 = load i32, ptr %15, align 4
@@ -999,7 +1025,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
   %519 = load ptr, ptr %5, align 8
   %520 = load i32, ptr %14, align 4
   %521 = load i32, ptr %24, align 4
-  %522 = call ptr @add_protocol_subtree(ptr noundef %22, i32 noundef %516, ptr noundef %517, i32 noundef %518, ptr noundef %519, i32 noundef %520, i32 noundef %521, ptr noundef @.str.169)
+  %522 = call ptr @add_protocol_subtree(ptr noundef %22, i32 noundef %516, ptr noundef %517, i32 noundef %518, ptr noundef %519, i32 noundef %520, i32 noundef %521, ptr noundef @.str.186)
   store ptr %522, ptr %21, align 8
   %523 = load ptr, ptr %5, align 8
   %524 = load i32, ptr %15, align 4
@@ -1044,8 +1070,8 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
   br label %588
 
 558:                                              ; preds = %80
-  %559 = load i32, ptr @include_cor2_changes, align 4
-  %560 = icmp ne i32 %559, 0
+  %559 = load i8, ptr @include_cor2_changes, align 1, !range !8, !noundef !9
+  %560 = trunc i8 %559 to i1
   br i1 %560, label %561, label %575
 
 561:                                              ; preds = %558
@@ -1055,7 +1081,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
   %565 = load ptr, ptr %5, align 8
   %566 = load i32, ptr %14, align 4
   %567 = load i32, ptr %24, align 4
-  %568 = call ptr @add_protocol_subtree(ptr noundef %22, i32 noundef %562, ptr noundef %563, i32 noundef %564, ptr noundef %565, i32 noundef %566, i32 noundef %567, ptr noundef @.str.170)
+  %568 = call ptr @add_protocol_subtree(ptr noundef %22, i32 noundef %562, ptr noundef %563, i32 noundef %564, ptr noundef %565, i32 noundef %566, i32 noundef %567, ptr noundef @.str.187)
   store ptr %568, ptr %21, align 8
   %569 = load ptr, ptr %21, align 8
   %570 = load ptr, ptr %5, align 8
@@ -1090,7 +1116,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
   %590 = load i32, ptr %15, align 4
   %591 = add i32 %589, %590
   store i32 %591, ptr %14, align 4
-  br label %50, !llvm.loop !6
+  br label %50, !llvm.loop !10
 
 592:                                              ; preds = %68, %50
   %593 = load ptr, ptr %9, align 8
@@ -1104,7 +1130,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
 
 598:                                              ; preds = %595
   %599 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %599, ptr noundef @.str.171)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %599, ptr noundef @.str.188)
   br label %600
 
 600:                                              ; preds = %598, %595, %592
@@ -1119,9 +1145,9 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
 
 606:                                              ; preds = %603
   %607 = load ptr, ptr %12, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %607, ptr noundef @.str.172)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %607, ptr noundef @.str.189)
   %608 = load ptr, ptr %11, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %608, ptr noundef @.str.173)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %608, ptr noundef @.str.190)
   br label %609
 
 609:                                              ; preds = %606, %603, %600
@@ -1136,9 +1162,9 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
 
 615:                                              ; preds = %612
   %616 = load ptr, ptr %13, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %616, ptr noundef @.str.172)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %616, ptr noundef @.str.189)
   %617 = load ptr, ptr %11, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %617, ptr noundef @.str.174)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %617, ptr noundef @.str.191)
   br label %618
 
 618:                                              ; preds = %615, %612, %609
@@ -1148,16 +1174,39 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
 
 621:                                              ; preds = %618
   %622 = load ptr, ptr %20, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %622, ptr noundef @.str.175)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %622, ptr noundef @.str.192)
   br label %623
 
 623:                                              ; preds = %621, %618
   %624 = load ptr, ptr %5, align 8
   %625 = call i32 @tvb_captured_length(ptr noundef %624)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %31) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %29) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #3
+  call void @llvm.lifetime.end.p0(i64 12, ptr %26) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #3
+  call void @llvm.lifetime.end.p0(i64 12, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret i32 %625
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_mac_mgmt_msg_rng_rsp() #0 {
   %1 = load ptr, ptr @rng_rsp_handle, align 8
   call void @dissector_add_uint(ptr noundef @.str.109, i32 noundef 5, ptr noundef %1)
@@ -1168,63 +1217,99 @@ define hidden void @proto_reg_handoff_mac_mgmt_msg_rng_rsp() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @find_dissector(ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @init_tlv_info(ptr noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @get_tlv_type(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @get_tlv_length(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @get_tlv_value_offset(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @add_tlv_subtree_no_item(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_float_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, float noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @add_tlv_subtree(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @add_protocol_subtree(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissect_power_saving_class(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @wimax_service_flow_encodings_decoder(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @wimax_short_hmac_tuple_decoder(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}

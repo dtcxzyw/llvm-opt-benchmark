@@ -3,7 +3,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -58,7 +58,7 @@ target triple = "x86_64-pc-linux-gnu"
 @proto_can = internal global i32 0, align 4
 @magic = internal constant [9 x i8] c"ISO11898\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_caneth() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.21, ptr noundef @.str.22, ptr noundef @.str.23)
   store i32 %1, ptr @proto_caneth, align 4
@@ -71,15 +71,19 @@ define hidden void @proto_register_caneth() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_caneth(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -91,28 +95,34 @@ define internal i32 @dissect_caneth(ptr noundef %0, ptr noundef %1, ptr noundef 
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
-  %15 = load ptr, ptr %7, align 8
-  %16 = load ptr, ptr %6, align 8
-  %17 = load ptr, ptr %9, align 8
-  %18 = call i32 @test_caneth(ptr noundef %15, ptr noundef %16, i32 noundef 0, ptr noundef %17)
-  %19 = icmp ne i32 %18, 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
+  %16 = load ptr, ptr %7, align 8
+  %17 = load ptr, ptr %6, align 8
+  %18 = load ptr, ptr %9, align 8
+  %19 = call zeroext i1 @test_caneth(ptr noundef %16, ptr noundef %17, i32 noundef 0, ptr noundef %18)
   br i1 %19, label %21, label %20
 
 20:                                               ; preds = %4
   store i32 0, ptr %5, align 4
+  store i32 1, ptr %15, align 4
   br label %77
 
 21:                                               ; preds = %4
   %22 = load ptr, ptr %7, align 8
-  %23 = getelementptr inbounds %struct._packet_info, ptr %22, i32 0, i32 1
+  %23 = getelementptr inbounds nuw %struct._packet_info, ptr %22, i32 0, i32 1
   %24 = load ptr, ptr %23, align 8
-  call void @col_set_str(ptr noundef %24, i32 noundef 34, ptr noundef @.str.22)
+  call void @col_set_str(ptr noundef %24, i32 noundef 35, ptr noundef @.str.22)
   %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds %struct._packet_info, ptr %25, i32 0, i32 1
+  %26 = getelementptr inbounds nuw %struct._packet_info, ptr %25, i32 0, i32 1
   %27 = load ptr, ptr %26, align 8
   call void @col_clear(ptr noundef %27, i32 noundef 25)
   %28 = load ptr, ptr %8, align 8
@@ -162,7 +172,7 @@ define internal i32 @dissect_caneth(ptr noundef %0, ptr noundef %1, ptr noundef 
   %61 = load i32, ptr %13, align 4
   %62 = add i32 %61, 15
   store i32 %62, ptr %13, align 4
-  br label %47, !llvm.loop !4
+  br label %47, !llvm.loop !6
 
 63:                                               ; preds = %47
   %64 = load ptr, ptr %6, align 8
@@ -183,14 +193,20 @@ define internal i32 @dissect_caneth(ptr noundef %0, ptr noundef %1, ptr noundef 
   %75 = load ptr, ptr %6, align 8
   %76 = call i32 @tvb_captured_length(ptr noundef %75)
   store i32 %76, ptr %5, align 4
+  store i32 1, ptr %15, align 4
   br label %77
 
 77:                                               ; preds = %74, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
   %78 = load i32, ptr %5, align 4
   ret i32 %78
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_caneth() #0 {
   %1 = load ptr, ptr @caneth_handle, align 8
   call void @dissector_add_uint_with_preference(ptr noundef @.str.24, i32 noundef 11898, ptr noundef %1)
@@ -201,12 +217,14 @@ define hidden void @proto_reg_handoff_caneth() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_caneth_heur_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @dissect_caneth_heur_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -221,15 +239,18 @@ define internal i32 @dissect_caneth_heur_udp(ptr noundef %0, ptr noundef %1, ptr
   %12 = load ptr, ptr %8, align 8
   %13 = call i32 @udp_dissect_pdus(ptr noundef %9, ptr noundef %10, ptr noundef %11, i32 noundef 10, ptr noundef @test_caneth, ptr noundef @get_caneth_len, ptr noundef @dissect_caneth, ptr noundef %12)
   %14 = icmp ne i32 %13, 0
-  %15 = zext i1 %14 to i32
-  ret i32 %15
+  ret i1 %14
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_get_id_by_filter_name(ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @test_caneth(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
-  %5 = alloca i32, align 4
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @test_caneth(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i1, align 1
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -244,7 +265,7 @@ define internal i32 @test_caneth(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
+  store i1 false, ptr %5, align 1
   br label %37
 
 14:                                               ; preds = %4
@@ -255,57 +276,63 @@ define internal i32 @test_caneth(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %14
-  store i32 0, ptr %5, align 4
+  store i1 false, ptr %5, align 1
   br label %37
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %7, align 8
   %22 = load i32, ptr %8, align 4
   %23 = add i32 %22, 8
-  %24 = call zeroext i8 @tvb_get_guint8(ptr noundef %21, i32 noundef %23)
+  %24 = call zeroext i8 @tvb_get_uint8(ptr noundef %21, i32 noundef %23)
   %25 = zext i8 %24 to i32
   %26 = icmp ne i32 %25, 1
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %20
-  store i32 0, ptr %5, align 4
+  store i1 false, ptr %5, align 1
   br label %37
 
 28:                                               ; preds = %20
   %29 = load ptr, ptr %7, align 8
   %30 = load i32, ptr %8, align 4
   %31 = add i32 %30, 9
-  %32 = call zeroext i8 @tvb_get_guint8(ptr noundef %29, i32 noundef %31)
+  %32 = call zeroext i8 @tvb_get_uint8(ptr noundef %29, i32 noundef %31)
   %33 = zext i8 %32 to i32
   %34 = icmp sgt i32 %33, 16
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %28
-  store i32 0, ptr %5, align 4
+  store i1 false, ptr %5, align 1
   br label %37
 
 36:                                               ; preds = %28
-  store i32 1, ptr %5, align 4
+  store i1 true, ptr %5, align 1
   br label %37
 
 37:                                               ; preds = %36, %35, %27, %19, %13
-  %38 = load i32, ptr %5, align 4
-  ret i32 %38
+  %38 = load i1, ptr %5, align 1
+  ret i1 %38
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_caneth_can(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -314,140 +341,171 @@ define internal i32 @dissect_caneth_can(ptr noundef %0, ptr noundef %1, ptr noun
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  %12 = alloca i32, align 4
+  %12 = alloca i8, align 1
   %13 = alloca i8, align 1
-  %14 = alloca i8, align 1
-  %15 = alloca ptr, align 8
-  %16 = alloca %struct.can_info, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca %struct.can_info, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = load i32, ptr @proto_can, align 4
-  %19 = load ptr, ptr %5, align 8
-  %20 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %19, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  store ptr %20, ptr %10, align 8
-  %21 = load ptr, ptr %10, align 8
-  %22 = load i32, ptr @ett_caneth_can, align 4
-  %23 = call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22)
-  store ptr %23, ptr %9, align 8
-  %24 = load ptr, ptr %5, align 8
-  %25 = call zeroext i8 @tvb_get_guint8(ptr noundef %24, i32 noundef 13)
-  store i8 %25, ptr %13, align 1
-  %26 = load ptr, ptr %5, align 8
-  %27 = call zeroext i8 @tvb_get_guint8(ptr noundef %26, i32 noundef 14)
-  store i8 %27, ptr %14, align 1
-  %28 = load i8, ptr %13, align 1
-  %29 = icmp ne i8 %28, 0
-  br i1 %29, label %30, label %38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 16, ptr %15) #3
+  %16 = load ptr, ptr %7, align 8
+  %17 = load i32, ptr @proto_can, align 4
+  %18 = load ptr, ptr %5, align 8
+  %19 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %18, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  store ptr %19, ptr %10, align 8
+  %20 = load ptr, ptr %10, align 8
+  %21 = load i32, ptr @ett_caneth_can, align 4
+  %22 = call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %21)
+  store ptr %22, ptr %9, align 8
+  %23 = load ptr, ptr %5, align 8
+  %24 = call zeroext i8 @tvb_get_uint8(ptr noundef %23, i32 noundef 13)
+  store i8 %24, ptr %12, align 1
+  %25 = load ptr, ptr %5, align 8
+  %26 = call zeroext i8 @tvb_get_uint8(ptr noundef %25, i32 noundef 14)
+  store i8 %26, ptr %13, align 1
+  %27 = load i8, ptr %12, align 1
+  %28 = icmp ne i8 %27, 0
+  br i1 %28, label %29, label %37
 
-30:                                               ; preds = %4
-  %31 = load ptr, ptr %9, align 8
-  %32 = load i32, ptr @hf_caneth_can_ident_ext, align 4
-  %33 = load ptr, ptr %5, align 8
-  %34 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %31, i32 noundef %32, ptr noundef %33, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648, ptr noundef %12)
-  %35 = load i32, ptr %12, align 4
-  %36 = and i32 %35, 536870911
-  %37 = getelementptr inbounds %struct.can_info, ptr %16, i32 0, i32 0
-  store i32 %36, ptr %37, align 4
-  br label %46
+29:                                               ; preds = %4
+  %30 = load ptr, ptr %9, align 8
+  %31 = load i32, ptr @hf_caneth_can_ident_ext, align 4
+  %32 = load ptr, ptr %5, align 8
+  %33 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %30, i32 noundef %31, ptr noundef %32, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648, ptr noundef %11)
+  %34 = load i32, ptr %11, align 4
+  %35 = and i32 %34, 536870911
+  %36 = getelementptr inbounds nuw %struct.can_info, ptr %15, i32 0, i32 0
+  store i32 %35, ptr %36, align 4
+  br label %45
 
-38:                                               ; preds = %4
-  %39 = load ptr, ptr %9, align 8
-  %40 = load i32, ptr @hf_caneth_can_ident_std, align 4
-  %41 = load ptr, ptr %5, align 8
-  %42 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648, ptr noundef %12)
-  %43 = load i32, ptr %12, align 4
-  %44 = and i32 %43, 2047
-  %45 = getelementptr inbounds %struct.can_info, ptr %16, i32 0, i32 0
-  store i32 %44, ptr %45, align 4
-  br label %46
+37:                                               ; preds = %4
+  %38 = load ptr, ptr %9, align 8
+  %39 = load i32, ptr @hf_caneth_can_ident_std, align 4
+  %40 = load ptr, ptr %5, align 8
+  %41 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %38, i32 noundef %39, ptr noundef %40, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648, ptr noundef %11)
+  %42 = load i32, ptr %11, align 4
+  %43 = and i32 %42, 2047
+  %44 = getelementptr inbounds nuw %struct.can_info, ptr %15, i32 0, i32 0
+  store i32 %43, ptr %44, align 4
+  br label %45
 
-46:                                               ; preds = %38, %30
-  %47 = load i8, ptr %13, align 1
-  %48 = sext i8 %47 to i32
-  %49 = icmp ne i32 %48, 0
-  %50 = select i1 %49, i32 -2147483648, i32 0
-  %51 = load i8, ptr %14, align 1
-  %52 = sext i8 %51 to i32
-  %53 = icmp ne i32 %52, 0
-  %54 = select i1 %53, i32 1073741824, i32 0
-  %55 = or i32 %50, %54
-  %56 = getelementptr inbounds %struct.can_info, ptr %16, i32 0, i32 0
-  %57 = load i32, ptr %56, align 4
-  %58 = or i32 %57, %55
-  store i32 %58, ptr %56, align 4
-  %59 = load ptr, ptr %9, align 8
-  %60 = load i32, ptr @hf_caneth_can_len, align 4
-  %61 = load ptr, ptr %5, align 8
-  %62 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %59, i32 noundef %60, ptr noundef %61, i32 noundef 4, i32 noundef 1, i32 noundef 0, ptr noundef %11)
-  %63 = load ptr, ptr %9, align 8
-  %64 = load i32, ptr @hf_caneth_can_extflag, align 4
-  %65 = load ptr, ptr %5, align 8
-  %66 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %64, ptr noundef %65, i32 noundef 13, i32 noundef 1, i32 noundef 0)
-  %67 = load ptr, ptr %9, align 8
-  %68 = load i32, ptr @hf_caneth_can_rtrflag, align 4
-  %69 = load ptr, ptr %5, align 8
-  %70 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %68, ptr noundef %69, i32 noundef 14, i32 noundef 1, i32 noundef 0)
+45:                                               ; preds = %37, %29
+  %46 = load i8, ptr %12, align 1
+  %47 = sext i8 %46 to i32
+  %48 = icmp ne i32 %47, 0
+  %49 = select i1 %48, i32 -2147483648, i32 0
+  %50 = load i8, ptr %13, align 1
+  %51 = sext i8 %50 to i32
+  %52 = icmp ne i32 %51, 0
+  %53 = select i1 %52, i32 1073741824, i32 0
+  %54 = or i32 %49, %53
+  %55 = getelementptr inbounds nuw %struct.can_info, ptr %15, i32 0, i32 0
+  %56 = load i32, ptr %55, align 4
+  %57 = or i32 %56, %54
+  store i32 %57, ptr %55, align 4
+  %58 = getelementptr inbounds nuw %struct.can_info, ptr %15, i32 0, i32 2
+  store i32 0, ptr %58, align 4
+  %59 = getelementptr inbounds nuw %struct.can_info, ptr %15, i32 0, i32 3
+  store i16 0, ptr %59, align 4
+  %60 = load ptr, ptr %9, align 8
+  %61 = load i32, ptr @hf_caneth_can_len, align 4
+  %62 = load ptr, ptr %5, align 8
+  %63 = getelementptr inbounds nuw %struct.can_info, ptr %15, i32 0, i32 1
+  %64 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %60, i32 noundef %61, ptr noundef %62, i32 noundef 4, i32 noundef 1, i32 noundef 0, ptr noundef %63)
+  %65 = load ptr, ptr %9, align 8
+  %66 = load i32, ptr @hf_caneth_can_extflag, align 4
+  %67 = load ptr, ptr %5, align 8
+  %68 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %66, ptr noundef %67, i32 noundef 13, i32 noundef 1, i32 noundef 0)
+  %69 = load ptr, ptr %9, align 8
+  %70 = load i32, ptr @hf_caneth_can_rtrflag, align 4
   %71 = load ptr, ptr %5, align 8
-  %72 = load i32, ptr %11, align 4
-  %73 = call ptr @tvb_new_subset_length(ptr noundef %71, i32 noundef 5, i32 noundef %72)
-  store ptr %73, ptr %15, align 8
-  %74 = load ptr, ptr %15, align 8
-  %75 = load ptr, ptr %6, align 8
-  %76 = load ptr, ptr %7, align 8
-  %77 = call i32 @socketcan_call_subdissectors(ptr noundef %74, ptr noundef %75, ptr noundef %76, ptr noundef %16, i32 noundef 0)
-  %78 = icmp ne i32 %77, 0
-  br i1 %78, label %84, label %79
+  %72 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %70, ptr noundef %71, i32 noundef 14, i32 noundef 1, i32 noundef 0)
+  %73 = load ptr, ptr %5, align 8
+  %74 = getelementptr inbounds nuw %struct.can_info, ptr %15, i32 0, i32 1
+  %75 = load i32, ptr %74, align 4
+  %76 = call ptr @tvb_new_subset_length(ptr noundef %73, i32 noundef 5, i32 noundef %75)
+  store ptr %76, ptr %14, align 8
+  %77 = load ptr, ptr %14, align 8
+  %78 = load ptr, ptr %6, align 8
+  %79 = load ptr, ptr %7, align 8
+  %80 = call zeroext i1 @socketcan_call_subdissectors(ptr noundef %77, ptr noundef %78, ptr noundef %79, ptr noundef %15, i1 noundef zeroext false)
+  br i1 %80, label %86, label %81
 
-79:                                               ; preds = %46
-  %80 = load ptr, ptr %15, align 8
-  %81 = load ptr, ptr %6, align 8
-  %82 = load ptr, ptr %7, align 8
-  %83 = call i32 @call_data_dissector(ptr noundef %80, ptr noundef %81, ptr noundef %82)
-  br label %84
+81:                                               ; preds = %45
+  %82 = load ptr, ptr %14, align 8
+  %83 = load ptr, ptr %6, align 8
+  %84 = load ptr, ptr %7, align 8
+  %85 = call i32 @call_data_dissector(ptr noundef %82, ptr noundef %83, ptr noundef %84)
+  br label %86
 
-84:                                               ; preds = %79, %46
-  %85 = load ptr, ptr %5, align 8
-  %86 = load i32, ptr %11, align 4
-  %87 = add i32 5, %86
-  %88 = call i32 @tvb_captured_length_remaining(ptr noundef %85, i32 noundef %87)
-  %89 = icmp sgt i32 %88, 0
-  br i1 %89, label %90, label %97
+86:                                               ; preds = %81, %45
+  %87 = load ptr, ptr %5, align 8
+  %88 = getelementptr inbounds nuw %struct.can_info, ptr %15, i32 0, i32 1
+  %89 = load i32, ptr %88, align 4
+  %90 = add i32 5, %89
+  %91 = call i32 @tvb_captured_length_remaining(ptr noundef %87, i32 noundef %90)
+  %92 = icmp sgt i32 %91, 0
+  br i1 %92, label %93, label %101
 
-90:                                               ; preds = %84
-  %91 = load ptr, ptr %9, align 8
-  %92 = load i32, ptr @hf_caneth_can_padding, align 4
-  %93 = load ptr, ptr %5, align 8
-  %94 = load i32, ptr %11, align 4
-  %95 = add i32 5, %94
-  %96 = call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %92, ptr noundef %93, i32 noundef %95, i32 noundef -1, i32 noundef 0)
-  br label %97
+93:                                               ; preds = %86
+  %94 = load ptr, ptr %9, align 8
+  %95 = load i32, ptr @hf_caneth_can_padding, align 4
+  %96 = load ptr, ptr %5, align 8
+  %97 = getelementptr inbounds nuw %struct.can_info, ptr %15, i32 0, i32 1
+  %98 = load i32, ptr %97, align 4
+  %99 = add i32 5, %98
+  %100 = call ptr @proto_tree_add_item(ptr noundef %94, i32 noundef %95, ptr noundef %96, i32 noundef %99, i32 noundef -1, i32 noundef 0)
+  br label %101
 
-97:                                               ; preds = %90, %84
-  %98 = load ptr, ptr %5, align 8
-  %99 = call i32 @tvb_captured_length(ptr noundef %98)
-  ret i32 %99
+101:                                              ; preds = %93, %86
+  %102 = load ptr, ptr %5, align 8
+  %103 = call i32 @tvb_captured_length(ptr noundef %102)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  ret i32 %103
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_strneql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
 
-declare i32 @socketcan_call_subdissectors(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @socketcan_call_subdissectors(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @udp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @get_caneth_len(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -465,16 +523,21 @@ define internal i32 @get_caneth_len(ptr noundef %0, ptr noundef %1, i32 noundef 
   ret i32 %13
 }
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

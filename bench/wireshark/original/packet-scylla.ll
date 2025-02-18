@@ -4,19 +4,17 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct._val64_string = type { i64, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
-%struct._frame_data = type { i32, i32, i32, i32, i64, ptr, ptr, ptr, i16, i16, %struct.nstime_t, %struct.nstime_t, i32, i32, i8 }
+%struct._frame_data = type <{ i32, i32, i32, i32, i32, [4 x i8], i64, ptr, ptr, ptr, i8, i16, [5 x i8], %struct.nstime_t, %struct.nstime_t, i32, i32 }>
 %struct.request_response_t = type { i64, i32, i32 }
-%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr }
+%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.field_info = type { ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32 }
 
-@proto_register_scylla.hf = internal global [23 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_scylla_request, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_request_response_frame, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 35, i32 0, ptr inttoptr (i64 2 to ptr), i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_timeout, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_verb, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 11, i32 1025, ptr @packettypenames, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_msg_id, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_len, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_payload, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_response, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_response_size, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_response_request_frame, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 35, i32 0, ptr inttoptr (i64 1 to ptr), i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_negotiation_magic, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_negotiation_size, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_mut_size1, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_mut_size2, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_mut_table_id, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_mut_schema_id, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_mut_len_pkeys, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_mut_num_pkeys, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_mut_len_pkey, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_mut_pkey, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_read_data_timeout, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_read_data_table_id, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_read_data_schema_version, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@proto_register_scylla.hf = internal global [29 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_scylla_request, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_request_response_frame, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 35, i32 0, ptr inttoptr (i64 2 to ptr), i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_timeout, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_verb, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 11, i32 1025, ptr @packettypenames, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_msg_id, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_len, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_payload, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_response, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_response_size, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_response_request_frame, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 35, i32 0, ptr inttoptr (i64 1 to ptr), i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_negotiation_magic, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_negotiation_size, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_feature_number, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 7, i32 1, ptr @feature_names, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_feature_len, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_feature_data, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_connection_id, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_isolation_cookie, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_streaming_len, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_mut_size1, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_mut_size2, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_mut_table_id, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_mut_schema_id, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_mut_len_pkeys, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_mut_num_pkeys, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_mut_len_pkey, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_mut_pkey, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_read_data_timeout, %struct._header_field_info { ptr @.str.52, ptr @.str.53, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_read_data_table_id, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scylla_read_data_schema_version, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_scylla_request = internal global i32 0, align 4
 @.str = private unnamed_addr constant [8 x i8] c"request\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"scylla.request\00", align 1
@@ -29,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_scylla_verb = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [5 x i8] c"verb\00", align 1
 @.str.7 = private unnamed_addr constant [12 x i8] c"scylla.verb\00", align 1
-@packettypenames = internal constant [45 x %struct._val64_string] [%struct._val64_string { i64 0, ptr @.str.55 }, %struct._val64_string { i64 1, ptr @.str.56 }, %struct._val64_string { i64 2, ptr @.str.57 }, %struct._val64_string { i64 3, ptr @.str.58 }, %struct._val64_string { i64 4, ptr @.str.59 }, %struct._val64_string { i64 5, ptr @.str.60 }, %struct._val64_string { i64 6, ptr @.str.61 }, %struct._val64_string { i64 7, ptr @.str.62 }, %struct._val64_string { i64 8, ptr @.str.63 }, %struct._val64_string { i64 9, ptr @.str.64 }, %struct._val64_string { i64 10, ptr @.str.65 }, %struct._val64_string { i64 11, ptr @.str.66 }, %struct._val64_string { i64 12, ptr @.str.67 }, %struct._val64_string { i64 13, ptr @.str.68 }, %struct._val64_string { i64 14, ptr @.str.69 }, %struct._val64_string { i64 15, ptr @.str.70 }, %struct._val64_string { i64 16, ptr @.str.71 }, %struct._val64_string { i64 17, ptr @.str.72 }, %struct._val64_string { i64 18, ptr @.str.73 }, %struct._val64_string { i64 19, ptr @.str.74 }, %struct._val64_string { i64 20, ptr @.str.75 }, %struct._val64_string { i64 21, ptr @.str.76 }, %struct._val64_string { i64 22, ptr @.str.77 }, %struct._val64_string { i64 23, ptr @.str.78 }, %struct._val64_string { i64 24, ptr @.str.79 }, %struct._val64_string { i64 25, ptr @.str.80 }, %struct._val64_string { i64 26, ptr @.str.81 }, %struct._val64_string { i64 27, ptr @.str.82 }, %struct._val64_string { i64 28, ptr @.str.83 }, %struct._val64_string { i64 29, ptr @.str.84 }, %struct._val64_string { i64 30, ptr @.str.85 }, %struct._val64_string { i64 31, ptr @.str.86 }, %struct._val64_string { i64 32, ptr @.str.87 }, %struct._val64_string { i64 33, ptr @.str.88 }, %struct._val64_string { i64 34, ptr @.str.89 }, %struct._val64_string { i64 35, ptr @.str.90 }, %struct._val64_string { i64 36, ptr @.str.91 }, %struct._val64_string { i64 37, ptr @.str.92 }, %struct._val64_string { i64 38, ptr @.str.93 }, %struct._val64_string { i64 39, ptr @.str.94 }, %struct._val64_string { i64 40, ptr @.str.95 }, %struct._val64_string { i64 41, ptr @.str.96 }, %struct._val64_string { i64 42, ptr @.str.97 }, %struct._val64_string { i64 43, ptr @.str.98 }, %struct._val64_string zeroinitializer], align 16
+@packettypenames = internal constant [76 x %struct._val64_string] [%struct._val64_string { i64 0, ptr @.str.67 }, %struct._val64_string { i64 1, ptr @.str.68 }, %struct._val64_string { i64 2, ptr @.str.69 }, %struct._val64_string { i64 3, ptr @.str.70 }, %struct._val64_string { i64 4, ptr @.str.71 }, %struct._val64_string { i64 5, ptr @.str.72 }, %struct._val64_string { i64 6, ptr @.str.73 }, %struct._val64_string { i64 7, ptr @.str.74 }, %struct._val64_string { i64 8, ptr @.str.75 }, %struct._val64_string { i64 9, ptr @.str.76 }, %struct._val64_string { i64 10, ptr @.str.77 }, %struct._val64_string { i64 11, ptr @.str.78 }, %struct._val64_string { i64 12, ptr @.str.79 }, %struct._val64_string { i64 13, ptr @.str.80 }, %struct._val64_string { i64 14, ptr @.str.81 }, %struct._val64_string { i64 15, ptr @.str.82 }, %struct._val64_string { i64 16, ptr @.str.83 }, %struct._val64_string { i64 17, ptr @.str.84 }, %struct._val64_string { i64 18, ptr @.str.85 }, %struct._val64_string { i64 19, ptr @.str.86 }, %struct._val64_string { i64 20, ptr @.str.87 }, %struct._val64_string { i64 21, ptr @.str.88 }, %struct._val64_string { i64 22, ptr @.str.89 }, %struct._val64_string { i64 23, ptr @.str.90 }, %struct._val64_string { i64 24, ptr @.str.91 }, %struct._val64_string { i64 25, ptr @.str.92 }, %struct._val64_string { i64 26, ptr @.str.93 }, %struct._val64_string { i64 27, ptr @.str.94 }, %struct._val64_string { i64 28, ptr @.str.95 }, %struct._val64_string { i64 29, ptr @.str.96 }, %struct._val64_string { i64 30, ptr @.str.97 }, %struct._val64_string { i64 31, ptr @.str.98 }, %struct._val64_string { i64 32, ptr @.str.99 }, %struct._val64_string { i64 33, ptr @.str.100 }, %struct._val64_string { i64 34, ptr @.str.101 }, %struct._val64_string { i64 35, ptr @.str.102 }, %struct._val64_string { i64 36, ptr @.str.103 }, %struct._val64_string { i64 37, ptr @.str.104 }, %struct._val64_string { i64 38, ptr @.str.105 }, %struct._val64_string { i64 39, ptr @.str.106 }, %struct._val64_string { i64 40, ptr @.str.107 }, %struct._val64_string { i64 41, ptr @.str.108 }, %struct._val64_string { i64 42, ptr @.str.109 }, %struct._val64_string { i64 43, ptr @.str.110 }, %struct._val64_string { i64 44, ptr @.str.111 }, %struct._val64_string { i64 45, ptr @.str.112 }, %struct._val64_string { i64 46, ptr @.str.113 }, %struct._val64_string { i64 47, ptr @.str.114 }, %struct._val64_string { i64 48, ptr @.str.115 }, %struct._val64_string { i64 49, ptr @.str.116 }, %struct._val64_string { i64 50, ptr @.str.117 }, %struct._val64_string { i64 51, ptr @.str.118 }, %struct._val64_string { i64 52, ptr @.str.119 }, %struct._val64_string { i64 53, ptr @.str.120 }, %struct._val64_string { i64 54, ptr @.str.121 }, %struct._val64_string { i64 55, ptr @.str.122 }, %struct._val64_string { i64 56, ptr @.str.123 }, %struct._val64_string { i64 57, ptr @.str.124 }, %struct._val64_string { i64 58, ptr @.str.125 }, %struct._val64_string { i64 59, ptr @.str.126 }, %struct._val64_string { i64 60, ptr @.str.127 }, %struct._val64_string { i64 61, ptr @.str.128 }, %struct._val64_string { i64 62, ptr @.str.129 }, %struct._val64_string { i64 63, ptr @.str.130 }, %struct._val64_string { i64 64, ptr @.str.131 }, %struct._val64_string { i64 65, ptr @.str.132 }, %struct._val64_string { i64 66, ptr @.str.133 }, %struct._val64_string { i64 67, ptr @.str.134 }, %struct._val64_string { i64 68, ptr @.str.135 }, %struct._val64_string { i64 69, ptr @.str.136 }, %struct._val64_string { i64 70, ptr @.str.137 }, %struct._val64_string { i64 71, ptr @.str.138 }, %struct._val64_string { i64 72, ptr @.str.139 }, %struct._val64_string { i64 73, ptr @.str.140 }, %struct._val64_string { i64 74, ptr @.str.141 }, %struct._val64_string zeroinitializer], align 16
 @hf_scylla_msg_id = internal global i32 0, align 4
 @.str.8 = private unnamed_addr constant [7 x i8] c"msg id\00", align 1
 @.str.9 = private unnamed_addr constant [14 x i8] c"scylla.msg_id\00", align 1
@@ -54,163 +52,237 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_scylla_negotiation_size = internal global i32 0, align 4
 @.str.22 = private unnamed_addr constant [17 x i8] c"negotiation size\00", align 1
 @.str.23 = private unnamed_addr constant [24 x i8] c"scylla.negotiation.size\00", align 1
+@hf_scylla_feature_number = internal global i32 0, align 4
+@.str.24 = private unnamed_addr constant [15 x i8] c"feature number\00", align 1
+@.str.25 = private unnamed_addr constant [34 x i8] c"scylla.negotiation.feature.number\00", align 1
+@hf_scylla_feature_len = internal global i32 0, align 4
+@.str.26 = private unnamed_addr constant [12 x i8] c"feature len\00", align 1
+@.str.27 = private unnamed_addr constant [31 x i8] c"scylla.negotiation.feature.len\00", align 1
+@hf_scylla_feature_data = internal global i32 0, align 4
+@.str.28 = private unnamed_addr constant [13 x i8] c"feature data\00", align 1
+@.str.29 = private unnamed_addr constant [32 x i8] c"scylla.negotiation.feature.data\00", align 1
+@hf_scylla_connection_id = internal global i32 0, align 4
+@.str.30 = private unnamed_addr constant [14 x i8] c"connection ID\00", align 1
+@.str.31 = private unnamed_addr constant [21 x i8] c"scylla.connection_id\00", align 1
+@hf_scylla_isolation_cookie = internal global i32 0, align 4
+@.str.32 = private unnamed_addr constant [17 x i8] c"isolation cookie\00", align 1
+@.str.33 = private unnamed_addr constant [24 x i8] c"scylla.isolation_cookie\00", align 1
+@hf_scylla_streaming_len = internal global i32 0, align 4
+@.str.34 = private unnamed_addr constant [17 x i8] c"streaming length\00", align 1
+@.str.35 = private unnamed_addr constant [24 x i8] c"scylla.streaming.length\00", align 1
 @hf_scylla_mut_size1 = internal global i32 0, align 4
-@.str.24 = private unnamed_addr constant [16 x i8] c"mutation size 1\00", align 1
-@.str.25 = private unnamed_addr constant [17 x i8] c"scylla.mut.size1\00", align 1
+@.str.36 = private unnamed_addr constant [16 x i8] c"mutation size 1\00", align 1
+@.str.37 = private unnamed_addr constant [17 x i8] c"scylla.mut.size1\00", align 1
 @hf_scylla_mut_size2 = internal global i32 0, align 4
-@.str.26 = private unnamed_addr constant [16 x i8] c"mutation size 2\00", align 1
-@.str.27 = private unnamed_addr constant [17 x i8] c"scylla.mut.size2\00", align 1
+@.str.38 = private unnamed_addr constant [16 x i8] c"mutation size 2\00", align 1
+@.str.39 = private unnamed_addr constant [17 x i8] c"scylla.mut.size2\00", align 1
 @hf_scylla_mut_table_id = internal global i32 0, align 4
-@.str.28 = private unnamed_addr constant [18 x i8] c"mutation table id\00", align 1
-@.str.29 = private unnamed_addr constant [20 x i8] c"scylla.mut.table_id\00", align 1
+@.str.40 = private unnamed_addr constant [18 x i8] c"mutation table id\00", align 1
+@.str.41 = private unnamed_addr constant [20 x i8] c"scylla.mut.table_id\00", align 1
 @hf_scylla_mut_schema_id = internal global i32 0, align 4
-@.str.30 = private unnamed_addr constant [19 x i8] c"mutation schema id\00", align 1
-@.str.31 = private unnamed_addr constant [21 x i8] c"scylla.mut.schema_id\00", align 1
+@.str.42 = private unnamed_addr constant [19 x i8] c"mutation schema id\00", align 1
+@.str.43 = private unnamed_addr constant [21 x i8] c"scylla.mut.schema_id\00", align 1
 @hf_scylla_mut_len_pkeys = internal global i32 0, align 4
-@.str.32 = private unnamed_addr constant [31 x i8] c"size of partition keys payload\00", align 1
-@.str.33 = private unnamed_addr constant [21 x i8] c"scylla.mut.len_pkeys\00", align 1
+@.str.44 = private unnamed_addr constant [31 x i8] c"size of partition keys payload\00", align 1
+@.str.45 = private unnamed_addr constant [21 x i8] c"scylla.mut.len_pkeys\00", align 1
 @hf_scylla_mut_num_pkeys = internal global i32 0, align 4
-@.str.34 = private unnamed_addr constant [25 x i8] c"number of partition keys\00", align 1
-@.str.35 = private unnamed_addr constant [21 x i8] c"scylla.mut.num_pkeys\00", align 1
+@.str.46 = private unnamed_addr constant [25 x i8] c"number of partition keys\00", align 1
+@.str.47 = private unnamed_addr constant [21 x i8] c"scylla.mut.num_pkeys\00", align 1
 @hf_scylla_mut_len_pkey = internal global i32 0, align 4
-@.str.36 = private unnamed_addr constant [26 x i8] c"length of a partition key\00", align 1
-@.str.37 = private unnamed_addr constant [20 x i8] c"scylla.mut.len_pkey\00", align 1
+@.str.48 = private unnamed_addr constant [26 x i8] c"length of a partition key\00", align 1
+@.str.49 = private unnamed_addr constant [20 x i8] c"scylla.mut.len_pkey\00", align 1
 @hf_scylla_mut_pkey = internal global i32 0, align 4
-@.str.38 = private unnamed_addr constant [14 x i8] c"partition key\00", align 1
-@.str.39 = private unnamed_addr constant [16 x i8] c"scylla.mut.pkey\00", align 1
+@.str.50 = private unnamed_addr constant [14 x i8] c"partition key\00", align 1
+@.str.51 = private unnamed_addr constant [16 x i8] c"scylla.mut.pkey\00", align 1
 @hf_scylla_read_data_timeout = internal global i32 0, align 4
-@.str.40 = private unnamed_addr constant [8 x i8] c"timeout\00", align 1
-@.str.41 = private unnamed_addr constant [25 x i8] c"scylla.read_data.timeout\00", align 1
+@.str.52 = private unnamed_addr constant [8 x i8] c"timeout\00", align 1
+@.str.53 = private unnamed_addr constant [25 x i8] c"scylla.read_data.timeout\00", align 1
 @hf_scylla_read_data_table_id = internal global i32 0, align 4
-@.str.42 = private unnamed_addr constant [9 x i8] c"table ID\00", align 1
-@.str.43 = private unnamed_addr constant [26 x i8] c"scylla.read_data.table_id\00", align 1
+@.str.54 = private unnamed_addr constant [9 x i8] c"table ID\00", align 1
+@.str.55 = private unnamed_addr constant [26 x i8] c"scylla.read_data.table_id\00", align 1
 @hf_scylla_read_data_schema_version = internal global i32 0, align 4
-@.str.44 = private unnamed_addr constant [15 x i8] c"Schema version\00", align 1
-@.str.45 = private unnamed_addr constant [32 x i8] c"scylla.read_data.schema_version\00", align 1
-@proto_register_scylla.ei = internal global [1 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_scylla_response_missing, %struct.expert_field_info { ptr @.str.46, i32 184549376, i32 4194304, ptr @.str.47, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@.str.56 = private unnamed_addr constant [15 x i8] c"Schema version\00", align 1
+@.str.57 = private unnamed_addr constant [32 x i8] c"scylla.read_data.schema_version\00", align 1
+@proto_register_scylla.ei = internal global [1 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_scylla_response_missing, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.58, i32 184549376, i32 4194304, ptr @.str.59, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_scylla_response_missing = internal global %struct.expert_field zeroinitializer, align 4
-@.str.46 = private unnamed_addr constant [34 x i8] c"scylla.ei_scylla_response_missing\00", align 1
-@.str.47 = private unnamed_addr constant [29 x i8] c"Response has not arrived yet\00", align 1
-@proto_register_scylla.ett = internal global [7 x ptr] [ptr @ett_scylla, ptr @ett_scylla_header, ptr @ett_scylla_response, ptr @ett_scylla_negotiation, ptr @ett_scylla_mut, ptr @ett_scylla_mut_pkey, ptr @ett_scylla_read_data], align 16
+@.str.58 = private unnamed_addr constant [34 x i8] c"scylla.ei_scylla_response_missing\00", align 1
+@.str.59 = private unnamed_addr constant [29 x i8] c"Response has not arrived yet\00", align 1
+@proto_register_scylla.ett = internal global [9 x ptr] [ptr @ett_scylla, ptr @ett_scylla_header, ptr @ett_scylla_response, ptr @ett_scylla_negotiation, ptr @ett_scylla_negotiation_features, ptr @ett_sclla_streaming, ptr @ett_scylla_mut, ptr @ett_scylla_mut_pkey, ptr @ett_scylla_read_data], align 16
 @ett_scylla = internal global i32 0, align 4
 @ett_scylla_header = internal global i32 0, align 4
 @ett_scylla_response = internal global i32 0, align 4
 @ett_scylla_negotiation = internal global i32 0, align 4
+@ett_scylla_negotiation_features = internal global i32 0, align 4
+@ett_sclla_streaming = internal global i32 0, align 4
 @ett_scylla_mut = internal global i32 0, align 4
 @ett_scylla_mut_pkey = internal global i32 0, align 4
 @ett_scylla_read_data = internal global i32 0, align 4
-@.str.48 = private unnamed_addr constant [20 x i8] c"Scylla RPC protocol\00", align 1
-@.str.49 = private unnamed_addr constant [7 x i8] c"Scylla\00", align 1
-@.str.50 = private unnamed_addr constant [7 x i8] c"scylla\00", align 1
+@.str.60 = private unnamed_addr constant [20 x i8] c"Scylla RPC protocol\00", align 1
+@.str.61 = private unnamed_addr constant [7 x i8] c"Scylla\00", align 1
+@.str.62 = private unnamed_addr constant [7 x i8] c"scylla\00", align 1
 @proto_scylla = internal global i32 0, align 4
-@.str.51 = private unnamed_addr constant [10 x i8] c"desegment\00", align 1
-@.str.52 = private unnamed_addr constant [61 x i8] c"Desegment all Scylla messages spanning multiple TCP segments\00", align 1
-@.str.53 = private unnamed_addr constant [86 x i8] c"Whether Scylla dissector should desegment all messages spanning multiple TCP segments\00", align 1
-@scylla_desegment = internal global i32 1, align 4
+@.str.63 = private unnamed_addr constant [10 x i8] c"desegment\00", align 1
+@.str.64 = private unnamed_addr constant [61 x i8] c"Desegment all Scylla messages spanning multiple TCP segments\00", align 1
+@.str.65 = private unnamed_addr constant [86 x i8] c"Whether Scylla dissector should desegment all messages spanning multiple TCP segments\00", align 1
+@scylla_desegment = internal global i8 1, align 1
 @scylla_handle = internal global ptr null, align 8
-@.str.54 = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
-@.str.55 = private unnamed_addr constant [10 x i8] c"CLIENT_ID\00", align 1
-@.str.56 = private unnamed_addr constant [9 x i8] c"MUTATION\00", align 1
-@.str.57 = private unnamed_addr constant [14 x i8] c"MUTATION_DONE\00", align 1
-@.str.58 = private unnamed_addr constant [10 x i8] c"READ_DATA\00", align 1
-@.str.59 = private unnamed_addr constant [19 x i8] c"READ_MUTATION_DATA\00", align 1
-@.str.60 = private unnamed_addr constant [12 x i8] c"READ_DIGEST\00", align 1
-@.str.61 = private unnamed_addr constant [18 x i8] c"GOSSIP_DIGEST_SYN\00", align 1
-@.str.62 = private unnamed_addr constant [18 x i8] c"GOSSIP_DIGEST_ACK\00", align 1
-@.str.63 = private unnamed_addr constant [19 x i8] c"GOSSIP_DIGEST_ACK2\00", align 1
-@.str.64 = private unnamed_addr constant [12 x i8] c"GOSSIP_ECHO\00", align 1
-@.str.65 = private unnamed_addr constant [16 x i8] c"GOSSIP_SHUTDOWN\00", align 1
-@.str.66 = private unnamed_addr constant [19 x i8] c"DEFINITIONS_UPDATE\00", align 1
-@.str.67 = private unnamed_addr constant [9 x i8] c"TRUNCATE\00", align 1
-@.str.68 = private unnamed_addr constant [21 x i8] c"REPLICATION_FINISHED\00", align 1
-@.str.69 = private unnamed_addr constant [18 x i8] c"MIGRATION_REQUEST\00", align 1
-@.str.70 = private unnamed_addr constant [16 x i8] c"PREPARE_MESSAGE\00", align 1
-@.str.71 = private unnamed_addr constant [21 x i8] c"PREPARE_DONE_MESSAGE\00", align 1
-@.str.72 = private unnamed_addr constant [16 x i8] c"STREAM_MUTATION\00", align 1
-@.str.73 = private unnamed_addr constant [21 x i8] c"STREAM_MUTATION_DONE\00", align 1
-@.str.74 = private unnamed_addr constant [17 x i8] c"COMPLETE_MESSAGE\00", align 1
-@.str.75 = private unnamed_addr constant [22 x i8] c"REPAIR_CHECKSUM_RANGE\00", align 1
-@.str.76 = private unnamed_addr constant [19 x i8] c"GET_SCHEMA_VERSION\00", align 1
-@.str.77 = private unnamed_addr constant [13 x i8] c"SCHEMA_CHECK\00", align 1
-@.str.78 = private unnamed_addr constant [17 x i8] c"COUNTER_MUTATION\00", align 1
-@.str.79 = private unnamed_addr constant [16 x i8] c"MUTATION_FAILED\00", align 1
-@.str.80 = private unnamed_addr constant [26 x i8] c"STREAM_MUTATION_FRAGMENTS\00", align 1
-@.str.81 = private unnamed_addr constant [23 x i8] c"REPAIR_ROW_LEVEL_START\00", align 1
-@.str.82 = private unnamed_addr constant [22 x i8] c"REPAIR_ROW_LEVEL_STOP\00", align 1
-@.str.83 = private unnamed_addr constant [27 x i8] c"REPAIR_GET_FULL_ROW_HASHES\00", align 1
-@.str.84 = private unnamed_addr constant [29 x i8] c"REPAIR_GET_COMBINED_ROW_HASH\00", align 1
-@.str.85 = private unnamed_addr constant [25 x i8] c"REPAIR_GET_SYNC_BOUNDARY\00", align 1
-@.str.86 = private unnamed_addr constant [20 x i8] c"REPAIR_GET_ROW_DIFF\00", align 1
-@.str.87 = private unnamed_addr constant [20 x i8] c"REPAIR_PUT_ROW_DIFF\00", align 1
-@.str.88 = private unnamed_addr constant [32 x i8] c"REPAIR_GET_ESTIMATED_PARTITIONS\00", align 1
-@.str.89 = private unnamed_addr constant [32 x i8] c"REPAIR_SET_ESTIMATED_PARTITIONS\00", align 1
-@.str.90 = private unnamed_addr constant [27 x i8] c"REPAIR_GET_DIFF_ALGORITHMS\00", align 1
-@.str.91 = private unnamed_addr constant [36 x i8] c"REPAIR_GET_ROW_DIFF_WITH_RPC_STREAM\00", align 1
-@.str.92 = private unnamed_addr constant [36 x i8] c"REPAIR_PUT_ROW_DIFF_WITH_RPC_STREAM\00", align 1
-@.str.93 = private unnamed_addr constant [43 x i8] c"REPAIR_GET_FULL_ROW_HASHES_WITH_RPC_STREAM\00", align 1
-@.str.94 = private unnamed_addr constant [14 x i8] c"PAXOS_PREPARE\00", align 1
-@.str.95 = private unnamed_addr constant [13 x i8] c"PAXOS_ACCEPT\00", align 1
-@.str.96 = private unnamed_addr constant [12 x i8] c"PAXOS_LEARN\00", align 1
-@.str.97 = private unnamed_addr constant [14 x i8] c"HINT_MUTATION\00", align 1
-@.str.98 = private unnamed_addr constant [12 x i8] c"PAXOS_PRUNE\00", align 1
-@.str.99 = private unnamed_addr constant [9 x i8] c"SSTARRPC\00", align 1
-@.str.100 = private unnamed_addr constant [21 x i8] c"Protocol negotiation\00", align 1
-@.str.101 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.102 = private unnamed_addr constant [9 x i8] c"Response\00", align 1
-@.str.103 = private unnamed_addr constant [18 x i8] c" (msg_id=%lu, %s)\00", align 1
-@.str.104 = private unnamed_addr constant [17 x i8] c"Unknown (0x%02x)\00", align 1
-@.str.105 = private unnamed_addr constant [16 x i8] c"Response for %s\00", align 1
-@.str.106 = private unnamed_addr constant [28 x i8] c"Response for unknown packet\00", align 1
-@.str.107 = private unnamed_addr constant [14 x i8] c"Header for %s\00", align 1
-@.str.108 = private unnamed_addr constant [10 x i8] c", Type %s\00", align 1
-@.str.109 = private unnamed_addr constant [14 x i8] c" (msg_id=%lu)\00", align 1
-@.str.110 = private unnamed_addr constant [9 x i8] c"Mutation\00", align 1
-@.str.111 = private unnamed_addr constant [14 x i8] c"Partition key\00", align 1
-@.str.112 = private unnamed_addr constant [10 x i8] c"Read data\00", align 1
-@.str.113 = private unnamed_addr constant [11 x i8] c"Request %s\00", align 1
+@.str.66 = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
+@.str.67 = private unnamed_addr constant [10 x i8] c"CLIENT_ID\00", align 1
+@.str.68 = private unnamed_addr constant [9 x i8] c"MUTATION\00", align 1
+@.str.69 = private unnamed_addr constant [14 x i8] c"MUTATION_DONE\00", align 1
+@.str.70 = private unnamed_addr constant [10 x i8] c"READ_DATA\00", align 1
+@.str.71 = private unnamed_addr constant [19 x i8] c"READ_MUTATION_DATA\00", align 1
+@.str.72 = private unnamed_addr constant [12 x i8] c"READ_DIGEST\00", align 1
+@.str.73 = private unnamed_addr constant [18 x i8] c"GOSSIP_DIGEST_SYN\00", align 1
+@.str.74 = private unnamed_addr constant [18 x i8] c"GOSSIP_DIGEST_ACK\00", align 1
+@.str.75 = private unnamed_addr constant [19 x i8] c"GOSSIP_DIGEST_ACK2\00", align 1
+@.str.76 = private unnamed_addr constant [12 x i8] c"GOSSIP_ECHO\00", align 1
+@.str.77 = private unnamed_addr constant [16 x i8] c"GOSSIP_SHUTDOWN\00", align 1
+@.str.78 = private unnamed_addr constant [19 x i8] c"DEFINITIONS_UPDATE\00", align 1
+@.str.79 = private unnamed_addr constant [9 x i8] c"TRUNCATE\00", align 1
+@.str.80 = private unnamed_addr constant [21 x i8] c"REPLICATION_FINISHED\00", align 1
+@.str.81 = private unnamed_addr constant [18 x i8] c"MIGRATION_REQUEST\00", align 1
+@.str.82 = private unnamed_addr constant [16 x i8] c"PREPARE_MESSAGE\00", align 1
+@.str.83 = private unnamed_addr constant [21 x i8] c"PREPARE_DONE_MESSAGE\00", align 1
+@.str.84 = private unnamed_addr constant [16 x i8] c"STREAM_MUTATION\00", align 1
+@.str.85 = private unnamed_addr constant [21 x i8] c"STREAM_MUTATION_DONE\00", align 1
+@.str.86 = private unnamed_addr constant [17 x i8] c"COMPLETE_MESSAGE\00", align 1
+@.str.87 = private unnamed_addr constant [22 x i8] c"REPAIR_CHECKSUM_RANGE\00", align 1
+@.str.88 = private unnamed_addr constant [19 x i8] c"GET_SCHEMA_VERSION\00", align 1
+@.str.89 = private unnamed_addr constant [13 x i8] c"SCHEMA_CHECK\00", align 1
+@.str.90 = private unnamed_addr constant [17 x i8] c"COUNTER_MUTATION\00", align 1
+@.str.91 = private unnamed_addr constant [16 x i8] c"MUTATION_FAILED\00", align 1
+@.str.92 = private unnamed_addr constant [26 x i8] c"STREAM_MUTATION_FRAGMENTS\00", align 1
+@.str.93 = private unnamed_addr constant [23 x i8] c"REPAIR_ROW_LEVEL_START\00", align 1
+@.str.94 = private unnamed_addr constant [22 x i8] c"REPAIR_ROW_LEVEL_STOP\00", align 1
+@.str.95 = private unnamed_addr constant [27 x i8] c"REPAIR_GET_FULL_ROW_HASHES\00", align 1
+@.str.96 = private unnamed_addr constant [29 x i8] c"REPAIR_GET_COMBINED_ROW_HASH\00", align 1
+@.str.97 = private unnamed_addr constant [25 x i8] c"REPAIR_GET_SYNC_BOUNDARY\00", align 1
+@.str.98 = private unnamed_addr constant [20 x i8] c"REPAIR_GET_ROW_DIFF\00", align 1
+@.str.99 = private unnamed_addr constant [20 x i8] c"REPAIR_PUT_ROW_DIFF\00", align 1
+@.str.100 = private unnamed_addr constant [32 x i8] c"REPAIR_GET_ESTIMATED_PARTITIONS\00", align 1
+@.str.101 = private unnamed_addr constant [32 x i8] c"REPAIR_SET_ESTIMATED_PARTITIONS\00", align 1
+@.str.102 = private unnamed_addr constant [27 x i8] c"REPAIR_GET_DIFF_ALGORITHMS\00", align 1
+@.str.103 = private unnamed_addr constant [36 x i8] c"REPAIR_GET_ROW_DIFF_WITH_RPC_STREAM\00", align 1
+@.str.104 = private unnamed_addr constant [36 x i8] c"REPAIR_PUT_ROW_DIFF_WITH_RPC_STREAM\00", align 1
+@.str.105 = private unnamed_addr constant [43 x i8] c"REPAIR_GET_FULL_ROW_HASHES_WITH_RPC_STREAM\00", align 1
+@.str.106 = private unnamed_addr constant [14 x i8] c"PAXOS_PREPARE\00", align 1
+@.str.107 = private unnamed_addr constant [13 x i8] c"PAXOS_ACCEPT\00", align 1
+@.str.108 = private unnamed_addr constant [12 x i8] c"PAXOS_LEARN\00", align 1
+@.str.109 = private unnamed_addr constant [14 x i8] c"HINT_MUTATION\00", align 1
+@.str.110 = private unnamed_addr constant [12 x i8] c"PAXOS_PRUNE\00", align 1
+@.str.111 = private unnamed_addr constant [27 x i8] c"GOSSIP_GET_ENDPOINT_STATES\00", align 1
+@.str.112 = private unnamed_addr constant [13 x i8] c"NODE_OPS_CMD\00", align 1
+@.str.113 = private unnamed_addr constant [19 x i8] c"RAFT_SEND_SNAPSHOT\00", align 1
+@.str.114 = private unnamed_addr constant [20 x i8] c"RAFT_APPEND_ENTRIES\00", align 1
+@.str.115 = private unnamed_addr constant [26 x i8] c"RAFT_APPEND_ENTRIES_REPLY\00", align 1
+@.str.116 = private unnamed_addr constant [18 x i8] c"RAFT_VOTE_REQUEST\00", align 1
+@.str.117 = private unnamed_addr constant [16 x i8] c"RAFT_VOTE_REPLY\00", align 1
+@.str.118 = private unnamed_addr constant [17 x i8] c"RAFT_TIMEOUT_NOW\00", align 1
+@.str.119 = private unnamed_addr constant [17 x i8] c"RAFT_READ_QUORUM\00", align 1
+@.str.120 = private unnamed_addr constant [23 x i8] c"RAFT_READ_QUORUM_REPLY\00", align 1
+@.str.121 = private unnamed_addr constant [36 x i8] c"RAFT_EXECUTE_READ_BARRIER_ON_LEADER\00", align 1
+@.str.122 = private unnamed_addr constant [15 x i8] c"RAFT_ADD_ENTRY\00", align 1
+@.str.123 = private unnamed_addr constant [19 x i8] c"RAFT_MODIFY_CONFIG\00", align 1
+@.str.124 = private unnamed_addr constant [21 x i8] c"GROUP0_PEER_EXCHANGE\00", align 1
+@.str.125 = private unnamed_addr constant [21 x i8] c"GROUP0_MODIFY_CONFIG\00", align 1
+@.str.126 = private unnamed_addr constant [27 x i8] c"REPAIR_UPDATE_SYSTEM_TABLE\00", align 1
+@.str.127 = private unnamed_addr constant [28 x i8] c"REPAIR_FLUSH_HINTS_BATCHLOG\00", align 1
+@.str.128 = private unnamed_addr constant [18 x i8] c"MAPREDUCE_REQUEST\00", align 1
+@.str.129 = private unnamed_addr constant [25 x i8] c"GET_GROUP0_UPGRADE_STATE\00", align 1
+@.str.130 = private unnamed_addr constant [15 x i8] c"DIRECT_FD_PING\00", align 1
+@.str.131 = private unnamed_addr constant [18 x i8] c"RAFT_TOPOLOGY_CMD\00", align 1
+@.str.132 = private unnamed_addr constant [19 x i8] c"RAFT_PULL_SNAPSHOT\00", align 1
+@.str.133 = private unnamed_addr constant [19 x i8] c"TABLET_STREAM_DATA\00", align 1
+@.str.134 = private unnamed_addr constant [15 x i8] c"TABLET_CLEANUP\00", align 1
+@.str.135 = private unnamed_addr constant [18 x i8] c"JOIN_NODE_REQUEST\00", align 1
+@.str.136 = private unnamed_addr constant [19 x i8] c"JOIN_NODE_RESPONSE\00", align 1
+@.str.137 = private unnamed_addr constant [20 x i8] c"TABLET_STREAM_FILES\00", align 1
+@.str.138 = private unnamed_addr constant [12 x i8] c"STREAM_BLOB\00", align 1
+@.str.139 = private unnamed_addr constant [17 x i8] c"TABLE_LOAD_STATS\00", align 1
+@.str.140 = private unnamed_addr constant [16 x i8] c"JOIN_NODE_QUERY\00", align 1
+@.str.141 = private unnamed_addr constant [19 x i8] c"TASKS_GET_CHILDREN\00", align 1
+@.str.142 = private unnamed_addr constant [12 x i8] c"Compression\00", align 1
+@.str.143 = private unnamed_addr constant [20 x i8] c"Timeout propagation\00", align 1
+@.str.144 = private unnamed_addr constant [14 x i8] c"Connection ID\00", align 1
+@.str.145 = private unnamed_addr constant [14 x i8] c"Stream parent\00", align 1
+@.str.146 = private unnamed_addr constant [10 x i8] c"Isolation\00", align 1
+@.str.147 = private unnamed_addr constant [17 x i8] c"Handler duration\00", align 1
+@feature_names = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.143 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.145 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.146 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.147 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.149 = private unnamed_addr constant [9 x i8] c"SSTARRPC\00", align 1
+@.str.150 = private unnamed_addr constant [21 x i8] c"Protocol negotiation\00", align 1
+@.str.151 = private unnamed_addr constant [21 x i8] c"Negotiation features\00", align 1
+@.str.152 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.153 = private unnamed_addr constant [9 x i8] c"Response\00", align 1
+@.str.154 = private unnamed_addr constant [18 x i8] c" (msg_id=%lu, %s)\00", align 1
+@.str.155 = private unnamed_addr constant [17 x i8] c"Unknown (0x%02x)\00", align 1
+@.str.156 = private unnamed_addr constant [16 x i8] c"Response for %s\00", align 1
+@.str.157 = private unnamed_addr constant [28 x i8] c"Response for unknown packet\00", align 1
+@.str.158 = private unnamed_addr constant [14 x i8] c"Header for %s\00", align 1
+@.str.159 = private unnamed_addr constant [10 x i8] c", Type %s\00", align 1
+@.str.160 = private unnamed_addr constant [14 x i8] c" (msg_id=%lu)\00", align 1
+@.str.161 = private unnamed_addr constant [9 x i8] c"Mutation\00", align 1
+@.str.162 = private unnamed_addr constant [14 x i8] c"Partition key\00", align 1
+@.str.163 = private unnamed_addr constant [10 x i8] c"Read data\00", align 1
+@.str.164 = private unnamed_addr constant [11 x i8] c"Request %s\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_scylla() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
-  %3 = call i32 @proto_register_protocol(ptr noundef @.str.48, ptr noundef @.str.49, ptr noundef @.str.50)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #6
+  %3 = call i32 @proto_register_protocol(ptr noundef @.str.60, ptr noundef @.str.61, ptr noundef @.str.62)
   store i32 %3, ptr @proto_scylla, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #6
   %4 = load i32, ptr @proto_scylla, align 4
   %5 = call ptr @prefs_register_protocol(i32 noundef %4, ptr noundef null)
   store ptr %5, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
-  call void @prefs_register_bool_preference(ptr noundef %6, ptr noundef @.str.51, ptr noundef @.str.52, ptr noundef @.str.53, ptr noundef @scylla_desegment)
+  call void @prefs_register_bool_preference(ptr noundef %6, ptr noundef @.str.63, ptr noundef @.str.64, ptr noundef @.str.65, ptr noundef @scylla_desegment)
   %7 = load i32, ptr @proto_scylla, align 4
-  call void @proto_register_field_array(i32 noundef %7, ptr noundef @proto_register_scylla.hf, i32 noundef 23)
-  call void @proto_register_subtree_array(ptr noundef @proto_register_scylla.ett, i32 noundef 7)
+  call void @proto_register_field_array(i32 noundef %7, ptr noundef @proto_register_scylla.hf, i32 noundef 29)
+  call void @proto_register_subtree_array(ptr noundef @proto_register_scylla.ett, i32 noundef 9)
   %8 = load i32, ptr @proto_scylla, align 4
   %9 = call ptr @expert_register_protocol(i32 noundef %8)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %1, align 8
   call void @expert_register_field_array(ptr noundef %10, ptr noundef @proto_register_scylla.ei, i32 noundef 1)
   %11 = load i32, ptr @proto_scylla, align 4
-  %12 = call ptr @register_dissector(ptr noundef @.str.50, ptr noundef @dissect_scylla, i32 noundef %11)
+  %12 = call ptr @register_dissector(ptr noundef @.str.62, ptr noundef @dissect_scylla, i32 noundef %11)
   store ptr %12, ptr @scylla_handle, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #6
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #2
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_scylla(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -223,26 +295,32 @@ define internal i32 @dissect_scylla(ptr noundef %0, ptr noundef %1, ptr noundef 
   %9 = load ptr, ptr %5, align 8
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %7, align 8
-  %12 = load i32, ptr @scylla_desegment, align 4
-  %13 = load ptr, ptr %8, align 8
-  call void @tcp_dissect_pdus(ptr noundef %9, ptr noundef %10, ptr noundef %11, i32 noundef %12, i32 noundef 12, ptr noundef @get_scylla_pdu_len, ptr noundef @dissect_scylla_pdu, ptr noundef %13)
-  %14 = load ptr, ptr %5, align 8
-  %15 = call i32 @tvb_reported_length(ptr noundef %14)
-  ret i32 %15
+  %12 = load i8, ptr @scylla_desegment, align 1, !range !6, !noundef !7
+  %13 = trunc i8 %12 to i1
+  %14 = load ptr, ptr %8, align 8
+  call void @tcp_dissect_pdus(ptr noundef %9, ptr noundef %10, ptr noundef %11, i1 noundef zeroext %13, i32 noundef 12, ptr noundef @get_scylla_pdu_len, ptr noundef @dissect_scylla_pdu, ptr noundef %14)
+  %15 = load ptr, ptr %5, align 8
+  %16 = call i32 @tvb_reported_length(ptr noundef %15)
+  ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_scylla() #0 {
   %1 = load ptr, ptr @scylla_handle, align 8
-  call void @dissector_add_uint_with_preference(ptr noundef @.str.54, i32 noundef 0, ptr noundef %1)
+  call void @dissector_add_uint_with_preference(ptr noundef @.str.66, i32 noundef 0, ptr noundef %1)
   ret void
 }
 
-declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @get_scylla_pdu_len(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -251,16 +329,19 @@ define internal i32 @get_scylla_pdu_len(ptr noundef %0, ptr noundef %1, i32 noun
   %9 = alloca ptr, align 8
   %10 = alloca i64, align 8
   %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store i32 %2, ptr %8, align 4
   store ptr %3, ptr %9, align 8
-  store i64 44, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  store i64 75, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
   store i32 0, ptr %11, align 4
-  %12 = load ptr, ptr %7, align 8
-  %13 = load i32, ptr %8, align 4
-  %14 = call i32 @looks_like_rpc_negotiation(ptr noundef %12, i32 noundef %13)
-  %15 = icmp ne i32 %14, 0
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  %14 = load ptr, ptr %7, align 8
+  %15 = call zeroext i1 @looks_like_rpc_negotiation(ptr noundef %14)
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %4
@@ -270,55 +351,77 @@ define internal i32 @get_scylla_pdu_len(ptr noundef %0, ptr noundef %1, i32 noun
   %20 = call i32 @tvb_get_letohl(ptr noundef %17, i32 noundef %19)
   %21 = add i32 %20, 12
   store i32 %21, ptr %5, align 4
-  br label %49
+  store i32 1, ptr %13, align 4
+  br label %58
 
 22:                                               ; preds = %4
   %23 = load ptr, ptr %7, align 8
   %24 = call i32 @tvb_reported_length(ptr noundef %23)
-  %25 = icmp uge i32 %24, 28
-  br i1 %25, label %26, label %35
+  store i32 %24, ptr %12, align 4
+  %25 = load i32, ptr %12, align 4
+  %26 = load ptr, ptr %7, align 8
+  %27 = call i32 @tvb_get_letohl(ptr noundef %26, i32 noundef 0)
+  %28 = add i32 %27, 4
+  %29 = icmp eq i32 %25, %28
+  br i1 %29, label %30, label %33
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %7, align 8
-  %28 = load i32, ptr %8, align 4
-  %29 = add i32 %28, 24
-  %30 = call i32 @tvb_get_letohl(ptr noundef %27, i32 noundef %29)
-  store i32 %30, ptr %11, align 4
-  %31 = load ptr, ptr %7, align 8
-  %32 = load i32, ptr %8, align 4
-  %33 = add i32 %32, 8
-  %34 = call i64 @tvb_get_letoh64(ptr noundef %31, i32 noundef %33)
-  store i64 %34, ptr %10, align 8
-  br label %35
+30:                                               ; preds = %22
+  %31 = load i32, ptr %12, align 4
+  %32 = sub i32 %31, 4
+  store i32 %32, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %58
 
-35:                                               ; preds = %26, %22
-  %36 = load i64, ptr %10, align 8
-  %37 = load i32, ptr %11, align 4
-  %38 = call i32 @looks_like_response(i64 noundef %36, i32 noundef %37)
-  %39 = icmp ne i32 %38, 0
-  br i1 %39, label %40, label %46
+33:                                               ; preds = %22
+  %34 = load i32, ptr %12, align 4
+  %35 = icmp uge i32 %34, 28
+  br i1 %35, label %36, label %45
 
-40:                                               ; preds = %35
+36:                                               ; preds = %33
+  %37 = load ptr, ptr %7, align 8
+  %38 = load i32, ptr %8, align 4
+  %39 = add i32 %38, 24
+  %40 = call i32 @tvb_get_letohl(ptr noundef %37, i32 noundef %39)
+  store i32 %40, ptr %11, align 4
   %41 = load ptr, ptr %7, align 8
   %42 = load i32, ptr %8, align 4
   %43 = add i32 %42, 8
-  %44 = call i32 @tvb_get_letohl(ptr noundef %41, i32 noundef %43)
-  %45 = add i32 %44, 12
-  store i32 %45, ptr %5, align 4
-  br label %49
+  %44 = call i64 @tvb_get_letoh64(ptr noundef %41, i32 noundef %43)
+  store i64 %44, ptr %10, align 8
+  br label %45
 
-46:                                               ; preds = %35
+45:                                               ; preds = %36, %33
+  %46 = load i64, ptr %10, align 8
   %47 = load i32, ptr %11, align 4
-  %48 = add i32 %47, 28
-  store i32 %48, ptr %5, align 4
-  br label %49
+  %48 = call zeroext i1 @looks_like_response(i64 noundef %46, i32 noundef %47)
+  br i1 %48, label %49, label %55
 
-49:                                               ; preds = %46, %40, %16
-  %50 = load i32, ptr %5, align 4
-  ret i32 %50
+49:                                               ; preds = %45
+  %50 = load ptr, ptr %7, align 8
+  %51 = load i32, ptr %8, align 4
+  %52 = add i32 %51, 8
+  %53 = call i32 @tvb_get_letohl(ptr noundef %50, i32 noundef %52)
+  %54 = add i32 %53, 12
+  store i32 %54, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %58
+
+55:                                               ; preds = %45
+  %56 = load i32, ptr %11, align 4
+  %57 = add i32 %56, 28
+  store i32 %57, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %58
+
+58:                                               ; preds = %55, %49, %30, %16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  %59 = load i32, ptr %5, align 4
+  ret i32 %59
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_scylla_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -332,211 +435,236 @@ define internal i32 @dissect_scylla_pdu(ptr noundef %0, ptr noundef %1, ptr noun
   %14 = alloca ptr, align 8
   %15 = alloca i64, align 8
   %16 = alloca i32, align 4
-  %17 = alloca ptr, align 8
-  %18 = alloca i64, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
   %19 = alloca i64, align 8
-  %20 = alloca ptr, align 8
+  %20 = alloca i64, align 8
   %21 = alloca ptr, align 8
   %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
   store i32 0, ptr %10, align 4
-  %23 = load ptr, ptr %8, align 8
-  %24 = load i32, ptr @proto_scylla, align 4
-  %25 = load ptr, ptr %6, align 8
-  %26 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %24, ptr noundef %25, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  store ptr %26, ptr %13, align 8
-  %27 = load ptr, ptr %13, align 8
-  %28 = load i32, ptr @ett_scylla, align 4
-  %29 = call ptr @proto_item_add_subtree(ptr noundef %27, i32 noundef %28)
-  store ptr %29, ptr %14, align 8
-  store i64 44, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  %24 = load ptr, ptr %8, align 8
+  %25 = load i32, ptr @proto_scylla, align 4
+  %26 = load ptr, ptr %6, align 8
+  %27 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %25, ptr noundef %26, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  store ptr %27, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  %28 = load ptr, ptr %13, align 8
+  %29 = load i32, ptr @ett_scylla, align 4
+  %30 = call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29)
+  store ptr %30, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  store i64 75, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
   store i32 0, ptr %16, align 4
-  %30 = load ptr, ptr %6, align 8
-  %31 = load i32, ptr %10, align 4
-  %32 = call i32 @looks_like_rpc_negotiation(ptr noundef %30, i32 noundef %31)
-  %33 = icmp ne i32 %32, 0
-  br i1 %33, label %34, label %39
+  %31 = load ptr, ptr %6, align 8
+  %32 = call zeroext i1 @looks_like_rpc_negotiation(ptr noundef %31)
+  br i1 %32, label %33, label %38
 
-34:                                               ; preds = %4
-  %35 = load ptr, ptr %6, align 8
-  %36 = load ptr, ptr %7, align 8
-  %37 = load ptr, ptr %14, align 8
-  %38 = call i32 @dissect_scylla_negotiation_pdu(ptr noundef %35, ptr noundef %36, ptr noundef %37)
-  store i32 %38, ptr %5, align 4
-  br label %133
+33:                                               ; preds = %4
+  %34 = load ptr, ptr %6, align 8
+  %35 = load ptr, ptr %7, align 8
+  %36 = load ptr, ptr %14, align 8
+  %37 = call i32 @dissect_scylla_negotiation_pdu(ptr noundef %34, ptr noundef %35, ptr noundef %36)
+  store i32 %37, ptr %5, align 4
+  store i32 1, ptr %17, align 4
+  br label %130
 
-39:                                               ; preds = %4
-  %40 = load ptr, ptr %6, align 8
-  %41 = call i32 @tvb_reported_length(ptr noundef %40)
-  %42 = icmp uge i32 %41, 28
-  br i1 %42, label %43, label %52
+38:                                               ; preds = %4
+  %39 = load ptr, ptr %6, align 8
+  %40 = call i32 @tvb_reported_length(ptr noundef %39)
+  %41 = icmp uge i32 %40, 28
+  br i1 %41, label %42, label %51
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr %6, align 8
-  %45 = load i32, ptr %10, align 4
-  %46 = add i32 %45, 8
-  %47 = call i64 @tvb_get_letoh64(ptr noundef %44, i32 noundef %46)
-  store i64 %47, ptr %15, align 8
-  %48 = load ptr, ptr %6, align 8
-  %49 = load i32, ptr %10, align 4
-  %50 = add i32 %49, 24
-  %51 = call i32 @tvb_get_letohl(ptr noundef %48, i32 noundef %50)
-  store i32 %51, ptr %16, align 4
-  br label %52
+42:                                               ; preds = %38
+  %43 = load ptr, ptr %6, align 8
+  %44 = load i32, ptr %10, align 4
+  %45 = add i32 %44, 8
+  %46 = call i64 @tvb_get_letoh64(ptr noundef %43, i32 noundef %45)
+  store i64 %46, ptr %15, align 8
+  %47 = load ptr, ptr %6, align 8
+  %48 = load i32, ptr %10, align 4
+  %49 = add i32 %48, 24
+  %50 = call i32 @tvb_get_letohl(ptr noundef %47, i32 noundef %49)
+  store i32 %50, ptr %16, align 4
+  br label %51
 
-52:                                               ; preds = %43, %39
-  %53 = load ptr, ptr %7, align 8
-  %54 = call nonnull ptr @find_or_create_conversation(ptr noundef %53)
-  store ptr %54, ptr %11, align 8
-  %55 = load ptr, ptr %11, align 8
-  %56 = load i32, ptr @proto_scylla, align 4
-  %57 = call ptr @conversation_get_proto_data(ptr noundef %55, i32 noundef %56)
-  store ptr %57, ptr %12, align 8
-  %58 = load ptr, ptr %12, align 8
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %60, label %66
+51:                                               ; preds = %42, %38
+  %52 = load ptr, ptr %7, align 8
+  %53 = call ptr @find_or_create_conversation(ptr noundef %52)
+  store ptr %53, ptr %11, align 8
+  %54 = load ptr, ptr %11, align 8
+  %55 = load i32, ptr @proto_scylla, align 4
+  %56 = call ptr @conversation_get_proto_data(ptr noundef %54, i32 noundef %55)
+  store ptr %56, ptr %12, align 8
+  %57 = load ptr, ptr %12, align 8
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %59, label %65
 
-60:                                               ; preds = %52
-  %61 = call ptr @wmem_file_scope()
-  %62 = call noalias ptr @wmem_map_new(ptr noundef %61, ptr noundef @wmem_int64_hash, ptr noundef @g_int64_equal)
-  store ptr %62, ptr %12, align 8
-  %63 = load ptr, ptr %11, align 8
-  %64 = load i32, ptr @proto_scylla, align 4
-  %65 = load ptr, ptr %12, align 8
-  call void @conversation_add_proto_data(ptr noundef %63, i32 noundef %64, ptr noundef %65)
-  br label %66
+59:                                               ; preds = %51
+  %60 = call ptr @wmem_file_scope()
+  %61 = call noalias ptr @wmem_map_new(ptr noundef %60, ptr noundef @wmem_int64_hash, ptr noundef @g_int64_equal)
+  store ptr %61, ptr %12, align 8
+  %62 = load ptr, ptr %11, align 8
+  %63 = load i32, ptr @proto_scylla, align 4
+  %64 = load ptr, ptr %12, align 8
+  call void @conversation_add_proto_data(ptr noundef %62, i32 noundef %63, ptr noundef %64)
+  br label %65
 
-66:                                               ; preds = %60, %52
-  %67 = load i64, ptr %15, align 8
-  %68 = load i32, ptr %16, align 4
-  %69 = call i32 @looks_like_response(i64 noundef %67, i32 noundef %68)
-  %70 = icmp ne i32 %69, 0
-  br i1 %70, label %71, label %83
+65:                                               ; preds = %59, %51
+  %66 = load i64, ptr %15, align 8
+  %67 = load i32, ptr %16, align 4
+  %68 = call zeroext i1 @looks_like_response(i64 noundef %66, i32 noundef %67)
+  br i1 %68, label %69, label %81
 
-71:                                               ; preds = %66
-  %72 = load ptr, ptr %6, align 8
-  %73 = load i32, ptr %10, align 4
-  %74 = add i32 %73, 0
-  %75 = call i64 @tvb_get_letoh64(ptr noundef %72, i32 noundef %74)
-  store i64 %75, ptr %18, align 8
-  %76 = load ptr, ptr %12, align 8
-  %77 = call ptr @wmem_map_lookup(ptr noundef %76, ptr noundef %18)
-  store ptr %77, ptr %17, align 8
-  %78 = load ptr, ptr %6, align 8
-  %79 = load ptr, ptr %7, align 8
-  %80 = load ptr, ptr %14, align 8
-  %81 = load ptr, ptr %17, align 8
-  %82 = call i32 @dissect_scylla_response_pdu(ptr noundef %78, ptr noundef %79, ptr noundef %80, ptr noundef %81)
-  store i32 %82, ptr %5, align 4
-  br label %133
+69:                                               ; preds = %65
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #6
+  %70 = load ptr, ptr %6, align 8
+  %71 = load i32, ptr %10, align 4
+  %72 = add i32 %71, 0
+  %73 = call i64 @tvb_get_letoh64(ptr noundef %70, i32 noundef %72)
+  store i64 %73, ptr %19, align 8
+  %74 = load ptr, ptr %12, align 8
+  %75 = call ptr @wmem_map_lookup(ptr noundef %74, ptr noundef %19)
+  store ptr %75, ptr %18, align 8
+  %76 = load ptr, ptr %6, align 8
+  %77 = load ptr, ptr %7, align 8
+  %78 = load ptr, ptr %14, align 8
+  %79 = load ptr, ptr %18, align 8
+  %80 = call i32 @dissect_scylla_response_pdu(ptr noundef %76, ptr noundef %77, ptr noundef %78, ptr noundef %79)
+  store i32 %80, ptr %5, align 4
+  store i32 1, ptr %17, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #6
+  br label %130
 
-83:                                               ; preds = %66
-  %84 = load ptr, ptr %6, align 8
-  %85 = load i32, ptr %10, align 4
-  %86 = add i32 %85, 16
-  %87 = call i64 @tvb_get_letoh64(ptr noundef %84, i32 noundef %86)
-  store i64 %87, ptr %19, align 8
-  store ptr null, ptr %20, align 8
-  %88 = load i64, ptr %15, align 8
-  %89 = call i32 @response_expected(i64 noundef %88)
-  %90 = icmp ne i32 %89, 0
-  br i1 %90, label %91, label %124
+81:                                               ; preds = %65
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #6
+  %82 = load ptr, ptr %6, align 8
+  %83 = load i32, ptr %10, align 4
+  %84 = add i32 %83, 16
+  %85 = call i64 @tvb_get_letoh64(ptr noundef %82, i32 noundef %84)
+  store i64 %85, ptr %20, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #6
+  store ptr null, ptr %21, align 8
+  %86 = load i64, ptr %15, align 8
+  %87 = call zeroext i1 @response_expected(i64 noundef %86)
+  br i1 %87, label %88, label %121
 
-91:                                               ; preds = %83
-  %92 = load ptr, ptr %7, align 8
-  %93 = getelementptr inbounds %struct._packet_info, ptr %92, i32 0, i32 8
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds %struct._frame_data, ptr %94, i32 0, i32 9
-  %96 = load i16, ptr %95, align 2
-  %97 = lshr i16 %96, 3
-  %98 = and i16 %97, 1
-  %99 = zext i16 %98 to i32
-  %100 = icmp ne i32 %99, 0
-  br i1 %100, label %120, label %101
+88:                                               ; preds = %81
+  %89 = load ptr, ptr %7, align 8
+  %90 = getelementptr inbounds nuw %struct._packet_info, ptr %89, i32 0, i32 8
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds nuw %struct._frame_data, ptr %91, i32 0, i32 11
+  %93 = load i16, ptr %92, align 1
+  %94 = lshr i16 %93, 3
+  %95 = and i16 %94, 1
+  %96 = zext i16 %95 to i32
+  %97 = icmp ne i32 %96, 0
+  br i1 %97, label %117, label %98
 
-101:                                              ; preds = %91
-  %102 = call ptr @wmem_file_scope()
-  %103 = call noalias ptr @wmem_alloc(ptr noundef %102, i64 noundef 8)
-  store ptr %103, ptr %21, align 8
-  %104 = call ptr @wmem_file_scope()
-  %105 = call noalias ptr @wmem_alloc(ptr noundef %104, i64 noundef 16)
-  store ptr %105, ptr %22, align 8
-  %106 = load i64, ptr %19, align 8
-  %107 = load ptr, ptr %21, align 8
-  store i64 %106, ptr %107, align 8
-  %108 = load i64, ptr %15, align 8
-  %109 = load ptr, ptr %22, align 8
-  %110 = getelementptr inbounds %struct.request_response_t, ptr %109, i32 0, i32 0
-  store i64 %108, ptr %110, align 8
-  %111 = load ptr, ptr %7, align 8
-  %112 = getelementptr inbounds %struct._packet_info, ptr %111, i32 0, i32 3
-  %113 = load i32, ptr %112, align 4
+98:                                               ; preds = %88
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #6
+  %99 = call ptr @wmem_file_scope()
+  %100 = call noalias ptr @wmem_alloc(ptr noundef %99, i64 noundef 8) #7
+  store ptr %100, ptr %22, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #6
+  %101 = call ptr @wmem_file_scope()
+  %102 = call noalias ptr @wmem_alloc(ptr noundef %101, i64 noundef 16) #7
+  store ptr %102, ptr %23, align 8
+  %103 = load i64, ptr %20, align 8
+  %104 = load ptr, ptr %22, align 8
+  store i64 %103, ptr %104, align 8
+  %105 = load i64, ptr %15, align 8
+  %106 = load ptr, ptr %23, align 8
+  %107 = getelementptr inbounds nuw %struct.request_response_t, ptr %106, i32 0, i32 0
+  store i64 %105, ptr %107, align 8
+  %108 = load ptr, ptr %7, align 8
+  %109 = getelementptr inbounds nuw %struct._packet_info, ptr %108, i32 0, i32 3
+  %110 = load i32, ptr %109, align 4
+  %111 = load ptr, ptr %23, align 8
+  %112 = getelementptr inbounds nuw %struct.request_response_t, ptr %111, i32 0, i32 1
+  store i32 %110, ptr %112, align 8
+  %113 = load ptr, ptr %12, align 8
   %114 = load ptr, ptr %22, align 8
-  %115 = getelementptr inbounds %struct.request_response_t, ptr %114, i32 0, i32 1
-  store i32 %113, ptr %115, align 8
-  %116 = load ptr, ptr %12, align 8
-  %117 = load ptr, ptr %21, align 8
-  %118 = load ptr, ptr %22, align 8
-  %119 = call ptr @wmem_map_insert(ptr noundef %116, ptr noundef %117, ptr noundef %118)
-  br label %123
+  %115 = load ptr, ptr %23, align 8
+  %116 = call ptr @wmem_map_insert(ptr noundef %113, ptr noundef %114, ptr noundef %115)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #6
+  br label %120
 
-120:                                              ; preds = %91
-  %121 = load ptr, ptr %12, align 8
-  %122 = call ptr @wmem_map_lookup(ptr noundef %121, ptr noundef %19)
-  store ptr %122, ptr %20, align 8
-  br label %123
+117:                                              ; preds = %88
+  %118 = load ptr, ptr %12, align 8
+  %119 = call ptr @wmem_map_lookup(ptr noundef %118, ptr noundef %20)
+  store ptr %119, ptr %21, align 8
+  br label %120
 
-123:                                              ; preds = %120, %101
-  br label %124
+120:                                              ; preds = %117, %98
+  br label %121
 
-124:                                              ; preds = %123, %83
-  %125 = load ptr, ptr %6, align 8
-  %126 = load ptr, ptr %7, align 8
-  %127 = load ptr, ptr %14, align 8
-  %128 = load ptr, ptr %13, align 8
-  %129 = load i64, ptr %15, align 8
-  %130 = load i32, ptr %16, align 4
-  %131 = load ptr, ptr %20, align 8
-  %132 = call i32 @dissect_scylla_msg_pdu(ptr noundef %125, ptr noundef %126, ptr noundef %127, ptr noundef %128, i64 noundef %129, i32 noundef %130, ptr noundef %131)
-  store i32 %132, ptr %5, align 4
-  br label %133
+121:                                              ; preds = %120, %81
+  %122 = load ptr, ptr %6, align 8
+  %123 = load ptr, ptr %7, align 8
+  %124 = load ptr, ptr %14, align 8
+  %125 = load ptr, ptr %13, align 8
+  %126 = load i64, ptr %15, align 8
+  %127 = load i32, ptr %16, align 4
+  %128 = load ptr, ptr %21, align 8
+  %129 = call i32 @dissect_scylla_msg_pdu(ptr noundef %122, ptr noundef %123, ptr noundef %124, ptr noundef %125, i64 noundef %126, i32 noundef %127, ptr noundef %128)
+  store i32 %129, ptr %5, align 4
+  store i32 1, ptr %17, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #6
+  br label %130
 
-133:                                              ; preds = %124, %71, %34
-  %134 = load i32, ptr %5, align 4
-  ret i32 %134
+130:                                              ; preds = %121, %69, %33
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  %131 = load i32, ptr %5, align 4
+  ret i32 %131
 }
 
-declare i32 @tvb_reported_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @looks_like_rpc_negotiation(ptr noundef %0, i32 noundef %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
-  %7 = call i32 @tvb_memeql(ptr noundef %5, i32 noundef %6, ptr noundef @.str.99, i64 noundef 8)
-  %8 = icmp eq i32 %7, 0
-  %9 = zext i1 %8 to i32
-  ret i32 %9
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @looks_like_rpc_negotiation(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call i32 @tvb_memeql(ptr noundef %3, i32 noundef 0, ptr noundef @.str.149, i64 noundef 8)
+  %5 = icmp eq i32 %4, 0
+  ret i1 %5
 }
 
-declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) #2
 
-declare i64 @tvb_get_letoh64(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @tvb_get_letoh64(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @looks_like_response(i64 noundef %0, i32 noundef %1) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @looks_like_response(i64 noundef %0, i32 noundef %1) #3 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   store i64 %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load i64, ptr %3, align 8
-  %6 = icmp uge i64 %5, 44
+  %6 = icmp uge i64 %5, 75
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %2
@@ -546,98 +674,210 @@ define internal i32 @looks_like_response(i64 noundef %0, i32 noundef %1) #0 {
 
 10:                                               ; preds = %7, %2
   %11 = phi i1 [ true, %2 ], [ %9, %7 ]
-  %12 = zext i1 %11 to i32
-  ret i32 %12
+  ret i1 %11
 }
 
-declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_scylla_negotiation_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = alloca ptr, align 8
-  %10 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
   store i32 0, ptr %7, align 4
-  %11 = load ptr, ptr %4, align 8
-  %12 = load i32, ptr %7, align 4
-  %13 = add i32 %12, 8
-  %14 = call i32 @tvb_get_letohl(ptr noundef %11, i32 noundef %13)
-  %15 = add i32 %14, 12
-  store i32 %15, ptr %8, align 4
-  %16 = load ptr, ptr %6, align 8
-  %17 = load ptr, ptr %4, align 8
-  %18 = load i32, ptr %7, align 4
-  %19 = load i32, ptr %8, align 4
-  %20 = load i32, ptr @ett_scylla_negotiation, align 4
-  %21 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef %19, i32 noundef %20, ptr noundef null, ptr noundef @.str.100)
-  store ptr %21, ptr %9, align 8
-  %22 = load ptr, ptr %9, align 8
-  %23 = load i32, ptr @hf_scylla_negotiation_magic, align 4
-  %24 = load ptr, ptr %4, align 8
-  %25 = load i32, ptr %7, align 4
-  %26 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %23, ptr noundef %24, i32 noundef %25, i32 noundef 8, i32 noundef 0)
-  store i32 8, ptr %10, align 4
-  %27 = load ptr, ptr %9, align 8
-  %28 = load i32, ptr @hf_scylla_negotiation_size, align 4
-  %29 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  %14 = load ptr, ptr %4, align 8
+  %15 = load i32, ptr %7, align 4
+  %16 = add i32 %15, 8
+  %17 = call i32 @tvb_get_letohl(ptr noundef %14, i32 noundef %16)
+  store i32 %17, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  %18 = load ptr, ptr %6, align 8
+  %19 = load ptr, ptr %4, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = load i32, ptr %12, align 4
+  %22 = add i32 %21, 12
+  %23 = load i32, ptr @ett_scylla_negotiation, align 4
+  %24 = call ptr @proto_tree_add_subtree(ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %22, i32 noundef %23, ptr noundef null, ptr noundef @.str.150)
+  store ptr %24, ptr %13, align 8
+  %25 = load ptr, ptr %13, align 8
+  %26 = load i32, ptr @hf_scylla_negotiation_magic, align 4
+  %27 = load ptr, ptr %4, align 8
+  %28 = load i32, ptr %7, align 4
+  %29 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef 8, i32 noundef 0)
   %30 = load i32, ptr %7, align 4
-  %31 = load i32, ptr %10, align 4
-  %32 = add i32 %30, %31
-  %33 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef %32, i32 noundef 4, i32 noundef -2147483648)
-  %34 = load i32, ptr %10, align 4
-  %35 = add i32 %34, 4
-  store i32 %35, ptr %10, align 4
-  %36 = load ptr, ptr %9, align 8
-  %37 = load i32, ptr @hf_scylla_payload, align 4
-  %38 = load ptr, ptr %4, align 8
-  %39 = load i32, ptr %7, align 4
-  %40 = load i32, ptr %10, align 4
-  %41 = add i32 %39, %40
-  %42 = load i32, ptr %8, align 4
-  %43 = load i32, ptr %10, align 4
-  %44 = sub i32 %42, %43
-  %45 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %37, ptr noundef %38, i32 noundef %41, i32 noundef %44, i32 noundef 0)
-  %46 = load ptr, ptr %5, align 8
-  %47 = getelementptr inbounds %struct._packet_info, ptr %46, i32 0, i32 1
-  %48 = load ptr, ptr %47, align 8
-  call void @col_set_str(ptr noundef %48, i32 noundef 34, ptr noundef @.str.49)
-  %49 = load ptr, ptr %5, align 8
-  %50 = getelementptr inbounds %struct._packet_info, ptr %49, i32 0, i32 1
-  %51 = load ptr, ptr %50, align 8
-  call void @col_set_str(ptr noundef %51, i32 noundef 25, ptr noundef @.str.100)
-  %52 = load ptr, ptr %4, align 8
-  %53 = call i32 @tvb_reported_length(ptr noundef %52)
-  ret i32 %53
+  %31 = add i32 %30, 8
+  store i32 %31, ptr %7, align 4
+  %32 = load ptr, ptr %13, align 8
+  %33 = load i32, ptr @hf_scylla_negotiation_size, align 4
+  %34 = load ptr, ptr %4, align 8
+  %35 = load i32, ptr %7, align 4
+  %36 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef 4, i32 noundef -2147483648)
+  %37 = load i32, ptr %7, align 4
+  %38 = add i32 %37, 4
+  store i32 %38, ptr %7, align 4
+  %39 = load ptr, ptr %13, align 8
+  %40 = load ptr, ptr %4, align 8
+  %41 = load i32, ptr %7, align 4
+  %42 = load i32, ptr %12, align 4
+  %43 = load i32, ptr @ett_scylla_negotiation_features, align 4
+  %44 = call ptr @proto_tree_add_subtree(ptr noundef %39, ptr noundef %40, i32 noundef %41, i32 noundef %42, i32 noundef %43, ptr noundef null, ptr noundef @.str.151)
+  store ptr %44, ptr %11, align 8
+  br label %45
+
+45:                                               ; preds = %100, %3
+  %46 = load i32, ptr %12, align 4
+  %47 = icmp ugt i32 %46, 0
+  br i1 %47, label %48, label %101
+
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %11, align 8
+  %50 = load i32, ptr @hf_scylla_feature_number, align 4
+  %51 = load ptr, ptr %4, align 8
+  %52 = load i32, ptr %7, align 4
+  %53 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %49, i32 noundef %50, ptr noundef %51, i32 noundef %52, i32 noundef 4, i32 noundef -2147483648, ptr noundef %8)
+  %54 = load i32, ptr %7, align 4
+  %55 = add i32 %54, 4
+  store i32 %55, ptr %7, align 4
+  %56 = load ptr, ptr %11, align 8
+  %57 = load i32, ptr @hf_scylla_feature_len, align 4
+  %58 = load ptr, ptr %4, align 8
+  %59 = load i32, ptr %7, align 4
+  %60 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %56, i32 noundef %57, ptr noundef %58, i32 noundef %59, i32 noundef 4, i32 noundef -2147483648, ptr noundef %9)
+  %61 = load i32, ptr %7, align 4
+  %62 = add i32 %61, 4
+  store i32 %62, ptr %7, align 4
+  %63 = load i32, ptr %12, align 4
+  %64 = sub i32 %63, 8
+  store i32 %64, ptr %12, align 4
+  %65 = load i32, ptr %9, align 4
+  %66 = icmp ugt i32 %65, 0
+  br i1 %66, label %67, label %100
+
+67:                                               ; preds = %48
+  %68 = load i32, ptr %8, align 4
+  switch i32 %68, label %86 [
+    i32 2, label %69
+    i32 3, label %69
+    i32 4, label %79
+  ]
+
+69:                                               ; preds = %67, %67
+  %70 = load i32, ptr %9, align 4
+  %71 = icmp eq i32 %70, 8
+  br i1 %71, label %72, label %78
+
+72:                                               ; preds = %69
+  %73 = load ptr, ptr %11, align 8
+  %74 = load i32, ptr @hf_scylla_connection_id, align 4
+  %75 = load ptr, ptr %4, align 8
+  %76 = load i32, ptr %7, align 4
+  %77 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %73, i32 noundef %74, ptr noundef %75, i32 noundef %76, i32 noundef 8, i32 noundef -2147483648, ptr noundef %10)
+  br label %78
+
+78:                                               ; preds = %72, %69
+  br label %93
+
+79:                                               ; preds = %67
+  %80 = load ptr, ptr %11, align 8
+  %81 = load i32, ptr @hf_scylla_isolation_cookie, align 4
+  %82 = load ptr, ptr %4, align 8
+  %83 = load i32, ptr %7, align 4
+  %84 = load i32, ptr %9, align 4
+  %85 = call ptr @proto_tree_add_item(ptr noundef %80, i32 noundef %81, ptr noundef %82, i32 noundef %83, i32 noundef %84, i32 noundef 0)
+  br label %93
+
+86:                                               ; preds = %67
+  %87 = load ptr, ptr %11, align 8
+  %88 = load i32, ptr @hf_scylla_feature_data, align 4
+  %89 = load ptr, ptr %4, align 8
+  %90 = load i32, ptr %7, align 4
+  %91 = load i32, ptr %9, align 4
+  %92 = call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %88, ptr noundef %89, i32 noundef %90, i32 noundef %91, i32 noundef 0)
+  br label %93
+
+93:                                               ; preds = %86, %79, %78
+  %94 = load i32, ptr %9, align 4
+  %95 = load i32, ptr %12, align 4
+  %96 = sub i32 %95, %94
+  store i32 %96, ptr %12, align 4
+  %97 = load i32, ptr %9, align 4
+  %98 = load i32, ptr %7, align 4
+  %99 = add i32 %98, %97
+  store i32 %99, ptr %7, align 4
+  br label %100
+
+100:                                              ; preds = %93, %48
+  br label %45, !llvm.loop !8
+
+101:                                              ; preds = %45
+  %102 = load ptr, ptr %5, align 8
+  %103 = getelementptr inbounds nuw %struct._packet_info, ptr %102, i32 0, i32 1
+  %104 = load ptr, ptr %103, align 8
+  call void @col_set_str(ptr noundef %104, i32 noundef 35, ptr noundef @.str.61)
+  %105 = load ptr, ptr %5, align 8
+  %106 = getelementptr inbounds nuw %struct._packet_info, ptr %105, i32 0, i32 1
+  %107 = load ptr, ptr %106, align 8
+  call void @col_set_str(ptr noundef %107, i32 noundef 25, ptr noundef @.str.150)
+  %108 = load ptr, ptr %4, align 8
+  %109 = call i32 @tvb_reported_length(ptr noundef %108)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  ret i32 %109
 }
 
-declare nonnull ptr @find_or_create_conversation(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_or_create_conversation(ptr noundef) #2
 
-declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) #2
 
-declare noalias ptr @wmem_map_new(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_map_new(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @wmem_file_scope() #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_file_scope() #2
 
-declare i32 @wmem_int64_hash(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @wmem_int64_hash(ptr noundef) #2
 
-declare i32 @g_int64_equal(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_int64_equal(ptr noundef, ptr noundef) #2
 
-declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_scylla_response_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -655,25 +895,31 @@ define internal i32 @dissect_scylla_response_pdu(ptr noundef %0, ptr noundef %1,
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
   store i32 0, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
   %17 = load ptr, ptr %5, align 8
   %18 = load i32, ptr %9, align 4
   %19 = add i32 %18, 8
   %20 = call i32 @tvb_get_letohl(ptr noundef %17, i32 noundef %19)
   %21 = add i32 %20, 12
   store i32 %21, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
   %22 = load ptr, ptr %7, align 8
   %23 = load i32, ptr @hf_scylla_response, align 4
   %24 = load ptr, ptr %5, align 8
   %25 = load i32, ptr %9, align 4
   %26 = load i32, ptr %10, align 4
-  %27 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %22, i32 noundef %23, ptr noundef %24, i32 noundef %25, i32 noundef %26, ptr noundef @.str.101, ptr noundef @.str.102)
+  %27 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %22, i32 noundef %23, ptr noundef %24, i32 noundef %25, i32 noundef %26, ptr noundef @.str.152, ptr noundef @.str.153)
   store ptr %27, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
   %28 = load ptr, ptr %11, align 8
   %29 = load i32, ptr @ett_scylla_response, align 4
   %30 = call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29)
   store ptr %30, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
   store i32 0, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
   %31 = load ptr, ptr %12, align 8
   %32 = load i32, ptr @hf_scylla_msg_id, align 4
   %33 = load ptr, ptr %5, align 8
@@ -705,20 +951,21 @@ define internal i32 @dissect_scylla_response_pdu(ptr noundef %0, ptr noundef %1,
   %57 = sub i32 %55, %56
   %58 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %50, ptr noundef %51, i32 noundef %54, i32 noundef %57, i32 noundef 0)
   %59 = load ptr, ptr %6, align 8
-  %60 = getelementptr inbounds %struct._packet_info, ptr %59, i32 0, i32 1
+  %60 = getelementptr inbounds nuw %struct._packet_info, ptr %59, i32 0, i32 1
   %61 = load ptr, ptr %60, align 8
-  call void @col_set_str(ptr noundef %61, i32 noundef 34, ptr noundef @.str.49)
+  call void @col_set_str(ptr noundef %61, i32 noundef 35, ptr noundef @.str.61)
   %62 = load ptr, ptr %8, align 8
   %63 = icmp ne ptr %62, null
   br i1 %63, label %64, label %105
 
 64:                                               ; preds = %4
   %65 = load ptr, ptr %6, align 8
-  %66 = getelementptr inbounds %struct._packet_info, ptr %65, i32 0, i32 3
+  %66 = getelementptr inbounds nuw %struct._packet_info, ptr %65, i32 0, i32 3
   %67 = load i32, ptr %66, align 4
   %68 = load ptr, ptr %8, align 8
-  %69 = getelementptr inbounds %struct.request_response_t, ptr %68, i32 0, i32 2
+  %69 = getelementptr inbounds nuw %struct.request_response_t, ptr %68, i32 0, i32 2
   store i32 %67, ptr %69, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
   %70 = load ptr, ptr %12, align 8
   %71 = load i32, ptr @hf_scylla_verb, align 4
   %72 = load ptr, ptr %5, align 8
@@ -726,17 +973,18 @@ define internal i32 @dissect_scylla_response_pdu(ptr noundef %0, ptr noundef %1,
   %74 = load i32, ptr %10, align 4
   %75 = add i32 %73, %74
   %76 = load ptr, ptr %8, align 8
-  %77 = getelementptr inbounds %struct.request_response_t, ptr %76, i32 0, i32 0
+  %77 = getelementptr inbounds nuw %struct.request_response_t, ptr %76, i32 0, i32 0
   %78 = load i64, ptr %77, align 8
   %79 = call ptr @proto_tree_add_uint64(ptr noundef %70, i32 noundef %71, ptr noundef %72, i32 noundef %75, i32 noundef 8, i64 noundef %78)
   store ptr %79, ptr %15, align 8
   %80 = load ptr, ptr %15, align 8
   call void @proto_item_set_generated(ptr noundef %80)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
   %81 = load ptr, ptr %7, align 8
   %82 = load i32, ptr @hf_scylla_response_request_frame, align 4
   %83 = load ptr, ptr %5, align 8
   %84 = load ptr, ptr %8, align 8
-  %85 = getelementptr inbounds %struct.request_response_t, ptr %84, i32 0, i32 1
+  %85 = getelementptr inbounds nuw %struct.request_response_t, ptr %84, i32 0, i32 1
   %86 = load i32, ptr %85, align 8
   %87 = call ptr @proto_tree_add_uint(ptr noundef %81, i32 noundef %82, ptr noundef %83, i32 noundef 0, i32 noundef 0, i32 noundef %86)
   store ptr %87, ptr %16, align 8
@@ -745,40 +993,48 @@ define internal i32 @dissect_scylla_response_pdu(ptr noundef %0, ptr noundef %1,
   %89 = load ptr, ptr %11, align 8
   %90 = load i64, ptr %14, align 8
   %91 = load ptr, ptr %8, align 8
-  %92 = getelementptr inbounds %struct.request_response_t, ptr %91, i32 0, i32 0
+  %92 = getelementptr inbounds nuw %struct.request_response_t, ptr %91, i32 0, i32 0
   %93 = load i64, ptr %92, align 8
-  %94 = call ptr @val64_to_str(i64 noundef %93, ptr noundef @packettypenames, ptr noundef @.str.104)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %89, ptr noundef @.str.103, i64 noundef %90, ptr noundef %94)
+  %94 = call ptr @val64_to_str(i64 noundef %93, ptr noundef @packettypenames, ptr noundef @.str.155)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %89, ptr noundef @.str.154, i64 noundef %90, ptr noundef %94)
   %95 = load ptr, ptr %6, align 8
-  %96 = getelementptr inbounds %struct._packet_info, ptr %95, i32 0, i32 1
+  %96 = getelementptr inbounds nuw %struct._packet_info, ptr %95, i32 0, i32 1
   %97 = load ptr, ptr %96, align 8
   call void @col_clear(ptr noundef %97, i32 noundef 25)
   %98 = load ptr, ptr %6, align 8
-  %99 = getelementptr inbounds %struct._packet_info, ptr %98, i32 0, i32 1
+  %99 = getelementptr inbounds nuw %struct._packet_info, ptr %98, i32 0, i32 1
   %100 = load ptr, ptr %99, align 8
   %101 = load ptr, ptr %8, align 8
-  %102 = getelementptr inbounds %struct.request_response_t, ptr %101, i32 0, i32 0
+  %102 = getelementptr inbounds nuw %struct.request_response_t, ptr %101, i32 0, i32 0
   %103 = load i64, ptr %102, align 8
-  %104 = call ptr @val64_to_str(i64 noundef %103, ptr noundef @packettypenames, ptr noundef @.str.104)
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %100, i32 noundef 25, ptr noundef @.str.105, ptr noundef %104)
+  %104 = call ptr @val64_to_str(i64 noundef %103, ptr noundef @packettypenames, ptr noundef @.str.155)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %100, i32 noundef 25, ptr noundef @.str.156, ptr noundef %104)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
   br label %109
 
 105:                                              ; preds = %4
   %106 = load ptr, ptr %6, align 8
-  %107 = getelementptr inbounds %struct._packet_info, ptr %106, i32 0, i32 1
+  %107 = getelementptr inbounds nuw %struct._packet_info, ptr %106, i32 0, i32 1
   %108 = load ptr, ptr %107, align 8
-  call void @col_set_str(ptr noundef %108, i32 noundef 25, ptr noundef @.str.106)
+  call void @col_set_str(ptr noundef %108, i32 noundef 25, ptr noundef @.str.157)
   br label %109
 
 109:                                              ; preds = %105, %64
   %110 = load ptr, ptr %5, align 8
   %111 = call i32 @tvb_reported_length(ptr noundef %110)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
   ret i32 %111
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @response_expected(i64 noundef %0) #0 {
-  %2 = alloca i32, align 4
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @response_expected(i64 noundef %0) #3 {
+  %2 = alloca i1, align 1
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = load i64, ptr %3, align 8
@@ -797,23 +1053,25 @@ define internal i32 @response_expected(i64 noundef %0) #0 {
   ]
 
 5:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  store i32 0, ptr %2, align 4
+  store i1 false, ptr %2, align 1
   br label %7
 
 6:                                                ; preds = %1
-  store i32 1, ptr %2, align 4
+  store i1 true, ptr %2, align 1
   br label %7
 
 7:                                                ; preds = %6, %5
-  %8 = load i32, ptr %2, align 4
-  ret i32 %8
+  %8 = load i1, ptr %2, align 1
+  ret i1 %8
 }
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #4
 
-declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_scylla_msg_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -843,15 +1101,18 @@ define internal i32 @dissect_scylla_msg_pdu(ptr noundef %0, ptr noundef %1, ptr 
   store i64 %4, ptr %12, align 8
   store i32 %5, ptr %13, align 4
   store ptr %6, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
   store i32 0, ptr %15, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
   %29 = load ptr, ptr %10, align 8
   %30 = load i32, ptr @hf_scylla_request, align 4
   %31 = load ptr, ptr %8, align 8
   %32 = load i32, ptr %15, align 4
   %33 = load i64, ptr %12, align 8
-  %34 = call ptr @val64_to_str(i64 noundef %33, ptr noundef @packettypenames, ptr noundef @.str.104)
-  %35 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %29, i32 noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef 28, ptr noundef @.str.101, ptr noundef @.str.107, ptr noundef %34)
+  %34 = call ptr @val64_to_str(i64 noundef %33, ptr noundef @packettypenames, ptr noundef @.str.155)
+  %35 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %29, i32 noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef 28, ptr noundef @.str.152, ptr noundef @.str.158, ptr noundef %34)
   store ptr %35, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
   %36 = load ptr, ptr %16, align 8
   %37 = load i32, ptr @ett_scylla_response, align 4
   %38 = call ptr @proto_item_add_subtree(ptr noundef %36, i32 noundef %37)
@@ -866,8 +1127,8 @@ define internal i32 @dissect_scylla_msg_pdu(ptr noundef %0, ptr noundef %1, ptr 
   store i32 %45, ptr %15, align 4
   %46 = load ptr, ptr %11, align 8
   %47 = load i64, ptr %12, align 8
-  %48 = call ptr @val64_to_str(i64 noundef %47, ptr noundef @packettypenames, ptr noundef @.str.104)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %46, ptr noundef @.str.108, ptr noundef %48)
+  %48 = call ptr @val64_to_str(i64 noundef %47, ptr noundef @packettypenames, ptr noundef @.str.155)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %46, ptr noundef @.str.159, ptr noundef %48)
   %49 = load ptr, ptr %17, align 8
   %50 = load i32, ptr @hf_scylla_verb, align 4
   %51 = load ptr, ptr %8, align 8
@@ -876,6 +1137,7 @@ define internal i32 @dissect_scylla_msg_pdu(ptr noundef %0, ptr noundef %1, ptr 
   %54 = load i32, ptr %15, align 4
   %55 = add i32 %54, 8
   store i32 %55, ptr %15, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #6
   %56 = load ptr, ptr %17, align 8
   %57 = load i32, ptr @hf_scylla_msg_id, align 4
   %58 = load ptr, ptr %8, align 8
@@ -894,7 +1156,7 @@ define internal i32 @dissect_scylla_msg_pdu(ptr noundef %0, ptr noundef %1, ptr 
   store i32 %69, ptr %15, align 4
   %70 = load ptr, ptr %16, align 8
   %71 = load i64, ptr %18, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef @.str.109, i64 noundef %71)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef @.str.160, i64 noundef %71)
   %72 = load i64, ptr %12, align 8
   switch i64 %72, label %232 [
     i64 1, label %73
@@ -902,14 +1164,18 @@ define internal i32 @dissect_scylla_msg_pdu(ptr noundef %0, ptr noundef %1, ptr 
   ]
 
 73:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #6
   %74 = load ptr, ptr %10, align 8
   %75 = load ptr, ptr %8, align 8
   %76 = load i32, ptr %15, align 4
   %77 = load i32, ptr %13, align 4
   %78 = load i32, ptr @ett_scylla_mut, align 4
-  %79 = call ptr @proto_tree_add_subtree(ptr noundef %74, ptr noundef %75, i32 noundef %76, i32 noundef %77, i32 noundef %78, ptr noundef null, ptr noundef @.str.110)
+  %79 = call ptr @proto_tree_add_subtree(ptr noundef %74, ptr noundef %75, i32 noundef %76, i32 noundef %77, i32 noundef %78, ptr noundef null, ptr noundef @.str.161)
   store ptr %79, ptr %19, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #6
   store i32 0, ptr %20, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #6
   %80 = load ptr, ptr %19, align 8
   %81 = load i32, ptr @hf_scylla_mut_size1, align 4
   %82 = load ptr, ptr %8, align 8
@@ -960,6 +1226,7 @@ define internal i32 @dissect_scylla_msg_pdu(ptr noundef %0, ptr noundef %1, ptr 
   %123 = load i32, ptr %20, align 4
   %124 = add i32 %123, 4
   store i32 %124, ptr %20, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #6
   %125 = load ptr, ptr %19, align 8
   %126 = load ptr, ptr %8, align 8
   %127 = load i32, ptr %15, align 4
@@ -969,7 +1236,7 @@ define internal i32 @dissect_scylla_msg_pdu(ptr noundef %0, ptr noundef %1, ptr 
   %131 = load i32, ptr %20, align 4
   %132 = sub i32 %130, %131
   %133 = load i32, ptr @ett_scylla_mut_pkey, align 4
-  %134 = call ptr @proto_tree_add_subtree(ptr noundef %125, ptr noundef %126, i32 noundef %129, i32 noundef %132, i32 noundef %133, ptr noundef null, ptr noundef @.str.111)
+  %134 = call ptr @proto_tree_add_subtree(ptr noundef %125, ptr noundef %126, i32 noundef %129, i32 noundef %132, i32 noundef %133, ptr noundef null, ptr noundef @.str.162)
   store ptr %134, ptr %23, align 8
   %135 = load ptr, ptr %23, align 8
   %136 = load i32, ptr @hf_scylla_mut_num_pkeys, align 4
@@ -981,6 +1248,7 @@ define internal i32 @dissect_scylla_msg_pdu(ptr noundef %0, ptr noundef %1, ptr 
   %142 = load i32, ptr %20, align 4
   %143 = add i32 %142, 4
   store i32 %143, ptr %20, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #6
   store i32 0, ptr %24, align 4
   br label %144
 
@@ -991,6 +1259,7 @@ define internal i32 @dissect_scylla_msg_pdu(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %147, label %148, label %177
 
 148:                                              ; preds = %144
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #6
   %149 = load ptr, ptr %8, align 8
   %150 = load i32, ptr %15, align 4
   %151 = load i32, ptr %20, align 4
@@ -1019,13 +1288,14 @@ define internal i32 @dissect_scylla_msg_pdu(ptr noundef %0, ptr noundef %1, ptr 
   %172 = load i32, ptr %20, align 4
   %173 = add i32 %172, %171
   store i32 %173, ptr %20, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #6
   br label %174
 
 174:                                              ; preds = %148
   %175 = load i32, ptr %24, align 4
   %176 = add i32 %175, 1
   store i32 %176, ptr %24, align 4
-  br label %144, !llvm.loop !4
+  br label %144, !llvm.loop !10
 
 177:                                              ; preds = %144
   %178 = load ptr, ptr %19, align 8
@@ -1038,16 +1308,24 @@ define internal i32 @dissect_scylla_msg_pdu(ptr noundef %0, ptr noundef %1, ptr 
   %185 = load i32, ptr %20, align 4
   %186 = sub i32 %184, %185
   %187 = call ptr @proto_tree_add_item(ptr noundef %178, i32 noundef %179, ptr noundef %180, i32 noundef %183, i32 noundef %186, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #6
   br label %239
 
 188:                                              ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #6
   %189 = load ptr, ptr %10, align 8
   %190 = load ptr, ptr %8, align 8
   %191 = load i32, ptr %15, align 4
   %192 = load i32, ptr %13, align 4
   %193 = load i32, ptr @ett_scylla_read_data, align 4
-  %194 = call ptr @proto_tree_add_subtree(ptr noundef %189, ptr noundef %190, i32 noundef %191, i32 noundef %192, i32 noundef %193, ptr noundef null, ptr noundef @.str.112)
+  %194 = call ptr @proto_tree_add_subtree(ptr noundef %189, ptr noundef %190, i32 noundef %191, i32 noundef %192, i32 noundef %193, ptr noundef null, ptr noundef @.str.163)
   store ptr %194, ptr %26, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #6
   store i32 0, ptr %27, align 4
   %195 = load ptr, ptr %26, align 8
   %196 = load i32, ptr @hf_scylla_read_data_timeout, align 4
@@ -1089,6 +1367,8 @@ define internal i32 @dissect_scylla_msg_pdu(ptr noundef %0, ptr noundef %1, ptr 
   %229 = load i32, ptr %27, align 4
   %230 = sub i32 %228, %229
   %231 = call ptr @proto_tree_add_item(ptr noundef %222, i32 noundef %223, ptr noundef %224, i32 noundef %227, i32 noundef %230, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #6
   br label %239
 
 232:                                              ; preds = %7
@@ -1107,22 +1387,24 @@ define internal i32 @dissect_scylla_msg_pdu(ptr noundef %0, ptr noundef %1, ptr 
 
 242:                                              ; preds = %239
   %243 = load ptr, ptr %14, align 8
-  %244 = getelementptr inbounds %struct.request_response_t, ptr %243, i32 0, i32 2
+  %244 = getelementptr inbounds nuw %struct.request_response_t, ptr %243, i32 0, i32 2
   %245 = load i32, ptr %244, align 4
   %246 = icmp ugt i32 %245, 0
   br i1 %246, label %247, label %256
 
 247:                                              ; preds = %242
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #6
   %248 = load ptr, ptr %10, align 8
   %249 = load i32, ptr @hf_scylla_request_response_frame, align 4
   %250 = load ptr, ptr %8, align 8
   %251 = load ptr, ptr %14, align 8
-  %252 = getelementptr inbounds %struct.request_response_t, ptr %251, i32 0, i32 2
+  %252 = getelementptr inbounds nuw %struct.request_response_t, ptr %251, i32 0, i32 2
   %253 = load i32, ptr %252, align 4
   %254 = call ptr @proto_tree_add_uint(ptr noundef %248, i32 noundef %249, ptr noundef %250, i32 noundef 0, i32 noundef 0, i32 noundef %253)
   store ptr %254, ptr %28, align 8
   %255 = load ptr, ptr %28, align 8
   call void @proto_item_set_generated(ptr noundef %255)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #6
   br label %260
 
 256:                                              ; preds = %242
@@ -1136,36 +1418,48 @@ define internal i32 @dissect_scylla_msg_pdu(ptr noundef %0, ptr noundef %1, ptr 
 
 261:                                              ; preds = %260, %239
   %262 = load ptr, ptr %9, align 8
-  %263 = getelementptr inbounds %struct._packet_info, ptr %262, i32 0, i32 1
+  %263 = getelementptr inbounds nuw %struct._packet_info, ptr %262, i32 0, i32 1
   %264 = load ptr, ptr %263, align 8
-  call void @col_set_str(ptr noundef %264, i32 noundef 34, ptr noundef @.str.49)
+  call void @col_set_str(ptr noundef %264, i32 noundef 35, ptr noundef @.str.61)
   %265 = load ptr, ptr %9, align 8
-  %266 = getelementptr inbounds %struct._packet_info, ptr %265, i32 0, i32 1
+  %266 = getelementptr inbounds nuw %struct._packet_info, ptr %265, i32 0, i32 1
   %267 = load ptr, ptr %266, align 8
   call void @col_clear(ptr noundef %267, i32 noundef 25)
   %268 = load ptr, ptr %9, align 8
-  %269 = getelementptr inbounds %struct._packet_info, ptr %268, i32 0, i32 1
+  %269 = getelementptr inbounds nuw %struct._packet_info, ptr %268, i32 0, i32 1
   %270 = load ptr, ptr %269, align 8
   %271 = load i64, ptr %12, align 8
-  %272 = call ptr @val64_to_str(i64 noundef %271, ptr noundef @packettypenames, ptr noundef @.str.104)
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %270, i32 noundef 25, ptr noundef @.str.113, ptr noundef %272)
+  %272 = call ptr @val64_to_str(i64 noundef %271, ptr noundef @packettypenames, ptr noundef @.str.155)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %270, i32 noundef 25, ptr noundef @.str.164, ptr noundef %272)
   %273 = load ptr, ptr %8, align 8
   %274 = call i32 @tvb_reported_length(ptr noundef %273)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
   ret i32 %274
 }
 
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_item_ret_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @proto_item_set_generated(ptr noundef %0) #0 {
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) #2
+
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @proto_item_set_generated(ptr noundef %0) #5 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -1177,22 +1471,22 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._proto_node, ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct._proto_node, ptr %7, i32 0, i32 5
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct._proto_node, ptr %12, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct._proto_node, ptr %12, i32 0, i32 5
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.field_info, ptr %14, i32 0, i32 6
+  %15 = getelementptr inbounds nuw %struct.field_info, ptr %14, i32 0, i32 6
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 2
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct._proto_node, ptr %18, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct._proto_node, ptr %18, i32 0, i32 5
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.field_info, ptr %20, i32 0, i32 6
+  %21 = getelementptr inbounds nuw %struct.field_info, ptr %20, i32 0, i32 6
   store i32 %17, ptr %21, align 4
   br label %22
 
@@ -1206,28 +1500,43 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
   ret void
 }
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #2
 
-declare ptr @val64_to_str(i64 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val64_to_str(i64 noundef, ptr noundef, ptr noundef) #2
 
-declare void @col_clear(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_clear(ptr noundef, i32 noundef) #2
 
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #1
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { allocsize(1) }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}

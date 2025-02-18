@@ -3,39 +3,36 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
 %struct.unit_name_string = type { ptr, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct.previous_frame_info = type { i32, i64, i32, %union.ieee_802_11_phy_info, i32, ptr }
-%union.ieee_802_11_phy_info = type { %struct.ieee_802_11n }
-%struct.ieee_802_11n = type { i8, i16, i32, i8, i32 }
-%struct.mcs_vht_info = type { ptr, ptr, float }
-%struct.mcs_vht_valid = type { [4 x [8 x i32]] }
+%struct.previous_frame_info = type { i8, i64, i32, %union.ieee_802_11_phy_info, i32, ptr }
+%union.ieee_802_11_phy_info = type { %struct.ieee_802_11be }
+%struct.ieee_802_11be = type { i8, i8, i8, i8, [4 x %struct.ieee_802_11be_user_info] }
+%struct.ieee_802_11be_user_info = type { i32 }
+%struct.mcs_vht_valid = type { [4 x [8 x i8]] }
 %struct.ieee_802_11_phdr = type { i32, i8, i32, %union.ieee_802_11_phy_info, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i64, i32, i32, i8 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
-%struct._frame_data = type { i32, i32, i32, i32, i64, ptr, ptr, ptr, i16, i16, %struct.nstime_t, %struct.nstime_t, i32, i32, i8 }
+%struct._frame_data = type <{ i32, i32, i32, i32, i32, [4 x i8], i64, ptr, ptr, ptr, i8, i16, [5 x i8], %struct.nstime_t, %struct.nstime_t, i32, i32 }>
 %struct.aggregate = type { i32, %union.ieee_802_11_phy_info, i8, i32 }
 %struct.wlan_radio = type { ptr, i32, i64, i64, i64, i16, i8 }
+%struct.ieee_802_11n = type { i8, i16, i32, i8, i32 }
 %struct.ieee_802_11ac = type { i16, i8, [4 x i8], [4 x i8], i8, i8, i16 }
 %struct.ieee_802_11_fhss = type { i8, i8, i8, i8 }
-%struct.ieee_802_11b = type { i8, i32 }
+%struct.ieee_802_11b = type { i8, i8, [2 x i8] }
 %struct.ieee_802_11g = type { i8, i32 }
-%struct.ieee_802_11ax = type <{ i8, i16, i8 }>
-%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.mcs_info = type { ptr, ptr, float }
+%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.field_info = type { ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32 }
 
 @ieee80211_ht_Dbps = constant [77 x i16] [i16 26, i16 52, i16 78, i16 104, i16 156, i16 208, i16 234, i16 260, i16 52, i16 104, i16 156, i16 208, i16 312, i16 416, i16 468, i16 520, i16 78, i16 156, i16 234, i16 312, i16 468, i16 624, i16 702, i16 780, i16 104, i16 208, i16 312, i16 416, i16 624, i16 832, i16 936, i16 1040, i16 12, i16 156, i16 208, i16 260, i16 234, i16 312, i16 390, i16 208, i16 260, i16 260, i16 312, i16 364, i16 364, i16 416, i16 312, i16 390, i16 390, i16 468, i16 546, i16 546, i16 624, i16 260, i16 312, i16 364, i16 312, i16 364, i16 416, i16 468, i16 416, i16 468, i16 520, i16 520, i16 572, i16 390, i16 468, i16 546, i16 468, i16 546, i16 624, i16 702, i16 624, i16 702, i16 780, i16 780, i16 858], align 16
-@proto_register_ieee80211_radio.hf_wlan_radio = internal global [51 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_wlan_radio_phy, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 7, i32 1, ptr @phy_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11_fhss_hop_set, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11_fhss_hop_pattern, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11_fhss_hop_index, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11a_channel_type, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 7, i32 1, ptr @channel_type_11a_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11a_turbo_type, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 7, i32 1, ptr @turbo_type_11a_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11g_mode, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 7, i32 1, ptr @mode_11g_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11n_mcs_index, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 7, i32 1, ptr null, i64 0, ptr @.str.16, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11n_bandwidth, %struct._header_field_info { ptr @.str.17, ptr @.str.18, i32 7, i32 1, ptr @bandwidth_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11n_short_gi, %struct._header_field_info { ptr @.str.19, ptr @.str.20, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11n_greenfield, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11n_fec, %struct._header_field_info { ptr @.str.23, ptr @.str.24, i32 7, i32 1, ptr @fec_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11n_stbc_streams, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11n_ness, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_stbc, %struct._header_field_info { ptr @.str.29, ptr @.str.30, i32 2, i32 0, ptr @tfs_on_off, i64 0, ptr @.str.31, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_txop_ps_not_allowed, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 2, i32 0, ptr null, i64 0, ptr @.str.34, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_short_gi, %struct._header_field_info { ptr @.str.19, ptr @.str.35, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_short_gi_nsym_disambig, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 2, i32 0, ptr null, i64 0, ptr @.str.38, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_ldpc_extra_ofdm_symbol, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_beamformed, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_bandwidth, %struct._header_field_info { ptr @.str.17, ptr @.str.43, i32 7, i32 1, ptr @bandwidth_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_user, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_nsts, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 7, i32 1, ptr null, i64 0, ptr @.str.48, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_mcs, %struct._header_field_info { ptr @.str.14, ptr @.str.49, i32 7, i32 1, ptr null, i64 0, ptr @.str.16, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_nss, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 7, i32 1, ptr null, i64 0, ptr @.str.52, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_fec, %struct._header_field_info { ptr @.str.23, ptr @.str.53, i32 7, i32 1, ptr @fec_vals, i64 0, ptr @.str.54, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_gid, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_p_aid, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_data_rate, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 22, i32 0, ptr null, i64 0, ptr @.str.61, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_channel, %struct._header_field_info { ptr @.str.62, ptr @.str.63, i32 7, i32 1, ptr null, i64 0, ptr @.str.64, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_frequency, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 5, i32 4097, ptr @units_mhz, i64 0, ptr @.str.67, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_short_preamble, %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_signal_percent, %struct._header_field_info { ptr @.str.70, ptr @.str.71, i32 7, i32 4097, ptr @units_percent, i64 0, ptr @.str.72, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_signal_db, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 4, i32 4097, ptr @units_decibels, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_signal_dbm, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 12, i32 4097, ptr @units_dbm, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_noise_percent, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 7, i32 4097, ptr @units_percent, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_noise_db, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 4, i32 4097, ptr @units_decibels, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_noise_dbm, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 12, i32 4097, ptr @units_dbm, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_snr, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 15, i32 4097, ptr @units_decibels, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_timestamp, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 11, i32 1, ptr null, i64 0, ptr @.str.87, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_last_part_of_a_mpdu, %struct._header_field_info { ptr @.str.88, ptr @.str.89, i32 2, i32 32, ptr null, i64 1, ptr @.str.90, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_a_mpdu_delim_crc_error, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 2, i32 32, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_a_mpdu_aggregate_id, %struct._header_field_info { ptr @.str.93, ptr @.str.94, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_duration, %struct._header_field_info { ptr @.str.95, ptr @.str.96, i32 7, i32 4097, ptr @units_microseconds, i64 0, ptr @.str.97, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_preamble, %struct._header_field_info { ptr @.str.98, ptr @.str.99, i32 7, i32 4097, ptr @units_microseconds, i64 0, ptr @.str.100, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_aggregate, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 0, i32 0, ptr null, i64 0, ptr @.str.103, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_ifs, %struct._header_field_info { ptr @.str.104, ptr @.str.105, i32 19, i32 4097, ptr @units_microseconds, i64 0, ptr @.str.106, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_start_tsf, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 11, i32 4097, ptr @units_microseconds, i64 0, ptr @.str.109, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_end_tsf, %struct._header_field_info { ptr @.str.110, ptr @.str.111, i32 11, i32 4097, ptr @units_microseconds, i64 0, ptr @.str.112, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_aggregate_duration, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 7, i32 4097, ptr @units_microseconds, i64 0, ptr @.str.115, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_zero_length_psdu_type, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 4, i32 2, ptr @zero_length_psdu_vals, i64 0, ptr @.str.118, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@proto_register_ieee80211_radio.hf_wlan_radio = internal global [55 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_wlan_radio_phy, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 7, i32 1, ptr @phy_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11_fhss_hop_set, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11_fhss_hop_pattern, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11_fhss_hop_index, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11a_channel_type, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 7, i32 1, ptr @channel_type_11a_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11a_turbo_type, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 7, i32 1, ptr @turbo_type_11a_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11g_mode, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 7, i32 1, ptr @mode_11g_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11n_mcs_index, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 7, i32 1, ptr null, i64 0, ptr @.str.16, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11n_bandwidth, %struct._header_field_info { ptr @.str.17, ptr @.str.18, i32 7, i32 1, ptr @bandwidth_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11n_short_gi, %struct._header_field_info { ptr @.str.19, ptr @.str.20, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11n_greenfield, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11n_fec, %struct._header_field_info { ptr @.str.23, ptr @.str.24, i32 7, i32 1, ptr @fec_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11n_stbc_streams, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11n_ness, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_stbc, %struct._header_field_info { ptr @.str.29, ptr @.str.30, i32 2, i32 0, ptr @tfs_on_off, i64 0, ptr @.str.31, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_txop_ps_not_allowed, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 2, i32 0, ptr null, i64 0, ptr @.str.34, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_short_gi, %struct._header_field_info { ptr @.str.19, ptr @.str.35, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_short_gi_nsym_disambig, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 2, i32 0, ptr null, i64 0, ptr @.str.38, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_ldpc_extra_ofdm_symbol, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_beamformed, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_bandwidth, %struct._header_field_info { ptr @.str.17, ptr @.str.43, i32 7, i32 1, ptr @bandwidth_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_user, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_nsts, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 7, i32 1, ptr null, i64 0, ptr @.str.48, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_mcs, %struct._header_field_info { ptr @.str.14, ptr @.str.49, i32 7, i32 1, ptr null, i64 0, ptr @.str.16, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_nss, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 7, i32 1, ptr null, i64 0, ptr @.str.52, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_fec, %struct._header_field_info { ptr @.str.23, ptr @.str.53, i32 7, i32 1, ptr @fec_vals, i64 0, ptr @.str.54, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_gid, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_p_aid, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11be_user, %struct._header_field_info { ptr @.str.44, ptr @.str.59, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11be_sta_id, %struct._header_field_info { ptr @.str.60, ptr @.str.61, i32 7, i32 1, ptr null, i64 0, ptr @.str.62, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11be_nsts, %struct._header_field_info { ptr @.str.46, ptr @.str.63, i32 7, i32 1, ptr null, i64 0, ptr @.str.48, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11be_mcs, %struct._header_field_info { ptr @.str.14, ptr @.str.64, i32 7, i32 1, ptr null, i64 0, ptr @.str.16, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_data_rate, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 22, i32 0, ptr null, i64 0, ptr @.str.67, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_channel, %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 7, i32 1, ptr null, i64 0, ptr @.str.70, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_frequency, %struct._header_field_info { ptr @.str.71, ptr @.str.72, i32 5, i32 4097, ptr @units_mhz, i64 0, ptr @.str.73, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_short_preamble, %struct._header_field_info { ptr @.str.74, ptr @.str.75, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_signal_percent, %struct._header_field_info { ptr @.str.76, ptr @.str.77, i32 7, i32 4097, ptr @units_percent, i64 0, ptr @.str.78, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_signal_db, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 4, i32 4097, ptr @units_decibels, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_signal_dbm, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 12, i32 4097, ptr @units_dbm, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_noise_percent, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 7, i32 4097, ptr @units_percent, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_noise_db, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 4, i32 4097, ptr @units_decibels, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_noise_dbm, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 12, i32 4097, ptr @units_dbm, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_snr, %struct._header_field_info { ptr @.str.89, ptr @.str.90, i32 15, i32 4097, ptr @units_decibels, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_timestamp, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 11, i32 1, ptr null, i64 0, ptr @.str.93, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_last_part_of_a_mpdu, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 2, i32 32, ptr null, i64 1, ptr @.str.96, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_a_mpdu_delim_crc_error, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 2, i32 32, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_a_mpdu_aggregate_id, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_duration, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 7, i32 4097, ptr @units_microseconds, i64 0, ptr @.str.103, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_preamble, %struct._header_field_info { ptr @.str.104, ptr @.str.105, i32 7, i32 4097, ptr @units_microseconds, i64 0, ptr @.str.106, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_aggregate, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 0, i32 0, ptr null, i64 0, ptr @.str.109, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_ifs, %struct._header_field_info { ptr @.str.110, ptr @.str.111, i32 19, i32 4097, ptr @units_microseconds, i64 0, ptr @.str.112, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_start_tsf, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 11, i32 4097, ptr @units_microseconds, i64 0, ptr @.str.115, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_end_tsf, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 11, i32 4097, ptr @units_microseconds, i64 0, ptr @.str.118, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_aggregate_duration, %struct._header_field_info { ptr @.str.119, ptr @.str.120, i32 7, i32 4097, ptr @units_microseconds, i64 0, ptr @.str.121, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_zero_length_psdu_type, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 4, i32 2, ptr @zero_length_psdu_vals, i64 0, ptr @.str.124, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_wlan_radio_phy = internal global i32 0, align 4
 @.str = private unnamed_addr constant [9 x i8] c"PHY type\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"wlan_radio.phy\00", align 1
-@phy_vals = internal constant [12 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.146 }, %struct._value_string { i32 2, ptr @.str.147 }, %struct._value_string { i32 3, ptr @.str.148 }, %struct._value_string { i32 4, ptr @.str.149 }, %struct._value_string { i32 5, ptr @.str.150 }, %struct._value_string { i32 6, ptr @.str.151 }, %struct._value_string { i32 7, ptr @.str.152 }, %struct._value_string { i32 8, ptr @.str.153 }, %struct._value_string { i32 9, ptr @.str.154 }, %struct._value_string { i32 10, ptr @.str.155 }, %struct._value_string { i32 11, ptr @.str.156 }, %struct._value_string zeroinitializer], align 16
 @hf_wlan_radio_11_fhss_hop_set = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [8 x i8] c"Hop set\00", align 1
 @.str.3 = private unnamed_addr constant [24 x i8] c"wlan_radio.fhss.hop_set\00", align 1
@@ -48,15 +45,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wlan_radio_11a_channel_type = internal global i32 0, align 4
 @.str.8 = private unnamed_addr constant [13 x i8] c"Channel type\00", align 1
 @.str.9 = private unnamed_addr constant [28 x i8] c"wlan_radio.11a.channel_type\00", align 1
-@channel_type_11a_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.157 }, %struct._value_string { i32 1, ptr @.str.158 }, %struct._value_string { i32 2, ptr @.str.159 }, %struct._value_string zeroinitializer], align 16
 @hf_wlan_radio_11a_turbo_type = internal global i32 0, align 4
 @.str.10 = private unnamed_addr constant [11 x i8] c"Turbo type\00", align 1
 @.str.11 = private unnamed_addr constant [26 x i8] c"wlan_radio.11a.turbo_type\00", align 1
-@turbo_type_11a_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.160 }, %struct._value_string { i32 1, ptr @.str.161 }, %struct._value_string { i32 2, ptr @.str.162 }, %struct._value_string { i32 3, ptr @.str.163 }, %struct._value_string zeroinitializer], align 16
 @hf_wlan_radio_11g_mode = internal global i32 0, align 4
 @.str.12 = private unnamed_addr constant [17 x i8] c"Proprietary mode\00", align 1
 @.str.13 = private unnamed_addr constant [20 x i8] c"wlan_radio.11g.mode\00", align 1
-@mode_11g_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.164 }, %struct._value_string { i32 1, ptr @.str.165 }, %struct._value_string zeroinitializer], align 16
 @hf_wlan_radio_11n_mcs_index = internal global i32 0, align 4
 @.str.14 = private unnamed_addr constant [10 x i8] c"MCS index\00", align 1
 @.str.15 = private unnamed_addr constant [25 x i8] c"wlan_radio.11n.mcs_index\00", align 1
@@ -64,7 +58,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wlan_radio_11n_bandwidth = internal global i32 0, align 4
 @.str.17 = private unnamed_addr constant [10 x i8] c"Bandwidth\00", align 1
 @.str.18 = private unnamed_addr constant [25 x i8] c"wlan_radio.11n.bandwidth\00", align 1
-@bandwidth_vals = internal constant [27 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.166 }, %struct._value_string { i32 1, ptr @.str.167 }, %struct._value_string { i32 2, ptr @.str.168 }, %struct._value_string { i32 3, ptr @.str.169 }, %struct._value_string { i32 4, ptr @.str.170 }, %struct._value_string { i32 5, ptr @.str.171 }, %struct._value_string { i32 6, ptr @.str.172 }, %struct._value_string { i32 7, ptr @.str.173 }, %struct._value_string { i32 8, ptr @.str.174 }, %struct._value_string { i32 9, ptr @.str.175 }, %struct._value_string { i32 10, ptr @.str.176 }, %struct._value_string { i32 11, ptr @.str.177 }, %struct._value_string { i32 12, ptr @.str.178 }, %struct._value_string { i32 13, ptr @.str.179 }, %struct._value_string { i32 14, ptr @.str.180 }, %struct._value_string { i32 15, ptr @.str.181 }, %struct._value_string { i32 16, ptr @.str.182 }, %struct._value_string { i32 17, ptr @.str.183 }, %struct._value_string { i32 18, ptr @.str.184 }, %struct._value_string { i32 19, ptr @.str.185 }, %struct._value_string { i32 20, ptr @.str.186 }, %struct._value_string { i32 21, ptr @.str.187 }, %struct._value_string { i32 22, ptr @.str.188 }, %struct._value_string { i32 23, ptr @.str.189 }, %struct._value_string { i32 24, ptr @.str.190 }, %struct._value_string { i32 25, ptr @.str.191 }, %struct._value_string zeroinitializer], align 16
 @hf_wlan_radio_11n_short_gi = internal global i32 0, align 4
 @.str.19 = private unnamed_addr constant [9 x i8] c"Short GI\00", align 1
 @.str.20 = private unnamed_addr constant [24 x i8] c"wlan_radio.11n.short_gi\00", align 1
@@ -74,7 +67,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wlan_radio_11n_fec = internal global i32 0, align 4
 @.str.23 = private unnamed_addr constant [4 x i8] c"FEC\00", align 1
 @.str.24 = private unnamed_addr constant [19 x i8] c"wlan_radio.11n.fec\00", align 1
-@fec_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.192 }, %struct._value_string { i32 1, ptr @.str.193 }, %struct._value_string zeroinitializer], align 16
 @hf_wlan_radio_11n_stbc_streams = internal global i32 0, align 4
 @.str.25 = private unnamed_addr constant [23 x i8] c"Number of STBC streams\00", align 1
 @.str.26 = private unnamed_addr constant [28 x i8] c"wlan_radio.11n.stbc_streams\00", align 1
@@ -126,418 +118,476 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wlan_radio_11ac_p_aid = internal global i32 0, align 4
 @.str.57 = private unnamed_addr constant [12 x i8] c"Partial AID\00", align 1
 @.str.58 = private unnamed_addr constant [21 x i8] c"wlan_radio.11ac.paid\00", align 1
+@hf_wlan_radio_11be_user = internal global i32 0, align 4
+@.str.59 = private unnamed_addr constant [21 x i8] c"wlan_radio.11be.user\00", align 1
+@hf_wlan_radio_11be_sta_id = internal global i32 0, align 4
+@.str.60 = private unnamed_addr constant [7 x i8] c"Sta ID\00", align 1
+@.str.61 = private unnamed_addr constant [23 x i8] c"wlan_radio.11be.sta_id\00", align 1
+@.str.62 = private unnamed_addr constant [11 x i8] c"Station ID\00", align 1
+@hf_wlan_radio_11be_nsts = internal global i32 0, align 4
+@.str.63 = private unnamed_addr constant [21 x i8] c"wlan_radio.11be.nsts\00", align 1
+@hf_wlan_radio_11be_mcs = internal global i32 0, align 4
+@.str.64 = private unnamed_addr constant [20 x i8] c"wlan_radio.11be.mcs\00", align 1
 @hf_wlan_radio_data_rate = internal global i32 0, align 4
-@.str.59 = private unnamed_addr constant [10 x i8] c"Data rate\00", align 1
-@.str.60 = private unnamed_addr constant [21 x i8] c"wlan_radio.data_rate\00", align 1
-@.str.61 = private unnamed_addr constant [44 x i8] c"Speed at which this frame was sent/received\00", align 1
+@.str.65 = private unnamed_addr constant [10 x i8] c"Data rate\00", align 1
+@.str.66 = private unnamed_addr constant [21 x i8] c"wlan_radio.data_rate\00", align 1
+@.str.67 = private unnamed_addr constant [44 x i8] c"Speed at which this frame was sent/received\00", align 1
 @hf_wlan_radio_channel = internal global i32 0, align 4
-@.str.62 = private unnamed_addr constant [8 x i8] c"Channel\00", align 1
-@.str.63 = private unnamed_addr constant [19 x i8] c"wlan_radio.channel\00", align 1
-@.str.64 = private unnamed_addr constant [59 x i8] c"802.11 channel number that this frame was sent/received on\00", align 1
+@.str.68 = private unnamed_addr constant [8 x i8] c"Channel\00", align 1
+@.str.69 = private unnamed_addr constant [19 x i8] c"wlan_radio.channel\00", align 1
+@.str.70 = private unnamed_addr constant [59 x i8] c"802.11 channel number that this frame was sent/received on\00", align 1
 @hf_wlan_radio_frequency = internal global i32 0, align 4
-@.str.65 = private unnamed_addr constant [10 x i8] c"Frequency\00", align 1
-@.str.66 = private unnamed_addr constant [21 x i8] c"wlan_radio.frequency\00", align 1
+@.str.71 = private unnamed_addr constant [10 x i8] c"Frequency\00", align 1
+@.str.72 = private unnamed_addr constant [21 x i8] c"wlan_radio.frequency\00", align 1
 @units_mhz = external constant %struct.unit_name_string, align 8
-@.str.67 = private unnamed_addr constant [76 x i8] c"Center frequency of the 802.11 channel that this frame was sent/received on\00", align 1
+@.str.73 = private unnamed_addr constant [76 x i8] c"Center frequency of the 802.11 channel that this frame was sent/received on\00", align 1
 @hf_wlan_radio_short_preamble = internal global i32 0, align 4
-@.str.68 = private unnamed_addr constant [15 x i8] c"Short preamble\00", align 1
-@.str.69 = private unnamed_addr constant [26 x i8] c"wlan_radio.short_preamble\00", align 1
+@.str.74 = private unnamed_addr constant [15 x i8] c"Short preamble\00", align 1
+@.str.75 = private unnamed_addr constant [26 x i8] c"wlan_radio.short_preamble\00", align 1
 @hf_wlan_radio_signal_percent = internal global i32 0, align 4
-@.str.70 = private unnamed_addr constant [29 x i8] c"Signal strength (percentage)\00", align 1
-@.str.71 = private unnamed_addr constant [29 x i8] c"wlan_radio.signal_percentage\00", align 1
+@.str.76 = private unnamed_addr constant [29 x i8] c"Signal strength (percentage)\00", align 1
+@.str.77 = private unnamed_addr constant [29 x i8] c"wlan_radio.signal_percentage\00", align 1
 @units_percent = external constant %struct.unit_name_string, align 8
-@.str.72 = private unnamed_addr constant [47 x i8] c"Signal strength, as percentage of maximum RSSI\00", align 1
+@.str.78 = private unnamed_addr constant [47 x i8] c"Signal strength, as percentage of maximum RSSI\00", align 1
 @hf_wlan_radio_signal_db = internal global i32 0, align 4
-@.str.73 = private unnamed_addr constant [21 x i8] c"Signal strength (dB)\00", align 1
-@.str.74 = private unnamed_addr constant [21 x i8] c"wlan_radio.signal_db\00", align 1
+@.str.79 = private unnamed_addr constant [21 x i8] c"Signal strength (dB)\00", align 1
+@.str.80 = private unnamed_addr constant [21 x i8] c"wlan_radio.signal_db\00", align 1
 @units_decibels = external constant %struct.unit_name_string, align 8
 @hf_wlan_radio_signal_dbm = internal global i32 0, align 4
-@.str.75 = private unnamed_addr constant [22 x i8] c"Signal strength (dBm)\00", align 1
-@.str.76 = private unnamed_addr constant [22 x i8] c"wlan_radio.signal_dbm\00", align 1
+@.str.81 = private unnamed_addr constant [22 x i8] c"Signal strength (dBm)\00", align 1
+@.str.82 = private unnamed_addr constant [22 x i8] c"wlan_radio.signal_dbm\00", align 1
 @units_dbm = external constant %struct.unit_name_string, align 8
 @hf_wlan_radio_noise_percent = internal global i32 0, align 4
-@.str.77 = private unnamed_addr constant [25 x i8] c"Noise level (percentage)\00", align 1
-@.str.78 = private unnamed_addr constant [28 x i8] c"wlan_radio.noise_percentage\00", align 1
+@.str.83 = private unnamed_addr constant [25 x i8] c"Noise level (percentage)\00", align 1
+@.str.84 = private unnamed_addr constant [28 x i8] c"wlan_radio.noise_percentage\00", align 1
 @hf_wlan_radio_noise_db = internal global i32 0, align 4
-@.str.79 = private unnamed_addr constant [17 x i8] c"Noise level (dB)\00", align 1
-@.str.80 = private unnamed_addr constant [20 x i8] c"wlan_radio.noise_db\00", align 1
+@.str.85 = private unnamed_addr constant [17 x i8] c"Noise level (dB)\00", align 1
+@.str.86 = private unnamed_addr constant [20 x i8] c"wlan_radio.noise_db\00", align 1
 @hf_wlan_radio_noise_dbm = internal global i32 0, align 4
-@.str.81 = private unnamed_addr constant [18 x i8] c"Noise level (dBm)\00", align 1
-@.str.82 = private unnamed_addr constant [21 x i8] c"wlan_radio.noise_dbm\00", align 1
+@.str.87 = private unnamed_addr constant [18 x i8] c"Noise level (dBm)\00", align 1
+@.str.88 = private unnamed_addr constant [21 x i8] c"wlan_radio.noise_dbm\00", align 1
 @hf_wlan_radio_snr = internal global i32 0, align 4
-@.str.83 = private unnamed_addr constant [24 x i8] c"Signal/noise ratio (dB)\00", align 1
-@.str.84 = private unnamed_addr constant [15 x i8] c"wlan_radio.snr\00", align 1
+@.str.89 = private unnamed_addr constant [24 x i8] c"Signal/noise ratio (dB)\00", align 1
+@.str.90 = private unnamed_addr constant [15 x i8] c"wlan_radio.snr\00", align 1
 @hf_wlan_radio_timestamp = internal global i32 0, align 4
-@.str.85 = private unnamed_addr constant [14 x i8] c"TSF timestamp\00", align 1
-@.str.86 = private unnamed_addr constant [21 x i8] c"wlan_radio.timestamp\00", align 1
-@.str.87 = private unnamed_addr constant [42 x i8] c"Timing Synchronization Function timestamp\00", align 1
+@.str.91 = private unnamed_addr constant [14 x i8] c"TSF timestamp\00", align 1
+@.str.92 = private unnamed_addr constant [21 x i8] c"wlan_radio.timestamp\00", align 1
+@.str.93 = private unnamed_addr constant [42 x i8] c"Timing Synchronization Function timestamp\00", align 1
 @hf_wlan_last_part_of_a_mpdu = internal global i32 0, align 4
-@.str.88 = private unnamed_addr constant [23 x i8] c"Last part of an A-MPDU\00", align 1
-@.str.89 = private unnamed_addr constant [33 x i8] c"wlan_radio.last_part_of_an_ampdu\00", align 1
-@.str.90 = private unnamed_addr constant [35 x i8] c"This is the last part of an A-MPDU\00", align 1
+@.str.94 = private unnamed_addr constant [23 x i8] c"Last part of an A-MPDU\00", align 1
+@.str.95 = private unnamed_addr constant [33 x i8] c"wlan_radio.last_part_of_an_ampdu\00", align 1
+@.str.96 = private unnamed_addr constant [35 x i8] c"This is the last part of an A-MPDU\00", align 1
 @hf_wlan_a_mpdu_delim_crc_error = internal global i32 0, align 4
-@.str.91 = private unnamed_addr constant [27 x i8] c"A-MPDU delimiter CRC error\00", align 1
-@.str.92 = private unnamed_addr constant [34 x i8] c"wlan_radio.a_mpdu_delim_crc_error\00", align 1
+@.str.97 = private unnamed_addr constant [27 x i8] c"A-MPDU delimiter CRC error\00", align 1
+@.str.98 = private unnamed_addr constant [34 x i8] c"wlan_radio.a_mpdu_delim_crc_error\00", align 1
 @hf_wlan_a_mpdu_aggregate_id = internal global i32 0, align 4
-@.str.93 = private unnamed_addr constant [20 x i8] c"A-MPDU aggregate ID\00", align 1
-@.str.94 = private unnamed_addr constant [31 x i8] c"wlan_radio.a_mpdu_aggregate_id\00", align 1
+@.str.99 = private unnamed_addr constant [20 x i8] c"A-MPDU aggregate ID\00", align 1
+@.str.100 = private unnamed_addr constant [31 x i8] c"wlan_radio.a_mpdu_aggregate_id\00", align 1
 @hf_wlan_radio_duration = internal global i32 0, align 4
-@.str.95 = private unnamed_addr constant [9 x i8] c"Duration\00", align 1
-@.str.96 = private unnamed_addr constant [20 x i8] c"wlan_radio.duration\00", align 1
+@.str.101 = private unnamed_addr constant [9 x i8] c"Duration\00", align 1
+@.str.102 = private unnamed_addr constant [20 x i8] c"wlan_radio.duration\00", align 1
 @units_microseconds = external constant %struct.unit_name_string, align 8
-@.str.97 = private unnamed_addr constant [149 x i8] c"Total duration of the frame in microseconds, including any preamble or plcp header. Calculated from the frame length, modulation and other phy data.\00", align 1
+@.str.103 = private unnamed_addr constant [149 x i8] c"Total duration of the frame in microseconds, including any preamble or plcp header. Calculated from the frame length, modulation and other phy data.\00", align 1
 @hf_wlan_radio_preamble = internal global i32 0, align 4
-@.str.98 = private unnamed_addr constant [9 x i8] c"Preamble\00", align 1
-@.str.99 = private unnamed_addr constant [20 x i8] c"wlan_radio.preamble\00", align 1
-@.str.100 = private unnamed_addr constant [75 x i8] c"Duration of the PLCP or preamble in microseconds, calculated from PHY data\00", align 1
+@.str.104 = private unnamed_addr constant [9 x i8] c"Preamble\00", align 1
+@.str.105 = private unnamed_addr constant [20 x i8] c"wlan_radio.preamble\00", align 1
+@.str.106 = private unnamed_addr constant [75 x i8] c"Duration of the PLCP or preamble in microseconds, calculated from PHY data\00", align 1
 @hf_wlan_radio_aggregate = internal global i32 0, align 4
-@.str.101 = private unnamed_addr constant [7 x i8] c"A-MPDU\00", align 1
-@.str.102 = private unnamed_addr constant [21 x i8] c"wlan_radio.aggregate\00", align 1
-@.str.103 = private unnamed_addr constant [26 x i8] c"MPDU is part of an A-MPDU\00", align 1
+@.str.107 = private unnamed_addr constant [7 x i8] c"A-MPDU\00", align 1
+@.str.108 = private unnamed_addr constant [21 x i8] c"wlan_radio.aggregate\00", align 1
+@.str.109 = private unnamed_addr constant [26 x i8] c"MPDU is part of an A-MPDU\00", align 1
 @hf_wlan_radio_ifs = internal global i32 0, align 4
-@.str.104 = private unnamed_addr constant [4 x i8] c"IFS\00", align 1
-@.str.105 = private unnamed_addr constant [15 x i8] c"wlan_radio.ifs\00", align 1
-@.str.106 = private unnamed_addr constant [78 x i8] c"Inter Frame Space before this frame in microseconds, calculated from PHY data\00", align 1
+@.str.110 = private unnamed_addr constant [4 x i8] c"IFS\00", align 1
+@.str.111 = private unnamed_addr constant [15 x i8] c"wlan_radio.ifs\00", align 1
+@.str.112 = private unnamed_addr constant [78 x i8] c"Inter Frame Space before this frame in microseconds, calculated from PHY data\00", align 1
 @hf_wlan_radio_start_tsf = internal global i32 0, align 4
-@.str.107 = private unnamed_addr constant [6 x i8] c"Start\00", align 1
-@.str.108 = private unnamed_addr constant [21 x i8] c"wlan_radio.start_tsf\00", align 1
-@.str.109 = private unnamed_addr constant [35 x i8] c"Calculated start time of the frame\00", align 1
+@.str.113 = private unnamed_addr constant [6 x i8] c"Start\00", align 1
+@.str.114 = private unnamed_addr constant [21 x i8] c"wlan_radio.start_tsf\00", align 1
+@.str.115 = private unnamed_addr constant [35 x i8] c"Calculated start time of the frame\00", align 1
 @hf_wlan_radio_end_tsf = internal global i32 0, align 4
-@.str.110 = private unnamed_addr constant [4 x i8] c"End\00", align 1
-@.str.111 = private unnamed_addr constant [19 x i8] c"wlan_radio.end_tsf\00", align 1
-@.str.112 = private unnamed_addr constant [33 x i8] c"Calculated end time of the frame\00", align 1
+@.str.116 = private unnamed_addr constant [4 x i8] c"End\00", align 1
+@.str.117 = private unnamed_addr constant [19 x i8] c"wlan_radio.end_tsf\00", align 1
+@.str.118 = private unnamed_addr constant [33 x i8] c"Calculated end time of the frame\00", align 1
 @hf_wlan_radio_aggregate_duration = internal global i32 0, align 4
-@.str.113 = private unnamed_addr constant [19 x i8] c"Aggregate Duration\00", align 1
-@.str.114 = private unnamed_addr constant [30 x i8] c"wlan_radio.aggregate.duration\00", align 1
-@.str.115 = private unnamed_addr constant [209 x i8] c"Total duration of the aggregate in microseconds, including any preamble or plcp header and multiple MPDUs. Calculated from the total subframe lengths, modulation and other phy data, assumes no excess padding.\00", align 1
+@.str.119 = private unnamed_addr constant [19 x i8] c"Aggregate Duration\00", align 1
+@.str.120 = private unnamed_addr constant [30 x i8] c"wlan_radio.aggregate.duration\00", align 1
+@.str.121 = private unnamed_addr constant [209 x i8] c"Total duration of the aggregate in microseconds, including any preamble or plcp header and multiple MPDUs. Calculated from the total subframe lengths, modulation and other phy data, assumes no excess padding.\00", align 1
 @hf_wlan_zero_length_psdu_type = internal global i32 0, align 4
-@.str.116 = private unnamed_addr constant [22 x i8] c"Zero-length PSDU Type\00", align 1
-@.str.117 = private unnamed_addr constant [30 x i8] c"wlan_radio.zero_len_psdu.type\00", align 1
-@zero_length_psdu_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.194 }, %struct._value_string { i32 1, ptr @.str.195 }, %struct._value_string { i32 255, ptr @.str.196 }, %struct._value_string zeroinitializer], align 16
-@.str.118 = private unnamed_addr constant [25 x i8] c"Type of zero-length PSDU\00", align 1
-@proto_register_ieee80211_radio.ett = internal global [4 x ptr] [ptr @ett_wlan_radio, ptr @ett_wlan_radio_11ac_user, ptr @ett_wlan_radio_duration, ptr @ett_wlan_radio_aggregate], align 16
+@.str.122 = private unnamed_addr constant [22 x i8] c"Zero-length PSDU Type\00", align 1
+@.str.123 = private unnamed_addr constant [30 x i8] c"wlan_radio.zero_len_psdu.type\00", align 1
+@.str.124 = private unnamed_addr constant [25 x i8] c"Type of zero-length PSDU\00", align 1
+@proto_register_ieee80211_radio.ett = internal global [5 x ptr] [ptr @ett_wlan_radio, ptr @ett_wlan_radio_11ac_user, ptr @ett_wlan_radio_duration, ptr @ett_wlan_radio_aggregate, ptr @ett_wlan_radio_11be_user], align 16
 @ett_wlan_radio = internal global i32 0, align 4
 @ett_wlan_radio_11ac_user = internal global i32 0, align 4
 @ett_wlan_radio_duration = internal global i32 0, align 4
 @ett_wlan_radio_aggregate = internal global i32 0, align 4
-@proto_register_ieee80211_radio.ei = internal global [5 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_wlan_radio_assumed_short_preamble, %struct.expert_field_info { ptr @.str.119, i32 218103808, i32 6291456, ptr @.str.120, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_wlan_radio_assumed_non_greenfield, %struct.expert_field_info { ptr @.str.121, i32 218103808, i32 6291456, ptr @.str.122, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_wlan_radio_assumed_no_stbc, %struct.expert_field_info { ptr @.str.123, i32 218103808, i32 6291456, ptr @.str.124, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_wlan_radio_assumed_no_extension_streams, %struct.expert_field_info { ptr @.str.125, i32 218103808, i32 6291456, ptr @.str.126, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_wlan_radio_assumed_bcc_fec, %struct.expert_field_info { ptr @.str.127, i32 218103808, i32 6291456, ptr @.str.128, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@ett_wlan_radio_11be_user = internal global i32 0, align 4
+@proto_register_ieee80211_radio.ei = internal global [6 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_wlan_radio_assumed_short_preamble, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.125, i32 218103808, i32 6291456, ptr @.str.126, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_wlan_radio_assumed_non_greenfield, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.127, i32 218103808, i32 6291456, ptr @.str.128, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_wlan_radio_assumed_no_stbc, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.129, i32 218103808, i32 6291456, ptr @.str.130, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_wlan_radio_assumed_no_extension_streams, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.131, i32 218103808, i32 6291456, ptr @.str.132, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_wlan_radio_assumed_bcc_fec, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.133, i32 218103808, i32 6291456, ptr @.str.134, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_wlan_radio_11be_num_users, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.135, i32 117440512, i32 6291456, ptr @.str.136, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_wlan_radio_assumed_short_preamble = internal global %struct.expert_field zeroinitializer, align 4
-@.str.119 = private unnamed_addr constant [34 x i8] c"wlan_radio.assumed.short_preamble\00", align 1
-@.str.120 = private unnamed_addr constant [71 x i8] c"No preamble length information was available, assuming short preamble.\00", align 1
+@.str.125 = private unnamed_addr constant [34 x i8] c"wlan_radio.assumed.short_preamble\00", align 1
+@.str.126 = private unnamed_addr constant [71 x i8] c"No preamble length information was available, assuming short preamble.\00", align 1
 @ei_wlan_radio_assumed_non_greenfield = internal global %struct.expert_field zeroinitializer, align 4
-@.str.121 = private unnamed_addr constant [34 x i8] c"wlan_radio.assumed.non_greenfield\00", align 1
-@.str.122 = private unnamed_addr constant [65 x i8] c"No plcp type information was available, assuming non greenfield.\00", align 1
+@.str.127 = private unnamed_addr constant [34 x i8] c"wlan_radio.assumed.non_greenfield\00", align 1
+@.str.128 = private unnamed_addr constant [65 x i8] c"No plcp type information was available, assuming non greenfield.\00", align 1
 @ei_wlan_radio_assumed_no_stbc = internal global %struct.expert_field zeroinitializer, align 4
-@.str.123 = private unnamed_addr constant [27 x i8] c"wlan_radio.assumed.no_stbc\00", align 1
-@.str.124 = private unnamed_addr constant [53 x i8] c"No stbc information was available, assuming no stbc.\00", align 1
+@.str.129 = private unnamed_addr constant [27 x i8] c"wlan_radio.assumed.no_stbc\00", align 1
+@.str.130 = private unnamed_addr constant [53 x i8] c"No stbc information was available, assuming no stbc.\00", align 1
 @ei_wlan_radio_assumed_no_extension_streams = internal global %struct.expert_field zeroinitializer, align 4
-@.str.125 = private unnamed_addr constant [40 x i8] c"wlan_radio.assumed.no_extension_streams\00", align 1
-@.str.126 = private unnamed_addr constant [78 x i8] c"No extension stream information was available, assuming no extension streams.\00", align 1
+@.str.131 = private unnamed_addr constant [40 x i8] c"wlan_radio.assumed.no_extension_streams\00", align 1
+@.str.132 = private unnamed_addr constant [78 x i8] c"No extension stream information was available, assuming no extension streams.\00", align 1
 @ei_wlan_radio_assumed_bcc_fec = internal global %struct.expert_field zeroinitializer, align 4
-@.str.127 = private unnamed_addr constant [27 x i8] c"wlan_radio.assumed.bcc_fec\00", align 1
-@.str.128 = private unnamed_addr constant [57 x i8] c"No fec type information was available, assuming bcc fec.\00", align 1
-@.str.129 = private unnamed_addr constant [25 x i8] c"802.11 radio information\00", align 1
-@.str.130 = private unnamed_addr constant [13 x i8] c"802.11 Radio\00", align 1
-@.str.131 = private unnamed_addr constant [11 x i8] c"wlan_radio\00", align 1
+@.str.133 = private unnamed_addr constant [27 x i8] c"wlan_radio.assumed.bcc_fec\00", align 1
+@.str.134 = private unnamed_addr constant [57 x i8] c"No fec type information was available, assuming bcc fec.\00", align 1
+@ei_wlan_radio_11be_num_users = internal global %struct.expert_field zeroinitializer, align 4
+@.str.135 = private unnamed_addr constant [26 x i8] c"wlan_radio.11be_num_users\00", align 1
+@.str.136 = private unnamed_addr constant [64 x i8] c"Number of users in the 802.11be header exceeds available slots.\00", align 1
+@.str.137 = private unnamed_addr constant [25 x i8] c"802.11 radio information\00", align 1
+@.str.138 = private unnamed_addr constant [13 x i8] c"802.11 Radio\00", align 1
+@.str.139 = private unnamed_addr constant [11 x i8] c"wlan_radio\00", align 1
 @proto_wlan_radio = internal global i32 0, align 4
 @wlan_radio_handle = internal global ptr null, align 8
-@.str.132 = private unnamed_addr constant [17 x i8] c"wlan_noqos_radio\00", align 1
+@.str.140 = private unnamed_addr constant [17 x i8] c"wlan_noqos_radio\00", align 1
 @wlan_noqos_radio_handle = internal global ptr null, align 8
-@.str.133 = private unnamed_addr constant [22 x i8] c"always_short_preamble\00", align 1
-@.str.134 = private unnamed_addr constant [43 x i8] c"802.11/11b preamble length is always short\00", align 1
-@.str.135 = private unnamed_addr constant [144 x i8] c"Some generators incorrectly indicate long preamble when the preamble was actuallyshort. Always assume short preamble when calculating duration.\00", align 1
-@wlan_radio_always_short_preamble = internal global i32 0, align 4
-@.str.136 = private unnamed_addr constant [11 x i8] c"tsf_at_end\00", align 1
-@.str.137 = private unnamed_addr constant [34 x i8] c"TSF indicates the end of the PPDU\00", align 1
-@.str.138 = private unnamed_addr constant [84 x i8] c"Some generators timestamp the end of the PPDU rather than the start of the (A)MPDU.\00", align 1
-@wlan_radio_tsf_at_end = internal global i32 1, align 4
-@.str.139 = private unnamed_addr constant [9 x i8] c"timeline\00", align 1
-@.str.140 = private unnamed_addr constant [40 x i8] c"Enable Wireless Timeline (experimental)\00", align 1
-@.str.141 = private unnamed_addr constant [59 x i8] c"Enables an additional panel for navigating through packets\00", align 1
-@wlan_radio_timeline_enabled = internal global i32 0, align 4
-@.str.142 = private unnamed_addr constant [11 x i8] c"wtap_encap\00", align 1
-@.str.143 = private unnamed_addr constant [5 x i8] c"wlan\00", align 1
-@ieee80211_handle = internal global ptr null, align 8
-@.str.144 = private unnamed_addr constant [11 x i8] c"wlan_noqos\00", align 1
-@ieee80211_noqos_handle = internal global ptr null, align 8
+@.str.141 = private unnamed_addr constant [22 x i8] c"always_short_preamble\00", align 1
+@.str.142 = private unnamed_addr constant [43 x i8] c"802.11/11b preamble length is always short\00", align 1
+@.str.143 = private unnamed_addr constant [144 x i8] c"Some generators incorrectly indicate long preamble when the preamble was actuallyshort. Always assume short preamble when calculating duration.\00", align 1
+@wlan_radio_always_short_preamble = internal global i8 0, align 1
+@.str.144 = private unnamed_addr constant [11 x i8] c"tsf_at_end\00", align 1
+@.str.145 = private unnamed_addr constant [34 x i8] c"TSF indicates the end of the PPDU\00", align 1
+@.str.146 = private unnamed_addr constant [84 x i8] c"Some generators timestamp the end of the PPDU rather than the start of the (A)MPDU.\00", align 1
+@wlan_radio_tsf_at_end = internal global i8 1, align 1
+@.str.147 = private unnamed_addr constant [9 x i8] c"timeline\00", align 1
+@.str.148 = private unnamed_addr constant [40 x i8] c"Enable Wireless Timeline (experimental)\00", align 1
+@.str.149 = private unnamed_addr constant [59 x i8] c"Enables an additional panel for navigating through packets\00", align 1
+@wlan_radio_timeline_enabled = internal global i8 0, align 1
 @wlan_radio_tap = internal global i32 0, align 4
-@.str.145 = private unnamed_addr constant [20 x i8] c"wlan_radio_timeline\00", align 1
+@.str.150 = private unnamed_addr constant [20 x i8] c"wlan_radio_timeline\00", align 1
 @wlan_radio_timeline_tap = internal global i32 0, align 4
-@.str.146 = private unnamed_addr constant [12 x i8] c"802.11 FHSS\00", align 1
-@.str.147 = private unnamed_addr constant [10 x i8] c"802.11 IR\00", align 1
-@.str.148 = private unnamed_addr constant [12 x i8] c"802.11 DSSS\00", align 1
-@.str.149 = private unnamed_addr constant [18 x i8] c"802.11b (HR/DSSS)\00", align 1
-@.str.150 = private unnamed_addr constant [15 x i8] c"802.11a (OFDM)\00", align 1
-@.str.151 = private unnamed_addr constant [14 x i8] c"802.11g (ERP)\00", align 1
-@.str.152 = private unnamed_addr constant [13 x i8] c"802.11n (HT)\00", align 1
-@.str.153 = private unnamed_addr constant [15 x i8] c"802.11ac (VHT)\00", align 1
-@.str.154 = private unnamed_addr constant [15 x i8] c"802.11ad (DMG)\00", align 1
-@.str.155 = private unnamed_addr constant [15 x i8] c"802.11ah (S1G)\00", align 1
-@.str.156 = private unnamed_addr constant [14 x i8] c"802.11ax (HE)\00", align 1
-@.str.157 = private unnamed_addr constant [7 x i8] c"Normal\00", align 1
-@.str.158 = private unnamed_addr constant [13 x i8] c"Half-clocked\00", align 1
-@.str.159 = private unnamed_addr constant [16 x i8] c"Quarter-clocked\00", align 1
-@.str.160 = private unnamed_addr constant [10 x i8] c"Non-turbo\00", align 1
-@.str.161 = private unnamed_addr constant [6 x i8] c"Turbo\00", align 1
-@.str.162 = private unnamed_addr constant [14 x i8] c"Dynamic turbo\00", align 1
-@.str.163 = private unnamed_addr constant [13 x i8] c"Static turbo\00", align 1
-@.str.164 = private unnamed_addr constant [5 x i8] c"None\00", align 1
-@.str.165 = private unnamed_addr constant [8 x i8] c"Super G\00", align 1
-@.str.166 = private unnamed_addr constant [7 x i8] c"20 MHz\00", align 1
-@.str.167 = private unnamed_addr constant [7 x i8] c"40 MHz\00", align 1
-@.str.168 = private unnamed_addr constant [22 x i8] c"20 MHz + 20 MHz lower\00", align 1
-@.str.169 = private unnamed_addr constant [22 x i8] c"20 MHz + 20 MHz upper\00", align 1
-@.str.170 = private unnamed_addr constant [7 x i8] c"80 MHz\00", align 1
-@.str.171 = private unnamed_addr constant [22 x i8] c"40 MHz + 40 MHz lower\00", align 1
-@.str.172 = private unnamed_addr constant [22 x i8] c"40 MHz + 40 MHz upper\00", align 1
-@.str.173 = private unnamed_addr constant [20 x i8] c"20 MHz, channel 1/4\00", align 1
-@.str.174 = private unnamed_addr constant [20 x i8] c"20 MHz, channel 2/4\00", align 1
-@.str.175 = private unnamed_addr constant [20 x i8] c"20 MHz, channel 3/4\00", align 1
-@.str.176 = private unnamed_addr constant [20 x i8] c"20 MHz, channel 4/4\00", align 1
-@.str.177 = private unnamed_addr constant [8 x i8] c"160 MHz\00", align 1
-@.str.178 = private unnamed_addr constant [22 x i8] c"80 MHz + 80 MHz lower\00", align 1
-@.str.179 = private unnamed_addr constant [22 x i8] c"80 MHz + 80 MHz upper\00", align 1
-@.str.180 = private unnamed_addr constant [20 x i8] c"40 MHz, channel 1/4\00", align 1
-@.str.181 = private unnamed_addr constant [20 x i8] c"40 MHz, channel 2/4\00", align 1
-@.str.182 = private unnamed_addr constant [20 x i8] c"40 MHz, channel 3/4\00", align 1
-@.str.183 = private unnamed_addr constant [20 x i8] c"40 MHz, channel 4/4\00", align 1
-@.str.184 = private unnamed_addr constant [20 x i8] c"20 MHz, channel 1/8\00", align 1
-@.str.185 = private unnamed_addr constant [20 x i8] c"20 MHz, channel 2/8\00", align 1
-@.str.186 = private unnamed_addr constant [20 x i8] c"20 MHz, channel 3/8\00", align 1
-@.str.187 = private unnamed_addr constant [20 x i8] c"20 MHz, channel 4/8\00", align 1
-@.str.188 = private unnamed_addr constant [20 x i8] c"20 MHz, channel 5/8\00", align 1
-@.str.189 = private unnamed_addr constant [20 x i8] c"20 MHz, channel 6/8\00", align 1
-@.str.190 = private unnamed_addr constant [20 x i8] c"20 MHz, channel 7/8\00", align 1
-@.str.191 = private unnamed_addr constant [20 x i8] c"20 MHz, channel 8/8\00", align 1
-@.str.192 = private unnamed_addr constant [4 x i8] c"BEC\00", align 1
-@.str.193 = private unnamed_addr constant [5 x i8] c"LDPC\00", align 1
-@.str.194 = private unnamed_addr constant [14 x i8] c"sounding PPDU\00", align 1
-@.str.195 = private unnamed_addr constant [18 x i8] c"data not captured\00", align 1
-@.str.196 = private unnamed_addr constant [16 x i8] c"vendor-specific\00", align 1
-@.str.197 = private unnamed_addr constant [6 x i8] c"Radio\00", align 1
+@.str.151 = private unnamed_addr constant [11 x i8] c"wtap_encap\00", align 1
+@.str.152 = private unnamed_addr constant [5 x i8] c"wlan\00", align 1
+@ieee80211_handle = internal global ptr null, align 8
+@.str.153 = private unnamed_addr constant [11 x i8] c"wlan_noqos\00", align 1
+@ieee80211_noqos_handle = internal global ptr null, align 8
+@.str.154 = private unnamed_addr constant [12 x i8] c"802.11 FHSS\00", align 1
+@.str.155 = private unnamed_addr constant [10 x i8] c"802.11 IR\00", align 1
+@.str.156 = private unnamed_addr constant [12 x i8] c"802.11 DSSS\00", align 1
+@.str.157 = private unnamed_addr constant [18 x i8] c"802.11b (HR/DSSS)\00", align 1
+@.str.158 = private unnamed_addr constant [15 x i8] c"802.11a (OFDM)\00", align 1
+@.str.159 = private unnamed_addr constant [14 x i8] c"802.11g (ERP)\00", align 1
+@.str.160 = private unnamed_addr constant [13 x i8] c"802.11n (HT)\00", align 1
+@.str.161 = private unnamed_addr constant [15 x i8] c"802.11ac (VHT)\00", align 1
+@.str.162 = private unnamed_addr constant [15 x i8] c"802.11ad (DMG)\00", align 1
+@.str.163 = private unnamed_addr constant [15 x i8] c"802.11ah (S1G)\00", align 1
+@.str.164 = private unnamed_addr constant [14 x i8] c"802.11ax (HE)\00", align 1
+@.str.165 = private unnamed_addr constant [15 x i8] c"802.11be (EHT)\00", align 1
+@phy_vals = internal constant [13 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.154 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.155 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.156 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.157 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.158 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.159 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.160 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.161 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.162 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.163 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.164 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.167 = private unnamed_addr constant [7 x i8] c"Normal\00", align 1
+@.str.168 = private unnamed_addr constant [13 x i8] c"Half-clocked\00", align 1
+@.str.169 = private unnamed_addr constant [16 x i8] c"Quarter-clocked\00", align 1
+@channel_type_11a_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.169 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.171 = private unnamed_addr constant [10 x i8] c"Non-turbo\00", align 1
+@.str.172 = private unnamed_addr constant [6 x i8] c"Turbo\00", align 1
+@.str.173 = private unnamed_addr constant [14 x i8] c"Dynamic turbo\00", align 1
+@.str.174 = private unnamed_addr constant [13 x i8] c"Static turbo\00", align 1
+@turbo_type_11a_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.171 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.172 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.173 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.174 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.176 = private unnamed_addr constant [5 x i8] c"None\00", align 1
+@.str.177 = private unnamed_addr constant [8 x i8] c"Super G\00", align 1
+@mode_11g_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.176 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.177 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.179 = private unnamed_addr constant [7 x i8] c"20 MHz\00", align 1
+@.str.180 = private unnamed_addr constant [7 x i8] c"40 MHz\00", align 1
+@.str.181 = private unnamed_addr constant [22 x i8] c"20 MHz + 20 MHz lower\00", align 1
+@.str.182 = private unnamed_addr constant [22 x i8] c"20 MHz + 20 MHz upper\00", align 1
+@.str.183 = private unnamed_addr constant [7 x i8] c"80 MHz\00", align 1
+@.str.184 = private unnamed_addr constant [22 x i8] c"40 MHz + 40 MHz lower\00", align 1
+@.str.185 = private unnamed_addr constant [22 x i8] c"40 MHz + 40 MHz upper\00", align 1
+@.str.186 = private unnamed_addr constant [20 x i8] c"20 MHz, channel 1/4\00", align 1
+@.str.187 = private unnamed_addr constant [20 x i8] c"20 MHz, channel 2/4\00", align 1
+@.str.188 = private unnamed_addr constant [20 x i8] c"20 MHz, channel 3/4\00", align 1
+@.str.189 = private unnamed_addr constant [20 x i8] c"20 MHz, channel 4/4\00", align 1
+@.str.190 = private unnamed_addr constant [8 x i8] c"160 MHz\00", align 1
+@.str.191 = private unnamed_addr constant [22 x i8] c"80 MHz + 80 MHz lower\00", align 1
+@.str.192 = private unnamed_addr constant [22 x i8] c"80 MHz + 80 MHz upper\00", align 1
+@.str.193 = private unnamed_addr constant [20 x i8] c"40 MHz, channel 1/4\00", align 1
+@.str.194 = private unnamed_addr constant [20 x i8] c"40 MHz, channel 2/4\00", align 1
+@.str.195 = private unnamed_addr constant [20 x i8] c"40 MHz, channel 3/4\00", align 1
+@.str.196 = private unnamed_addr constant [20 x i8] c"40 MHz, channel 4/4\00", align 1
+@.str.197 = private unnamed_addr constant [20 x i8] c"20 MHz, channel 1/8\00", align 1
+@.str.198 = private unnamed_addr constant [20 x i8] c"20 MHz, channel 2/8\00", align 1
+@.str.199 = private unnamed_addr constant [20 x i8] c"20 MHz, channel 3/8\00", align 1
+@.str.200 = private unnamed_addr constant [20 x i8] c"20 MHz, channel 4/8\00", align 1
+@.str.201 = private unnamed_addr constant [20 x i8] c"20 MHz, channel 5/8\00", align 1
+@.str.202 = private unnamed_addr constant [20 x i8] c"20 MHz, channel 6/8\00", align 1
+@.str.203 = private unnamed_addr constant [20 x i8] c"20 MHz, channel 7/8\00", align 1
+@.str.204 = private unnamed_addr constant [20 x i8] c"20 MHz, channel 8/8\00", align 1
+@bandwidth_vals = internal constant [27 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.179 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.180 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.181 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.182 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.183 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.184 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.185 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.186 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.187 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.188 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.189 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.190 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.191 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.192 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.193 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.194 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.195 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.196 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.197 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.198 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.199 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.200 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.201 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.202 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.203 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.204 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.206 = private unnamed_addr constant [4 x i8] c"BEC\00", align 1
+@.str.207 = private unnamed_addr constant [5 x i8] c"LDPC\00", align 1
+@fec_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.206 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.207 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.209 = private unnamed_addr constant [14 x i8] c"sounding PPDU\00", align 1
+@.str.210 = private unnamed_addr constant [18 x i8] c"data not captured\00", align 1
+@.str.211 = private unnamed_addr constant [16 x i8] c"vendor-specific\00", align 1
+@zero_length_psdu_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.209 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.210 }, { i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.211 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.213 = private unnamed_addr constant [6 x i8] c"Radio\00", align 1
 @previous_frame = internal global %struct.previous_frame_info zeroinitializer, align 8
 @current_aggregate = internal global ptr null, align 8
-@.str.198 = private unnamed_addr constant [12 x i8] c" %d: MCS %u\00", align 1
-@.str.199 = private unnamed_addr constant [11 x i8] c" (invalid)\00", align 1
-@.str.200 = private unnamed_addr constant [9 x i8] c" (%s %s)\00", align 1
-@ieee80211_vhtinfo = internal constant [10 x %struct.mcs_vht_info] [%struct.mcs_vht_info { ptr @.str.210, ptr @.str.211, float 2.600000e+01 }, %struct.mcs_vht_info { ptr @.str.212, ptr @.str.211, float 5.200000e+01 }, %struct.mcs_vht_info { ptr @.str.212, ptr @.str.213, float 7.800000e+01 }, %struct.mcs_vht_info { ptr @.str.214, ptr @.str.211, float 1.040000e+02 }, %struct.mcs_vht_info { ptr @.str.214, ptr @.str.213, float 1.560000e+02 }, %struct.mcs_vht_info { ptr @.str.215, ptr @.str.216, float 2.080000e+02 }, %struct.mcs_vht_info { ptr @.str.215, ptr @.str.213, float 2.340000e+02 }, %struct.mcs_vht_info { ptr @.str.215, ptr @.str.217, float 2.600000e+02 }, %struct.mcs_vht_info { ptr @.str.218, ptr @.str.213, float 3.120000e+02 }, %struct.mcs_vht_info { ptr @.str.218, ptr @.str.217, float 0x4075AAAAA0000000 }], align 16
-@ieee80211_vhtvalid = internal constant [10 x %struct.mcs_vht_valid] [%struct.mcs_vht_valid { [4 x [8 x i32]] [[8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1]] }, %struct.mcs_vht_valid { [4 x [8 x i32]] [[8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1]] }, %struct.mcs_vht_valid { [4 x [8 x i32]] [[8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1]] }, %struct.mcs_vht_valid { [4 x [8 x i32]] [[8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1]] }, %struct.mcs_vht_valid { [4 x [8 x i32]] [[8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1]] }, %struct.mcs_vht_valid { [4 x [8 x i32]] [[8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1]] }, %struct.mcs_vht_valid { [4 x [8 x i32]] [[8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 0, i32 1, i32 1, i32 1, i32 0, i32 1], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1]] }, %struct.mcs_vht_valid { [4 x [8 x i32]] [[8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1]] }, %struct.mcs_vht_valid { [4 x [8 x i32]] [[8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1]] }, %struct.mcs_vht_valid { [4 x [8 x i32]] [[8 x i32] [i32 0, i32 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 0], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 0, i32 1, i32 1], [8 x i32] [i32 1, i32 1, i32 0, i32 1, i32 1, i32 1, i32 1, i32 1]] }], align 16
-@.str.201 = private unnamed_addr constant [5 x i8] c"%.1f\00", align 1
-@.str.202 = private unnamed_addr constant [10 x i8] c"%.1f Mb/s\00", align 1
-@.str.203 = private unnamed_addr constant [3 x i8] c"%u\00", align 1
-@.str.204 = private unnamed_addr constant [7 x i8] c"%u MHz\00", align 1
-@.str.205 = private unnamed_addr constant [5 x i8] c"%u%%\00", align 1
-@.str.206 = private unnamed_addr constant [6 x i8] c"%u dB\00", align 1
-@.str.207 = private unnamed_addr constant [7 x i8] c"%d dBm\00", align 1
+@.str.214 = private unnamed_addr constant [12 x i8] c" %d: MCS %u\00", align 1
+@.str.215 = private unnamed_addr constant [11 x i8] c" (invalid)\00", align 1
+@.str.216 = private unnamed_addr constant [9 x i8] c" (%s %s)\00", align 1
+@ieee80211_vhtvalid = internal constant [10 x %struct.mcs_vht_valid] [%struct.mcs_vht_valid { [4 x [8 x i8]] [[8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\01\01\01"] }, %struct.mcs_vht_valid { [4 x [8 x i8]] [[8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\01\01\01"] }, %struct.mcs_vht_valid { [4 x [8 x i8]] [[8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\01\01\01"] }, %struct.mcs_vht_valid { [4 x [8 x i8]] [[8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\01\01\01"] }, %struct.mcs_vht_valid { [4 x [8 x i8]] [[8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\01\01\01"] }, %struct.mcs_vht_valid { [4 x [8 x i8]] [[8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\01\01\01"] }, %struct.mcs_vht_valid { [4 x [8 x i8]] [[8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\00\01\01\01\00\01", [8 x i8] c"\01\01\01\01\01\01\01\01"] }, %struct.mcs_vht_valid { [4 x [8 x i8]] [[8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\01\01\01"] }, %struct.mcs_vht_valid { [4 x [8 x i8]] [[8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\01\01\01"] }, %struct.mcs_vht_valid { [4 x [8 x i8]] [[8 x i8] c"\00\00\01\00\00\01\00\00", [8 x i8] c"\01\01\01\01\01\01\01\01", [8 x i8] c"\01\01\01\01\01\00\01\01", [8 x i8] c"\01\01\00\01\01\01\01\01"] }], align 16
+@.str.217 = private unnamed_addr constant [10 x i8] c"%.1f Mb/s\00", align 1
+@.str.218 = private unnamed_addr constant [5 x i8] c"%.1f\00", align 1
+@.str.219 = private unnamed_addr constant [3 x i8] c"%u\00", align 1
+@.str.220 = private unnamed_addr constant [7 x i8] c"%u MHz\00", align 1
+@.str.221 = private unnamed_addr constant [5 x i8] c"%u%%\00", align 1
+@.str.222 = private unnamed_addr constant [6 x i8] c"%u dB\00", align 1
+@.str.223 = private unnamed_addr constant [7 x i8] c"%d dBm\00", align 1
 @dissect_wlan_radio_phdr.Nhtdltf = internal constant [4 x i32] [i32 1, i32 2, i32 4, i32 4], align 16
 @dissect_wlan_radio_phdr.Nhteltf = internal constant [4 x i32] [i32 0, i32 1, i32 2, i32 4], align 16
 @ieee80211_ht_streams = internal constant [77 x i8] c"\01\01\01\01\01\01\01\01\02\02\02\02\02\02\02\02\03\03\03\03\03\03\03\03\04\04\04\04\04\04\04\04\01\02\02\02\02\02\02\03\03\03\03\03\03\03\03\03\03\03\03\03\03\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04", align 16
 @agg_tracker_list = internal global ptr null, align 8
-@.str.208 = private unnamed_addr constant [31 x i8] c"This MPDU is part of an A-MPDU\00", align 1
+@.str.224 = private unnamed_addr constant [31 x i8] c"This MPDU is part of an A-MPDU\00", align 1
 @ieee80211_vht_bw2rate_index = internal constant <{ [18 x i32], [8 x i32] }> <{ [18 x i32] [i32 0, i32 1, i32 0, i32 0, i32 2, i32 1, i32 1, i32 0, i32 0, i32 0, i32 0, i32 3, i32 2, i32 2, i32 1, i32 1, i32 1, i32 1], [8 x i32] zeroinitializer }>, align 16
-@.str.210 = private unnamed_addr constant [5 x i8] c"BPSK\00", align 1
-@.str.211 = private unnamed_addr constant [4 x i8] c"1/2\00", align 1
-@.str.212 = private unnamed_addr constant [5 x i8] c"QPSK\00", align 1
-@.str.213 = private unnamed_addr constant [4 x i8] c"3/4\00", align 1
-@.str.214 = private unnamed_addr constant [7 x i8] c"16-QAM\00", align 1
-@.str.215 = private unnamed_addr constant [7 x i8] c"64-QAM\00", align 1
-@.str.216 = private unnamed_addr constant [4 x i8] c"2/3\00", align 1
-@.str.217 = private unnamed_addr constant [4 x i8] c"5/6\00", align 1
-@.str.218 = private unnamed_addr constant [8 x i8] c"256-QAM\00", align 1
+@.str.226 = private unnamed_addr constant [5 x i8] c"BPSK\00", align 1
+@.str.227 = private unnamed_addr constant [4 x i8] c"1/2\00", align 1
+@.str.228 = private unnamed_addr constant [5 x i8] c"QPSK\00", align 1
+@.str.229 = private unnamed_addr constant [4 x i8] c"3/4\00", align 1
+@.str.230 = private unnamed_addr constant [7 x i8] c"16-QAM\00", align 1
+@.str.231 = private unnamed_addr constant [7 x i8] c"64-QAM\00", align 1
+@.str.232 = private unnamed_addr constant [4 x i8] c"2/3\00", align 1
+@.str.233 = private unnamed_addr constant [4 x i8] c"5/6\00", align 1
+@.str.234 = private unnamed_addr constant [8 x i8] c"256-QAM\00", align 1
+@.str.235 = private unnamed_addr constant [9 x i8] c"1024-QAM\00", align 1
+@.str.236 = private unnamed_addr constant [9 x i8] c"4096-QAM\00", align 1
+@.str.237 = private unnamed_addr constant [9 x i8] c"BPSK-DCM\00", align 1
+@ieee80211_mcsinfo = internal constant [16 x { ptr, ptr, float, [4 x i8] }] [{ ptr, ptr, float, [4 x i8] } { ptr @.str.226, ptr @.str.227, float 2.600000e+01, [4 x i8] zeroinitializer }, { ptr, ptr, float, [4 x i8] } { ptr @.str.228, ptr @.str.227, float 5.200000e+01, [4 x i8] zeroinitializer }, { ptr, ptr, float, [4 x i8] } { ptr @.str.228, ptr @.str.229, float 7.800000e+01, [4 x i8] zeroinitializer }, { ptr, ptr, float, [4 x i8] } { ptr @.str.230, ptr @.str.227, float 1.040000e+02, [4 x i8] zeroinitializer }, { ptr, ptr, float, [4 x i8] } { ptr @.str.230, ptr @.str.229, float 1.560000e+02, [4 x i8] zeroinitializer }, { ptr, ptr, float, [4 x i8] } { ptr @.str.231, ptr @.str.232, float 2.080000e+02, [4 x i8] zeroinitializer }, { ptr, ptr, float, [4 x i8] } { ptr @.str.231, ptr @.str.229, float 2.340000e+02, [4 x i8] zeroinitializer }, { ptr, ptr, float, [4 x i8] } { ptr @.str.231, ptr @.str.233, float 2.600000e+02, [4 x i8] zeroinitializer }, { ptr, ptr, float, [4 x i8] } { ptr @.str.234, ptr @.str.229, float 3.120000e+02, [4 x i8] zeroinitializer }, { ptr, ptr, float, [4 x i8] } { ptr @.str.234, ptr @.str.233, float 0x4075AAAAA0000000, [4 x i8] zeroinitializer }, { ptr, ptr, float, [4 x i8] } { ptr @.str.235, ptr @.str.229, float 3.900000e+02, [4 x i8] zeroinitializer }, { ptr, ptr, float, [4 x i8] } { ptr @.str.235, ptr @.str.233, float 0x407B155560000000, [4 x i8] zeroinitializer }, { ptr, ptr, float, [4 x i8] } { ptr @.str.236, ptr @.str.229, float 4.680000e+02, [4 x i8] zeroinitializer }, { ptr, ptr, float, [4 x i8] } { ptr @.str.236, ptr @.str.233, float 5.200000e+02, [4 x i8] zeroinitializer }, { ptr, ptr, float, [4 x i8] } { ptr @.str.237, ptr @.str.227, float 6.500000e+00, [4 x i8] zeroinitializer }, { ptr, ptr, float, [4 x i8] } { ptr @.str.237, ptr @.str.227, float 1.300000e+01, [4 x i8] zeroinitializer }], align 16
 @subcarriers = internal constant [4 x i32] [i32 52, i32 108, i32 234, i32 468], align 16
 @he_ofdm_tab = internal global [8 x [12 x [4 x [3 x float]]]] [[12 x [4 x [3 x float]]] [[4 x [3 x float]] [[3 x float] [float 0x4021333340000000, float 0x4020333340000000, float 0x401D333340000000], [3 x float] [float 0x4031333340000000, float 0x40304CCCC0000000, float 0x402D333340000000], [3 x float] [float 3.600000e+01, float 3.400000e+01, float 0x403E9999A0000000], [3 x float] [float 0x4052066660000000, float 0x4051066660000000, float 0x404EA66660000000]], [4 x [3 x float]] [[3 x float] [float 0x4031333340000000, float 0x40304CCCC0000000, float 0x402D333340000000], [3 x float] [float 0x4041333340000000, float 3.250000e+01, float 0x403D4CCCC0000000], [3 x float] [float 0x4052066660000000, float 0x4051066660000000, float 0x404EA66660000000], [3 x float] [float 0x4062033340000000, float 0x4061033340000000, float 1.225000e+02]], [4 x [3 x float]] [[3 x float] [float 0x4039CCCCC0000000, float 0x4038666660000000, float 0x4035E66660000000], [3 x float] [float 0x4049CCCCC0000000, float 0x4048666660000000, float 0x4045F33340000000], [3 x float] [float 0x405B066660000000, float 0x4059866660000000, float 0x4056F999A0000000], [3 x float] [float 0x406B066660000000, float 0x4069866660000000, float 0x4066F999A0000000]], [4 x [3 x float]] [[3 x float] [float 0x4041333340000000, float 3.250000e+01, float 0x403D4CCCC0000000], [3 x float] [float 0x4051333340000000, float 6.500000e+01, float 5.850000e+01], [3 x float] [float 0x4062033340000000, float 0x4061033340000000, float 1.225000e+02], [3 x float] [float 0x4072033340000000, float 0x4071033340000000, float 2.450000e+02]], [4 x [3 x float]] [[3 x float] [float 0x4049CCCCC0000000, float 0x4048666660000000, float 0x4045F33340000000], [3 x float] [float 0x4059CCCCC0000000, float 9.750000e+01, float 0x4055F33340000000], [3 x float] [float 0x406B066660000000, float 0x4069866660000000, float 0x4066F999A0000000], [3 x float] [float 0x407B066660000000, float 0x407984CCC0000000, float 3.675000e+02]], [4 x [3 x float]] [[3 x float] [float 0x4051333340000000, float 6.500000e+01, float 5.850000e+01], [3 x float] [float 0x4061333340000000, float 1.300000e+02, float 1.170000e+02], [3 x float] [float 0x4072033340000000, float 0x4071033340000000, float 2.450000e+02], [3 x float] [float 5.765000e+02, float 0x4081033340000000, float 4.900000e+02]], [4 x [3 x float]] [[3 x float] [float 0x40535999A0000000, float 0x4052466660000000, float 0x4050733340000000], [3 x float] [float 0x40635CCCC0000000, float 0x40624999A0000000, float 0x4060733340000000], [3 x float] [float 0x407444CCC0000000, float 0x407324CCC0000000, float 0x40713999A0000000], [3 x float] [float 6.485000e+02, float 6.125000e+02, float 0x40813A6660000000]], [4 x [3 x float]] [[3 x float] [float 8.600000e+01, float 0x4054533340000000, float 0x4052466660000000], [3 x float] [float 0x4065833340000000, float 1.625000e+02, float 0x40624999A0000000], [3 x float] [float 0x407684CCC0000000, float 0x407544CCC0000000, float 0x407324CCC0000000], [3 x float] [float 0x408684CCC0000000, float 0x408544CCC0000000, float 6.125000e+02]], [4 x [3 x float]] [[3 x float] [float 0x4059CCCCC0000000, float 9.750000e+01, float 0x4055F33340000000], [3 x float] [float 2.065000e+02, float 1.950000e+02, float 1.755000e+02], [3 x float] [float 0x407B066660000000, float 0x407984CCC0000000, float 3.675000e+02], [3 x float] [float 0x408B0599A0000000, float 0x40898599A0000000, float 7.350000e+02]], [4 x [3 x float]] [[3 x float] [float 0x405CACCCC0000000, float 0x405B133340000000, float 9.750000e+01], [3 x float] [float 0x406CACCCC0000000, float 0x406B166660000000, float 1.950000e+02], [3 x float] [float 0x407E066660000000, float 0x407C5B3340000000, float 0x407984CCC0000000], [3 x float] [float 0x408E066660000000, float 0x408C5B3340000000, float 0x40898599A0000000]], [4 x [3 x float]] [[3 x float] [float 1.290000e+02, float 0x405E7999A0000000, float 0x405B6CCCC0000000], [3 x float] [float 0x40702199A0000000, float 0x406E7999A0000000, float 0x406B6CCCC0000000], [3 x float] [float 0x4080E33340000000, float 0x407FE66660000000, float 0x407CB66660000000], [3 x float] [float 0x4090E399A0000000, float 0x408FE66660000000, float 0x408CB66660000000]], [4 x [3 x float]] [[3 x float] [float 0x4061ECCCC0000000, float 0x4060ECCCC0000000, float 0x405E7999A0000000], [3 x float] [float 0x4071ECCCC0000000, float 0x4070ECCCC0000000, float 0x406E7999A0000000], [3 x float] [float 6.005000e+02, float 0x4081B8CCC0000000, float 0x407FE66660000000], [3 x float] [float 1.201000e+03, float 0x4091B93340000000, float 0x408FE66660000000]]], [12 x [4 x [3 x float]]] [[4 x [3 x float]] [[3 x float] [float 0x4031333340000000, float 0x40304CCCC0000000, float 0x402D333340000000], [3 x float] [float 0x4041333340000000, float 3.250000e+01, float 0x403D4CCCC0000000], [3 x float] [float 0x4052066660000000, float 0x4051066660000000, float 0x404EA66660000000], [3 x float] [float 0x4062033340000000, float 0x4061033340000000, float 1.225000e+02]], [4 x [3 x float]] [[3 x float] [float 0x4041333340000000, float 3.250000e+01, float 0x403D4CCCC0000000], [3 x float] [float 0x4051333340000000, float 6.500000e+01, float 5.850000e+01], [3 x float] [float 0x4062033340000000, float 0x4061033340000000, float 1.225000e+02], [3 x float] [float 0x4072033340000000, float 0x4071033340000000, float 2.450000e+02]], [4 x [3 x float]] [[3 x float] [float 0x4049CCCCC0000000, float 0x4048666660000000, float 0x4045F33340000000], [3 x float] [float 0x4059CCCCC0000000, float 9.750000e+01, float 0x4055F33340000000], [3 x float] [float 0x406B066660000000, float 0x4069866660000000, float 0x4066F999A0000000], [3 x float] [float 0x407B066660000000, float 0x407984CCC0000000, float 3.675000e+02]], [4 x [3 x float]] [[3 x float] [float 0x4051333340000000, float 6.500000e+01, float 5.850000e+01], [3 x float] [float 0x4061333340000000, float 1.300000e+02, float 1.170000e+02], [3 x float] [float 0x4072033340000000, float 0x4071033340000000, float 2.450000e+02], [3 x float] [float 5.765000e+02, float 0x4081033340000000, float 4.900000e+02]], [4 x [3 x float]] [[3 x float] [float 0x4059CCCCC0000000, float 9.750000e+01, float 0x4055F33340000000], [3 x float] [float 2.065000e+02, float 1.950000e+02, float 1.755000e+02], [3 x float] [float 0x407B066660000000, float 0x407984CCC0000000, float 3.675000e+02], [3 x float] [float 0x408B0599A0000000, float 0x40898599A0000000, float 7.350000e+02]], [4 x [3 x float]] [[3 x float] [float 0x4061333340000000, float 1.300000e+02, float 1.170000e+02], [3 x float] [float 0x407134CCC0000000, float 2.600000e+02, float 2.340000e+02], [3 x float] [float 5.765000e+02, float 0x4081033340000000, float 4.900000e+02], [3 x float] [float 0x40920399A0000000, float 0x40910399A0000000, float 9.800000e+02]], [4 x [3 x float]] [[3 x float] [float 0x40635CCCC0000000, float 0x40624999A0000000, float 0x4060733340000000], [3 x float] [float 0x40735B3340000000, float 2.925000e+02, float 0x407074CCC0000000], [3 x float] [float 6.485000e+02, float 6.125000e+02, float 0x40813A6660000000], [3 x float] [float 0x4094446660000000, float 1.225000e+03, float 1.102500e+03]], [4 x [3 x float]] [[3 x float] [float 0x4065833340000000, float 1.625000e+02, float 0x40624999A0000000], [3 x float] [float 0x40758199A0000000, float 3.250000e+02, float 2.925000e+02], [3 x float] [float 0x408684CCC0000000, float 0x408544CCC0000000, float 6.125000e+02], [3 x float] [float 0x409684CCC0000000, float 0x4095446660000000, float 1.225000e+03]], [4 x [3 x float]] [[3 x float] [float 2.065000e+02, float 1.950000e+02, float 1.755000e+02], [3 x float] [float 0x4079CE6660000000, float 3.900000e+02, float 3.510000e+02], [3 x float] [float 0x408B0599A0000000, float 0x40898599A0000000, float 7.350000e+02], [3 x float] [float 0x409B0599A0000000, float 0x4099853340000000, float 1.470000e+03]], [4 x [3 x float]] [[3 x float] [float 0x406CACCCC0000000, float 0x406B166660000000, float 1.950000e+02], [3 x float] [float 0x407CACCCC0000000, float 0x407B14CCC0000000, float 3.900000e+02], [3 x float] [float 0x408E066660000000, float 0x408C5B3340000000, float 0x40898599A0000000], [3 x float] [float 0x409E066660000000, float 0x409C5B3340000000, float 0x4099853340000000]], [4 x [3 x float]] [[3 x float] [float 0x40702199A0000000, float 0x406E7999A0000000, float 0x406B6CCCC0000000], [3 x float] [float 0x40802199A0000000, float 4.875000e+02, float 0x407B6CCCC0000000], [3 x float] [float 0x4090E399A0000000, float 0x408FE66660000000, float 0x408CB66660000000], [3 x float] [float 0x40A0E399A0000000, float 0x409FE6CCC0000000, float 1.837500e+03]], [4 x [3 x float]] [[3 x float] [float 0x4071ECCCC0000000, float 0x4070ECCCC0000000, float 0x406E7999A0000000], [3 x float] [float 5.735000e+02, float 0x4080ED99A0000000, float 4.875000e+02], [3 x float] [float 1.201000e+03, float 0x4091B93340000000, float 0x408FE66660000000], [3 x float] [float 2.402000e+03, float 2.268500e+03, float 0x409FE6CCC0000000]]], [12 x [4 x [3 x float]]] [[4 x [3 x float]] [[3 x float] [float 0x4039CCCCC0000000, float 0x4038666660000000, float 0x4035E66660000000], [3 x float] [float 0x4049CCCCC0000000, float 0x4048666660000000, float 0x4045F33340000000], [3 x float] [float 0x405B066660000000, float 0x4059866660000000, float 0x4056F999A0000000], [3 x float] [float 0x406B066660000000, float 0x4069866660000000, float 0x4066F999A0000000]], [4 x [3 x float]] [[3 x float] [float 0x4049CCCCC0000000, float 0x4048666660000000, float 0x4045F33340000000], [3 x float] [float 0x4059CCCCC0000000, float 9.750000e+01, float 0x4055F33340000000], [3 x float] [float 0x406B066660000000, float 0x4069866660000000, float 0x4066F999A0000000], [3 x float] [float 0x407B066660000000, float 0x407984CCC0000000, float 3.675000e+02]], [4 x [3 x float]] [[3 x float] [float 0x40535999A0000000, float 0x4052466660000000, float 0x4050733340000000], [3 x float] [float 0x40635CCCC0000000, float 0x40624999A0000000, float 0x4060733340000000], [3 x float] [float 0x407444CCC0000000, float 0x407324CCC0000000, float 0x40713999A0000000], [3 x float] [float 6.485000e+02, float 6.125000e+02, float 0x40813A6660000000]], [4 x [3 x float]] [[3 x float] [float 0x4059CCCCC0000000, float 9.750000e+01, float 0x4055F33340000000], [3 x float] [float 2.065000e+02, float 1.950000e+02, float 1.755000e+02], [3 x float] [float 0x407B066660000000, float 0x407984CCC0000000, float 3.675000e+02], [3 x float] [float 0x408B0599A0000000, float 0x40898599A0000000, float 7.350000e+02]], [4 x [3 x float]] [[3 x float] [float 0x40635CCCC0000000, float 0x40624999A0000000, float 0x4060733340000000], [3 x float] [float 0x40735B3340000000, float 2.925000e+02, float 0x407074CCC0000000], [3 x float] [float 6.485000e+02, float 6.125000e+02, float 0x40813A6660000000], [3 x float] [float 0x4094446660000000, float 1.225000e+03, float 1.102500e+03]], [4 x [3 x float]] [[3 x float] [float 2.065000e+02, float 1.950000e+02, float 1.755000e+02], [3 x float] [float 0x4079CE6660000000, float 3.900000e+02, float 3.510000e+02], [3 x float] [float 0x408B0599A0000000, float 0x40898599A0000000, float 7.350000e+02], [3 x float] [float 0x409B0599A0000000, float 0x4099853340000000, float 1.470000e+03]], [4 x [3 x float]] [[3 x float] [float 0x406D0999A0000000, float 0x406B6CCCC0000000, float 0x4068ACCCC0000000], [3 x float] [float 0x407D0999A0000000, float 0x407B6CCCC0000000, float 0x4078AE6660000000], [3 x float] [float 0x408E666660000000, float 0x408CB66660000000, float 0x4089D73340000000], [3 x float] [float 0x409E666660000000, float 1.837500e+03, float 0x4099D73340000000]], [4 x [3 x float]] [[3 x float] [float 0x40702199A0000000, float 0x406E7999A0000000, float 0x406B6CCCC0000000], [3 x float] [float 0x40802199A0000000, float 4.875000e+02, float 0x407B6CCCC0000000], [3 x float] [float 0x4090E399A0000000, float 0x408FE66660000000, float 0x408CB66660000000], [3 x float] [float 0x40A0E399A0000000, float 0x409FE6CCC0000000, float 1.837500e+03]], [4 x [3 x float]] [[3 x float] [float 0x40735B3340000000, float 2.925000e+02, float 0x407074CCC0000000], [3 x float] [float 0x40835B3340000000, float 5.850000e+02, float 5.265000e+02], [3 x float] [float 0x4094446660000000, float 1.225000e+03, float 1.102500e+03], [3 x float] [float 0x40A4443340000000, float 2.450000e+03, float 2.205000e+03]], [4 x [3 x float]] [[3 x float] [float 0x40758199A0000000, float 3.250000e+02, float 2.925000e+02], [3 x float] [float 0x40858199A0000000, float 6.500000e+02, float 5.850000e+02], [3 x float] [float 0x409684CCC0000000, float 0x4095446660000000, float 1.225000e+03], [3 x float] [float 0x40A684CCC0000000, float 0x40A5446660000000, float 2.450000e+03]], [4 x [3 x float]] [[3 x float] [float 0x40783199A0000000, float 0x4076D999A0000000, float 0x40749199A0000000], [3 x float] [float 0x4088326660000000, float 0x4086DA6660000000, float 0x408490CCC0000000], [3 x float] [float 0x4099553340000000, float 0x4097ED3340000000, float 0x4095886660000000], [3 x float] [float 0x40A9553340000000, float 3.062500e+03, float 0x40A58899A0000000]], [4 x [3 x float]] [[3 x float] [float 0x407AE199A0000000, float 0x407964CCC0000000, float 0x4076D999A0000000], [3 x float] [float 0x408AE26660000000, float 8.125000e+02, float 0x4086DA6660000000], [3 x float] [float 1.801500e+03, float 0x409A9599A0000000, float 0x4097ED3340000000], [3 x float] [float 0x40AC25CCC0000000, float 0x40AA9599A0000000, float 3.062500e+03]]], [12 x [4 x [3 x float]]] [[4 x [3 x float]] [[3 x float] [float 0x4041333340000000, float 3.250000e+01, float 0x403D4CCCC0000000], [3 x float] [float 0x4051333340000000, float 6.500000e+01, float 5.850000e+01], [3 x float] [float 0x4062033340000000, float 0x4061033340000000, float 1.225000e+02], [3 x float] [float 0x4072033340000000, float 0x4071033340000000, float 2.450000e+02]], [4 x [3 x float]] [[3 x float] [float 0x4051333340000000, float 6.500000e+01, float 5.850000e+01], [3 x float] [float 0x4061333340000000, float 1.300000e+02, float 1.170000e+02], [3 x float] [float 0x4072033340000000, float 0x4071033340000000, float 2.450000e+02], [3 x float] [float 5.765000e+02, float 0x4081033340000000, float 4.900000e+02]], [4 x [3 x float]] [[3 x float] [float 0x4059CCCCC0000000, float 9.750000e+01, float 0x4055F33340000000], [3 x float] [float 2.065000e+02, float 1.950000e+02, float 1.755000e+02], [3 x float] [float 0x407B066660000000, float 0x407984CCC0000000, float 3.675000e+02], [3 x float] [float 0x408B0599A0000000, float 0x40898599A0000000, float 7.350000e+02]], [4 x [3 x float]] [[3 x float] [float 0x4061333340000000, float 1.300000e+02, float 1.170000e+02], [3 x float] [float 0x407134CCC0000000, float 2.600000e+02, float 2.340000e+02], [3 x float] [float 5.765000e+02, float 0x4081033340000000, float 4.900000e+02], [3 x float] [float 0x40920399A0000000, float 0x40910399A0000000, float 9.800000e+02]], [4 x [3 x float]] [[3 x float] [float 2.065000e+02, float 1.950000e+02, float 1.755000e+02], [3 x float] [float 0x4079CE6660000000, float 3.900000e+02, float 3.510000e+02], [3 x float] [float 0x408B0599A0000000, float 0x40898599A0000000, float 7.350000e+02], [3 x float] [float 0x409B0599A0000000, float 0x4099853340000000, float 1.470000e+03]], [4 x [3 x float]] [[3 x float] [float 0x407134CCC0000000, float 2.600000e+02, float 2.340000e+02], [3 x float] [float 0x408134CCC0000000, float 5.200000e+02, float 4.680000e+02], [3 x float] [float 0x40920399A0000000, float 0x40910399A0000000, float 9.800000e+02], [3 x float] [float 0x40A203CCC0000000, float 0x40A10399A0000000, float 1.960000e+03]], [4 x [3 x float]] [[3 x float] [float 0x40735B3340000000, float 2.925000e+02, float 0x407074CCC0000000], [3 x float] [float 0x40835B3340000000, float 5.850000e+02, float 5.265000e+02], [3 x float] [float 0x4094446660000000, float 1.225000e+03, float 1.102500e+03], [3 x float] [float 0x40A4443340000000, float 2.450000e+03, float 2.205000e+03]], [4 x [3 x float]] [[3 x float] [float 0x40758199A0000000, float 3.250000e+02, float 2.925000e+02], [3 x float] [float 0x40858199A0000000, float 6.500000e+02, float 5.850000e+02], [3 x float] [float 0x409684CCC0000000, float 0x4095446660000000, float 1.225000e+03], [3 x float] [float 0x40A684CCC0000000, float 0x40A5446660000000, float 2.450000e+03]], [4 x [3 x float]] [[3 x float] [float 0x4079CE6660000000, float 3.900000e+02, float 3.510000e+02], [3 x float] [float 0x4089CF3340000000, float 7.800000e+02, float 7.020000e+02], [3 x float] [float 0x409B0599A0000000, float 0x4099853340000000, float 1.470000e+03], [3 x float] [float 0x40AB0599A0000000, float 0x40A9856660000000, float 2.940000e+03]], [4 x [3 x float]] [[3 x float] [float 0x407CACCCC0000000, float 0x407B14CCC0000000, float 3.900000e+02], [3 x float] [float 0x408CACCCC0000000, float 0x408B1599A0000000, float 7.800000e+02], [3 x float] [float 0x409E066660000000, float 0x409C5B3340000000, float 0x4099853340000000], [3 x float] [float 0x40AE063340000000, float 0x40AC5B3340000000, float 0x40A9856660000000]], [4 x [3 x float]] [[3 x float] [float 0x40802199A0000000, float 4.875000e+02, float 0x407B6CCCC0000000], [3 x float] [float 0x40902199A0000000, float 9.750000e+02, float 8.775000e+02], [3 x float] [float 0x40A0E399A0000000, float 0x409FE6CCC0000000, float 1.837500e+03], [3 x float] [float 4.323500e+03, float 0x40AFE699A0000000, float 3.675000e+03]], [4 x [3 x float]] [[3 x float] [float 5.735000e+02, float 0x4080ED99A0000000, float 4.875000e+02], [3 x float] [float 0x4091EC6660000000, float 0x4090ED3340000000, float 9.750000e+02], [3 x float] [float 2.402000e+03, float 2.268500e+03, float 0x409FE6CCC0000000], [3 x float] [float 0x40B2C3E660000000, float 4.537000e+03, float 0x40AFE699A0000000]]], [12 x [4 x [3 x float]]] [[4 x [3 x float]] [[3 x float] [float 4.300000e+01, float 0x40444CCCC0000000, float 0x40424CCCC0000000], [3 x float] [float 8.600000e+01, float 0x4054533340000000, float 0x4052466660000000], [3 x float] [float 0x4066833340000000, float 0x4065433340000000, float 0x4063233340000000], [3 x float] [float 0x407684CCC0000000, float 0x407544CCC0000000, float 0x407324CCC0000000]], [4 x [3 x float]] [[3 x float] [float 8.600000e+01, float 0x4054533340000000, float 0x4052466660000000], [3 x float] [float 0x4065833340000000, float 1.625000e+02, float 0x40624999A0000000], [3 x float] [float 0x407684CCC0000000, float 0x407544CCC0000000, float 0x407324CCC0000000], [3 x float] [float 0x408684CCC0000000, float 0x408544CCC0000000, float 6.125000e+02]], [4 x [3 x float]] [[3 x float] [float 1.290000e+02, float 0x405E7999A0000000, float 0x405B6CCCC0000000], [3 x float] [float 0x40702199A0000000, float 0x406E7999A0000000, float 0x406B6CCCC0000000], [3 x float] [float 0x4080E33340000000, float 0x407FE66660000000, float 0x407CB66660000000], [3 x float] [float 0x4090E399A0000000, float 0x408FE66660000000, float 0x408CB66660000000]], [4 x [3 x float]] [[3 x float] [float 0x4065833340000000, float 1.625000e+02, float 0x40624999A0000000], [3 x float] [float 0x40758199A0000000, float 3.250000e+02, float 2.925000e+02], [3 x float] [float 0x408684CCC0000000, float 0x408544CCC0000000, float 6.125000e+02], [3 x float] [float 0x409684CCC0000000, float 0x4095446660000000, float 1.225000e+03]], [4 x [3 x float]] [[3 x float] [float 0x40702199A0000000, float 0x406E7999A0000000, float 0x406B6CCCC0000000], [3 x float] [float 0x40802199A0000000, float 4.875000e+02, float 0x407B6CCCC0000000], [3 x float] [float 0x4090E399A0000000, float 0x408FE66660000000, float 0x408CB66660000000], [3 x float] [float 0x40A0E399A0000000, float 0x409FE6CCC0000000, float 1.837500e+03]], [4 x [3 x float]] [[3 x float] [float 0x40758199A0000000, float 3.250000e+02, float 2.925000e+02], [3 x float] [float 0x40858199A0000000, float 6.500000e+02, float 5.850000e+02], [3 x float] [float 0x409684CCC0000000, float 0x4095446660000000, float 1.225000e+03], [3 x float] [float 0x40A684CCC0000000, float 0x40A5446660000000, float 2.450000e+03]], [4 x [3 x float]] [[3 x float] [float 0x40783199A0000000, float 0x4076D999A0000000, float 0x40749199A0000000], [3 x float] [float 0x4088326660000000, float 0x4086DA6660000000, float 0x408490CCC0000000], [3 x float] [float 0x4099553340000000, float 0x4097ED3340000000, float 0x4095886660000000], [3 x float] [float 0x40A9553340000000, float 3.062500e+03, float 0x40A58899A0000000]], [4 x [3 x float]] [[3 x float] [float 0x407AE199A0000000, float 0x407964CCC0000000, float 0x4076D999A0000000], [3 x float] [float 0x408AE26660000000, float 8.125000e+02, float 0x4086DA6660000000], [3 x float] [float 1.801500e+03, float 0x409A9599A0000000, float 0x4097ED3340000000], [3 x float] [float 0x40AC25CCC0000000, float 0x40AA9599A0000000, float 3.062500e+03]], [4 x [3 x float]] [[3 x float] [float 0x40802199A0000000, float 4.875000e+02, float 0x407B6CCCC0000000], [3 x float] [float 0x40902199A0000000, float 9.750000e+02, float 8.775000e+02], [3 x float] [float 0x40A0E399A0000000, float 0x409FE6CCC0000000, float 1.837500e+03], [3 x float] [float 4.323500e+03, float 0x40AFE699A0000000, float 3.675000e+03]], [4 x [3 x float]] [[3 x float] [float 5.735000e+02, float 0x4080ED99A0000000, float 4.875000e+02], [3 x float] [float 0x4091EC6660000000, float 0x4090ED3340000000, float 9.750000e+02], [3 x float] [float 2.402000e+03, float 2.268500e+03, float 0x409FE6CCC0000000], [3 x float] [float 0x40B2C3E660000000, float 4.537000e+03, float 0x40AFE699A0000000]], [4 x [3 x float]] [[3 x float] [float 0x40842999A0000000, float 0x40830B3340000000, float 0x4081233340000000], [3 x float] [float 0x40942999A0000000, float 0x40930B3340000000, float 0x40912399A0000000], [3 x float] [float 0x40A51C6660000000, float 0x40A3F03340000000, float 0x40A1F1CCC0000000], [3 x float] [float 0x40B51C6660000000, float 0x40B3F03340000000, float 0x40B1F1CCC0000000]], [4 x [3 x float]] [[3 x float] [float 0x4086673340000000, float 0x408528CCC0000000, float 0x40830B3340000000], [3 x float] [float 0x4096673340000000, float 0x409528CCC0000000, float 0x40930B3340000000], [3 x float] [float 3.002500e+03, float 0x40A6273340000000, float 0x40A3F03340000000], [3 x float] [float 0x40B774E660000000, float 0x40B6274CC0000000, float 0x40B3F03340000000]]], [12 x [4 x [3 x float]]] [[4 x [3 x float]] [[3 x float] [float 0x4049CCCCC0000000, float 0x4048666660000000, float 0x4045F33340000000], [3 x float] [float 0x4059CCCCC0000000, float 9.750000e+01, float 0x4055F33340000000], [3 x float] [float 0x406B066660000000, float 0x4069866660000000, float 0x4066F999A0000000], [3 x float] [float 0x407B066660000000, float 0x407984CCC0000000, float 3.675000e+02]], [4 x [3 x float]] [[3 x float] [float 0x4059CCCCC0000000, float 9.750000e+01, float 0x4055F33340000000], [3 x float] [float 2.065000e+02, float 1.950000e+02, float 1.755000e+02], [3 x float] [float 0x407B066660000000, float 0x407984CCC0000000, float 3.675000e+02], [3 x float] [float 0x408B0599A0000000, float 0x40898599A0000000, float 7.350000e+02]], [4 x [3 x float]] [[3 x float] [float 0x40635CCCC0000000, float 0x40624999A0000000, float 0x4060733340000000], [3 x float] [float 0x40735B3340000000, float 2.925000e+02, float 0x407074CCC0000000], [3 x float] [float 6.485000e+02, float 6.125000e+02, float 0x40813A6660000000], [3 x float] [float 0x4094446660000000, float 1.225000e+03, float 1.102500e+03]], [4 x [3 x float]] [[3 x float] [float 2.065000e+02, float 1.950000e+02, float 1.755000e+02], [3 x float] [float 0x4079CE6660000000, float 3.900000e+02, float 3.510000e+02], [3 x float] [float 0x408B0599A0000000, float 0x40898599A0000000, float 7.350000e+02], [3 x float] [float 0x409B0599A0000000, float 0x4099853340000000, float 1.470000e+03]], [4 x [3 x float]] [[3 x float] [float 0x40735B3340000000, float 2.925000e+02, float 0x407074CCC0000000], [3 x float] [float 0x40835B3340000000, float 5.850000e+02, float 5.265000e+02], [3 x float] [float 0x4094446660000000, float 1.225000e+03, float 1.102500e+03], [3 x float] [float 0x40A4443340000000, float 2.450000e+03, float 2.205000e+03]], [4 x [3 x float]] [[3 x float] [float 0x4079CE6660000000, float 3.900000e+02, float 3.510000e+02], [3 x float] [float 0x4089CF3340000000, float 7.800000e+02, float 7.020000e+02], [3 x float] [float 0x409B0599A0000000, float 0x4099853340000000, float 1.470000e+03], [3 x float] [float 0x40AB0599A0000000, float 0x40A9856660000000, float 2.940000e+03]], [4 x [3 x float]] [[3 x float] [float 0x407D0999A0000000, float 0x407B6CCCC0000000, float 0x4078AE6660000000], [3 x float] [float 0x408D08CCC0000000, float 8.775000e+02, float 0x4088AE6660000000], [3 x float] [float 0x409E666660000000, float 1.837500e+03, float 0x4099D73340000000], [3 x float] [float 0x40AE666660000000, float 3.675000e+03, float 3.307500e+03]], [4 x [3 x float]] [[3 x float] [float 0x40802199A0000000, float 4.875000e+02, float 0x407B6CCCC0000000], [3 x float] [float 0x40902199A0000000, float 9.750000e+02, float 8.775000e+02], [3 x float] [float 0x40A0E399A0000000, float 0x409FE6CCC0000000, float 1.837500e+03], [3 x float] [float 4.323500e+03, float 0x40AFE699A0000000, float 3.675000e+03]], [4 x [3 x float]] [[3 x float] [float 0x40835B3340000000, float 5.850000e+02, float 5.265000e+02], [3 x float] [float 0x40935B3340000000, float 1.170000e+03, float 1.053000e+03], [3 x float] [float 0x40A4443340000000, float 2.450000e+03, float 2.205000e+03], [3 x float] [float 0x40B4443340000000, float 4.900000e+03, float 4.410000e+03]], [4 x [3 x float]] [[3 x float] [float 0x40858199A0000000, float 6.500000e+02, float 5.850000e+02], [3 x float] [float 1.376500e+03, float 1.300000e+03, float 1.170000e+03], [3 x float] [float 0x40A684CCC0000000, float 0x40A5446660000000, float 2.450000e+03], [3 x float] [float 0x40B684B340000000, float 0x40B5446660000000, float 4.900000e+03]], [4 x [3 x float]] [[3 x float] [float 0x4088326660000000, float 0x4086DA6660000000, float 0x408490CCC0000000], [3 x float] [float 1.548500e+03, float 1.462500e+03, float 0x4094913340000000], [3 x float] [float 0x40A9553340000000, float 3.062500e+03, float 0x40A58899A0000000], [3 x float] [float 0x40B9554CC0000000, float 6.125000e+03, float 5.512500e+03]], [4 x [3 x float]] [[3 x float] [float 0x408AE26660000000, float 8.125000e+02, float 0x4086DA6660000000], [3 x float] [float 0x409AE26660000000, float 1.625000e+03, float 1.462500e+03], [3 x float] [float 0x40AC25CCC0000000, float 0x40AA9599A0000000, float 3.062500e+03], [3 x float] [float 0x40BC25E660000000, float 0x40BA9599A0000000, float 6.125000e+03]]], [12 x [4 x [3 x float]]] [[4 x [3 x float]] [[3 x float] [float 0x404E1999A0000000, float 0x404C733340000000, float 0x40499999A0000000], [3 x float] [float 0x405E1999A0000000, float 0x405C733340000000, float 0x40599999A0000000], [3 x float] [float 0x406F866660000000, float 0x406DC66660000000, float 0x406ACCCCC0000000], [3 x float] [float 0x407F866660000000, float 0x407DC66660000000, float 0x407ACCCCC0000000]], [4 x [3 x float]] [[3 x float] [float 0x405E1999A0000000, float 0x405C733340000000, float 0x40599999A0000000], [3 x float] [float 0x406E1CCCC0000000, float 2.275000e+02, float 0x40699999A0000000], [3 x float] [float 0x407F866660000000, float 0x407DC66660000000, float 0x407ACCCCC0000000], [3 x float] [float 0x408F866660000000, float 0x408DC66660000000, float 8.575000e+02]], [4 x [3 x float]] [[3 x float] [float 0x4066966660000000, float 0x4065533340000000, float 0x4063333340000000], [3 x float] [float 0x407694CCC0000000, float 0x407554CCC0000000, float 0x40733199A0000000], [3 x float] [float 0x4087A4CCC0000000, float 0x408654CCC0000000, float 0x408418CCC0000000], [3 x float] [float 0x4097A4CCC0000000, float 0x409654CCC0000000, float 0x4094193340000000]], [4 x [3 x float]] [[3 x float] [float 0x406E1CCCC0000000, float 2.275000e+02, float 0x40699999A0000000], [3 x float] [float 0x407E1CCCC0000000, float 4.550000e+02, float 4.095000e+02], [3 x float] [float 0x408F866660000000, float 0x408DC66660000000, float 8.575000e+02], [3 x float] [float 0x409F866660000000, float 0x409DC66660000000, float 1.715000e+03]], [4 x [3 x float]] [[3 x float] [float 0x407694CCC0000000, float 0x407554CCC0000000, float 0x40733199A0000000], [3 x float] [float 0x408694CCC0000000, float 6.825000e+02, float 0x4083326660000000], [3 x float] [float 0x4097A4CCC0000000, float 0x409654CCC0000000, float 0x4094193340000000], [3 x float] [float 3.026500e+03, float 0x40A65499A0000000, float 2.572500e+03]], [4 x [3 x float]] [[3 x float] [float 0x407E1CCCC0000000, float 4.550000e+02, float 4.095000e+02], [3 x float] [float 9.635000e+02, float 9.100000e+02, float 8.190000e+02], [3 x float] [float 0x409F866660000000, float 0x409DC66660000000, float 1.715000e+03], [3 x float] [float 0x40AF8699A0000000, float 0x40ADC63340000000, float 3.430000e+03]], [4 x [3 x float]] [[3 x float] [float 5.420000e+02, float 0x407FFE6660000000, float 0x407CCB3340000000], [3 x float] [float 1.084000e+03, float 0x408FFE6660000000, float 0x408CCB3340000000], [3 x float] [float 0x40A1BBCCC0000000, float 0x40A0BF99A0000000, float 0x409E2599A0000000], [3 x float] [float 0x40B1BBB340000000, float 4.287500e+03, float 0x40AE2599A0000000]], [4 x [3 x float]] [[3 x float] [float 0x4082D199A0000000, float 0x4081C66660000000, float 0x407FFE6660000000], [3 x float] [float 0x4092D199A0000000, float 1.137500e+03, float 0x408FFE6660000000], [3 x float] [float 0x40A3B43340000000, float 0x40A29BCCC0000000, float 0x40A0BF99A0000000], [3 x float] [float 0x40B3B419A0000000, float 0x40B29BE660000000, float 4.287500e+03]], [4 x [3 x float]] [[3 x float] [float 0x408694CCC0000000, float 6.825000e+02, float 0x4083326660000000], [3 x float] [float 0x4096953340000000, float 1.365000e+03, float 1.228500e+03], [3 x float] [float 3.026500e+03, float 0x40A65499A0000000, float 2.572500e+03], [3 x float] [float 0x40B7A4E660000000, float 0x40B654B340000000, float 5.145000e+03]], [4 x [3 x float]] [[3 x float] [float 0x4089173340000000, float 0x4087B26660000000, float 6.825000e+02], [3 x float] [float 0x40991799A0000000, float 0x4097B2CCC0000000, float 1.365000e+03], [3 x float] [float 0x40AA456660000000, float 0x40A8CFCCC0000000, float 0x40A65499A0000000], [3 x float] [float 6.725500e+03, float 0x40B8CFE660000000, float 0x40B654B340000000]], [4 x [3 x float]] [[3 x float] [float 0x408C3A6660000000, float 0x408AA8CCC0000000, float 0x4087FE6660000000], [3 x float] [float 0x409C3A6660000000, float 0x409AA93340000000, float 0x4097FE6660000000], [3 x float] [float 0x40AD8E3340000000, float 0x40ABE9CCC0000000, float 0x40A91F3340000000], [3 x float] [float 0x40BD8E3340000000, float 0x40BBE9CCC0000000, float 0x40B91F4CC0000000]], [4 x [3 x float]] [[3 x float] [float 0x408F5D99A0000000, float 0x408D9F3340000000, float 0x408AA8CCC0000000], [3 x float] [float 0x409F5D99A0000000, float 0x409D9F3340000000, float 0x409AA93340000000], [3 x float] [float 0x40B06B6660000000, float 0x40AF03CCC0000000, float 0x40ABE9CCC0000000], [3 x float] [float 0x40C06B7340000000, float 0x40BF03CCC0000000, float 0x40BBE9CCC0000000]]], [12 x [4 x [3 x float]]] [[4 x [3 x float]] [[3 x float] [float 0x4051333340000000, float 6.500000e+01, float 5.850000e+01], [3 x float] [float 0x4061333340000000, float 1.300000e+02, float 1.170000e+02], [3 x float] [float 0x4072033340000000, float 0x4071033340000000, float 2.450000e+02], [3 x float] [float 5.765000e+02, float 0x4081033340000000, float 4.900000e+02]], [4 x [3 x float]] [[3 x float] [float 0x4061333340000000, float 1.300000e+02, float 1.170000e+02], [3 x float] [float 0x407134CCC0000000, float 2.600000e+02, float 2.340000e+02], [3 x float] [float 5.765000e+02, float 0x4081033340000000, float 4.900000e+02], [3 x float] [float 0x40920399A0000000, float 0x40910399A0000000, float 9.800000e+02]], [4 x [3 x float]] [[3 x float] [float 2.065000e+02, float 1.950000e+02, float 1.755000e+02], [3 x float] [float 0x4079CE6660000000, float 3.900000e+02, float 3.510000e+02], [3 x float] [float 0x408B0599A0000000, float 0x40898599A0000000, float 7.350000e+02], [3 x float] [float 0x409B0599A0000000, float 0x4099853340000000, float 1.470000e+03]], [4 x [3 x float]] [[3 x float] [float 0x407134CCC0000000, float 2.600000e+02, float 2.340000e+02], [3 x float] [float 0x408134CCC0000000, float 5.200000e+02, float 4.680000e+02], [3 x float] [float 0x40920399A0000000, float 0x40910399A0000000, float 9.800000e+02], [3 x float] [float 0x40A203CCC0000000, float 0x40A10399A0000000, float 1.960000e+03]], [4 x [3 x float]] [[3 x float] [float 0x4079CE6660000000, float 3.900000e+02, float 3.510000e+02], [3 x float] [float 0x4089CF3340000000, float 7.800000e+02, float 7.020000e+02], [3 x float] [float 0x409B0599A0000000, float 0x4099853340000000, float 1.470000e+03], [3 x float] [float 0x40AB0599A0000000, float 0x40A9856660000000, float 2.940000e+03]], [4 x [3 x float]] [[3 x float] [float 0x408134CCC0000000, float 5.200000e+02, float 4.680000e+02], [3 x float] [float 0x409134CCC0000000, float 1.040000e+03, float 9.360000e+02], [3 x float] [float 0x40A203CCC0000000, float 0x40A10399A0000000, float 1.960000e+03], [3 x float] [float 0x40B203CCC0000000, float 0x40B10399A0000000, float 3.920000e+03]], [4 x [3 x float]] [[3 x float] [float 0x40835B3340000000, float 5.850000e+02, float 5.265000e+02], [3 x float] [float 0x40935B3340000000, float 1.170000e+03, float 1.053000e+03], [3 x float] [float 0x40A4443340000000, float 2.450000e+03, float 2.205000e+03], [3 x float] [float 0x40B4443340000000, float 4.900000e+03, float 4.410000e+03]], [4 x [3 x float]] [[3 x float] [float 0x40858199A0000000, float 6.500000e+02, float 5.850000e+02], [3 x float] [float 1.376500e+03, float 1.300000e+03, float 1.170000e+03], [3 x float] [float 0x40A684CCC0000000, float 0x40A5446660000000, float 2.450000e+03], [3 x float] [float 0x40B684B340000000, float 0x40B5446660000000, float 4.900000e+03]], [4 x [3 x float]] [[3 x float] [float 0x4089CF3340000000, float 7.800000e+02, float 7.020000e+02], [3 x float] [float 0x4099CF3340000000, float 1.560000e+03, float 1.404000e+03], [3 x float] [float 0x40AB0599A0000000, float 0x40A9856660000000, float 2.940000e+03], [3 x float] [float 0x40BB0599A0000000, float 0x40B9854CC0000000, float 5.880000e+03]], [4 x [3 x float]] [[3 x float] [float 0x408CACCCC0000000, float 0x408B1599A0000000, float 7.800000e+02], [3 x float] [float 0x409CAD3340000000, float 0x409B153340000000, float 1.560000e+03], [3 x float] [float 0x40AE063340000000, float 0x40AC5B3340000000, float 0x40A9856660000000], [3 x float] [float 0x40BE064CC0000000, float 0x40BC5B4CC0000000, float 0x40B9854CC0000000]], [4 x [3 x float]] [[3 x float] [float 0x40902199A0000000, float 9.750000e+02, float 8.775000e+02], [3 x float] [float 0x40A0216660000000, float 1.950000e+03, float 1.755000e+03], [3 x float] [float 4.323500e+03, float 0x40AFE699A0000000, float 3.675000e+03], [3 x float] [float 0x40C0E38CC0000000, float 0x40BFE6B340000000, float 7.350000e+03]], [4 x [3 x float]] [[3 x float] [float 0x4091EC6660000000, float 0x4090ED3340000000, float 9.750000e+02], [3 x float] [float 0x40A1EC3340000000, float 0x40A0ED6660000000, float 1.950000e+03], [3 x float] [float 0x40B2C3E660000000, float 4.537000e+03, float 0x40AFE699A0000000], [3 x float] [float 0x40C2C3E660000000, float 0x40C1B90CC0000000, float 0x40BFE6B340000000]]]], align 16
 @he_mu_ofdma_tab = internal global [8 x [12 x [6 x [3 x float]]]] [[12 x [6 x [3 x float]]] [[6 x [3 x float]] [[3 x float] [float 0x3FECCCCCC0000000, float 0x3FE99999A0000000, float 0x3FE99999A0000000], [3 x float] [float 0x3FFCCCCCC0000000, float 0x3FFB333340000000, float 1.500000e+00], [3 x float] [float 0x400E666660000000, float 3.500000e+00, float 0x40099999A0000000], [3 x float] [float 0x4021333340000000, float 0x4020333340000000, float 0x401D333340000000], [3 x float] [float 0x4031333340000000, float 0x40304CCCC0000000, float 0x402D333340000000], [3 x float] [float 3.600000e+01, float 3.400000e+01, float 0x403E9999A0000000]], [6 x [3 x float]] [[3 x float] [float 0x3FFCCCCCC0000000, float 0x3FFB333340000000, float 1.500000e+00], [3 x float] [float 3.500000e+00, float 0x400A666660000000, float 3.000000e+00], [3 x float] [float 7.500000e+00, float 0x401C666660000000, float 0x40199999A0000000], [3 x float] [float 0x4031333340000000, float 0x40304CCCC0000000, float 0x402D333340000000], [3 x float] [float 0x4041333340000000, float 3.250000e+01, float 0x403D4CCCC0000000], [3 x float] [float 0x4052066660000000, float 0x4051066660000000, float 0x404EA66660000000]], [6 x [3 x float]] [[3 x float] [float 0x4004CCCCC0000000, float 2.500000e+00, float 0x4002666660000000], [3 x float] [float 0x4015333340000000, float 5.000000e+00, float 4.500000e+00], [3 x float] [float 0x40269999A0000000, float 0x4025333340000000, float 0x4023333340000000], [3 x float] [float 0x4039CCCCC0000000, float 0x4038666660000000, float 0x4035E66660000000], [3 x float] [float 0x4049CCCCC0000000, float 0x4048666660000000, float 0x4045F33340000000], [3 x float] [float 0x405B066660000000, float 0x4059866660000000, float 0x4056F999A0000000]], [6 x [3 x float]] [[3 x float] [float 3.500000e+00, float 0x400A666660000000, float 3.000000e+00], [3 x float] [float 0x401C666660000000, float 0x401ACCCCC0000000, float 6.000000e+00], [3 x float] [float 1.500000e+01, float 0x402C666660000000, float 0x40299999A0000000], [3 x float] [float 0x4041333340000000, float 3.250000e+01, float 0x403D4CCCC0000000], [3 x float] [float 0x4051333340000000, float 6.500000e+01, float 5.850000e+01], [3 x float] [float 0x4062033340000000, float 0x4061033340000000, float 1.225000e+02]], [6 x [3 x float]] [[3 x float] [float 0x4015333340000000, float 5.000000e+00, float 4.500000e+00], [3 x float] [float 0x4025333340000000, float 1.000000e+01, float 9.000000e+00], [3 x float] [float 2.250000e+01, float 0x40354CCCC0000000, float 0x40331999A0000000], [3 x float] [float 0x4049CCCCC0000000, float 0x4048666660000000, float 0x4045F33340000000], [3 x float] [float 0x4059CCCCC0000000, float 9.750000e+01, float 0x4055F33340000000], [3 x float] [float 0x406B066660000000, float 0x4069866660000000, float 0x4066F999A0000000]], [6 x [3 x float]] [[3 x float] [float 0x401C666660000000, float 0x401ACCCCC0000000, float 6.000000e+00], [3 x float] [float 0x402C333340000000, float 0x402A9999A0000000, float 1.200000e+01], [3 x float] [float 3.000000e+01, float 0x403C4CCCC0000000, float 2.550000e+01], [3 x float] [float 0x4051333340000000, float 6.500000e+01, float 5.850000e+01], [3 x float] [float 0x4061333340000000, float 1.300000e+02, float 1.170000e+02], [3 x float] [float 0x4072033340000000, float 0x4071033340000000, float 2.450000e+02]], [6 x [3 x float]] [[3 x float] [float 0x401F9999A0000000, float 7.500000e+00, float 0x401B333340000000], [3 x float] [float 0x402FCCCCC0000000, float 1.500000e+01, float 1.350000e+01], [3 x float] [float 0x4040E66660000000, float 0x403FE66660000000, float 0x403CB33340000000], [3 x float] [float 0x40535999A0000000, float 0x4052466660000000, float 0x4050733340000000], [3 x float] [float 0x40635CCCC0000000, float 0x40624999A0000000, float 0x4060733340000000], [3 x float] [float 0x407444CCC0000000, float 0x407324CCC0000000, float 0x40713999A0000000]], [6 x [3 x float]] [[3 x float] [float 0x40219999A0000000, float 0x40209999A0000000, float 7.500000e+00], [3 x float] [float 0x40319999A0000000, float 0x4030B33340000000, float 1.500000e+01], [3 x float] [float 3.750000e+01, float 0x4041B33340000000, float 0x403FE66660000000], [3 x float] [float 8.600000e+01, float 0x4054533340000000, float 0x4052466660000000], [3 x float] [float 0x4065833340000000, float 1.625000e+02, float 0x40624999A0000000], [3 x float] [float 0x407684CCC0000000, float 0x407544CCC0000000, float 0x407324CCC0000000]], [6 x [3 x float]] [[3 x float] [float 0x4025333340000000, float 1.000000e+01, float 9.000000e+00], [3 x float] [float 0x4035333340000000, float 2.000000e+01, float 1.800000e+01], [3 x float] [float 4.500000e+01, float 4.250000e+01, float 0x4043266660000000], [3 x float] [float 0x4059CCCCC0000000, float 9.750000e+01, float 0x4055F33340000000], [3 x float] [float 2.065000e+02, float 1.950000e+02, float 1.755000e+02], [3 x float] [float 0x407B066660000000, float 0x407984CCC0000000, float 3.675000e+02]], [6 x [3 x float]] [[3 x float] [float 0x40279999A0000000, float 0x4026333340000000, float 1.000000e+01], [3 x float] [float 2.350000e+01, float 0x4036333340000000, float 2.000000e+01], [3 x float] [float 5.000000e+01, float 0x40479999A0000000, float 4.250000e+01], [3 x float] [float 0x405CACCCC0000000, float 0x405B133340000000, float 9.750000e+01], [3 x float] [float 0x406CACCCC0000000, float 0x406B166660000000, float 1.950000e+02], [3 x float] [float 0x407E066660000000, float 0x407C5B3340000000, float 0x407984CCC0000000]], [6 x [3 x float]] [[3 x float] [float 0x402A666660000000, float 1.250000e+01, float 0x40269999A0000000], [3 x float] [float 2.650000e+01, float 2.500000e+01, float 2.250000e+01], [3 x float] [float 0x404C266660000000, float 0x404A8CCCC0000000, float 0x4047E66660000000], [3 x float] [float 1.290000e+02, float 0x405E7999A0000000, float 0x405B6CCCC0000000], [3 x float] [float 0x40702199A0000000, float 0x406E7999A0000000, float 0x406B6CCCC0000000], [3 x float] [float 0x4080E33340000000, float 0x407FE66660000000, float 0x407CB66660000000]], [6 x [3 x float]] [[3 x float] [float 0x402D666660000000, float 0x402BCCCCC0000000, float 1.250000e+01], [3 x float] [float 0x403D666660000000, float 0x403BCCCCC0000000, float 2.500000e+01], [3 x float] [float 6.250000e+01, float 5.900000e+01, float 0x404A8CCCC0000000], [3 x float] [float 0x4061ECCCC0000000, float 0x4060ECCCC0000000, float 0x405E7999A0000000], [3 x float] [float 0x4071ECCCC0000000, float 0x4070ECCCC0000000, float 0x406E7999A0000000], [3 x float] [float 6.005000e+02, float 0x4081B8CCC0000000, float 0x407FE66660000000]]], [12 x [6 x [3 x float]]] [[6 x [3 x float]] [[3 x float] [float 0x3FFCCCCCC0000000, float 0x3FFB333340000000, float 1.500000e+00], [3 x float] [float 3.500000e+00, float 0x400A666660000000, float 3.000000e+00], [3 x float] [float 7.500000e+00, float 0x401C666660000000, float 0x40199999A0000000], [3 x float] [float 0x4031333340000000, float 0x40304CCCC0000000, float 0x402D333340000000], [3 x float] [float 0x4041333340000000, float 3.250000e+01, float 0x403D4CCCC0000000], [3 x float] [float 0x4052066660000000, float 0x4051066660000000, float 0x404EA66660000000]], [6 x [3 x float]] [[3 x float] [float 3.500000e+00, float 0x400A666660000000, float 3.000000e+00], [3 x float] [float 0x401C666660000000, float 0x401ACCCCC0000000, float 6.000000e+00], [3 x float] [float 1.500000e+01, float 0x402C666660000000, float 0x40299999A0000000], [3 x float] [float 0x4041333340000000, float 3.250000e+01, float 0x403D4CCCC0000000], [3 x float] [float 0x4051333340000000, float 6.500000e+01, float 5.850000e+01], [3 x float] [float 0x4062033340000000, float 0x4061033340000000, float 1.225000e+02]], [6 x [3 x float]] [[3 x float] [float 0x4015333340000000, float 5.000000e+00, float 4.500000e+00], [3 x float] [float 0x4025333340000000, float 1.000000e+01, float 9.000000e+00], [3 x float] [float 2.250000e+01, float 0x40354CCCC0000000, float 0x40331999A0000000], [3 x float] [float 0x4049CCCCC0000000, float 0x4048666660000000, float 0x4045F33340000000], [3 x float] [float 0x4059CCCCC0000000, float 9.750000e+01, float 0x4055F33340000000], [3 x float] [float 0x406B066660000000, float 0x4069866660000000, float 0x4066F999A0000000]], [6 x [3 x float]] [[3 x float] [float 0x401C666660000000, float 0x401ACCCCC0000000, float 6.000000e+00], [3 x float] [float 0x402C333340000000, float 0x402A9999A0000000, float 1.200000e+01], [3 x float] [float 3.000000e+01, float 0x403C4CCCC0000000, float 2.550000e+01], [3 x float] [float 0x4051333340000000, float 6.500000e+01, float 5.850000e+01], [3 x float] [float 0x4061333340000000, float 1.300000e+02, float 1.170000e+02], [3 x float] [float 0x4072033340000000, float 0x4071033340000000, float 2.450000e+02]], [6 x [3 x float]] [[3 x float] [float 0x4025333340000000, float 1.000000e+01, float 9.000000e+00], [3 x float] [float 0x4035333340000000, float 2.000000e+01, float 1.800000e+01], [3 x float] [float 4.500000e+01, float 4.250000e+01, float 0x4043266660000000], [3 x float] [float 0x4059CCCCC0000000, float 9.750000e+01, float 0x4055F33340000000], [3 x float] [float 2.065000e+02, float 1.950000e+02, float 1.755000e+02], [3 x float] [float 0x407B066660000000, float 0x407984CCC0000000, float 3.675000e+02]], [6 x [3 x float]] [[3 x float] [float 0x402C333340000000, float 0x402A9999A0000000, float 1.200000e+01], [3 x float] [float 0x403C333340000000, float 0x403AB33340000000, float 2.400000e+01], [3 x float] [float 6.000000e+01, float 0x404C5999A0000000, float 5.100000e+01], [3 x float] [float 0x4061333340000000, float 1.300000e+02, float 1.170000e+02], [3 x float] [float 0x407134CCC0000000, float 2.600000e+02, float 2.340000e+02], [3 x float] [float 5.765000e+02, float 0x4081033340000000, float 4.900000e+02]], [6 x [3 x float]] [[3 x float] [float 0x402FCCCCC0000000, float 1.500000e+01, float 1.350000e+01], [3 x float] [float 0x403FCCCCC0000000, float 3.000000e+01, float 2.700000e+01], [3 x float] [float 6.750000e+01, float 0x404FE66660000000, float 0x404CB33340000000], [3 x float] [float 0x40635CCCC0000000, float 0x40624999A0000000, float 0x4060733340000000], [3 x float] [float 0x40735B3340000000, float 2.925000e+02, float 0x407074CCC0000000], [3 x float] [float 6.485000e+02, float 6.125000e+02, float 0x40813A6660000000]], [6 x [3 x float]] [[3 x float] [float 0x40319999A0000000, float 0x4030B33340000000, float 1.500000e+01], [3 x float] [float 0x4041A66660000000, float 0x4040A66660000000, float 3.000000e+01], [3 x float] [float 7.500000e+01, float 0x4051B33340000000, float 0x404FE66660000000], [3 x float] [float 0x4065833340000000, float 1.625000e+02, float 0x40624999A0000000], [3 x float] [float 0x40758199A0000000, float 3.250000e+02, float 2.925000e+02], [3 x float] [float 0x408684CCC0000000, float 0x408544CCC0000000, float 6.125000e+02]], [6 x [3 x float]] [[3 x float] [float 0x4035333340000000, float 2.000000e+01, float 1.800000e+01], [3 x float] [float 0x4045333340000000, float 4.000000e+01, float 3.600000e+01], [3 x float] [float 9.000000e+01, float 8.500000e+01, float 7.650000e+01], [3 x float] [float 2.065000e+02, float 1.950000e+02, float 1.755000e+02], [3 x float] [float 0x4079CE6660000000, float 3.900000e+02, float 3.510000e+02], [3 x float] [float 0x408B0599A0000000, float 0x40898599A0000000, float 7.350000e+02]], [6 x [3 x float]] [[3 x float] [float 2.350000e+01, float 0x4036333340000000, float 2.000000e+01], [3 x float] [float 0x40478CCCC0000000, float 0x4046333340000000, float 4.000000e+01], [3 x float] [float 1.000000e+02, float 0x40579999A0000000, float 8.500000e+01], [3 x float] [float 0x406CACCCC0000000, float 0x406B166660000000, float 1.950000e+02], [3 x float] [float 0x407CACCCC0000000, float 0x407B14CCC0000000, float 3.900000e+02], [3 x float] [float 0x408E066660000000, float 0x408C5B3340000000, float 0x40898599A0000000]], [6 x [3 x float]] [[3 x float] [float 2.650000e+01, float 2.500000e+01, float 2.250000e+01], [3 x float] [float 0x404A733340000000, float 5.000000e+01, float 4.500000e+01], [3 x float] [float 1.125000e+02, float 0x405A933340000000, float 0x4057E66660000000], [3 x float] [float 0x40702199A0000000, float 0x406E7999A0000000, float 0x406B6CCCC0000000], [3 x float] [float 0x40802199A0000000, float 4.875000e+02, float 0x407B6CCCC0000000], [3 x float] [float 0x4090E399A0000000, float 0x408FE66660000000, float 0x408CB66660000000]], [6 x [3 x float]] [[3 x float] [float 0x403D666660000000, float 0x403BCCCCC0000000, float 2.500000e+01], [3 x float] [float 0x404D666660000000, float 0x404BCCCCC0000000, float 5.000000e+01], [3 x float] [float 1.250000e+02, float 0x405D866660000000, float 0x405A933340000000], [3 x float] [float 0x4071ECCCC0000000, float 0x4070ECCCC0000000, float 0x406E7999A0000000], [3 x float] [float 5.735000e+02, float 0x4080ED99A0000000, float 4.875000e+02], [3 x float] [float 1.201000e+03, float 0x4091B93340000000, float 0x408FE66660000000]]], [12 x [6 x [3 x float]]] [[6 x [3 x float]] [[3 x float] [float 0x4004CCCCC0000000, float 2.500000e+00, float 0x4002666660000000], [3 x float] [float 0x4015333340000000, float 5.000000e+00, float 4.500000e+00], [3 x float] [float 0x40269999A0000000, float 0x4025333340000000, float 0x4023333340000000], [3 x float] [float 0x4039CCCCC0000000, float 0x4038666660000000, float 0x4035E66660000000], [3 x float] [float 0x4049CCCCC0000000, float 0x4048666660000000, float 0x4045F33340000000], [3 x float] [float 0x405B066660000000, float 0x4059866660000000, float 0x4056F999A0000000]], [6 x [3 x float]] [[3 x float] [float 0x4015333340000000, float 5.000000e+00, float 4.500000e+00], [3 x float] [float 0x4025333340000000, float 1.000000e+01, float 9.000000e+00], [3 x float] [float 2.250000e+01, float 0x40354CCCC0000000, float 0x40331999A0000000], [3 x float] [float 0x4049CCCCC0000000, float 0x4048666660000000, float 0x4045F33340000000], [3 x float] [float 0x4059CCCCC0000000, float 9.750000e+01, float 0x4055F33340000000], [3 x float] [float 0x406B066660000000, float 0x4069866660000000, float 0x4066F999A0000000]], [6 x [3 x float]] [[3 x float] [float 0x401F9999A0000000, float 7.500000e+00, float 0x401B333340000000], [3 x float] [float 0x402FCCCCC0000000, float 1.500000e+01, float 1.350000e+01], [3 x float] [float 0x4040E66660000000, float 0x403FE66660000000, float 0x403CB33340000000], [3 x float] [float 0x40535999A0000000, float 0x4052466660000000, float 0x4050733340000000], [3 x float] [float 0x40635CCCC0000000, float 0x40624999A0000000, float 0x4060733340000000], [3 x float] [float 0x407444CCC0000000, float 0x407324CCC0000000, float 0x40713999A0000000]], [6 x [3 x float]] [[3 x float] [float 0x4025333340000000, float 1.000000e+01, float 9.000000e+00], [3 x float] [float 0x4035333340000000, float 2.000000e+01, float 1.800000e+01], [3 x float] [float 4.500000e+01, float 4.250000e+01, float 0x4043266660000000], [3 x float] [float 0x4059CCCCC0000000, float 9.750000e+01, float 0x4055F33340000000], [3 x float] [float 2.065000e+02, float 1.950000e+02, float 1.755000e+02], [3 x float] [float 0x407B066660000000, float 0x407984CCC0000000, float 3.675000e+02]], [6 x [3 x float]] [[3 x float] [float 0x402FCCCCC0000000, float 1.500000e+01, float 1.350000e+01], [3 x float] [float 0x403FCCCCC0000000, float 3.000000e+01, float 2.700000e+01], [3 x float] [float 6.750000e+01, float 0x404FE66660000000, float 0x404CB33340000000], [3 x float] [float 0x40635CCCC0000000, float 0x40624999A0000000, float 0x4060733340000000], [3 x float] [float 0x40735B3340000000, float 2.925000e+02, float 0x407074CCC0000000], [3 x float] [float 6.485000e+02, float 6.125000e+02, float 0x40813A6660000000]], [6 x [3 x float]] [[3 x float] [float 0x4035333340000000, float 2.000000e+01, float 1.800000e+01], [3 x float] [float 0x4045333340000000, float 4.000000e+01, float 3.600000e+01], [3 x float] [float 9.000000e+01, float 8.500000e+01, float 7.650000e+01], [3 x float] [float 2.065000e+02, float 1.950000e+02, float 1.755000e+02], [3 x float] [float 0x4079CE6660000000, float 3.900000e+02, float 3.510000e+02], [3 x float] [float 0x408B0599A0000000, float 0x40898599A0000000, float 7.350000e+02]], [6 x [3 x float]] [[3 x float] [float 0x4037CCCCC0000000, float 2.250000e+01, float 0x40344CCCC0000000], [3 x float] [float 0x4047CCCCC0000000, float 4.500000e+01, float 4.050000e+01], [3 x float] [float 0x4059533340000000, float 0x4057E66660000000, float 0x4055866660000000], [3 x float] [float 0x406D0999A0000000, float 0x406B6CCCC0000000, float 0x4068ACCCC0000000], [3 x float] [float 0x407D0999A0000000, float 0x407B6CCCC0000000, float 0x4078AE6660000000], [3 x float] [float 0x408E666660000000, float 0x408CB66660000000, float 0x4089D73340000000]], [6 x [3 x float]] [[3 x float] [float 2.650000e+01, float 2.500000e+01, float 2.250000e+01], [3 x float] [float 0x404A733340000000, float 5.000000e+01, float 4.500000e+01], [3 x float] [float 1.125000e+02, float 0x405A933340000000, float 0x4057E66660000000], [3 x float] [float 0x40702199A0000000, float 0x406E7999A0000000, float 0x406B6CCCC0000000], [3 x float] [float 0x40802199A0000000, float 4.875000e+02, float 0x407B6CCCC0000000], [3 x float] [float 0x4090E399A0000000, float 0x408FE66660000000, float 0x408CB66660000000]], [6 x [3 x float]] [[3 x float] [float 0x403FCCCCC0000000, float 3.000000e+01, float 2.700000e+01], [3 x float] [float 6.350000e+01, float 6.000000e+01, float 5.400000e+01], [3 x float] [float 1.350000e+02, float 1.275000e+02, float 0x405CB33340000000], [3 x float] [float 0x40735B3340000000, float 2.925000e+02, float 0x407074CCC0000000], [3 x float] [float 0x40835B3340000000, float 5.850000e+02, float 5.265000e+02], [3 x float] [float 0x4094446660000000, float 1.225000e+03, float 1.102500e+03]], [6 x [3 x float]] [[3 x float] [float 0x4041A66660000000, float 0x4040A66660000000, float 3.000000e+01], [3 x float] [float 0x4051A66660000000, float 0x4050ACCCC0000000, float 6.000000e+01], [3 x float] [float 1.500000e+02, float 0x4061B66660000000, float 1.275000e+02], [3 x float] [float 0x40758199A0000000, float 3.250000e+02, float 2.925000e+02], [3 x float] [float 0x40858199A0000000, float 6.500000e+02, float 5.850000e+02], [3 x float] [float 0x409684CCC0000000, float 0x4095446660000000, float 1.225000e+03]], [6 x [3 x float]] [[3 x float] [float 0x4043D999A0000000, float 3.750000e+01, float 0x4040E66660000000], [3 x float] [float 0x4053D999A0000000, float 7.500000e+01, float 6.750000e+01], [3 x float] [float 0x40651999A0000000, float 0x4063ECCCC0000000, float 0x4061ECCCC0000000], [3 x float] [float 0x40783199A0000000, float 0x4076D999A0000000, float 0x40749199A0000000], [3 x float] [float 0x4088326660000000, float 0x4086DA6660000000, float 0x408490CCC0000000], [3 x float] [float 0x4099553340000000, float 0x4097ED3340000000, float 0x4095886660000000]], [6 x [3 x float]] [[3 x float] [float 0x40460CCCC0000000, float 0x4044D999A0000000, float 3.750000e+01], [3 x float] [float 0x40560CCCC0000000, float 0x4054D33340000000, float 7.500000e+01], [3 x float] [float 1.875000e+02, float 0x4066233340000000, float 0x4063ECCCC0000000], [3 x float] [float 0x407AE199A0000000, float 0x407964CCC0000000, float 0x4076D999A0000000], [3 x float] [float 0x408AE26660000000, float 8.125000e+02, float 0x4086DA6660000000], [3 x float] [float 1.801500e+03, float 0x409A9599A0000000, float 0x4097ED3340000000]]], [12 x [6 x [3 x float]]] [[6 x [3 x float]] [[3 x float] [float 3.500000e+00, float 0x400A666660000000, float 3.000000e+00], [3 x float] [float 0x401C666660000000, float 0x401ACCCCC0000000, float 6.000000e+00], [3 x float] [float 1.500000e+01, float 0x402C666660000000, float 0x40299999A0000000], [3 x float] [float 0x4041333340000000, float 3.250000e+01, float 0x403D4CCCC0000000], [3 x float] [float 0x4051333340000000, float 6.500000e+01, float 5.850000e+01], [3 x float] [float 0x4062033340000000, float 0x4061033340000000, float 1.225000e+02]], [6 x [3 x float]] [[3 x float] [float 0x401C666660000000, float 0x401ACCCCC0000000, float 6.000000e+00], [3 x float] [float 0x402C333340000000, float 0x402A9999A0000000, float 1.200000e+01], [3 x float] [float 3.000000e+01, float 0x403C4CCCC0000000, float 2.550000e+01], [3 x float] [float 0x4051333340000000, float 6.500000e+01, float 5.850000e+01], [3 x float] [float 0x4061333340000000, float 1.300000e+02, float 1.170000e+02], [3 x float] [float 0x4072033340000000, float 0x4071033340000000, float 2.450000e+02]], [6 x [3 x float]] [[3 x float] [float 0x4025333340000000, float 1.000000e+01, float 9.000000e+00], [3 x float] [float 0x4035333340000000, float 2.000000e+01, float 1.800000e+01], [3 x float] [float 4.500000e+01, float 4.250000e+01, float 0x4043266660000000], [3 x float] [float 0x4059CCCCC0000000, float 9.750000e+01, float 0x4055F33340000000], [3 x float] [float 2.065000e+02, float 1.950000e+02, float 1.755000e+02], [3 x float] [float 0x407B066660000000, float 0x407984CCC0000000, float 3.675000e+02]], [6 x [3 x float]] [[3 x float] [float 0x402C333340000000, float 0x402A9999A0000000, float 1.200000e+01], [3 x float] [float 0x403C333340000000, float 0x403AB33340000000, float 2.400000e+01], [3 x float] [float 6.000000e+01, float 0x404C5999A0000000, float 5.100000e+01], [3 x float] [float 0x4061333340000000, float 1.300000e+02, float 1.170000e+02], [3 x float] [float 0x407134CCC0000000, float 2.600000e+02, float 2.340000e+02], [3 x float] [float 5.765000e+02, float 0x4081033340000000, float 4.900000e+02]], [6 x [3 x float]] [[3 x float] [float 0x4035333340000000, float 2.000000e+01, float 1.800000e+01], [3 x float] [float 0x4045333340000000, float 4.000000e+01, float 3.600000e+01], [3 x float] [float 9.000000e+01, float 8.500000e+01, float 7.650000e+01], [3 x float] [float 2.065000e+02, float 1.950000e+02, float 1.755000e+02], [3 x float] [float 0x4079CE6660000000, float 3.900000e+02, float 3.510000e+02], [3 x float] [float 0x408B0599A0000000, float 0x40898599A0000000, float 7.350000e+02]], [6 x [3 x float]] [[3 x float] [float 0x403C333340000000, float 0x403AB33340000000, float 2.400000e+01], [3 x float] [float 5.650000e+01, float 0x404AA66660000000, float 4.800000e+01], [3 x float] [float 1.200000e+02, float 0x405C533340000000, float 1.020000e+02], [3 x float] [float 0x407134CCC0000000, float 2.600000e+02, float 2.340000e+02], [3 x float] [float 0x408134CCC0000000, float 5.200000e+02, float 4.680000e+02], [3 x float] [float 0x40920399A0000000, float 0x40910399A0000000, float 9.800000e+02]], [6 x [3 x float]] [[3 x float] [float 0x403FCCCCC0000000, float 3.000000e+01, float 2.700000e+01], [3 x float] [float 6.350000e+01, float 6.000000e+01, float 5.400000e+01], [3 x float] [float 1.350000e+02, float 1.275000e+02, float 0x405CB33340000000], [3 x float] [float 0x40735B3340000000, float 2.925000e+02, float 0x407074CCC0000000], [3 x float] [float 0x40835B3340000000, float 5.850000e+02, float 5.265000e+02], [3 x float] [float 0x4094446660000000, float 1.225000e+03, float 1.102500e+03]], [6 x [3 x float]] [[3 x float] [float 0x4041A66660000000, float 0x4040A66660000000, float 3.000000e+01], [3 x float] [float 0x4051A66660000000, float 0x4050ACCCC0000000, float 6.000000e+01], [3 x float] [float 1.500000e+02, float 0x4061B66660000000, float 1.275000e+02], [3 x float] [float 0x40758199A0000000, float 3.250000e+02, float 2.925000e+02], [3 x float] [float 0x40858199A0000000, float 6.500000e+02, float 5.850000e+02], [3 x float] [float 0x409684CCC0000000, float 0x4095446660000000, float 1.225000e+03]], [6 x [3 x float]] [[3 x float] [float 0x4045333340000000, float 4.000000e+01, float 3.600000e+01], [3 x float] [float 0x40552CCCC0000000, float 8.000000e+01, float 7.200000e+01], [3 x float] [float 1.800000e+02, float 1.700000e+02, float 1.530000e+02], [3 x float] [float 0x4079CE6660000000, float 3.900000e+02, float 3.510000e+02], [3 x float] [float 0x4089CF3340000000, float 7.800000e+02, float 7.020000e+02], [3 x float] [float 0x409B0599A0000000, float 0x4099853340000000, float 1.470000e+03]], [6 x [3 x float]] [[3 x float] [float 0x40478CCCC0000000, float 0x4046333340000000, float 4.000000e+01], [3 x float] [float 0x4057866660000000, float 0x40563999A0000000, float 8.000000e+01], [3 x float] [float 2.000000e+02, float 0x40679CCCC0000000, float 1.700000e+02], [3 x float] [float 0x407CACCCC0000000, float 0x407B14CCC0000000, float 3.900000e+02], [3 x float] [float 0x408CACCCC0000000, float 0x408B1599A0000000, float 7.800000e+02], [3 x float] [float 0x409E066660000000, float 0x409C5B3340000000, float 0x4099853340000000]], [6 x [3 x float]] [[3 x float] [float 0x404A733340000000, float 5.000000e+01, float 4.500000e+01], [3 x float] [float 0x405A7999A0000000, float 1.000000e+02, float 9.000000e+01], [3 x float] [float 2.250000e+02, float 2.125000e+02, float 0x4067E999A0000000], [3 x float] [float 0x40802199A0000000, float 4.875000e+02, float 0x407B6CCCC0000000], [3 x float] [float 0x40902199A0000000, float 9.750000e+02, float 8.775000e+02], [3 x float] [float 0x40A0E399A0000000, float 0x409FE6CCC0000000, float 1.837500e+03]], [6 x [3 x float]] [[3 x float] [float 0x404D666660000000, float 0x404BCCCCC0000000, float 5.000000e+01], [3 x float] [float 0x405D666660000000, float 0x405BC66660000000, float 1.000000e+02], [3 x float] [float 2.500000e+02, float 0x406D833340000000, float 2.125000e+02], [3 x float] [float 5.735000e+02, float 0x4080ED99A0000000, float 4.875000e+02], [3 x float] [float 0x4091EC6660000000, float 0x4090ED3340000000, float 9.750000e+02], [3 x float] [float 2.402000e+03, float 2.268500e+03, float 0x409FE6CCC0000000]]], [12 x [6 x [3 x float]]] [[6 x [3 x float]] [[3 x float] [float 0x40119999A0000000, float 0x4010CCCCC0000000, float 0x400E666660000000], [3 x float] [float 0x40219999A0000000, float 0x40209999A0000000, float 7.500000e+00], [3 x float] [float 0x4032CCCCC0000000, float 0x4031B33340000000, float 0x402FCCCCC0000000], [3 x float] [float 4.300000e+01, float 0x40444CCCC0000000, float 0x40424CCCC0000000], [3 x float] [float 8.600000e+01, float 0x4054533340000000, float 0x4052466660000000], [3 x float] [float 0x4066833340000000, float 0x4065433340000000, float 0x4063233340000000]], [6 x [3 x float]] [[3 x float] [float 0x40219999A0000000, float 0x40209999A0000000, float 7.500000e+00], [3 x float] [float 0x40319999A0000000, float 0x4030B33340000000, float 1.500000e+01], [3 x float] [float 3.750000e+01, float 0x4041B33340000000, float 0x403FE66660000000], [3 x float] [float 8.600000e+01, float 0x4054533340000000, float 0x4052466660000000], [3 x float] [float 0x4065833340000000, float 1.625000e+02, float 0x40624999A0000000], [3 x float] [float 0x407684CCC0000000, float 0x407544CCC0000000, float 0x407324CCC0000000]], [6 x [3 x float]] [[3 x float] [float 0x402A666660000000, float 1.250000e+01, float 0x40269999A0000000], [3 x float] [float 2.650000e+01, float 2.500000e+01, float 2.250000e+01], [3 x float] [float 0x404C266660000000, float 0x404A8CCCC0000000, float 0x4047E66660000000], [3 x float] [float 1.290000e+02, float 0x405E7999A0000000, float 0x405B6CCCC0000000], [3 x float] [float 0x40702199A0000000, float 0x406E7999A0000000, float 0x406B6CCCC0000000], [3 x float] [float 0x4080E33340000000, float 0x407FE66660000000, float 0x407CB66660000000]], [6 x [3 x float]] [[3 x float] [float 0x40319999A0000000, float 0x4030B33340000000, float 1.500000e+01], [3 x float] [float 0x4041A66660000000, float 0x4040A66660000000, float 3.000000e+01], [3 x float] [float 7.500000e+01, float 0x4051B33340000000, float 0x404FE66660000000], [3 x float] [float 0x4065833340000000, float 1.625000e+02, float 0x40624999A0000000], [3 x float] [float 0x40758199A0000000, float 3.250000e+02, float 2.925000e+02], [3 x float] [float 0x408684CCC0000000, float 0x408544CCC0000000, float 6.125000e+02]], [6 x [3 x float]] [[3 x float] [float 2.650000e+01, float 2.500000e+01, float 2.250000e+01], [3 x float] [float 0x404A733340000000, float 5.000000e+01, float 4.500000e+01], [3 x float] [float 1.125000e+02, float 0x405A933340000000, float 0x4057E66660000000], [3 x float] [float 0x40702199A0000000, float 0x406E7999A0000000, float 0x406B6CCCC0000000], [3 x float] [float 0x40802199A0000000, float 4.875000e+02, float 0x407B6CCCC0000000], [3 x float] [float 0x4090E399A0000000, float 0x408FE66660000000, float 0x408CB66660000000]], [6 x [3 x float]] [[3 x float] [float 0x4041A66660000000, float 0x4040A66660000000, float 3.000000e+01], [3 x float] [float 0x4051A66660000000, float 0x4050ACCCC0000000, float 6.000000e+01], [3 x float] [float 1.500000e+02, float 0x4061B66660000000, float 1.275000e+02], [3 x float] [float 0x40758199A0000000, float 3.250000e+02, float 2.925000e+02], [3 x float] [float 0x40858199A0000000, float 6.500000e+02, float 5.850000e+02], [3 x float] [float 0x409684CCC0000000, float 0x4095446660000000, float 1.225000e+03]], [6 x [3 x float]] [[3 x float] [float 0x4043D999A0000000, float 3.750000e+01, float 0x4040E66660000000], [3 x float] [float 0x4053D999A0000000, float 7.500000e+01, float 6.750000e+01], [3 x float] [float 0x40651999A0000000, float 0x4063ECCCC0000000, float 0x4061ECCCC0000000], [3 x float] [float 0x40783199A0000000, float 0x4076D999A0000000, float 0x40749199A0000000], [3 x float] [float 0x4088326660000000, float 0x4086DA6660000000, float 0x408490CCC0000000], [3 x float] [float 0x4099553340000000, float 0x4097ED3340000000, float 0x4095886660000000]], [6 x [3 x float]] [[3 x float] [float 0x40460CCCC0000000, float 0x4044D999A0000000, float 3.750000e+01], [3 x float] [float 0x40560CCCC0000000, float 0x4054D33340000000, float 7.500000e+01], [3 x float] [float 1.875000e+02, float 0x4066233340000000, float 0x4063ECCCC0000000], [3 x float] [float 0x407AE199A0000000, float 0x407964CCC0000000, float 0x4076D999A0000000], [3 x float] [float 0x408AE26660000000, float 8.125000e+02, float 0x4086DA6660000000], [3 x float] [float 1.801500e+03, float 0x409A9599A0000000, float 0x4097ED3340000000]], [6 x [3 x float]] [[3 x float] [float 0x404A733340000000, float 5.000000e+01, float 4.500000e+01], [3 x float] [float 0x405A7999A0000000, float 1.000000e+02, float 9.000000e+01], [3 x float] [float 2.250000e+02, float 2.125000e+02, float 0x4067E999A0000000], [3 x float] [float 0x40802199A0000000, float 4.875000e+02, float 0x407B6CCCC0000000], [3 x float] [float 0x40902199A0000000, float 9.750000e+02, float 8.775000e+02], [3 x float] [float 0x40A0E399A0000000, float 0x409FE6CCC0000000, float 1.837500e+03]], [6 x [3 x float]] [[3 x float] [float 0x404D666660000000, float 0x404BCCCCC0000000, float 5.000000e+01], [3 x float] [float 0x405D666660000000, float 0x405BC66660000000, float 1.000000e+02], [3 x float] [float 2.500000e+02, float 0x406D833340000000, float 2.125000e+02], [3 x float] [float 5.735000e+02, float 0x4080ED99A0000000, float 4.875000e+02], [3 x float] [float 0x4091EC6660000000, float 0x4090ED3340000000, float 9.750000e+02], [3 x float] [float 2.402000e+03, float 2.268500e+03, float 0x409FE6CCC0000000]], [6 x [3 x float]] [[3 x float] [float 0x40508CCCC0000000, float 6.250000e+01, float 0x404C266660000000], [3 x float] [float 0x40608CCCC0000000, float 1.250000e+02, float 1.125000e+02], [3 x float] [float 0x407194CCC0000000, float 0x40709999A0000000, float 0x406DE33340000000], [3 x float] [float 0x40842999A0000000, float 0x40830B3340000000, float 0x4081233340000000], [3 x float] [float 0x40942999A0000000, float 0x40930B3340000000, float 0x40912399A0000000], [3 x float] [float 0x40A51C6660000000, float 0x40A3F03340000000, float 0x40A1F1CCC0000000]], [6 x [3 x float]] [[3 x float] [float 7.350000e+01, float 0x40515999A0000000, float 6.250000e+01], [3 x float] [float 0x4062633340000000, float 0x40615CCCC0000000, float 1.250000e+02], [3 x float] [float 3.125000e+02, float 0x40727199A0000000, float 0x40709999A0000000], [3 x float] [float 0x4086673340000000, float 0x408528CCC0000000, float 0x40830B3340000000], [3 x float] [float 0x4096673340000000, float 0x409528CCC0000000, float 0x40930B3340000000], [3 x float] [float 3.002500e+03, float 0x40A6273340000000, float 0x40A3F03340000000]]], [12 x [6 x [3 x float]]] [[6 x [3 x float]] [[3 x float] [float 0x4015333340000000, float 5.000000e+00, float 4.500000e+00], [3 x float] [float 0x4025333340000000, float 1.000000e+01, float 9.000000e+00], [3 x float] [float 2.250000e+01, float 0x40354CCCC0000000, float 0x40331999A0000000], [3 x float] [float 0x4049CCCCC0000000, float 0x4048666660000000, float 0x4045F33340000000], [3 x float] [float 0x4059CCCCC0000000, float 9.750000e+01, float 0x4055F33340000000], [3 x float] [float 0x406B066660000000, float 0x4069866660000000, float 0x4066F999A0000000]], [6 x [3 x float]] [[3 x float] [float 0x4025333340000000, float 1.000000e+01, float 9.000000e+00], [3 x float] [float 0x4035333340000000, float 2.000000e+01, float 1.800000e+01], [3 x float] [float 4.500000e+01, float 4.250000e+01, float 0x4043266660000000], [3 x float] [float 0x4059CCCCC0000000, float 9.750000e+01, float 0x4055F33340000000], [3 x float] [float 2.065000e+02, float 1.950000e+02, float 1.755000e+02], [3 x float] [float 0x407B066660000000, float 0x407984CCC0000000, float 3.675000e+02]], [6 x [3 x float]] [[3 x float] [float 0x402FCCCCC0000000, float 1.500000e+01, float 1.350000e+01], [3 x float] [float 0x403FCCCCC0000000, float 3.000000e+01, float 2.700000e+01], [3 x float] [float 6.750000e+01, float 0x404FE66660000000, float 0x404CB33340000000], [3 x float] [float 0x40635CCCC0000000, float 0x40624999A0000000, float 0x4060733340000000], [3 x float] [float 0x40735B3340000000, float 2.925000e+02, float 0x407074CCC0000000], [3 x float] [float 6.485000e+02, float 6.125000e+02, float 0x40813A6660000000]], [6 x [3 x float]] [[3 x float] [float 0x4035333340000000, float 2.000000e+01, float 1.800000e+01], [3 x float] [float 0x4045333340000000, float 4.000000e+01, float 3.600000e+01], [3 x float] [float 9.000000e+01, float 8.500000e+01, float 7.650000e+01], [3 x float] [float 2.065000e+02, float 1.950000e+02, float 1.755000e+02], [3 x float] [float 0x4079CE6660000000, float 3.900000e+02, float 3.510000e+02], [3 x float] [float 0x408B0599A0000000, float 0x40898599A0000000, float 7.350000e+02]], [6 x [3 x float]] [[3 x float] [float 0x403FCCCCC0000000, float 3.000000e+01, float 2.700000e+01], [3 x float] [float 6.350000e+01, float 6.000000e+01, float 5.400000e+01], [3 x float] [float 1.350000e+02, float 1.275000e+02, float 0x405CB33340000000], [3 x float] [float 0x40735B3340000000, float 2.925000e+02, float 0x407074CCC0000000], [3 x float] [float 0x40835B3340000000, float 5.850000e+02, float 5.265000e+02], [3 x float] [float 0x4094446660000000, float 1.225000e+03, float 1.102500e+03]], [6 x [3 x float]] [[3 x float] [float 0x4045333340000000, float 4.000000e+01, float 3.600000e+01], [3 x float] [float 0x40552CCCC0000000, float 8.000000e+01, float 7.200000e+01], [3 x float] [float 1.800000e+02, float 1.700000e+02, float 1.530000e+02], [3 x float] [float 0x4079CE6660000000, float 3.900000e+02, float 3.510000e+02], [3 x float] [float 0x4089CF3340000000, float 7.800000e+02, float 7.020000e+02], [3 x float] [float 0x409B0599A0000000, float 0x4099853340000000, float 1.470000e+03]], [6 x [3 x float]] [[3 x float] [float 0x4047CCCCC0000000, float 4.500000e+01, float 4.050000e+01], [3 x float] [float 0x4057D33340000000, float 9.000000e+01, float 8.100000e+01], [3 x float] [float 2.025000e+02, float 0x4067E999A0000000, float 0x4065833340000000], [3 x float] [float 0x407D0999A0000000, float 0x407B6CCCC0000000, float 0x4078AE6660000000], [3 x float] [float 0x408D08CCC0000000, float 8.775000e+02, float 0x4088AE6660000000], [3 x float] [float 0x409E666660000000, float 1.837500e+03, float 0x4099D73340000000]], [6 x [3 x float]] [[3 x float] [float 0x404A733340000000, float 5.000000e+01, float 4.500000e+01], [3 x float] [float 0x405A7999A0000000, float 1.000000e+02, float 9.000000e+01], [3 x float] [float 2.250000e+02, float 2.125000e+02, float 0x4067E999A0000000], [3 x float] [float 0x40802199A0000000, float 4.875000e+02, float 0x407B6CCCC0000000], [3 x float] [float 0x40902199A0000000, float 9.750000e+02, float 8.775000e+02], [3 x float] [float 0x40A0E399A0000000, float 0x409FE6CCC0000000, float 1.837500e+03]], [6 x [3 x float]] [[3 x float] [float 6.350000e+01, float 6.000000e+01, float 5.400000e+01], [3 x float] [float 0x405FC66660000000, float 1.200000e+02, float 1.080000e+02], [3 x float] [float 2.700000e+02, float 2.550000e+02, float 2.295000e+02], [3 x float] [float 0x40835B3340000000, float 5.850000e+02, float 5.265000e+02], [3 x float] [float 0x40935B3340000000, float 1.170000e+03, float 1.053000e+03], [3 x float] [float 0x40A4443340000000, float 2.450000e+03, float 2.205000e+03]], [6 x [3 x float]] [[3 x float] [float 0x4051A66660000000, float 0x4050ACCCC0000000, float 6.000000e+01], [3 x float] [float 0x4061A66660000000, float 0x4060A999A0000000, float 1.200000e+02], [3 x float] [float 3.000000e+02, float 0x4071B4CCC0000000, float 2.550000e+02], [3 x float] [float 0x40858199A0000000, float 6.500000e+02, float 5.850000e+02], [3 x float] [float 1.376500e+03, float 1.300000e+03, float 1.170000e+03], [3 x float] [float 0x40A684CCC0000000, float 0x40A5446660000000, float 2.450000e+03]], [6 x [3 x float]] [[3 x float] [float 0x4053D999A0000000, float 7.500000e+01, float 6.750000e+01], [3 x float] [float 0x4063D999A0000000, float 1.500000e+02, float 1.350000e+02], [3 x float] [float 3.375000e+02, float 0x4073ECCCC0000000, float 0x4071EE6660000000], [3 x float] [float 0x4088326660000000, float 0x4086DA6660000000, float 0x408490CCC0000000], [3 x float] [float 1.548500e+03, float 1.462500e+03, float 0x4094913340000000], [3 x float] [float 0x40A9553340000000, float 3.062500e+03, float 0x40A58899A0000000]], [6 x [3 x float]] [[3 x float] [float 0x40560CCCC0000000, float 0x4054D33340000000, float 7.500000e+01], [3 x float] [float 1.765000e+02, float 0x4064D66660000000, float 1.500000e+02], [3 x float] [float 3.750000e+02, float 0x4076233340000000, float 0x4073ECCCC0000000], [3 x float] [float 0x408AE26660000000, float 8.125000e+02, float 0x4086DA6660000000], [3 x float] [float 0x409AE26660000000, float 1.625000e+03, float 1.462500e+03], [3 x float] [float 0x40AC25CCC0000000, float 0x40AA9599A0000000, float 3.062500e+03]]], [12 x [6 x [3 x float]]] [[6 x [3 x float]] [[3 x float] [float 0x4018CCCCC0000000, float 0x4017333340000000, float 0x4015333340000000], [3 x float] [float 0x4028CCCCC0000000, float 0x4027666660000000, float 1.050000e+01], [3 x float] [float 0x403A4CCCC0000000, float 0x4038CCCCC0000000, float 0x40364CCCC0000000], [3 x float] [float 0x404E1999A0000000, float 0x404C733340000000, float 0x40499999A0000000], [3 x float] [float 0x405E1999A0000000, float 0x405C733340000000, float 0x40599999A0000000], [3 x float] [float 0x406F866660000000, float 0x406DC66660000000, float 0x406ACCCCC0000000]], [6 x [3 x float]] [[3 x float] [float 0x4028CCCCC0000000, float 0x4027666660000000, float 1.050000e+01], [3 x float] [float 0x4038B33340000000, float 0x40374CCCC0000000, float 2.100000e+01], [3 x float] [float 5.250000e+01, float 0x4048CCCCC0000000, float 0x40464CCCC0000000], [3 x float] [float 0x405E1999A0000000, float 0x405C733340000000, float 0x40599999A0000000], [3 x float] [float 0x406E1CCCC0000000, float 2.275000e+02, float 0x40699999A0000000], [3 x float] [float 0x407F866660000000, float 0x407DC66660000000, float 0x407ACCCCC0000000]], [6 x [3 x float]] [[3 x float] [float 1.850000e+01, float 1.750000e+01, float 0x402F9999A0000000], [3 x float] [float 0x40428CCCC0000000, float 3.500000e+01, float 3.150000e+01], [3 x float] [float 0x4053B33340000000, float 0x40529999A0000000, float 0x4050B999A0000000], [3 x float] [float 0x4066966660000000, float 0x4065533340000000, float 0x4063333340000000], [3 x float] [float 0x407694CCC0000000, float 0x407554CCC0000000, float 0x40733199A0000000], [3 x float] [float 0x4087A4CCC0000000, float 0x408654CCC0000000, float 0x408418CCC0000000]], [6 x [3 x float]] [[3 x float] [float 0x4038B33340000000, float 0x40374CCCC0000000, float 2.100000e+01], [3 x float] [float 0x4048B33340000000, float 0x40475999A0000000, float 4.200000e+01], [3 x float] [float 1.050000e+02, float 0x4058CCCCC0000000, float 0x4056533340000000], [3 x float] [float 0x406E1CCCC0000000, float 2.275000e+02, float 0x40699999A0000000], [3 x float] [float 0x407E1CCCC0000000, float 4.550000e+02, float 4.095000e+02], [3 x float] [float 0x408F866660000000, float 0x408DC66660000000, float 8.575000e+02]], [6 x [3 x float]] [[3 x float] [float 0x40428CCCC0000000, float 3.500000e+01, float 3.150000e+01], [3 x float] [float 0x4052866660000000, float 7.000000e+01, float 6.300000e+01], [3 x float] [float 1.575000e+02, float 0x40629999A0000000, float 0x4060BCCCC0000000], [3 x float] [float 0x407694CCC0000000, float 0x407554CCC0000000, float 0x40733199A0000000], [3 x float] [float 0x408694CCC0000000, float 6.825000e+02, float 0x4083326660000000], [3 x float] [float 0x4097A4CCC0000000, float 0x409654CCC0000000, float 0x4094193340000000]], [6 x [3 x float]] [[3 x float] [float 0x4048B33340000000, float 0x40475999A0000000, float 4.200000e+01], [3 x float] [float 0x4058B33340000000, float 0x4057533340000000, float 8.400000e+01], [3 x float] [float 2.100000e+02, float 0x4068C999A0000000, float 1.785000e+02], [3 x float] [float 0x407E1CCCC0000000, float 4.550000e+02, float 4.095000e+02], [3 x float] [float 9.635000e+02, float 9.100000e+02, float 8.190000e+02], [3 x float] [float 0x409F866660000000, float 0x409DC66660000000, float 1.715000e+03]], [6 x [3 x float]] [[3 x float] [float 0x404BCCCCC0000000, float 5.250000e+01, float 0x4047A66660000000], [3 x float] [float 0x405BCCCCC0000000, float 1.050000e+02, float 9.450000e+01], [3 x float] [float 0x406D8999A0000000, float 0x406BE33340000000, float 0x40691999A0000000], [3 x float] [float 5.420000e+02, float 0x407FFE6660000000, float 0x407CCB3340000000], [3 x float] [float 1.084000e+03, float 0x408FFE6660000000, float 0x408CCB3340000000], [3 x float] [float 0x40A1BBCCC0000000, float 0x40A0BF99A0000000, float 0x409E2599A0000000]], [6 x [3 x float]] [[3 x float] [float 0x404EE66660000000, float 0x404D266660000000, float 5.250000e+01], [3 x float] [float 1.235000e+02, float 0x405D2CCCC0000000, float 1.050000e+02], [3 x float] [float 2.625000e+02, float 0x406EFCCCC0000000, float 0x406BE33340000000], [3 x float] [float 0x4082D199A0000000, float 0x4081C66660000000, float 0x407FFE6660000000], [3 x float] [float 0x4092D199A0000000, float 1.137500e+03, float 0x408FFE6660000000], [3 x float] [float 0x40A3B43340000000, float 0x40A29BCCC0000000, float 0x40A0BF99A0000000]], [6 x [3 x float]] [[3 x float] [float 0x4052866660000000, float 7.000000e+01, float 6.300000e+01], [3 x float] [float 0x4062866660000000, float 1.400000e+02, float 1.260000e+02], [3 x float] [float 3.150000e+02, float 2.975000e+02, float 0x4070BCCCC0000000], [3 x float] [float 0x408694CCC0000000, float 6.825000e+02, float 0x4083326660000000], [3 x float] [float 0x4096953340000000, float 1.365000e+03, float 1.228500e+03], [3 x float] [float 3.026500e+03, float 0x40A65499A0000000, float 2.572500e+03]], [6 x [3 x float]] [[3 x float] [float 0x40549999A0000000, float 0x4053733340000000, float 7.000000e+01], [3 x float] [float 0x4064966660000000, float 0x4063733340000000, float 1.400000e+02], [3 x float] [float 3.500000e+02, float 0x4074A999A0000000, float 2.975000e+02], [3 x float] [float 0x4089173340000000, float 0x4087B26660000000, float 6.825000e+02], [3 x float] [float 0x40991799A0000000, float 0x4097B2CCC0000000, float 1.365000e+03], [3 x float] [float 0x40AA456660000000, float 0x40A8CFCCC0000000, float 0x40A65499A0000000]], [6 x [3 x float]] [[3 x float] [float 0x4057266660000000, float 8.750000e+01, float 0x4053B33340000000], [3 x float] [float 0x40672999A0000000, float 1.750000e+02, float 1.575000e+02], [3 x float] [float 0x40789CCCC0000000, float 0x40773E6660000000, float 0x4074EB3340000000], [3 x float] [float 0x408C3A6660000000, float 0x408AA8CCC0000000, float 0x4087FE6660000000], [3 x float] [float 0x409C3A6660000000, float 0x409AA93340000000, float 0x4097FE6660000000], [3 x float] [float 0x40AD8E3340000000, float 0x40ABE9CCC0000000, float 0x40A91F3340000000]], [6 x [3 x float]] [[3 x float] [float 0x4059B999A0000000, float 0x40584CCCC0000000, float 8.750000e+01], [3 x float] [float 0x4069BCCCC0000000, float 0x40684CCCC0000000, float 1.750000e+02], [3 x float] [float 4.375000e+02, float 0x4079D33340000000, float 0x40773E6660000000], [3 x float] [float 0x408F5D99A0000000, float 0x408D9F3340000000, float 0x408AA8CCC0000000], [3 x float] [float 0x409F5D99A0000000, float 0x409D9F3340000000, float 0x409AA93340000000], [3 x float] [float 0x40B06B6660000000, float 0x40AF03CCC0000000, float 0x40ABE9CCC0000000]]], [12 x [6 x [3 x float]]] [[6 x [3 x float]] [[3 x float] [float 0x401C666660000000, float 0x401ACCCCC0000000, float 6.000000e+00], [3 x float] [float 0x402C333340000000, float 0x402A9999A0000000, float 1.200000e+01], [3 x float] [float 3.000000e+01, float 0x403C4CCCC0000000, float 2.550000e+01], [3 x float] [float 0x4051333340000000, float 6.500000e+01, float 5.850000e+01], [3 x float] [float 0x4061333340000000, float 1.300000e+02, float 1.170000e+02], [3 x float] [float 0x4072033340000000, float 0x4071033340000000, float 2.450000e+02]], [6 x [3 x float]] [[3 x float] [float 0x402C333340000000, float 0x402A9999A0000000, float 1.200000e+01], [3 x float] [float 0x403C333340000000, float 0x403AB33340000000, float 2.400000e+01], [3 x float] [float 6.000000e+01, float 0x404C5999A0000000, float 5.100000e+01], [3 x float] [float 0x4061333340000000, float 1.300000e+02, float 1.170000e+02], [3 x float] [float 0x407134CCC0000000, float 2.600000e+02, float 2.340000e+02], [3 x float] [float 5.765000e+02, float 0x4081033340000000, float 4.900000e+02]], [6 x [3 x float]] [[3 x float] [float 0x4035333340000000, float 2.000000e+01, float 1.800000e+01], [3 x float] [float 0x4045333340000000, float 4.000000e+01, float 3.600000e+01], [3 x float] [float 9.000000e+01, float 8.500000e+01, float 7.650000e+01], [3 x float] [float 2.065000e+02, float 1.950000e+02, float 1.755000e+02], [3 x float] [float 0x4079CE6660000000, float 3.900000e+02, float 3.510000e+02], [3 x float] [float 0x408B0599A0000000, float 0x40898599A0000000, float 7.350000e+02]], [6 x [3 x float]] [[3 x float] [float 0x403C333340000000, float 0x403AB33340000000, float 2.400000e+01], [3 x float] [float 5.650000e+01, float 0x404AA66660000000, float 4.800000e+01], [3 x float] [float 1.200000e+02, float 0x405C533340000000, float 1.020000e+02], [3 x float] [float 0x407134CCC0000000, float 2.600000e+02, float 2.340000e+02], [3 x float] [float 0x408134CCC0000000, float 5.200000e+02, float 4.680000e+02], [3 x float] [float 0x40920399A0000000, float 0x40910399A0000000, float 9.800000e+02]], [6 x [3 x float]] [[3 x float] [float 0x4045333340000000, float 4.000000e+01, float 3.600000e+01], [3 x float] [float 0x40552CCCC0000000, float 8.000000e+01, float 7.200000e+01], [3 x float] [float 1.800000e+02, float 1.700000e+02, float 1.530000e+02], [3 x float] [float 0x4079CE6660000000, float 3.900000e+02, float 3.510000e+02], [3 x float] [float 0x4089CF3340000000, float 7.800000e+02, float 7.020000e+02], [3 x float] [float 0x409B0599A0000000, float 0x4099853340000000, float 1.470000e+03]], [6 x [3 x float]] [[3 x float] [float 5.650000e+01, float 0x404AA66660000000, float 4.800000e+01], [3 x float] [float 0x405C3999A0000000, float 0x405AACCCC0000000, float 9.600000e+01], [3 x float] [float 2.400000e+02, float 0x406C566660000000, float 2.040000e+02], [3 x float] [float 0x408134CCC0000000, float 5.200000e+02, float 4.680000e+02], [3 x float] [float 0x409134CCC0000000, float 1.040000e+03, float 9.360000e+02], [3 x float] [float 0x40A203CCC0000000, float 0x40A10399A0000000, float 1.960000e+03]], [6 x [3 x float]] [[3 x float] [float 6.350000e+01, float 6.000000e+01, float 5.400000e+01], [3 x float] [float 0x405FC66660000000, float 1.200000e+02, float 1.080000e+02], [3 x float] [float 2.700000e+02, float 2.550000e+02, float 2.295000e+02], [3 x float] [float 0x40835B3340000000, float 5.850000e+02, float 5.265000e+02], [3 x float] [float 0x40935B3340000000, float 1.170000e+03, float 1.053000e+03], [3 x float] [float 0x40A4443340000000, float 2.450000e+03, float 2.205000e+03]], [6 x [3 x float]] [[3 x float] [float 0x4051A66660000000, float 0x4050ACCCC0000000, float 6.000000e+01], [3 x float] [float 0x4061A66660000000, float 0x4060A999A0000000, float 1.200000e+02], [3 x float] [float 3.000000e+02, float 0x4071B4CCC0000000, float 2.550000e+02], [3 x float] [float 0x40858199A0000000, float 6.500000e+02, float 5.850000e+02], [3 x float] [float 1.376500e+03, float 1.300000e+03, float 1.170000e+03], [3 x float] [float 0x40A684CCC0000000, float 0x40A5446660000000, float 2.450000e+03]], [6 x [3 x float]] [[3 x float] [float 0x40552CCCC0000000, float 8.000000e+01, float 7.200000e+01], [3 x float] [float 0x40652CCCC0000000, float 1.600000e+02, float 1.440000e+02], [3 x float] [float 3.600000e+02, float 3.400000e+02, float 3.060000e+02], [3 x float] [float 0x4089CF3340000000, float 7.800000e+02, float 7.020000e+02], [3 x float] [float 0x4099CF3340000000, float 1.560000e+03, float 1.404000e+03], [3 x float] [float 0x40AB0599A0000000, float 0x40A9856660000000, float 2.940000e+03]], [6 x [3 x float]] [[3 x float] [float 0x4057866660000000, float 0x40563999A0000000, float 8.000000e+01], [3 x float] [float 0x4067866660000000, float 0x40663999A0000000, float 1.600000e+02], [3 x float] [float 4.000000e+02, float 0x40779CCCC0000000, float 3.400000e+02], [3 x float] [float 0x408CACCCC0000000, float 0x408B1599A0000000, float 7.800000e+02], [3 x float] [float 0x409CAD3340000000, float 0x409B153340000000, float 1.560000e+03], [3 x float] [float 0x40AE063340000000, float 0x40AC5B3340000000, float 0x40A9856660000000]], [6 x [3 x float]] [[3 x float] [float 0x405A7999A0000000, float 1.000000e+02, float 9.000000e+01], [3 x float] [float 0x406A7999A0000000, float 2.000000e+02, float 1.800000e+02], [3 x float] [float 4.500000e+02, float 4.250000e+02, float 3.825000e+02], [3 x float] [float 0x40902199A0000000, float 9.750000e+02, float 8.775000e+02], [3 x float] [float 0x40A0216660000000, float 1.950000e+03, float 1.755000e+03], [3 x float] [float 4.323500e+03, float 0x40AFE699A0000000, float 3.675000e+03]], [6 x [3 x float]] [[3 x float] [float 0x405D666660000000, float 0x405BC66660000000, float 1.000000e+02], [3 x float] [float 0x406D6999A0000000, float 0x406BC66660000000, float 2.000000e+02], [3 x float] [float 5.000000e+02, float 0x407D833340000000, float 4.250000e+02], [3 x float] [float 0x4091EC6660000000, float 0x4090ED3340000000, float 9.750000e+02], [3 x float] [float 0x40A1EC3340000000, float 0x40A0ED6660000000, float 1.950000e+03], [3 x float] [float 0x40B2C3E660000000, float 4.537000e+03, float 0x40AFE699A0000000]]]], align 16
+@eht_mcs_tab = internal global [16 x [8 x [3 x float]]] [[8 x [3 x float]] [[3 x float] [float 0x3FECCCCCC0000000, float 0x3FE99999A0000000, float 0x3FE99999A0000000], [3 x float] [float 0x3FFCCCCCC0000000, float 0x3FFB333340000000, float 1.500000e+00], [3 x float] [float 0x400E666660000000, float 3.500000e+00, float 0x40099999A0000000], [3 x float] [float 0x4021333340000000, float 0x4020333340000000, float 0x401D333340000000], [3 x float] [float 0x4031333340000000, float 0x40304CCCC0000000, float 0x402D333340000000], [3 x float] [float 3.600000e+01, float 3.400000e+01, float 0x403E9999A0000000], [3 x float] [float 0x4052066660000000, float 0x4051066660000000, float 0x404EA66660000000], [3 x float] [float 0x4062033340000000, float 0x4061033340000000, float 1.225000e+02]], [8 x [3 x float]] [[3 x float] [float 0x3FFCCCCCC0000000, float 0x3FFB333340000000, float 1.500000e+00], [3 x float] [float 3.500000e+00, float 0x400A666660000000, float 3.000000e+00], [3 x float] [float 7.500000e+00, float 0x401C666660000000, float 0x40199999A0000000], [3 x float] [float 0x4031333340000000, float 0x40304CCCC0000000, float 0x402D333340000000], [3 x float] [float 0x4041333340000000, float 3.250000e+01, float 0x403D4CCCC0000000], [3 x float] [float 0x4052066660000000, float 0x4051066660000000, float 0x404EA66660000000], [3 x float] [float 0x4062033340000000, float 0x4061033340000000, float 1.225000e+02], [3 x float] [float 0x4072033340000000, float 0x4071033340000000, float 2.450000e+02]], [8 x [3 x float]] [[3 x float] [float 0x4004CCCCC0000000, float 2.500000e+00, float 0x4002666660000000], [3 x float] [float 0x4015333340000000, float 5.000000e+00, float 4.500000e+00], [3 x float] [float 0x40269999A0000000, float 0x4025333340000000, float 0x4023333340000000], [3 x float] [float 0x4039CCCCC0000000, float 0x4038666660000000, float 0x4035E66660000000], [3 x float] [float 0x4049CCCCC0000000, float 0x4048666660000000, float 0x4045F33340000000], [3 x float] [float 0x405B066660000000, float 0x4059866660000000, float 0x4056F999A0000000], [3 x float] [float 0x406B066660000000, float 0x4069866660000000, float 0x4066F999A0000000], [3 x float] [float 0x407B066660000000, float 0x407984CCC0000000, float 3.675000e+02]], [8 x [3 x float]] [[3 x float] [float 3.500000e+00, float 0x400A666660000000, float 3.000000e+00], [3 x float] [float 0x401C666660000000, float 0x401ACCCCC0000000, float 6.000000e+00], [3 x float] [float 1.500000e+01, float 0x402C666660000000, float 0x40299999A0000000], [3 x float] [float 0x4041333340000000, float 3.250000e+01, float 0x403D4CCCC0000000], [3 x float] [float 0x4051333340000000, float 6.500000e+01, float 5.850000e+01], [3 x float] [float 0x4062033340000000, float 0x4061033340000000, float 1.225000e+02], [3 x float] [float 0x4072033340000000, float 0x4071033340000000, float 2.450000e+02], [3 x float] [float 5.765000e+02, float 0x4081033340000000, float 4.900000e+02]], [8 x [3 x float]] [[3 x float] [float 0x4015333340000000, float 5.000000e+00, float 4.500000e+00], [3 x float] [float 0x4025333340000000, float 1.000000e+01, float 9.000000e+00], [3 x float] [float 2.250000e+01, float 0x40354CCCC0000000, float 0x40331999A0000000], [3 x float] [float 0x4049CCCCC0000000, float 0x4048666660000000, float 0x4045F33340000000], [3 x float] [float 0x4059CCCCC0000000, float 9.750000e+01, float 0x4055F33340000000], [3 x float] [float 0x406B066660000000, float 0x4069866660000000, float 0x4066F999A0000000], [3 x float] [float 0x407B066660000000, float 0x407984CCC0000000, float 3.675000e+02], [3 x float] [float 0x408B0599A0000000, float 0x40898599A0000000, float 7.350000e+02]], [8 x [3 x float]] [[3 x float] [float 0x401C666660000000, float 0x401ACCCCC0000000, float 6.000000e+00], [3 x float] [float 0x402C333340000000, float 0x402A9999A0000000, float 1.200000e+01], [3 x float] [float 3.000000e+01, float 0x403C4CCCC0000000, float 2.550000e+01], [3 x float] [float 0x4051333340000000, float 6.500000e+01, float 5.850000e+01], [3 x float] [float 0x4061333340000000, float 1.300000e+02, float 1.170000e+02], [3 x float] [float 0x4072033340000000, float 0x4071033340000000, float 2.450000e+02], [3 x float] [float 5.765000e+02, float 0x4081033340000000, float 4.900000e+02], [3 x float] [float 0x40920399A0000000, float 0x40910399A0000000, float 9.800000e+02]], [8 x [3 x float]] [[3 x float] [float 0x401F9999A0000000, float 7.500000e+00, float 0x401B333340000000], [3 x float] [float 0x402FCCCCC0000000, float 1.500000e+01, float 1.350000e+01], [3 x float] [float 0x4040E66660000000, float 0x403FE66660000000, float 0x403CB33340000000], [3 x float] [float 0x40535999A0000000, float 0x4052466660000000, float 0x4050733340000000], [3 x float] [float 0x40635CCCC0000000, float 0x40624999A0000000, float 0x4060733340000000], [3 x float] [float 0x407444CCC0000000, float 0x407324CCC0000000, float 0x40713999A0000000], [3 x float] [float 6.485000e+02, float 6.125000e+02, float 0x40813A6660000000], [3 x float] [float 0x4094446660000000, float 1.225000e+03, float 1.102500e+03]], [8 x [3 x float]] [[3 x float] [float 0x40219999A0000000, float 0x40209999A0000000, float 7.500000e+00], [3 x float] [float 0x40319999A0000000, float 0x4030B33340000000, float 1.500000e+01], [3 x float] [float 3.750000e+01, float 0x4041B33340000000, float 0x403FE66660000000], [3 x float] [float 8.600000e+01, float 0x4054533340000000, float 0x4052466660000000], [3 x float] [float 0x4065833340000000, float 1.625000e+02, float 0x40624999A0000000], [3 x float] [float 0x407684CCC0000000, float 0x407544CCC0000000, float 0x407324CCC0000000], [3 x float] [float 0x408684CCC0000000, float 0x408544CCC0000000, float 6.125000e+02], [3 x float] [float 0x409684CCC0000000, float 0x4095446660000000, float 1.225000e+03]], [8 x [3 x float]] [[3 x float] [float 0x4025333340000000, float 1.000000e+01, float 9.000000e+00], [3 x float] [float 0x4035333340000000, float 2.000000e+01, float 1.800000e+01], [3 x float] [float 4.500000e+01, float 4.250000e+01, float 0x4043266660000000], [3 x float] [float 0x4059CCCCC0000000, float 9.750000e+01, float 0x4055F33340000000], [3 x float] [float 2.065000e+02, float 1.950000e+02, float 1.755000e+02], [3 x float] [float 0x407B066660000000, float 0x407984CCC0000000, float 3.675000e+02], [3 x float] [float 0x408B0599A0000000, float 0x40898599A0000000, float 7.350000e+02], [3 x float] [float 0x409B0599A0000000, float 0x4099853340000000, float 1.470000e+03]], [8 x [3 x float]] [[3 x float] [float 0x40279999A0000000, float 0x4026333340000000, float 1.000000e+01], [3 x float] [float 2.350000e+01, float 0x4036333340000000, float 2.000000e+01], [3 x float] [float 5.000000e+01, float 0x40479999A0000000, float 4.250000e+01], [3 x float] [float 0x405CACCCC0000000, float 0x405B133340000000, float 9.750000e+01], [3 x float] [float 0x406CACCCC0000000, float 0x406B166660000000, float 1.950000e+02], [3 x float] [float 0x407E066660000000, float 0x407C5B3340000000, float 0x407984CCC0000000], [3 x float] [float 0x408E066660000000, float 0x408C5B3340000000, float 0x40898599A0000000], [3 x float] [float 0x409E066660000000, float 0x409C5B3340000000, float 0x4099853340000000]], [8 x [3 x float]] [[3 x float] [float 0x402A666660000000, float 1.250000e+01, float 0x40269999A0000000], [3 x float] [float 2.650000e+01, float 2.500000e+01, float 2.250000e+01], [3 x float] [float 0x404C266660000000, float 0x404A8CCCC0000000, float 0x4047E66660000000], [3 x float] [float 1.290000e+02, float 0x405E7999A0000000, float 0x405B6CCCC0000000], [3 x float] [float 0x40702199A0000000, float 0x406E7999A0000000, float 0x406B6CCCC0000000], [3 x float] [float 0x4080E33340000000, float 0x407FE66660000000, float 0x407CB66660000000], [3 x float] [float 0x4090E399A0000000, float 0x408FE66660000000, float 0x408CB66660000000], [3 x float] [float 0x40A0E399A0000000, float 0x409FE6CCC0000000, float 1.837500e+03]], [8 x [3 x float]] [[3 x float] [float 0x402D666660000000, float 0x402BCCCCC0000000, float 1.250000e+01], [3 x float] [float 0x403D666660000000, float 0x403BCCCCC0000000, float 2.500000e+01], [3 x float] [float 6.250000e+01, float 5.900000e+01, float 0x404A8CCCC0000000], [3 x float] [float 0x4061ECCCC0000000, float 0x4060ECCCC0000000, float 0x405E7999A0000000], [3 x float] [float 0x4071ECCCC0000000, float 0x4070ECCCC0000000, float 0x406E7999A0000000], [3 x float] [float 6.005000e+02, float 0x4081B8CCC0000000, float 0x407FE66660000000], [3 x float] [float 1.201000e+03, float 0x4091B93340000000, float 0x408FE66660000000], [3 x float] [float 2.402000e+03, float 2.268500e+03, float 0x409FE6CCC0000000]], [8 x [3 x float]] [[3 x float] [float 0x402FCCCCC0000000, float 1.500000e+01, float 1.350000e+01], [3 x float] [float 0x403FCCCCC0000000, float 3.000000e+01, float 2.700000e+01], [3 x float] [float 6.750000e+01, float 0x404FE66660000000, float 0x404CB33340000000], [3 x float] [float 0x40635CCCC0000000, float 0x40624999A0000000, float 0x4060733340000000], [3 x float] [float 0x40735B3340000000, float 2.925000e+02, float 0x407074CCC0000000], [3 x float] [float 6.485000e+02, float 6.125000e+02, float 0x40813A6660000000], [3 x float] [float 0x4094446660000000, float 1.225000e+03, float 1.102500e+03], [3 x float] [float 0x40A4443340000000, float 2.450000e+03, float 2.205000e+03]], [8 x [3 x float]] [[3 x float] [float 0x40319999A0000000, float 0x4030B33340000000, float 1.500000e+01], [3 x float] [float 0x4041A66660000000, float 0x4040A66660000000, float 3.000000e+01], [3 x float] [float 7.500000e+01, float 0x4051B33340000000, float 0x404FE66660000000], [3 x float] [float 0x4065833340000000, float 1.625000e+02, float 0x40624999A0000000], [3 x float] [float 0x40758199A0000000, float 3.250000e+02, float 2.925000e+02], [3 x float] [float 0x408684CCC0000000, float 0x408544CCC0000000, float 6.125000e+02], [3 x float] [float 0x409684CCC0000000, float 0x4095446660000000, float 1.225000e+03], [3 x float] [float 0x40A684CCC0000000, float 0x40A5446660000000, float 2.450000e+03]], [8 x [3 x float]] [[3 x float] zeroinitializer, [3 x float] zeroinitializer, [3 x float] zeroinitializer, [3 x float] zeroinitializer, [3 x float] zeroinitializer, [3 x float] [float 0x4021333340000000, float 0x4020333340000000, float 0x401D333340000000], [3 x float] [float 1.800000e+01, float 1.700000e+01, float 0x402E9999A0000000], [3 x float] [float 3.600000e+01, float 3.400000e+01, float 0x403E9999A0000000]], [8 x [3 x float]] [[3 x float] [float 0x3FD99999A0000000, float 0x3FD99999A0000000, float 0x3FD99999A0000000], [3 x float] [float 0x3FECCCCCC0000000, float 0x3FE99999A0000000, float 0x3FE99999A0000000], [3 x float] [float 0x3FFCCCCCC0000000, float 0x3FFB333340000000, float 0x3FF99999A0000000], [3 x float] [float 0x4011333340000000, float 4.000000e+00, float 0x400CCCCCC0000000], [3 x float] [float 0x4021333340000000, float 0x4020333340000000, float 0x401D333340000000], [3 x float] [float 1.800000e+01, float 1.700000e+01, float 0x402E9999A0000000], [3 x float] [float 3.600000e+01, float 3.400000e+01, float 0x403E9999A0000000], [3 x float] [float 0x4052066660000000, float 0x4051066660000000, float 0x404EA66660000000]]], align 16
 @ieee80211_ht_Nes = internal constant [77 x i8] c"\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\02\02\02\01\01\01\01\02\02\02\02\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\02\02\02\02\02\02\02", align 16
 
-; Function Attrs: nounwind uwtable
-define hidden float @ieee80211_htrate(i32 noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define hidden float @ieee80211_htrate(i32 noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
   %4 = alloca i32, align 4
-  %5 = alloca i32, align 4
-  %6 = alloca i32, align 4
+  %5 = alloca i8, align 1
+  %6 = alloca i8, align 1
   store i32 %0, ptr %4, align 4
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
-  %7 = load i32, ptr %4, align 4
-  %8 = sext i32 %7 to i64
-  %9 = getelementptr [77 x i16], ptr @ieee80211_ht_Dbps, i64 0, i64 %8
-  %10 = load i16, ptr %9, align 2
-  %11 = zext i16 %10 to i32
-  %12 = load i32, ptr %5, align 4
-  %13 = icmp ne i32 %12, 0
-  %14 = select i1 %13, i32 108, i32 52
-  %15 = mul i32 %11, %14
-  %16 = sitofp i32 %15 to double
-  %17 = fdiv double %16, 5.200000e+01
-  %18 = load i32, ptr %6, align 4
-  %19 = icmp ne i32 %18, 0
-  %20 = select i1 %19, double 3.600000e+00, double 4.000000e+00
-  %21 = fdiv double %17, %20
-  %22 = fptrunc double %21 to float
-  ret float %22
+  %7 = zext i1 %1 to i8
+  store i8 %7, ptr %5, align 1
+  %8 = zext i1 %2 to i8
+  store i8 %8, ptr %6, align 1
+  %9 = load i32, ptr %4, align 4
+  %10 = sext i32 %9 to i64
+  %11 = getelementptr [77 x i16], ptr @ieee80211_ht_Dbps, i64 0, i64 %10
+  %12 = load i16, ptr %11, align 2
+  %13 = zext i16 %12 to i32
+  %14 = load i8, ptr %5, align 1, !range !6, !noundef !7
+  %15 = trunc i8 %14 to i1
+  %16 = select i1 %15, i32 108, i32 52
+  %17 = mul i32 %13, %16
+  %18 = sitofp i32 %17 to double
+  %19 = fdiv double %18, 5.200000e+01
+  %20 = load i8, ptr %6, align 1, !range !6, !noundef !7
+  %21 = trunc i8 %20 to i1
+  %22 = select i1 %21, double 3.600000e+00, double 4.000000e+00
+  %23 = fdiv double %19, %22
+  %24 = fptrunc double %23 to float
+  ret float %24
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @proto_register_ieee80211_radio() #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden void @proto_register_ieee80211_radio() #1 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
-  %3 = call i32 @proto_register_protocol(ptr noundef @.str.129, ptr noundef @.str.130, ptr noundef @.str.131)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #10
+  %3 = call i32 @proto_register_protocol(ptr noundef @.str.137, ptr noundef @.str.138, ptr noundef @.str.139)
   store i32 %3, ptr @proto_wlan_radio, align 4
   %4 = load i32, ptr @proto_wlan_radio, align 4
-  call void @proto_register_field_array(i32 noundef %4, ptr noundef @proto_register_ieee80211_radio.hf_wlan_radio, i32 noundef 51)
-  call void @proto_register_subtree_array(ptr noundef @proto_register_ieee80211_radio.ett, i32 noundef 4)
+  call void @proto_register_field_array(i32 noundef %4, ptr noundef @proto_register_ieee80211_radio.hf_wlan_radio, i32 noundef 55)
+  call void @proto_register_subtree_array(ptr noundef @proto_register_ieee80211_radio.ett, i32 noundef 5)
   %5 = load i32, ptr @proto_wlan_radio, align 4
   %6 = call ptr @expert_register_protocol(i32 noundef %5)
   store ptr %6, ptr %2, align 8
   %7 = load ptr, ptr %2, align 8
-  call void @expert_register_field_array(ptr noundef %7, ptr noundef @proto_register_ieee80211_radio.ei, i32 noundef 5)
+  call void @expert_register_field_array(ptr noundef %7, ptr noundef @proto_register_ieee80211_radio.ei, i32 noundef 6)
   %8 = load i32, ptr @proto_wlan_radio, align 4
-  %9 = call ptr @register_dissector(ptr noundef @.str.131, ptr noundef @dissect_wlan_radio, i32 noundef %8)
+  %9 = call ptr @register_dissector(ptr noundef @.str.139, ptr noundef @dissect_wlan_radio, i32 noundef %8)
   store ptr %9, ptr @wlan_radio_handle, align 8
   %10 = load i32, ptr @proto_wlan_radio, align 4
-  %11 = call ptr @register_dissector(ptr noundef @.str.132, ptr noundef @dissect_wlan_noqos_radio, i32 noundef %10)
+  %11 = call ptr @register_dissector(ptr noundef @.str.140, ptr noundef @dissect_wlan_noqos_radio, i32 noundef %10)
   store ptr %11, ptr @wlan_noqos_radio_handle, align 8
   %12 = load i32, ptr @proto_wlan_radio, align 4
   %13 = call ptr @prefs_register_protocol(i32 noundef %12, ptr noundef null)
   store ptr %13, ptr %1, align 8
   %14 = load ptr, ptr %1, align 8
-  call void @prefs_register_bool_preference(ptr noundef %14, ptr noundef @.str.133, ptr noundef @.str.134, ptr noundef @.str.135, ptr noundef @wlan_radio_always_short_preamble)
+  call void @prefs_register_bool_preference(ptr noundef %14, ptr noundef @.str.141, ptr noundef @.str.142, ptr noundef @.str.143, ptr noundef @wlan_radio_always_short_preamble)
   %15 = load ptr, ptr %1, align 8
-  call void @prefs_register_bool_preference(ptr noundef %15, ptr noundef @.str.136, ptr noundef @.str.137, ptr noundef @.str.138, ptr noundef @wlan_radio_tsf_at_end)
+  call void @prefs_register_bool_preference(ptr noundef %15, ptr noundef @.str.144, ptr noundef @.str.145, ptr noundef @.str.146, ptr noundef @wlan_radio_tsf_at_end)
   %16 = load ptr, ptr %1, align 8
-  call void @prefs_register_bool_preference(ptr noundef %16, ptr noundef @.str.139, ptr noundef @.str.140, ptr noundef @.str.141, ptr noundef @wlan_radio_timeline_enabled)
+  call void @prefs_register_bool_preference(ptr noundef %16, ptr noundef @.str.147, ptr noundef @.str.148, ptr noundef @.str.149, ptr noundef @wlan_radio_timeline_enabled)
   call void @register_init_routine(ptr noundef @setup_ieee80211_radio)
   call void @register_cleanup_routine(ptr noundef @cleanup_ieee80211_radio)
+  %17 = call i32 @register_tap(ptr noundef @.str.139)
+  store i32 %17, ptr @wlan_radio_tap, align 4
+  %18 = call i32 @register_tap(ptr noundef @.str.150)
+  store i32 %18, ptr @wlan_radio_timeline_tap, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #10
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #3
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #3
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #3
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_wlan_radio(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #3
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_wlan_radio(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
-  %11 = load ptr, ptr %9, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = load ptr, ptr %7, align 8
-  %14 = load ptr, ptr %8, align 8
-  %15 = load ptr, ptr %10, align 8
-  call void @dissect_wlan_radio_phdr(ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  %12 = load ptr, ptr %9, align 8
+  store ptr %12, ptr %10, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = load ptr, ptr %8, align 8
   %16 = load ptr, ptr %10, align 8
-  %17 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %16, i32 0, i32 4
-  %18 = load i16, ptr %17, align 4
-  %19 = lshr i16 %18, 11
-  %20 = and i16 %19, 1
-  %21 = zext i16 %20 to i32
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %26
+  call void @dissect_wlan_radio_phdr(ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16)
+  %17 = load ptr, ptr %10, align 8
+  %18 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %17, i32 0, i32 4
+  %19 = load i16, ptr %18, align 8
+  %20 = lshr i16 %19, 11
+  %21 = and i16 %20, 1
+  %22 = zext i16 %21 to i32
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %27
 
-23:                                               ; preds = %4
-  %24 = load ptr, ptr %6, align 8
-  %25 = call i32 @tvb_captured_length(ptr noundef %24)
-  store i32 %25, ptr %5, align 4
-  br label %33
+24:                                               ; preds = %4
+  %25 = load ptr, ptr %6, align 8
+  %26 = call i32 @tvb_captured_length(ptr noundef %25)
+  store i32 %26, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %34
 
-26:                                               ; preds = %4
-  %27 = load ptr, ptr @ieee80211_handle, align 8
-  %28 = load ptr, ptr %6, align 8
-  %29 = load ptr, ptr %7, align 8
-  %30 = load ptr, ptr %8, align 8
-  %31 = load ptr, ptr %9, align 8
-  %32 = call i32 @call_dissector_with_data(ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31)
-  store i32 %32, ptr %5, align 4
-  br label %33
+27:                                               ; preds = %4
+  %28 = load ptr, ptr @ieee80211_handle, align 8
+  %29 = load ptr, ptr %6, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = load ptr, ptr %8, align 8
+  %32 = load ptr, ptr %9, align 8
+  %33 = call i32 @call_dissector_with_data(ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32)
+  store i32 %33, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %34
 
-33:                                               ; preds = %26, %23
-  %34 = load i32, ptr %5, align 4
-  ret i32 %34
+34:                                               ; preds = %27, %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  %35 = load i32, ptr %5, align 4
+  ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_wlan_noqos_radio(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_wlan_noqos_radio(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
-  %11 = load ptr, ptr %9, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = load ptr, ptr %7, align 8
-  %14 = load ptr, ptr %8, align 8
-  %15 = load ptr, ptr %10, align 8
-  call void @dissect_wlan_radio_phdr(ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  %12 = load ptr, ptr %9, align 8
+  store ptr %12, ptr %10, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = load ptr, ptr %8, align 8
   %16 = load ptr, ptr %10, align 8
-  %17 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %16, i32 0, i32 4
-  %18 = load i16, ptr %17, align 4
-  %19 = lshr i16 %18, 11
-  %20 = and i16 %19, 1
-  %21 = zext i16 %20 to i32
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %26
+  call void @dissect_wlan_radio_phdr(ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16)
+  %17 = load ptr, ptr %10, align 8
+  %18 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %17, i32 0, i32 4
+  %19 = load i16, ptr %18, align 8
+  %20 = lshr i16 %19, 11
+  %21 = and i16 %20, 1
+  %22 = zext i16 %21 to i32
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %27
 
-23:                                               ; preds = %4
-  %24 = load ptr, ptr %6, align 8
-  %25 = call i32 @tvb_captured_length(ptr noundef %24)
-  store i32 %25, ptr %5, align 4
-  br label %33
+24:                                               ; preds = %4
+  %25 = load ptr, ptr %6, align 8
+  %26 = call i32 @tvb_captured_length(ptr noundef %25)
+  store i32 %26, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %34
 
-26:                                               ; preds = %4
-  %27 = load ptr, ptr @ieee80211_noqos_handle, align 8
-  %28 = load ptr, ptr %6, align 8
-  %29 = load ptr, ptr %7, align 8
-  %30 = load ptr, ptr %8, align 8
-  %31 = load ptr, ptr %9, align 8
-  %32 = call i32 @call_dissector_with_data(ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31)
-  store i32 %32, ptr %5, align 4
-  br label %33
+27:                                               ; preds = %4
+  %28 = load ptr, ptr @ieee80211_noqos_handle, align 8
+  %29 = load ptr, ptr %6, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = load ptr, ptr %8, align 8
+  %32 = load ptr, ptr %9, align 8
+  %33 = call i32 @call_dissector_with_data(ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32)
+  store i32 %33, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %34
 
-33:                                               ; preds = %26, %23
-  %34 = load i32, ptr %5, align 4
-  ret i32 %34
+34:                                               ; preds = %27, %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  %35 = load i32, ptr %5, align 4
+  ret i32 %35
 }
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #3
 
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-declare void @register_init_routine(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @register_init_routine(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
 define internal void @setup_ieee80211_radio() #0 {
   store ptr null, ptr @current_aggregate, align 8
   store ptr null, ptr @agg_tracker_list, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 @previous_frame, i8 0, i64 48, i1 false)
+  %1 = call ptr @memset.inline(ptr noundef @previous_frame, i32 noundef 0, i64 noundef 56) #10
   ret void
 }
 
-declare void @register_cleanup_routine(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @register_cleanup_routine(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @cleanup_ieee80211_radio() #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @cleanup_ieee80211_radio() #1 {
   %1 = load ptr, ptr @agg_tracker_list, align 8
   %2 = icmp ne ptr %1, null
   br i1 %2, label %3, label %5
@@ -552,31 +602,33 @@ define internal void @cleanup_ieee80211_radio() #0 {
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @proto_reg_handoff_ieee80211_radio() #0 {
+; Function Attrs: null_pointer_is_valid
+declare i32 @register_tap(ptr noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden void @proto_reg_handoff_ieee80211_radio() #1 {
   %1 = load ptr, ptr @wlan_radio_handle, align 8
-  call void @dissector_add_uint(ptr noundef @.str.142, i32 noundef 22, ptr noundef %1)
+  call void @dissector_add_uint(ptr noundef @.str.151, i32 noundef 22, ptr noundef %1)
   %2 = load i32, ptr @proto_wlan_radio, align 4
-  %3 = call ptr @find_dissector_add_dependency(ptr noundef @.str.143, i32 noundef %2)
+  %3 = call ptr @find_dissector_add_dependency(ptr noundef @.str.152, i32 noundef %2)
   store ptr %3, ptr @ieee80211_handle, align 8
   %4 = load i32, ptr @proto_wlan_radio, align 4
-  %5 = call ptr @find_dissector_add_dependency(ptr noundef @.str.144, i32 noundef %4)
+  %5 = call ptr @find_dissector_add_dependency(ptr noundef @.str.153, i32 noundef %4)
   store ptr %5, ptr @ieee80211_noqos_handle, align 8
-  %6 = call i32 @register_tap(ptr noundef @.str.131)
-  store i32 %6, ptr @wlan_radio_tap, align 4
-  %7 = call i32 @register_tap(ptr noundef @.str.145)
-  store i32 %7, ptr @wlan_radio_timeline_tap, align 4
   ret void
 }
 
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #3
 
-declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) #3
 
-declare i32 @register_tap(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -584,16 +636,16 @@ define internal void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef %1, pt
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca float, align 4
-  %12 = alloca i32, align 4
-  %13 = alloca i32, align 4
-  %14 = alloca i32, align 4
+  %12 = alloca i8, align 1
+  %13 = alloca i8, align 1
+  %14 = alloca i8, align 1
   %15 = alloca i32, align 4
-  %16 = alloca i32, align 4
+  %16 = alloca i8, align 1
   %17 = alloca ptr, align 8
   %18 = alloca i32, align 4
   %19 = alloca i32, align 4
   %20 = alloca i32, align 4
-  %21 = alloca i32, align 4
+  %21 = alloca i8, align 1
   %22 = alloca i32, align 4
   %23 = alloca i32, align 4
   %24 = alloca ptr, align 8
@@ -615,3018 +667,3466 @@ define internal void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef %1, pt
   %40 = alloca ptr, align 8
   %41 = alloca i32, align 4
   %42 = alloca ptr, align 8
-  %43 = alloca i32, align 4
+  %43 = alloca ptr, align 8
   %44 = alloca i32, align 4
   %45 = alloca i32, align 4
   %46 = alloca i32, align 4
-  %47 = alloca i32, align 4
-  %48 = alloca i32, align 4
-  %49 = alloca i32, align 4
-  %50 = alloca ptr, align 8
-  %51 = alloca i32, align 4
-  %52 = alloca i32, align 4
-  %53 = alloca i32, align 4
-  %54 = alloca ptr, align 8
-  %55 = alloca i64, align 8
-  %56 = alloca i32, align 4
-  %57 = alloca ptr, align 8
-  %58 = alloca ptr, align 8
-  %59 = alloca ptr, align 8
-  %60 = alloca ptr, align 8
+  %47 = alloca ptr, align 8
+  %48 = alloca ptr, align 8
+  %49 = alloca i8, align 1
+  %50 = alloca i8, align 1
+  %51 = alloca i8, align 1
+  %52 = alloca i8, align 1
+  %53 = alloca i8, align 1
+  %54 = alloca i32, align 4
+  %55 = alloca i32, align 4
+  %56 = alloca ptr, align 8
+  %57 = alloca i32, align 4
+  %58 = alloca i32, align 4
+  %59 = alloca i32, align 4
+  %60 = alloca i32, align 4
+  %61 = alloca ptr, align 8
+  %62 = alloca i64, align 8
+  %63 = alloca i32, align 4
+  %64 = alloca ptr, align 8
+  %65 = alloca ptr, align 8
+  %66 = alloca ptr, align 8
+  %67 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
   store float 0.000000e+00, ptr %11, align 4
-  store i32 0, ptr %12, align 4
-  store i32 0, ptr %13, align 4
-  store i32 1, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #10
+  store i8 0, ptr %12, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #10
+  store i8 0, ptr %13, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #10
+  store i8 1, ptr %14, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #10
   store i32 0, ptr %15, align 4
-  store i32 0, ptr %16, align 4
-  %61 = load ptr, ptr %5, align 8
-  %62 = call i32 @tvb_reported_length(ptr noundef %61)
-  store i32 %62, ptr %18, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #10
+  store i8 0, ptr %16, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #10
+  %68 = load ptr, ptr %5, align 8
+  %69 = call i32 @tvb_reported_length(ptr noundef %68)
+  store i32 %69, ptr %18, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #10
   store i32 0, ptr %19, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #10
   store i32 0, ptr %20, align 4
-  store i32 0, ptr %21, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %21) #10
+  store i8 0, ptr %21, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #10
   store i32 0, ptr %22, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #10
   store i32 0, ptr %23, align 4
-  %63 = load ptr, ptr %8, align 8
-  %64 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %63, i32 0, i32 2
-  %65 = load i32, ptr %64, align 8
-  store i32 %65, ptr %25, align 4
-  %66 = load ptr, ptr %8, align 8
-  %67 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %66, i32 0, i32 3
-  store ptr %67, ptr %26, align 8
-  %68 = load ptr, ptr %6, align 8
-  %69 = getelementptr inbounds %struct._packet_info, ptr %68, i32 0, i32 1
-  %70 = load ptr, ptr %69, align 8
-  call void @col_set_str(ptr noundef %70, i32 noundef 34, ptr noundef @.str.197)
-  %71 = load ptr, ptr %6, align 8
-  %72 = getelementptr inbounds %struct._packet_info, ptr %71, i32 0, i32 1
-  %73 = load ptr, ptr %72, align 8
-  call void @col_clear(ptr noundef %73, i32 noundef 25)
-  %74 = load ptr, ptr %8, align 8
-  %75 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %74, i32 0, i32 4
-  %76 = load i16, ptr %75, align 4
-  %77 = lshr i16 %76, 2
-  %78 = and i16 %77, 1
-  %79 = zext i16 %78 to i32
-  %80 = icmp ne i32 %79, 0
-  br i1 %80, label %81, label %88
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #10
+  %70 = load ptr, ptr %8, align 8
+  %71 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %70, i32 0, i32 2
+  %72 = load i32, ptr %71, align 8
+  store i32 %72, ptr %25, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #10
+  %73 = load ptr, ptr %8, align 8
+  %74 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %73, i32 0, i32 3
+  store ptr %74, ptr %26, align 8
+  %75 = load ptr, ptr %6, align 8
+  %76 = getelementptr inbounds nuw %struct._packet_info, ptr %75, i32 0, i32 1
+  %77 = load ptr, ptr %76, align 8
+  call void @col_set_str(ptr noundef %77, i32 noundef 35, ptr noundef @.str.213)
+  %78 = load ptr, ptr %6, align 8
+  %79 = getelementptr inbounds nuw %struct._packet_info, ptr %78, i32 0, i32 1
+  %80 = load ptr, ptr %79, align 8
+  call void @col_clear(ptr noundef %80, i32 noundef 25)
+  %81 = load ptr, ptr %8, align 8
+  %82 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %81, i32 0, i32 4
+  %83 = load i16, ptr %82, align 8
+  %84 = lshr i16 %83, 2
+  %85 = and i16 %84, 1
+  %86 = zext i16 %85 to i32
+  %87 = icmp ne i32 %86, 0
+  br i1 %87, label %88, label %95
 
-81:                                               ; preds = %4
-  %82 = load ptr, ptr %8, align 8
-  %83 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %82, i32 0, i32 7
-  %84 = load i16, ptr %83, align 4
-  %85 = zext i16 %84 to i32
-  %86 = sitofp i32 %85 to float
-  %87 = fmul float %86, 5.000000e-01
-  store float %87, ptr %11, align 4
-  store i32 1, ptr %12, align 4
-  br label %88
+88:                                               ; preds = %4
+  %89 = load ptr, ptr %8, align 8
+  %90 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %89, i32 0, i32 7
+  %91 = load i16, ptr %90, align 8
+  %92 = zext i16 %91 to i32
+  %93 = sitofp i32 %92 to float
+  %94 = fmul float %93, 5.000000e-01
+  store float %94, ptr %11, align 4
+  store i8 1, ptr %12, align 1
+  br label %95
 
-88:                                               ; preds = %81, %4
-  %89 = load ptr, ptr %6, align 8
-  %90 = getelementptr inbounds %struct._packet_info, ptr %89, i32 0, i32 8
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds %struct._frame_data, ptr %91, i32 0, i32 9
-  %93 = load i16, ptr %92, align 2
-  %94 = lshr i16 %93, 3
-  %95 = and i16 %94, 1
-  %96 = zext i16 %95 to i32
-  %97 = icmp ne i32 %96, 0
-  br i1 %97, label %292, label %98
+95:                                               ; preds = %88, %4
+  %96 = load ptr, ptr %6, align 8
+  %97 = getelementptr inbounds nuw %struct._packet_info, ptr %96, i32 0, i32 8
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds nuw %struct._frame_data, ptr %98, i32 0, i32 11
+  %100 = load i16, ptr %99, align 1
+  %101 = lshr i16 %100, 3
+  %102 = and i16 %101, 1
+  %103 = zext i16 %102 to i32
+  %104 = icmp ne i32 %103, 0
+  br i1 %104, label %281, label %105
 
-98:                                               ; preds = %88
-  %99 = call ptr @wmem_file_scope()
-  %100 = call noalias ptr @wmem_alloc0(ptr noundef %99, i64 noundef 48)
-  store ptr %100, ptr %24, align 8
-  %101 = call ptr @wmem_file_scope()
-  %102 = load ptr, ptr %6, align 8
-  %103 = load i32, ptr @proto_wlan_radio, align 4
-  %104 = load ptr, ptr %24, align 8
-  call void @p_add_proto_data(ptr noundef %101, ptr noundef %102, i32 noundef %103, i32 noundef 0, ptr noundef %104)
-  %105 = load ptr, ptr %6, align 8
-  %106 = getelementptr inbounds %struct._packet_info, ptr %105, i32 0, i32 8
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds %struct._frame_data, ptr %107, i32 0, i32 0
-  %109 = load i32, ptr %108, align 8
-  %110 = icmp ugt i32 %109, 1
-  br i1 %110, label %111, label %271
+105:                                              ; preds = %95
+  %106 = call ptr @wmem_file_scope()
+  %107 = call noalias ptr @wmem_alloc0(ptr noundef %106, i64 noundef 48) #11
+  store ptr %107, ptr %24, align 8
+  %108 = call ptr @wmem_file_scope()
+  %109 = load ptr, ptr %6, align 8
+  %110 = load i32, ptr @proto_wlan_radio, align 4
+  %111 = load ptr, ptr %24, align 8
+  call void @p_add_proto_data(ptr noundef %108, ptr noundef %109, i32 noundef %110, i32 noundef 0, ptr noundef %111)
+  %112 = load ptr, ptr %6, align 8
+  %113 = getelementptr inbounds nuw %struct._packet_info, ptr %112, i32 0, i32 8
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds nuw %struct._frame_data, ptr %114, i32 0, i32 0
+  %116 = load i32, ptr %115, align 8
+  %117 = icmp ugt i32 %116, 1
+  br i1 %117, label %118, label %262
 
-111:                                              ; preds = %98
-  %112 = load ptr, ptr %8, align 8
-  %113 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %112, i32 0, i32 2
-  %114 = load i32, ptr %113, align 8
-  %115 = icmp eq i32 %114, 7
-  br i1 %115, label %121, label %116
+118:                                              ; preds = %105
+  %119 = load ptr, ptr %8, align 8
+  %120 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %119, i32 0, i32 2
+  %121 = load i32, ptr %120, align 8
+  %122 = icmp eq i32 %121, 7
+  br i1 %122, label %128, label %123
 
-116:                                              ; preds = %111
-  %117 = load ptr, ptr %8, align 8
-  %118 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %117, i32 0, i32 2
-  %119 = load i32, ptr %118, align 8
-  %120 = icmp eq i32 %119, 8
-  br i1 %120, label %121, label %271
-
-121:                                              ; preds = %116, %111
-  %122 = load ptr, ptr %8, align 8
-  %123 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %122, i32 0, i32 2
-  %124 = load i32, ptr %123, align 8
-  %125 = getelementptr inbounds %struct.previous_frame_info, ptr @previous_frame, i32 0, i32 2
+123:                                              ; preds = %118
+  %124 = load ptr, ptr %8, align 8
+  %125 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %124, i32 0, i32 2
   %126 = load i32, ptr %125, align 8
-  %127 = icmp eq i32 %124, %126
-  br i1 %127, label %128, label %271
+  %127 = icmp eq i32 %126, 8
+  br i1 %127, label %128, label %262
 
-128:                                              ; preds = %121
+128:                                              ; preds = %123, %118
   %129 = load ptr, ptr %8, align 8
-  %130 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %129, i32 0, i32 4
-  %131 = load i16, ptr %130, align 4
-  %132 = lshr i16 %131, 9
-  %133 = and i16 %132, 1
-  %134 = zext i16 %133 to i32
-  %135 = icmp ne i32 %134, 0
-  br i1 %135, label %136, label %271
+  %130 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %129, i32 0, i32 2
+  %131 = load i32, ptr %130, align 8
+  %132 = load i32, ptr getelementptr inbounds nuw (%struct.previous_frame_info, ptr @previous_frame, i32 0, i32 2), align 8
+  %133 = icmp eq i32 %131, %132
+  br i1 %133, label %134, label %262
 
-136:                                              ; preds = %128
-  %137 = load i32, ptr @previous_frame, align 8
-  %138 = icmp ne i32 %137, 0
-  br i1 %138, label %139, label %271
+134:                                              ; preds = %128
+  %135 = load ptr, ptr %8, align 8
+  %136 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %135, i32 0, i32 4
+  %137 = load i16, ptr %136, align 8
+  %138 = lshr i16 %137, 9
+  %139 = and i16 %138, 1
+  %140 = zext i16 %139 to i32
+  %141 = icmp ne i32 %140, 0
+  br i1 %141, label %142, label %262
 
-139:                                              ; preds = %136
-  %140 = load ptr, ptr %8, align 8
-  %141 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %140, i32 0, i32 14
-  %142 = load i64, ptr %141, align 8
-  %143 = getelementptr inbounds %struct.previous_frame_info, ptr @previous_frame, i32 0, i32 1
-  %144 = load i64, ptr %143, align 8
-  %145 = icmp eq i64 %142, %144
-  br i1 %145, label %162, label %146
+142:                                              ; preds = %134
+  %143 = load i8, ptr @previous_frame, align 8, !range !6, !noundef !7
+  %144 = trunc i8 %143 to i1
+  br i1 %144, label %145, label %262
 
-146:                                              ; preds = %139
-  %147 = load ptr, ptr @current_aggregate, align 8
-  %148 = icmp ne ptr %147, null
-  br i1 %148, label %158, label %149
+145:                                              ; preds = %142
+  %146 = load ptr, ptr %8, align 8
+  %147 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %146, i32 0, i32 14
+  %148 = load i64, ptr %147, align 8
+  %149 = load i64, ptr getelementptr inbounds nuw (%struct.previous_frame_info, ptr @previous_frame, i32 0, i32 1), align 8
+  %150 = icmp eq i64 %148, %149
+  br i1 %150, label %165, label %151
 
-149:                                              ; preds = %146
-  %150 = getelementptr inbounds %struct.previous_frame_info, ptr @previous_frame, i32 0, i32 1
-  %151 = load i64, ptr %150, align 8
-  %152 = icmp ne i64 %151, 0
-  br i1 %152, label %153, label %158
+151:                                              ; preds = %145
+  %152 = load ptr, ptr @current_aggregate, align 8
+  %153 = icmp ne ptr %152, null
+  br i1 %153, label %162, label %154
 
-153:                                              ; preds = %149
-  %154 = load ptr, ptr %8, align 8
-  %155 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %154, i32 0, i32 14
-  %156 = load i64, ptr %155, align 8
-  %157 = icmp eq i64 %156, 0
-  br i1 %157, label %162, label %158
+154:                                              ; preds = %151
+  %155 = load i64, ptr getelementptr inbounds nuw (%struct.previous_frame_info, ptr @previous_frame, i32 0, i32 1), align 8
+  %156 = icmp ne i64 %155, 0
+  br i1 %156, label %157, label %162
 
-158:                                              ; preds = %153, %149, %146
-  %159 = getelementptr inbounds %struct.previous_frame_info, ptr @previous_frame, i32 0, i32 1
+157:                                              ; preds = %154
+  %158 = load ptr, ptr %8, align 8
+  %159 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %158, i32 0, i32 14
   %160 = load i64, ptr %159, align 8
-  %161 = icmp eq i64 %160, -1
-  br i1 %161, label %162, label %271
+  %161 = icmp eq i64 %160, 0
+  br i1 %161, label %165, label %162
 
-162:                                              ; preds = %158, %153, %139
-  %163 = load ptr, ptr @current_aggregate, align 8
-  %164 = icmp ne ptr %163, null
-  br i1 %164, label %184, label %165
+162:                                              ; preds = %157, %154, %151
+  %163 = load i64, ptr getelementptr inbounds nuw (%struct.previous_frame_info, ptr @previous_frame, i32 0, i32 1), align 8
+  %164 = icmp eq i64 %163, -1
+  br i1 %164, label %165, label %262
 
-165:                                              ; preds = %162
-  %166 = call ptr @wmem_file_scope()
-  %167 = call noalias ptr @wmem_alloc0(ptr noundef %166, i64 noundef 28)
-  store ptr %167, ptr @current_aggregate, align 8
-  %168 = getelementptr inbounds %struct.previous_frame_info, ptr @previous_frame, i32 0, i32 2
-  %169 = load i32, ptr %168, align 8
-  %170 = load ptr, ptr @current_aggregate, align 8
-  %171 = getelementptr inbounds %struct.aggregate, ptr %170, i32 0, i32 0
-  store i32 %169, ptr %171, align 4
+165:                                              ; preds = %162, %157, %145
+  %166 = load ptr, ptr @current_aggregate, align 8
+  %167 = icmp ne ptr %166, null
+  br i1 %167, label %183, label %168
+
+168:                                              ; preds = %165
+  %169 = call ptr @wmem_file_scope()
+  %170 = call noalias ptr @wmem_alloc0(ptr noundef %169, i64 noundef 32) #11
+  store ptr %170, ptr @current_aggregate, align 8
+  %171 = load i32, ptr getelementptr inbounds nuw (%struct.previous_frame_info, ptr @previous_frame, i32 0, i32 2), align 8
   %172 = load ptr, ptr @current_aggregate, align 8
-  %173 = getelementptr inbounds %struct.aggregate, ptr %172, i32 0, i32 1
-  %174 = getelementptr inbounds %struct.previous_frame_info, ptr @previous_frame, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %173, ptr align 4 %174, i64 16, i1 false)
-  %175 = getelementptr inbounds %struct.previous_frame_info, ptr @previous_frame, i32 0, i32 5
-  %176 = load ptr, ptr %175, align 8
+  %173 = getelementptr inbounds nuw %struct.aggregate, ptr %172, i32 0, i32 0
+  store i32 %171, ptr %173, align 4
+  %174 = load ptr, ptr @current_aggregate, align 8
+  %175 = getelementptr inbounds nuw %struct.aggregate, ptr %174, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %175, ptr align 4 getelementptr inbounds nuw (%struct.previous_frame_info, ptr @previous_frame, i32 0, i32 3), i64 20, i1 false)
+  %176 = load ptr, ptr getelementptr inbounds nuw (%struct.previous_frame_info, ptr @previous_frame, i32 0, i32 5), align 8
   %177 = icmp ne ptr %176, null
-  br i1 %177, label %178, label %183
+  br i1 %177, label %178, label %182
 
-178:                                              ; preds = %165
+178:                                              ; preds = %168
   %179 = load ptr, ptr @current_aggregate, align 8
-  %180 = getelementptr inbounds %struct.previous_frame_info, ptr @previous_frame, i32 0, i32 5
-  %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds %struct.wlan_radio, ptr %181, i32 0, i32 0
-  store ptr %179, ptr %182, align 8
+  %180 = load ptr, ptr getelementptr inbounds nuw (%struct.previous_frame_info, ptr @previous_frame, i32 0, i32 5), align 8
+  %181 = getelementptr inbounds nuw %struct.wlan_radio, ptr %180, i32 0, i32 0
+  store ptr %179, ptr %181, align 8
+  br label %182
+
+182:                                              ; preds = %178, %168
   br label %183
 
-183:                                              ; preds = %178, %165
-  br label %184
+183:                                              ; preds = %182, %165
+  %184 = load ptr, ptr @current_aggregate, align 8
+  %185 = load ptr, ptr %24, align 8
+  %186 = getelementptr inbounds nuw %struct.wlan_radio, ptr %185, i32 0, i32 0
+  store ptr %184, ptr %186, align 8
+  %187 = load i32, ptr getelementptr inbounds nuw (%struct.previous_frame_info, ptr @previous_frame, i32 0, i32 4), align 8
+  %188 = urem i32 %187, 4
+  %189 = icmp ne i32 %188, 0
+  br i1 %189, label %190, label %194
 
-184:                                              ; preds = %183, %162
-  %185 = load ptr, ptr @current_aggregate, align 8
-  %186 = load ptr, ptr %24, align 8
-  %187 = getelementptr inbounds %struct.wlan_radio, ptr %186, i32 0, i32 0
-  store ptr %185, ptr %187, align 8
-  %188 = getelementptr inbounds %struct.previous_frame_info, ptr @previous_frame, i32 0, i32 4
-  %189 = load i32, ptr %188, align 4
-  %190 = urem i32 %189, 4
-  %191 = icmp ne i32 %190, 0
-  br i1 %191, label %192, label %198
+190:                                              ; preds = %183
+  %191 = load i32, ptr getelementptr inbounds nuw (%struct.previous_frame_info, ptr @previous_frame, i32 0, i32 4), align 8
+  %192 = or i32 %191, 3
+  %193 = add i32 %192, 1
+  store i32 %193, ptr getelementptr inbounds nuw (%struct.previous_frame_info, ptr @previous_frame, i32 0, i32 4), align 8
+  br label %194
 
-192:                                              ; preds = %184
-  %193 = getelementptr inbounds %struct.previous_frame_info, ptr @previous_frame, i32 0, i32 4
-  %194 = load i32, ptr %193, align 4
-  %195 = or i32 %194, 3
-  %196 = add i32 %195, 1
-  %197 = getelementptr inbounds %struct.previous_frame_info, ptr @previous_frame, i32 0, i32 4
-  store i32 %196, ptr %197, align 4
-  br label %198
-
-198:                                              ; preds = %192, %184
-  %199 = getelementptr inbounds %struct.previous_frame_info, ptr @previous_frame, i32 0, i32 4
-  %200 = load i32, ptr %199, align 4
-  %201 = add i32 %200, 4
-  %202 = getelementptr inbounds %struct.previous_frame_info, ptr @previous_frame, i32 0, i32 4
-  store i32 %201, ptr %202, align 4
-  %203 = getelementptr inbounds %struct.previous_frame_info, ptr @previous_frame, i32 0, i32 4
-  %204 = load i32, ptr %203, align 4
-  %205 = load ptr, ptr %24, align 8
-  %206 = getelementptr inbounds %struct.wlan_radio, ptr %205, i32 0, i32 1
-  store i32 %204, ptr %206, align 8
-  %207 = load i32, ptr %18, align 4
-  %208 = getelementptr inbounds %struct.previous_frame_info, ptr @previous_frame, i32 0, i32 4
-  %209 = load i32, ptr %208, align 4
-  %210 = add i32 %209, %207
-  %211 = getelementptr inbounds %struct.previous_frame_info, ptr @previous_frame, i32 0, i32 4
-  store i32 %210, ptr %211, align 4
-  %212 = load ptr, ptr %8, align 8
-  %213 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %212, i32 0, i32 2
-  %214 = load i32, ptr %213, align 8
-  switch i32 %214, label %265 [
-    i32 7, label %215
-    i32 8, label %245
+194:                                              ; preds = %190, %183
+  %195 = load i32, ptr getelementptr inbounds nuw (%struct.previous_frame_info, ptr @previous_frame, i32 0, i32 4), align 8
+  %196 = add i32 %195, 4
+  store i32 %196, ptr getelementptr inbounds nuw (%struct.previous_frame_info, ptr @previous_frame, i32 0, i32 4), align 8
+  %197 = load i32, ptr getelementptr inbounds nuw (%struct.previous_frame_info, ptr @previous_frame, i32 0, i32 4), align 8
+  %198 = load ptr, ptr %24, align 8
+  %199 = getelementptr inbounds nuw %struct.wlan_radio, ptr %198, i32 0, i32 1
+  store i32 %197, ptr %199, align 8
+  %200 = load i32, ptr %18, align 4
+  %201 = load i32, ptr getelementptr inbounds nuw (%struct.previous_frame_info, ptr @previous_frame, i32 0, i32 4), align 8
+  %202 = add i32 %201, %200
+  store i32 %202, ptr getelementptr inbounds nuw (%struct.previous_frame_info, ptr @previous_frame, i32 0, i32 4), align 8
+  %203 = load ptr, ptr %8, align 8
+  %204 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %203, i32 0, i32 2
+  %205 = load i32, ptr %204, align 8
+  switch i32 %205, label %256 [
+    i32 7, label %206
+    i32 8, label %236
   ]
 
-215:                                              ; preds = %198
-  %216 = load ptr, ptr %26, align 8
-  store ptr %216, ptr %27, align 8
-  %217 = load ptr, ptr @current_aggregate, align 8
-  %218 = getelementptr inbounds %struct.aggregate, ptr %217, i32 0, i32 1
-  store ptr %218, ptr %28, align 8
-  %219 = load ptr, ptr %27, align 8
-  %220 = load i8, ptr %219, align 4
-  %221 = and i8 %220, 1
-  %222 = zext i8 %221 to i32
-  %223 = icmp ne i32 %222, 0
-  br i1 %223, label %224, label %244
+206:                                              ; preds = %194
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #10
+  %207 = load ptr, ptr %26, align 8
+  store ptr %207, ptr %27, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #10
+  %208 = load ptr, ptr @current_aggregate, align 8
+  %209 = getelementptr inbounds nuw %struct.aggregate, ptr %208, i32 0, i32 1
+  store ptr %209, ptr %28, align 8
+  %210 = load ptr, ptr %27, align 8
+  %211 = load i8, ptr %210, align 4
+  %212 = and i8 %211, 1
+  %213 = zext i8 %212 to i32
+  %214 = icmp ne i32 %213, 0
+  br i1 %214, label %215, label %235
 
-224:                                              ; preds = %215
-  %225 = load ptr, ptr %28, align 8
-  %226 = load i8, ptr %225, align 4
-  %227 = and i8 %226, 1
-  %228 = zext i8 %227 to i32
-  %229 = icmp ne i32 %228, 0
-  br i1 %229, label %230, label %244
+215:                                              ; preds = %206
+  %216 = load ptr, ptr %28, align 8
+  %217 = load i8, ptr %216, align 4
+  %218 = and i8 %217, 1
+  %219 = zext i8 %218 to i32
+  %220 = icmp ne i32 %219, 0
+  br i1 %220, label %221, label %235
 
-230:                                              ; preds = %224
-  %231 = load ptr, ptr %27, align 8
-  %232 = getelementptr inbounds %struct.ieee_802_11n, ptr %231, i32 0, i32 1
-  %233 = load i16, ptr %232, align 2
-  %234 = zext i16 %233 to i32
-  %235 = load ptr, ptr %28, align 8
-  %236 = getelementptr inbounds %struct.ieee_802_11n, ptr %235, i32 0, i32 1
-  %237 = load i16, ptr %236, align 2
-  %238 = zext i16 %237 to i32
-  %239 = icmp sgt i32 %234, %238
-  br i1 %239, label %240, label %244
+221:                                              ; preds = %215
+  %222 = load ptr, ptr %27, align 8
+  %223 = getelementptr inbounds nuw %struct.ieee_802_11n, ptr %222, i32 0, i32 1
+  %224 = load i16, ptr %223, align 2
+  %225 = zext i16 %224 to i32
+  %226 = load ptr, ptr %28, align 8
+  %227 = getelementptr inbounds nuw %struct.ieee_802_11n, ptr %226, i32 0, i32 1
+  %228 = load i16, ptr %227, align 2
+  %229 = zext i16 %228 to i32
+  %230 = icmp sgt i32 %225, %229
+  br i1 %230, label %231, label %235
 
-240:                                              ; preds = %230
-  %241 = load ptr, ptr @current_aggregate, align 8
-  %242 = getelementptr inbounds %struct.aggregate, ptr %241, i32 0, i32 1
-  %243 = load ptr, ptr %26, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %242, ptr align 4 %243, i64 16, i1 false)
-  br label %244
+231:                                              ; preds = %221
+  %232 = load ptr, ptr @current_aggregate, align 8
+  %233 = getelementptr inbounds nuw %struct.aggregate, ptr %232, i32 0, i32 1
+  %234 = load ptr, ptr %26, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %233, ptr align 4 %234, i64 20, i1 false)
+  br label %235
 
-244:                                              ; preds = %240, %230, %224, %215
-  br label %265
+235:                                              ; preds = %231, %221, %215, %206
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #10
+  br label %256
 
-245:                                              ; preds = %198
-  %246 = load ptr, ptr %26, align 8
-  store ptr %246, ptr %29, align 8
-  %247 = load ptr, ptr @current_aggregate, align 8
-  %248 = getelementptr inbounds %struct.aggregate, ptr %247, i32 0, i32 1
-  store ptr %248, ptr %30, align 8
-  %249 = load ptr, ptr %29, align 8
-  %250 = getelementptr inbounds %struct.ieee_802_11ac, ptr %249, i32 0, i32 2
-  %251 = getelementptr [4 x i8], ptr %250, i64 0, i64 0
-  %252 = load i8, ptr %251, align 1
-  %253 = zext i8 %252 to i32
-  %254 = load ptr, ptr %30, align 8
-  %255 = getelementptr inbounds %struct.ieee_802_11ac, ptr %254, i32 0, i32 2
-  %256 = getelementptr [4 x i8], ptr %255, i64 0, i64 0
-  %257 = load i8, ptr %256, align 1
-  %258 = zext i8 %257 to i32
-  %259 = icmp sgt i32 %253, %258
-  br i1 %259, label %260, label %264
+236:                                              ; preds = %194
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #10
+  %237 = load ptr, ptr %26, align 8
+  store ptr %237, ptr %29, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #10
+  %238 = load ptr, ptr @current_aggregate, align 8
+  %239 = getelementptr inbounds nuw %struct.aggregate, ptr %238, i32 0, i32 1
+  store ptr %239, ptr %30, align 8
+  %240 = load ptr, ptr %29, align 8
+  %241 = getelementptr inbounds nuw %struct.ieee_802_11ac, ptr %240, i32 0, i32 2
+  %242 = getelementptr [4 x i8], ptr %241, i64 0, i64 0
+  %243 = load i8, ptr %242, align 1
+  %244 = zext i8 %243 to i32
+  %245 = load ptr, ptr %30, align 8
+  %246 = getelementptr inbounds nuw %struct.ieee_802_11ac, ptr %245, i32 0, i32 2
+  %247 = getelementptr [4 x i8], ptr %246, i64 0, i64 0
+  %248 = load i8, ptr %247, align 1
+  %249 = zext i8 %248 to i32
+  %250 = icmp sgt i32 %244, %249
+  br i1 %250, label %251, label %255
 
-260:                                              ; preds = %245
-  %261 = load ptr, ptr @current_aggregate, align 8
-  %262 = getelementptr inbounds %struct.aggregate, ptr %261, i32 0, i32 1
-  %263 = load ptr, ptr %26, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %262, ptr align 4 %263, i64 16, i1 false)
+251:                                              ; preds = %236
+  %252 = load ptr, ptr @current_aggregate, align 8
+  %253 = getelementptr inbounds nuw %struct.aggregate, ptr %252, i32 0, i32 1
+  %254 = load ptr, ptr %26, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %253, ptr align 4 %254, i64 20, i1 false)
+  br label %255
+
+255:                                              ; preds = %251, %236
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #10
+  br label %256
+
+256:                                              ; preds = %194, %255, %235
+  %257 = load ptr, ptr @current_aggregate, align 8
+  %258 = getelementptr inbounds nuw %struct.aggregate, ptr %257, i32 0, i32 0
+  %259 = load i32, ptr %258, align 4
+  store i32 %259, ptr %25, align 4
+  %260 = load ptr, ptr @current_aggregate, align 8
+  %261 = getelementptr inbounds nuw %struct.aggregate, ptr %260, i32 0, i32 1
+  store ptr %261, ptr %26, align 8
   br label %264
 
-264:                                              ; preds = %260, %245
-  br label %265
-
-265:                                              ; preds = %264, %244, %198
-  %266 = load ptr, ptr @current_aggregate, align 8
-  %267 = getelementptr inbounds %struct.aggregate, ptr %266, i32 0, i32 0
-  %268 = load i32, ptr %267, align 4
-  store i32 %268, ptr %25, align 4
-  %269 = load ptr, ptr @current_aggregate, align 8
-  %270 = getelementptr inbounds %struct.aggregate, ptr %269, i32 0, i32 1
-  store ptr %270, ptr %26, align 8
-  br label %274
-
-271:                                              ; preds = %158, %136, %128, %121, %116, %98
+262:                                              ; preds = %162, %142, %134, %128, %123, %105
   store ptr null, ptr @current_aggregate, align 8
-  %272 = load i32, ptr %18, align 4
-  %273 = getelementptr inbounds %struct.previous_frame_info, ptr @previous_frame, i32 0, i32 4
-  store i32 %272, ptr %273, align 4
-  br label %274
+  %263 = load i32, ptr %18, align 4
+  store i32 %263, ptr getelementptr inbounds nuw (%struct.previous_frame_info, ptr @previous_frame, i32 0, i32 4), align 8
+  br label %264
 
-274:                                              ; preds = %271, %265
-  %275 = load ptr, ptr %8, align 8
-  %276 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %275, i32 0, i32 4
-  %277 = load i16, ptr %276, align 4
-  %278 = lshr i16 %277, 9
-  %279 = and i16 %278, 1
-  %280 = zext i16 %279 to i32
-  store i32 %280, ptr @previous_frame, align 8
-  %281 = load ptr, ptr %8, align 8
-  %282 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %281, i32 0, i32 14
-  %283 = load i64, ptr %282, align 8
-  %284 = getelementptr inbounds %struct.previous_frame_info, ptr @previous_frame, i32 0, i32 1
-  store i64 %283, ptr %284, align 8
-  %285 = load ptr, ptr %8, align 8
-  %286 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %285, i32 0, i32 2
-  %287 = load i32, ptr %286, align 8
-  %288 = getelementptr inbounds %struct.previous_frame_info, ptr @previous_frame, i32 0, i32 2
-  store i32 %287, ptr %288, align 8
-  %289 = load ptr, ptr %8, align 8
-  %290 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %289, i32 0, i32 3
-  %291 = getelementptr inbounds %struct.previous_frame_info, ptr @previous_frame, i32 0, i32 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %291, ptr align 4 %290, i64 16, i1 false)
-  br label %315
+264:                                              ; preds = %262, %256
+  %265 = load ptr, ptr %8, align 8
+  %266 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %265, i32 0, i32 4
+  %267 = load i16, ptr %266, align 8
+  %268 = lshr i16 %267, 9
+  %269 = and i16 %268, 1
+  %270 = zext i16 %269 to i32
+  %271 = icmp ne i32 %270, 0
+  %272 = zext i1 %271 to i8
+  store i8 %272, ptr @previous_frame, align 8
+  %273 = load ptr, ptr %8, align 8
+  %274 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %273, i32 0, i32 14
+  %275 = load i64, ptr %274, align 8
+  store i64 %275, ptr getelementptr inbounds nuw (%struct.previous_frame_info, ptr @previous_frame, i32 0, i32 1), align 8
+  %276 = load ptr, ptr %8, align 8
+  %277 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %276, i32 0, i32 2
+  %278 = load i32, ptr %277, align 8
+  store i32 %278, ptr getelementptr inbounds nuw (%struct.previous_frame_info, ptr @previous_frame, i32 0, i32 2), align 8
+  %279 = load ptr, ptr %8, align 8
+  %280 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %279, i32 0, i32 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 getelementptr inbounds nuw (%struct.previous_frame_info, ptr @previous_frame, i32 0, i32 3), ptr align 4 %280, i64 20, i1 false)
+  br label %304
 
-292:                                              ; preds = %88
-  %293 = call ptr @wmem_file_scope()
-  %294 = load ptr, ptr %6, align 8
-  %295 = load i32, ptr @proto_wlan_radio, align 4
-  %296 = call ptr @p_get_proto_data(ptr noundef %293, ptr noundef %294, i32 noundef %295, i32 noundef 0)
-  store ptr %296, ptr %24, align 8
-  %297 = load ptr, ptr %24, align 8
-  %298 = icmp ne ptr %297, null
-  br i1 %298, label %299, label %314
+281:                                              ; preds = %95
+  %282 = call ptr @wmem_file_scope()
+  %283 = load ptr, ptr %6, align 8
+  %284 = load i32, ptr @proto_wlan_radio, align 4
+  %285 = call ptr @p_get_proto_data(ptr noundef %282, ptr noundef %283, i32 noundef %284, i32 noundef 0)
+  store ptr %285, ptr %24, align 8
+  %286 = load ptr, ptr %24, align 8
+  %287 = icmp ne ptr %286, null
+  br i1 %287, label %288, label %303
 
-299:                                              ; preds = %292
-  %300 = load ptr, ptr %24, align 8
-  %301 = getelementptr inbounds %struct.wlan_radio, ptr %300, i32 0, i32 0
-  %302 = load ptr, ptr %301, align 8
-  %303 = icmp ne ptr %302, null
-  br i1 %303, label %304, label %314
+288:                                              ; preds = %281
+  %289 = load ptr, ptr %24, align 8
+  %290 = getelementptr inbounds nuw %struct.wlan_radio, ptr %289, i32 0, i32 0
+  %291 = load ptr, ptr %290, align 8
+  %292 = icmp ne ptr %291, null
+  br i1 %292, label %293, label %303
 
-304:                                              ; preds = %299
-  %305 = load ptr, ptr %24, align 8
-  %306 = getelementptr inbounds %struct.wlan_radio, ptr %305, i32 0, i32 0
-  %307 = load ptr, ptr %306, align 8
-  %308 = getelementptr inbounds %struct.aggregate, ptr %307, i32 0, i32 0
-  %309 = load i32, ptr %308, align 4
-  store i32 %309, ptr %25, align 4
-  %310 = load ptr, ptr %24, align 8
-  %311 = getelementptr inbounds %struct.wlan_radio, ptr %310, i32 0, i32 0
-  %312 = load ptr, ptr %311, align 8
-  %313 = getelementptr inbounds %struct.aggregate, ptr %312, i32 0, i32 1
-  store ptr %313, ptr %26, align 8
-  br label %314
+293:                                              ; preds = %288
+  %294 = load ptr, ptr %24, align 8
+  %295 = getelementptr inbounds nuw %struct.wlan_radio, ptr %294, i32 0, i32 0
+  %296 = load ptr, ptr %295, align 8
+  %297 = getelementptr inbounds nuw %struct.aggregate, ptr %296, i32 0, i32 0
+  %298 = load i32, ptr %297, align 4
+  store i32 %298, ptr %25, align 4
+  %299 = load ptr, ptr %24, align 8
+  %300 = getelementptr inbounds nuw %struct.wlan_radio, ptr %299, i32 0, i32 0
+  %301 = load ptr, ptr %300, align 8
+  %302 = getelementptr inbounds nuw %struct.aggregate, ptr %301, i32 0, i32 1
+  store ptr %302, ptr %26, align 8
+  br label %303
 
-314:                                              ; preds = %304, %299, %292
-  br label %315
+303:                                              ; preds = %293, %288, %281
+  br label %304
 
-315:                                              ; preds = %314, %274
-  %316 = load ptr, ptr %7, align 8
-  %317 = load i32, ptr @proto_wlan_radio, align 4
-  %318 = load ptr, ptr %5, align 8
-  %319 = call ptr @proto_tree_add_item(ptr noundef %316, i32 noundef %317, ptr noundef %318, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  store ptr %319, ptr %9, align 8
-  %320 = load ptr, ptr %9, align 8
-  %321 = load i32, ptr @ett_wlan_radio, align 4
-  %322 = call ptr @proto_item_add_subtree(ptr noundef %320, i32 noundef %321)
-  store ptr %322, ptr %10, align 8
-  %323 = load i32, ptr %25, align 4
-  %324 = icmp ne i32 %323, 0
-  br i1 %324, label %325, label %1096
+304:                                              ; preds = %303, %264
+  %305 = load ptr, ptr %7, align 8
+  %306 = load i32, ptr @proto_wlan_radio, align 4
+  %307 = load ptr, ptr %5, align 8
+  %308 = call ptr @proto_tree_add_item(ptr noundef %305, i32 noundef %306, ptr noundef %307, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  store ptr %308, ptr %9, align 8
+  %309 = load ptr, ptr %9, align 8
+  %310 = load i32, ptr @ett_wlan_radio, align 4
+  %311 = call ptr @proto_item_add_subtree(ptr noundef %309, i32 noundef %310)
+  store ptr %311, ptr %10, align 8
+  %312 = load i32, ptr %25, align 4
+  %313 = icmp ne i32 %312, 0
+  br i1 %313, label %314, label %1326
 
-325:                                              ; preds = %315
-  %326 = load ptr, ptr %10, align 8
-  %327 = load i32, ptr @hf_wlan_radio_phy, align 4
-  %328 = load ptr, ptr %5, align 8
-  %329 = load i32, ptr %25, align 4
-  %330 = call ptr @proto_tree_add_uint(ptr noundef %326, i32 noundef %327, ptr noundef %328, i32 noundef 0, i32 noundef 0, i32 noundef %329)
-  %331 = load i32, ptr %25, align 4
-  switch i32 %331, label %1095 [
-    i32 1, label %332
-    i32 4, label %381
-    i32 5, label %400
-    i32 6, label %435
-    i32 7, label %451
-    i32 8, label %615
-    i32 11, label %1005
+314:                                              ; preds = %304
+  %315 = load ptr, ptr %10, align 8
+  %316 = load i32, ptr @hf_wlan_radio_phy, align 4
+  %317 = load ptr, ptr %5, align 8
+  %318 = load i32, ptr %25, align 4
+  %319 = call ptr @proto_tree_add_uint(ptr noundef %315, i32 noundef %316, ptr noundef %317, i32 noundef 0, i32 noundef 0, i32 noundef %318)
+  %320 = load i32, ptr %25, align 4
+  switch i32 %320, label %1325 [
+    i32 1, label %321
+    i32 4, label %370
+    i32 5, label %394
+    i32 6, label %429
+    i32 7, label %445
+    i32 8, label %611
+    i32 11, label %1002
+    i32 12, label %1086
   ]
 
-332:                                              ; preds = %325
-  %333 = load ptr, ptr %26, align 8
-  store ptr %333, ptr %31, align 8
-  %334 = load ptr, ptr %31, align 8
-  %335 = load i8, ptr %334, align 4
-  %336 = and i8 %335, 1
-  %337 = zext i8 %336 to i32
-  %338 = icmp ne i32 %337, 0
-  br i1 %338, label %339, label %348
+321:                                              ; preds = %314
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #10
+  %322 = load ptr, ptr %26, align 8
+  store ptr %322, ptr %31, align 8
+  %323 = load ptr, ptr %31, align 8
+  %324 = load i8, ptr %323, align 4
+  %325 = and i8 %324, 1
+  %326 = zext i8 %325 to i32
+  %327 = icmp ne i32 %326, 0
+  br i1 %327, label %328, label %337
 
-339:                                              ; preds = %332
-  %340 = load ptr, ptr %10, align 8
-  %341 = load i32, ptr @hf_wlan_radio_11_fhss_hop_set, align 4
-  %342 = load ptr, ptr %5, align 8
-  %343 = load ptr, ptr %31, align 8
-  %344 = getelementptr inbounds %struct.ieee_802_11_fhss, ptr %343, i32 0, i32 1
-  %345 = load i8, ptr %344, align 1
-  %346 = zext i8 %345 to i32
-  %347 = call ptr @proto_tree_add_uint(ptr noundef %340, i32 noundef %341, ptr noundef %342, i32 noundef 0, i32 noundef 0, i32 noundef %346)
-  br label %348
+328:                                              ; preds = %321
+  %329 = load ptr, ptr %10, align 8
+  %330 = load i32, ptr @hf_wlan_radio_11_fhss_hop_set, align 4
+  %331 = load ptr, ptr %5, align 8
+  %332 = load ptr, ptr %31, align 8
+  %333 = getelementptr inbounds nuw %struct.ieee_802_11_fhss, ptr %332, i32 0, i32 1
+  %334 = load i8, ptr %333, align 1
+  %335 = zext i8 %334 to i32
+  %336 = call ptr @proto_tree_add_uint(ptr noundef %329, i32 noundef %330, ptr noundef %331, i32 noundef 0, i32 noundef 0, i32 noundef %335)
+  br label %337
 
-348:                                              ; preds = %339, %332
-  %349 = load ptr, ptr %31, align 8
-  %350 = load i8, ptr %349, align 4
-  %351 = lshr i8 %350, 1
-  %352 = and i8 %351, 1
-  %353 = zext i8 %352 to i32
-  %354 = icmp ne i32 %353, 0
-  br i1 %354, label %355, label %364
+337:                                              ; preds = %328, %321
+  %338 = load ptr, ptr %31, align 8
+  %339 = load i8, ptr %338, align 4
+  %340 = lshr i8 %339, 1
+  %341 = and i8 %340, 1
+  %342 = zext i8 %341 to i32
+  %343 = icmp ne i32 %342, 0
+  br i1 %343, label %344, label %353
 
-355:                                              ; preds = %348
-  %356 = load ptr, ptr %10, align 8
-  %357 = load i32, ptr @hf_wlan_radio_11_fhss_hop_pattern, align 4
-  %358 = load ptr, ptr %5, align 8
-  %359 = load ptr, ptr %31, align 8
-  %360 = getelementptr inbounds %struct.ieee_802_11_fhss, ptr %359, i32 0, i32 2
-  %361 = load i8, ptr %360, align 2
-  %362 = zext i8 %361 to i32
-  %363 = call ptr @proto_tree_add_uint(ptr noundef %356, i32 noundef %357, ptr noundef %358, i32 noundef 0, i32 noundef 0, i32 noundef %362)
-  br label %364
+344:                                              ; preds = %337
+  %345 = load ptr, ptr %10, align 8
+  %346 = load i32, ptr @hf_wlan_radio_11_fhss_hop_pattern, align 4
+  %347 = load ptr, ptr %5, align 8
+  %348 = load ptr, ptr %31, align 8
+  %349 = getelementptr inbounds nuw %struct.ieee_802_11_fhss, ptr %348, i32 0, i32 2
+  %350 = load i8, ptr %349, align 2
+  %351 = zext i8 %350 to i32
+  %352 = call ptr @proto_tree_add_uint(ptr noundef %345, i32 noundef %346, ptr noundef %347, i32 noundef 0, i32 noundef 0, i32 noundef %351)
+  br label %353
 
-364:                                              ; preds = %355, %348
-  %365 = load ptr, ptr %31, align 8
-  %366 = load i8, ptr %365, align 4
-  %367 = lshr i8 %366, 2
-  %368 = and i8 %367, 1
-  %369 = zext i8 %368 to i32
-  %370 = icmp ne i32 %369, 0
-  br i1 %370, label %371, label %380
+353:                                              ; preds = %344, %337
+  %354 = load ptr, ptr %31, align 8
+  %355 = load i8, ptr %354, align 4
+  %356 = lshr i8 %355, 2
+  %357 = and i8 %356, 1
+  %358 = zext i8 %357 to i32
+  %359 = icmp ne i32 %358, 0
+  br i1 %359, label %360, label %369
 
-371:                                              ; preds = %364
-  %372 = load ptr, ptr %10, align 8
-  %373 = load i32, ptr @hf_wlan_radio_11_fhss_hop_index, align 4
-  %374 = load ptr, ptr %5, align 8
-  %375 = load ptr, ptr %31, align 8
-  %376 = getelementptr inbounds %struct.ieee_802_11_fhss, ptr %375, i32 0, i32 3
-  %377 = load i8, ptr %376, align 1
-  %378 = zext i8 %377 to i32
-  %379 = call ptr @proto_tree_add_uint(ptr noundef %372, i32 noundef %373, ptr noundef %374, i32 noundef 0, i32 noundef 0, i32 noundef %378)
-  br label %380
+360:                                              ; preds = %353
+  %361 = load ptr, ptr %10, align 8
+  %362 = load i32, ptr @hf_wlan_radio_11_fhss_hop_index, align 4
+  %363 = load ptr, ptr %5, align 8
+  %364 = load ptr, ptr %31, align 8
+  %365 = getelementptr inbounds nuw %struct.ieee_802_11_fhss, ptr %364, i32 0, i32 3
+  %366 = load i8, ptr %365, align 1
+  %367 = zext i8 %366 to i32
+  %368 = call ptr @proto_tree_add_uint(ptr noundef %361, i32 noundef %362, ptr noundef %363, i32 noundef 0, i32 noundef 0, i32 noundef %367)
+  br label %369
 
-380:                                              ; preds = %371, %364
-  br label %1095
+369:                                              ; preds = %360, %353
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #10
+  br label %1325
 
-381:                                              ; preds = %325
-  %382 = load ptr, ptr %26, align 8
-  store ptr %382, ptr %32, align 8
-  %383 = load ptr, ptr %32, align 8
-  %384 = load i8, ptr %383, align 4
-  %385 = and i8 %384, 1
-  %386 = zext i8 %385 to i32
-  store i32 %386, ptr %13, align 4
-  %387 = load ptr, ptr %32, align 8
-  %388 = getelementptr inbounds %struct.ieee_802_11b, ptr %387, i32 0, i32 1
-  %389 = load i32, ptr %388, align 4
-  store i32 %389, ptr %14, align 4
-  %390 = load i32, ptr %13, align 4
-  %391 = icmp ne i32 %390, 0
-  br i1 %391, label %392, label %399
+370:                                              ; preds = %314
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #10
+  %371 = load ptr, ptr %26, align 8
+  store ptr %371, ptr %32, align 8
+  %372 = load ptr, ptr %32, align 8
+  %373 = load i8, ptr %372, align 4
+  %374 = and i8 %373, 1
+  %375 = zext i8 %374 to i32
+  %376 = icmp ne i32 %375, 0
+  %377 = zext i1 %376 to i8
+  store i8 %377, ptr %13, align 1
+  %378 = load i8, ptr %13, align 1, !range !6, !noundef !7
+  %379 = trunc i8 %378 to i1
+  br i1 %379, label %380, label %393
 
-392:                                              ; preds = %381
-  %393 = load ptr, ptr %10, align 8
-  %394 = load i32, ptr @hf_wlan_radio_short_preamble, align 4
-  %395 = load ptr, ptr %5, align 8
-  %396 = load i32, ptr %14, align 4
-  %397 = sext i32 %396 to i64
-  %398 = call ptr @proto_tree_add_boolean(ptr noundef %393, i32 noundef %394, ptr noundef %395, i32 noundef 0, i32 noundef 0, i64 noundef %397)
-  br label %399
+380:                                              ; preds = %370
+  %381 = load ptr, ptr %32, align 8
+  %382 = getelementptr inbounds nuw %struct.ieee_802_11b, ptr %381, i32 0, i32 1
+  %383 = load i8, ptr %382, align 1, !range !6, !noundef !7
+  %384 = trunc i8 %383 to i1
+  %385 = zext i1 %384 to i8
+  store i8 %385, ptr %14, align 1
+  %386 = load ptr, ptr %10, align 8
+  %387 = load i32, ptr @hf_wlan_radio_short_preamble, align 4
+  %388 = load ptr, ptr %5, align 8
+  %389 = load i8, ptr %14, align 1, !range !6, !noundef !7
+  %390 = trunc i8 %389 to i1
+  %391 = zext i1 %390 to i64
+  %392 = call ptr @proto_tree_add_boolean(ptr noundef %386, i32 noundef %387, ptr noundef %388, i32 noundef 0, i32 noundef 0, i64 noundef %391)
+  br label %393
 
-399:                                              ; preds = %392, %381
-  br label %1095
+393:                                              ; preds = %380, %370
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #10
+  br label %1325
 
-400:                                              ; preds = %325
-  %401 = load ptr, ptr %26, align 8
-  store ptr %401, ptr %33, align 8
-  %402 = load ptr, ptr %33, align 8
-  %403 = load i8, ptr %402, align 4
-  %404 = and i8 %403, 1
-  %405 = zext i8 %404 to i32
-  %406 = icmp ne i32 %405, 0
-  br i1 %406, label %407, label %417
+394:                                              ; preds = %314
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #10
+  %395 = load ptr, ptr %26, align 8
+  store ptr %395, ptr %33, align 8
+  %396 = load ptr, ptr %33, align 8
+  %397 = load i8, ptr %396, align 4
+  %398 = and i8 %397, 1
+  %399 = zext i8 %398 to i32
+  %400 = icmp ne i32 %399, 0
+  br i1 %400, label %401, label %411
 
-407:                                              ; preds = %400
-  %408 = load ptr, ptr %10, align 8
-  %409 = load i32, ptr @hf_wlan_radio_11a_channel_type, align 4
-  %410 = load ptr, ptr %5, align 8
-  %411 = load ptr, ptr %33, align 8
-  %412 = load i8, ptr %411, align 4
-  %413 = lshr i8 %412, 2
-  %414 = and i8 %413, 3
-  %415 = zext i8 %414 to i32
-  %416 = call ptr @proto_tree_add_uint(ptr noundef %408, i32 noundef %409, ptr noundef %410, i32 noundef 0, i32 noundef 0, i32 noundef %415)
-  br label %417
+401:                                              ; preds = %394
+  %402 = load ptr, ptr %10, align 8
+  %403 = load i32, ptr @hf_wlan_radio_11a_channel_type, align 4
+  %404 = load ptr, ptr %5, align 8
+  %405 = load ptr, ptr %33, align 8
+  %406 = load i8, ptr %405, align 4
+  %407 = lshr i8 %406, 2
+  %408 = and i8 %407, 3
+  %409 = zext i8 %408 to i32
+  %410 = call ptr @proto_tree_add_uint(ptr noundef %402, i32 noundef %403, ptr noundef %404, i32 noundef 0, i32 noundef 0, i32 noundef %409)
+  br label %411
 
-417:                                              ; preds = %407, %400
-  %418 = load ptr, ptr %33, align 8
-  %419 = load i8, ptr %418, align 4
-  %420 = lshr i8 %419, 1
-  %421 = and i8 %420, 1
-  %422 = zext i8 %421 to i32
-  %423 = icmp ne i32 %422, 0
-  br i1 %423, label %424, label %434
+411:                                              ; preds = %401, %394
+  %412 = load ptr, ptr %33, align 8
+  %413 = load i8, ptr %412, align 4
+  %414 = lshr i8 %413, 1
+  %415 = and i8 %414, 1
+  %416 = zext i8 %415 to i32
+  %417 = icmp ne i32 %416, 0
+  br i1 %417, label %418, label %428
 
-424:                                              ; preds = %417
-  %425 = load ptr, ptr %10, align 8
-  %426 = load i32, ptr @hf_wlan_radio_11a_turbo_type, align 4
-  %427 = load ptr, ptr %5, align 8
-  %428 = load ptr, ptr %33, align 8
-  %429 = load i8, ptr %428, align 4
-  %430 = lshr i8 %429, 4
-  %431 = and i8 %430, 3
-  %432 = zext i8 %431 to i32
-  %433 = call ptr @proto_tree_add_uint(ptr noundef %425, i32 noundef %426, ptr noundef %427, i32 noundef 0, i32 noundef 0, i32 noundef %432)
-  br label %434
+418:                                              ; preds = %411
+  %419 = load ptr, ptr %10, align 8
+  %420 = load i32, ptr @hf_wlan_radio_11a_turbo_type, align 4
+  %421 = load ptr, ptr %5, align 8
+  %422 = load ptr, ptr %33, align 8
+  %423 = load i8, ptr %422, align 4
+  %424 = lshr i8 %423, 4
+  %425 = and i8 %424, 3
+  %426 = zext i8 %425 to i32
+  %427 = call ptr @proto_tree_add_uint(ptr noundef %419, i32 noundef %420, ptr noundef %421, i32 noundef 0, i32 noundef 0, i32 noundef %426)
+  br label %428
 
-434:                                              ; preds = %424, %417
-  br label %1095
+428:                                              ; preds = %418, %411
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #10
+  br label %1325
 
-435:                                              ; preds = %325
-  %436 = load ptr, ptr %26, align 8
-  store ptr %436, ptr %34, align 8
-  %437 = load ptr, ptr %34, align 8
-  %438 = load i8, ptr %437, align 4
-  %439 = and i8 %438, 1
-  %440 = zext i8 %439 to i32
-  %441 = icmp ne i32 %440, 0
-  br i1 %441, label %442, label %450
+429:                                              ; preds = %314
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #10
+  %430 = load ptr, ptr %26, align 8
+  store ptr %430, ptr %34, align 8
+  %431 = load ptr, ptr %34, align 8
+  %432 = load i8, ptr %431, align 4
+  %433 = and i8 %432, 1
+  %434 = zext i8 %433 to i32
+  %435 = icmp ne i32 %434, 0
+  br i1 %435, label %436, label %444
 
-442:                                              ; preds = %435
-  %443 = load ptr, ptr %10, align 8
-  %444 = load i32, ptr @hf_wlan_radio_11g_mode, align 4
-  %445 = load ptr, ptr %5, align 8
-  %446 = load ptr, ptr %34, align 8
-  %447 = getelementptr inbounds %struct.ieee_802_11g, ptr %446, i32 0, i32 1
-  %448 = load i32, ptr %447, align 4
-  %449 = call ptr @proto_tree_add_uint(ptr noundef %443, i32 noundef %444, ptr noundef %445, i32 noundef 0, i32 noundef 0, i32 noundef %448)
-  br label %450
+436:                                              ; preds = %429
+  %437 = load ptr, ptr %10, align 8
+  %438 = load i32, ptr @hf_wlan_radio_11g_mode, align 4
+  %439 = load ptr, ptr %5, align 8
+  %440 = load ptr, ptr %34, align 8
+  %441 = getelementptr inbounds nuw %struct.ieee_802_11g, ptr %440, i32 0, i32 1
+  %442 = load i32, ptr %441, align 4
+  %443 = call ptr @proto_tree_add_uint(ptr noundef %437, i32 noundef %438, ptr noundef %439, i32 noundef 0, i32 noundef 0, i32 noundef %442)
+  br label %444
 
-450:                                              ; preds = %442, %435
-  br label %1095
+444:                                              ; preds = %436, %429
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #10
+  br label %1325
 
-451:                                              ; preds = %325
-  %452 = load ptr, ptr %26, align 8
-  store ptr %452, ptr %35, align 8
+445:                                              ; preds = %314
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #10
+  %446 = load ptr, ptr %26, align 8
+  store ptr %446, ptr %35, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %36) #10
+  %447 = load ptr, ptr %35, align 8
+  %448 = load i8, ptr %447, align 4
+  %449 = and i8 %448, 1
+  %450 = zext i8 %449 to i32
+  %451 = icmp ne i32 %450, 0
+  br i1 %451, label %452, label %492
+
+452:                                              ; preds = %445
   %453 = load ptr, ptr %35, align 8
   %454 = load i8, ptr %453, align 4
-  %455 = and i8 %454, 1
-  %456 = zext i8 %455 to i32
-  %457 = icmp ne i32 %456, 0
-  br i1 %457, label %458, label %496
+  %455 = lshr i8 %454, 1
+  %456 = and i8 %455, 1
+  %457 = zext i8 %456 to i32
+  %458 = icmp ne i32 %457, 0
+  br i1 %458, label %459, label %492
 
-458:                                              ; preds = %451
-  %459 = load ptr, ptr %35, align 8
-  %460 = load i8, ptr %459, align 4
-  %461 = lshr i8 %460, 1
-  %462 = and i8 %461, 1
-  %463 = zext i8 %462 to i32
-  %464 = icmp ne i32 %463, 0
-  br i1 %464, label %465, label %496
+459:                                              ; preds = %452
+  %460 = load ptr, ptr %35, align 8
+  %461 = load i8, ptr %460, align 4
+  %462 = lshr i8 %461, 2
+  %463 = and i8 %462, 1
+  %464 = zext i8 %463 to i32
+  %465 = icmp ne i32 %464, 0
+  br i1 %465, label %466, label %492
 
-465:                                              ; preds = %458
-  %466 = load ptr, ptr %35, align 8
-  %467 = load i8, ptr %466, align 4
-  %468 = lshr i8 %467, 2
-  %469 = and i8 %468, 1
-  %470 = zext i8 %469 to i32
-  %471 = icmp ne i32 %470, 0
-  br i1 %471, label %472, label %496
+466:                                              ; preds = %459
+  %467 = load ptr, ptr %35, align 8
+  %468 = getelementptr inbounds nuw %struct.ieee_802_11n, ptr %467, i32 0, i32 2
+  %469 = load i32, ptr %468, align 4
+  %470 = icmp eq i32 %469, 1
+  %471 = select i1 %470, i32 1, i32 0
+  store i32 %471, ptr %36, align 4
+  %472 = load ptr, ptr %35, align 8
+  %473 = getelementptr inbounds nuw %struct.ieee_802_11n, ptr %472, i32 0, i32 1
+  %474 = load i16, ptr %473, align 2
+  %475 = zext i16 %474 to i32
+  %476 = icmp slt i32 %475, 76
+  br i1 %476, label %477, label %491
 
-472:                                              ; preds = %465
-  %473 = load ptr, ptr %35, align 8
-  %474 = getelementptr inbounds %struct.ieee_802_11n, ptr %473, i32 0, i32 2
-  %475 = load i32, ptr %474, align 4
-  %476 = icmp eq i32 %475, 1
-  %477 = select i1 %476, i32 1, i32 0
-  store i32 %477, ptr %36, align 4
+477:                                              ; preds = %466
   %478 = load ptr, ptr %35, align 8
-  %479 = getelementptr inbounds %struct.ieee_802_11n, ptr %478, i32 0, i32 1
+  %479 = getelementptr inbounds nuw %struct.ieee_802_11n, ptr %478, i32 0, i32 1
   %480 = load i16, ptr %479, align 2
   %481 = zext i16 %480 to i32
-  %482 = icmp slt i32 %481, 76
-  br i1 %482, label %483, label %495
-
-483:                                              ; preds = %472
+  %482 = load i32, ptr %36, align 4
+  %483 = icmp ne i32 %482, 0
   %484 = load ptr, ptr %35, align 8
-  %485 = getelementptr inbounds %struct.ieee_802_11n, ptr %484, i32 0, i32 1
-  %486 = load i16, ptr %485, align 2
-  %487 = zext i16 %486 to i32
-  %488 = load i32, ptr %36, align 4
-  %489 = load ptr, ptr %35, align 8
-  %490 = getelementptr inbounds %struct.ieee_802_11n, ptr %489, i32 0, i32 3
-  %491 = load i8, ptr %490, align 4
-  %492 = and i8 %491, 1
-  %493 = zext i8 %492 to i32
-  %494 = call float @ieee80211_htrate(i32 noundef %487, i32 noundef %488, i32 noundef %493)
-  store float %494, ptr %11, align 4
-  store i32 1, ptr %12, align 4
-  br label %495
+  %485 = getelementptr inbounds nuw %struct.ieee_802_11n, ptr %484, i32 0, i32 3
+  %486 = load i8, ptr %485, align 4
+  %487 = and i8 %486, 1
+  %488 = zext i8 %487 to i32
+  %489 = icmp ne i32 %488, 0
+  %490 = call float @ieee80211_htrate(i32 noundef %481, i1 noundef zeroext %483, i1 noundef zeroext %489)
+  store float %490, ptr %11, align 4
+  store i8 1, ptr %12, align 1
+  br label %491
 
-495:                                              ; preds = %483, %472
-  br label %496
+491:                                              ; preds = %477, %466
+  br label %492
 
-496:                                              ; preds = %495, %465, %458, %451
-  %497 = load ptr, ptr %35, align 8
-  %498 = load i8, ptr %497, align 4
-  %499 = and i8 %498, 1
-  %500 = zext i8 %499 to i32
-  %501 = icmp ne i32 %500, 0
-  br i1 %501, label %502, label %511
+492:                                              ; preds = %491, %459, %452, %445
+  %493 = load ptr, ptr %35, align 8
+  %494 = load i8, ptr %493, align 4
+  %495 = and i8 %494, 1
+  %496 = zext i8 %495 to i32
+  %497 = icmp ne i32 %496, 0
+  br i1 %497, label %498, label %507
 
-502:                                              ; preds = %496
-  %503 = load ptr, ptr %10, align 8
-  %504 = load i32, ptr @hf_wlan_radio_11n_mcs_index, align 4
-  %505 = load ptr, ptr %5, align 8
-  %506 = load ptr, ptr %35, align 8
-  %507 = getelementptr inbounds %struct.ieee_802_11n, ptr %506, i32 0, i32 1
-  %508 = load i16, ptr %507, align 2
-  %509 = zext i16 %508 to i32
-  %510 = call ptr @proto_tree_add_uint(ptr noundef %503, i32 noundef %504, ptr noundef %505, i32 noundef 0, i32 noundef 0, i32 noundef %509)
-  br label %511
+498:                                              ; preds = %492
+  %499 = load ptr, ptr %10, align 8
+  %500 = load i32, ptr @hf_wlan_radio_11n_mcs_index, align 4
+  %501 = load ptr, ptr %5, align 8
+  %502 = load ptr, ptr %35, align 8
+  %503 = getelementptr inbounds nuw %struct.ieee_802_11n, ptr %502, i32 0, i32 1
+  %504 = load i16, ptr %503, align 2
+  %505 = zext i16 %504 to i32
+  %506 = call ptr @proto_tree_add_uint(ptr noundef %499, i32 noundef %500, ptr noundef %501, i32 noundef 0, i32 noundef 0, i32 noundef %505)
+  br label %507
 
-511:                                              ; preds = %502, %496
-  %512 = load ptr, ptr %35, align 8
-  %513 = load i8, ptr %512, align 4
-  %514 = lshr i8 %513, 1
-  %515 = and i8 %514, 1
-  %516 = zext i8 %515 to i32
-  %517 = icmp ne i32 %516, 0
-  br i1 %517, label %518, label %526
+507:                                              ; preds = %498, %492
+  %508 = load ptr, ptr %35, align 8
+  %509 = load i8, ptr %508, align 4
+  %510 = lshr i8 %509, 1
+  %511 = and i8 %510, 1
+  %512 = zext i8 %511 to i32
+  %513 = icmp ne i32 %512, 0
+  br i1 %513, label %514, label %522
 
-518:                                              ; preds = %511
-  %519 = load ptr, ptr %10, align 8
-  %520 = load i32, ptr @hf_wlan_radio_11n_bandwidth, align 4
-  %521 = load ptr, ptr %5, align 8
-  %522 = load ptr, ptr %35, align 8
-  %523 = getelementptr inbounds %struct.ieee_802_11n, ptr %522, i32 0, i32 2
-  %524 = load i32, ptr %523, align 4
-  %525 = call ptr @proto_tree_add_uint(ptr noundef %519, i32 noundef %520, ptr noundef %521, i32 noundef 0, i32 noundef 0, i32 noundef %524)
-  br label %526
+514:                                              ; preds = %507
+  %515 = load ptr, ptr %10, align 8
+  %516 = load i32, ptr @hf_wlan_radio_11n_bandwidth, align 4
+  %517 = load ptr, ptr %5, align 8
+  %518 = load ptr, ptr %35, align 8
+  %519 = getelementptr inbounds nuw %struct.ieee_802_11n, ptr %518, i32 0, i32 2
+  %520 = load i32, ptr %519, align 4
+  %521 = call ptr @proto_tree_add_uint(ptr noundef %515, i32 noundef %516, ptr noundef %517, i32 noundef 0, i32 noundef 0, i32 noundef %520)
+  br label %522
 
-526:                                              ; preds = %518, %511
-  %527 = load ptr, ptr %35, align 8
-  %528 = load i8, ptr %527, align 4
-  %529 = lshr i8 %528, 2
-  %530 = and i8 %529, 1
-  %531 = zext i8 %530 to i32
-  %532 = icmp ne i32 %531, 0
-  br i1 %532, label %533, label %544
+522:                                              ; preds = %514, %507
+  %523 = load ptr, ptr %35, align 8
+  %524 = load i8, ptr %523, align 4
+  %525 = lshr i8 %524, 2
+  %526 = and i8 %525, 1
+  %527 = zext i8 %526 to i32
+  %528 = icmp ne i32 %527, 0
+  br i1 %528, label %529, label %540
 
-533:                                              ; preds = %526
-  %534 = load ptr, ptr %10, align 8
-  %535 = load i32, ptr @hf_wlan_radio_11n_short_gi, align 4
-  %536 = load ptr, ptr %5, align 8
-  %537 = load ptr, ptr %35, align 8
-  %538 = getelementptr inbounds %struct.ieee_802_11n, ptr %537, i32 0, i32 3
-  %539 = load i8, ptr %538, align 4
-  %540 = and i8 %539, 1
-  %541 = zext i8 %540 to i32
-  %542 = zext i32 %541 to i64
-  %543 = call ptr @proto_tree_add_boolean(ptr noundef %534, i32 noundef %535, ptr noundef %536, i32 noundef 0, i32 noundef 0, i64 noundef %542)
-  br label %544
+529:                                              ; preds = %522
+  %530 = load ptr, ptr %10, align 8
+  %531 = load i32, ptr @hf_wlan_radio_11n_short_gi, align 4
+  %532 = load ptr, ptr %5, align 8
+  %533 = load ptr, ptr %35, align 8
+  %534 = getelementptr inbounds nuw %struct.ieee_802_11n, ptr %533, i32 0, i32 3
+  %535 = load i8, ptr %534, align 4
+  %536 = and i8 %535, 1
+  %537 = zext i8 %536 to i32
+  %538 = zext i32 %537 to i64
+  %539 = call ptr @proto_tree_add_boolean(ptr noundef %530, i32 noundef %531, ptr noundef %532, i32 noundef 0, i32 noundef 0, i64 noundef %538)
+  br label %540
 
-544:                                              ; preds = %533, %526
-  %545 = load ptr, ptr %35, align 8
-  %546 = load i8, ptr %545, align 4
-  %547 = lshr i8 %546, 3
-  %548 = and i8 %547, 1
-  %549 = zext i8 %548 to i32
-  %550 = icmp ne i32 %549, 0
-  br i1 %550, label %551, label %563
+540:                                              ; preds = %529, %522
+  %541 = load ptr, ptr %35, align 8
+  %542 = load i8, ptr %541, align 4
+  %543 = lshr i8 %542, 3
+  %544 = and i8 %543, 1
+  %545 = zext i8 %544 to i32
+  %546 = icmp ne i32 %545, 0
+  br i1 %546, label %547, label %559
 
-551:                                              ; preds = %544
-  %552 = load ptr, ptr %10, align 8
-  %553 = load i32, ptr @hf_wlan_radio_11n_greenfield, align 4
-  %554 = load ptr, ptr %5, align 8
-  %555 = load ptr, ptr %35, align 8
-  %556 = getelementptr inbounds %struct.ieee_802_11n, ptr %555, i32 0, i32 3
-  %557 = load i8, ptr %556, align 4
-  %558 = lshr i8 %557, 1
-  %559 = and i8 %558, 1
-  %560 = zext i8 %559 to i32
-  %561 = zext i32 %560 to i64
-  %562 = call ptr @proto_tree_add_boolean(ptr noundef %552, i32 noundef %553, ptr noundef %554, i32 noundef 0, i32 noundef 0, i64 noundef %561)
-  br label %563
+547:                                              ; preds = %540
+  %548 = load ptr, ptr %10, align 8
+  %549 = load i32, ptr @hf_wlan_radio_11n_greenfield, align 4
+  %550 = load ptr, ptr %5, align 8
+  %551 = load ptr, ptr %35, align 8
+  %552 = getelementptr inbounds nuw %struct.ieee_802_11n, ptr %551, i32 0, i32 3
+  %553 = load i8, ptr %552, align 4
+  %554 = lshr i8 %553, 1
+  %555 = and i8 %554, 1
+  %556 = zext i8 %555 to i32
+  %557 = zext i32 %556 to i64
+  %558 = call ptr @proto_tree_add_boolean(ptr noundef %548, i32 noundef %549, ptr noundef %550, i32 noundef 0, i32 noundef 0, i64 noundef %557)
+  br label %559
 
-563:                                              ; preds = %551, %544
-  %564 = load ptr, ptr %35, align 8
-  %565 = load i8, ptr %564, align 4
-  %566 = lshr i8 %565, 4
-  %567 = and i8 %566, 1
-  %568 = zext i8 %567 to i32
-  %569 = icmp ne i32 %568, 0
-  br i1 %569, label %570, label %581
+559:                                              ; preds = %547, %540
+  %560 = load ptr, ptr %35, align 8
+  %561 = load i8, ptr %560, align 4
+  %562 = lshr i8 %561, 4
+  %563 = and i8 %562, 1
+  %564 = zext i8 %563 to i32
+  %565 = icmp ne i32 %564, 0
+  br i1 %565, label %566, label %577
 
-570:                                              ; preds = %563
-  %571 = load ptr, ptr %10, align 8
-  %572 = load i32, ptr @hf_wlan_radio_11n_fec, align 4
-  %573 = load ptr, ptr %5, align 8
-  %574 = load ptr, ptr %35, align 8
-  %575 = getelementptr inbounds %struct.ieee_802_11n, ptr %574, i32 0, i32 3
-  %576 = load i8, ptr %575, align 4
-  %577 = lshr i8 %576, 2
-  %578 = and i8 %577, 1
-  %579 = zext i8 %578 to i32
-  %580 = call ptr @proto_tree_add_uint(ptr noundef %571, i32 noundef %572, ptr noundef %573, i32 noundef 0, i32 noundef 0, i32 noundef %579)
-  br label %581
+566:                                              ; preds = %559
+  %567 = load ptr, ptr %10, align 8
+  %568 = load i32, ptr @hf_wlan_radio_11n_fec, align 4
+  %569 = load ptr, ptr %5, align 8
+  %570 = load ptr, ptr %35, align 8
+  %571 = getelementptr inbounds nuw %struct.ieee_802_11n, ptr %570, i32 0, i32 3
+  %572 = load i8, ptr %571, align 4
+  %573 = lshr i8 %572, 2
+  %574 = and i8 %573, 1
+  %575 = zext i8 %574 to i32
+  %576 = call ptr @proto_tree_add_uint(ptr noundef %567, i32 noundef %568, ptr noundef %569, i32 noundef 0, i32 noundef 0, i32 noundef %575)
+  br label %577
 
-581:                                              ; preds = %570, %563
-  %582 = load ptr, ptr %35, align 8
-  %583 = load i8, ptr %582, align 4
-  %584 = lshr i8 %583, 5
-  %585 = and i8 %584, 1
-  %586 = zext i8 %585 to i32
-  %587 = icmp ne i32 %586, 0
-  br i1 %587, label %588, label %599
+577:                                              ; preds = %566, %559
+  %578 = load ptr, ptr %35, align 8
+  %579 = load i8, ptr %578, align 4
+  %580 = lshr i8 %579, 5
+  %581 = and i8 %580, 1
+  %582 = zext i8 %581 to i32
+  %583 = icmp ne i32 %582, 0
+  br i1 %583, label %584, label %595
 
-588:                                              ; preds = %581
-  %589 = load ptr, ptr %10, align 8
-  %590 = load i32, ptr @hf_wlan_radio_11n_stbc_streams, align 4
-  %591 = load ptr, ptr %5, align 8
-  %592 = load ptr, ptr %35, align 8
-  %593 = getelementptr inbounds %struct.ieee_802_11n, ptr %592, i32 0, i32 3
-  %594 = load i8, ptr %593, align 4
-  %595 = lshr i8 %594, 3
-  %596 = and i8 %595, 3
-  %597 = zext i8 %596 to i32
-  %598 = call ptr @proto_tree_add_uint(ptr noundef %589, i32 noundef %590, ptr noundef %591, i32 noundef 0, i32 noundef 0, i32 noundef %597)
-  br label %599
+584:                                              ; preds = %577
+  %585 = load ptr, ptr %10, align 8
+  %586 = load i32, ptr @hf_wlan_radio_11n_stbc_streams, align 4
+  %587 = load ptr, ptr %5, align 8
+  %588 = load ptr, ptr %35, align 8
+  %589 = getelementptr inbounds nuw %struct.ieee_802_11n, ptr %588, i32 0, i32 3
+  %590 = load i8, ptr %589, align 4
+  %591 = lshr i8 %590, 3
+  %592 = and i8 %591, 3
+  %593 = zext i8 %592 to i32
+  %594 = call ptr @proto_tree_add_uint(ptr noundef %585, i32 noundef %586, ptr noundef %587, i32 noundef 0, i32 noundef 0, i32 noundef %593)
+  br label %595
 
-599:                                              ; preds = %588, %581
-  %600 = load ptr, ptr %35, align 8
-  %601 = load i8, ptr %600, align 4
-  %602 = lshr i8 %601, 6
-  %603 = and i8 %602, 1
-  %604 = zext i8 %603 to i32
-  %605 = icmp ne i32 %604, 0
-  br i1 %605, label %606, label %614
+595:                                              ; preds = %584, %577
+  %596 = load ptr, ptr %35, align 8
+  %597 = load i8, ptr %596, align 4
+  %598 = lshr i8 %597, 6
+  %599 = and i8 %598, 1
+  %600 = zext i8 %599 to i32
+  %601 = icmp ne i32 %600, 0
+  br i1 %601, label %602, label %610
 
-606:                                              ; preds = %599
-  %607 = load ptr, ptr %10, align 8
-  %608 = load i32, ptr @hf_wlan_radio_11n_ness, align 4
-  %609 = load ptr, ptr %5, align 8
-  %610 = load ptr, ptr %35, align 8
-  %611 = getelementptr inbounds %struct.ieee_802_11n, ptr %610, i32 0, i32 4
-  %612 = load i32, ptr %611, align 4
-  %613 = call ptr @proto_tree_add_uint(ptr noundef %607, i32 noundef %608, ptr noundef %609, i32 noundef 0, i32 noundef 0, i32 noundef %612)
-  br label %614
+602:                                              ; preds = %595
+  %603 = load ptr, ptr %10, align 8
+  %604 = load i32, ptr @hf_wlan_radio_11n_ness, align 4
+  %605 = load ptr, ptr %5, align 8
+  %606 = load ptr, ptr %35, align 8
+  %607 = getelementptr inbounds nuw %struct.ieee_802_11n, ptr %606, i32 0, i32 4
+  %608 = load i32, ptr %607, align 4
+  %609 = call ptr @proto_tree_add_uint(ptr noundef %603, i32 noundef %604, ptr noundef %605, i32 noundef 0, i32 noundef 0, i32 noundef %608)
+  br label %610
 
-614:                                              ; preds = %606, %599
-  br label %1095
+610:                                              ; preds = %602, %595
+  call void @llvm.lifetime.end.p0(i64 4, ptr %36) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #10
+  br label %1325
 
-615:                                              ; preds = %325
-  %616 = load ptr, ptr %26, align 8
-  store ptr %616, ptr %37, align 8
-  %617 = load ptr, ptr %37, align 8
-  %618 = load i16, ptr %617, align 4
-  %619 = lshr i16 %618, 2
-  %620 = and i16 %619, 1
-  %621 = zext i16 %620 to i32
-  %622 = icmp ne i32 %621, 0
-  br i1 %622, label %623, label %634
+611:                                              ; preds = %314
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #10
+  %612 = load ptr, ptr %26, align 8
+  store ptr %612, ptr %37, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %38) #10
+  %613 = load ptr, ptr %37, align 8
+  %614 = load i16, ptr %613, align 4
+  %615 = lshr i16 %614, 2
+  %616 = and i16 %615, 1
+  %617 = zext i16 %616 to i32
+  %618 = icmp ne i32 %617, 0
+  br i1 %618, label %619, label %630
 
-623:                                              ; preds = %615
-  store i32 1, ptr %16, align 4
-  %624 = load ptr, ptr %10, align 8
-  %625 = load i32, ptr @hf_wlan_radio_11ac_short_gi, align 4
-  %626 = load ptr, ptr %5, align 8
-  %627 = load ptr, ptr %37, align 8
-  %628 = load i16, ptr %627, align 4
-  %629 = lshr i16 %628, 12
-  %630 = and i16 %629, 1
-  %631 = zext i16 %630 to i32
-  %632 = zext i32 %631 to i64
-  %633 = call ptr @proto_tree_add_boolean(ptr noundef %624, i32 noundef %625, ptr noundef %626, i32 noundef 0, i32 noundef 0, i64 noundef %632)
-  br label %635
+619:                                              ; preds = %611
+  store i8 1, ptr %16, align 1
+  %620 = load ptr, ptr %10, align 8
+  %621 = load i32, ptr @hf_wlan_radio_11ac_short_gi, align 4
+  %622 = load ptr, ptr %5, align 8
+  %623 = load ptr, ptr %37, align 8
+  %624 = load i16, ptr %623, align 4
+  %625 = lshr i16 %624, 12
+  %626 = and i16 %625, 1
+  %627 = zext i16 %626 to i32
+  %628 = zext i32 %627 to i64
+  %629 = call ptr @proto_tree_add_boolean(ptr noundef %620, i32 noundef %621, ptr noundef %622, i32 noundef 0, i32 noundef 0, i64 noundef %628)
+  br label %631
 
-634:                                              ; preds = %615
-  store i32 0, ptr %16, align 4
-  br label %635
+630:                                              ; preds = %611
+  store i8 0, ptr %16, align 1
+  br label %631
 
-635:                                              ; preds = %634, %623
-  %636 = load ptr, ptr %37, align 8
-  %637 = load i16, ptr %636, align 4
-  %638 = lshr i16 %637, 6
-  %639 = and i16 %638, 1
-  %640 = zext i16 %639 to i32
-  %641 = icmp ne i32 %640, 0
-  br i1 %641, label %642, label %665
+631:                                              ; preds = %630, %619
+  %632 = load ptr, ptr %37, align 8
+  %633 = load i16, ptr %632, align 4
+  %634 = lshr i16 %633, 6
+  %635 = and i16 %634, 1
+  %636 = zext i16 %635 to i32
+  %637 = icmp ne i32 %636, 0
+  br i1 %637, label %638, label %661
 
-642:                                              ; preds = %635
-  %643 = load ptr, ptr %10, align 8
-  %644 = load i32, ptr @hf_wlan_radio_11ac_bandwidth, align 4
-  %645 = load ptr, ptr %5, align 8
-  %646 = load ptr, ptr %37, align 8
-  %647 = getelementptr inbounds %struct.ieee_802_11ac, ptr %646, i32 0, i32 1
-  %648 = load i8, ptr %647, align 2
-  %649 = zext i8 %648 to i32
-  %650 = call ptr @proto_tree_add_uint(ptr noundef %643, i32 noundef %644, ptr noundef %645, i32 noundef 0, i32 noundef 0, i32 noundef %649)
-  %651 = load ptr, ptr %37, align 8
-  %652 = getelementptr inbounds %struct.ieee_802_11ac, ptr %651, i32 0, i32 1
-  %653 = load i8, ptr %652, align 2
-  %654 = zext i8 %653 to i64
-  %655 = icmp ult i64 %654, 26
-  br i1 %655, label %656, label %663
+638:                                              ; preds = %631
+  %639 = load ptr, ptr %10, align 8
+  %640 = load i32, ptr @hf_wlan_radio_11ac_bandwidth, align 4
+  %641 = load ptr, ptr %5, align 8
+  %642 = load ptr, ptr %37, align 8
+  %643 = getelementptr inbounds nuw %struct.ieee_802_11ac, ptr %642, i32 0, i32 1
+  %644 = load i8, ptr %643, align 2
+  %645 = zext i8 %644 to i32
+  %646 = call ptr @proto_tree_add_uint(ptr noundef %639, i32 noundef %640, ptr noundef %641, i32 noundef 0, i32 noundef 0, i32 noundef %645)
+  %647 = load ptr, ptr %37, align 8
+  %648 = getelementptr inbounds nuw %struct.ieee_802_11ac, ptr %647, i32 0, i32 1
+  %649 = load i8, ptr %648, align 2
+  %650 = zext i8 %649 to i64
+  %651 = icmp ult i64 %650, 26
+  br i1 %651, label %652, label %659
 
-656:                                              ; preds = %642
-  %657 = load ptr, ptr %37, align 8
-  %658 = getelementptr inbounds %struct.ieee_802_11ac, ptr %657, i32 0, i32 1
-  %659 = load i8, ptr %658, align 2
-  %660 = zext i8 %659 to i64
-  %661 = getelementptr [26 x i32], ptr @ieee80211_vht_bw2rate_index, i64 0, i64 %660
-  %662 = load i32, ptr %661, align 4
-  store i32 %662, ptr %15, align 4
-  br label %664
+652:                                              ; preds = %638
+  %653 = load ptr, ptr %37, align 8
+  %654 = getelementptr inbounds nuw %struct.ieee_802_11ac, ptr %653, i32 0, i32 1
+  %655 = load i8, ptr %654, align 2
+  %656 = zext i8 %655 to i64
+  %657 = getelementptr [26 x i32], ptr @ieee80211_vht_bw2rate_index, i64 0, i64 %656
+  %658 = load i32, ptr %657, align 4
+  store i32 %658, ptr %15, align 4
+  br label %660
 
-663:                                              ; preds = %642
-  store i32 0, ptr %16, align 4
-  br label %664
+659:                                              ; preds = %638
+  store i8 0, ptr %16, align 1
+  br label %660
 
-664:                                              ; preds = %663, %656
-  br label %666
+660:                                              ; preds = %659, %652
+  br label %662
 
-665:                                              ; preds = %635
-  store i32 0, ptr %16, align 4
-  br label %666
+661:                                              ; preds = %631
+  store i8 0, ptr %16, align 1
+  br label %662
 
-666:                                              ; preds = %665, %664
-  %667 = load ptr, ptr %37, align 8
-  %668 = load i16, ptr %667, align 4
-  %669 = and i16 %668, 1
-  %670 = zext i16 %669 to i32
-  %671 = icmp ne i32 %670, 0
-  br i1 %671, label %672, label %683
+662:                                              ; preds = %661, %660
+  %663 = load ptr, ptr %37, align 8
+  %664 = load i16, ptr %663, align 4
+  %665 = and i16 %664, 1
+  %666 = zext i16 %665 to i32
+  %667 = icmp ne i32 %666, 0
+  br i1 %667, label %668, label %679
 
-672:                                              ; preds = %666
-  %673 = load ptr, ptr %10, align 8
-  %674 = load i32, ptr @hf_wlan_radio_11ac_stbc, align 4
-  %675 = load ptr, ptr %5, align 8
-  %676 = load ptr, ptr %37, align 8
-  %677 = load i16, ptr %676, align 4
-  %678 = lshr i16 %677, 10
-  %679 = and i16 %678, 1
-  %680 = zext i16 %679 to i32
-  %681 = zext i32 %680 to i64
-  %682 = call ptr @proto_tree_add_boolean(ptr noundef %673, i32 noundef %674, ptr noundef %675, i32 noundef 0, i32 noundef 0, i64 noundef %681)
-  br label %683
+668:                                              ; preds = %662
+  %669 = load ptr, ptr %10, align 8
+  %670 = load i32, ptr @hf_wlan_radio_11ac_stbc, align 4
+  %671 = load ptr, ptr %5, align 8
+  %672 = load ptr, ptr %37, align 8
+  %673 = load i16, ptr %672, align 4
+  %674 = lshr i16 %673, 10
+  %675 = and i16 %674, 1
+  %676 = zext i16 %675 to i32
+  %677 = zext i32 %676 to i64
+  %678 = call ptr @proto_tree_add_boolean(ptr noundef %669, i32 noundef %670, ptr noundef %671, i32 noundef 0, i32 noundef 0, i64 noundef %677)
+  br label %679
 
-683:                                              ; preds = %672, %666
-  %684 = load ptr, ptr %37, align 8
-  %685 = load i16, ptr %684, align 4
-  %686 = lshr i16 %685, 1
-  %687 = and i16 %686, 1
-  %688 = zext i16 %687 to i32
-  %689 = icmp ne i32 %688, 0
-  br i1 %689, label %690, label %701
+679:                                              ; preds = %668, %662
+  %680 = load ptr, ptr %37, align 8
+  %681 = load i16, ptr %680, align 4
+  %682 = lshr i16 %681, 1
+  %683 = and i16 %682, 1
+  %684 = zext i16 %683 to i32
+  %685 = icmp ne i32 %684, 0
+  br i1 %685, label %686, label %697
 
-690:                                              ; preds = %683
-  %691 = load ptr, ptr %10, align 8
-  %692 = load i32, ptr @hf_wlan_radio_11ac_txop_ps_not_allowed, align 4
-  %693 = load ptr, ptr %5, align 8
-  %694 = load ptr, ptr %37, align 8
-  %695 = load i16, ptr %694, align 4
-  %696 = lshr i16 %695, 11
-  %697 = and i16 %696, 1
-  %698 = zext i16 %697 to i32
-  %699 = zext i32 %698 to i64
-  %700 = call ptr @proto_tree_add_boolean(ptr noundef %691, i32 noundef %692, ptr noundef %693, i32 noundef 0, i32 noundef 0, i64 noundef %699)
-  br label %701
+686:                                              ; preds = %679
+  %687 = load ptr, ptr %10, align 8
+  %688 = load i32, ptr @hf_wlan_radio_11ac_txop_ps_not_allowed, align 4
+  %689 = load ptr, ptr %5, align 8
+  %690 = load ptr, ptr %37, align 8
+  %691 = load i16, ptr %690, align 4
+  %692 = lshr i16 %691, 11
+  %693 = and i16 %692, 1
+  %694 = zext i16 %693 to i32
+  %695 = zext i32 %694 to i64
+  %696 = call ptr @proto_tree_add_boolean(ptr noundef %687, i32 noundef %688, ptr noundef %689, i32 noundef 0, i32 noundef 0, i64 noundef %695)
+  br label %697
 
-701:                                              ; preds = %690, %683
-  %702 = load ptr, ptr %37, align 8
-  %703 = load i16, ptr %702, align 4
-  %704 = lshr i16 %703, 3
-  %705 = and i16 %704, 1
-  %706 = zext i16 %705 to i32
-  %707 = icmp ne i32 %706, 0
-  br i1 %707, label %708, label %719
+697:                                              ; preds = %686, %679
+  %698 = load ptr, ptr %37, align 8
+  %699 = load i16, ptr %698, align 4
+  %700 = lshr i16 %699, 3
+  %701 = and i16 %700, 1
+  %702 = zext i16 %701 to i32
+  %703 = icmp ne i32 %702, 0
+  br i1 %703, label %704, label %715
 
-708:                                              ; preds = %701
-  %709 = load ptr, ptr %10, align 8
-  %710 = load i32, ptr @hf_wlan_radio_11ac_short_gi_nsym_disambig, align 4
-  %711 = load ptr, ptr %5, align 8
-  %712 = load ptr, ptr %37, align 8
-  %713 = load i16, ptr %712, align 4
-  %714 = lshr i16 %713, 13
-  %715 = and i16 %714, 1
-  %716 = zext i16 %715 to i32
-  %717 = zext i32 %716 to i64
-  %718 = call ptr @proto_tree_add_boolean(ptr noundef %709, i32 noundef %710, ptr noundef %711, i32 noundef 0, i32 noundef 0, i64 noundef %717)
-  br label %719
+704:                                              ; preds = %697
+  %705 = load ptr, ptr %10, align 8
+  %706 = load i32, ptr @hf_wlan_radio_11ac_short_gi_nsym_disambig, align 4
+  %707 = load ptr, ptr %5, align 8
+  %708 = load ptr, ptr %37, align 8
+  %709 = load i16, ptr %708, align 4
+  %710 = lshr i16 %709, 13
+  %711 = and i16 %710, 1
+  %712 = zext i16 %711 to i32
+  %713 = zext i32 %712 to i64
+  %714 = call ptr @proto_tree_add_boolean(ptr noundef %705, i32 noundef %706, ptr noundef %707, i32 noundef 0, i32 noundef 0, i64 noundef %713)
+  br label %715
 
-719:                                              ; preds = %708, %701
-  %720 = load ptr, ptr %37, align 8
-  %721 = load i16, ptr %720, align 4
-  %722 = lshr i16 %721, 4
-  %723 = and i16 %722, 1
-  %724 = zext i16 %723 to i32
-  %725 = icmp ne i32 %724, 0
-  br i1 %725, label %726, label %737
+715:                                              ; preds = %704, %697
+  %716 = load ptr, ptr %37, align 8
+  %717 = load i16, ptr %716, align 4
+  %718 = lshr i16 %717, 4
+  %719 = and i16 %718, 1
+  %720 = zext i16 %719 to i32
+  %721 = icmp ne i32 %720, 0
+  br i1 %721, label %722, label %733
 
-726:                                              ; preds = %719
-  %727 = load ptr, ptr %10, align 8
-  %728 = load i32, ptr @hf_wlan_radio_11ac_ldpc_extra_ofdm_symbol, align 4
-  %729 = load ptr, ptr %5, align 8
-  %730 = load ptr, ptr %37, align 8
-  %731 = load i16, ptr %730, align 4
-  %732 = lshr i16 %731, 14
-  %733 = and i16 %732, 1
-  %734 = zext i16 %733 to i32
-  %735 = zext i32 %734 to i64
-  %736 = call ptr @proto_tree_add_boolean(ptr noundef %727, i32 noundef %728, ptr noundef %729, i32 noundef 0, i32 noundef 0, i64 noundef %735)
-  br label %737
+722:                                              ; preds = %715
+  %723 = load ptr, ptr %10, align 8
+  %724 = load i32, ptr @hf_wlan_radio_11ac_ldpc_extra_ofdm_symbol, align 4
+  %725 = load ptr, ptr %5, align 8
+  %726 = load ptr, ptr %37, align 8
+  %727 = load i16, ptr %726, align 4
+  %728 = lshr i16 %727, 14
+  %729 = and i16 %728, 1
+  %730 = zext i16 %729 to i32
+  %731 = zext i32 %730 to i64
+  %732 = call ptr @proto_tree_add_boolean(ptr noundef %723, i32 noundef %724, ptr noundef %725, i32 noundef 0, i32 noundef 0, i64 noundef %731)
+  br label %733
 
-737:                                              ; preds = %726, %719
-  %738 = load ptr, ptr %37, align 8
-  %739 = load i16, ptr %738, align 4
-  %740 = lshr i16 %739, 5
-  %741 = and i16 %740, 1
-  %742 = zext i16 %741 to i32
-  %743 = icmp ne i32 %742, 0
-  br i1 %743, label %744, label %754
+733:                                              ; preds = %722, %715
+  %734 = load ptr, ptr %37, align 8
+  %735 = load i16, ptr %734, align 4
+  %736 = lshr i16 %735, 5
+  %737 = and i16 %736, 1
+  %738 = zext i16 %737 to i32
+  %739 = icmp ne i32 %738, 0
+  br i1 %739, label %740, label %750
 
-744:                                              ; preds = %737
-  %745 = load ptr, ptr %10, align 8
-  %746 = load i32, ptr @hf_wlan_radio_11ac_beamformed, align 4
-  %747 = load ptr, ptr %5, align 8
-  %748 = load ptr, ptr %37, align 8
-  %749 = load i16, ptr %748, align 4
-  %750 = lshr i16 %749, 15
-  %751 = zext i16 %750 to i32
-  %752 = zext i32 %751 to i64
-  %753 = call ptr @proto_tree_add_boolean(ptr noundef %745, i32 noundef %746, ptr noundef %747, i32 noundef 0, i32 noundef 0, i64 noundef %752)
-  br label %754
+740:                                              ; preds = %733
+  %741 = load ptr, ptr %10, align 8
+  %742 = load i32, ptr @hf_wlan_radio_11ac_beamformed, align 4
+  %743 = load ptr, ptr %5, align 8
+  %744 = load ptr, ptr %37, align 8
+  %745 = load i16, ptr %744, align 4
+  %746 = lshr i16 %745, 15
+  %747 = zext i16 %746 to i32
+  %748 = zext i32 %747 to i64
+  %749 = call ptr @proto_tree_add_boolean(ptr noundef %741, i32 noundef %742, ptr noundef %743, i32 noundef 0, i32 noundef 0, i64 noundef %748)
+  br label %750
 
-754:                                              ; preds = %744, %737
+750:                                              ; preds = %740, %733
   store i32 0, ptr %38, align 4
-  br label %755
+  br label %751
 
-755:                                              ; preds = %969, %754
-  %756 = load i32, ptr %38, align 4
-  %757 = icmp ult i32 %756, 4
-  br i1 %757, label %758, label %972
+751:                                              ; preds = %966, %750
+  %752 = load i32, ptr %38, align 4
+  %753 = icmp ult i32 %752, 4
+  br i1 %753, label %754, label %969
 
-758:                                              ; preds = %755
-  %759 = load ptr, ptr %37, align 8
-  %760 = getelementptr inbounds %struct.ieee_802_11ac, ptr %759, i32 0, i32 3
-  %761 = load i32, ptr %38, align 4
-  %762 = zext i32 %761 to i64
-  %763 = getelementptr [4 x i8], ptr %760, i64 0, i64 %762
-  %764 = load i8, ptr %763, align 1
-  %765 = zext i8 %764 to i32
-  %766 = icmp ne i32 %765, 0
-  br i1 %766, label %767, label %968
+754:                                              ; preds = %751
+  %755 = load ptr, ptr %37, align 8
+  %756 = getelementptr inbounds nuw %struct.ieee_802_11ac, ptr %755, i32 0, i32 3
+  %757 = load i32, ptr %38, align 4
+  %758 = zext i32 %757 to i64
+  %759 = getelementptr [4 x i8], ptr %756, i64 0, i64 %758
+  %760 = load i8, ptr %759, align 1
+  %761 = zext i8 %760 to i32
+  %762 = icmp ne i32 %761, 0
+  br i1 %762, label %763, label %965
 
-767:                                              ; preds = %758
-  %768 = load ptr, ptr %10, align 8
-  %769 = load i32, ptr @hf_wlan_radio_11ac_user, align 4
-  %770 = load ptr, ptr %5, align 8
-  %771 = call ptr @proto_tree_add_item(ptr noundef %768, i32 noundef %769, ptr noundef %770, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  store ptr %771, ptr %39, align 8
-  %772 = load ptr, ptr %39, align 8
-  %773 = load i32, ptr %38, align 4
-  %774 = load ptr, ptr %37, align 8
-  %775 = getelementptr inbounds %struct.ieee_802_11ac, ptr %774, i32 0, i32 2
-  %776 = load i32, ptr %38, align 4
-  %777 = zext i32 %776 to i64
-  %778 = getelementptr [4 x i8], ptr %775, i64 0, i64 %777
-  %779 = load i8, ptr %778, align 1
-  %780 = zext i8 %779 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %772, ptr noundef @.str.198, i32 noundef %773, i32 noundef %780)
-  %781 = load ptr, ptr %39, align 8
-  %782 = load i32, ptr @ett_wlan_radio_11ac_user, align 4
-  %783 = call ptr @proto_item_add_subtree(ptr noundef %781, i32 noundef %782)
-  store ptr %783, ptr %40, align 8
-  %784 = load ptr, ptr %40, align 8
-  %785 = load i32, ptr @hf_wlan_radio_11ac_mcs, align 4
-  %786 = load ptr, ptr %5, align 8
-  %787 = load ptr, ptr %37, align 8
-  %788 = getelementptr inbounds %struct.ieee_802_11ac, ptr %787, i32 0, i32 2
-  %789 = load i32, ptr %38, align 4
-  %790 = zext i32 %789 to i64
-  %791 = getelementptr [4 x i8], ptr %788, i64 0, i64 %790
-  %792 = load i8, ptr %791, align 1
-  %793 = zext i8 %792 to i32
-  %794 = call ptr @proto_tree_add_uint(ptr noundef %784, i32 noundef %785, ptr noundef %786, i32 noundef 0, i32 noundef 0, i32 noundef %793)
-  store ptr %794, ptr %39, align 8
-  %795 = load ptr, ptr %37, align 8
-  %796 = getelementptr inbounds %struct.ieee_802_11ac, ptr %795, i32 0, i32 2
-  %797 = load i32, ptr %38, align 4
-  %798 = zext i32 %797 to i64
-  %799 = getelementptr [4 x i8], ptr %796, i64 0, i64 %798
-  %800 = load i8, ptr %799, align 1
-  %801 = zext i8 %800 to i32
-  %802 = icmp sgt i32 %801, 9
-  br i1 %802, label %803, label %805
+763:                                              ; preds = %754
+  call void @llvm.lifetime.start.p0(i64 8, ptr %39) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %40) #10
+  %764 = load ptr, ptr %10, align 8
+  %765 = load i32, ptr @hf_wlan_radio_11ac_user, align 4
+  %766 = load ptr, ptr %5, align 8
+  %767 = call ptr @proto_tree_add_item(ptr noundef %764, i32 noundef %765, ptr noundef %766, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  store ptr %767, ptr %39, align 8
+  %768 = load ptr, ptr %39, align 8
+  %769 = load i32, ptr %38, align 4
+  %770 = load ptr, ptr %37, align 8
+  %771 = getelementptr inbounds nuw %struct.ieee_802_11ac, ptr %770, i32 0, i32 2
+  %772 = load i32, ptr %38, align 4
+  %773 = zext i32 %772 to i64
+  %774 = getelementptr [4 x i8], ptr %771, i64 0, i64 %773
+  %775 = load i8, ptr %774, align 1
+  %776 = zext i8 %775 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %768, ptr noundef @.str.214, i32 noundef %769, i32 noundef %776)
+  %777 = load ptr, ptr %39, align 8
+  %778 = load i32, ptr @ett_wlan_radio_11ac_user, align 4
+  %779 = call ptr @proto_item_add_subtree(ptr noundef %777, i32 noundef %778)
+  store ptr %779, ptr %40, align 8
+  %780 = load ptr, ptr %40, align 8
+  %781 = load i32, ptr @hf_wlan_radio_11ac_mcs, align 4
+  %782 = load ptr, ptr %5, align 8
+  %783 = load ptr, ptr %37, align 8
+  %784 = getelementptr inbounds nuw %struct.ieee_802_11ac, ptr %783, i32 0, i32 2
+  %785 = load i32, ptr %38, align 4
+  %786 = zext i32 %785 to i64
+  %787 = getelementptr [4 x i8], ptr %784, i64 0, i64 %786
+  %788 = load i8, ptr %787, align 1
+  %789 = zext i8 %788 to i32
+  %790 = call ptr @proto_tree_add_uint(ptr noundef %780, i32 noundef %781, ptr noundef %782, i32 noundef 0, i32 noundef 0, i32 noundef %789)
+  store ptr %790, ptr %39, align 8
+  %791 = load ptr, ptr %37, align 8
+  %792 = getelementptr inbounds nuw %struct.ieee_802_11ac, ptr %791, i32 0, i32 2
+  %793 = load i32, ptr %38, align 4
+  %794 = zext i32 %793 to i64
+  %795 = getelementptr [4 x i8], ptr %792, i64 0, i64 %794
+  %796 = load i8, ptr %795, align 1
+  %797 = zext i8 %796 to i32
+  %798 = icmp sgt i32 %797, 9
+  br i1 %798, label %799, label %801
 
-803:                                              ; preds = %767
-  %804 = load ptr, ptr %39, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %804, ptr noundef @.str.199)
-  br label %827
+799:                                              ; preds = %763
+  %800 = load ptr, ptr %39, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %800, ptr noundef @.str.215)
+  br label %823
 
-805:                                              ; preds = %767
-  %806 = load ptr, ptr %39, align 8
-  %807 = load ptr, ptr %37, align 8
-  %808 = getelementptr inbounds %struct.ieee_802_11ac, ptr %807, i32 0, i32 2
-  %809 = load i32, ptr %38, align 4
-  %810 = zext i32 %809 to i64
-  %811 = getelementptr [4 x i8], ptr %808, i64 0, i64 %810
-  %812 = load i8, ptr %811, align 1
-  %813 = zext i8 %812 to i64
-  %814 = getelementptr [10 x %struct.mcs_vht_info], ptr @ieee80211_vhtinfo, i64 0, i64 %813
-  %815 = getelementptr inbounds %struct.mcs_vht_info, ptr %814, i32 0, i32 0
-  %816 = load ptr, ptr %815, align 8
-  %817 = load ptr, ptr %37, align 8
-  %818 = getelementptr inbounds %struct.ieee_802_11ac, ptr %817, i32 0, i32 2
-  %819 = load i32, ptr %38, align 4
-  %820 = zext i32 %819 to i64
-  %821 = getelementptr [4 x i8], ptr %818, i64 0, i64 %820
-  %822 = load i8, ptr %821, align 1
-  %823 = zext i8 %822 to i64
-  %824 = getelementptr [10 x %struct.mcs_vht_info], ptr @ieee80211_vhtinfo, i64 0, i64 %823
-  %825 = getelementptr inbounds %struct.mcs_vht_info, ptr %824, i32 0, i32 1
-  %826 = load ptr, ptr %825, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %806, ptr noundef @.str.200, ptr noundef %816, ptr noundef %826)
-  br label %827
+801:                                              ; preds = %763
+  %802 = load ptr, ptr %39, align 8
+  %803 = load ptr, ptr %37, align 8
+  %804 = getelementptr inbounds nuw %struct.ieee_802_11ac, ptr %803, i32 0, i32 2
+  %805 = load i32, ptr %38, align 4
+  %806 = zext i32 %805 to i64
+  %807 = getelementptr [4 x i8], ptr %804, i64 0, i64 %806
+  %808 = load i8, ptr %807, align 1
+  %809 = zext i8 %808 to i64
+  %810 = getelementptr [16 x %struct.mcs_info], ptr @ieee80211_mcsinfo, i64 0, i64 %809
+  %811 = getelementptr inbounds nuw %struct.mcs_info, ptr %810, i32 0, i32 0
+  %812 = load ptr, ptr %811, align 8
+  %813 = load ptr, ptr %37, align 8
+  %814 = getelementptr inbounds nuw %struct.ieee_802_11ac, ptr %813, i32 0, i32 2
+  %815 = load i32, ptr %38, align 4
+  %816 = zext i32 %815 to i64
+  %817 = getelementptr [4 x i8], ptr %814, i64 0, i64 %816
+  %818 = load i8, ptr %817, align 1
+  %819 = zext i8 %818 to i64
+  %820 = getelementptr [16 x %struct.mcs_info], ptr @ieee80211_mcsinfo, i64 0, i64 %819
+  %821 = getelementptr inbounds nuw %struct.mcs_info, ptr %820, i32 0, i32 1
+  %822 = load ptr, ptr %821, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %802, ptr noundef @.str.216, ptr noundef %812, ptr noundef %822)
+  br label %823
 
-827:                                              ; preds = %805, %803
-  %828 = load ptr, ptr %40, align 8
-  %829 = load i32, ptr @hf_wlan_radio_11ac_nss, align 4
-  %830 = load ptr, ptr %5, align 8
-  %831 = load ptr, ptr %37, align 8
-  %832 = getelementptr inbounds %struct.ieee_802_11ac, ptr %831, i32 0, i32 3
-  %833 = load i32, ptr %38, align 4
-  %834 = zext i32 %833 to i64
-  %835 = getelementptr [4 x i8], ptr %832, i64 0, i64 %834
-  %836 = load i8, ptr %835, align 1
-  %837 = zext i8 %836 to i32
-  %838 = call ptr @proto_tree_add_uint(ptr noundef %828, i32 noundef %829, ptr noundef %830, i32 noundef 0, i32 noundef 0, i32 noundef %837)
-  %839 = load ptr, ptr %37, align 8
-  %840 = load i16, ptr %839, align 4
-  %841 = and i16 %840, 1
-  %842 = zext i16 %841 to i32
-  %843 = icmp ne i32 %842, 0
-  br i1 %843, label %844, label %874
+823:                                              ; preds = %801, %799
+  %824 = load ptr, ptr %40, align 8
+  %825 = load i32, ptr @hf_wlan_radio_11ac_nss, align 4
+  %826 = load ptr, ptr %5, align 8
+  %827 = load ptr, ptr %37, align 8
+  %828 = getelementptr inbounds nuw %struct.ieee_802_11ac, ptr %827, i32 0, i32 3
+  %829 = load i32, ptr %38, align 4
+  %830 = zext i32 %829 to i64
+  %831 = getelementptr [4 x i8], ptr %828, i64 0, i64 %830
+  %832 = load i8, ptr %831, align 1
+  %833 = zext i8 %832 to i32
+  %834 = call ptr @proto_tree_add_uint(ptr noundef %824, i32 noundef %825, ptr noundef %826, i32 noundef 0, i32 noundef 0, i32 noundef %833)
+  %835 = load ptr, ptr %37, align 8
+  %836 = load i16, ptr %835, align 4
+  %837 = and i16 %836, 1
+  %838 = zext i16 %837 to i32
+  %839 = icmp ne i32 %838, 0
+  br i1 %839, label %840, label %870
 
-844:                                              ; preds = %827
-  %845 = load ptr, ptr %37, align 8
-  %846 = load i16, ptr %845, align 4
-  %847 = lshr i16 %846, 10
-  %848 = and i16 %847, 1
-  %849 = zext i16 %848 to i32
-  %850 = icmp ne i32 %849, 0
-  br i1 %850, label %851, label %860
+840:                                              ; preds = %823
+  call void @llvm.lifetime.start.p0(i64 4, ptr %41) #10
+  %841 = load ptr, ptr %37, align 8
+  %842 = load i16, ptr %841, align 4
+  %843 = lshr i16 %842, 10
+  %844 = and i16 %843, 1
+  %845 = zext i16 %844 to i32
+  %846 = icmp ne i32 %845, 0
+  br i1 %846, label %847, label %856
 
-851:                                              ; preds = %844
-  %852 = load ptr, ptr %37, align 8
-  %853 = getelementptr inbounds %struct.ieee_802_11ac, ptr %852, i32 0, i32 3
-  %854 = load i32, ptr %38, align 4
-  %855 = zext i32 %854 to i64
-  %856 = getelementptr [4 x i8], ptr %853, i64 0, i64 %855
-  %857 = load i8, ptr %856, align 1
-  %858 = zext i8 %857 to i32
-  %859 = mul i32 2, %858
-  store i32 %859, ptr %41, align 4
-  br label %868
+847:                                              ; preds = %840
+  %848 = load ptr, ptr %37, align 8
+  %849 = getelementptr inbounds nuw %struct.ieee_802_11ac, ptr %848, i32 0, i32 3
+  %850 = load i32, ptr %38, align 4
+  %851 = zext i32 %850 to i64
+  %852 = getelementptr [4 x i8], ptr %849, i64 0, i64 %851
+  %853 = load i8, ptr %852, align 1
+  %854 = zext i8 %853 to i32
+  %855 = mul i32 2, %854
+  store i32 %855, ptr %41, align 4
+  br label %864
 
-860:                                              ; preds = %844
-  %861 = load ptr, ptr %37, align 8
-  %862 = getelementptr inbounds %struct.ieee_802_11ac, ptr %861, i32 0, i32 3
-  %863 = load i32, ptr %38, align 4
-  %864 = zext i32 %863 to i64
-  %865 = getelementptr [4 x i8], ptr %862, i64 0, i64 %864
-  %866 = load i8, ptr %865, align 1
-  %867 = zext i8 %866 to i32
-  store i32 %867, ptr %41, align 4
-  br label %868
+856:                                              ; preds = %840
+  %857 = load ptr, ptr %37, align 8
+  %858 = getelementptr inbounds nuw %struct.ieee_802_11ac, ptr %857, i32 0, i32 3
+  %859 = load i32, ptr %38, align 4
+  %860 = zext i32 %859 to i64
+  %861 = getelementptr [4 x i8], ptr %858, i64 0, i64 %860
+  %862 = load i8, ptr %861, align 1
+  %863 = zext i8 %862 to i32
+  store i32 %863, ptr %41, align 4
+  br label %864
 
-868:                                              ; preds = %860, %851
-  %869 = load ptr, ptr %40, align 8
-  %870 = load i32, ptr @hf_wlan_radio_11ac_nsts, align 4
-  %871 = load ptr, ptr %5, align 8
-  %872 = load i32, ptr %41, align 4
-  %873 = call ptr @proto_tree_add_uint(ptr noundef %869, i32 noundef %870, ptr noundef %871, i32 noundef 0, i32 noundef 0, i32 noundef %872)
-  br label %874
+864:                                              ; preds = %856, %847
+  %865 = load ptr, ptr %40, align 8
+  %866 = load i32, ptr @hf_wlan_radio_11ac_nsts, align 4
+  %867 = load ptr, ptr %5, align 8
+  %868 = load i32, ptr %41, align 4
+  %869 = call ptr @proto_tree_add_uint(ptr noundef %865, i32 noundef %866, ptr noundef %867, i32 noundef 0, i32 noundef 0, i32 noundef %868)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %41) #10
+  br label %870
 
-874:                                              ; preds = %868, %827
-  %875 = load ptr, ptr %37, align 8
-  %876 = load i16, ptr %875, align 4
-  %877 = lshr i16 %876, 7
-  %878 = and i16 %877, 1
-  %879 = zext i16 %878 to i32
-  %880 = icmp ne i32 %879, 0
-  br i1 %880, label %881, label %893
+870:                                              ; preds = %864, %823
+  %871 = load ptr, ptr %37, align 8
+  %872 = load i16, ptr %871, align 4
+  %873 = lshr i16 %872, 7
+  %874 = and i16 %873, 1
+  %875 = zext i16 %874 to i32
+  %876 = icmp ne i32 %875, 0
+  br i1 %876, label %877, label %889
 
-881:                                              ; preds = %874
-  %882 = load ptr, ptr %40, align 8
-  %883 = load i32, ptr @hf_wlan_radio_11ac_fec, align 4
-  %884 = load ptr, ptr %5, align 8
-  %885 = load ptr, ptr %37, align 8
-  %886 = getelementptr inbounds %struct.ieee_802_11ac, ptr %885, i32 0, i32 4
-  %887 = load i8, ptr %886, align 1
-  %888 = zext i8 %887 to i32
-  %889 = load i32, ptr %38, align 4
-  %890 = ashr i32 %888, %889
-  %891 = and i32 %890, 1
-  %892 = call ptr @proto_tree_add_uint(ptr noundef %882, i32 noundef %883, ptr noundef %884, i32 noundef 0, i32 noundef 0, i32 noundef %891)
-  br label %893
+877:                                              ; preds = %870
+  %878 = load ptr, ptr %40, align 8
+  %879 = load i32, ptr @hf_wlan_radio_11ac_fec, align 4
+  %880 = load ptr, ptr %5, align 8
+  %881 = load ptr, ptr %37, align 8
+  %882 = getelementptr inbounds nuw %struct.ieee_802_11ac, ptr %881, i32 0, i32 4
+  %883 = load i8, ptr %882, align 1
+  %884 = zext i8 %883 to i32
+  %885 = load i32, ptr %38, align 4
+  %886 = ashr i32 %884, %885
+  %887 = and i32 %886, 1
+  %888 = call ptr @proto_tree_add_uint(ptr noundef %878, i32 noundef %879, ptr noundef %880, i32 noundef 0, i32 noundef 0, i32 noundef %887)
+  br label %889
 
-893:                                              ; preds = %881, %874
-  %894 = load i32, ptr %16, align 4
-  %895 = icmp ne i32 %894, 0
-  br i1 %895, label %896, label %967
+889:                                              ; preds = %877, %870
+  %890 = load i8, ptr %16, align 1, !range !6, !noundef !7
+  %891 = trunc i8 %890 to i1
+  br i1 %891, label %892, label %964
 
-896:                                              ; preds = %893
-  %897 = load ptr, ptr %37, align 8
-  %898 = getelementptr inbounds %struct.ieee_802_11ac, ptr %897, i32 0, i32 2
-  %899 = load i32, ptr %38, align 4
-  %900 = zext i32 %899 to i64
-  %901 = getelementptr [4 x i8], ptr %898, i64 0, i64 %900
-  %902 = load i8, ptr %901, align 1
-  %903 = zext i8 %902 to i32
-  %904 = icmp sle i32 %903, 9
-  br i1 %904, label %905, label %967
+892:                                              ; preds = %889
+  %893 = load ptr, ptr %37, align 8
+  %894 = getelementptr inbounds nuw %struct.ieee_802_11ac, ptr %893, i32 0, i32 2
+  %895 = load i32, ptr %38, align 4
+  %896 = zext i32 %895 to i64
+  %897 = getelementptr [4 x i8], ptr %894, i64 0, i64 %896
+  %898 = load i8, ptr %897, align 1
+  %899 = zext i8 %898 to i32
+  %900 = icmp sle i32 %899, 9
+  br i1 %900, label %901, label %964
 
-905:                                              ; preds = %896
-  %906 = load ptr, ptr %37, align 8
-  %907 = getelementptr inbounds %struct.ieee_802_11ac, ptr %906, i32 0, i32 3
-  %908 = load i32, ptr %38, align 4
-  %909 = zext i32 %908 to i64
-  %910 = getelementptr [4 x i8], ptr %907, i64 0, i64 %909
-  %911 = load i8, ptr %910, align 1
-  %912 = zext i8 %911 to i32
-  %913 = icmp sle i32 %912, 8
-  br i1 %913, label %914, label %967
+901:                                              ; preds = %892
+  %902 = load ptr, ptr %37, align 8
+  %903 = getelementptr inbounds nuw %struct.ieee_802_11ac, ptr %902, i32 0, i32 3
+  %904 = load i32, ptr %38, align 4
+  %905 = zext i32 %904 to i64
+  %906 = getelementptr [4 x i8], ptr %903, i64 0, i64 %905
+  %907 = load i8, ptr %906, align 1
+  %908 = zext i8 %907 to i32
+  %909 = icmp sle i32 %908, 8
+  br i1 %909, label %910, label %964
 
-914:                                              ; preds = %905
-  %915 = load ptr, ptr %37, align 8
-  %916 = getelementptr inbounds %struct.ieee_802_11ac, ptr %915, i32 0, i32 2
-  %917 = load i32, ptr %38, align 4
-  %918 = zext i32 %917 to i64
-  %919 = getelementptr [4 x i8], ptr %916, i64 0, i64 %918
-  %920 = load i8, ptr %919, align 1
-  %921 = zext i8 %920 to i64
-  %922 = getelementptr [10 x %struct.mcs_vht_valid], ptr @ieee80211_vhtvalid, i64 0, i64 %921
-  %923 = getelementptr inbounds %struct.mcs_vht_valid, ptr %922, i32 0, i32 0
-  %924 = load i32, ptr %15, align 4
-  %925 = zext i32 %924 to i64
-  %926 = getelementptr [4 x [8 x i32]], ptr %923, i64 0, i64 %925
-  %927 = load ptr, ptr %37, align 8
-  %928 = getelementptr inbounds %struct.ieee_802_11ac, ptr %927, i32 0, i32 3
-  %929 = load i32, ptr %38, align 4
-  %930 = zext i32 %929 to i64
-  %931 = getelementptr [4 x i8], ptr %928, i64 0, i64 %930
-  %932 = load i8, ptr %931, align 1
-  %933 = zext i8 %932 to i32
-  %934 = sub i32 %933, 1
-  %935 = sext i32 %934 to i64
-  %936 = getelementptr [8 x i32], ptr %926, i64 0, i64 %935
-  %937 = load i32, ptr %936, align 4
-  %938 = icmp ne i32 %937, 0
-  br i1 %938, label %939, label %967
+910:                                              ; preds = %901
+  %911 = load ptr, ptr %37, align 8
+  %912 = getelementptr inbounds nuw %struct.ieee_802_11ac, ptr %911, i32 0, i32 2
+  %913 = load i32, ptr %38, align 4
+  %914 = zext i32 %913 to i64
+  %915 = getelementptr [4 x i8], ptr %912, i64 0, i64 %914
+  %916 = load i8, ptr %915, align 1
+  %917 = zext i8 %916 to i64
+  %918 = getelementptr [10 x %struct.mcs_vht_valid], ptr @ieee80211_vhtvalid, i64 0, i64 %917
+  %919 = getelementptr inbounds nuw %struct.mcs_vht_valid, ptr %918, i32 0, i32 0
+  %920 = load i32, ptr %15, align 4
+  %921 = zext i32 %920 to i64
+  %922 = getelementptr [4 x [8 x i8]], ptr %919, i64 0, i64 %921
+  %923 = load ptr, ptr %37, align 8
+  %924 = getelementptr inbounds nuw %struct.ieee_802_11ac, ptr %923, i32 0, i32 3
+  %925 = load i32, ptr %38, align 4
+  %926 = zext i32 %925 to i64
+  %927 = getelementptr [4 x i8], ptr %924, i64 0, i64 %926
+  %928 = load i8, ptr %927, align 1
+  %929 = zext i8 %928 to i32
+  %930 = sub i32 %929, 1
+  %931 = sext i32 %930 to i64
+  %932 = getelementptr [8 x i8], ptr %922, i64 0, i64 %931
+  %933 = load i8, ptr %932, align 1, !range !6, !noundef !7
+  %934 = trunc i8 %933 to i1
+  br i1 %934, label %935, label %964
 
-939:                                              ; preds = %914
-  %940 = load ptr, ptr %37, align 8
-  %941 = getelementptr inbounds %struct.ieee_802_11ac, ptr %940, i32 0, i32 2
-  %942 = load i32, ptr %38, align 4
-  %943 = zext i32 %942 to i64
-  %944 = getelementptr [4 x i8], ptr %941, i64 0, i64 %943
-  %945 = load i8, ptr %944, align 1
-  %946 = zext i8 %945 to i32
-  %947 = load i32, ptr %15, align 4
-  %948 = load ptr, ptr %37, align 8
-  %949 = load i16, ptr %948, align 4
-  %950 = lshr i16 %949, 12
-  %951 = and i16 %950, 1
-  %952 = zext i16 %951 to i32
-  %953 = call float @ieee80211_vhtrate(i32 noundef %946, i32 noundef %947, i32 noundef %952)
-  %954 = load ptr, ptr %37, align 8
-  %955 = getelementptr inbounds %struct.ieee_802_11ac, ptr %954, i32 0, i32 3
-  %956 = load i32, ptr %38, align 4
-  %957 = zext i32 %956 to i64
-  %958 = getelementptr [4 x i8], ptr %955, i64 0, i64 %957
-  %959 = load i8, ptr %958, align 1
-  %960 = zext i8 %959 to i32
-  %961 = sitofp i32 %960 to float
-  %962 = fmul float %953, %961
-  store float %962, ptr %11, align 4
-  %963 = load float, ptr %11, align 4
-  %964 = fcmp une float %963, 0.000000e+00
-  br i1 %964, label %965, label %966
+935:                                              ; preds = %910
+  %936 = load ptr, ptr %37, align 8
+  %937 = getelementptr inbounds nuw %struct.ieee_802_11ac, ptr %936, i32 0, i32 2
+  %938 = load i32, ptr %38, align 4
+  %939 = zext i32 %938 to i64
+  %940 = getelementptr [4 x i8], ptr %937, i64 0, i64 %939
+  %941 = load i8, ptr %940, align 1
+  %942 = zext i8 %941 to i32
+  %943 = load i32, ptr %15, align 4
+  %944 = load ptr, ptr %37, align 8
+  %945 = load i16, ptr %944, align 4
+  %946 = lshr i16 %945, 12
+  %947 = and i16 %946, 1
+  %948 = zext i16 %947 to i32
+  %949 = icmp ne i32 %948, 0
+  %950 = call float @ieee80211_vhtrate(i32 noundef %942, i32 noundef %943, i1 noundef zeroext %949)
+  %951 = load ptr, ptr %37, align 8
+  %952 = getelementptr inbounds nuw %struct.ieee_802_11ac, ptr %951, i32 0, i32 3
+  %953 = load i32, ptr %38, align 4
+  %954 = zext i32 %953 to i64
+  %955 = getelementptr [4 x i8], ptr %952, i64 0, i64 %954
+  %956 = load i8, ptr %955, align 1
+  %957 = zext i8 %956 to i32
+  %958 = sitofp i32 %957 to float
+  %959 = fmul float %950, %958
+  store float %959, ptr %11, align 4
+  %960 = load float, ptr %11, align 4
+  %961 = fcmp une float %960, 0.000000e+00
+  br i1 %961, label %962, label %963
 
-965:                                              ; preds = %939
-  store i32 1, ptr %12, align 4
+962:                                              ; preds = %935
+  store i8 1, ptr %12, align 1
+  br label %963
+
+963:                                              ; preds = %962, %935
+  br label %964
+
+964:                                              ; preds = %963, %910, %901, %892, %889
+  call void @llvm.lifetime.end.p0(i64 8, ptr %40) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %39) #10
+  br label %965
+
+965:                                              ; preds = %964, %754
   br label %966
 
-966:                                              ; preds = %965, %939
-  br label %967
+966:                                              ; preds = %965
+  %967 = load i32, ptr %38, align 4
+  %968 = add i32 %967, 1
+  store i32 %968, ptr %38, align 4
+  br label %751, !llvm.loop !8
 
-967:                                              ; preds = %966, %914, %905, %896, %893
-  br label %968
+969:                                              ; preds = %751
+  %970 = load ptr, ptr %37, align 8
+  %971 = load i16, ptr %970, align 4
+  %972 = lshr i16 %971, 8
+  %973 = and i16 %972, 1
+  %974 = zext i16 %973 to i32
+  %975 = icmp ne i32 %974, 0
+  br i1 %975, label %976, label %985
 
-968:                                              ; preds = %967, %758
-  br label %969
+976:                                              ; preds = %969
+  %977 = load ptr, ptr %10, align 8
+  %978 = load i32, ptr @hf_wlan_radio_11ac_gid, align 4
+  %979 = load ptr, ptr %5, align 8
+  %980 = load ptr, ptr %37, align 8
+  %981 = getelementptr inbounds nuw %struct.ieee_802_11ac, ptr %980, i32 0, i32 5
+  %982 = load i8, ptr %981, align 4
+  %983 = zext i8 %982 to i32
+  %984 = call ptr @proto_tree_add_uint(ptr noundef %977, i32 noundef %978, ptr noundef %979, i32 noundef 0, i32 noundef 0, i32 noundef %983)
+  br label %985
 
-969:                                              ; preds = %968
-  %970 = load i32, ptr %38, align 4
-  %971 = add i32 %970, 1
-  store i32 %971, ptr %38, align 4
-  br label %755, !llvm.loop !4
+985:                                              ; preds = %976, %969
+  %986 = load ptr, ptr %37, align 8
+  %987 = load i16, ptr %986, align 4
+  %988 = lshr i16 %987, 9
+  %989 = and i16 %988, 1
+  %990 = zext i16 %989 to i32
+  %991 = icmp ne i32 %990, 0
+  br i1 %991, label %992, label %1001
 
-972:                                              ; preds = %755
-  %973 = load ptr, ptr %37, align 8
-  %974 = load i16, ptr %973, align 4
-  %975 = lshr i16 %974, 8
-  %976 = and i16 %975, 1
-  %977 = zext i16 %976 to i32
-  %978 = icmp ne i32 %977, 0
-  br i1 %978, label %979, label %988
+992:                                              ; preds = %985
+  %993 = load ptr, ptr %10, align 8
+  %994 = load i32, ptr @hf_wlan_radio_11ac_p_aid, align 4
+  %995 = load ptr, ptr %5, align 8
+  %996 = load ptr, ptr %37, align 8
+  %997 = getelementptr inbounds nuw %struct.ieee_802_11ac, ptr %996, i32 0, i32 6
+  %998 = load i16, ptr %997, align 2
+  %999 = zext i16 %998 to i32
+  %1000 = call ptr @proto_tree_add_uint(ptr noundef %993, i32 noundef %994, ptr noundef %995, i32 noundef 0, i32 noundef 0, i32 noundef %999)
+  br label %1001
 
-979:                                              ; preds = %972
-  %980 = load ptr, ptr %10, align 8
-  %981 = load i32, ptr @hf_wlan_radio_11ac_gid, align 4
-  %982 = load ptr, ptr %5, align 8
-  %983 = load ptr, ptr %37, align 8
-  %984 = getelementptr inbounds %struct.ieee_802_11ac, ptr %983, i32 0, i32 5
-  %985 = load i8, ptr %984, align 4
-  %986 = zext i8 %985 to i32
-  %987 = call ptr @proto_tree_add_uint(ptr noundef %980, i32 noundef %981, ptr noundef %982, i32 noundef 0, i32 noundef 0, i32 noundef %986)
-  br label %988
+1001:                                             ; preds = %992, %985
+  call void @llvm.lifetime.end.p0(i64 4, ptr %38) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #10
+  br label %1325
 
-988:                                              ; preds = %979, %972
-  %989 = load ptr, ptr %37, align 8
-  %990 = load i16, ptr %989, align 4
-  %991 = lshr i16 %990, 9
-  %992 = and i16 %991, 1
-  %993 = zext i16 %992 to i32
-  %994 = icmp ne i32 %993, 0
-  br i1 %994, label %995, label %1004
+1002:                                             ; preds = %314
+  call void @llvm.lifetime.start.p0(i64 8, ptr %42) #10
+  %1003 = load ptr, ptr %26, align 8
+  store ptr %1003, ptr %42, align 8
+  %1004 = load ptr, ptr %42, align 8
+  %1005 = load i32, ptr %1004, align 4
+  %1006 = lshr i32 %1005, 2
+  %1007 = and i32 %1006, 1
+  %1008 = icmp ne i32 %1007, 0
+  br i1 %1008, label %1009, label %1085
 
-995:                                              ; preds = %988
-  %996 = load ptr, ptr %10, align 8
-  %997 = load i32, ptr @hf_wlan_radio_11ac_p_aid, align 4
-  %998 = load ptr, ptr %5, align 8
-  %999 = load ptr, ptr %37, align 8
-  %1000 = getelementptr inbounds %struct.ieee_802_11ac, ptr %999, i32 0, i32 6
-  %1001 = load i16, ptr %1000, align 2
-  %1002 = zext i16 %1001 to i32
-  %1003 = call ptr @proto_tree_add_uint(ptr noundef %996, i32 noundef %997, ptr noundef %998, i32 noundef 0, i32 noundef 0, i32 noundef %1002)
-  br label %1004
+1009:                                             ; preds = %1002
+  %1010 = load ptr, ptr %42, align 8
+  %1011 = load i32, ptr %1010, align 4
+  %1012 = lshr i32 %1011, 1
+  %1013 = and i32 %1012, 1
+  %1014 = icmp ne i32 %1013, 0
+  br i1 %1014, label %1015, label %1085
 
-1004:                                             ; preds = %995, %988
-  br label %1095
-
-1005:                                             ; preds = %325
-  %1006 = load ptr, ptr %26, align 8
-  store ptr %1006, ptr %42, align 8
-  %1007 = load ptr, ptr %42, align 8
-  %1008 = load i8, ptr %1007, align 4
-  %1009 = lshr i8 %1008, 2
-  %1010 = and i8 %1009, 1
-  %1011 = zext i8 %1010 to i32
-  %1012 = icmp ne i32 %1011, 0
-  br i1 %1012, label %1013, label %1094
-
-1013:                                             ; preds = %1005
-  %1014 = load ptr, ptr %42, align 8
-  %1015 = load i8, ptr %1014, align 4
-  %1016 = lshr i8 %1015, 1
-  %1017 = and i8 %1016, 1
-  %1018 = zext i8 %1017 to i32
+1015:                                             ; preds = %1009
+  %1016 = load ptr, ptr %42, align 8
+  %1017 = load i32, ptr %1016, align 4
+  %1018 = and i32 %1017, 1
   %1019 = icmp ne i32 %1018, 0
-  br i1 %1019, label %1020, label %1094
+  br i1 %1019, label %1020, label %1085
 
-1020:                                             ; preds = %1013
+1020:                                             ; preds = %1015
   %1021 = load ptr, ptr %42, align 8
-  %1022 = load i8, ptr %1021, align 4
-  %1023 = and i8 %1022, 1
-  %1024 = zext i8 %1023 to i32
-  %1025 = icmp ne i32 %1024, 0
-  br i1 %1025, label %1026, label %1094
+  %1022 = load i32, ptr %1021, align 4
+  %1023 = lshr i32 %1022, 12
+  %1024 = and i32 %1023, 15
+  %1025 = trunc i32 %1024 to i8
+  %1026 = zext i8 %1025 to i32
+  %1027 = icmp slt i32 %1026, 4
+  br i1 %1027, label %1028, label %1054
 
-1026:                                             ; preds = %1020
-  %1027 = load ptr, ptr %42, align 8
-  %1028 = getelementptr inbounds %struct.ieee_802_11ax, ptr %1027, i32 0, i32 1
-  %1029 = load i16, ptr %1028, align 1
-  %1030 = lshr i16 %1029, 4
-  %1031 = and i16 %1030, 15
-  %1032 = trunc i16 %1031 to i8
-  %1033 = zext i8 %1032 to i32
-  %1034 = icmp slt i32 %1033, 4
-  br i1 %1034, label %1035, label %1062
-
-1035:                                             ; preds = %1026
-  %1036 = load ptr, ptr %42, align 8
-  %1037 = load i8, ptr %1036, align 4
-  %1038 = lshr i8 %1037, 3
-  %1039 = and i8 %1038, 15
+1028:                                             ; preds = %1020
+  %1029 = load ptr, ptr %42, align 8
+  %1030 = load i32, ptr %1029, align 4
+  %1031 = lshr i32 %1030, 3
+  %1032 = and i32 %1031, 15
+  %1033 = trunc i32 %1032 to i8
+  %1034 = zext i8 %1033 to i32
+  %1035 = load ptr, ptr %42, align 8
+  %1036 = load i32, ptr %1035, align 4
+  %1037 = lshr i32 %1036, 8
+  %1038 = and i32 %1037, 15
+  %1039 = trunc i32 %1038 to i8
   %1040 = zext i8 %1039 to i32
   %1041 = load ptr, ptr %42, align 8
-  %1042 = getelementptr inbounds %struct.ieee_802_11ax, ptr %1041, i32 0, i32 1
-  %1043 = load i16, ptr %1042, align 1
-  %1044 = and i16 %1043, 15
-  %1045 = trunc i16 %1044 to i8
+  %1042 = load i32, ptr %1041, align 4
+  %1043 = lshr i32 %1042, 12
+  %1044 = and i32 %1043, 15
+  %1045 = trunc i32 %1044 to i8
   %1046 = zext i8 %1045 to i32
   %1047 = load ptr, ptr %42, align 8
-  %1048 = getelementptr inbounds %struct.ieee_802_11ax, ptr %1047, i32 0, i32 1
-  %1049 = load i16, ptr %1048, align 1
-  %1050 = lshr i16 %1049, 4
-  %1051 = and i16 %1050, 15
-  %1052 = trunc i16 %1051 to i8
-  %1053 = zext i8 %1052 to i32
-  %1054 = load ptr, ptr %42, align 8
-  %1055 = getelementptr inbounds %struct.ieee_802_11ax, ptr %1054, i32 0, i32 1
-  %1056 = load i16, ptr %1055, align 1
-  %1057 = lshr i16 %1056, 8
-  %1058 = and i16 %1057, 3
-  %1059 = trunc i16 %1058 to i8
+  %1048 = load i32, ptr %1047, align 4
+  %1049 = lshr i32 %1048, 16
+  %1050 = and i32 %1049, 3
+  %1051 = trunc i32 %1050 to i8
+  %1052 = zext i8 %1051 to i32
+  %1053 = call float @ieee80211_he_ofdm_rate(i32 noundef %1034, i32 noundef %1040, i32 noundef %1046, i32 noundef %1052)
+  store float %1053, ptr %11, align 4
+  br label %1080
+
+1054:                                             ; preds = %1020
+  %1055 = load ptr, ptr %42, align 8
+  %1056 = load i32, ptr %1055, align 4
+  %1057 = lshr i32 %1056, 3
+  %1058 = and i32 %1057, 15
+  %1059 = trunc i32 %1058 to i8
   %1060 = zext i8 %1059 to i32
-  %1061 = call float @ieee80211_he_ofdm_rate(i32 noundef %1040, i32 noundef %1046, i32 noundef %1053, i32 noundef %1060)
-  store float %1061, ptr %11, align 4
-  br label %1089
+  %1061 = load ptr, ptr %42, align 8
+  %1062 = load i32, ptr %1061, align 4
+  %1063 = lshr i32 %1062, 8
+  %1064 = and i32 %1063, 15
+  %1065 = trunc i32 %1064 to i8
+  %1066 = zext i8 %1065 to i32
+  %1067 = load ptr, ptr %42, align 8
+  %1068 = load i32, ptr %1067, align 4
+  %1069 = lshr i32 %1068, 12
+  %1070 = and i32 %1069, 15
+  %1071 = trunc i32 %1070 to i8
+  %1072 = zext i8 %1071 to i32
+  %1073 = load ptr, ptr %42, align 8
+  %1074 = load i32, ptr %1073, align 4
+  %1075 = lshr i32 %1074, 16
+  %1076 = and i32 %1075, 3
+  %1077 = trunc i32 %1076 to i8
+  %1078 = zext i8 %1077 to i32
+  %1079 = call float @ieee80211_he_mu_ofdma_rate(i32 noundef %1060, i32 noundef %1066, i32 noundef %1072, i32 noundef %1078)
+  store float %1079, ptr %11, align 4
+  br label %1080
 
-1062:                                             ; preds = %1026
-  %1063 = load ptr, ptr %42, align 8
-  %1064 = load i8, ptr %1063, align 4
-  %1065 = lshr i8 %1064, 3
-  %1066 = and i8 %1065, 15
-  %1067 = zext i8 %1066 to i32
-  %1068 = load ptr, ptr %42, align 8
-  %1069 = getelementptr inbounds %struct.ieee_802_11ax, ptr %1068, i32 0, i32 1
-  %1070 = load i16, ptr %1069, align 1
-  %1071 = and i16 %1070, 15
-  %1072 = trunc i16 %1071 to i8
-  %1073 = zext i8 %1072 to i32
-  %1074 = load ptr, ptr %42, align 8
-  %1075 = getelementptr inbounds %struct.ieee_802_11ax, ptr %1074, i32 0, i32 1
-  %1076 = load i16, ptr %1075, align 1
-  %1077 = lshr i16 %1076, 4
-  %1078 = and i16 %1077, 15
-  %1079 = trunc i16 %1078 to i8
-  %1080 = zext i8 %1079 to i32
-  %1081 = load ptr, ptr %42, align 8
-  %1082 = getelementptr inbounds %struct.ieee_802_11ax, ptr %1081, i32 0, i32 1
-  %1083 = load i16, ptr %1082, align 1
-  %1084 = lshr i16 %1083, 8
-  %1085 = and i16 %1084, 3
-  %1086 = trunc i16 %1085 to i8
-  %1087 = zext i8 %1086 to i32
-  %1088 = call float @ieee80211_he_mu_ofdma_rate(i32 noundef %1067, i32 noundef %1073, i32 noundef %1080, i32 noundef %1087)
-  store float %1088, ptr %11, align 4
-  br label %1089
+1080:                                             ; preds = %1054, %1028
+  %1081 = load float, ptr %11, align 4
+  %1082 = fcmp une float %1081, 0.000000e+00
+  br i1 %1082, label %1083, label %1084
 
-1089:                                             ; preds = %1062, %1035
-  %1090 = load float, ptr %11, align 4
-  %1091 = fcmp une float %1090, 0.000000e+00
-  br i1 %1091, label %1092, label %1093
+1083:                                             ; preds = %1080
+  store i8 1, ptr %12, align 1
+  br label %1084
 
-1092:                                             ; preds = %1089
-  store i32 1, ptr %12, align 4
-  br label %1093
+1084:                                             ; preds = %1083, %1080
+  br label %1085
 
-1093:                                             ; preds = %1092, %1089
-  br label %1094
+1085:                                             ; preds = %1084, %1015, %1009, %1002
+  call void @llvm.lifetime.end.p0(i64 8, ptr %42) #10
+  br label %1325
 
-1094:                                             ; preds = %1093, %1020, %1013, %1005
-  br label %1095
+1086:                                             ; preds = %314
+  call void @llvm.lifetime.start.p0(i64 8, ptr %43) #10
+  %1087 = load ptr, ptr %26, align 8
+  store ptr %1087, ptr %43, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %44) #10
+  store i8 1, ptr %16, align 1
+  store i32 0, ptr %44, align 4
+  br label %1088
 
-1095:                                             ; preds = %1094, %1004, %614, %450, %434, %399, %380, %325
-  br label %1096
+1088:                                             ; preds = %1321, %1086
+  %1089 = load i32, ptr %44, align 4
+  %1090 = load ptr, ptr %43, align 8
+  %1091 = getelementptr inbounds nuw %struct.ieee_802_11be, ptr %1090, i32 0, i32 3
+  %1092 = load i8, ptr %1091, align 1
+  %1093 = zext i8 %1092 to i32
+  %1094 = icmp slt i32 %1089, %1093
+  br i1 %1094, label %1095, label %1324
 
-1096:                                             ; preds = %1095, %315
-  %1097 = load i32, ptr %12, align 4
-  %1098 = icmp ne i32 %1097, 0
-  br i1 %1098, label %1099, label %1112
+1095:                                             ; preds = %1088
+  %1096 = load i32, ptr %44, align 4
+  %1097 = icmp sge i32 %1096, 4
+  br i1 %1097, label %1098, label %1102
 
-1099:                                             ; preds = %1096
-  %1100 = load ptr, ptr %6, align 8
-  %1101 = getelementptr inbounds %struct._packet_info, ptr %1100, i32 0, i32 1
-  %1102 = load ptr, ptr %1101, align 8
-  %1103 = load float, ptr %11, align 4
-  %1104 = fpext float %1103 to double
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %1102, i32 noundef 23, ptr noundef @.str.201, double noundef %1104)
-  %1105 = load ptr, ptr %10, align 8
-  %1106 = load i32, ptr @hf_wlan_radio_data_rate, align 4
-  %1107 = load ptr, ptr %5, align 8
-  %1108 = load float, ptr %11, align 4
-  %1109 = load float, ptr %11, align 4
-  %1110 = fpext float %1109 to double
-  %1111 = call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %1105, i32 noundef %1106, ptr noundef %1107, i32 noundef 0, i32 noundef 0, float noundef %1108, ptr noundef @.str.202, double noundef %1110)
-  br label %1112
+1098:                                             ; preds = %1095
+  %1099 = load ptr, ptr %6, align 8
+  %1100 = load ptr, ptr %10, align 8
+  %1101 = call ptr @expert_add_info(ptr noundef %1099, ptr noundef %1100, ptr noundef @ei_wlan_radio_11be_num_users)
+  br label %1324
 
-1112:                                             ; preds = %1099, %1096
-  %1113 = load ptr, ptr %8, align 8
-  %1114 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1113, i32 0, i32 4
-  %1115 = load i16, ptr %1114, align 4
-  %1116 = and i16 %1115, 1
-  %1117 = zext i16 %1116 to i32
-  %1118 = icmp ne i32 %1117, 0
-  br i1 %1118, label %1119, label %1135
+1102:                                             ; preds = %1095
+  call void @llvm.lifetime.start.p0(i64 4, ptr %45) #10
+  %1103 = load ptr, ptr %43, align 8
+  %1104 = getelementptr inbounds nuw %struct.ieee_802_11be, ptr %1103, i32 0, i32 4
+  %1105 = load i32, ptr %44, align 4
+  %1106 = sext i32 %1105 to i64
+  %1107 = getelementptr [4 x %struct.ieee_802_11be_user_info], ptr %1104, i64 0, i64 %1106
+  %1108 = load i32, ptr %1107, align 4
+  %1109 = lshr i32 %1108, 24
+  %1110 = and i32 %1109, 15
+  store i32 %1110, ptr %45, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %46) #10
+  store i32 0, ptr %46, align 4
+  %1111 = load ptr, ptr %43, align 8
+  %1112 = load i8, ptr %1111, align 4
+  %1113 = lshr i8 %1112, 1
+  %1114 = and i8 %1113, 1
+  %1115 = zext i8 %1114 to i32
+  %1116 = icmp ne i32 %1115, 0
+  br i1 %1116, label %1117, label %1130
 
-1119:                                             ; preds = %1112
-  %1120 = load ptr, ptr %6, align 8
-  %1121 = getelementptr inbounds %struct._packet_info, ptr %1120, i32 0, i32 1
-  %1122 = load ptr, ptr %1121, align 8
-  %1123 = load ptr, ptr %8, align 8
-  %1124 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1123, i32 0, i32 5
-  %1125 = load i16, ptr %1124, align 2
-  %1126 = zext i16 %1125 to i32
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %1122, i32 noundef 15, ptr noundef @.str.203, i32 noundef %1126)
-  %1127 = load ptr, ptr %10, align 8
-  %1128 = load i32, ptr @hf_wlan_radio_channel, align 4
-  %1129 = load ptr, ptr %5, align 8
-  %1130 = load ptr, ptr %8, align 8
-  %1131 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1130, i32 0, i32 5
-  %1132 = load i16, ptr %1131, align 2
-  %1133 = zext i16 %1132 to i32
-  %1134 = call ptr @proto_tree_add_uint(ptr noundef %1127, i32 noundef %1128, ptr noundef %1129, i32 noundef 0, i32 noundef 0, i32 noundef %1133)
-  br label %1135
+1117:                                             ; preds = %1102
+  %1118 = load ptr, ptr %43, align 8
+  %1119 = getelementptr inbounds nuw %struct.ieee_802_11be, ptr %1118, i32 0, i32 4
+  %1120 = load i32, ptr %44, align 4
+  %1121 = sext i32 %1120 to i64
+  %1122 = getelementptr [4 x %struct.ieee_802_11be_user_info], ptr %1119, i64 0, i64 %1121
+  %1123 = load i32, ptr %1122, align 4
+  %1124 = lshr i32 %1123, 4
+  %1125 = and i32 %1124, 1
+  %1126 = icmp ne i32 %1125, 0
+  br i1 %1126, label %1127, label %1130
 
-1135:                                             ; preds = %1119, %1112
-  %1136 = load ptr, ptr %8, align 8
-  %1137 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1136, i32 0, i32 4
-  %1138 = load i16, ptr %1137, align 4
-  %1139 = lshr i16 %1138, 1
-  %1140 = and i16 %1139, 1
-  %1141 = zext i16 %1140 to i32
-  %1142 = icmp ne i32 %1141, 0
-  br i1 %1142, label %1143, label %1157
+1127:                                             ; preds = %1117
+  %1128 = load i32, ptr %45, align 4
+  %1129 = icmp ne i32 %1128, 0
+  br i1 %1129, label %1131, label %1130
 
-1143:                                             ; preds = %1135
-  %1144 = load ptr, ptr %6, align 8
-  %1145 = getelementptr inbounds %struct._packet_info, ptr %1144, i32 0, i32 1
-  %1146 = load ptr, ptr %1145, align 8
-  %1147 = load ptr, ptr %8, align 8
-  %1148 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1147, i32 0, i32 6
-  %1149 = load i32, ptr %1148, align 8
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %1146, i32 noundef 15, ptr noundef @.str.204, i32 noundef %1149)
-  %1150 = load ptr, ptr %10, align 8
-  %1151 = load i32, ptr @hf_wlan_radio_frequency, align 4
-  %1152 = load ptr, ptr %5, align 8
-  %1153 = load ptr, ptr %8, align 8
-  %1154 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1153, i32 0, i32 6
-  %1155 = load i32, ptr %1154, align 8
-  %1156 = call ptr @proto_tree_add_uint(ptr noundef %1150, i32 noundef %1151, ptr noundef %1152, i32 noundef 0, i32 noundef 0, i32 noundef %1155)
-  br label %1157
+1130:                                             ; preds = %1127, %1117, %1102
+  store i8 0, ptr %16, align 1
+  br label %1131
 
-1157:                                             ; preds = %1143, %1135
-  %1158 = load ptr, ptr %8, align 8
-  %1159 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1158, i32 0, i32 4
-  %1160 = load i16, ptr %1159, align 4
-  %1161 = lshr i16 %1160, 3
-  %1162 = and i16 %1161, 1
-  %1163 = zext i16 %1162 to i32
-  %1164 = icmp ne i32 %1163, 0
-  br i1 %1164, label %1165, label %1181
+1131:                                             ; preds = %1130, %1127
+  %1132 = load ptr, ptr %43, align 8
+  %1133 = load i8, ptr %1132, align 4
+  %1134 = lshr i8 %1133, 2
+  %1135 = and i8 %1134, 1
+  %1136 = zext i8 %1135 to i32
+  %1137 = icmp ne i32 %1136, 0
+  br i1 %1137, label %1152, label %1138
 
-1165:                                             ; preds = %1157
-  %1166 = load ptr, ptr %6, align 8
-  %1167 = getelementptr inbounds %struct._packet_info, ptr %1166, i32 0, i32 1
-  %1168 = load ptr, ptr %1167, align 8
-  %1169 = load ptr, ptr %8, align 8
-  %1170 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1169, i32 0, i32 8
-  %1171 = load i8, ptr %1170, align 2
-  %1172 = zext i8 %1171 to i32
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %1168, i32 noundef 22, ptr noundef @.str.205, i32 noundef %1172)
-  %1173 = load ptr, ptr %10, align 8
-  %1174 = load i32, ptr @hf_wlan_radio_signal_percent, align 4
-  %1175 = load ptr, ptr %5, align 8
-  %1176 = load ptr, ptr %8, align 8
-  %1177 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1176, i32 0, i32 8
-  %1178 = load i8, ptr %1177, align 2
-  %1179 = zext i8 %1178 to i32
-  %1180 = call ptr @proto_tree_add_uint(ptr noundef %1173, i32 noundef %1174, ptr noundef %1175, i32 noundef 0, i32 noundef 0, i32 noundef %1179)
-  br label %1181
+1138:                                             ; preds = %1131
+  %1139 = load ptr, ptr %43, align 8
+  %1140 = load i8, ptr %1139, align 4
+  %1141 = and i8 %1140, 1
+  %1142 = zext i8 %1141 to i32
+  %1143 = icmp ne i32 %1142, 0
+  br i1 %1143, label %1144, label %1151
 
-1181:                                             ; preds = %1165, %1157
-  %1182 = load ptr, ptr %8, align 8
-  %1183 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1182, i32 0, i32 4
-  %1184 = load i16, ptr %1183, align 4
-  %1185 = lshr i16 %1184, 7
-  %1186 = and i16 %1185, 1
-  %1187 = zext i16 %1186 to i32
-  %1188 = icmp ne i32 %1187, 0
-  br i1 %1188, label %1189, label %1205
+1144:                                             ; preds = %1138
+  %1145 = load ptr, ptr %43, align 8
+  %1146 = getelementptr inbounds nuw %struct.ieee_802_11be, ptr %1145, i32 0, i32 2
+  %1147 = load i8, ptr %1146, align 2
+  %1148 = and i8 %1147, 15
+  %1149 = zext i8 %1148 to i32
+  %1150 = icmp sgt i32 %1149, 7
+  br i1 %1150, label %1151, label %1152
 
-1189:                                             ; preds = %1181
-  %1190 = load ptr, ptr %6, align 8
-  %1191 = getelementptr inbounds %struct._packet_info, ptr %1190, i32 0, i32 1
-  %1192 = load ptr, ptr %1191, align 8
-  %1193 = load ptr, ptr %8, align 8
-  %1194 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1193, i32 0, i32 12
-  %1195 = load i8, ptr %1194, align 2
-  %1196 = zext i8 %1195 to i32
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %1192, i32 noundef 22, ptr noundef @.str.206, i32 noundef %1196)
-  %1197 = load ptr, ptr %10, align 8
-  %1198 = load i32, ptr @hf_wlan_radio_signal_db, align 4
-  %1199 = load ptr, ptr %5, align 8
-  %1200 = load ptr, ptr %8, align 8
-  %1201 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1200, i32 0, i32 12
-  %1202 = load i8, ptr %1201, align 2
-  %1203 = zext i8 %1202 to i32
-  %1204 = call ptr @proto_tree_add_uint(ptr noundef %1197, i32 noundef %1198, ptr noundef %1199, i32 noundef 0, i32 noundef 0, i32 noundef %1203)
-  br label %1205
+1151:                                             ; preds = %1144, %1138
+  store i8 0, ptr %16, align 1
+  br label %1152
 
-1205:                                             ; preds = %1189, %1181
-  %1206 = load ptr, ptr %8, align 8
-  %1207 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1206, i32 0, i32 4
-  %1208 = load i16, ptr %1207, align 4
-  %1209 = lshr i16 %1208, 5
-  %1210 = and i16 %1209, 1
-  %1211 = zext i16 %1210 to i32
-  %1212 = icmp ne i32 %1211, 0
-  br i1 %1212, label %1213, label %1229
+1152:                                             ; preds = %1151, %1144, %1131
+  %1153 = load ptr, ptr %43, align 8
+  %1154 = load i8, ptr %1153, align 4
+  %1155 = lshr i8 %1154, 2
+  %1156 = and i8 %1155, 1
+  %1157 = zext i8 %1156 to i32
+  %1158 = icmp ne i32 %1157, 0
+  br i1 %1158, label %1159, label %1173
 
-1213:                                             ; preds = %1205
-  %1214 = load ptr, ptr %6, align 8
-  %1215 = getelementptr inbounds %struct._packet_info, ptr %1214, i32 0, i32 1
-  %1216 = load ptr, ptr %1215, align 8
-  %1217 = load ptr, ptr %8, align 8
-  %1218 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1217, i32 0, i32 10
-  %1219 = load i8, ptr %1218, align 8
-  %1220 = sext i8 %1219 to i32
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %1216, i32 noundef 22, ptr noundef @.str.207, i32 noundef %1220)
-  %1221 = load ptr, ptr %10, align 8
-  %1222 = load i32, ptr @hf_wlan_radio_signal_dbm, align 4
+1159:                                             ; preds = %1152
+  %1160 = load ptr, ptr %43, align 8
+  %1161 = getelementptr inbounds nuw %struct.ieee_802_11be, ptr %1160, i32 0, i32 1
+  %1162 = load i8, ptr %1161, align 1
+  %1163 = zext i8 %1162 to i32
+  %1164 = icmp eq i32 %1163, 5
+  br i1 %1164, label %1165, label %1166
+
+1165:                                             ; preds = %1159
+  store i32 7, ptr %46, align 4
+  br label %1172
+
+1166:                                             ; preds = %1159
+  %1167 = load ptr, ptr %43, align 8
+  %1168 = getelementptr inbounds nuw %struct.ieee_802_11be, ptr %1167, i32 0, i32 1
+  %1169 = load i8, ptr %1168, align 1
+  %1170 = zext i8 %1169 to i32
+  %1171 = add i32 %1170, 3
+  store i32 %1171, ptr %46, align 4
+  br label %1172
+
+1172:                                             ; preds = %1166, %1165
+  br label %1179
+
+1173:                                             ; preds = %1152
+  %1174 = load ptr, ptr %43, align 8
+  %1175 = getelementptr inbounds nuw %struct.ieee_802_11be, ptr %1174, i32 0, i32 2
+  %1176 = load i8, ptr %1175, align 2
+  %1177 = and i8 %1176, 15
+  %1178 = zext i8 %1177 to i32
+  store i32 %1178, ptr %46, align 4
+  br label %1179
+
+1179:                                             ; preds = %1173, %1172
+  %1180 = load i32, ptr %45, align 4
+  %1181 = icmp ne i32 %1180, 1
+  br i1 %1181, label %1182, label %1203
+
+1182:                                             ; preds = %1179
+  %1183 = load ptr, ptr %43, align 8
+  %1184 = getelementptr inbounds nuw %struct.ieee_802_11be, ptr %1183, i32 0, i32 4
+  %1185 = load i32, ptr %44, align 4
+  %1186 = sext i32 %1185 to i64
+  %1187 = getelementptr [4 x %struct.ieee_802_11be_user_info], ptr %1184, i64 0, i64 %1186
+  %1188 = load i32, ptr %1187, align 4
+  %1189 = lshr i32 %1188, 20
+  %1190 = and i32 %1189, 15
+  %1191 = icmp eq i32 %1190, 14
+  br i1 %1191, label %1202, label %1192
+
+1192:                                             ; preds = %1182
+  %1193 = load ptr, ptr %43, align 8
+  %1194 = getelementptr inbounds nuw %struct.ieee_802_11be, ptr %1193, i32 0, i32 4
+  %1195 = load i32, ptr %44, align 4
+  %1196 = sext i32 %1195 to i64
+  %1197 = getelementptr [4 x %struct.ieee_802_11be_user_info], ptr %1194, i64 0, i64 %1196
+  %1198 = load i32, ptr %1197, align 4
+  %1199 = lshr i32 %1198, 20
+  %1200 = and i32 %1199, 15
+  %1201 = icmp eq i32 %1200, 15
+  br i1 %1201, label %1202, label %1203
+
+1202:                                             ; preds = %1192, %1182
+  store i8 0, ptr %16, align 1
+  br label %1203
+
+1203:                                             ; preds = %1202, %1192, %1179
+  call void @llvm.lifetime.start.p0(i64 8, ptr %47) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %48) #10
+  %1204 = load ptr, ptr %10, align 8
+  %1205 = load i32, ptr @hf_wlan_radio_11be_user, align 4
+  %1206 = load ptr, ptr %5, align 8
+  %1207 = call ptr @proto_tree_add_item(ptr noundef %1204, i32 noundef %1205, ptr noundef %1206, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  store ptr %1207, ptr %47, align 8
+  %1208 = load ptr, ptr %47, align 8
+  %1209 = load i32, ptr %44, align 4
+  %1210 = load ptr, ptr %43, align 8
+  %1211 = getelementptr inbounds nuw %struct.ieee_802_11be, ptr %1210, i32 0, i32 4
+  %1212 = load i32, ptr %44, align 4
+  %1213 = sext i32 %1212 to i64
+  %1214 = getelementptr [4 x %struct.ieee_802_11be_user_info], ptr %1211, i64 0, i64 %1213
+  %1215 = load i32, ptr %1214, align 4
+  %1216 = lshr i32 %1215, 20
+  %1217 = and i32 %1216, 15
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1208, ptr noundef @.str.214, i32 noundef %1209, i32 noundef %1217)
+  %1218 = load ptr, ptr %47, align 8
+  %1219 = load i32, ptr @ett_wlan_radio_11be_user, align 4
+  %1220 = call ptr @proto_item_add_subtree(ptr noundef %1218, i32 noundef %1219)
+  store ptr %1220, ptr %48, align 8
+  %1221 = load ptr, ptr %48, align 8
+  %1222 = load i32, ptr @hf_wlan_radio_11be_mcs, align 4
   %1223 = load ptr, ptr %5, align 8
-  %1224 = load ptr, ptr %8, align 8
-  %1225 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1224, i32 0, i32 10
-  %1226 = load i8, ptr %1225, align 8
-  %1227 = sext i8 %1226 to i32
-  %1228 = call ptr @proto_tree_add_int(ptr noundef %1221, i32 noundef %1222, ptr noundef %1223, i32 noundef 0, i32 noundef 0, i32 noundef %1227)
-  br label %1229
+  %1224 = load ptr, ptr %43, align 8
+  %1225 = getelementptr inbounds nuw %struct.ieee_802_11be, ptr %1224, i32 0, i32 4
+  %1226 = load i32, ptr %44, align 4
+  %1227 = sext i32 %1226 to i64
+  %1228 = getelementptr [4 x %struct.ieee_802_11be_user_info], ptr %1225, i64 0, i64 %1227
+  %1229 = load i32, ptr %1228, align 4
+  %1230 = lshr i32 %1229, 20
+  %1231 = and i32 %1230, 15
+  %1232 = call ptr @proto_tree_add_uint(ptr noundef %1221, i32 noundef %1222, ptr noundef %1223, i32 noundef 0, i32 noundef 0, i32 noundef %1231)
+  store ptr %1232, ptr %47, align 8
+  %1233 = load ptr, ptr %43, align 8
+  %1234 = getelementptr inbounds nuw %struct.ieee_802_11be, ptr %1233, i32 0, i32 4
+  %1235 = load i32, ptr %44, align 4
+  %1236 = sext i32 %1235 to i64
+  %1237 = getelementptr [4 x %struct.ieee_802_11be_user_info], ptr %1234, i64 0, i64 %1236
+  %1238 = load i32, ptr %1237, align 4
+  %1239 = lshr i32 %1238, 20
+  %1240 = and i32 %1239, 15
+  %1241 = icmp sge i32 %1240, 16
+  br i1 %1241, label %1242, label %1244
 
-1229:                                             ; preds = %1213, %1205
-  %1230 = load ptr, ptr %8, align 8
-  %1231 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1230, i32 0, i32 4
-  %1232 = load i16, ptr %1231, align 4
-  %1233 = lshr i16 %1232, 4
-  %1234 = and i16 %1233, 1
-  %1235 = zext i16 %1234 to i32
-  %1236 = icmp ne i32 %1235, 0
-  br i1 %1236, label %1237, label %1246
+1242:                                             ; preds = %1203
+  %1243 = load ptr, ptr %47, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1243, ptr noundef @.str.215)
+  br label %1270
 
-1237:                                             ; preds = %1229
-  %1238 = load ptr, ptr %10, align 8
-  %1239 = load i32, ptr @hf_wlan_radio_noise_percent, align 4
-  %1240 = load ptr, ptr %5, align 8
-  %1241 = load ptr, ptr %8, align 8
-  %1242 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1241, i32 0, i32 9
-  %1243 = load i8, ptr %1242, align 1
-  %1244 = zext i8 %1243 to i32
-  %1245 = call ptr @proto_tree_add_uint(ptr noundef %1238, i32 noundef %1239, ptr noundef %1240, i32 noundef 0, i32 noundef 0, i32 noundef %1244)
-  br label %1246
+1244:                                             ; preds = %1203
+  %1245 = load ptr, ptr %47, align 8
+  %1246 = load ptr, ptr %43, align 8
+  %1247 = getelementptr inbounds nuw %struct.ieee_802_11be, ptr %1246, i32 0, i32 4
+  %1248 = load i32, ptr %44, align 4
+  %1249 = sext i32 %1248 to i64
+  %1250 = getelementptr [4 x %struct.ieee_802_11be_user_info], ptr %1247, i64 0, i64 %1249
+  %1251 = load i32, ptr %1250, align 4
+  %1252 = lshr i32 %1251, 20
+  %1253 = and i32 %1252, 15
+  %1254 = zext i32 %1253 to i64
+  %1255 = getelementptr [16 x %struct.mcs_info], ptr @ieee80211_mcsinfo, i64 0, i64 %1254
+  %1256 = getelementptr inbounds nuw %struct.mcs_info, ptr %1255, i32 0, i32 0
+  %1257 = load ptr, ptr %1256, align 8
+  %1258 = load ptr, ptr %43, align 8
+  %1259 = getelementptr inbounds nuw %struct.ieee_802_11be, ptr %1258, i32 0, i32 4
+  %1260 = load i32, ptr %44, align 4
+  %1261 = sext i32 %1260 to i64
+  %1262 = getelementptr [4 x %struct.ieee_802_11be_user_info], ptr %1259, i64 0, i64 %1261
+  %1263 = load i32, ptr %1262, align 4
+  %1264 = lshr i32 %1263, 20
+  %1265 = and i32 %1264, 15
+  %1266 = zext i32 %1265 to i64
+  %1267 = getelementptr [16 x %struct.mcs_info], ptr @ieee80211_mcsinfo, i64 0, i64 %1266
+  %1268 = getelementptr inbounds nuw %struct.mcs_info, ptr %1267, i32 0, i32 1
+  %1269 = load ptr, ptr %1268, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1245, ptr noundef @.str.216, ptr noundef %1257, ptr noundef %1269)
+  br label %1270
 
-1246:                                             ; preds = %1237, %1229
-  %1247 = load ptr, ptr %8, align 8
-  %1248 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1247, i32 0, i32 4
-  %1249 = load i16, ptr %1248, align 4
-  %1250 = lshr i16 %1249, 8
-  %1251 = and i16 %1250, 1
-  %1252 = zext i16 %1251 to i32
-  %1253 = icmp ne i32 %1252, 0
-  br i1 %1253, label %1254, label %1263
+1270:                                             ; preds = %1244, %1242
+  %1271 = load ptr, ptr %48, align 8
+  %1272 = load i32, ptr @hf_wlan_radio_11be_nsts, align 4
+  %1273 = load ptr, ptr %5, align 8
+  %1274 = load i32, ptr %45, align 4
+  %1275 = call ptr @proto_tree_add_uint(ptr noundef %1271, i32 noundef %1272, ptr noundef %1273, i32 noundef 0, i32 noundef 0, i32 noundef %1274)
+  %1276 = load i8, ptr %16, align 1, !range !6, !noundef !7
+  %1277 = trunc i8 %1276 to i1
+  br i1 %1277, label %1278, label %1320
 
-1254:                                             ; preds = %1246
-  %1255 = load ptr, ptr %10, align 8
-  %1256 = load i32, ptr @hf_wlan_radio_noise_db, align 4
-  %1257 = load ptr, ptr %5, align 8
-  %1258 = load ptr, ptr %8, align 8
-  %1259 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1258, i32 0, i32 13
-  %1260 = load i8, ptr %1259, align 1
-  %1261 = zext i8 %1260 to i32
-  %1262 = call ptr @proto_tree_add_uint(ptr noundef %1255, i32 noundef %1256, ptr noundef %1257, i32 noundef 0, i32 noundef 0, i32 noundef %1261)
-  br label %1263
+1278:                                             ; preds = %1270
+  %1279 = load ptr, ptr %43, align 8
+  %1280 = getelementptr inbounds nuw %struct.ieee_802_11be, ptr %1279, i32 0, i32 4
+  %1281 = load i32, ptr %44, align 4
+  %1282 = sext i32 %1281 to i64
+  %1283 = getelementptr [4 x %struct.ieee_802_11be_user_info], ptr %1280, i64 0, i64 %1282
+  %1284 = load i32, ptr %1283, align 4
+  %1285 = lshr i32 %1284, 20
+  %1286 = and i32 %1285, 15
+  %1287 = icmp slt i32 %1286, 16
+  br i1 %1287, label %1288, label %1320
 
-1263:                                             ; preds = %1254, %1246
-  %1264 = load ptr, ptr %8, align 8
-  %1265 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1264, i32 0, i32 4
-  %1266 = load i16, ptr %1265, align 4
-  %1267 = lshr i16 %1266, 6
-  %1268 = and i16 %1267, 1
-  %1269 = zext i16 %1268 to i32
-  %1270 = icmp ne i32 %1269, 0
-  br i1 %1270, label %1271, label %1280
+1288:                                             ; preds = %1278
+  %1289 = load i32, ptr %45, align 4
+  %1290 = icmp ult i32 %1289, 8
+  br i1 %1290, label %1291, label %1320
 
-1271:                                             ; preds = %1263
-  %1272 = load ptr, ptr %10, align 8
-  %1273 = load i32, ptr @hf_wlan_radio_noise_dbm, align 4
-  %1274 = load ptr, ptr %5, align 8
-  %1275 = load ptr, ptr %8, align 8
-  %1276 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1275, i32 0, i32 11
-  %1277 = load i8, ptr %1276, align 1
-  %1278 = sext i8 %1277 to i32
-  %1279 = call ptr @proto_tree_add_int(ptr noundef %1272, i32 noundef %1273, ptr noundef %1274, i32 noundef 0, i32 noundef 0, i32 noundef %1278)
-  br label %1280
+1291:                                             ; preds = %1288
+  %1292 = load i32, ptr %45, align 4
+  %1293 = load ptr, ptr %43, align 8
+  %1294 = getelementptr inbounds nuw %struct.ieee_802_11be, ptr %1293, i32 0, i32 4
+  %1295 = load i32, ptr %44, align 4
+  %1296 = sext i32 %1295 to i64
+  %1297 = getelementptr [4 x %struct.ieee_802_11be_user_info], ptr %1294, i64 0, i64 %1296
+  %1298 = load i32, ptr %1297, align 4
+  %1299 = lshr i32 %1298, 20
+  %1300 = and i32 %1299, 15
+  %1301 = load i32, ptr %46, align 4
+  %1302 = load ptr, ptr %43, align 8
+  %1303 = getelementptr inbounds nuw %struct.ieee_802_11be, ptr %1302, i32 0, i32 2
+  %1304 = load i8, ptr %1303, align 2
+  %1305 = lshr i8 %1304, 4
+  %1306 = and i8 %1305, 3
+  %1307 = zext i8 %1306 to i32
+  %1308 = call float @ieee80211_eht_rate(i32 noundef %1292, i32 noundef %1300, i32 noundef %1301, i32 noundef %1307)
+  store float %1308, ptr %11, align 4
+  %1309 = load float, ptr %11, align 4
+  %1310 = fcmp une float %1309, 0.000000e+00
+  br i1 %1310, label %1311, label %1319
 
-1280:                                             ; preds = %1271, %1263
-  %1281 = load ptr, ptr %8, align 8
-  %1282 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1281, i32 0, i32 4
-  %1283 = load i16, ptr %1282, align 4
-  %1284 = lshr i16 %1283, 5
-  %1285 = and i16 %1284, 1
-  %1286 = zext i16 %1285 to i32
-  %1287 = icmp ne i32 %1286, 0
-  br i1 %1287, label %1288, label %1310
+1311:                                             ; preds = %1291
+  %1312 = load ptr, ptr %48, align 8
+  %1313 = load i32, ptr @hf_wlan_radio_data_rate, align 4
+  %1314 = load ptr, ptr %5, align 8
+  %1315 = load float, ptr %11, align 4
+  %1316 = load float, ptr %11, align 4
+  %1317 = fpext float %1316 to double
+  %1318 = call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %1312, i32 noundef %1313, ptr noundef %1314, i32 noundef 0, i32 noundef 0, float noundef %1315, ptr noundef @.str.217, double noundef %1317)
+  br label %1319
 
-1288:                                             ; preds = %1280
-  %1289 = load ptr, ptr %8, align 8
-  %1290 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1289, i32 0, i32 4
-  %1291 = load i16, ptr %1290, align 4
-  %1292 = lshr i16 %1291, 6
-  %1293 = and i16 %1292, 1
-  %1294 = zext i16 %1293 to i32
-  %1295 = icmp ne i32 %1294, 0
-  br i1 %1295, label %1296, label %1310
+1319:                                             ; preds = %1311, %1291
+  br label %1320
 
-1296:                                             ; preds = %1288
-  %1297 = load ptr, ptr %10, align 8
-  %1298 = load i32, ptr @hf_wlan_radio_snr, align 4
-  %1299 = load ptr, ptr %5, align 8
-  %1300 = load ptr, ptr %8, align 8
-  %1301 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1300, i32 0, i32 10
-  %1302 = load i8, ptr %1301, align 8
-  %1303 = sext i8 %1302 to i32
-  %1304 = load ptr, ptr %8, align 8
-  %1305 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1304, i32 0, i32 11
-  %1306 = load i8, ptr %1305, align 1
-  %1307 = sext i8 %1306 to i32
-  %1308 = sub i32 %1303, %1307
-  %1309 = call ptr @proto_tree_add_int(ptr noundef %1297, i32 noundef %1298, ptr noundef %1299, i32 noundef 0, i32 noundef 0, i32 noundef %1308)
-  br label %1310
+1320:                                             ; preds = %1319, %1288, %1278, %1270
+  call void @llvm.lifetime.end.p0(i64 8, ptr %48) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %47) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %46) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %45) #10
+  br label %1321
 
-1310:                                             ; preds = %1296, %1288, %1280
-  %1311 = load ptr, ptr %8, align 8
-  %1312 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1311, i32 0, i32 4
-  %1313 = load i16, ptr %1312, align 4
-  %1314 = lshr i16 %1313, 9
-  %1315 = and i16 %1314, 1
-  %1316 = zext i16 %1315 to i32
-  %1317 = icmp ne i32 %1316, 0
-  br i1 %1317, label %1318, label %1326
+1321:                                             ; preds = %1320
+  %1322 = load i32, ptr %44, align 4
+  %1323 = add i32 %1322, 1
+  store i32 %1323, ptr %44, align 4
+  br label %1088, !llvm.loop !10
 
-1318:                                             ; preds = %1310
-  %1319 = load ptr, ptr %10, align 8
-  %1320 = load i32, ptr @hf_wlan_radio_timestamp, align 4
-  %1321 = load ptr, ptr %5, align 8
-  %1322 = load ptr, ptr %8, align 8
-  %1323 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1322, i32 0, i32 14
-  %1324 = load i64, ptr %1323, align 8
-  %1325 = call ptr @proto_tree_add_uint64(ptr noundef %1319, i32 noundef %1320, ptr noundef %1321, i32 noundef 0, i32 noundef 0, i64 noundef %1324)
+1324:                                             ; preds = %1098, %1088
+  call void @llvm.lifetime.end.p0(i64 4, ptr %44) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %43) #10
+  br label %1325
+
+1325:                                             ; preds = %314, %1324, %1085, %1001, %610, %444, %428, %393, %369
   br label %1326
 
-1326:                                             ; preds = %1318, %1310
-  %1327 = load ptr, ptr %8, align 8
-  %1328 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1327, i32 0, i32 4
-  %1329 = load i16, ptr %1328, align 4
-  %1330 = lshr i16 %1329, 10
-  %1331 = and i16 %1330, 1
-  %1332 = zext i16 %1331 to i32
-  %1333 = icmp ne i32 %1332, 0
-  br i1 %1333, label %1334, label %1358
+1326:                                             ; preds = %1325, %304
+  %1327 = load i8, ptr %12, align 1, !range !6, !noundef !7
+  %1328 = trunc i8 %1327 to i1
+  br i1 %1328, label %1329, label %1342
 
-1334:                                             ; preds = %1326
+1329:                                             ; preds = %1326
+  %1330 = load ptr, ptr %6, align 8
+  %1331 = getelementptr inbounds nuw %struct._packet_info, ptr %1330, i32 0, i32 1
+  %1332 = load ptr, ptr %1331, align 8
+  %1333 = load float, ptr %11, align 4
+  %1334 = fpext float %1333 to double
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %1332, i32 noundef 23, ptr noundef @.str.218, double noundef %1334)
   %1335 = load ptr, ptr %10, align 8
-  %1336 = load i32, ptr @hf_wlan_last_part_of_a_mpdu, align 4
+  %1336 = load i32, ptr @hf_wlan_radio_data_rate, align 4
   %1337 = load ptr, ptr %5, align 8
-  %1338 = load ptr, ptr %8, align 8
-  %1339 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1338, i32 0, i32 15
-  %1340 = load i32, ptr %1339, align 8
-  %1341 = zext i32 %1340 to i64
-  %1342 = call ptr @proto_tree_add_boolean(ptr noundef %1335, i32 noundef %1336, ptr noundef %1337, i32 noundef 0, i32 noundef 0, i64 noundef %1341)
-  %1343 = load ptr, ptr %10, align 8
-  %1344 = load i32, ptr @hf_wlan_a_mpdu_delim_crc_error, align 4
-  %1345 = load ptr, ptr %5, align 8
-  %1346 = load ptr, ptr %8, align 8
-  %1347 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1346, i32 0, i32 15
-  %1348 = load i32, ptr %1347, align 8
-  %1349 = zext i32 %1348 to i64
-  %1350 = call ptr @proto_tree_add_boolean(ptr noundef %1343, i32 noundef %1344, ptr noundef %1345, i32 noundef 0, i32 noundef 0, i64 noundef %1349)
-  %1351 = load ptr, ptr %10, align 8
-  %1352 = load i32, ptr @hf_wlan_a_mpdu_aggregate_id, align 4
-  %1353 = load ptr, ptr %5, align 8
-  %1354 = load ptr, ptr %8, align 8
-  %1355 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1354, i32 0, i32 16
-  %1356 = load i32, ptr %1355, align 4
-  %1357 = call ptr @proto_tree_add_uint(ptr noundef %1351, i32 noundef %1352, ptr noundef %1353, i32 noundef 0, i32 noundef 0, i32 noundef %1356)
-  br label %1358
+  %1338 = load float, ptr %11, align 4
+  %1339 = load float, ptr %11, align 4
+  %1340 = fpext float %1339 to double
+  %1341 = call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %1335, i32 noundef %1336, ptr noundef %1337, i32 noundef 0, i32 noundef 0, float noundef %1338, ptr noundef @.str.217, double noundef %1340)
+  br label %1342
 
-1358:                                             ; preds = %1334, %1326
-  %1359 = load ptr, ptr %6, align 8
-  %1360 = getelementptr inbounds %struct._packet_info, ptr %1359, i32 0, i32 9
-  %1361 = load ptr, ptr %1360, align 8
-  %1362 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1361, i32 0, i32 0
-  %1363 = load i32, ptr %1362, align 8
-  %1364 = icmp eq i32 %1363, 0
-  br i1 %1364, label %1365, label %1368
+1342:                                             ; preds = %1329, %1326
+  %1343 = load ptr, ptr %8, align 8
+  %1344 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1343, i32 0, i32 4
+  %1345 = load i16, ptr %1344, align 8
+  %1346 = and i16 %1345, 1
+  %1347 = zext i16 %1346 to i32
+  %1348 = icmp ne i32 %1347, 0
+  br i1 %1348, label %1349, label %1365
 
-1365:                                             ; preds = %1358
-  %1366 = load i32, ptr %18, align 4
-  %1367 = add i32 %1366, 4
-  store i32 %1367, ptr %18, align 4
-  br label %1368
+1349:                                             ; preds = %1342
+  %1350 = load ptr, ptr %6, align 8
+  %1351 = getelementptr inbounds nuw %struct._packet_info, ptr %1350, i32 0, i32 1
+  %1352 = load ptr, ptr %1351, align 8
+  %1353 = load ptr, ptr %8, align 8
+  %1354 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1353, i32 0, i32 5
+  %1355 = load i16, ptr %1354, align 2
+  %1356 = zext i16 %1355 to i32
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %1352, i32 noundef 15, ptr noundef @.str.219, i32 noundef %1356)
+  %1357 = load ptr, ptr %10, align 8
+  %1358 = load i32, ptr @hf_wlan_radio_channel, align 4
+  %1359 = load ptr, ptr %5, align 8
+  %1360 = load ptr, ptr %8, align 8
+  %1361 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1360, i32 0, i32 5
+  %1362 = load i16, ptr %1361, align 2
+  %1363 = zext i16 %1362 to i32
+  %1364 = call ptr @proto_tree_add_uint(ptr noundef %1357, i32 noundef %1358, ptr noundef %1359, i32 noundef 0, i32 noundef 0, i32 noundef %1363)
+  br label %1365
 
-1368:                                             ; preds = %1365, %1358
-  %1369 = load i32, ptr %12, align 4
-  %1370 = icmp ne i32 %1369, 0
-  br i1 %1370, label %1371, label %2113
+1365:                                             ; preds = %1349, %1342
+  %1366 = load ptr, ptr %8, align 8
+  %1367 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1366, i32 0, i32 4
+  %1368 = load i16, ptr %1367, align 8
+  %1369 = lshr i16 %1368, 1
+  %1370 = and i16 %1369, 1
+  %1371 = zext i16 %1370 to i32
+  %1372 = icmp ne i32 %1371, 0
+  br i1 %1372, label %1373, label %1387
 
-1371:                                             ; preds = %1368
-  %1372 = load float, ptr %11, align 4
-  %1373 = fcmp ogt float %1372, 0.000000e+00
-  br i1 %1373, label %1374, label %2113
+1373:                                             ; preds = %1365
+  %1374 = load ptr, ptr %6, align 8
+  %1375 = getelementptr inbounds nuw %struct._packet_info, ptr %1374, i32 0, i32 1
+  %1376 = load ptr, ptr %1375, align 8
+  %1377 = load ptr, ptr %8, align 8
+  %1378 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1377, i32 0, i32 6
+  %1379 = load i32, ptr %1378, align 4
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %1376, i32 noundef 15, ptr noundef @.str.220, i32 noundef %1379)
+  %1380 = load ptr, ptr %10, align 8
+  %1381 = load i32, ptr @hf_wlan_radio_frequency, align 4
+  %1382 = load ptr, ptr %5, align 8
+  %1383 = load ptr, ptr %8, align 8
+  %1384 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1383, i32 0, i32 6
+  %1385 = load i32, ptr %1384, align 4
+  %1386 = call ptr @proto_tree_add_uint(ptr noundef %1380, i32 noundef %1381, ptr noundef %1382, i32 noundef 0, i32 noundef 0, i32 noundef %1385)
+  br label %1387
 
-1374:                                             ; preds = %1371
-  store i32 0, ptr %43, align 4
-  store i32 0, ptr %44, align 4
-  store i32 0, ptr %45, align 4
-  store i32 0, ptr %46, align 4
-  store i32 0, ptr %47, align 4
-  %1375 = load i32, ptr %25, align 4
-  %1376 = icmp eq i32 %1375, 6
-  br i1 %1376, label %1377, label %1396
+1387:                                             ; preds = %1373, %1365
+  %1388 = load ptr, ptr %8, align 8
+  %1389 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1388, i32 0, i32 4
+  %1390 = load i16, ptr %1389, align 8
+  %1391 = lshr i16 %1390, 3
+  %1392 = and i16 %1391, 1
+  %1393 = zext i16 %1392 to i32
+  %1394 = icmp ne i32 %1393, 0
+  br i1 %1394, label %1395, label %1411
 
-1377:                                             ; preds = %1374
-  %1378 = load float, ptr %11, align 4
-  %1379 = fcmp oeq float %1378, 1.000000e+00
-  br i1 %1379, label %1395, label %1380
+1395:                                             ; preds = %1387
+  %1396 = load ptr, ptr %6, align 8
+  %1397 = getelementptr inbounds nuw %struct._packet_info, ptr %1396, i32 0, i32 1
+  %1398 = load ptr, ptr %1397, align 8
+  %1399 = load ptr, ptr %8, align 8
+  %1400 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1399, i32 0, i32 8
+  %1401 = load i8, ptr %1400, align 2
+  %1402 = zext i8 %1401 to i32
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %1398, i32 noundef 22, ptr noundef @.str.221, i32 noundef %1402)
+  %1403 = load ptr, ptr %10, align 8
+  %1404 = load i32, ptr @hf_wlan_radio_signal_percent, align 4
+  %1405 = load ptr, ptr %5, align 8
+  %1406 = load ptr, ptr %8, align 8
+  %1407 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1406, i32 0, i32 8
+  %1408 = load i8, ptr %1407, align 2
+  %1409 = zext i8 %1408 to i32
+  %1410 = call ptr @proto_tree_add_uint(ptr noundef %1403, i32 noundef %1404, ptr noundef %1405, i32 noundef 0, i32 noundef 0, i32 noundef %1409)
+  br label %1411
 
-1380:                                             ; preds = %1377
-  %1381 = load float, ptr %11, align 4
-  %1382 = fcmp oeq float %1381, 2.000000e+00
-  br i1 %1382, label %1395, label %1383
+1411:                                             ; preds = %1395, %1387
+  %1412 = load ptr, ptr %8, align 8
+  %1413 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1412, i32 0, i32 4
+  %1414 = load i16, ptr %1413, align 8
+  %1415 = lshr i16 %1414, 7
+  %1416 = and i16 %1415, 1
+  %1417 = zext i16 %1416 to i32
+  %1418 = icmp ne i32 %1417, 0
+  br i1 %1418, label %1419, label %1435
 
-1383:                                             ; preds = %1380
-  %1384 = load float, ptr %11, align 4
-  %1385 = fcmp oeq float %1384, 5.500000e+00
-  br i1 %1385, label %1395, label %1386
+1419:                                             ; preds = %1411
+  %1420 = load ptr, ptr %6, align 8
+  %1421 = getelementptr inbounds nuw %struct._packet_info, ptr %1420, i32 0, i32 1
+  %1422 = load ptr, ptr %1421, align 8
+  %1423 = load ptr, ptr %8, align 8
+  %1424 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1423, i32 0, i32 12
+  %1425 = load i8, ptr %1424, align 2
+  %1426 = zext i8 %1425 to i32
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %1422, i32 noundef 22, ptr noundef @.str.222, i32 noundef %1426)
+  %1427 = load ptr, ptr %10, align 8
+  %1428 = load i32, ptr @hf_wlan_radio_signal_db, align 4
+  %1429 = load ptr, ptr %5, align 8
+  %1430 = load ptr, ptr %8, align 8
+  %1431 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1430, i32 0, i32 12
+  %1432 = load i8, ptr %1431, align 2
+  %1433 = zext i8 %1432 to i32
+  %1434 = call ptr @proto_tree_add_uint(ptr noundef %1427, i32 noundef %1428, ptr noundef %1429, i32 noundef 0, i32 noundef 0, i32 noundef %1433)
+  br label %1435
 
-1386:                                             ; preds = %1383
-  %1387 = load float, ptr %11, align 4
-  %1388 = fcmp oeq float %1387, 1.100000e+01
-  br i1 %1388, label %1395, label %1389
+1435:                                             ; preds = %1419, %1411
+  %1436 = load ptr, ptr %8, align 8
+  %1437 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1436, i32 0, i32 4
+  %1438 = load i16, ptr %1437, align 8
+  %1439 = lshr i16 %1438, 5
+  %1440 = and i16 %1439, 1
+  %1441 = zext i16 %1440 to i32
+  %1442 = icmp ne i32 %1441, 0
+  br i1 %1442, label %1443, label %1459
 
-1389:                                             ; preds = %1386
-  %1390 = load float, ptr %11, align 4
-  %1391 = fcmp oeq float %1390, 2.200000e+01
-  br i1 %1391, label %1395, label %1392
+1443:                                             ; preds = %1435
+  %1444 = load ptr, ptr %6, align 8
+  %1445 = getelementptr inbounds nuw %struct._packet_info, ptr %1444, i32 0, i32 1
+  %1446 = load ptr, ptr %1445, align 8
+  %1447 = load ptr, ptr %8, align 8
+  %1448 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1447, i32 0, i32 10
+  %1449 = load i8, ptr %1448, align 4
+  %1450 = sext i8 %1449 to i32
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %1446, i32 noundef 22, ptr noundef @.str.223, i32 noundef %1450)
+  %1451 = load ptr, ptr %10, align 8
+  %1452 = load i32, ptr @hf_wlan_radio_signal_dbm, align 4
+  %1453 = load ptr, ptr %5, align 8
+  %1454 = load ptr, ptr %8, align 8
+  %1455 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1454, i32 0, i32 10
+  %1456 = load i8, ptr %1455, align 4
+  %1457 = sext i8 %1456 to i32
+  %1458 = call ptr @proto_tree_add_int(ptr noundef %1451, i32 noundef %1452, ptr noundef %1453, i32 noundef 0, i32 noundef 0, i32 noundef %1457)
+  br label %1459
 
-1392:                                             ; preds = %1389
-  %1393 = load float, ptr %11, align 4
-  %1394 = fcmp oeq float %1393, 3.300000e+01
-  br i1 %1394, label %1395, label %1396
+1459:                                             ; preds = %1443, %1435
+  %1460 = load ptr, ptr %8, align 8
+  %1461 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1460, i32 0, i32 4
+  %1462 = load i16, ptr %1461, align 8
+  %1463 = lshr i16 %1462, 4
+  %1464 = and i16 %1463, 1
+  %1465 = zext i16 %1464 to i32
+  %1466 = icmp ne i32 %1465, 0
+  br i1 %1466, label %1467, label %1476
 
-1395:                                             ; preds = %1392, %1389, %1386, %1383, %1380, %1377
-  store i32 4, ptr %25, align 4
-  br label %1448
+1467:                                             ; preds = %1459
+  %1468 = load ptr, ptr %10, align 8
+  %1469 = load i32, ptr @hf_wlan_radio_noise_percent, align 4
+  %1470 = load ptr, ptr %5, align 8
+  %1471 = load ptr, ptr %8, align 8
+  %1472 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1471, i32 0, i32 9
+  %1473 = load i8, ptr %1472, align 1
+  %1474 = zext i8 %1473 to i32
+  %1475 = call ptr @proto_tree_add_uint(ptr noundef %1468, i32 noundef %1469, ptr noundef %1470, i32 noundef 0, i32 noundef 0, i32 noundef %1474)
+  br label %1476
 
-1396:                                             ; preds = %1392, %1374
-  %1397 = load i32, ptr %25, align 4
-  %1398 = icmp eq i32 %1397, 0
-  br i1 %1398, label %1399, label %1418
+1476:                                             ; preds = %1467, %1459
+  %1477 = load ptr, ptr %8, align 8
+  %1478 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1477, i32 0, i32 4
+  %1479 = load i16, ptr %1478, align 8
+  %1480 = lshr i16 %1479, 8
+  %1481 = and i16 %1480, 1
+  %1482 = zext i16 %1481 to i32
+  %1483 = icmp ne i32 %1482, 0
+  br i1 %1483, label %1484, label %1493
 
-1399:                                             ; preds = %1396
-  %1400 = load float, ptr %11, align 4
-  %1401 = fcmp oeq float %1400, 1.000000e+00
-  br i1 %1401, label %1417, label %1402
+1484:                                             ; preds = %1476
+  %1485 = load ptr, ptr %10, align 8
+  %1486 = load i32, ptr @hf_wlan_radio_noise_db, align 4
+  %1487 = load ptr, ptr %5, align 8
+  %1488 = load ptr, ptr %8, align 8
+  %1489 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1488, i32 0, i32 13
+  %1490 = load i8, ptr %1489, align 1
+  %1491 = zext i8 %1490 to i32
+  %1492 = call ptr @proto_tree_add_uint(ptr noundef %1485, i32 noundef %1486, ptr noundef %1487, i32 noundef 0, i32 noundef 0, i32 noundef %1491)
+  br label %1493
 
-1402:                                             ; preds = %1399
-  %1403 = load float, ptr %11, align 4
-  %1404 = fcmp oeq float %1403, 2.000000e+00
-  br i1 %1404, label %1417, label %1405
+1493:                                             ; preds = %1484, %1476
+  %1494 = load ptr, ptr %8, align 8
+  %1495 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1494, i32 0, i32 4
+  %1496 = load i16, ptr %1495, align 8
+  %1497 = lshr i16 %1496, 6
+  %1498 = and i16 %1497, 1
+  %1499 = zext i16 %1498 to i32
+  %1500 = icmp ne i32 %1499, 0
+  br i1 %1500, label %1501, label %1510
 
-1405:                                             ; preds = %1402
-  %1406 = load float, ptr %11, align 4
-  %1407 = fcmp oeq float %1406, 5.500000e+00
-  br i1 %1407, label %1417, label %1408
+1501:                                             ; preds = %1493
+  %1502 = load ptr, ptr %10, align 8
+  %1503 = load i32, ptr @hf_wlan_radio_noise_dbm, align 4
+  %1504 = load ptr, ptr %5, align 8
+  %1505 = load ptr, ptr %8, align 8
+  %1506 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1505, i32 0, i32 11
+  %1507 = load i8, ptr %1506, align 1
+  %1508 = sext i8 %1507 to i32
+  %1509 = call ptr @proto_tree_add_int(ptr noundef %1502, i32 noundef %1503, ptr noundef %1504, i32 noundef 0, i32 noundef 0, i32 noundef %1508)
+  br label %1510
 
-1408:                                             ; preds = %1405
-  %1409 = load float, ptr %11, align 4
-  %1410 = fcmp oeq float %1409, 1.100000e+01
-  br i1 %1410, label %1417, label %1411
-
-1411:                                             ; preds = %1408
-  %1412 = load float, ptr %11, align 4
-  %1413 = fcmp oeq float %1412, 2.200000e+01
-  br i1 %1413, label %1417, label %1414
-
-1414:                                             ; preds = %1411
-  %1415 = load float, ptr %11, align 4
-  %1416 = fcmp oeq float %1415, 3.300000e+01
-  br i1 %1416, label %1417, label %1418
-
-1417:                                             ; preds = %1414, %1411, %1408, %1405, %1402, %1399
-  store i32 4, ptr %25, align 4
-  br label %1447
-
-1418:                                             ; preds = %1414, %1396
-  %1419 = load i32, ptr %25, align 4
-  %1420 = icmp eq i32 %1419, 0
-  br i1 %1420, label %1421, label %1446
-
-1421:                                             ; preds = %1418
-  %1422 = load float, ptr %11, align 4
-  %1423 = fcmp oeq float %1422, 6.000000e+00
-  br i1 %1423, label %1445, label %1424
-
-1424:                                             ; preds = %1421
-  %1425 = load float, ptr %11, align 4
-  %1426 = fcmp oeq float %1425, 9.000000e+00
-  br i1 %1426, label %1445, label %1427
-
-1427:                                             ; preds = %1424
-  %1428 = load float, ptr %11, align 4
-  %1429 = fcmp oeq float %1428, 1.200000e+01
-  br i1 %1429, label %1445, label %1430
-
-1430:                                             ; preds = %1427
-  %1431 = load float, ptr %11, align 4
-  %1432 = fcmp oeq float %1431, 1.800000e+01
-  br i1 %1432, label %1445, label %1433
-
-1433:                                             ; preds = %1430
-  %1434 = load float, ptr %11, align 4
-  %1435 = fcmp oeq float %1434, 2.400000e+01
-  br i1 %1435, label %1445, label %1436
-
-1436:                                             ; preds = %1433
-  %1437 = load float, ptr %11, align 4
-  %1438 = fcmp oeq float %1437, 3.600000e+01
-  br i1 %1438, label %1445, label %1439
-
-1439:                                             ; preds = %1436
-  %1440 = load float, ptr %11, align 4
-  %1441 = fcmp oeq float %1440, 4.800000e+01
-  br i1 %1441, label %1445, label %1442
-
-1442:                                             ; preds = %1439
-  %1443 = load float, ptr %11, align 4
-  %1444 = fcmp oeq float %1443, 5.400000e+01
-  br i1 %1444, label %1445, label %1446
-
-1445:                                             ; preds = %1442, %1439, %1436, %1433, %1430, %1427, %1424, %1421
-  store i32 5, ptr %25, align 4
-  br label %1446
-
-1446:                                             ; preds = %1445, %1442, %1418
-  br label %1447
-
-1447:                                             ; preds = %1446, %1417
-  br label %1448
-
-1448:                                             ; preds = %1447, %1395
-  %1449 = load i32, ptr %25, align 4
-  switch i32 %1449, label %1741 [
-    i32 1, label %1450
-    i32 4, label %1451
-    i32 5, label %1473
-    i32 6, label %1473
-    i32 7, label %1490
-    i32 8, label %1671
-  ]
-
-1450:                                             ; preds = %1448
-  br label %1741
-
-1451:                                             ; preds = %1448
-  %1452 = load i32, ptr %13, align 4
-  %1453 = icmp ne i32 %1452, 0
-  br i1 %1453, label %1454, label %1457
-
-1454:                                             ; preds = %1451
-  %1455 = load i32, ptr @wlan_radio_always_short_preamble, align 4
-  %1456 = icmp ne i32 %1455, 0
-  br i1 %1456, label %1457, label %1458
-
-1457:                                             ; preds = %1454, %1451
-  store i32 1, ptr %43, align 4
-  store i32 1, ptr %14, align 4
-  br label %1458
-
-1458:                                             ; preds = %1457, %1454
-  %1459 = load i32, ptr %14, align 4
-  %1460 = icmp ne i32 %1459, 0
-  %1461 = select i1 %1460, i32 96, i32 192
-  store i32 %1461, ptr %19, align 4
-  store i32 1, ptr %21, align 4
-  %1462 = load i32, ptr %19, align 4
-  %1463 = uitofp i32 %1462 to float
-  %1464 = load i32, ptr %18, align 4
-  %1465 = mul i32 %1464, 8
-  %1466 = uitofp i32 %1465 to float
-  %1467 = load float, ptr %11, align 4
-  %1468 = fdiv float %1466, %1467
-  %1469 = fadd float %1463, %1468
-  %1470 = fpext float %1469 to double
-  %1471 = call double @llvm.ceil.f64(double %1470)
-  %1472 = fptoui double %1471 to i32
-  store i32 %1472, ptr %22, align 4
-  br label %1741
-
-1473:                                             ; preds = %1448, %1448
-  store i32 20, ptr %19, align 4
-  %1474 = load i32, ptr %18, align 4
-  %1475 = mul i32 8, %1474
-  %1476 = add i32 16, %1475
-  %1477 = add i32 %1476, 6
-  store i32 %1477, ptr %48, align 4
-  %1478 = load i32, ptr %48, align 4
-  %1479 = uitofp i32 %1478 to float
-  %1480 = load float, ptr %11, align 4
-  %1481 = fmul float %1480, 4.000000e+00
-  %1482 = fdiv float %1479, %1481
-  %1483 = fpext float %1482 to double
-  %1484 = call double @llvm.ceil.f64(double %1483)
-  %1485 = fptoui double %1484 to i32
-  store i32 %1485, ptr %49, align 4
-  store i32 1, ptr %21, align 4
-  %1486 = load i32, ptr %19, align 4
-  %1487 = load i32, ptr %49, align 4
-  %1488 = mul i32 %1487, 4
-  %1489 = add i32 %1486, %1488
-  store i32 %1489, ptr %22, align 4
-  br label %1741
-
-1490:                                             ; preds = %1448
-  %1491 = load ptr, ptr %26, align 8
-  store ptr %1491, ptr %50, align 8
-  %1492 = load ptr, ptr %50, align 8
-  %1493 = load i8, ptr %1492, align 4
-  %1494 = and i8 %1493, 1
-  %1495 = zext i8 %1494 to i32
-  %1496 = icmp ne i32 %1495, 0
-  br i1 %1496, label %1497, label %1517
-
-1497:                                             ; preds = %1490
-  %1498 = load ptr, ptr %50, align 8
-  %1499 = getelementptr inbounds %struct.ieee_802_11n, ptr %1498, i32 0, i32 1
-  %1500 = load i16, ptr %1499, align 2
-  %1501 = zext i16 %1500 to i32
-  %1502 = icmp sgt i32 %1501, 76
-  br i1 %1502, label %1517, label %1503
-
-1503:                                             ; preds = %1497
-  %1504 = load ptr, ptr %50, align 8
-  %1505 = load i8, ptr %1504, align 4
-  %1506 = lshr i8 %1505, 1
-  %1507 = and i8 %1506, 1
-  %1508 = zext i8 %1507 to i32
-  %1509 = icmp ne i32 %1508, 0
-  br i1 %1509, label %1510, label %1517
-
-1510:                                             ; preds = %1503
-  %1511 = load ptr, ptr %50, align 8
-  %1512 = load i8, ptr %1511, align 4
-  %1513 = lshr i8 %1512, 2
-  %1514 = and i8 %1513, 1
-  %1515 = zext i8 %1514 to i32
-  %1516 = icmp ne i32 %1515, 0
-  br i1 %1516, label %1518, label %1517
-
-1517:                                             ; preds = %1510, %1503, %1497, %1490
-  br label %1741
+1510:                                             ; preds = %1501, %1493
+  %1511 = load ptr, ptr %8, align 8
+  %1512 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1511, i32 0, i32 4
+  %1513 = load i16, ptr %1512, align 8
+  %1514 = lshr i16 %1513, 5
+  %1515 = and i16 %1514, 1
+  %1516 = zext i16 %1515 to i32
+  %1517 = icmp ne i32 %1516, 0
+  br i1 %1517, label %1518, label %1540
 
 1518:                                             ; preds = %1510
-  %1519 = load ptr, ptr %50, align 8
-  %1520 = load i8, ptr %1519, align 4
-  %1521 = lshr i8 %1520, 3
-  %1522 = and i8 %1521, 1
-  %1523 = zext i8 %1522 to i32
-  %1524 = icmp ne i32 %1523, 0
-  br i1 %1524, label %1525, label %1534
+  %1519 = load ptr, ptr %8, align 8
+  %1520 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1519, i32 0, i32 4
+  %1521 = load i16, ptr %1520, align 8
+  %1522 = lshr i16 %1521, 6
+  %1523 = and i16 %1522, 1
+  %1524 = zext i16 %1523 to i32
+  %1525 = icmp ne i32 %1524, 0
+  br i1 %1525, label %1526, label %1540
 
-1525:                                             ; preds = %1518
-  %1526 = load ptr, ptr %50, align 8
-  %1527 = getelementptr inbounds %struct.ieee_802_11n, ptr %1526, i32 0, i32 3
-  %1528 = load i8, ptr %1527, align 4
-  %1529 = lshr i8 %1528, 1
-  %1530 = and i8 %1529, 1
-  %1531 = zext i8 %1530 to i32
-  %1532 = icmp ne i32 %1531, 0
-  %1533 = select i1 %1532, i32 24, i32 32
-  store i32 %1533, ptr %19, align 4
-  br label %1535
+1526:                                             ; preds = %1518
+  %1527 = load ptr, ptr %10, align 8
+  %1528 = load i32, ptr @hf_wlan_radio_snr, align 4
+  %1529 = load ptr, ptr %5, align 8
+  %1530 = load ptr, ptr %8, align 8
+  %1531 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1530, i32 0, i32 10
+  %1532 = load i8, ptr %1531, align 4
+  %1533 = sext i8 %1532 to i32
+  %1534 = load ptr, ptr %8, align 8
+  %1535 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1534, i32 0, i32 11
+  %1536 = load i8, ptr %1535, align 1
+  %1537 = sext i8 %1536 to i32
+  %1538 = sub i32 %1533, %1537
+  %1539 = call ptr @proto_tree_add_int(ptr noundef %1527, i32 noundef %1528, ptr noundef %1529, i32 noundef 0, i32 noundef 0, i32 noundef %1538)
+  br label %1540
 
-1534:                                             ; preds = %1518
-  store i32 32, ptr %19, align 4
-  store i32 1, ptr %44, align 4
-  br label %1535
+1540:                                             ; preds = %1526, %1518, %1510
+  %1541 = load ptr, ptr %8, align 8
+  %1542 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1541, i32 0, i32 4
+  %1543 = load i16, ptr %1542, align 8
+  %1544 = lshr i16 %1543, 9
+  %1545 = and i16 %1544, 1
+  %1546 = zext i16 %1545 to i32
+  %1547 = icmp ne i32 %1546, 0
+  br i1 %1547, label %1548, label %1556
 
-1535:                                             ; preds = %1534, %1525
-  %1536 = load ptr, ptr %50, align 8
-  %1537 = load i8, ptr %1536, align 4
-  %1538 = lshr i8 %1537, 5
-  %1539 = and i8 %1538, 1
-  %1540 = zext i8 %1539 to i32
-  %1541 = icmp ne i32 %1540, 0
-  br i1 %1541, label %1542, label %1549
+1548:                                             ; preds = %1540
+  %1549 = load ptr, ptr %10, align 8
+  %1550 = load i32, ptr @hf_wlan_radio_timestamp, align 4
+  %1551 = load ptr, ptr %5, align 8
+  %1552 = load ptr, ptr %8, align 8
+  %1553 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1552, i32 0, i32 14
+  %1554 = load i64, ptr %1553, align 8
+  %1555 = call ptr @proto_tree_add_uint64(ptr noundef %1549, i32 noundef %1550, ptr noundef %1551, i32 noundef 0, i32 noundef 0, i64 noundef %1554)
+  br label %1556
 
-1542:                                             ; preds = %1535
-  %1543 = load ptr, ptr %50, align 8
-  %1544 = getelementptr inbounds %struct.ieee_802_11n, ptr %1543, i32 0, i32 3
-  %1545 = load i8, ptr %1544, align 4
-  %1546 = lshr i8 %1545, 3
-  %1547 = and i8 %1546, 3
-  %1548 = zext i8 %1547 to i32
-  store i32 %1548, ptr %52, align 4
-  br label %1550
+1556:                                             ; preds = %1548, %1540
+  %1557 = load ptr, ptr %8, align 8
+  %1558 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1557, i32 0, i32 4
+  %1559 = load i16, ptr %1558, align 8
+  %1560 = lshr i16 %1559, 10
+  %1561 = and i16 %1560, 1
+  %1562 = zext i16 %1561 to i32
+  %1563 = icmp ne i32 %1562, 0
+  br i1 %1563, label %1564, label %1588
 
-1549:                                             ; preds = %1535
-  store i32 0, ptr %52, align 4
-  store i32 1, ptr %45, align 4
-  br label %1550
+1564:                                             ; preds = %1556
+  %1565 = load ptr, ptr %10, align 8
+  %1566 = load i32, ptr @hf_wlan_last_part_of_a_mpdu, align 4
+  %1567 = load ptr, ptr %5, align 8
+  %1568 = load ptr, ptr %8, align 8
+  %1569 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1568, i32 0, i32 15
+  %1570 = load i32, ptr %1569, align 8
+  %1571 = zext i32 %1570 to i64
+  %1572 = call ptr @proto_tree_add_boolean(ptr noundef %1565, i32 noundef %1566, ptr noundef %1567, i32 noundef 0, i32 noundef 0, i64 noundef %1571)
+  %1573 = load ptr, ptr %10, align 8
+  %1574 = load i32, ptr @hf_wlan_a_mpdu_delim_crc_error, align 4
+  %1575 = load ptr, ptr %5, align 8
+  %1576 = load ptr, ptr %8, align 8
+  %1577 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1576, i32 0, i32 15
+  %1578 = load i32, ptr %1577, align 8
+  %1579 = zext i32 %1578 to i64
+  %1580 = call ptr @proto_tree_add_boolean(ptr noundef %1573, i32 noundef %1574, ptr noundef %1575, i32 noundef 0, i32 noundef 0, i64 noundef %1579)
+  %1581 = load ptr, ptr %10, align 8
+  %1582 = load i32, ptr @hf_wlan_a_mpdu_aggregate_id, align 4
+  %1583 = load ptr, ptr %5, align 8
+  %1584 = load ptr, ptr %8, align 8
+  %1585 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1584, i32 0, i32 16
+  %1586 = load i32, ptr %1585, align 4
+  %1587 = call ptr @proto_tree_add_uint(ptr noundef %1581, i32 noundef %1582, ptr noundef %1583, i32 noundef 0, i32 noundef 0, i32 noundef %1586)
+  br label %1588
 
-1550:                                             ; preds = %1549, %1542
-  %1551 = load ptr, ptr %50, align 8
-  %1552 = load i8, ptr %1551, align 4
-  %1553 = lshr i8 %1552, 6
-  %1554 = and i8 %1553, 1
-  %1555 = zext i8 %1554 to i32
-  %1556 = icmp ne i32 %1555, 0
-  br i1 %1556, label %1557, label %1566
+1588:                                             ; preds = %1564, %1556
+  %1589 = load ptr, ptr %6, align 8
+  %1590 = getelementptr inbounds nuw %struct._packet_info, ptr %1589, i32 0, i32 9
+  %1591 = load ptr, ptr %1590, align 8
+  %1592 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1591, i32 0, i32 0
+  %1593 = load i32, ptr %1592, align 8
+  %1594 = icmp eq i32 %1593, 0
+  br i1 %1594, label %1595, label %1598
 
-1557:                                             ; preds = %1550
-  %1558 = load ptr, ptr %50, align 8
-  %1559 = getelementptr inbounds %struct.ieee_802_11n, ptr %1558, i32 0, i32 4
-  %1560 = load i32, ptr %1559, align 4
-  store i32 %1560, ptr %53, align 4
-  %1561 = load i32, ptr %53, align 4
-  %1562 = zext i32 %1561 to i64
-  %1563 = icmp uge i64 %1562, 4
-  br i1 %1563, label %1564, label %1565
+1595:                                             ; preds = %1588
+  %1596 = load i32, ptr %18, align 4
+  %1597 = add i32 %1596, 4
+  store i32 %1597, ptr %18, align 4
+  br label %1598
 
-1564:                                             ; preds = %1557
-  br label %1741
+1598:                                             ; preds = %1595, %1588
+  %1599 = load i8, ptr %12, align 1, !range !6, !noundef !7
+  %1600 = trunc i8 %1599 to i1
+  br i1 %1600, label %1601, label %2338
 
-1565:                                             ; preds = %1557
-  br label %1567
+1601:                                             ; preds = %1598
+  %1602 = load float, ptr %11, align 4
+  %1603 = fcmp ogt float %1602, 0.000000e+00
+  br i1 %1603, label %1604, label %2338
 
-1566:                                             ; preds = %1550
-  store i32 0, ptr %53, align 4
-  store i32 1, ptr %46, align 4
-  br label %1567
+1604:                                             ; preds = %1601
+  call void @llvm.lifetime.start.p0(i64 1, ptr %49) #10
+  store i8 0, ptr %49, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %50) #10
+  store i8 0, ptr %50, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %51) #10
+  store i8 0, ptr %51, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %52) #10
+  store i8 0, ptr %52, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %53) #10
+  store i8 0, ptr %53, align 1
+  %1605 = load i32, ptr %25, align 4
+  %1606 = icmp eq i32 %1605, 6
+  br i1 %1606, label %1607, label %1626
 
-1567:                                             ; preds = %1566, %1565
-  %1568 = load ptr, ptr %50, align 8
-  %1569 = getelementptr inbounds %struct.ieee_802_11n, ptr %1568, i32 0, i32 1
-  %1570 = load i16, ptr %1569, align 2
-  %1571 = zext i16 %1570 to i64
-  %1572 = getelementptr [77 x i8], ptr @ieee80211_ht_streams, i64 0, i64 %1571
-  %1573 = load i8, ptr %1572, align 1
-  %1574 = zext i8 %1573 to i32
-  %1575 = load i32, ptr %52, align 4
-  %1576 = add i32 %1574, %1575
-  store i32 %1576, ptr %51, align 4
-  %1577 = load i32, ptr %51, align 4
-  %1578 = icmp eq i32 %1577, 0
-  br i1 %1578, label %1584, label %1579
+1607:                                             ; preds = %1604
+  %1608 = load float, ptr %11, align 4
+  %1609 = fcmp oeq float %1608, 1.000000e+00
+  br i1 %1609, label %1625, label %1610
 
-1579:                                             ; preds = %1567
-  %1580 = load i32, ptr %51, align 4
-  %1581 = sub i32 %1580, 1
-  %1582 = zext i32 %1581 to i64
-  %1583 = icmp uge i64 %1582, 4
-  br i1 %1583, label %1584, label %1585
+1610:                                             ; preds = %1607
+  %1611 = load float, ptr %11, align 4
+  %1612 = fcmp oeq float %1611, 2.000000e+00
+  br i1 %1612, label %1625, label %1613
 
-1584:                                             ; preds = %1579, %1567
-  br label %1741
+1613:                                             ; preds = %1610
+  %1614 = load float, ptr %11, align 4
+  %1615 = fcmp oeq float %1614, 5.500000e+00
+  br i1 %1615, label %1625, label %1616
 
-1585:                                             ; preds = %1579
-  %1586 = load i32, ptr %51, align 4
-  %1587 = sub i32 %1586, 1
-  %1588 = zext i32 %1587 to i64
-  %1589 = getelementptr [4 x i32], ptr @dissect_wlan_radio_phdr.Nhtdltf, i64 0, i64 %1588
-  %1590 = load i32, ptr %1589, align 4
-  %1591 = load i32, ptr %53, align 4
-  %1592 = zext i32 %1591 to i64
-  %1593 = getelementptr [4 x i32], ptr @dissect_wlan_radio_phdr.Nhteltf, i64 0, i64 %1592
-  %1594 = load i32, ptr %1593, align 4
-  %1595 = add i32 %1590, %1594
-  %1596 = mul i32 4, %1595
-  %1597 = load i32, ptr %19, align 4
-  %1598 = add i32 %1597, %1596
-  store i32 %1598, ptr %19, align 4
-  %1599 = load ptr, ptr %50, align 8
-  %1600 = load i8, ptr %1599, align 4
-  %1601 = lshr i8 %1600, 5
-  %1602 = and i8 %1601, 1
-  %1603 = zext i8 %1602 to i32
-  %1604 = icmp ne i32 %1603, 0
-  br i1 %1604, label %1605, label %1612
+1616:                                             ; preds = %1613
+  %1617 = load float, ptr %11, align 4
+  %1618 = fcmp oeq float %1617, 1.100000e+01
+  br i1 %1618, label %1625, label %1619
 
-1605:                                             ; preds = %1585
-  %1606 = load ptr, ptr %50, align 8
-  %1607 = getelementptr inbounds %struct.ieee_802_11n, ptr %1606, i32 0, i32 3
-  %1608 = load i8, ptr %1607, align 4
-  %1609 = lshr i8 %1608, 3
-  %1610 = and i8 %1609, 3
-  %1611 = zext i8 %1610 to i32
-  store i32 %1611, ptr %52, align 4
-  br label %1613
+1619:                                             ; preds = %1616
+  %1620 = load float, ptr %11, align 4
+  %1621 = fcmp oeq float %1620, 2.200000e+01
+  br i1 %1621, label %1625, label %1622
 
-1612:                                             ; preds = %1585
-  store i32 0, ptr %52, align 4
-  store i32 1, ptr %45, align 4
-  br label %1613
+1622:                                             ; preds = %1619
+  %1623 = load float, ptr %11, align 4
+  %1624 = fcmp oeq float %1623, 3.300000e+01
+  br i1 %1624, label %1625, label %1626
 
-1613:                                             ; preds = %1612, %1605
-  %1614 = load ptr, ptr %50, align 8
-  %1615 = load i8, ptr %1614, align 4
-  %1616 = lshr i8 %1615, 6
-  %1617 = and i8 %1616, 1
-  %1618 = zext i8 %1617 to i32
-  %1619 = icmp ne i32 %1618, 0
-  br i1 %1619, label %1621, label %1620
+1625:                                             ; preds = %1622, %1619, %1616, %1613, %1610, %1607
+  store i32 4, ptr %25, align 4
+  br label %1678
 
-1620:                                             ; preds = %1613
-  store i32 1, ptr %46, align 4
-  br label %1621
+1626:                                             ; preds = %1622, %1604
+  %1627 = load i32, ptr %25, align 4
+  %1628 = icmp eq i32 %1627, 0
+  br i1 %1628, label %1629, label %1648
 
-1621:                                             ; preds = %1620, %1613
-  %1622 = load ptr, ptr %50, align 8
-  %1623 = load i8, ptr %1622, align 4
-  %1624 = lshr i8 %1623, 4
-  %1625 = and i8 %1624, 1
-  %1626 = zext i8 %1625 to i32
-  %1627 = icmp ne i32 %1626, 0
-  br i1 %1627, label %1629, label %1628
-
-1628:                                             ; preds = %1621
-  store i32 1, ptr %47, align 4
-  br label %1629
-
-1629:                                             ; preds = %1628, %1621
-  %1630 = load ptr, ptr %24, align 8
-  %1631 = icmp ne ptr %1630, null
-  br i1 %1631, label %1632, label %1663
+1629:                                             ; preds = %1626
+  %1630 = load float, ptr %11, align 4
+  %1631 = fcmp oeq float %1630, 1.000000e+00
+  br i1 %1631, label %1647, label %1632
 
 1632:                                             ; preds = %1629
-  %1633 = load ptr, ptr %24, align 8
-  %1634 = getelementptr inbounds %struct.wlan_radio, ptr %1633, i32 0, i32 0
-  %1635 = load ptr, ptr %1634, align 8
-  %1636 = icmp ne ptr %1635, null
-  br i1 %1636, label %1637, label %1663
+  %1633 = load float, ptr %11, align 4
+  %1634 = fcmp oeq float %1633, 2.000000e+00
+  br i1 %1634, label %1647, label %1635
 
-1637:                                             ; preds = %1632
-  %1638 = load i32, ptr %19, align 4
-  store i32 %1638, ptr %20, align 4
-  %1639 = load ptr, ptr %24, align 8
-  %1640 = getelementptr inbounds %struct.wlan_radio, ptr %1639, i32 0, i32 1
-  %1641 = load i32, ptr %1640, align 8
-  %1642 = icmp ne i32 %1641, 0
-  br i1 %1642, label %1643, label %1644
+1635:                                             ; preds = %1632
+  %1636 = load float, ptr %11, align 4
+  %1637 = fcmp oeq float %1636, 5.500000e+00
+  br i1 %1637, label %1647, label %1638
 
-1643:                                             ; preds = %1637
-  store i32 0, ptr %19, align 4
-  br label %1644
+1638:                                             ; preds = %1635
+  %1639 = load float, ptr %11, align 4
+  %1640 = fcmp oeq float %1639, 1.100000e+01
+  br i1 %1640, label %1647, label %1641
 
-1644:                                             ; preds = %1643, %1637
-  %1645 = load ptr, ptr %24, align 8
-  %1646 = getelementptr inbounds %struct.wlan_radio, ptr %1645, i32 0, i32 1
-  %1647 = load i32, ptr %1646, align 8
-  %1648 = load ptr, ptr %50, align 8
-  %1649 = load i32, ptr %52, align 4
-  %1650 = call i32 @calculate_11n_duration(i32 noundef %1647, ptr noundef %1648, i32 noundef %1649)
-  store i32 %1650, ptr %23, align 4
-  store i32 1, ptr %21, align 4
-  %1651 = load i32, ptr %19, align 4
-  %1652 = load i32, ptr %18, align 4
-  %1653 = load ptr, ptr %24, align 8
-  %1654 = getelementptr inbounds %struct.wlan_radio, ptr %1653, i32 0, i32 1
-  %1655 = load i32, ptr %1654, align 8
-  %1656 = add i32 %1652, %1655
-  %1657 = load ptr, ptr %50, align 8
-  %1658 = load i32, ptr %52, align 4
-  %1659 = call i32 @calculate_11n_duration(i32 noundef %1656, ptr noundef %1657, i32 noundef %1658)
-  %1660 = add i32 %1651, %1659
-  %1661 = load i32, ptr %23, align 4
-  %1662 = sub i32 %1660, %1661
-  store i32 %1662, ptr %22, align 4
-  br label %1670
+1641:                                             ; preds = %1638
+  %1642 = load float, ptr %11, align 4
+  %1643 = fcmp oeq float %1642, 2.200000e+01
+  br i1 %1643, label %1647, label %1644
 
-1663:                                             ; preds = %1632, %1629
-  store i32 1, ptr %21, align 4
-  %1664 = load i32, ptr %19, align 4
-  %1665 = load i32, ptr %18, align 4
-  %1666 = load ptr, ptr %50, align 8
-  %1667 = load i32, ptr %52, align 4
-  %1668 = call i32 @calculate_11n_duration(i32 noundef %1665, ptr noundef %1666, i32 noundef %1667)
-  %1669 = add i32 %1664, %1668
-  store i32 %1669, ptr %22, align 4
-  br label %1670
+1644:                                             ; preds = %1641
+  %1645 = load float, ptr %11, align 4
+  %1646 = fcmp oeq float %1645, 3.300000e+01
+  br i1 %1646, label %1647, label %1648
 
-1670:                                             ; preds = %1663, %1644
-  br label %1741
+1647:                                             ; preds = %1644, %1641, %1638, %1635, %1632, %1629
+  store i32 4, ptr %25, align 4
+  br label %1677
 
-1671:                                             ; preds = %1448
-  %1672 = load ptr, ptr %26, align 8
-  store ptr %1672, ptr %54, align 8
-  %1673 = load ptr, ptr %54, align 8
-  %1674 = load i16, ptr %1673, align 4
-  %1675 = and i16 %1674, 1
-  %1676 = zext i16 %1675 to i32
-  %1677 = icmp ne i32 %1676, 0
-  br i1 %1677, label %1679, label %1678
+1648:                                             ; preds = %1644, %1626
+  %1649 = load i32, ptr %25, align 4
+  %1650 = icmp eq i32 %1649, 0
+  br i1 %1650, label %1651, label %1676
 
-1678:                                             ; preds = %1671
-  store i32 1, ptr %45, align 4
-  br label %1679
+1651:                                             ; preds = %1648
+  %1652 = load float, ptr %11, align 4
+  %1653 = fcmp oeq float %1652, 6.000000e+00
+  br i1 %1653, label %1675, label %1654
 
-1679:                                             ; preds = %1678, %1671
-  %1680 = load ptr, ptr %54, align 8
-  %1681 = getelementptr inbounds %struct.ieee_802_11ac, ptr %1680, i32 0, i32 3
-  %1682 = getelementptr [4 x i8], ptr %1681, i64 0, i64 0
-  %1683 = load i8, ptr %1682, align 1
-  %1684 = zext i8 %1683 to i32
-  %1685 = mul i32 4, %1684
-  %1686 = load ptr, ptr %54, align 8
-  %1687 = load i16, ptr %1686, align 4
-  %1688 = and i16 %1687, 1
-  %1689 = zext i16 %1688 to i32
-  %1690 = icmp ne i32 %1689, 0
-  br i1 %1690, label %1691, label %1698
+1654:                                             ; preds = %1651
+  %1655 = load float, ptr %11, align 4
+  %1656 = fcmp oeq float %1655, 9.000000e+00
+  br i1 %1656, label %1675, label %1657
 
-1691:                                             ; preds = %1679
-  %1692 = load ptr, ptr %54, align 8
-  %1693 = load i16, ptr %1692, align 4
-  %1694 = lshr i16 %1693, 10
-  %1695 = and i16 %1694, 1
-  %1696 = zext i16 %1695 to i32
-  %1697 = add i32 %1696, 1
-  br label %1699
+1657:                                             ; preds = %1654
+  %1658 = load float, ptr %11, align 4
+  %1659 = fcmp oeq float %1658, 1.200000e+01
+  br i1 %1659, label %1675, label %1660
 
-1698:                                             ; preds = %1679
-  br label %1699
+1660:                                             ; preds = %1657
+  %1661 = load float, ptr %11, align 4
+  %1662 = fcmp oeq float %1661, 1.800000e+01
+  br i1 %1662, label %1675, label %1663
 
-1699:                                             ; preds = %1698, %1691
-  %1700 = phi i32 [ %1697, %1691 ], [ 1, %1698 ]
-  %1701 = mul i32 %1685, %1700
-  %1702 = add i32 32, %1701
-  store i32 %1702, ptr %19, align 4
-  %1703 = load ptr, ptr %24, align 8
-  %1704 = icmp ne ptr %1703, null
-  br i1 %1704, label %1705, label %1734
+1663:                                             ; preds = %1660
+  %1664 = load float, ptr %11, align 4
+  %1665 = fcmp oeq float %1664, 2.400000e+01
+  br i1 %1665, label %1675, label %1666
 
-1705:                                             ; preds = %1699
-  %1706 = load ptr, ptr %24, align 8
-  %1707 = getelementptr inbounds %struct.wlan_radio, ptr %1706, i32 0, i32 0
-  %1708 = load ptr, ptr %1707, align 8
-  %1709 = icmp ne ptr %1708, null
-  br i1 %1709, label %1710, label %1734
+1666:                                             ; preds = %1663
+  %1667 = load float, ptr %11, align 4
+  %1668 = fcmp oeq float %1667, 3.600000e+01
+  br i1 %1668, label %1675, label %1669
 
-1710:                                             ; preds = %1705
-  %1711 = load i32, ptr %19, align 4
-  store i32 %1711, ptr %20, align 4
-  %1712 = load ptr, ptr %24, align 8
-  %1713 = getelementptr inbounds %struct.wlan_radio, ptr %1712, i32 0, i32 1
-  %1714 = load i32, ptr %1713, align 8
-  %1715 = icmp ne i32 %1714, 0
-  br i1 %1715, label %1716, label %1717
+1669:                                             ; preds = %1666
+  %1670 = load float, ptr %11, align 4
+  %1671 = fcmp oeq float %1670, 4.800000e+01
+  br i1 %1671, label %1675, label %1672
 
-1716:                                             ; preds = %1710
-  store i32 0, ptr %19, align 4
-  br label %1717
+1672:                                             ; preds = %1669
+  %1673 = load float, ptr %11, align 4
+  %1674 = fcmp oeq float %1673, 5.400000e+01
+  br i1 %1674, label %1675, label %1676
 
-1717:                                             ; preds = %1716, %1710
-  %1718 = load ptr, ptr %24, align 8
-  %1719 = getelementptr inbounds %struct.wlan_radio, ptr %1718, i32 0, i32 1
-  %1720 = load i32, ptr %1719, align 8
-  %1721 = load float, ptr %11, align 4
-  %1722 = call i32 @calculate_11ac_duration(i32 noundef %1720, float noundef %1721)
-  store i32 %1722, ptr %23, align 4
-  store i32 1, ptr %21, align 4
-  %1723 = load i32, ptr %19, align 4
-  %1724 = load ptr, ptr %24, align 8
-  %1725 = getelementptr inbounds %struct.wlan_radio, ptr %1724, i32 0, i32 1
-  %1726 = load i32, ptr %1725, align 8
-  %1727 = load i32, ptr %18, align 4
-  %1728 = add i32 %1726, %1727
-  %1729 = load float, ptr %11, align 4
-  %1730 = call i32 @calculate_11ac_duration(i32 noundef %1728, float noundef %1729)
-  %1731 = add i32 %1723, %1730
-  %1732 = load i32, ptr %23, align 4
-  %1733 = sub i32 %1731, %1732
-  store i32 %1733, ptr %22, align 4
-  br label %1740
+1675:                                             ; preds = %1672, %1669, %1666, %1663, %1660, %1657, %1654, %1651
+  store i32 5, ptr %25, align 4
+  br label %1676
 
-1734:                                             ; preds = %1705, %1699
-  store i32 1, ptr %21, align 4
-  %1735 = load i32, ptr %19, align 4
-  %1736 = load i32, ptr %18, align 4
-  %1737 = load float, ptr %11, align 4
-  %1738 = call i32 @calculate_11ac_duration(i32 noundef %1736, float noundef %1737)
-  %1739 = add i32 %1735, %1738
-  store i32 %1739, ptr %22, align 4
-  br label %1740
+1676:                                             ; preds = %1675, %1672, %1648
+  br label %1677
 
-1740:                                             ; preds = %1734, %1717
-  br label %1741
+1677:                                             ; preds = %1676, %1647
+  br label %1678
 
-1741:                                             ; preds = %1740, %1670, %1584, %1564, %1517, %1473, %1458, %1450, %1448
-  %1742 = load ptr, ptr %6, align 8
-  %1743 = getelementptr inbounds %struct._packet_info, ptr %1742, i32 0, i32 8
-  %1744 = load ptr, ptr %1743, align 8
-  %1745 = getelementptr inbounds %struct._frame_data, ptr %1744, i32 0, i32 9
-  %1746 = load i16, ptr %1745, align 2
-  %1747 = lshr i16 %1746, 3
-  %1748 = and i16 %1747, 1
-  %1749 = zext i16 %1748 to i32
-  %1750 = icmp ne i32 %1749, 0
-  br i1 %1750, label %1976, label %1751
+1678:                                             ; preds = %1677, %1625
+  %1679 = load i32, ptr %25, align 4
+  switch i32 %1679, label %1971 [
+    i32 1, label %1971
+    i32 4, label %1680
+    i32 5, label %1702
+    i32 6, label %1702
+    i32 7, label %1719
+    i32 8, label %1901
+  ]
 
-1751:                                             ; preds = %1741
-  %1752 = load i32, ptr %21, align 4
+1680:                                             ; preds = %1678
+  %1681 = load i8, ptr %13, align 1, !range !6, !noundef !7
+  %1682 = trunc i8 %1681 to i1
+  br i1 %1682, label %1683, label %1686
+
+1683:                                             ; preds = %1680
+  %1684 = load i8, ptr @wlan_radio_always_short_preamble, align 1, !range !6, !noundef !7
+  %1685 = trunc i8 %1684 to i1
+  br i1 %1685, label %1686, label %1687
+
+1686:                                             ; preds = %1683, %1680
+  store i8 1, ptr %49, align 1
+  store i8 1, ptr %14, align 1
+  br label %1687
+
+1687:                                             ; preds = %1686, %1683
+  %1688 = load i8, ptr %14, align 1, !range !6, !noundef !7
+  %1689 = trunc i8 %1688 to i1
+  %1690 = select i1 %1689, i32 96, i32 192
+  store i32 %1690, ptr %19, align 4
+  store i8 1, ptr %21, align 1
+  %1691 = load i32, ptr %19, align 4
+  %1692 = uitofp i32 %1691 to float
+  %1693 = load i32, ptr %18, align 4
+  %1694 = mul i32 %1693, 8
+  %1695 = uitofp i32 %1694 to float
+  %1696 = load float, ptr %11, align 4
+  %1697 = fdiv float %1695, %1696
+  %1698 = fadd float %1692, %1697
+  %1699 = fpext float %1698 to double
+  %1700 = call double @llvm.ceil.f64(double %1699)
+  %1701 = fptoui double %1700 to i32
+  store i32 %1701, ptr %22, align 4
+  br label %1971
+
+1702:                                             ; preds = %1678, %1678
+  store i32 20, ptr %19, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %54) #10
+  %1703 = load i32, ptr %18, align 4
+  %1704 = mul i32 8, %1703
+  %1705 = add i32 16, %1704
+  %1706 = add i32 %1705, 6
+  store i32 %1706, ptr %54, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %55) #10
+  %1707 = load i32, ptr %54, align 4
+  %1708 = uitofp i32 %1707 to float
+  %1709 = load float, ptr %11, align 4
+  %1710 = fmul float %1709, 4.000000e+00
+  %1711 = fdiv float %1708, %1710
+  %1712 = fpext float %1711 to double
+  %1713 = call double @llvm.ceil.f64(double %1712)
+  %1714 = fptoui double %1713 to i32
+  store i32 %1714, ptr %55, align 4
+  store i8 1, ptr %21, align 1
+  %1715 = load i32, ptr %19, align 4
+  %1716 = load i32, ptr %55, align 4
+  %1717 = mul i32 %1716, 4
+  %1718 = add i32 %1715, %1717
+  store i32 %1718, ptr %22, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %55) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %54) #10
+  br label %1971
+
+1719:                                             ; preds = %1678
+  call void @llvm.lifetime.start.p0(i64 8, ptr %56) #10
+  %1720 = load ptr, ptr %26, align 8
+  store ptr %1720, ptr %56, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %57) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %58) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %59) #10
+  %1721 = load ptr, ptr %56, align 8
+  %1722 = load i8, ptr %1721, align 4
+  %1723 = and i8 %1722, 1
+  %1724 = zext i8 %1723 to i32
+  %1725 = icmp ne i32 %1724, 0
+  br i1 %1725, label %1726, label %1746
+
+1726:                                             ; preds = %1719
+  %1727 = load ptr, ptr %56, align 8
+  %1728 = getelementptr inbounds nuw %struct.ieee_802_11n, ptr %1727, i32 0, i32 1
+  %1729 = load i16, ptr %1728, align 2
+  %1730 = zext i16 %1729 to i32
+  %1731 = icmp sgt i32 %1730, 76
+  br i1 %1731, label %1746, label %1732
+
+1732:                                             ; preds = %1726
+  %1733 = load ptr, ptr %56, align 8
+  %1734 = load i8, ptr %1733, align 4
+  %1735 = lshr i8 %1734, 1
+  %1736 = and i8 %1735, 1
+  %1737 = zext i8 %1736 to i32
+  %1738 = icmp ne i32 %1737, 0
+  br i1 %1738, label %1739, label %1746
+
+1739:                                             ; preds = %1732
+  %1740 = load ptr, ptr %56, align 8
+  %1741 = load i8, ptr %1740, align 4
+  %1742 = lshr i8 %1741, 2
+  %1743 = and i8 %1742, 1
+  %1744 = zext i8 %1743 to i32
+  %1745 = icmp ne i32 %1744, 0
+  br i1 %1745, label %1747, label %1746
+
+1746:                                             ; preds = %1739, %1732, %1726, %1719
+  store i32 10, ptr %60, align 4
+  br label %1900
+
+1747:                                             ; preds = %1739
+  %1748 = load ptr, ptr %56, align 8
+  %1749 = load i8, ptr %1748, align 4
+  %1750 = lshr i8 %1749, 3
+  %1751 = and i8 %1750, 1
+  %1752 = zext i8 %1751 to i32
   %1753 = icmp ne i32 %1752, 0
-  br i1 %1753, label %1754, label %1976
+  br i1 %1753, label %1754, label %1763
 
-1754:                                             ; preds = %1751
-  %1755 = load ptr, ptr %8, align 8
-  %1756 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1755, i32 0, i32 4
-  %1757 = load i16, ptr %1756, align 4
-  %1758 = lshr i16 %1757, 9
-  %1759 = and i16 %1758, 1
-  %1760 = zext i16 %1759 to i32
+1754:                                             ; preds = %1747
+  %1755 = load ptr, ptr %56, align 8
+  %1756 = getelementptr inbounds nuw %struct.ieee_802_11n, ptr %1755, i32 0, i32 3
+  %1757 = load i8, ptr %1756, align 4
+  %1758 = lshr i8 %1757, 1
+  %1759 = and i8 %1758, 1
+  %1760 = zext i8 %1759 to i32
   %1761 = icmp ne i32 %1760, 0
-  br i1 %1761, label %1762, label %1976
+  %1762 = select i1 %1761, i32 24, i32 32
+  store i32 %1762, ptr %19, align 4
+  br label %1764
 
-1762:                                             ; preds = %1754
-  %1763 = load ptr, ptr @current_aggregate, align 8
-  %1764 = icmp ne ptr %1763, null
-  br i1 %1764, label %1765, label %1788
+1763:                                             ; preds = %1747
+  store i32 32, ptr %19, align 4
+  store i8 1, ptr %50, align 1
+  br label %1764
 
-1765:                                             ; preds = %1762
-  %1766 = load i32, ptr %20, align 4
-  %1767 = load i32, ptr %23, align 4
-  %1768 = add i32 %1766, %1767
-  %1769 = load i32, ptr %22, align 4
-  %1770 = add i32 %1768, %1769
-  %1771 = load ptr, ptr @current_aggregate, align 8
-  %1772 = getelementptr inbounds %struct.aggregate, ptr %1771, i32 0, i32 3
-  store i32 %1770, ptr %1772, align 4
-  %1773 = getelementptr inbounds %struct.previous_frame_info, ptr @previous_frame, i32 0, i32 5
-  %1774 = load ptr, ptr %1773, align 8
-  %1775 = icmp ne ptr %1774, null
-  br i1 %1775, label %1776, label %1787
+1764:                                             ; preds = %1763, %1754
+  %1765 = load ptr, ptr %56, align 8
+  %1766 = load i8, ptr %1765, align 4
+  %1767 = lshr i8 %1766, 5
+  %1768 = and i8 %1767, 1
+  %1769 = zext i8 %1768 to i32
+  %1770 = icmp ne i32 %1769, 0
+  br i1 %1770, label %1771, label %1778
 
-1776:                                             ; preds = %1765
-  %1777 = getelementptr inbounds %struct.previous_frame_info, ptr @previous_frame, i32 0, i32 5
-  %1778 = load ptr, ptr %1777, align 8
-  %1779 = getelementptr inbounds %struct.wlan_radio, ptr %1778, i32 0, i32 0
-  %1780 = load ptr, ptr %1779, align 8
-  %1781 = load ptr, ptr @current_aggregate, align 8
-  %1782 = icmp eq ptr %1780, %1781
-  br i1 %1782, label %1783, label %1787
+1771:                                             ; preds = %1764
+  %1772 = load ptr, ptr %56, align 8
+  %1773 = getelementptr inbounds nuw %struct.ieee_802_11n, ptr %1772, i32 0, i32 3
+  %1774 = load i8, ptr %1773, align 4
+  %1775 = lshr i8 %1774, 3
+  %1776 = and i8 %1775, 3
+  %1777 = zext i8 %1776 to i32
+  store i32 %1777, ptr %58, align 4
+  br label %1779
 
-1783:                                             ; preds = %1776
-  %1784 = getelementptr inbounds %struct.previous_frame_info, ptr @previous_frame, i32 0, i32 5
-  %1785 = load ptr, ptr %1784, align 8
-  %1786 = getelementptr inbounds %struct.wlan_radio, ptr %1785, i32 0, i32 5
-  store i16 0, ptr %1786, align 8
-  br label %1787
+1778:                                             ; preds = %1764
+  store i32 0, ptr %58, align 4
+  store i8 1, ptr %51, align 1
+  br label %1779
 
-1787:                                             ; preds = %1783, %1776, %1765
-  br label %1788
+1779:                                             ; preds = %1778, %1771
+  %1780 = load ptr, ptr %56, align 8
+  %1781 = load i8, ptr %1780, align 4
+  %1782 = lshr i8 %1781, 6
+  %1783 = and i8 %1782, 1
+  %1784 = zext i8 %1783 to i32
+  %1785 = icmp ne i32 %1784, 0
+  br i1 %1785, label %1786, label %1795
 
-1788:                                             ; preds = %1787, %1762
-  %1789 = load ptr, ptr %8, align 8
-  %1790 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1789, i32 0, i32 14
-  %1791 = load i64, ptr %1790, align 8
-  %1792 = icmp eq i64 %1791, -1
-  br i1 %1792, label %1793, label %1827
+1786:                                             ; preds = %1779
+  %1787 = load ptr, ptr %56, align 8
+  %1788 = getelementptr inbounds nuw %struct.ieee_802_11n, ptr %1787, i32 0, i32 4
+  %1789 = load i32, ptr %1788, align 4
+  store i32 %1789, ptr %59, align 4
+  %1790 = load i32, ptr %59, align 4
+  %1791 = zext i32 %1790 to i64
+  %1792 = icmp uge i64 %1791, 4
+  br i1 %1792, label %1793, label %1794
 
-1793:                                             ; preds = %1788
-  %1794 = load i32, ptr %23, align 4
-  %1795 = load ptr, ptr @current_aggregate, align 8
-  %1796 = icmp ne ptr %1795, null
-  br i1 %1796, label %1797, label %1799
+1793:                                             ; preds = %1786
+  store i32 10, ptr %60, align 4
+  br label %1900
 
-1797:                                             ; preds = %1793
-  %1798 = load i32, ptr %20, align 4
-  br label %1800
+1794:                                             ; preds = %1786
+  br label %1796
 
-1799:                                             ; preds = %1793
-  br label %1800
+1795:                                             ; preds = %1779
+  store i32 0, ptr %59, align 4
+  store i8 1, ptr %52, align 1
+  br label %1796
 
-1800:                                             ; preds = %1799, %1797
-  %1801 = phi i32 [ %1798, %1797 ], [ 0, %1799 ]
-  %1802 = add i32 %1794, %1801
-  %1803 = zext i32 %1802 to i64
-  %1804 = load ptr, ptr %24, align 8
-  %1805 = getelementptr inbounds %struct.wlan_radio, ptr %1804, i32 0, i32 2
-  store i64 %1803, ptr %1805, align 8
-  %1806 = load i32, ptr %23, align 4
-  %1807 = load i32, ptr %22, align 4
-  %1808 = add i32 %1806, %1807
-  %1809 = load ptr, ptr @current_aggregate, align 8
-  %1810 = icmp ne ptr %1809, null
-  br i1 %1810, label %1811, label %1813
+1796:                                             ; preds = %1795, %1794
+  %1797 = load ptr, ptr %56, align 8
+  %1798 = getelementptr inbounds nuw %struct.ieee_802_11n, ptr %1797, i32 0, i32 1
+  %1799 = load i16, ptr %1798, align 2
+  %1800 = zext i16 %1799 to i64
+  %1801 = getelementptr [77 x i8], ptr @ieee80211_ht_streams, i64 0, i64 %1800
+  %1802 = load i8, ptr %1801, align 1
+  %1803 = zext i8 %1802 to i32
+  %1804 = load i32, ptr %58, align 4
+  %1805 = add i32 %1803, %1804
+  store i32 %1805, ptr %57, align 4
+  %1806 = load i32, ptr %57, align 4
+  %1807 = icmp eq i32 %1806, 0
+  br i1 %1807, label %1813, label %1808
 
-1811:                                             ; preds = %1800
-  %1812 = load i32, ptr %20, align 4
-  br label %1814
+1808:                                             ; preds = %1796
+  %1809 = load i32, ptr %57, align 4
+  %1810 = sub i32 %1809, 1
+  %1811 = zext i32 %1810 to i64
+  %1812 = icmp uge i64 %1811, 4
+  br i1 %1812, label %1813, label %1814
 
-1813:                                             ; preds = %1800
-  br label %1814
+1813:                                             ; preds = %1808, %1796
+  store i32 10, ptr %60, align 4
+  br label %1900
 
-1814:                                             ; preds = %1813, %1811
-  %1815 = phi i32 [ %1812, %1811 ], [ 0, %1813 ]
-  %1816 = add i32 %1808, %1815
+1814:                                             ; preds = %1808
+  %1815 = load i32, ptr %57, align 4
+  %1816 = sub i32 %1815, 1
   %1817 = zext i32 %1816 to i64
-  %1818 = load ptr, ptr %24, align 8
-  %1819 = getelementptr inbounds %struct.wlan_radio, ptr %1818, i32 0, i32 3
-  store i64 %1817, ptr %1819, align 8
-  %1820 = load ptr, ptr @agg_tracker_list, align 8
-  %1821 = icmp eq ptr %1820, null
-  br i1 %1821, label %1822, label %1824
+  %1818 = getelementptr [4 x i32], ptr @dissect_wlan_radio_phdr.Nhtdltf, i64 0, i64 %1817
+  %1819 = load i32, ptr %1818, align 4
+  %1820 = load i32, ptr %59, align 4
+  %1821 = zext i32 %1820 to i64
+  %1822 = getelementptr [4 x i32], ptr @dissect_wlan_radio_phdr.Nhteltf, i64 0, i64 %1821
+  %1823 = load i32, ptr %1822, align 4
+  %1824 = add i32 %1819, %1823
+  %1825 = mul i32 4, %1824
+  %1826 = load i32, ptr %19, align 4
+  %1827 = add i32 %1826, %1825
+  store i32 %1827, ptr %19, align 4
+  %1828 = load ptr, ptr %56, align 8
+  %1829 = load i8, ptr %1828, align 4
+  %1830 = lshr i8 %1829, 5
+  %1831 = and i8 %1830, 1
+  %1832 = zext i8 %1831 to i32
+  %1833 = icmp ne i32 %1832, 0
+  br i1 %1833, label %1834, label %1841
 
-1822:                                             ; preds = %1814
-  %1823 = call noalias ptr @wmem_list_new(ptr noundef null)
-  store ptr %1823, ptr @agg_tracker_list, align 8
-  br label %1824
+1834:                                             ; preds = %1814
+  %1835 = load ptr, ptr %56, align 8
+  %1836 = getelementptr inbounds nuw %struct.ieee_802_11n, ptr %1835, i32 0, i32 3
+  %1837 = load i8, ptr %1836, align 4
+  %1838 = lshr i8 %1837, 3
+  %1839 = and i8 %1838, 3
+  %1840 = zext i8 %1839 to i32
+  store i32 %1840, ptr %58, align 4
+  br label %1842
 
-1824:                                             ; preds = %1822, %1814
-  %1825 = load ptr, ptr @agg_tracker_list, align 8
-  %1826 = load ptr, ptr %24, align 8
-  call void @wmem_list_append(ptr noundef %1825, ptr noundef %1826)
-  br label %1913
+1841:                                             ; preds = %1814
+  store i32 0, ptr %58, align 4
+  store i8 1, ptr %51, align 1
+  br label %1842
 
-1827:                                             ; preds = %1788
-  %1828 = load ptr, ptr @current_aggregate, align 8
-  %1829 = icmp ne ptr %1828, null
-  br i1 %1829, label %1830, label %1868
+1842:                                             ; preds = %1841, %1834
+  %1843 = load ptr, ptr %56, align 8
+  %1844 = load i8, ptr %1843, align 4
+  %1845 = lshr i8 %1844, 6
+  %1846 = and i8 %1845, 1
+  %1847 = zext i8 %1846 to i32
+  %1848 = icmp ne i32 %1847, 0
+  br i1 %1848, label %1850, label %1849
 
-1830:                                             ; preds = %1827
-  %1831 = load i32, ptr @wlan_radio_tsf_at_end, align 4
-  %1832 = icmp ne i32 %1831, 0
-  br i1 %1832, label %1833, label %1868
+1849:                                             ; preds = %1842
+  store i8 1, ptr %52, align 1
+  br label %1850
 
-1833:                                             ; preds = %1830
-  %1834 = load ptr, ptr %8, align 8
-  %1835 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1834, i32 0, i32 14
-  %1836 = load i64, ptr %1835, align 8
-  %1837 = icmp ne i64 %1836, -1
-  br i1 %1837, label %1838, label %1868
+1850:                                             ; preds = %1849, %1842
+  %1851 = load ptr, ptr %56, align 8
+  %1852 = load i8, ptr %1851, align 4
+  %1853 = lshr i8 %1852, 4
+  %1854 = and i8 %1853, 1
+  %1855 = zext i8 %1854 to i32
+  %1856 = icmp ne i32 %1855, 0
+  br i1 %1856, label %1858, label %1857
 
-1838:                                             ; preds = %1833
-  %1839 = load ptr, ptr %8, align 8
-  %1840 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1839, i32 0, i32 14
-  %1841 = load i64, ptr %1840, align 8
-  %1842 = load i32, ptr %22, align 4
-  %1843 = zext i32 %1842 to i64
-  %1844 = sub i64 %1841, %1843
-  %1845 = load ptr, ptr %24, align 8
-  %1846 = getelementptr inbounds %struct.wlan_radio, ptr %1845, i32 0, i32 2
-  store i64 %1844, ptr %1846, align 8
-  %1847 = load ptr, ptr %8, align 8
-  %1848 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1847, i32 0, i32 14
-  %1849 = load i64, ptr %1848, align 8
-  %1850 = load ptr, ptr %24, align 8
-  %1851 = getelementptr inbounds %struct.wlan_radio, ptr %1850, i32 0, i32 3
-  store i64 %1849, ptr %1851, align 8
-  %1852 = load ptr, ptr @agg_tracker_list, align 8
-  %1853 = icmp ne ptr %1852, null
-  br i1 %1853, label %1854, label %1867
+1857:                                             ; preds = %1850
+  store i8 1, ptr %53, align 1
+  br label %1858
 
-1854:                                             ; preds = %1838
-  %1855 = load ptr, ptr %8, align 8
-  %1856 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1855, i32 0, i32 14
-  %1857 = load i64, ptr %1856, align 8
-  %1858 = load i32, ptr %23, align 4
-  %1859 = load i32, ptr %22, align 4
-  %1860 = add i32 %1858, %1859
-  %1861 = load i32, ptr %20, align 4
-  %1862 = add i32 %1860, %1861
-  %1863 = zext i32 %1862 to i64
-  %1864 = sub i64 %1857, %1863
-  store i64 %1864, ptr %55, align 8
-  %1865 = load ptr, ptr @agg_tracker_list, align 8
-  call void @wmem_list_foreach(ptr noundef %1865, ptr noundef @adjust_agg_tsf, ptr noundef %55)
-  %1866 = load ptr, ptr @agg_tracker_list, align 8
-  call void @wmem_destroy_list(ptr noundef %1866)
-  store ptr null, ptr @agg_tracker_list, align 8
-  br label %1867
+1858:                                             ; preds = %1857, %1850
+  %1859 = load ptr, ptr %24, align 8
+  %1860 = icmp ne ptr %1859, null
+  br i1 %1860, label %1861, label %1892
 
-1867:                                             ; preds = %1854, %1838
-  br label %1912
+1861:                                             ; preds = %1858
+  %1862 = load ptr, ptr %24, align 8
+  %1863 = getelementptr inbounds nuw %struct.wlan_radio, ptr %1862, i32 0, i32 0
+  %1864 = load ptr, ptr %1863, align 8
+  %1865 = icmp ne ptr %1864, null
+  br i1 %1865, label %1866, label %1892
 
-1868:                                             ; preds = %1833, %1830, %1827
-  %1869 = load i32, ptr @wlan_radio_tsf_at_end, align 4
-  %1870 = icmp ne i32 %1869, 0
-  br i1 %1870, label %1871, label %1885
+1866:                                             ; preds = %1861
+  %1867 = load i32, ptr %19, align 4
+  store i32 %1867, ptr %20, align 4
+  %1868 = load ptr, ptr %24, align 8
+  %1869 = getelementptr inbounds nuw %struct.wlan_radio, ptr %1868, i32 0, i32 1
+  %1870 = load i32, ptr %1869, align 8
+  %1871 = icmp ne i32 %1870, 0
+  br i1 %1871, label %1872, label %1873
 
-1871:                                             ; preds = %1868
-  %1872 = load ptr, ptr %8, align 8
-  %1873 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1872, i32 0, i32 14
-  %1874 = load i64, ptr %1873, align 8
-  %1875 = load i32, ptr %22, align 4
-  %1876 = zext i32 %1875 to i64
-  %1877 = sub i64 %1874, %1876
-  %1878 = load ptr, ptr %24, align 8
-  %1879 = getelementptr inbounds %struct.wlan_radio, ptr %1878, i32 0, i32 2
-  store i64 %1877, ptr %1879, align 8
-  %1880 = load ptr, ptr %8, align 8
-  %1881 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1880, i32 0, i32 14
-  %1882 = load i64, ptr %1881, align 8
-  %1883 = load ptr, ptr %24, align 8
-  %1884 = getelementptr inbounds %struct.wlan_radio, ptr %1883, i32 0, i32 3
-  store i64 %1882, ptr %1884, align 8
-  br label %1911
+1872:                                             ; preds = %1866
+  store i32 0, ptr %19, align 4
+  br label %1873
 
-1885:                                             ; preds = %1868
-  %1886 = load ptr, ptr %8, align 8
-  %1887 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1886, i32 0, i32 14
-  %1888 = load i64, ptr %1887, align 8
-  %1889 = load i32, ptr %23, align 4
-  %1890 = zext i32 %1889 to i64
-  %1891 = add i64 %1888, %1890
-  %1892 = load i32, ptr %19, align 4
-  %1893 = zext i32 %1892 to i64
-  %1894 = sub i64 %1891, %1893
-  %1895 = load ptr, ptr %24, align 8
-  %1896 = getelementptr inbounds %struct.wlan_radio, ptr %1895, i32 0, i32 2
-  store i64 %1894, ptr %1896, align 8
-  %1897 = load ptr, ptr %8, align 8
-  %1898 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1897, i32 0, i32 14
-  %1899 = load i64, ptr %1898, align 8
-  %1900 = load i32, ptr %23, align 4
-  %1901 = zext i32 %1900 to i64
-  %1902 = add i64 %1899, %1901
-  %1903 = load i32, ptr %22, align 4
-  %1904 = zext i32 %1903 to i64
-  %1905 = add i64 %1902, %1904
-  %1906 = load i32, ptr %19, align 4
-  %1907 = zext i32 %1906 to i64
-  %1908 = sub i64 %1905, %1907
-  %1909 = load ptr, ptr %24, align 8
-  %1910 = getelementptr inbounds %struct.wlan_radio, ptr %1909, i32 0, i32 3
-  store i64 %1908, ptr %1910, align 8
-  br label %1911
+1873:                                             ; preds = %1872, %1866
+  %1874 = load ptr, ptr %24, align 8
+  %1875 = getelementptr inbounds nuw %struct.wlan_radio, ptr %1874, i32 0, i32 1
+  %1876 = load i32, ptr %1875, align 8
+  %1877 = load ptr, ptr %56, align 8
+  %1878 = load i32, ptr %58, align 4
+  %1879 = call i32 @calculate_11n_duration(i32 noundef %1876, ptr noundef %1877, i32 noundef %1878)
+  store i32 %1879, ptr %23, align 4
+  store i8 1, ptr %21, align 1
+  %1880 = load i32, ptr %19, align 4
+  %1881 = load i32, ptr %18, align 4
+  %1882 = load ptr, ptr %24, align 8
+  %1883 = getelementptr inbounds nuw %struct.wlan_radio, ptr %1882, i32 0, i32 1
+  %1884 = load i32, ptr %1883, align 8
+  %1885 = add i32 %1881, %1884
+  %1886 = load ptr, ptr %56, align 8
+  %1887 = load i32, ptr %58, align 4
+  %1888 = call i32 @calculate_11n_duration(i32 noundef %1885, ptr noundef %1886, i32 noundef %1887)
+  %1889 = add i32 %1880, %1888
+  %1890 = load i32, ptr %23, align 4
+  %1891 = sub i32 %1889, %1890
+  store i32 %1891, ptr %22, align 4
+  br label %1899
 
-1911:                                             ; preds = %1885, %1871
-  br label %1912
+1892:                                             ; preds = %1861, %1858
+  store i8 1, ptr %21, align 1
+  %1893 = load i32, ptr %19, align 4
+  %1894 = load i32, ptr %18, align 4
+  %1895 = load ptr, ptr %56, align 8
+  %1896 = load i32, ptr %58, align 4
+  %1897 = call i32 @calculate_11n_duration(i32 noundef %1894, ptr noundef %1895, i32 noundef %1896)
+  %1898 = add i32 %1893, %1897
+  store i32 %1898, ptr %22, align 4
+  br label %1899
 
-1912:                                             ; preds = %1911, %1867
-  br label %1913
+1899:                                             ; preds = %1892, %1873
+  store i32 10, ptr %60, align 4
+  br label %1900
 
-1913:                                             ; preds = %1912, %1824
-  %1914 = load ptr, ptr %6, align 8
-  %1915 = getelementptr inbounds %struct._packet_info, ptr %1914, i32 0, i32 8
-  %1916 = load ptr, ptr %1915, align 8
-  %1917 = getelementptr inbounds %struct._frame_data, ptr %1916, i32 0, i32 0
-  %1918 = load i32, ptr %1917, align 8
-  %1919 = icmp ugt i32 %1918, 1
-  br i1 %1919, label %1920, label %1935
+1900:                                             ; preds = %1899, %1813, %1793, %1746
+  call void @llvm.lifetime.end.p0(i64 4, ptr %59) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %58) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %57) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %56) #10
+  br label %1971
 
-1920:                                             ; preds = %1913
-  %1921 = getelementptr inbounds %struct.previous_frame_info, ptr @previous_frame, i32 0, i32 5
-  %1922 = load ptr, ptr %1921, align 8
-  %1923 = icmp ne ptr %1922, null
-  br i1 %1923, label %1924, label %1935
+1901:                                             ; preds = %1678
+  call void @llvm.lifetime.start.p0(i64 8, ptr %61) #10
+  %1902 = load ptr, ptr %26, align 8
+  store ptr %1902, ptr %61, align 8
+  %1903 = load ptr, ptr %61, align 8
+  %1904 = load i16, ptr %1903, align 4
+  %1905 = and i16 %1904, 1
+  %1906 = zext i16 %1905 to i32
+  %1907 = icmp ne i32 %1906, 0
+  br i1 %1907, label %1909, label %1908
 
-1924:                                             ; preds = %1920
-  %1925 = load ptr, ptr %24, align 8
-  %1926 = getelementptr inbounds %struct.wlan_radio, ptr %1925, i32 0, i32 2
-  %1927 = load i64, ptr %1926, align 8
-  %1928 = getelementptr inbounds %struct.previous_frame_info, ptr @previous_frame, i32 0, i32 5
-  %1929 = load ptr, ptr %1928, align 8
-  %1930 = getelementptr inbounds %struct.wlan_radio, ptr %1929, i32 0, i32 3
-  %1931 = load i64, ptr %1930, align 8
-  %1932 = sub i64 %1927, %1931
+1908:                                             ; preds = %1901
+  store i8 1, ptr %51, align 1
+  br label %1909
+
+1909:                                             ; preds = %1908, %1901
+  %1910 = load ptr, ptr %61, align 8
+  %1911 = getelementptr inbounds nuw %struct.ieee_802_11ac, ptr %1910, i32 0, i32 3
+  %1912 = getelementptr [4 x i8], ptr %1911, i64 0, i64 0
+  %1913 = load i8, ptr %1912, align 1
+  %1914 = zext i8 %1913 to i32
+  %1915 = mul i32 4, %1914
+  %1916 = load ptr, ptr %61, align 8
+  %1917 = load i16, ptr %1916, align 4
+  %1918 = and i16 %1917, 1
+  %1919 = zext i16 %1918 to i32
+  %1920 = icmp ne i32 %1919, 0
+  br i1 %1920, label %1921, label %1928
+
+1921:                                             ; preds = %1909
+  %1922 = load ptr, ptr %61, align 8
+  %1923 = load i16, ptr %1922, align 4
+  %1924 = lshr i16 %1923, 10
+  %1925 = and i16 %1924, 1
+  %1926 = zext i16 %1925 to i32
+  %1927 = add i32 %1926, 1
+  br label %1929
+
+1928:                                             ; preds = %1909
+  br label %1929
+
+1929:                                             ; preds = %1928, %1921
+  %1930 = phi i32 [ %1927, %1921 ], [ 1, %1928 ]
+  %1931 = mul i32 %1915, %1930
+  %1932 = add i32 32, %1931
+  store i32 %1932, ptr %19, align 4
   %1933 = load ptr, ptr %24, align 8
-  %1934 = getelementptr inbounds %struct.wlan_radio, ptr %1933, i32 0, i32 4
-  store i64 %1932, ptr %1934, align 8
-  br label %1935
+  %1934 = icmp ne ptr %1933, null
+  br i1 %1934, label %1935, label %1964
 
-1935:                                             ; preds = %1924, %1920, %1913
-  %1936 = load ptr, ptr %5, align 8
-  %1937 = call i32 @tvb_captured_length(ptr noundef %1936)
-  %1938 = icmp uge i32 %1937, 4
-  br i1 %1938, label %1939, label %1952
+1935:                                             ; preds = %1929
+  %1936 = load ptr, ptr %24, align 8
+  %1937 = getelementptr inbounds nuw %struct.wlan_radio, ptr %1936, i32 0, i32 0
+  %1938 = load ptr, ptr %1937, align 8
+  %1939 = icmp ne ptr %1938, null
+  br i1 %1939, label %1940, label %1964
 
-1939:                                             ; preds = %1935
-  %1940 = load ptr, ptr %5, align 8
-  %1941 = call zeroext i16 @tvb_get_letohs(ptr noundef %1940, i32 noundef 2)
-  %1942 = zext i16 %1941 to i32
-  store i32 %1942, ptr %56, align 4
-  %1943 = load i32, ptr %56, align 4
-  %1944 = and i32 %1943, 32768
-  %1945 = icmp eq i32 %1944, 0
-  br i1 %1945, label %1946, label %1951
+1940:                                             ; preds = %1935
+  %1941 = load i32, ptr %19, align 4
+  store i32 %1941, ptr %20, align 4
+  %1942 = load ptr, ptr %24, align 8
+  %1943 = getelementptr inbounds nuw %struct.wlan_radio, ptr %1942, i32 0, i32 1
+  %1944 = load i32, ptr %1943, align 8
+  %1945 = icmp ne i32 %1944, 0
+  br i1 %1945, label %1946, label %1947
 
-1946:                                             ; preds = %1939
-  %1947 = load i32, ptr %56, align 4
-  %1948 = trunc i32 %1947 to i16
-  %1949 = load ptr, ptr %24, align 8
-  %1950 = getelementptr inbounds %struct.wlan_radio, ptr %1949, i32 0, i32 5
-  store i16 %1948, ptr %1950, align 8
-  br label %1951
+1946:                                             ; preds = %1940
+  store i32 0, ptr %19, align 4
+  br label %1947
 
-1951:                                             ; preds = %1946, %1939
-  br label %1952
+1947:                                             ; preds = %1946, %1940
+  %1948 = load ptr, ptr %24, align 8
+  %1949 = getelementptr inbounds nuw %struct.wlan_radio, ptr %1948, i32 0, i32 1
+  %1950 = load i32, ptr %1949, align 8
+  %1951 = load float, ptr %11, align 4
+  %1952 = call i32 @calculate_11ac_duration(i32 noundef %1950, float noundef %1951)
+  store i32 %1952, ptr %23, align 4
+  store i8 1, ptr %21, align 1
+  %1953 = load i32, ptr %19, align 4
+  %1954 = load ptr, ptr %24, align 8
+  %1955 = getelementptr inbounds nuw %struct.wlan_radio, ptr %1954, i32 0, i32 1
+  %1956 = load i32, ptr %1955, align 8
+  %1957 = load i32, ptr %18, align 4
+  %1958 = add i32 %1956, %1957
+  %1959 = load float, ptr %11, align 4
+  %1960 = call i32 @calculate_11ac_duration(i32 noundef %1958, float noundef %1959)
+  %1961 = add i32 %1953, %1960
+  %1962 = load i32, ptr %23, align 4
+  %1963 = sub i32 %1961, %1962
+  store i32 %1963, ptr %22, align 4
+  br label %1970
 
-1952:                                             ; preds = %1951, %1935
-  %1953 = load ptr, ptr %8, align 8
-  %1954 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1953, i32 0, i32 4
-  %1955 = load i16, ptr %1954, align 4
-  %1956 = lshr i16 %1955, 5
-  %1957 = and i16 %1956, 1
-  %1958 = zext i16 %1957 to i32
-  %1959 = icmp ne i32 %1958, 0
-  br i1 %1959, label %1960, label %1975
+1964:                                             ; preds = %1935, %1929
+  store i8 1, ptr %21, align 1
+  %1965 = load i32, ptr %19, align 4
+  %1966 = load i32, ptr %18, align 4
+  %1967 = load float, ptr %11, align 4
+  %1968 = call i32 @calculate_11ac_duration(i32 noundef %1966, float noundef %1967)
+  %1969 = add i32 %1965, %1968
+  store i32 %1969, ptr %22, align 4
+  br label %1970
 
-1960:                                             ; preds = %1952
-  %1961 = load ptr, ptr %8, align 8
-  %1962 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1961, i32 0, i32 10
-  %1963 = load i8, ptr %1962, align 8
-  %1964 = load ptr, ptr %24, align 8
-  %1965 = getelementptr inbounds %struct.wlan_radio, ptr %1964, i32 0, i32 6
-  store i8 %1963, ptr %1965, align 2
-  %1966 = load ptr, ptr @current_aggregate, align 8
-  %1967 = icmp ne ptr %1966, null
-  br i1 %1967, label %1968, label %1974
+1970:                                             ; preds = %1964, %1947
+  store i32 10, ptr %60, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %61) #10
+  br label %1971
 
-1968:                                             ; preds = %1960
-  %1969 = load ptr, ptr %8, align 8
-  %1970 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %1969, i32 0, i32 10
-  %1971 = load i8, ptr %1970, align 8
-  %1972 = load ptr, ptr @current_aggregate, align 8
-  %1973 = getelementptr inbounds %struct.aggregate, ptr %1972, i32 0, i32 2
-  store i8 %1971, ptr %1973, align 4
-  br label %1974
+1971:                                             ; preds = %1678, %1970, %1900, %1702, %1687, %1678
+  %1972 = load ptr, ptr %6, align 8
+  %1973 = getelementptr inbounds nuw %struct._packet_info, ptr %1972, i32 0, i32 8
+  %1974 = load ptr, ptr %1973, align 8
+  %1975 = getelementptr inbounds nuw %struct._frame_data, ptr %1974, i32 0, i32 11
+  %1976 = load i16, ptr %1975, align 1
+  %1977 = lshr i16 %1976, 3
+  %1978 = and i16 %1977, 1
+  %1979 = zext i16 %1978 to i32
+  %1980 = icmp ne i32 %1979, 0
+  br i1 %1980, label %2201, label %1981
 
-1974:                                             ; preds = %1968, %1960
-  br label %1975
+1981:                                             ; preds = %1971
+  %1982 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %1983 = trunc i8 %1982 to i1
+  br i1 %1983, label %1984, label %2201
 
-1975:                                             ; preds = %1974, %1952
-  br label %1976
+1984:                                             ; preds = %1981
+  %1985 = load ptr, ptr %8, align 8
+  %1986 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %1985, i32 0, i32 4
+  %1987 = load i16, ptr %1986, align 8
+  %1988 = lshr i16 %1987, 9
+  %1989 = and i16 %1988, 1
+  %1990 = zext i16 %1989 to i32
+  %1991 = icmp ne i32 %1990, 0
+  br i1 %1991, label %1992, label %2201
 
-1976:                                             ; preds = %1975, %1754, %1751, %1741
-  %1977 = load i32, ptr %21, align 4
-  %1978 = icmp ne i32 %1977, 0
-  br i1 %1978, label %1979, label %2112
+1992:                                             ; preds = %1984
+  %1993 = load ptr, ptr @current_aggregate, align 8
+  %1994 = icmp ne ptr %1993, null
+  br i1 %1994, label %1995, label %2015
 
-1979:                                             ; preds = %1976
-  %1980 = load ptr, ptr %10, align 8
-  %1981 = load i32, ptr @hf_wlan_radio_duration, align 4
-  %1982 = load ptr, ptr %5, align 8
-  %1983 = load i32, ptr %22, align 4
-  %1984 = call ptr @proto_tree_add_uint(ptr noundef %1980, i32 noundef %1981, ptr noundef %1982, i32 noundef 0, i32 noundef 0, i32 noundef %1983)
-  store ptr %1984, ptr %57, align 8
-  %1985 = load ptr, ptr %57, align 8
-  %1986 = load i32, ptr @ett_wlan_radio_duration, align 4
-  %1987 = call ptr @proto_item_add_subtree(ptr noundef %1985, i32 noundef %1986)
-  store ptr %1987, ptr %58, align 8
-  %1988 = load ptr, ptr %57, align 8
-  call void @proto_item_set_generated(ptr noundef %1988)
-  %1989 = load i32, ptr %43, align 4
-  %1990 = icmp ne i32 %1989, 0
-  br i1 %1990, label %1991, label %1995
+1995:                                             ; preds = %1992
+  %1996 = load i32, ptr %20, align 4
+  %1997 = load i32, ptr %23, align 4
+  %1998 = add i32 %1996, %1997
+  %1999 = load i32, ptr %22, align 4
+  %2000 = add i32 %1998, %1999
+  %2001 = load ptr, ptr @current_aggregate, align 8
+  %2002 = getelementptr inbounds nuw %struct.aggregate, ptr %2001, i32 0, i32 3
+  store i32 %2000, ptr %2002, align 4
+  %2003 = load ptr, ptr getelementptr inbounds nuw (%struct.previous_frame_info, ptr @previous_frame, i32 0, i32 5), align 8
+  %2004 = icmp ne ptr %2003, null
+  br i1 %2004, label %2005, label %2014
 
-1991:                                             ; preds = %1979
-  %1992 = load ptr, ptr %6, align 8
-  %1993 = load ptr, ptr %57, align 8
-  %1994 = call ptr @expert_add_info(ptr noundef %1992, ptr noundef %1993, ptr noundef @ei_wlan_radio_assumed_short_preamble)
-  br label %1995
+2005:                                             ; preds = %1995
+  %2006 = load ptr, ptr getelementptr inbounds nuw (%struct.previous_frame_info, ptr @previous_frame, i32 0, i32 5), align 8
+  %2007 = getelementptr inbounds nuw %struct.wlan_radio, ptr %2006, i32 0, i32 0
+  %2008 = load ptr, ptr %2007, align 8
+  %2009 = load ptr, ptr @current_aggregate, align 8
+  %2010 = icmp eq ptr %2008, %2009
+  br i1 %2010, label %2011, label %2014
 
-1995:                                             ; preds = %1991, %1979
-  %1996 = load i32, ptr %44, align 4
-  %1997 = icmp ne i32 %1996, 0
-  br i1 %1997, label %1998, label %2002
+2011:                                             ; preds = %2005
+  %2012 = load ptr, ptr getelementptr inbounds nuw (%struct.previous_frame_info, ptr @previous_frame, i32 0, i32 5), align 8
+  %2013 = getelementptr inbounds nuw %struct.wlan_radio, ptr %2012, i32 0, i32 5
+  store i16 0, ptr %2013, align 8
+  br label %2014
 
-1998:                                             ; preds = %1995
-  %1999 = load ptr, ptr %6, align 8
-  %2000 = load ptr, ptr %57, align 8
-  %2001 = call ptr @expert_add_info(ptr noundef %1999, ptr noundef %2000, ptr noundef @ei_wlan_radio_assumed_non_greenfield)
-  br label %2002
+2014:                                             ; preds = %2011, %2005, %1995
+  br label %2015
 
-2002:                                             ; preds = %1998, %1995
-  %2003 = load i32, ptr %45, align 4
-  %2004 = icmp ne i32 %2003, 0
-  br i1 %2004, label %2005, label %2009
+2015:                                             ; preds = %2014, %1992
+  %2016 = load ptr, ptr %8, align 8
+  %2017 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %2016, i32 0, i32 14
+  %2018 = load i64, ptr %2017, align 8
+  %2019 = icmp eq i64 %2018, -1
+  br i1 %2019, label %2020, label %2054
 
-2005:                                             ; preds = %2002
-  %2006 = load ptr, ptr %6, align 8
-  %2007 = load ptr, ptr %57, align 8
-  %2008 = call ptr @expert_add_info(ptr noundef %2006, ptr noundef %2007, ptr noundef @ei_wlan_radio_assumed_no_stbc)
-  br label %2009
+2020:                                             ; preds = %2015
+  %2021 = load i32, ptr %23, align 4
+  %2022 = load ptr, ptr @current_aggregate, align 8
+  %2023 = icmp ne ptr %2022, null
+  br i1 %2023, label %2024, label %2026
 
-2009:                                             ; preds = %2005, %2002
-  %2010 = load i32, ptr %46, align 4
-  %2011 = icmp ne i32 %2010, 0
-  br i1 %2011, label %2012, label %2016
+2024:                                             ; preds = %2020
+  %2025 = load i32, ptr %20, align 4
+  br label %2027
 
-2012:                                             ; preds = %2009
-  %2013 = load ptr, ptr %6, align 8
-  %2014 = load ptr, ptr %57, align 8
-  %2015 = call ptr @expert_add_info(ptr noundef %2013, ptr noundef %2014, ptr noundef @ei_wlan_radio_assumed_no_extension_streams)
-  br label %2016
+2026:                                             ; preds = %2020
+  br label %2027
 
-2016:                                             ; preds = %2012, %2009
-  %2017 = load i32, ptr %47, align 4
-  %2018 = icmp ne i32 %2017, 0
-  br i1 %2018, label %2019, label %2023
+2027:                                             ; preds = %2026, %2024
+  %2028 = phi i32 [ %2025, %2024 ], [ 0, %2026 ]
+  %2029 = add i32 %2021, %2028
+  %2030 = zext i32 %2029 to i64
+  %2031 = load ptr, ptr %24, align 8
+  %2032 = getelementptr inbounds nuw %struct.wlan_radio, ptr %2031, i32 0, i32 2
+  store i64 %2030, ptr %2032, align 8
+  %2033 = load i32, ptr %23, align 4
+  %2034 = load i32, ptr %22, align 4
+  %2035 = add i32 %2033, %2034
+  %2036 = load ptr, ptr @current_aggregate, align 8
+  %2037 = icmp ne ptr %2036, null
+  br i1 %2037, label %2038, label %2040
 
-2019:                                             ; preds = %2016
-  %2020 = load ptr, ptr %6, align 8
-  %2021 = load ptr, ptr %57, align 8
-  %2022 = call ptr @expert_add_info(ptr noundef %2020, ptr noundef %2021, ptr noundef @ei_wlan_radio_assumed_bcc_fec)
-  br label %2023
+2038:                                             ; preds = %2027
+  %2039 = load i32, ptr %20, align 4
+  br label %2041
 
-2023:                                             ; preds = %2019, %2016
-  %2024 = load i32, ptr %19, align 4
-  %2025 = icmp ne i32 %2024, 0
-  br i1 %2025, label %2026, label %2033
+2040:                                             ; preds = %2027
+  br label %2041
 
-2026:                                             ; preds = %2023
-  %2027 = load ptr, ptr %58, align 8
-  %2028 = load i32, ptr @hf_wlan_radio_preamble, align 4
-  %2029 = load ptr, ptr %5, align 8
-  %2030 = load i32, ptr %19, align 4
-  %2031 = call ptr @proto_tree_add_uint(ptr noundef %2027, i32 noundef %2028, ptr noundef %2029, i32 noundef 0, i32 noundef 0, i32 noundef %2030)
-  store ptr %2031, ptr %17, align 8
-  %2032 = load ptr, ptr %17, align 8
-  call void @proto_item_set_generated(ptr noundef %2032)
-  br label %2033
+2041:                                             ; preds = %2040, %2038
+  %2042 = phi i32 [ %2039, %2038 ], [ 0, %2040 ]
+  %2043 = add i32 %2035, %2042
+  %2044 = zext i32 %2043 to i64
+  %2045 = load ptr, ptr %24, align 8
+  %2046 = getelementptr inbounds nuw %struct.wlan_radio, ptr %2045, i32 0, i32 3
+  store i64 %2044, ptr %2046, align 8
+  %2047 = load ptr, ptr @agg_tracker_list, align 8
+  %2048 = icmp eq ptr %2047, null
+  br i1 %2048, label %2049, label %2051
 
-2033:                                             ; preds = %2026, %2023
-  %2034 = load ptr, ptr %24, align 8
-  %2035 = icmp ne ptr %2034, null
-  br i1 %2035, label %2036, label %2111
+2049:                                             ; preds = %2041
+  %2050 = call noalias ptr @wmem_list_new(ptr noundef null)
+  store ptr %2050, ptr @agg_tracker_list, align 8
+  br label %2051
 
-2036:                                             ; preds = %2033
-  %2037 = load ptr, ptr %24, align 8
-  %2038 = getelementptr inbounds %struct.wlan_radio, ptr %2037, i32 0, i32 0
-  %2039 = load ptr, ptr %2038, align 8
-  %2040 = icmp ne ptr %2039, null
-  br i1 %2040, label %2041, label %2068
-
-2041:                                             ; preds = %2036
-  %2042 = load ptr, ptr %58, align 8
-  %2043 = load i32, ptr @hf_wlan_radio_aggregate, align 4
-  %2044 = load ptr, ptr %5, align 8
-  %2045 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2042, i32 noundef %2043, ptr noundef %2044, i32 noundef 0, i32 noundef 0, ptr noundef @.str.208)
-  store ptr %2045, ptr %17, align 8
-  %2046 = load ptr, ptr %57, align 8
-  %2047 = load i32, ptr @ett_wlan_radio_aggregate, align 4
-  %2048 = call ptr @proto_item_add_subtree(ptr noundef %2046, i32 noundef %2047)
-  store ptr %2048, ptr %59, align 8
-  %2049 = load ptr, ptr %17, align 8
-  call void @proto_item_set_generated(ptr noundef %2049)
-  %2050 = load ptr, ptr %24, align 8
-  %2051 = getelementptr inbounds %struct.wlan_radio, ptr %2050, i32 0, i32 0
-  %2052 = load ptr, ptr %2051, align 8
-  %2053 = getelementptr inbounds %struct.aggregate, ptr %2052, i32 0, i32 3
-  %2054 = load i32, ptr %2053, align 4
-  %2055 = icmp ne i32 %2054, 0
-  br i1 %2055, label %2056, label %2067
-
-2056:                                             ; preds = %2041
-  %2057 = load ptr, ptr %59, align 8
-  %2058 = load i32, ptr @hf_wlan_radio_aggregate_duration, align 4
-  %2059 = load ptr, ptr %5, align 8
-  %2060 = load ptr, ptr %24, align 8
-  %2061 = getelementptr inbounds %struct.wlan_radio, ptr %2060, i32 0, i32 0
-  %2062 = load ptr, ptr %2061, align 8
-  %2063 = getelementptr inbounds %struct.aggregate, ptr %2062, i32 0, i32 3
-  %2064 = load i32, ptr %2063, align 4
-  %2065 = call ptr @proto_tree_add_uint(ptr noundef %2057, i32 noundef %2058, ptr noundef %2059, i32 noundef 0, i32 noundef 0, i32 noundef %2064)
-  store ptr %2065, ptr %60, align 8
-  %2066 = load ptr, ptr %60, align 8
-  call void @proto_item_set_generated(ptr noundef %2066)
-  br label %2067
-
-2067:                                             ; preds = %2056, %2041
-  br label %2068
-
-2068:                                             ; preds = %2067, %2036
-  %2069 = load ptr, ptr %24, align 8
-  %2070 = getelementptr inbounds %struct.wlan_radio, ptr %2069, i32 0, i32 4
-  %2071 = load i64, ptr %2070, align 8
-  %2072 = icmp ne i64 %2071, 0
-  br i1 %2072, label %2073, label %2082
-
-2073:                                             ; preds = %2068
-  %2074 = load ptr, ptr %58, align 8
-  %2075 = load i32, ptr @hf_wlan_radio_ifs, align 4
-  %2076 = load ptr, ptr %5, align 8
-  %2077 = load ptr, ptr %24, align 8
-  %2078 = getelementptr inbounds %struct.wlan_radio, ptr %2077, i32 0, i32 4
-  %2079 = load i64, ptr %2078, align 8
-  %2080 = call ptr @proto_tree_add_int64(ptr noundef %2074, i32 noundef %2075, ptr noundef %2076, i32 noundef 0, i32 noundef 0, i64 noundef %2079)
-  store ptr %2080, ptr %17, align 8
-  %2081 = load ptr, ptr %17, align 8
-  call void @proto_item_set_generated(ptr noundef %2081)
-  br label %2082
-
-2082:                                             ; preds = %2073, %2068
-  %2083 = load ptr, ptr %24, align 8
-  %2084 = getelementptr inbounds %struct.wlan_radio, ptr %2083, i32 0, i32 2
-  %2085 = load i64, ptr %2084, align 8
-  %2086 = icmp ne i64 %2085, 0
-  br i1 %2086, label %2087, label %2096
-
-2087:                                             ; preds = %2082
-  %2088 = load ptr, ptr %58, align 8
-  %2089 = load i32, ptr @hf_wlan_radio_start_tsf, align 4
-  %2090 = load ptr, ptr %5, align 8
-  %2091 = load ptr, ptr %24, align 8
-  %2092 = getelementptr inbounds %struct.wlan_radio, ptr %2091, i32 0, i32 2
-  %2093 = load i64, ptr %2092, align 8
-  %2094 = call ptr @proto_tree_add_uint64(ptr noundef %2088, i32 noundef %2089, ptr noundef %2090, i32 noundef 0, i32 noundef 0, i64 noundef %2093)
-  store ptr %2094, ptr %17, align 8
-  %2095 = load ptr, ptr %17, align 8
-  call void @proto_item_set_generated(ptr noundef %2095)
-  br label %2096
-
-2096:                                             ; preds = %2087, %2082
-  %2097 = load ptr, ptr %24, align 8
-  %2098 = getelementptr inbounds %struct.wlan_radio, ptr %2097, i32 0, i32 3
-  %2099 = load i64, ptr %2098, align 8
-  %2100 = icmp ne i64 %2099, 0
-  br i1 %2100, label %2101, label %2110
-
-2101:                                             ; preds = %2096
-  %2102 = load ptr, ptr %58, align 8
-  %2103 = load i32, ptr @hf_wlan_radio_end_tsf, align 4
-  %2104 = load ptr, ptr %5, align 8
-  %2105 = load ptr, ptr %24, align 8
-  %2106 = getelementptr inbounds %struct.wlan_radio, ptr %2105, i32 0, i32 3
-  %2107 = load i64, ptr %2106, align 8
-  %2108 = call ptr @proto_tree_add_uint64(ptr noundef %2102, i32 noundef %2103, ptr noundef %2104, i32 noundef 0, i32 noundef 0, i64 noundef %2107)
-  store ptr %2108, ptr %17, align 8
-  %2109 = load ptr, ptr %17, align 8
-  call void @proto_item_set_generated(ptr noundef %2109)
-  br label %2110
-
-2110:                                             ; preds = %2101, %2096
-  br label %2111
-
-2111:                                             ; preds = %2110, %2033
-  br label %2112
-
-2112:                                             ; preds = %2111, %1976
-  br label %2113
-
-2113:                                             ; preds = %2112, %1371, %1368
-  %2114 = load ptr, ptr %8, align 8
-  %2115 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %2114, i32 0, i32 4
-  %2116 = load i16, ptr %2115, align 4
-  %2117 = lshr i16 %2116, 11
-  %2118 = and i16 %2117, 1
-  %2119 = zext i16 %2118 to i32
-  %2120 = icmp ne i32 %2119, 0
-  br i1 %2120, label %2121, label %2130
-
-2121:                                             ; preds = %2113
-  %2122 = load ptr, ptr %10, align 8
-  %2123 = load i32, ptr @hf_wlan_zero_length_psdu_type, align 4
-  %2124 = load ptr, ptr %5, align 8
-  %2125 = load ptr, ptr %8, align 8
-  %2126 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %2125, i32 0, i32 17
-  %2127 = load i8, ptr %2126, align 8
-  %2128 = zext i8 %2127 to i32
-  %2129 = call ptr @proto_tree_add_uint(ptr noundef %2122, i32 noundef %2123, ptr noundef %2124, i32 noundef 0, i32 noundef 0, i32 noundef %2128)
-  br label %2130
-
-2130:                                             ; preds = %2121, %2113
-  %2131 = load i32, ptr @wlan_radio_tap, align 4
-  %2132 = load ptr, ptr %6, align 8
-  %2133 = load ptr, ptr %8, align 8
-  call void @tap_queue_packet(i32 noundef %2131, ptr noundef %2132, ptr noundef %2133)
-  %2134 = load i32, ptr @wlan_radio_timeline_enabled, align 4
-  %2135 = icmp ne i32 %2134, 0
-  br i1 %2135, label %2136, label %2140
-
-2136:                                             ; preds = %2130
-  %2137 = load i32, ptr @wlan_radio_timeline_tap, align 4
-  %2138 = load ptr, ptr %6, align 8
-  %2139 = load ptr, ptr %24, align 8
-  call void @tap_queue_packet(i32 noundef %2137, ptr noundef %2138, ptr noundef %2139)
+2051:                                             ; preds = %2049, %2041
+  %2052 = load ptr, ptr @agg_tracker_list, align 8
+  %2053 = load ptr, ptr %24, align 8
+  call void @wmem_list_append(ptr noundef %2052, ptr noundef %2053)
   br label %2140
 
-2140:                                             ; preds = %2136, %2130
+2054:                                             ; preds = %2015
+  %2055 = load ptr, ptr @current_aggregate, align 8
+  %2056 = icmp ne ptr %2055, null
+  br i1 %2056, label %2057, label %2095
+
+2057:                                             ; preds = %2054
+  %2058 = load i8, ptr @wlan_radio_tsf_at_end, align 1, !range !6, !noundef !7
+  %2059 = trunc i8 %2058 to i1
+  br i1 %2059, label %2060, label %2095
+
+2060:                                             ; preds = %2057
+  %2061 = load ptr, ptr %8, align 8
+  %2062 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %2061, i32 0, i32 14
+  %2063 = load i64, ptr %2062, align 8
+  %2064 = icmp ne i64 %2063, -1
+  br i1 %2064, label %2065, label %2095
+
+2065:                                             ; preds = %2060
+  %2066 = load ptr, ptr %8, align 8
+  %2067 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %2066, i32 0, i32 14
+  %2068 = load i64, ptr %2067, align 8
+  %2069 = load i32, ptr %22, align 4
+  %2070 = zext i32 %2069 to i64
+  %2071 = sub i64 %2068, %2070
+  %2072 = load ptr, ptr %24, align 8
+  %2073 = getelementptr inbounds nuw %struct.wlan_radio, ptr %2072, i32 0, i32 2
+  store i64 %2071, ptr %2073, align 8
+  %2074 = load ptr, ptr %8, align 8
+  %2075 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %2074, i32 0, i32 14
+  %2076 = load i64, ptr %2075, align 8
+  %2077 = load ptr, ptr %24, align 8
+  %2078 = getelementptr inbounds nuw %struct.wlan_radio, ptr %2077, i32 0, i32 3
+  store i64 %2076, ptr %2078, align 8
+  %2079 = load ptr, ptr @agg_tracker_list, align 8
+  %2080 = icmp ne ptr %2079, null
+  br i1 %2080, label %2081, label %2094
+
+2081:                                             ; preds = %2065
+  call void @llvm.lifetime.start.p0(i64 8, ptr %62) #10
+  %2082 = load ptr, ptr %8, align 8
+  %2083 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %2082, i32 0, i32 14
+  %2084 = load i64, ptr %2083, align 8
+  %2085 = load i32, ptr %23, align 4
+  %2086 = load i32, ptr %22, align 4
+  %2087 = add i32 %2085, %2086
+  %2088 = load i32, ptr %20, align 4
+  %2089 = add i32 %2087, %2088
+  %2090 = zext i32 %2089 to i64
+  %2091 = sub i64 %2084, %2090
+  store i64 %2091, ptr %62, align 8
+  %2092 = load ptr, ptr @agg_tracker_list, align 8
+  call void @wmem_list_foreach(ptr noundef %2092, ptr noundef @adjust_agg_tsf, ptr noundef %62)
+  %2093 = load ptr, ptr @agg_tracker_list, align 8
+  call void @wmem_destroy_list(ptr noundef %2093)
+  store ptr null, ptr @agg_tracker_list, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %62) #10
+  br label %2094
+
+2094:                                             ; preds = %2081, %2065
+  br label %2139
+
+2095:                                             ; preds = %2060, %2057, %2054
+  %2096 = load i8, ptr @wlan_radio_tsf_at_end, align 1, !range !6, !noundef !7
+  %2097 = trunc i8 %2096 to i1
+  br i1 %2097, label %2098, label %2112
+
+2098:                                             ; preds = %2095
+  %2099 = load ptr, ptr %8, align 8
+  %2100 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %2099, i32 0, i32 14
+  %2101 = load i64, ptr %2100, align 8
+  %2102 = load i32, ptr %22, align 4
+  %2103 = zext i32 %2102 to i64
+  %2104 = sub i64 %2101, %2103
+  %2105 = load ptr, ptr %24, align 8
+  %2106 = getelementptr inbounds nuw %struct.wlan_radio, ptr %2105, i32 0, i32 2
+  store i64 %2104, ptr %2106, align 8
+  %2107 = load ptr, ptr %8, align 8
+  %2108 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %2107, i32 0, i32 14
+  %2109 = load i64, ptr %2108, align 8
+  %2110 = load ptr, ptr %24, align 8
+  %2111 = getelementptr inbounds nuw %struct.wlan_radio, ptr %2110, i32 0, i32 3
+  store i64 %2109, ptr %2111, align 8
+  br label %2138
+
+2112:                                             ; preds = %2095
+  %2113 = load ptr, ptr %8, align 8
+  %2114 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %2113, i32 0, i32 14
+  %2115 = load i64, ptr %2114, align 8
+  %2116 = load i32, ptr %23, align 4
+  %2117 = zext i32 %2116 to i64
+  %2118 = add i64 %2115, %2117
+  %2119 = load i32, ptr %19, align 4
+  %2120 = zext i32 %2119 to i64
+  %2121 = sub i64 %2118, %2120
+  %2122 = load ptr, ptr %24, align 8
+  %2123 = getelementptr inbounds nuw %struct.wlan_radio, ptr %2122, i32 0, i32 2
+  store i64 %2121, ptr %2123, align 8
+  %2124 = load ptr, ptr %8, align 8
+  %2125 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %2124, i32 0, i32 14
+  %2126 = load i64, ptr %2125, align 8
+  %2127 = load i32, ptr %23, align 4
+  %2128 = zext i32 %2127 to i64
+  %2129 = add i64 %2126, %2128
+  %2130 = load i32, ptr %22, align 4
+  %2131 = zext i32 %2130 to i64
+  %2132 = add i64 %2129, %2131
+  %2133 = load i32, ptr %19, align 4
+  %2134 = zext i32 %2133 to i64
+  %2135 = sub i64 %2132, %2134
+  %2136 = load ptr, ptr %24, align 8
+  %2137 = getelementptr inbounds nuw %struct.wlan_radio, ptr %2136, i32 0, i32 3
+  store i64 %2135, ptr %2137, align 8
+  br label %2138
+
+2138:                                             ; preds = %2112, %2098
+  br label %2139
+
+2139:                                             ; preds = %2138, %2094
+  br label %2140
+
+2140:                                             ; preds = %2139, %2051
   %2141 = load ptr, ptr %6, align 8
-  %2142 = getelementptr inbounds %struct._packet_info, ptr %2141, i32 0, i32 8
+  %2142 = getelementptr inbounds nuw %struct._packet_info, ptr %2141, i32 0, i32 8
   %2143 = load ptr, ptr %2142, align 8
-  %2144 = getelementptr inbounds %struct._frame_data, ptr %2143, i32 0, i32 9
-  %2145 = load i16, ptr %2144, align 2
-  %2146 = lshr i16 %2145, 3
-  %2147 = and i16 %2146, 1
-  %2148 = zext i16 %2147 to i32
-  %2149 = icmp ne i32 %2148, 0
-  br i1 %2149, label %2153, label %2150
+  %2144 = getelementptr inbounds nuw %struct._frame_data, ptr %2143, i32 0, i32 0
+  %2145 = load i32, ptr %2144, align 8
+  %2146 = icmp ugt i32 %2145, 1
+  br i1 %2146, label %2147, label %2160
 
-2150:                                             ; preds = %2140
+2147:                                             ; preds = %2140
+  %2148 = load ptr, ptr getelementptr inbounds nuw (%struct.previous_frame_info, ptr @previous_frame, i32 0, i32 5), align 8
+  %2149 = icmp ne ptr %2148, null
+  br i1 %2149, label %2150, label %2160
+
+2150:                                             ; preds = %2147
   %2151 = load ptr, ptr %24, align 8
-  %2152 = getelementptr inbounds %struct.previous_frame_info, ptr @previous_frame, i32 0, i32 5
-  store ptr %2151, ptr %2152, align 8
-  br label %2153
+  %2152 = getelementptr inbounds nuw %struct.wlan_radio, ptr %2151, i32 0, i32 2
+  %2153 = load i64, ptr %2152, align 8
+  %2154 = load ptr, ptr getelementptr inbounds nuw (%struct.previous_frame_info, ptr @previous_frame, i32 0, i32 5), align 8
+  %2155 = getelementptr inbounds nuw %struct.wlan_radio, ptr %2154, i32 0, i32 3
+  %2156 = load i64, ptr %2155, align 8
+  %2157 = sub i64 %2153, %2156
+  %2158 = load ptr, ptr %24, align 8
+  %2159 = getelementptr inbounds nuw %struct.wlan_radio, ptr %2158, i32 0, i32 4
+  store i64 %2157, ptr %2159, align 8
+  br label %2160
 
-2153:                                             ; preds = %2150, %2140
+2160:                                             ; preds = %2150, %2147, %2140
+  %2161 = load ptr, ptr %5, align 8
+  %2162 = call i32 @tvb_captured_length(ptr noundef %2161)
+  %2163 = icmp uge i32 %2162, 4
+  br i1 %2163, label %2164, label %2177
+
+2164:                                             ; preds = %2160
+  call void @llvm.lifetime.start.p0(i64 4, ptr %63) #10
+  %2165 = load ptr, ptr %5, align 8
+  %2166 = call zeroext i16 @tvb_get_letohs(ptr noundef %2165, i32 noundef 2)
+  %2167 = zext i16 %2166 to i32
+  store i32 %2167, ptr %63, align 4
+  %2168 = load i32, ptr %63, align 4
+  %2169 = and i32 %2168, 32768
+  %2170 = icmp eq i32 %2169, 0
+  br i1 %2170, label %2171, label %2176
+
+2171:                                             ; preds = %2164
+  %2172 = load i32, ptr %63, align 4
+  %2173 = trunc i32 %2172 to i16
+  %2174 = load ptr, ptr %24, align 8
+  %2175 = getelementptr inbounds nuw %struct.wlan_radio, ptr %2174, i32 0, i32 5
+  store i16 %2173, ptr %2175, align 8
+  br label %2176
+
+2176:                                             ; preds = %2171, %2164
+  call void @llvm.lifetime.end.p0(i64 4, ptr %63) #10
+  br label %2177
+
+2177:                                             ; preds = %2176, %2160
+  %2178 = load ptr, ptr %8, align 8
+  %2179 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %2178, i32 0, i32 4
+  %2180 = load i16, ptr %2179, align 8
+  %2181 = lshr i16 %2180, 5
+  %2182 = and i16 %2181, 1
+  %2183 = zext i16 %2182 to i32
+  %2184 = icmp ne i32 %2183, 0
+  br i1 %2184, label %2185, label %2200
+
+2185:                                             ; preds = %2177
+  %2186 = load ptr, ptr %8, align 8
+  %2187 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %2186, i32 0, i32 10
+  %2188 = load i8, ptr %2187, align 4
+  %2189 = load ptr, ptr %24, align 8
+  %2190 = getelementptr inbounds nuw %struct.wlan_radio, ptr %2189, i32 0, i32 6
+  store i8 %2188, ptr %2190, align 2
+  %2191 = load ptr, ptr @current_aggregate, align 8
+  %2192 = icmp ne ptr %2191, null
+  br i1 %2192, label %2193, label %2199
+
+2193:                                             ; preds = %2185
+  %2194 = load ptr, ptr %8, align 8
+  %2195 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %2194, i32 0, i32 10
+  %2196 = load i8, ptr %2195, align 4
+  %2197 = load ptr, ptr @current_aggregate, align 8
+  %2198 = getelementptr inbounds nuw %struct.aggregate, ptr %2197, i32 0, i32 2
+  store i8 %2196, ptr %2198, align 4
+  br label %2199
+
+2199:                                             ; preds = %2193, %2185
+  br label %2200
+
+2200:                                             ; preds = %2199, %2177
+  br label %2201
+
+2201:                                             ; preds = %2200, %1984, %1981, %1971
+  %2202 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %2203 = trunc i8 %2202 to i1
+  br i1 %2203, label %2204, label %2337
+
+2204:                                             ; preds = %2201
+  call void @llvm.lifetime.start.p0(i64 8, ptr %64) #10
+  %2205 = load ptr, ptr %10, align 8
+  %2206 = load i32, ptr @hf_wlan_radio_duration, align 4
+  %2207 = load ptr, ptr %5, align 8
+  %2208 = load i32, ptr %22, align 4
+  %2209 = call ptr @proto_tree_add_uint(ptr noundef %2205, i32 noundef %2206, ptr noundef %2207, i32 noundef 0, i32 noundef 0, i32 noundef %2208)
+  store ptr %2209, ptr %64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %65) #10
+  %2210 = load ptr, ptr %64, align 8
+  %2211 = load i32, ptr @ett_wlan_radio_duration, align 4
+  %2212 = call ptr @proto_item_add_subtree(ptr noundef %2210, i32 noundef %2211)
+  store ptr %2212, ptr %65, align 8
+  %2213 = load ptr, ptr %64, align 8
+  call void @proto_item_set_generated(ptr noundef %2213)
+  %2214 = load i8, ptr %49, align 1, !range !6, !noundef !7
+  %2215 = trunc i8 %2214 to i1
+  br i1 %2215, label %2216, label %2220
+
+2216:                                             ; preds = %2204
+  %2217 = load ptr, ptr %6, align 8
+  %2218 = load ptr, ptr %64, align 8
+  %2219 = call ptr @expert_add_info(ptr noundef %2217, ptr noundef %2218, ptr noundef @ei_wlan_radio_assumed_short_preamble)
+  br label %2220
+
+2220:                                             ; preds = %2216, %2204
+  %2221 = load i8, ptr %50, align 1, !range !6, !noundef !7
+  %2222 = trunc i8 %2221 to i1
+  br i1 %2222, label %2223, label %2227
+
+2223:                                             ; preds = %2220
+  %2224 = load ptr, ptr %6, align 8
+  %2225 = load ptr, ptr %64, align 8
+  %2226 = call ptr @expert_add_info(ptr noundef %2224, ptr noundef %2225, ptr noundef @ei_wlan_radio_assumed_non_greenfield)
+  br label %2227
+
+2227:                                             ; preds = %2223, %2220
+  %2228 = load i8, ptr %51, align 1, !range !6, !noundef !7
+  %2229 = trunc i8 %2228 to i1
+  br i1 %2229, label %2230, label %2234
+
+2230:                                             ; preds = %2227
+  %2231 = load ptr, ptr %6, align 8
+  %2232 = load ptr, ptr %64, align 8
+  %2233 = call ptr @expert_add_info(ptr noundef %2231, ptr noundef %2232, ptr noundef @ei_wlan_radio_assumed_no_stbc)
+  br label %2234
+
+2234:                                             ; preds = %2230, %2227
+  %2235 = load i8, ptr %52, align 1, !range !6, !noundef !7
+  %2236 = trunc i8 %2235 to i1
+  br i1 %2236, label %2237, label %2241
+
+2237:                                             ; preds = %2234
+  %2238 = load ptr, ptr %6, align 8
+  %2239 = load ptr, ptr %64, align 8
+  %2240 = call ptr @expert_add_info(ptr noundef %2238, ptr noundef %2239, ptr noundef @ei_wlan_radio_assumed_no_extension_streams)
+  br label %2241
+
+2241:                                             ; preds = %2237, %2234
+  %2242 = load i8, ptr %53, align 1, !range !6, !noundef !7
+  %2243 = trunc i8 %2242 to i1
+  br i1 %2243, label %2244, label %2248
+
+2244:                                             ; preds = %2241
+  %2245 = load ptr, ptr %6, align 8
+  %2246 = load ptr, ptr %64, align 8
+  %2247 = call ptr @expert_add_info(ptr noundef %2245, ptr noundef %2246, ptr noundef @ei_wlan_radio_assumed_bcc_fec)
+  br label %2248
+
+2248:                                             ; preds = %2244, %2241
+  %2249 = load i32, ptr %19, align 4
+  %2250 = icmp ne i32 %2249, 0
+  br i1 %2250, label %2251, label %2258
+
+2251:                                             ; preds = %2248
+  %2252 = load ptr, ptr %65, align 8
+  %2253 = load i32, ptr @hf_wlan_radio_preamble, align 4
+  %2254 = load ptr, ptr %5, align 8
+  %2255 = load i32, ptr %19, align 4
+  %2256 = call ptr @proto_tree_add_uint(ptr noundef %2252, i32 noundef %2253, ptr noundef %2254, i32 noundef 0, i32 noundef 0, i32 noundef %2255)
+  store ptr %2256, ptr %17, align 8
+  %2257 = load ptr, ptr %17, align 8
+  call void @proto_item_set_generated(ptr noundef %2257)
+  br label %2258
+
+2258:                                             ; preds = %2251, %2248
+  %2259 = load ptr, ptr %24, align 8
+  %2260 = icmp ne ptr %2259, null
+  br i1 %2260, label %2261, label %2336
+
+2261:                                             ; preds = %2258
+  %2262 = load ptr, ptr %24, align 8
+  %2263 = getelementptr inbounds nuw %struct.wlan_radio, ptr %2262, i32 0, i32 0
+  %2264 = load ptr, ptr %2263, align 8
+  %2265 = icmp ne ptr %2264, null
+  br i1 %2265, label %2266, label %2293
+
+2266:                                             ; preds = %2261
+  call void @llvm.lifetime.start.p0(i64 8, ptr %66) #10
+  %2267 = load ptr, ptr %65, align 8
+  %2268 = load i32, ptr @hf_wlan_radio_aggregate, align 4
+  %2269 = load ptr, ptr %5, align 8
+  %2270 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2267, i32 noundef %2268, ptr noundef %2269, i32 noundef 0, i32 noundef 0, ptr noundef @.str.224)
+  store ptr %2270, ptr %17, align 8
+  %2271 = load ptr, ptr %64, align 8
+  %2272 = load i32, ptr @ett_wlan_radio_aggregate, align 4
+  %2273 = call ptr @proto_item_add_subtree(ptr noundef %2271, i32 noundef %2272)
+  store ptr %2273, ptr %66, align 8
+  %2274 = load ptr, ptr %17, align 8
+  call void @proto_item_set_generated(ptr noundef %2274)
+  %2275 = load ptr, ptr %24, align 8
+  %2276 = getelementptr inbounds nuw %struct.wlan_radio, ptr %2275, i32 0, i32 0
+  %2277 = load ptr, ptr %2276, align 8
+  %2278 = getelementptr inbounds nuw %struct.aggregate, ptr %2277, i32 0, i32 3
+  %2279 = load i32, ptr %2278, align 4
+  %2280 = icmp ne i32 %2279, 0
+  br i1 %2280, label %2281, label %2292
+
+2281:                                             ; preds = %2266
+  call void @llvm.lifetime.start.p0(i64 8, ptr %67) #10
+  %2282 = load ptr, ptr %66, align 8
+  %2283 = load i32, ptr @hf_wlan_radio_aggregate_duration, align 4
+  %2284 = load ptr, ptr %5, align 8
+  %2285 = load ptr, ptr %24, align 8
+  %2286 = getelementptr inbounds nuw %struct.wlan_radio, ptr %2285, i32 0, i32 0
+  %2287 = load ptr, ptr %2286, align 8
+  %2288 = getelementptr inbounds nuw %struct.aggregate, ptr %2287, i32 0, i32 3
+  %2289 = load i32, ptr %2288, align 4
+  %2290 = call ptr @proto_tree_add_uint(ptr noundef %2282, i32 noundef %2283, ptr noundef %2284, i32 noundef 0, i32 noundef 0, i32 noundef %2289)
+  store ptr %2290, ptr %67, align 8
+  %2291 = load ptr, ptr %67, align 8
+  call void @proto_item_set_generated(ptr noundef %2291)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %67) #10
+  br label %2292
+
+2292:                                             ; preds = %2281, %2266
+  call void @llvm.lifetime.end.p0(i64 8, ptr %66) #10
+  br label %2293
+
+2293:                                             ; preds = %2292, %2261
+  %2294 = load ptr, ptr %24, align 8
+  %2295 = getelementptr inbounds nuw %struct.wlan_radio, ptr %2294, i32 0, i32 4
+  %2296 = load i64, ptr %2295, align 8
+  %2297 = icmp ne i64 %2296, 0
+  br i1 %2297, label %2298, label %2307
+
+2298:                                             ; preds = %2293
+  %2299 = load ptr, ptr %65, align 8
+  %2300 = load i32, ptr @hf_wlan_radio_ifs, align 4
+  %2301 = load ptr, ptr %5, align 8
+  %2302 = load ptr, ptr %24, align 8
+  %2303 = getelementptr inbounds nuw %struct.wlan_radio, ptr %2302, i32 0, i32 4
+  %2304 = load i64, ptr %2303, align 8
+  %2305 = call ptr @proto_tree_add_int64(ptr noundef %2299, i32 noundef %2300, ptr noundef %2301, i32 noundef 0, i32 noundef 0, i64 noundef %2304)
+  store ptr %2305, ptr %17, align 8
+  %2306 = load ptr, ptr %17, align 8
+  call void @proto_item_set_generated(ptr noundef %2306)
+  br label %2307
+
+2307:                                             ; preds = %2298, %2293
+  %2308 = load ptr, ptr %24, align 8
+  %2309 = getelementptr inbounds nuw %struct.wlan_radio, ptr %2308, i32 0, i32 2
+  %2310 = load i64, ptr %2309, align 8
+  %2311 = icmp ne i64 %2310, 0
+  br i1 %2311, label %2312, label %2321
+
+2312:                                             ; preds = %2307
+  %2313 = load ptr, ptr %65, align 8
+  %2314 = load i32, ptr @hf_wlan_radio_start_tsf, align 4
+  %2315 = load ptr, ptr %5, align 8
+  %2316 = load ptr, ptr %24, align 8
+  %2317 = getelementptr inbounds nuw %struct.wlan_radio, ptr %2316, i32 0, i32 2
+  %2318 = load i64, ptr %2317, align 8
+  %2319 = call ptr @proto_tree_add_uint64(ptr noundef %2313, i32 noundef %2314, ptr noundef %2315, i32 noundef 0, i32 noundef 0, i64 noundef %2318)
+  store ptr %2319, ptr %17, align 8
+  %2320 = load ptr, ptr %17, align 8
+  call void @proto_item_set_generated(ptr noundef %2320)
+  br label %2321
+
+2321:                                             ; preds = %2312, %2307
+  %2322 = load ptr, ptr %24, align 8
+  %2323 = getelementptr inbounds nuw %struct.wlan_radio, ptr %2322, i32 0, i32 3
+  %2324 = load i64, ptr %2323, align 8
+  %2325 = icmp ne i64 %2324, 0
+  br i1 %2325, label %2326, label %2335
+
+2326:                                             ; preds = %2321
+  %2327 = load ptr, ptr %65, align 8
+  %2328 = load i32, ptr @hf_wlan_radio_end_tsf, align 4
+  %2329 = load ptr, ptr %5, align 8
+  %2330 = load ptr, ptr %24, align 8
+  %2331 = getelementptr inbounds nuw %struct.wlan_radio, ptr %2330, i32 0, i32 3
+  %2332 = load i64, ptr %2331, align 8
+  %2333 = call ptr @proto_tree_add_uint64(ptr noundef %2327, i32 noundef %2328, ptr noundef %2329, i32 noundef 0, i32 noundef 0, i64 noundef %2332)
+  store ptr %2333, ptr %17, align 8
+  %2334 = load ptr, ptr %17, align 8
+  call void @proto_item_set_generated(ptr noundef %2334)
+  br label %2335
+
+2335:                                             ; preds = %2326, %2321
+  br label %2336
+
+2336:                                             ; preds = %2335, %2258
+  call void @llvm.lifetime.end.p0(i64 8, ptr %65) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %64) #10
+  br label %2337
+
+2337:                                             ; preds = %2336, %2201
+  call void @llvm.lifetime.end.p0(i64 1, ptr %53) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %52) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %51) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %50) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %49) #10
+  br label %2338
+
+2338:                                             ; preds = %2337, %1601, %1598
+  %2339 = load ptr, ptr %8, align 8
+  %2340 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %2339, i32 0, i32 4
+  %2341 = load i16, ptr %2340, align 8
+  %2342 = lshr i16 %2341, 11
+  %2343 = and i16 %2342, 1
+  %2344 = zext i16 %2343 to i32
+  %2345 = icmp ne i32 %2344, 0
+  br i1 %2345, label %2346, label %2355
+
+2346:                                             ; preds = %2338
+  %2347 = load ptr, ptr %10, align 8
+  %2348 = load i32, ptr @hf_wlan_zero_length_psdu_type, align 4
+  %2349 = load ptr, ptr %5, align 8
+  %2350 = load ptr, ptr %8, align 8
+  %2351 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %2350, i32 0, i32 17
+  %2352 = load i8, ptr %2351, align 8
+  %2353 = zext i8 %2352 to i32
+  %2354 = call ptr @proto_tree_add_uint(ptr noundef %2347, i32 noundef %2348, ptr noundef %2349, i32 noundef 0, i32 noundef 0, i32 noundef %2353)
+  br label %2355
+
+2355:                                             ; preds = %2346, %2338
+  %2356 = load i32, ptr @wlan_radio_tap, align 4
+  %2357 = load ptr, ptr %6, align 8
+  %2358 = load ptr, ptr %8, align 8
+  call void @tap_queue_packet(i32 noundef %2356, ptr noundef %2357, ptr noundef %2358)
+  %2359 = load i8, ptr @wlan_radio_timeline_enabled, align 1, !range !6, !noundef !7
+  %2360 = trunc i8 %2359 to i1
+  br i1 %2360, label %2361, label %2365
+
+2361:                                             ; preds = %2355
+  %2362 = load i32, ptr @wlan_radio_timeline_tap, align 4
+  %2363 = load ptr, ptr %6, align 8
+  %2364 = load ptr, ptr %24, align 8
+  call void @tap_queue_packet(i32 noundef %2362, ptr noundef %2363, ptr noundef %2364)
+  br label %2365
+
+2365:                                             ; preds = %2361, %2355
+  %2366 = load ptr, ptr %6, align 8
+  %2367 = getelementptr inbounds nuw %struct._packet_info, ptr %2366, i32 0, i32 8
+  %2368 = load ptr, ptr %2367, align 8
+  %2369 = getelementptr inbounds nuw %struct._frame_data, ptr %2368, i32 0, i32 11
+  %2370 = load i16, ptr %2369, align 1
+  %2371 = lshr i16 %2370, 3
+  %2372 = and i16 %2371, 1
+  %2373 = zext i16 %2372 to i32
+  %2374 = icmp ne i32 %2373, 0
+  br i1 %2374, label %2377, label %2375
+
+2375:                                             ; preds = %2365
+  %2376 = load ptr, ptr %24, align 8
+  store ptr %2376, ptr getelementptr inbounds nuw (%struct.previous_frame_info, ptr @previous_frame, i32 0, i32 5), align 8
+  br label %2377
+
+2377:                                             ; preds = %2375, %2365
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %21) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
   ret void
 }
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #3
 
-declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-declare i32 @tvb_reported_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) #3
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #3
 
-declare void @col_clear(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_clear(ptr noundef, i32 noundef) #3
 
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) #4
 
-declare ptr @wmem_file_scope() #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_file_scope() #3
 
-declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #3
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #3
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #3
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #3
 
-declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) #3
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #3
 
-; Function Attrs: nounwind uwtable
-define internal float @ieee80211_vhtrate(i32 noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal float @ieee80211_vhtrate(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = alloca i32, align 4
+  %6 = alloca i8, align 1
   store i32 %0, ptr %4, align 4
   store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
-  %7 = load i32, ptr %4, align 4
-  %8 = sext i32 %7 to i64
-  %9 = getelementptr [10 x %struct.mcs_vht_info], ptr @ieee80211_vhtinfo, i64 0, i64 %8
-  %10 = getelementptr inbounds %struct.mcs_vht_info, ptr %9, i32 0, i32 2
-  %11 = load float, ptr %10, align 8
-  %12 = load i32, ptr %5, align 4
-  %13 = zext i32 %12 to i64
-  %14 = getelementptr [4 x i32], ptr @subcarriers, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
-  %16 = uitofp i32 %15 to float
-  %17 = fmul float %11, %16
-  %18 = fpext float %17 to double
-  %19 = load i32, ptr %6, align 4
-  %20 = icmp ne i32 %19, 0
-  %21 = select i1 %20, double 3.600000e+00, double 4.000000e+00
-  %22 = fdiv double %18, %21
-  %23 = fdiv double %22, 5.200000e+01
-  %24 = fptrunc double %23 to float
-  ret float %24
+  %7 = zext i1 %2 to i8
+  store i8 %7, ptr %6, align 1
+  %8 = load i32, ptr %4, align 4
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr [16 x %struct.mcs_info], ptr @ieee80211_mcsinfo, i64 0, i64 %9
+  %11 = getelementptr inbounds nuw %struct.mcs_info, ptr %10, i32 0, i32 2
+  %12 = load float, ptr %11, align 8
+  %13 = load i32, ptr %5, align 4
+  %14 = zext i32 %13 to i64
+  %15 = getelementptr [4 x i32], ptr @subcarriers, i64 0, i64 %14
+  %16 = load i32, ptr %15, align 4
+  %17 = uitofp i32 %16 to float
+  %18 = fmul float %12, %17
+  %19 = fpext float %18 to double
+  %20 = load i8, ptr %6, align 1, !range !6, !noundef !7
+  %21 = trunc i8 %20 to i1
+  %22 = select i1 %21, double 3.600000e+00, double 4.000000e+00
+  %23 = fdiv double %19, %22
+  %24 = fdiv double %23, 5.200000e+01
+  %25 = fptrunc double %24 to float
+  ret float %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
 define internal float @ieee80211_he_ofdm_rate(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -3637,6 +4137,7 @@ define internal float @ieee80211_he_ofdm_rate(i32 noundef %0, i32 noundef %1, i3
   store i32 %1, ptr %6, align 4
   store i32 %2, ptr %7, align 4
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
   store float 0.000000e+00, ptr %9, align 4
   %10 = load i32, ptr %5, align 4
   %11 = sub i32 %10, 1
@@ -3678,10 +4179,11 @@ define internal float @ieee80211_he_ofdm_rate(i32 noundef %0, i32 noundef %1, i3
 
 37:                                               ; preds = %22, %19, %16, %13, %4
   %38 = load float, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
   ret float %38
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
 define internal float @ieee80211_he_mu_ofdma_rate(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -3692,6 +4194,7 @@ define internal float @ieee80211_he_mu_ofdma_rate(i32 noundef %0, i32 noundef %1
   store i32 %1, ptr %6, align 4
   store i32 %2, ptr %7, align 4
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
   store float 0.000000e+00, ptr %9, align 4
   %10 = load i32, ptr %5, align 4
   %11 = sub i32 %10, 1
@@ -3735,21 +4238,85 @@ define internal float @ieee80211_he_mu_ofdma_rate(i32 noundef %0, i32 noundef %1
 
 39:                                               ; preds = %23, %20, %16, %13, %4
   %40 = load float, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
   ret float %40
 }
 
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare ptr @proto_tree_add_float_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, float noundef, ptr noundef, ...) #1
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal float @ieee80211_eht_rate(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca float, align 4
+  store i32 %0, ptr %5, align 4
+  store i32 %1, ptr %6, align 4
+  store i32 %2, ptr %7, align 4
+  store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  store float 0.000000e+00, ptr %9, align 4
+  %10 = load i32, ptr %5, align 4
+  %11 = sub i32 %10, 1
+  %12 = icmp ult i32 %11, 8
+  br i1 %12, label %13, label %36
 
-declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+13:                                               ; preds = %4
+  %14 = load i32, ptr %6, align 4
+  %15 = icmp ult i32 %14, 16
+  br i1 %15, label %16, label %36
 
-declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) #1
+16:                                               ; preds = %13
+  %17 = load i32, ptr %7, align 4
+  %18 = icmp ult i32 %17, 8
+  br i1 %18, label %19, label %36
+
+19:                                               ; preds = %16
+  %20 = load i32, ptr %8, align 4
+  %21 = icmp ult i32 %20, 3
+  br i1 %21, label %22, label %36
+
+22:                                               ; preds = %19
+  %23 = load i32, ptr %6, align 4
+  %24 = zext i32 %23 to i64
+  %25 = getelementptr [16 x [8 x [3 x float]]], ptr @eht_mcs_tab, i64 0, i64 %24
+  %26 = load i32, ptr %7, align 4
+  %27 = zext i32 %26 to i64
+  %28 = getelementptr [8 x [3 x float]], ptr %25, i64 0, i64 %27
+  %29 = load i32, ptr %8, align 4
+  %30 = zext i32 %29 to i64
+  %31 = getelementptr [3 x float], ptr %28, i64 0, i64 %30
+  %32 = load float, ptr %31, align 4
+  %33 = load i32, ptr %5, align 4
+  %34 = uitofp i32 %33 to float
+  %35 = fmul float %32, %34
+  store float %35, ptr %9, align 4
+  br label %36
+
+36:                                               ; preds = %22, %19, %16, %13, %4
+  %37 = load float, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  ret float %37
+}
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_float_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, float noundef, ptr noundef, ...) #3
+
+; Function Attrs: null_pointer_is_valid
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #3
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #3
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.ceil.f64(double) #3
+declare double @llvm.ceil.f64(double) #6
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
 define internal i32 @calculate_11n_duration(i32 noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -3761,11 +4328,15 @@ define internal i32 @calculate_11n_duration(i32 noundef %0, ptr noundef %1, i32 
   store i32 %0, ptr %4, align 4
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
   %11 = load i32, ptr %4, align 4
   %12 = mul i32 8, %11
   %13 = add i32 %12, 16
   %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds %struct.ieee_802_11n, ptr %14, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct.ieee_802_11n, ptr %14, i32 0, i32 1
   %16 = load i16, ptr %15, align 2
   %17 = zext i16 %16 to i64
   %18 = getelementptr [77 x i8], ptr @ieee80211_ht_Nes, i64 0, i64 %17
@@ -3779,14 +4350,14 @@ define internal i32 @calculate_11n_duration(i32 noundef %0, ptr noundef %1, i32 
   %25 = select i1 %24, i32 2, i32 1
   store i32 %25, ptr %9, align 4
   %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.ieee_802_11n, ptr %26, i32 0, i32 1
+  %27 = getelementptr inbounds nuw %struct.ieee_802_11n, ptr %26, i32 0, i32 1
   %28 = load i16, ptr %27, align 2
   %29 = zext i16 %28 to i64
   %30 = getelementptr [77 x i16], ptr @ieee80211_ht_Dbps, i64 0, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i32
   %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %struct.ieee_802_11n, ptr %33, i32 0, i32 2
+  %34 = getelementptr inbounds nuw %struct.ieee_802_11n, ptr %33, i32 0, i32 2
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, 1
   %37 = select i1 %36, i32 2, i32 1
@@ -3819,7 +4390,7 @@ define internal i32 @calculate_11n_duration(i32 noundef %0, ptr noundef %1, i32 
   store i32 %56, ptr %10, align 4
   %57 = load i32, ptr %10, align 4
   %58 = load ptr, ptr %5, align 8
-  %59 = getelementptr inbounds %struct.ieee_802_11n, ptr %58, i32 0, i32 3
+  %59 = getelementptr inbounds nuw %struct.ieee_802_11n, ptr %58, i32 0, i32 3
   %60 = load i8, ptr %59, align 4
   %61 = and i8 %60, 1
   %62 = zext i8 %61 to i32
@@ -3828,16 +4399,21 @@ define internal i32 @calculate_11n_duration(i32 noundef %0, ptr noundef %1, i32 
   %65 = mul i32 %57, %64
   %66 = add i32 %65, 5
   %67 = udiv i32 %66, 10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
   ret i32 %67
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
 define internal i32 @calculate_11ac_duration(i32 noundef %0, float noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca float, align 4
   %5 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
   store float %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
   %6 = load i32, ptr %3, align 4
   %7 = mul i32 8, %6
   %8 = add i32 %7, 16
@@ -3847,16 +4423,20 @@ define internal i32 @calculate_11ac_duration(i32 noundef %0, float noundef %1) #
   %11 = load float, ptr %4, align 4
   %12 = fdiv float %10, %11
   %13 = fptoui float %12 to i32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
   ret i32 %13
 }
 
-declare noalias ptr @wmem_list_new(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_list_new(ptr noundef) #3
 
-declare void @wmem_list_append(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @wmem_list_append(ptr noundef, ptr noundef) #3
 
-declare void @wmem_list_foreach(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @wmem_list_foreach(ptr noundef, ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
 define internal void @adjust_agg_tsf(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -3864,26 +4444,28 @@ define internal void @adjust_agg_tsf(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
   %7 = load ptr, ptr %3, align 8
   store ptr %7, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
   %8 = load ptr, ptr %4, align 8
   store ptr %8, ptr %6, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = load i64, ptr %9, align 8
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct.wlan_radio, ptr %11, i32 0, i32 2
+  %12 = getelementptr inbounds nuw %struct.wlan_radio, ptr %11, i32 0, i32 2
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, %10
   store i64 %14, ptr %12, align 8
   %15 = load ptr, ptr %6, align 8
   %16 = load i64, ptr %15, align 8
   %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct.wlan_radio, ptr %17, i32 0, i32 3
+  %18 = getelementptr inbounds nuw %struct.wlan_radio, ptr %17, i32 0, i32 3
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, %16
   store i64 %20, ptr %18, align 8
   %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct.wlan_radio, ptr %21, i32 0, i32 1
+  %22 = getelementptr inbounds nuw %struct.wlan_radio, ptr %21, i32 0, i32 1
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %32
@@ -3892,22 +4474,26 @@ define internal void @adjust_agg_tsf(ptr noundef %0, ptr noundef %1) #0 {
   %26 = load ptr, ptr %6, align 8
   %27 = load i64, ptr %26, align 8
   %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct.wlan_radio, ptr %28, i32 0, i32 4
+  %29 = getelementptr inbounds nuw %struct.wlan_radio, ptr %28, i32 0, i32 4
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, %27
   store i64 %31, ptr %29, align 8
   br label %32
 
 32:                                               ; preds = %25, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
   ret void
 }
 
-declare void @wmem_destroy_list(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @wmem_destroy_list(ptr noundef) #3
 
-declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @proto_item_set_generated(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @proto_item_set_generated(ptr noundef %0) #7 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -3919,22 +4505,22 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._proto_node, ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct._proto_node, ptr %7, i32 0, i32 5
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct._proto_node, ptr %12, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct._proto_node, ptr %12, i32 0, i32 5
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.field_info, ptr %14, i32 0, i32 6
+  %15 = getelementptr inbounds nuw %struct.field_info, ptr %14, i32 0, i32 6
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 2
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct._proto_node, ptr %18, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct._proto_node, ptr %18, i32 0, i32 5
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.field_info, ptr %20, i32 0, i32 6
+  %21 = getelementptr inbounds nuw %struct.field_info, ptr %20, i32 0, i32 6
   store i32 %17, ptr %21, align 4
   br label %22
 
@@ -3948,28 +4534,61 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
   ret void
 }
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #3
 
-declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_int64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) #3
 
-declare ptr @proto_tree_add_int64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) #3
 
-declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: alwaysinline nounwind
+define internal ptr @memset.inline(ptr %0, i32 %1, i64 %2) #8 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i32, ptr %5, align 4
+  %9 = load i64, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = call i64 @llvm.objectsize.i64.p0(ptr %10, i1 false, i1 true, i1 true)
+  %12 = call ptr @__memset_chk(ptr noundef %7, i32 noundef %8, i64 noundef %9, i64 noundef %11) #10
+  ret ptr %12
+}
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+; Function Attrs: nounwind null_pointer_is_valid
+declare ptr @__memset_chk(ptr noundef, i32 noundef, i64 noundef, i64 noundef) #9
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.objectsize.i64.p0(ptr, i1 immarg, i1 immarg, i1 immarg) #6
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { alwaysinline nounwind "min-legal-vector-width"="0" }
+attributes #9 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind }
+attributes #11 = { allocsize(1) }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}

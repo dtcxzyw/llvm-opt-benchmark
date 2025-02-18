@@ -3,11 +3,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -19,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_asf_type = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [13 x i8] c"Message Type\00", align 1
 @.str.3 = private unnamed_addr constant [9 x i8] c"asf.type\00", align 1
-@asf_type_vals = internal constant [18 x %struct._value_string] [%struct._value_string { i32 16, ptr @.str.40 }, %struct._value_string { i32 17, ptr @.str.41 }, %struct._value_string { i32 18, ptr @.str.42 }, %struct._value_string { i32 19, ptr @.str.43 }, %struct._value_string { i32 64, ptr @.str.44 }, %struct._value_string { i32 65, ptr @.str.45 }, %struct._value_string { i32 66, ptr @.str.46 }, %struct._value_string { i32 67, ptr @.str.47 }, %struct._value_string { i32 68, ptr @.str.48 }, %struct._value_string { i32 128, ptr @.str.49 }, %struct._value_string { i32 129, ptr @.str.50 }, %struct._value_string { i32 130, ptr @.str.51 }, %struct._value_string { i32 131, ptr @.str.52 }, %struct._value_string { i32 132, ptr @.str.53 }, %struct._value_string { i32 192, ptr @.str.54 }, %struct._value_string { i32 193, ptr @.str.55 }, %struct._value_string { i32 194, ptr @.str.56 }, %struct._value_string zeroinitializer], align 16
 @.str.4 = private unnamed_addr constant [17 x i8] c"ASF Message Type\00", align 1
 @hf_asf_tag = internal global i32 0, align 4
 @.str.5 = private unnamed_addr constant [12 x i8] c"Message Tag\00", align 1
@@ -32,7 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_asf_rssp_status_code = internal global i32 0, align 4
 @.str.11 = private unnamed_addr constant [12 x i8] c"Status Code\00", align 1
 @.str.12 = private unnamed_addr constant [21 x i8] c"asf.rssp_status_code\00", align 1
-@asf_rssp_status_code_vals = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.57 }, %struct._value_string { i32 1, ptr @.str.58 }, %struct._value_string { i32 2, ptr @.str.59 }, %struct._value_string { i32 3, ptr @.str.60 }, %struct._value_string { i32 4, ptr @.str.61 }, %struct._value_string { i32 5, ptr @.str.62 }, %struct._value_string { i32 6, ptr @.str.63 }, %struct._value_string { i32 7, ptr @.str.64 }, %struct._value_string zeroinitializer], align 16
 @.str.13 = private unnamed_addr constant [46 x i8] c"Identifies the status of the previous message\00", align 1
 @hf_asf_mgt_console_id = internal global i32 0, align 4
 @.str.14 = private unnamed_addr constant [23 x i8] c"Mgt Console Session ID\00", align 1
@@ -46,7 +41,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_asf_payload_type = internal global i32 0, align 4
 @.str.20 = private unnamed_addr constant [13 x i8] c"Payload Type\00", align 1
 @.str.21 = private unnamed_addr constant [17 x i8] c"asf.payload.type\00", align 1
-@asf_payload_type_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.65 }, %struct._value_string { i32 1, ptr @.str.66 }, %struct._value_string { i32 2, ptr @.str.67 }, %struct._value_string zeroinitializer], align 16
 @.str.22 = private unnamed_addr constant [44 x i8] c"Identifies the type of payload that follows\00", align 1
 @hf_asf_payload_len = internal global i32 0, align 4
 @.str.23 = private unnamed_addr constant [15 x i8] c"Payload Length\00", align 1
@@ -58,11 +52,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_asf_auth_alg = internal global i32 0, align 4
 @.str.28 = private unnamed_addr constant [25 x i8] c"Authentication Algorithm\00", align 1
 @.str.29 = private unnamed_addr constant [13 x i8] c"asf.auth_alg\00", align 1
-@asf_authentication_type_vals = internal constant [2 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.68 }, %struct._value_string zeroinitializer], align 16
 @hf_asf_integrity_alg = internal global i32 0, align 4
 @.str.30 = private unnamed_addr constant [20 x i8] c"Integrity Algorithm\00", align 1
 @.str.31 = private unnamed_addr constant [18 x i8] c"asf.integrity_alg\00", align 1
-@asf_integrity_type_vals = internal constant [2 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.69 }, %struct._value_string zeroinitializer], align 16
 @hf_asf_reserved = internal global i32 0, align 4
 @.str.32 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
 @.str.33 = private unnamed_addr constant [13 x i8] c"asf.reserved\00", align 1
@@ -70,7 +62,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_asf = internal global i32 0, align 4
 @ett_asf_payload = internal global i32 0, align 4
 @ett_asf_alg_payload = internal global i32 0, align 4
-@proto_register_asf.ei = internal global [1 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_asf_payload_too_short, %struct.expert_field_info { ptr @.str.34, i32 117440512, i32 8388608, ptr @.str.35, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_asf.ei = internal global [1 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_asf_payload_too_short, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.34, i32 117440512, i32 8388608, ptr @.str.35, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_asf_payload_too_short = internal global %struct.expert_field zeroinitializer, align 4
 @.str.34 = private unnamed_addr constant [22 x i8] c"asf.payload_too_short\00", align 1
 @.str.35 = private unnamed_addr constant [56 x i8] c"Payload length too short to include the type and length\00", align 1
@@ -97,28 +89,34 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.54 = private unnamed_addr constant [15 x i8] c"RAKP Message 1\00", align 1
 @.str.55 = private unnamed_addr constant [15 x i8] c"RAKP Message 2\00", align 1
 @.str.56 = private unnamed_addr constant [15 x i8] c"RAKP Message 3\00", align 1
-@.str.57 = private unnamed_addr constant [10 x i8] c"No errors\00", align 1
-@.str.58 = private unnamed_addr constant [43 x i8] c"Insufficient resources to create a session\00", align 1
-@.str.59 = private unnamed_addr constant [19 x i8] c"Invalid session ID\00", align 1
-@.str.60 = private unnamed_addr constant [21 x i8] c"Invalid payload type\00", align 1
-@.str.61 = private unnamed_addr constant [33 x i8] c"Invalid authentication algorithm\00", align 1
-@.str.62 = private unnamed_addr constant [28 x i8] c"Invalid integrity algorithm\00", align 1
-@.str.63 = private unnamed_addr constant [35 x i8] c"No matching authentication payload\00", align 1
-@.str.64 = private unnamed_addr constant [30 x i8] c"No matching integrity payload\00", align 1
-@.str.65 = private unnamed_addr constant [33 x i8] c"No payload present (end of list)\00", align 1
-@.str.66 = private unnamed_addr constant [33 x i8] c"Authentication algorithm payload\00", align 1
-@.str.67 = private unnamed_addr constant [28 x i8] c"Integrity algorithm payload\00", align 1
-@.str.68 = private unnamed_addr constant [15 x i8] c"RAKP-HMAC-SHA1\00", align 1
-@.str.69 = private unnamed_addr constant [13 x i8] c"HMAC-SHA1-96\00", align 1
-@.str.70 = private unnamed_addr constant [17 x i8] c"Unknown (0x%02x)\00", align 1
-@.str.71 = private unnamed_addr constant [13 x i8] c"%s: %u bytes\00", align 1
-@.str.72 = private unnamed_addr constant [13 x i8] c"Unknown (%u)\00", align 1
-@.str.73 = private unnamed_addr constant [29 x i8] c"Authentication Algorithm: %s\00", align 1
-@.str.74 = private unnamed_addr constant [24 x i8] c"Integrity Algorithm: %s\00", align 1
+@asf_type_vals = internal constant [18 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.40 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.41 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.42 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.43 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.44 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.45 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.46 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.48 }, { i32, [4 x i8], ptr } { i32 128, [4 x i8] zeroinitializer, ptr @.str.49 }, { i32, [4 x i8], ptr } { i32 129, [4 x i8] zeroinitializer, ptr @.str.50 }, { i32, [4 x i8], ptr } { i32 130, [4 x i8] zeroinitializer, ptr @.str.51 }, { i32, [4 x i8], ptr } { i32 131, [4 x i8] zeroinitializer, ptr @.str.52 }, { i32, [4 x i8], ptr } { i32 132, [4 x i8] zeroinitializer, ptr @.str.53 }, { i32, [4 x i8], ptr } { i32 192, [4 x i8] zeroinitializer, ptr @.str.54 }, { i32, [4 x i8], ptr } { i32 193, [4 x i8] zeroinitializer, ptr @.str.55 }, { i32, [4 x i8], ptr } { i32 194, [4 x i8] zeroinitializer, ptr @.str.56 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.58 = private unnamed_addr constant [10 x i8] c"No errors\00", align 1
+@.str.59 = private unnamed_addr constant [43 x i8] c"Insufficient resources to create a session\00", align 1
+@.str.60 = private unnamed_addr constant [19 x i8] c"Invalid session ID\00", align 1
+@.str.61 = private unnamed_addr constant [21 x i8] c"Invalid payload type\00", align 1
+@.str.62 = private unnamed_addr constant [33 x i8] c"Invalid authentication algorithm\00", align 1
+@.str.63 = private unnamed_addr constant [28 x i8] c"Invalid integrity algorithm\00", align 1
+@.str.64 = private unnamed_addr constant [35 x i8] c"No matching authentication payload\00", align 1
+@.str.65 = private unnamed_addr constant [30 x i8] c"No matching integrity payload\00", align 1
+@asf_rssp_status_code_vals = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.58 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.59 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.60 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.61 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.62 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.63 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.64 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.65 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.67 = private unnamed_addr constant [33 x i8] c"No payload present (end of list)\00", align 1
+@.str.68 = private unnamed_addr constant [33 x i8] c"Authentication algorithm payload\00", align 1
+@.str.69 = private unnamed_addr constant [28 x i8] c"Integrity algorithm payload\00", align 1
+@asf_payload_type_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.67 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.68 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.69 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.71 = private unnamed_addr constant [15 x i8] c"RAKP-HMAC-SHA1\00", align 1
+@asf_authentication_type_vals = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.71 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.73 = private unnamed_addr constant [13 x i8] c"HMAC-SHA1-96\00", align 1
+@asf_integrity_type_vals = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.73 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.75 = private unnamed_addr constant [17 x i8] c"Unknown (0x%02x)\00", align 1
+@.str.76 = private unnamed_addr constant [13 x i8] c"%s: %u bytes\00", align 1
+@.str.77 = private unnamed_addr constant [13 x i8] c"Unknown (%u)\00", align 1
+@.str.78 = private unnamed_addr constant [29 x i8] c"Authentication Algorithm: %s\00", align 1
+@.str.79 = private unnamed_addr constant [24 x i8] c"Integrity Algorithm: %s\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_asf() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #3
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.36, ptr noundef @.str.37, ptr noundef @.str.38)
   store i32 %2, ptr @proto_asf, align 4
   %3 = load i32, ptr @proto_asf, align 4
@@ -132,24 +130,35 @@ define hidden void @proto_register_asf() #0 {
   %7 = load i32, ptr @proto_asf, align 4
   %8 = call ptr @register_dissector(ptr noundef @.str.38, ptr noundef @dissect_asf, i32 noundef %7)
   store ptr %8, ptr @asf_handle, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #3
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @enterprises_base_custom(ptr noundef, i32 noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @expert_register_protocol(i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_asf(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -164,27 +173,32 @@ define internal i32 @dissect_asf(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
   store ptr null, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct._packet_info, ptr %14, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct._packet_info, ptr %14, i32 0, i32 1
   %16 = load ptr, ptr %15, align 8
-  call void @col_set_str(ptr noundef %16, i32 noundef 34, ptr noundef @.str.37)
+  call void @col_set_str(ptr noundef %16, i32 noundef 35, ptr noundef @.str.37)
   %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct._packet_info, ptr %17, i32 0, i32 1
+  %18 = getelementptr inbounds nuw %struct._packet_info, ptr %17, i32 0, i32 1
   %19 = load ptr, ptr %18, align 8
   call void @col_clear(ptr noundef %19, i32 noundef 25)
   %20 = load ptr, ptr %5, align 8
-  %21 = call zeroext i8 @tvb_get_guint8(ptr noundef %20, i32 noundef 4)
+  %21 = call zeroext i8 @tvb_get_uint8(ptr noundef %20, i32 noundef 4)
   store i8 %21, ptr %11, align 1
   %22 = load ptr, ptr %5, align 8
-  %23 = call zeroext i8 @tvb_get_guint8(ptr noundef %22, i32 noundef 7)
+  %23 = call zeroext i8 @tvb_get_uint8(ptr noundef %22, i32 noundef 7)
   store i8 %23, ptr %12, align 1
   %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct._packet_info, ptr %24, i32 0, i32 1
+  %25 = getelementptr inbounds nuw %struct._packet_info, ptr %24, i32 0, i32 1
   %26 = load ptr, ptr %25, align 8
   %27 = load i8, ptr %11, align 1
   %28 = zext i8 %27 to i32
-  %29 = call ptr @val_to_str(i32 noundef %28, ptr noundef @asf_type_vals, ptr noundef @.str.70)
+  %29 = call ptr @val_to_str(i32 noundef %28, ptr noundef @asf_type_vals, ptr noundef @.str.75)
   call void @col_add_str(ptr noundef %26, i32 noundef 25, ptr noundef %29)
   %30 = load ptr, ptr %7, align 8
   %31 = icmp ne ptr %30, null
@@ -268,33 +282,49 @@ define internal i32 @dissect_asf(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %85 = load i8, ptr %12, align 1
   %86 = zext i8 %85 to i32
   %87 = add i32 8, %86
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret i32 %87
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_asf() #0 {
   %1 = load ptr, ptr @asf_handle, align 8
   call void @dissector_add_uint(ptr noundef @.str.39, i32 noundef 6, ptr noundef %1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_asf_open_session_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -326,7 +356,7 @@ define internal void @dissect_asf_open_session_request(ptr noundef %0, ptr nound
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_asf_open_session_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -370,11 +400,13 @@ define internal void @dissect_asf_open_session_response(ptr noundef %0, ptr noun
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_asf_payloads(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -390,6 +422,10 @@ define internal void @dissect_asf_payloads(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
   br label %15
 
 15:                                               ; preds = %97, %5
@@ -400,7 +436,7 @@ define internal void @dissect_asf_payloads(ptr noundef %0, ptr noundef %1, ptr n
 18:                                               ; preds = %15
   %19 = load ptr, ptr %6, align 8
   %20 = load i32, ptr %9, align 4
-  %21 = call zeroext i8 @tvb_get_guint8(ptr noundef %19, i32 noundef %20)
+  %21 = call zeroext i8 @tvb_get_uint8(ptr noundef %19, i32 noundef %20)
   store i8 %21, ptr %11, align 1
   %22 = load ptr, ptr %6, align 8
   %23 = load i32, ptr %9, align 4
@@ -415,10 +451,10 @@ define internal void @dissect_asf_payloads(ptr noundef %0, ptr noundef %1, ptr n
   %31 = zext i16 %30 to i32
   %32 = load i8, ptr %11, align 1
   %33 = zext i8 %32 to i32
-  %34 = call ptr @val_to_str(i32 noundef %33, ptr noundef @asf_payload_type_vals, ptr noundef @.str.72)
+  %34 = call ptr @val_to_str(i32 noundef %33, ptr noundef @asf_payload_type_vals, ptr noundef @.str.77)
   %35 = load i16, ptr %12, align 2
   %36 = zext i16 %35 to i32
-  %37 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %26, i32 noundef %27, ptr noundef %28, i32 noundef %29, i32 noundef %31, ptr noundef @.str.71, ptr noundef %34, i32 noundef %36)
+  %37 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %26, i32 noundef %27, ptr noundef %28, i32 noundef %29, i32 noundef %31, ptr noundef @.str.76, ptr noundef %34, i32 noundef %36)
   store ptr %37, ptr %13, align 8
   %38 = load ptr, ptr %13, align 8
   %39 = load i32, ptr @ett_asf_payload, align 4
@@ -515,19 +551,26 @@ define internal void @dissect_asf_payloads(ptr noundef %0, ptr noundef %1, ptr n
   %104 = load i32, ptr %10, align 4
   %105 = sub i32 %104, %103
   store i32 %105, ptr %10, align 4
-  br label %15, !llvm.loop !4
+  br label %15, !llvm.loop !6
 
 106:                                              ; preds = %55, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #3
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_asf_payload_authentication(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -540,9 +583,12 @@ define internal void @dissect_asf_payload_authentication(ptr noundef %0, ptr nou
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
   %12 = load ptr, ptr %5, align 8
   %13 = load i32, ptr %7, align 4
-  %14 = call zeroext i8 @tvb_get_guint8(ptr noundef %12, i32 noundef %13)
+  %14 = call zeroext i8 @tvb_get_uint8(ptr noundef %12, i32 noundef %13)
   store i8 %14, ptr %9, align 1
   %15 = load ptr, ptr %6, align 8
   %16 = load i32, ptr @hf_asf_payload_data, align 4
@@ -551,8 +597,8 @@ define internal void @dissect_asf_payload_authentication(ptr noundef %0, ptr nou
   %19 = load i32, ptr %8, align 4
   %20 = load i8, ptr %9, align 1
   %21 = zext i8 %20 to i32
-  %22 = call ptr @val_to_str(i32 noundef %21, ptr noundef @asf_authentication_type_vals, ptr noundef @.str.72)
-  %23 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef %19, ptr noundef @.str.73, ptr noundef %22)
+  %22 = call ptr @val_to_str(i32 noundef %21, ptr noundef @asf_authentication_type_vals, ptr noundef @.str.77)
+  %23 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef %19, ptr noundef @.str.78, ptr noundef %22)
   store ptr %23, ptr %10, align 8
   %24 = load ptr, ptr %10, align 8
   %25 = load i32, ptr @ett_asf_alg_payload, align 4
@@ -571,10 +617,13 @@ define internal void @dissect_asf_payload_authentication(ptr noundef %0, ptr nou
   %37 = load i32, ptr %8, align 4
   %38 = sub i32 %37, 1
   %39 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %33, ptr noundef %34, i32 noundef %36, i32 noundef %38, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #3
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_asf_payload_integrity(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -587,9 +636,12 @@ define internal void @dissect_asf_payload_integrity(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
   %12 = load ptr, ptr %5, align 8
   %13 = load i32, ptr %7, align 4
-  %14 = call zeroext i8 @tvb_get_guint8(ptr noundef %12, i32 noundef %13)
+  %14 = call zeroext i8 @tvb_get_uint8(ptr noundef %12, i32 noundef %13)
   store i8 %14, ptr %9, align 1
   %15 = load ptr, ptr %6, align 8
   %16 = load i32, ptr @hf_asf_payload_data, align 4
@@ -598,8 +650,8 @@ define internal void @dissect_asf_payload_integrity(ptr noundef %0, ptr noundef 
   %19 = load i32, ptr %8, align 4
   %20 = load i8, ptr %9, align 1
   %21 = zext i8 %20 to i32
-  %22 = call ptr @val_to_str(i32 noundef %21, ptr noundef @asf_integrity_type_vals, ptr noundef @.str.72)
-  %23 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef %19, ptr noundef @.str.74, ptr noundef %22)
+  %22 = call ptr @val_to_str(i32 noundef %21, ptr noundef @asf_integrity_type_vals, ptr noundef @.str.77)
+  %23 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef %19, ptr noundef @.str.79, ptr noundef %22)
   store ptr %23, ptr %10, align 8
   %24 = load ptr, ptr %10, align 8
   %25 = load i32, ptr @ett_asf_alg_payload, align 4
@@ -618,17 +670,24 @@ define internal void @dissect_asf_payload_integrity(ptr noundef %0, ptr noundef 
   %37 = load i32, ptr %8, align 4
   %38 = sub i32 %37, 1
   %39 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %33, ptr noundef %34, i32 noundef %36, i32 noundef %38, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #3
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

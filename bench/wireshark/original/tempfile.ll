@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [2 x i8] c"/\00", align 1
 @.str.5 = private unnamed_addr constant [41 x i8] c"<>:\22/\\|?*\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\16\17\18\19\1A\1B\1C\1D\1E\1F\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define i32 @create_tempfile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -27,6 +27,8 @@ define i32 @create_tempfile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
   %17 = load ptr, ptr %8, align 8
   %18 = call ptr @sanitize_prefix(ptr noundef %17)
   store ptr %18, ptr %12, align 8
@@ -43,6 +45,7 @@ define i32 @create_tempfile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   br i1 %26, label %27, label %49
 
 27:                                               ; preds = %21, %5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
   %28 = load ptr, ptr %12, align 8
   %29 = icmp ne ptr %28, null
   br i1 %29, label %30, label %32
@@ -80,137 +83,152 @@ define i32 @create_tempfile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   store i32 %47, ptr %11, align 4
   %48 = load ptr, ptr %13, align 8
   call void @g_free(ptr noundef %48)
-  br label %128
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  br label %129
 
 49:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 65, ptr %14) #5
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %14, ptr align 16 @__const.create_tempfile.alphabet, i64 65, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
   store i32 64, ptr %15, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
   store ptr null, ptr %16, align 8
   br label %50
 
-50:                                               ; preds = %117, %49
-  %51 = load ptr, ptr %16, align 8
-  call void @g_free(ptr noundef %51)
-  %52 = load ptr, ptr %6, align 8
-  %53 = load ptr, ptr %12, align 8
-  %54 = icmp ne ptr %53, null
-  br i1 %54, label %55, label %57
+50:                                               ; preds = %118, %49
+  br label %51
 
-55:                                               ; preds = %50
-  %56 = load ptr, ptr %12, align 8
-  br label %58
+51:                                               ; preds = %50
+  %52 = load ptr, ptr %16, align 8
+  call void @g_free(ptr noundef %52)
+  %53 = load ptr, ptr %6, align 8
+  %54 = load ptr, ptr %12, align 8
+  %55 = icmp ne ptr %54, null
+  br i1 %55, label %56, label %58
 
-57:                                               ; preds = %50
-  br label %58
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %12, align 8
+  br label %59
 
-58:                                               ; preds = %57, %55
-  %59 = phi ptr [ %56, %55 ], [ @.str.1, %57 ]
-  %60 = call i32 @g_random_int_range(i32 noundef 0, i32 noundef 64)
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr [65 x i8], ptr %14, i64 0, i64 %61
-  %63 = load i8, ptr %62, align 1
-  %64 = sext i8 %63 to i32
-  %65 = call i32 @g_random_int_range(i32 noundef 0, i32 noundef 64)
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr [65 x i8], ptr %14, i64 0, i64 %66
-  %68 = load i8, ptr %67, align 1
-  %69 = sext i8 %68 to i32
-  %70 = call i32 @g_random_int_range(i32 noundef 0, i32 noundef 64)
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr [65 x i8], ptr %14, i64 0, i64 %71
-  %73 = load i8, ptr %72, align 1
-  %74 = sext i8 %73 to i32
-  %75 = call i32 @g_random_int_range(i32 noundef 0, i32 noundef 64)
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr [65 x i8], ptr %14, i64 0, i64 %76
-  %78 = load i8, ptr %77, align 1
-  %79 = sext i8 %78 to i32
-  %80 = call i32 @g_random_int_range(i32 noundef 0, i32 noundef 64)
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr [65 x i8], ptr %14, i64 0, i64 %81
-  %83 = load i8, ptr %82, align 1
-  %84 = sext i8 %83 to i32
-  %85 = call i32 @g_random_int_range(i32 noundef 0, i32 noundef 64)
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr [65 x i8], ptr %14, i64 0, i64 %86
-  %88 = load i8, ptr %87, align 1
-  %89 = sext i8 %88 to i32
-  %90 = load ptr, ptr %9, align 8
-  %91 = icmp ne ptr %90, null
-  br i1 %91, label %92, label %94
+58:                                               ; preds = %51
+  br label %59
 
-92:                                               ; preds = %58
-  %93 = load ptr, ptr %9, align 8
-  br label %95
+59:                                               ; preds = %58, %56
+  %60 = phi ptr [ %57, %56 ], [ @.str.1, %58 ]
+  %61 = call i32 @g_random_int_range(i32 noundef 0, i32 noundef 64)
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr [65 x i8], ptr %14, i64 0, i64 %62
+  %64 = load i8, ptr %63, align 1
+  %65 = sext i8 %64 to i32
+  %66 = call i32 @g_random_int_range(i32 noundef 0, i32 noundef 64)
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr [65 x i8], ptr %14, i64 0, i64 %67
+  %69 = load i8, ptr %68, align 1
+  %70 = sext i8 %69 to i32
+  %71 = call i32 @g_random_int_range(i32 noundef 0, i32 noundef 64)
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr [65 x i8], ptr %14, i64 0, i64 %72
+  %74 = load i8, ptr %73, align 1
+  %75 = sext i8 %74 to i32
+  %76 = call i32 @g_random_int_range(i32 noundef 0, i32 noundef 64)
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr [65 x i8], ptr %14, i64 0, i64 %77
+  %79 = load i8, ptr %78, align 1
+  %80 = sext i8 %79 to i32
+  %81 = call i32 @g_random_int_range(i32 noundef 0, i32 noundef 64)
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr [65 x i8], ptr %14, i64 0, i64 %82
+  %84 = load i8, ptr %83, align 1
+  %85 = sext i8 %84 to i32
+  %86 = call i32 @g_random_int_range(i32 noundef 0, i32 noundef 64)
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr [65 x i8], ptr %14, i64 0, i64 %87
+  %89 = load i8, ptr %88, align 1
+  %90 = sext i8 %89 to i32
+  %91 = load ptr, ptr %9, align 8
+  %92 = icmp ne ptr %91, null
+  br i1 %92, label %93, label %95
 
-94:                                               ; preds = %58
-  br label %95
+93:                                               ; preds = %59
+  %94 = load ptr, ptr %9, align 8
+  br label %96
 
-95:                                               ; preds = %94, %92
-  %96 = phi ptr [ %93, %92 ], [ @.str.1, %94 ]
-  %97 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.2, ptr noundef %52, i32 noundef 47, ptr noundef %59, i32 noundef %64, i32 noundef %69, i32 noundef %74, i32 noundef %79, i32 noundef %84, i32 noundef %89, ptr noundef %96)
-  store ptr %97, ptr %16, align 8
-  %98 = load ptr, ptr %16, align 8
-  %99 = call i32 (ptr, i32, ...) @open(ptr noundef %98, i32 noundef 193, i32 noundef 384)
-  store i32 %99, ptr %11, align 4
-  %100 = load i32, ptr %11, align 4
-  %101 = icmp sge i32 %100, 0
-  br i1 %101, label %102, label %103
+95:                                               ; preds = %59
+  br label %96
 
-102:                                              ; preds = %95
-  br label %118
+96:                                               ; preds = %95, %93
+  %97 = phi ptr [ %94, %93 ], [ @.str.1, %95 ]
+  %98 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.2, ptr noundef %53, i32 noundef 47, ptr noundef %60, i32 noundef %65, i32 noundef %70, i32 noundef %75, i32 noundef %80, i32 noundef %85, i32 noundef %90, ptr noundef %97)
+  store ptr %98, ptr %16, align 8
+  %99 = load ptr, ptr %16, align 8
+  %100 = call i32 (ptr, i32, ...) @open(ptr noundef %99, i32 noundef 193, i32 noundef 384)
+  store i32 %100, ptr %11, align 4
+  %101 = load i32, ptr %11, align 4
+  %102 = icmp sge i32 %101, 0
+  br i1 %102, label %103, label %104
 
-103:                                              ; preds = %95
-  %104 = call ptr @__errno_location() #4
-  %105 = load i32, ptr %104, align 4
-  %106 = icmp ne i32 %105, 17
-  br i1 %106, label %107, label %117
+103:                                              ; preds = %96
+  br label %119
 
-107:                                              ; preds = %103
-  %108 = load ptr, ptr %10, align 8
-  %109 = call i32 @g_file_error_quark()
-  %110 = call ptr @__errno_location() #4
-  %111 = load i32, ptr %110, align 4
-  %112 = call i32 @g_file_error_from_errno(i32 noundef %111)
-  %113 = call ptr @__errno_location() #4
-  %114 = load i32, ptr %113, align 4
-  %115 = call ptr @g_strerror(i32 noundef %114) #4
-  call void @g_set_error_literal(ptr noundef %108, i32 noundef %109, i32 noundef %112, ptr noundef %115)
-  %116 = load ptr, ptr %16, align 8
-  call void @g_free(ptr noundef %116)
+104:                                              ; preds = %96
+  %105 = call ptr @__errno_location() #6
+  %106 = load i32, ptr %105, align 4
+  %107 = icmp ne i32 %106, 17
+  br i1 %107, label %108, label %118
+
+108:                                              ; preds = %104
+  %109 = load ptr, ptr %10, align 8
+  %110 = call i32 @g_file_error_quark()
+  %111 = call ptr @__errno_location() #6
+  %112 = load i32, ptr %111, align 4
+  %113 = call i32 @g_file_error_from_errno(i32 noundef %112)
+  %114 = call ptr @__errno_location() #6
+  %115 = load i32, ptr %114, align 4
+  %116 = call ptr @g_strerror(i32 noundef %115) #6
+  call void @g_set_error_literal(ptr noundef %109, i32 noundef %110, i32 noundef %113, ptr noundef %116)
+  %117 = load ptr, ptr %16, align 8
+  call void @g_free(ptr noundef %117)
   store ptr null, ptr %16, align 8
-  br label %118
+  br label %119
 
-117:                                              ; preds = %103
+118:                                              ; preds = %104
   br label %50
 
-118:                                              ; preds = %107, %102
-  %119 = load ptr, ptr %7, align 8
-  %120 = icmp eq ptr %119, null
-  br i1 %120, label %121, label %123
+119:                                              ; preds = %108, %103
+  %120 = load ptr, ptr %7, align 8
+  %121 = icmp eq ptr %120, null
+  br i1 %121, label %122, label %124
 
-121:                                              ; preds = %118
-  %122 = load ptr, ptr %16, align 8
-  call void @g_free(ptr noundef %122)
-  br label %126
+122:                                              ; preds = %119
+  %123 = load ptr, ptr %16, align 8
+  call void @g_free(ptr noundef %123)
+  br label %127
 
-123:                                              ; preds = %118
-  %124 = load ptr, ptr %16, align 8
-  %125 = load ptr, ptr %7, align 8
-  store ptr %124, ptr %125, align 8
-  br label %126
+124:                                              ; preds = %119
+  %125 = load ptr, ptr %16, align 8
+  %126 = load ptr, ptr %7, align 8
+  store ptr %125, ptr %126, align 8
+  br label %127
 
-126:                                              ; preds = %123, %121
-  %127 = load ptr, ptr %12, align 8
-  call void @g_free(ptr noundef %127)
-  br label %128
+127:                                              ; preds = %124, %122
+  %128 = load ptr, ptr %12, align 8
+  call void @g_free(ptr noundef %128)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 65, ptr %14) #5
+  br label %129
 
-128:                                              ; preds = %126, %40
-  %129 = load i32, ptr %11, align 4
-  ret i32 %129
+129:                                              ; preds = %127, %40
+  %130 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  ret i32 %130
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @sanitize_prefix(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
@@ -226,7 +244,9 @@ define internal ptr @sanitize_prefix(ptr noundef %0) #0 {
   br label %16
 
 9:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
   store ptr @.str.5, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
   %10 = load ptr, ptr %3, align 8
   %11 = call noalias ptr @g_strdup(ptr noundef %10)
   store ptr %11, ptr %5, align 8
@@ -236,6 +256,8 @@ define internal ptr @sanitize_prefix(ptr noundef %0) #0 {
   store ptr %14, ptr %5, align 8
   %15 = load ptr, ptr %5, align 8
   store ptr %15, ptr %2, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
   br label %16
 
 16:                                               ; preds = %9, %8
@@ -243,32 +265,43 @@ define internal ptr @sanitize_prefix(ptr noundef %0) #0 {
   ret ptr %17
 }
 
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) #2
 
-declare void @g_free(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @g_free(ptr noundef) #2
 
-declare i32 @g_file_open_tmp(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_file_open_tmp(ptr noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare i32 @g_random_int_range(i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_random_int_range(i32 noundef, i32 noundef) #2
 
-declare i32 @open(ptr noundef, i32 noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @open(ptr noundef, i32 noundef, ...) #2
 
-; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #3
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(none)
+declare ptr @__errno_location() #4
 
-declare void @g_set_error_literal(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @g_set_error_literal(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare i32 @g_file_error_quark() #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_file_error_quark() #2
 
-declare i32 @g_file_error_from_errno(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_file_error_from_errno(i32 noundef) #2
 
-; Function Attrs: nounwind willreturn memory(none)
-declare ptr @g_strerror(i32 noundef) #3
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(none)
+declare ptr @g_strerror(i32 noundef) #4
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @create_tempdir(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -276,95 +309,111 @@ define ptr @create_tempdir(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %18, label %12
+  %11 = load ptr, ptr %5, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %19, label %13
 
-12:                                               ; preds = %3
-  %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr i8, ptr %13, i64 0
-  %15 = load i8, ptr %14, align 1
-  %16 = sext i8 %15 to i32
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %20
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %5, align 8
+  %15 = getelementptr i8, ptr %14, i64 0
+  %16 = load i8, ptr %15, align 1
+  %17 = sext i8 %16 to i32
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %21
 
-18:                                               ; preds = %12, %3
-  %19 = call ptr @g_get_tmp_dir()
-  store ptr %19, ptr %5, align 8
-  br label %20
+19:                                               ; preds = %13, %3
+  %20 = call ptr @g_get_tmp_dir()
+  store ptr %20, ptr %5, align 8
+  br label %21
 
-20:                                               ; preds = %18, %12
-  %21 = load ptr, ptr %6, align 8
-  %22 = call ptr @sanitize_prefix(ptr noundef %21)
-  store ptr %22, ptr %8, align 8
-  %23 = load ptr, ptr %8, align 8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %27
+21:                                               ; preds = %19, %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %22 = load ptr, ptr %6, align 8
+  %23 = call ptr @sanitize_prefix(ptr noundef %22)
+  store ptr %23, ptr %8, align 8
+  %24 = load ptr, ptr %8, align 8
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %26, label %28
 
-25:                                               ; preds = %20
-  %26 = call noalias ptr @g_strdup(ptr noundef @.str.3)
-  store ptr %26, ptr %8, align 8
-  br label %27
+26:                                               ; preds = %21
+  %27 = call noalias ptr @g_strdup(ptr noundef @.str.3)
+  store ptr %27, ptr %8, align 8
+  br label %28
 
-27:                                               ; preds = %25, %20
-  %28 = load ptr, ptr %5, align 8
-  %29 = load ptr, ptr %8, align 8
-  %30 = call noalias ptr (ptr, ptr, ...) @g_build_path(ptr noundef @.str.4, ptr noundef %28, ptr noundef %29, ptr noundef null)
-  store ptr %30, ptr %9, align 8
-  %31 = load ptr, ptr %8, align 8
-  call void @g_free(ptr noundef %31)
-  %32 = load ptr, ptr %9, align 8
-  %33 = call ptr @g_mkdtemp(ptr noundef %32)
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %35, label %45
+28:                                               ; preds = %26, %21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %29 = load ptr, ptr %5, align 8
+  %30 = load ptr, ptr %8, align 8
+  %31 = call noalias ptr (ptr, ptr, ...) @g_build_path(ptr noundef @.str.4, ptr noundef %29, ptr noundef %30, ptr noundef null)
+  store ptr %31, ptr %9, align 8
+  %32 = load ptr, ptr %8, align 8
+  call void @g_free(ptr noundef %32)
+  %33 = load ptr, ptr %9, align 8
+  %34 = call ptr @g_mkdtemp(ptr noundef %33)
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %36, label %46
 
-35:                                               ; preds = %27
-  %36 = load ptr, ptr %9, align 8
-  call void @g_free(ptr noundef %36)
-  %37 = load ptr, ptr %7, align 8
-  %38 = call i32 @g_file_error_quark()
-  %39 = call ptr @__errno_location() #4
-  %40 = load i32, ptr %39, align 4
-  %41 = call i32 @g_file_error_from_errno(i32 noundef %40)
-  %42 = call ptr @__errno_location() #4
-  %43 = load i32, ptr %42, align 4
-  %44 = call ptr @g_strerror(i32 noundef %43) #4
-  call void @g_set_error_literal(ptr noundef %37, i32 noundef %38, i32 noundef %41, ptr noundef %44)
+36:                                               ; preds = %28
+  %37 = load ptr, ptr %9, align 8
+  call void @g_free(ptr noundef %37)
+  %38 = load ptr, ptr %7, align 8
+  %39 = call i32 @g_file_error_quark()
+  %40 = call ptr @__errno_location() #6
+  %41 = load i32, ptr %40, align 4
+  %42 = call i32 @g_file_error_from_errno(i32 noundef %41)
+  %43 = call ptr @__errno_location() #6
+  %44 = load i32, ptr %43, align 4
+  %45 = call ptr @g_strerror(i32 noundef %44) #6
+  call void @g_set_error_literal(ptr noundef %38, i32 noundef %39, i32 noundef %42, ptr noundef %45)
   store ptr null, ptr %4, align 8
-  br label %47
+  store i32 1, ptr %10, align 4
+  br label %48
 
-45:                                               ; preds = %27
-  %46 = load ptr, ptr %9, align 8
-  store ptr %46, ptr %4, align 8
-  br label %47
+46:                                               ; preds = %28
+  %47 = load ptr, ptr %9, align 8
+  store ptr %47, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %48
 
-47:                                               ; preds = %45, %35
-  %48 = load ptr, ptr %4, align 8
-  ret ptr %48
+48:                                               ; preds = %46, %36
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  %49 = load ptr, ptr %4, align 8
+  ret ptr %49
 }
 
-declare ptr @g_get_tmp_dir() #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_get_tmp_dir() #2
 
-declare noalias ptr @g_strdup(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @g_strdup(ptr noundef) #2
 
-declare noalias ptr @g_build_path(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @g_build_path(ptr noundef, ptr noundef, ...) #2
 
-declare ptr @g_mkdtemp(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_mkdtemp(ptr noundef) #2
 
-declare ptr @g_strdelimit(ptr noundef, ptr noundef, i8 noundef signext) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_strdelimit(ptr noundef, ptr noundef, i8 noundef signext) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(none) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}

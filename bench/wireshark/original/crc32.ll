@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @crc32_0AA725CF_reverse = internal constant [256 x i32] [i32 0, i32 -827681330, i32 2048713021, i32 -1263110925, i32 -197541254, i32 982734772, i32 -1910168761, i32 1083160201, i32 255479381, i32 -1047471205, i32 1965469544, i32 -1148437850, i32 -83653585, i32 900274657, i32 -2128646894, i32 1337325788, i32 510958762, i32 -790754972, i32 1684569495, i32 -1430067111, i32 -364028208, i32 619170590, i32 -1873690643, i32 1593518627, i32 290378495, i32 -538687695, i32 1800549314, i32 -1510431220, i32 -445181819, i32 735937867, i32 -1620315720, i32 1371628662, i32 1021917524, i32 -230445926, i32 1190516841, i32 -2007020121, i32 -925828306, i32 108687072, i32 -1295246829, i32 2087096285, i32 869496577, i32 -42343729, i32 1238341180, i32 -2023422990, i32 -940919429, i32 155197621, i32 -1107930042, i32 1935458696, i32 580756990, i32 -331927504, i32 1484866755, i32 -1775513331, i32 -693868668, i32 403632714, i32 -1397193031, i32 1645351799, i32 765979563, i32 -485654939, i32 1471875734, i32 -1726898344, i32 -643946031, i32 389331999, i32 -1551709972, i32 1831361826, i32 2043835048, i32 -1216813210, i32 63869845, i32 -849082789, i32 -1913933614, i32 1128342812, i32 -134786577, i32 962446369, i32 1994931453, i32 -1203590861, i32 217374144, i32 -1034008562, i32 -2100167033, i32 1283156809, i32 -120774726, i32 912755316, i32 1738993154, i32 -1458799668, i32 498732863, i32 -753886479, i32 -1818284936, i32 1563802038, i32 -377238203, i32 657021067, i32 1755095127, i32 -1506396775, i32 310395242, i32 -601172828, i32 -1666883027, i32 1376778211, i32 -424049904, i32 672339678, i32 1161513980, i32 -1953374670, i32 1059564225, i32 -242401521, i32 -1325233786, i32 2141723720, i32 -887199557, i32 95747445, i32 1241580969, i32 -2069131161, i32 807265428, i32 -21532326, i32 -1103575085, i32 1888637469, i32 -1004263698, i32 177124128, i32 1531959126, i32 -1780137320, i32 559101547, i32 -268852315, i32 -1351215828, i32 1641840866, i32 -714410991, i32 465592799, i32 1416993027, i32 -1696658227, i32 778663998, i32 -524030480, i32 -1605608583, i32 1860619959, i32 -632243644, i32 351940490, i32 -207297200, i32 1024356510, i32 -1984428947, i32 1192399267, i32 127739690, i32 -919096604, i32 2105656855, i32 -1289006119, i32 -56710395, i32 842284747, i32 -2038281672, i32 1210638326, i32 145189247, i32 -972161871, i32 1924892738, i32 -1139729012, i32 -305104390, i32 595258420, i32 -1748199225, i32 1499860233, i32 434748288, i32 -683463090, i32 1677023933, i32 -1386229901, i32 -487966801, i32 742433377, i32 -1728653678, i32 1448887132, i32 382989781, i32 -663134181, i32 1825510632, i32 -1570406106, i32 -816980988, i32 31934922, i32 -1252967111, i32 2080090359, i32 997465726, i32 -169964624, i32 1097400131, i32 -1883084147, i32 -1065905583, i32 249366431, i32 -1167363220, i32 1958864546, i32 877547563, i32 -85670427, i32 1314042134, i32 -2131221288, i32 -784777042, i32 529782112, i32 -1423597165, i32 1703883869, i32 620790484, i32 -341174502, i32 1595696105, i32 -1850280409, i32 -570224901, i32 279550773, i32 -1541410874, i32 1790278152, i32 708496513, i32 -460302001, i32 1344679356, i32 -1634944910, i32 -1971939336, i32 1155269174, i32 -261458235, i32 1052828427, i32 2119128450, i32 -1327120308, i32 72594623, i32 -889642639, i32 -2058561107, i32 1273384035, i32 -11519856, i32 838511966, i32 1903500247, i32 -1075868135, i32 191494890, i32 -977047772, i32 -1811805358, i32 1521000092, i32 -299963793, i32 548700065, i32 1614530856, i32 -1366205210, i32 438773781, i32 -728908325, i32 -1690811129, i32 1435685065, i32 -517692358, i32 797848052, i32 1862371197, i32 -1582624077, i32 354248256, i32 -608701554, i32 -1231049044, i32 2016754530, i32 -863809647, i32 36297311, i32 1118203094, i32 -1945306856, i32 951750123, i32 -166717403, i32 -1180311303, i32 1997501751, i32 -1011285564, i32 219386890, i32 1302078083, i32 -2093566131, i32 931185598, i32 -114665872, i32 -1460981242, i32 1715578824, i32 -755510469, i32 475875061, i32 1557327996, i32 -1837603406, i32 651039041, i32 -396065649, i32 -1479443373, i32 1769728413, i32 -573727378, i32 325519520, i32 1407761961, i32 -1656607769, i32 703880980, i32 -413218086], align 16
 @crc32_5D6DCB = internal constant [256 x i32] [i32 0, i32 6122955, i32 12245910, i32 15185501, i32 2677479, i32 7714604, i32 9568625, i32 13593786, i32 5354958, i32 841733, i32 15429208, i32 11928467, i32 7958313, i32 2360034, i32 12825791, i32 10410356, i32 10709916, i32 16647767, i32 1683466, i32 4513217, i32 9154939, i32 14081200, i32 3238637, i32 7079718, i32 15916626, i32 11514777, i32 4720068, i32 1402895, i32 14288053, i32 8874366, i32 6348579, i32 4043496, i32 1817331, i32 4642616, i32 10576229, i32 16518318, i32 3366932, i32 7212511, i32 9026434, i32 13948489, i32 4853565, i32 1532662, i32 15783083, i32 11385184, i32 6477274, i32 4175889, i32 14159436, i32 8741767, i32 12112239, i32 15056036, i32 133881, i32 6252338, i32 9440136, i32 13461059, i32 2805790, i32 7847381, i32 15295649, i32 11798890, i32 5488439, i32 971516, i32 12697158, i32 10277773, i32 8086992, i32 2492443, i32 3634662, i32 6953005, i32 9285232, i32 13681595, i32 2076417, i32 4375242, i32 10843287, i32 16259420, i32 6733864, i32 3911139, i32 14425022, i32 8484469, i32 5118671, i32 1275652, i32 16040281, i32 11119762, i32 9707130, i32 13202353, i32 3065324, i32 7579687, i32 12371101, i32 14788950, i32 401163, i32 5993152, i32 12954548, i32 10012287, i32 8351778, i32 2235881, i32 15561043, i32 11541656, i32 5745349, i32 706318, i32 2936597, i32 7447262, i32 9835651, i32 13334856, i32 267762, i32 5863481, i32 12504676, i32 14918575, i32 8223451, i32 2103056, i32 13082957, i32 10144902, i32 5611580, i32 577015, i32 15694762, i32 11671137, i32 9413769, i32 13814082, i32 3505951, i32 6820564, i32 10976878, i32 16389029, i32 1943032, i32 4245555, i32 14553415, i32 8617100, i32 6605521, i32 3778330, i32 16173984, i32 11249259, i32 4984886, i32 1146365, i32 7269324, i32 3376647, i32 13906010, i32 9002385, i32 4600107, i32 1793248, i32 16575165, i32 10585974, i32 4152834, i32 6435785, i32 8750484, i32 14215263, i32 1541349, i32 4909358, i32 11362163, i32 15741624, i32 13467728, i32 9498011, i32 7822278, i32 2766349, i32 15030967, i32 12072828, i32 6258977, i32 191722, i32 10237342, i32 12671061, i32 2551304, i32 8094659, i32 11857785, i32 15303346, i32 931055, i32 5462308, i32 7688511, i32 2637044, i32 13601449, i32 9627490, i32 6130648, i32 58899, i32 15159374, i32 12205445, i32 2417905, i32 7964986, i32 10370919, i32 12800684, i32 802326, i32 5329885, i32 11986304, i32 15435851, i32 14039715, i32 9131880, i32 7135541, i32 3247358, i32 16703556, i32 10718607, i32 4471762, i32 1660441, i32 8884077, i32 14344870, i32 4019451, i32 6306096, i32 11490698, i32 15874113, i32 1412636, i32 4776919, i32 5873194, i32 324577, i32 14894524, i32 12462199, i32 7423181, i32 2894086, i32 13344603, i32 9892496, i32 535524, i32 5588527, i32 11726962, i32 15703481, i32 2158851, i32 8232136, i32 10103445, i32 13059934, i32 16446902, i32 10983549, i32 4206112, i32 1917931, i32 13774673, i32 9388698, i32 6878407, i32 3512588, i32 11223160, i32 16133555, i32 1154030, i32 5043749, i32 8624799, i32 14612308, i32 3752201, i32 6565058, i32 4334809, i32 2050322, i32 16318287, i32 10850948, i32 7011902, i32 3642357, i32 13641128, i32 9259107, i32 1282327, i32 5176540, i32 11094657, i32 16000842, i32 3886064, i32 6694459, i32 8491110, i32 14482861, i32 14765893, i32 12329614, i32 6001875, i32 456984, i32 13211042, i32 9762921, i32 7556660, i32 3023871, i32 11598475, i32 15570752, i32 663837, i32 5721302, i32 9969772, i32 12930471, i32 2292730, i32 8361521], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
 define i32 @crc32c_table_lookup(i8 noundef zeroext %0) #0 {
   %2 = alloca i8, align 1
   store i8 %0, ptr %2, align 1
@@ -18,7 +18,7 @@ define i32 @crc32c_table_lookup(i8 noundef zeroext %0) #0 {
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
 define i32 @crc32_ccitt_table_lookup(i8 noundef zeroext %0) #0 {
   %2 = alloca i8, align 1
   store i8 %0, ptr %2, align 1
@@ -29,7 +29,7 @@ define i32 @crc32_ccitt_table_lookup(i8 noundef zeroext %0) #0 {
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
 define i32 @crc32c_calculate(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -38,6 +38,7 @@ define i32 @crc32c_calculate(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
   %8 = load ptr, ptr %4, align 8
   store ptr %8, ptr %7, align 8
   %9 = load i32, ptr %6, align 4
@@ -81,7 +82,7 @@ define i32 @crc32c_calculate(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 
   %40 = load i32, ptr %39, align 4
   %41 = xor i32 %30, %40
   store i32 %41, ptr %6, align 4
-  br label %24, !llvm.loop !4
+  br label %24, !llvm.loop !6
 
 42:                                               ; preds = %24
   %43 = load i32, ptr %6, align 4
@@ -99,10 +100,17 @@ define i32 @crc32c_calculate(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 
   %55 = and i32 %54, 255
   %56 = shl i32 %55, 24
   %57 = or i32 %53, %56
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
   ret i32 %57
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
 define i32 @crc32c_calculate_no_swap(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -111,6 +119,7 @@ define i32 @crc32c_calculate_no_swap(ptr noundef %0, i32 noundef %1, i32 noundef
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
   %8 = load ptr, ptr %4, align 8
   store ptr %8, ptr %7, align 8
   br label %9
@@ -138,15 +147,16 @@ define i32 @crc32c_calculate_no_swap(ptr noundef %0, i32 noundef %1, i32 noundef
   %25 = load i32, ptr %24, align 4
   %26 = xor i32 %15, %25
   store i32 %26, ptr %6, align 4
-  br label %9, !llvm.loop !6
+  br label %9, !llvm.loop !8
 
 27:                                               ; preds = %9
   %28 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
   ret i32 %28
 }
 
-; Function Attrs: nounwind uwtable
-define i32 @crc32_ccitt(ptr noundef %0, i32 noundef %1) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define i32 @crc32_ccitt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
@@ -157,59 +167,28 @@ define i32 @crc32_ccitt(ptr noundef %0, i32 noundef %1) #0 {
   ret i32 %7
 }
 
-; Function Attrs: nounwind uwtable
-define i32 @crc32_ccitt_seed(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define i32 @crc32_ccitt_seed(ptr noundef %0, i32 noundef %1, i32 noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  %7 = alloca i32, align 4
-  %8 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store i32 %2, ptr %6, align 4
-  %9 = load i32, ptr %6, align 4
-  store i32 %9, ptr %8, align 4
-  store i32 0, ptr %7, align 4
-  br label %10
-
-10:                                               ; preds = %30, %3
-  %11 = load i32, ptr %7, align 4
-  %12 = load i32, ptr %5, align 4
-  %13 = icmp ult i32 %11, %12
-  br i1 %13, label %14, label %33
-
-14:                                               ; preds = %10
-  %15 = load i32, ptr %8, align 4
-  %16 = lshr i32 %15, 8
-  %17 = load i32, ptr %8, align 4
-  %18 = load ptr, ptr %4, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = zext i32 %19 to i64
-  %21 = getelementptr i8, ptr %18, i64 %20
-  %22 = load i8, ptr %21, align 1
-  %23 = zext i8 %22 to i32
-  %24 = xor i32 %17, %23
-  %25 = and i32 %24, 255
-  %26 = zext i32 %25 to i64
-  %27 = getelementptr [256 x i32], ptr @crc32_ccitt_table, i64 0, i64 %26
-  %28 = load i32, ptr %27, align 4
-  %29 = xor i32 %16, %28
-  store i32 %29, ptr %8, align 4
-  br label %30
-
-30:                                               ; preds = %14
-  %31 = load i32, ptr %7, align 4
-  %32 = add i32 %31, 1
-  store i32 %32, ptr %7, align 4
-  br label %10, !llvm.loop !7
-
-33:                                               ; preds = %10
-  %34 = load i32, ptr %8, align 4
-  %35 = xor i32 %34, -1
-  ret i32 %35
+  %7 = load i32, ptr %6, align 4
+  %8 = xor i32 %7, -1
+  %9 = zext i32 %8 to i64
+  %10 = load ptr, ptr %4, align 8
+  %11 = load i32, ptr %5, align 4
+  %12 = call i64 @crc32(i64 noundef %9, ptr noundef %10, i32 noundef %11)
+  %13 = trunc i64 %12 to i32
+  ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare i64 @crc32(i64 noundef, ptr noundef, i32 noundef) #3
+
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
 define i32 @crc32_mpeg2_seed(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -219,6 +198,8 @@ define i32 @crc32_mpeg2_seed(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
   %9 = load i32, ptr %6, align 4
   store i32 %9, ptr %8, align 4
   store i32 0, ptr %7, align 4
@@ -254,14 +235,16 @@ define i32 @crc32_mpeg2_seed(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 
   %32 = load i32, ptr %7, align 4
   %33 = add i32 %32, 1
   store i32 %33, ptr %7, align 4
-  br label %10, !llvm.loop !8
+  br label %10, !llvm.loop !9
 
 34:                                               ; preds = %10
   %35 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
 define i32 @crc32_0x0AA725CF_seed(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -270,6 +253,7 @@ define i32 @crc32_0x0AA725CF_seed(ptr noundef %0, i32 noundef %1, i32 noundef %2
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
   %8 = load i32, ptr %6, align 4
   store i32 %8, ptr %7, align 4
   br label %9
@@ -297,14 +281,15 @@ define i32 @crc32_0x0AA725CF_seed(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %25 = load i32, ptr %24, align 4
   %26 = xor i32 %15, %25
   store i32 %26, ptr %7, align 4
-  br label %9, !llvm.loop !9
+  br label %9, !llvm.loop !10
 
 27:                                               ; preds = %9
   %28 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   ret i32 %28
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
 define i32 @crc32_0x5D6DCB_seed(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -314,6 +299,7 @@ define i32 @crc32_0x5D6DCB_seed(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
   %9 = load i32, ptr %6, align 4
   store i32 %9, ptr %7, align 4
   %10 = load i32, ptr %5, align 4
@@ -331,6 +317,7 @@ define i32 @crc32_0x5D6DCB_seed(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
   br i1 %16, label %17, label %33
 
 17:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #4
   %18 = load ptr, ptr %4, align 8
   %19 = getelementptr i8, ptr %18, i32 1
   store ptr %19, ptr %4, align 8
@@ -349,7 +336,8 @@ define i32 @crc32_0x5D6DCB_seed(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
   %31 = shl i32 %30, 8
   %32 = xor i32 %29, %31
   store i32 %32, ptr %7, align 4
-  br label %13, !llvm.loop !10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #4
+  br label %13, !llvm.loop !11
 
 33:                                               ; preds = %13
   br label %34
@@ -357,21 +345,27 @@ define i32 @crc32_0x5D6DCB_seed(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
 34:                                               ; preds = %33, %3
   %35 = load i32, ptr %7, align 4
   %36 = and i32 %35, 16777215
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   ret i32 %36
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

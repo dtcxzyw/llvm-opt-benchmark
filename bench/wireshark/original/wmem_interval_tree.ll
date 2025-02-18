@@ -7,27 +7,27 @@ target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [38 x i8] c"Range: low=%lu high=%lu max_edge=%lu\0A\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
 define hidden zeroext i1 @wmem_itree_range_overlap(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct._wmem_range_t, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct._wmem_range_t, ptr %5, i32 0, i32 0
   %7 = load i64, ptr %6, align 8
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct._wmem_range_t, ptr %8, i32 0, i32 1
+  %9 = getelementptr inbounds nuw %struct._wmem_range_t, ptr %8, i32 0, i32 1
   %10 = load i64, ptr %9, align 8
   %11 = icmp ule i64 %7, %10
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct._wmem_range_t, ptr %13, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct._wmem_range_t, ptr %13, i32 0, i32 0
   %15 = load i64, ptr %14, align 8
   %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct._wmem_range_t, ptr %16, i32 0, i32 1
+  %17 = getelementptr inbounds nuw %struct._wmem_range_t, ptr %16, i32 0, i32 1
   %18 = load i64, ptr %17, align 8
   %19 = icmp ule i64 %15, %18
   br label %20
@@ -37,50 +37,56 @@ define hidden zeroext i1 @wmem_itree_range_overlap(ptr noundef %0, ptr noundef %
   ret i1 %21
 }
 
-; Function Attrs: nounwind uwtable
-define noalias ptr @wmem_itree_new(ptr noundef %0) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define noalias ptr @wmem_itree_new(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
   %4 = load ptr, ptr %2, align 8
   %5 = call noalias ptr @wmem_tree_new(ptr noundef %4)
   store ptr %5, ptr %3, align 8
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct._wmem_tree_t, ptr %6, i32 0, i32 5
+  %7 = getelementptr inbounds nuw %struct._wmem_tree_t, ptr %6, i32 0, i32 5
   store ptr @update_edges_after_rotation, ptr %7, align 8
   %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
   ret ptr %8
 }
 
-declare noalias ptr @wmem_tree_new(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @update_edges_after_rotation(ptr noundef %0) #0 {
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_tree_new(ptr noundef) #3
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @update_edges_after_rotation(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct._wmem_tree_node_t, ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %struct._wmem_tree_node_t, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct._wmem_tree_node_t, ptr %8, i32 0, i32 1
+  %9 = getelementptr inbounds nuw %struct._wmem_tree_node_t, ptr %8, i32 0, i32 1
   %10 = load ptr, ptr %9, align 8
   call void @update_max_edge(ptr noundef %10)
   br label %11
 
 11:                                               ; preds = %7, %1
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct._wmem_tree_node_t, ptr %12, i32 0, i32 2
+  %13 = getelementptr inbounds nuw %struct._wmem_tree_node_t, ptr %12, i32 0, i32 2
   %14 = load ptr, ptr %13, align 8
   %15 = icmp ne ptr %14, null
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds %struct._wmem_tree_node_t, ptr %17, i32 0, i32 2
+  %18 = getelementptr inbounds nuw %struct._wmem_tree_node_t, ptr %17, i32 0, i32 2
   %19 = load ptr, ptr %18, align 8
   call void @update_max_edge(ptr noundef %19)
   br label %20
@@ -89,8 +95,11 @@ define internal void @update_edges_after_rotation(ptr noundef %0) #0 {
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define zeroext i1 @wmem_itree_is_empty(ptr noundef %0) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define zeroext i1 @wmem_itree_is_empty(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -98,10 +107,11 @@ define zeroext i1 @wmem_itree_is_empty(ptr noundef %0) #0 {
   ret i1 %4
 }
 
-declare zeroext i1 @wmem_tree_is_empty(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @wmem_tree_is_empty(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define void @wmem_itree_insert(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define void @wmem_itree_insert(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -112,10 +122,12 @@ define void @wmem_itree_insert(ptr noundef %0, i64 noundef %1, i64 noundef %2, p
   store i64 %1, ptr %6, align 8
   store i64 %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct._wmem_tree_t, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct._wmem_tree_t, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
-  %14 = call noalias ptr @wmem_alloc(ptr noundef %13, i64 noundef 24)
+  %14 = call noalias ptr @wmem_alloc(ptr noundef %13, i64 noundef 24) #6
   store ptr %14, ptr %10, align 8
   br label %15
 
@@ -123,32 +135,39 @@ define void @wmem_itree_insert(ptr noundef %0, i64 noundef %1, i64 noundef %2, p
   br label %16
 
 16:                                               ; preds = %15
-  %17 = load i64, ptr %6, align 8
-  %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds %struct._wmem_range_t, ptr %18, i32 0, i32 0
-  store i64 %17, ptr %19, align 8
-  %20 = load i64, ptr %7, align 8
-  %21 = load ptr, ptr %10, align 8
-  %22 = getelementptr inbounds %struct._wmem_range_t, ptr %21, i32 0, i32 1
-  store i64 %20, ptr %22, align 8
-  %23 = load ptr, ptr %10, align 8
-  %24 = getelementptr inbounds %struct._wmem_range_t, ptr %23, i32 0, i32 2
-  store i64 0, ptr %24, align 8
-  %25 = load ptr, ptr %5, align 8
-  %26 = load ptr, ptr %10, align 8
-  %27 = load ptr, ptr %8, align 8
-  %28 = call ptr @wmem_tree_insert(ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef @wmem_tree_compare_ranges)
-  store ptr %28, ptr %9, align 8
-  %29 = load ptr, ptr %9, align 8
-  call void @update_max_edge(ptr noundef %29)
+  br label %17
+
+17:                                               ; preds = %16
+  %18 = load i64, ptr %6, align 8
+  %19 = load ptr, ptr %10, align 8
+  %20 = getelementptr inbounds nuw %struct._wmem_range_t, ptr %19, i32 0, i32 0
+  store i64 %18, ptr %20, align 8
+  %21 = load i64, ptr %7, align 8
+  %22 = load ptr, ptr %10, align 8
+  %23 = getelementptr inbounds nuw %struct._wmem_range_t, ptr %22, i32 0, i32 1
+  store i64 %21, ptr %23, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = getelementptr inbounds nuw %struct._wmem_range_t, ptr %24, i32 0, i32 2
+  store i64 0, ptr %25, align 8
+  %26 = load ptr, ptr %5, align 8
+  %27 = load ptr, ptr %10, align 8
+  %28 = load ptr, ptr %8, align 8
+  %29 = call ptr @wmem_tree_insert_node(ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef @wmem_tree_compare_ranges)
+  store ptr %29, ptr %9, align 8
+  %30 = load ptr, ptr %9, align 8
+  call void @update_max_edge(ptr noundef %30)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
   ret void
 }
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #4
 
-declare ptr @wmem_tree_insert(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_tree_insert_node(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
 define internal i32 @wmem_tree_compare_ranges(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
@@ -156,10 +175,10 @@ define internal i32 @wmem_tree_compare_ranges(ptr noundef %0, ptr noundef %1) #0
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %struct._wmem_range_t, ptr %6, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct._wmem_range_t, ptr %6, i32 0, i32 0
   %8 = load i64, ptr %7, align 8
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct._wmem_range_t, ptr %9, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct._wmem_range_t, ptr %9, i32 0, i32 0
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %8, %11
   br i1 %12, label %13, label %14
@@ -170,10 +189,10 @@ define internal i32 @wmem_tree_compare_ranges(ptr noundef %0, ptr noundef %1) #0
 
 14:                                               ; preds = %2
   %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct._wmem_range_t, ptr %15, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %struct._wmem_range_t, ptr %15, i32 0, i32 0
   %17 = load i64, ptr %16, align 8
   %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %struct._wmem_range_t, ptr %18, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %struct._wmem_range_t, ptr %18, i32 0, i32 0
   %20 = load i64, ptr %19, align 8
   %21 = icmp ult i64 %17, %20
   br i1 %21, label %22, label %23
@@ -191,151 +210,175 @@ define internal i32 @wmem_tree_compare_ranges(ptr noundef %0, ptr noundef %1) #0
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @update_max_edge(ptr noundef %0) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @update_max_edge(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
   store i64 0, ptr %6, align 8
-  %7 = load ptr, ptr %2, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %10, label %9
-
-9:                                                ; preds = %1
-  br label %89
+  %8 = load ptr, ptr %2, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %11, label %10
 
 10:                                               ; preds = %1
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct._wmem_tree_node_t, ptr %11, i32 0, i32 3
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %3, align 8
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct._wmem_tree_node_t, ptr %14, i32 0, i32 1
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp ne ptr %16, null
-  br i1 %17, label %18, label %24
+  store i32 1, ptr %7, align 4
+  br label %91
 
-18:                                               ; preds = %10
-  %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct._wmem_tree_node_t, ptr %19, i32 0, i32 1
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %struct._wmem_tree_node_t, ptr %21, i32 0, i32 3
-  %23 = load ptr, ptr %22, align 8
-  br label %25
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %2, align 8
+  %13 = getelementptr inbounds nuw %struct._wmem_tree_node_t, ptr %12, i32 0, i32 3
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %3, align 8
+  %15 = load ptr, ptr %2, align 8
+  %16 = getelementptr inbounds nuw %struct._wmem_tree_node_t, ptr %15, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %25
 
-24:                                               ; preds = %10
-  br label %25
+19:                                               ; preds = %11
+  %20 = load ptr, ptr %2, align 8
+  %21 = getelementptr inbounds nuw %struct._wmem_tree_node_t, ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw %struct._wmem_tree_node_t, ptr %22, i32 0, i32 3
+  %24 = load ptr, ptr %23, align 8
+  br label %26
 
-25:                                               ; preds = %24, %18
-  %26 = phi ptr [ %23, %18 ], [ null, %24 ]
-  store ptr %26, ptr %4, align 8
-  %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds %struct._wmem_tree_node_t, ptr %27, i32 0, i32 2
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp ne ptr %29, null
-  br i1 %30, label %31, label %37
+25:                                               ; preds = %11
+  br label %26
 
-31:                                               ; preds = %25
-  %32 = load ptr, ptr %2, align 8
-  %33 = getelementptr inbounds %struct._wmem_tree_node_t, ptr %32, i32 0, i32 2
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds %struct._wmem_tree_node_t, ptr %34, i32 0, i32 3
-  %36 = load ptr, ptr %35, align 8
-  br label %38
+26:                                               ; preds = %25, %19
+  %27 = phi ptr [ %24, %19 ], [ null, %25 ]
+  store ptr %27, ptr %4, align 8
+  %28 = load ptr, ptr %2, align 8
+  %29 = getelementptr inbounds nuw %struct._wmem_tree_node_t, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %38
 
-37:                                               ; preds = %25
-  br label %38
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %2, align 8
+  %34 = getelementptr inbounds nuw %struct._wmem_tree_node_t, ptr %33, i32 0, i32 2
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds nuw %struct._wmem_tree_node_t, ptr %35, i32 0, i32 3
+  %37 = load ptr, ptr %36, align 8
+  br label %39
 
-38:                                               ; preds = %37, %31
-  %39 = phi ptr [ %36, %31 ], [ null, %37 ]
-  store ptr %39, ptr %5, align 8
-  %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct._wmem_range_t, ptr %40, i32 0, i32 1
-  %42 = load i64, ptr %41, align 8
-  store i64 %42, ptr %6, align 8
-  %43 = load ptr, ptr %5, align 8
-  %44 = icmp ne ptr %43, null
-  br i1 %44, label %45, label %59
+38:                                               ; preds = %26
+  br label %39
 
-45:                                               ; preds = %38
-  %46 = load i64, ptr %6, align 8
-  %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds %struct._wmem_range_t, ptr %47, i32 0, i32 2
-  %49 = load i64, ptr %48, align 8
-  %50 = icmp ugt i64 %46, %49
-  br i1 %50, label %51, label %53
+39:                                               ; preds = %38, %32
+  %40 = phi ptr [ %37, %32 ], [ null, %38 ]
+  store ptr %40, ptr %5, align 8
+  %41 = load ptr, ptr %3, align 8
+  %42 = getelementptr inbounds nuw %struct._wmem_range_t, ptr %41, i32 0, i32 1
+  %43 = load i64, ptr %42, align 8
+  store i64 %43, ptr %6, align 8
+  %44 = load ptr, ptr %5, align 8
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %46, label %60
 
-51:                                               ; preds = %45
-  %52 = load i64, ptr %6, align 8
-  br label %57
+46:                                               ; preds = %39
+  %47 = load i64, ptr %6, align 8
+  %48 = load ptr, ptr %5, align 8
+  %49 = getelementptr inbounds nuw %struct._wmem_range_t, ptr %48, i32 0, i32 2
+  %50 = load i64, ptr %49, align 8
+  %51 = icmp ugt i64 %47, %50
+  br i1 %51, label %52, label %54
 
-53:                                               ; preds = %45
-  %54 = load ptr, ptr %5, align 8
-  %55 = getelementptr inbounds %struct._wmem_range_t, ptr %54, i32 0, i32 2
-  %56 = load i64, ptr %55, align 8
-  br label %57
+52:                                               ; preds = %46
+  %53 = load i64, ptr %6, align 8
+  br label %58
 
-57:                                               ; preds = %53, %51
-  %58 = phi i64 [ %52, %51 ], [ %56, %53 ]
-  store i64 %58, ptr %6, align 8
-  br label %59
+54:                                               ; preds = %46
+  %55 = load ptr, ptr %5, align 8
+  %56 = getelementptr inbounds nuw %struct._wmem_range_t, ptr %55, i32 0, i32 2
+  %57 = load i64, ptr %56, align 8
+  br label %58
 
-59:                                               ; preds = %57, %38
-  %60 = load ptr, ptr %4, align 8
-  %61 = icmp ne ptr %60, null
-  br i1 %61, label %62, label %76
+58:                                               ; preds = %54, %52
+  %59 = phi i64 [ %53, %52 ], [ %57, %54 ]
+  store i64 %59, ptr %6, align 8
+  br label %60
 
-62:                                               ; preds = %59
-  %63 = load i64, ptr %6, align 8
-  %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds %struct._wmem_range_t, ptr %64, i32 0, i32 2
-  %66 = load i64, ptr %65, align 8
-  %67 = icmp ugt i64 %63, %66
-  br i1 %67, label %68, label %70
+60:                                               ; preds = %58, %39
+  %61 = load ptr, ptr %4, align 8
+  %62 = icmp ne ptr %61, null
+  br i1 %62, label %63, label %77
 
-68:                                               ; preds = %62
-  %69 = load i64, ptr %6, align 8
-  br label %74
+63:                                               ; preds = %60
+  %64 = load i64, ptr %6, align 8
+  %65 = load ptr, ptr %4, align 8
+  %66 = getelementptr inbounds nuw %struct._wmem_range_t, ptr %65, i32 0, i32 2
+  %67 = load i64, ptr %66, align 8
+  %68 = icmp ugt i64 %64, %67
+  br i1 %68, label %69, label %71
 
-70:                                               ; preds = %62
-  %71 = load ptr, ptr %4, align 8
-  %72 = getelementptr inbounds %struct._wmem_range_t, ptr %71, i32 0, i32 2
-  %73 = load i64, ptr %72, align 8
-  br label %74
+69:                                               ; preds = %63
+  %70 = load i64, ptr %6, align 8
+  br label %75
 
-74:                                               ; preds = %70, %68
-  %75 = phi i64 [ %69, %68 ], [ %73, %70 ]
-  store i64 %75, ptr %6, align 8
-  br label %76
+71:                                               ; preds = %63
+  %72 = load ptr, ptr %4, align 8
+  %73 = getelementptr inbounds nuw %struct._wmem_range_t, ptr %72, i32 0, i32 2
+  %74 = load i64, ptr %73, align 8
+  br label %75
 
-76:                                               ; preds = %74, %59
-  %77 = load ptr, ptr %3, align 8
-  %78 = getelementptr inbounds %struct._wmem_range_t, ptr %77, i32 0, i32 2
-  %79 = load i64, ptr %78, align 8
-  %80 = load i64, ptr %6, align 8
-  %81 = icmp ne i64 %79, %80
-  br i1 %81, label %82, label %89
+75:                                               ; preds = %71, %69
+  %76 = phi i64 [ %70, %69 ], [ %74, %71 ]
+  store i64 %76, ptr %6, align 8
+  br label %77
 
-82:                                               ; preds = %76
-  %83 = load i64, ptr %6, align 8
-  %84 = load ptr, ptr %3, align 8
-  %85 = getelementptr inbounds %struct._wmem_range_t, ptr %84, i32 0, i32 2
-  store i64 %83, ptr %85, align 8
-  %86 = load ptr, ptr %2, align 8
-  %87 = getelementptr inbounds %struct._wmem_tree_node_t, ptr %86, i32 0, i32 0
-  %88 = load ptr, ptr %87, align 8
-  call void @update_max_edge(ptr noundef %88)
-  br label %89
+77:                                               ; preds = %75, %60
+  %78 = load ptr, ptr %3, align 8
+  %79 = getelementptr inbounds nuw %struct._wmem_range_t, ptr %78, i32 0, i32 2
+  %80 = load i64, ptr %79, align 8
+  %81 = load i64, ptr %6, align 8
+  %82 = icmp ne i64 %80, %81
+  br i1 %82, label %83, label %90
 
-89:                                               ; preds = %82, %76, %9
+83:                                               ; preds = %77
+  %84 = load i64, ptr %6, align 8
+  %85 = load ptr, ptr %3, align 8
+  %86 = getelementptr inbounds nuw %struct._wmem_range_t, ptr %85, i32 0, i32 2
+  store i64 %84, ptr %86, align 8
+  %87 = load ptr, ptr %2, align 8
+  %88 = getelementptr inbounds nuw %struct._wmem_tree_node_t, ptr %87, i32 0, i32 0
+  %89 = load ptr, ptr %88, align 8
+  call void @update_max_edge(ptr noundef %89)
+  br label %90
+
+90:                                               ; preds = %83, %77
+  store i32 0, ptr %7, align 4
+  br label %91
+
+91:                                               ; preds = %90, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
+  %92 = load i32, ptr %7, align 4
+  switch i32 %92, label %94 [
+    i32 0, label %93
+    i32 1, label %93
+  ]
+
+93:                                               ; preds = %91, %91
   ret void
+
+94:                                               ; preds = %91
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
-define ptr @wmem_itree_find_intervals(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define ptr @wmem_itree_find_intervals(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
@@ -346,91 +389,112 @@ define ptr @wmem_itree_find_intervals(ptr noundef %0, ptr noundef %1, i64 nounde
   store ptr %1, ptr %6, align 8
   store i64 %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
   store ptr null, ptr %9, align 8
-  %11 = getelementptr inbounds %struct._wmem_range_t, ptr %10, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 24, ptr %10) #5
+  %11 = getelementptr inbounds nuw %struct._wmem_range_t, ptr %10, i32 0, i32 0
   %12 = load i64, ptr %7, align 8
   store i64 %12, ptr %11, align 8
-  %13 = getelementptr inbounds %struct._wmem_range_t, ptr %10, i32 0, i32 1
+  %13 = getelementptr inbounds nuw %struct._wmem_range_t, ptr %10, i32 0, i32 1
   %14 = load i64, ptr %8, align 8
   store i64 %14, ptr %13, align 8
-  %15 = getelementptr inbounds %struct._wmem_range_t, ptr %10, i32 0, i32 2
+  %15 = getelementptr inbounds nuw %struct._wmem_range_t, ptr %10, i32 0, i32 2
   store i64 0, ptr %15, align 8
   %16 = load ptr, ptr %6, align 8
   %17 = call noalias ptr @wmem_list_new(ptr noundef %16)
   store ptr %17, ptr %9, align 8
   %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %struct._wmem_tree_t, ptr %18, i32 0, i32 2
+  %19 = getelementptr inbounds nuw %struct._wmem_tree_t, ptr %18, i32 0, i32 2
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %9, align 8
   call void @wmem_itree_find_intervals_in_subtree(ptr noundef %20, ptr noundef byval(%struct._wmem_range_t) align 8 %10, ptr noundef %21)
   %22 = load ptr, ptr %9, align 8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
   ret ptr %22
 }
 
-declare noalias ptr @wmem_list_new(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_list_new(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @wmem_itree_find_intervals_in_subtree(ptr noundef %0, ptr noundef byval(%struct._wmem_range_t) align 8 %1, ptr noundef %2) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @wmem_itree_find_intervals_in_subtree(ptr noundef %0, ptr noundef byval(%struct._wmem_range_t) align 8 %1, ptr noundef %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store ptr %2, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %10, label %9
-
-9:                                                ; preds = %3
-  br label %38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct._wmem_tree_node_t, ptr %11, i32 0, i32 3
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %6, align 8
-  %14 = getelementptr inbounds %struct._wmem_range_t, ptr %1, i32 0, i32 0
-  %15 = load i64, ptr %14, align 8
-  %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %struct._wmem_range_t, ptr %16, i32 0, i32 2
-  %18 = load i64, ptr %17, align 8
-  %19 = icmp ugt i64 %15, %18
-  br i1 %19, label %20, label %21
+  store i32 1, ptr %7, align 4
+  br label %39
 
-20:                                               ; preds = %10
-  br label %38
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds nuw %struct._wmem_tree_node_t, ptr %12, i32 0, i32 3
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %6, align 8
+  %15 = getelementptr inbounds nuw %struct._wmem_range_t, ptr %1, i32 0, i32 0
+  %16 = load i64, ptr %15, align 8
+  %17 = load ptr, ptr %6, align 8
+  %18 = getelementptr inbounds nuw %struct._wmem_range_t, ptr %17, i32 0, i32 2
+  %19 = load i64, ptr %18, align 8
+  %20 = icmp ugt i64 %16, %19
+  br i1 %20, label %21, label %22
 
-21:                                               ; preds = %10
-  %22 = load ptr, ptr %6, align 8
-  %23 = call zeroext i1 @wmem_itree_range_overlap(ptr noundef %22, ptr noundef %1)
-  br i1 %23, label %24, label %29
+21:                                               ; preds = %11
+  store i32 1, ptr %7, align 4
+  br label %39
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr %5, align 8
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %struct._wmem_tree_node_t, ptr %26, i32 0, i32 4
-  %28 = load ptr, ptr %27, align 8
-  call void @wmem_list_prepend(ptr noundef %25, ptr noundef %28)
-  br label %29
+22:                                               ; preds = %11
+  %23 = load ptr, ptr %6, align 8
+  %24 = call zeroext i1 @wmem_itree_range_overlap(ptr noundef %23, ptr noundef %1)
+  br i1 %24, label %25, label %30
 
-29:                                               ; preds = %24, %21
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct._wmem_tree_node_t, ptr %30, i32 0, i32 1
-  %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %5, align 8
-  call void @wmem_itree_find_intervals_in_subtree(ptr noundef %32, ptr noundef byval(%struct._wmem_range_t) align 8 %1, ptr noundef %33)
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct._wmem_tree_node_t, ptr %34, i32 0, i32 2
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %5, align 8
-  call void @wmem_itree_find_intervals_in_subtree(ptr noundef %36, ptr noundef byval(%struct._wmem_range_t) align 8 %1, ptr noundef %37)
-  br label %38
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %5, align 8
+  %27 = load ptr, ptr %4, align 8
+  %28 = getelementptr inbounds nuw %struct._wmem_tree_node_t, ptr %27, i32 0, i32 4
+  %29 = load ptr, ptr %28, align 8
+  call void @wmem_list_prepend(ptr noundef %26, ptr noundef %29)
+  br label %30
 
-38:                                               ; preds = %29, %20, %9
+30:                                               ; preds = %25, %22
+  %31 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds nuw %struct._wmem_tree_node_t, ptr %31, i32 0, i32 1
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr %5, align 8
+  call void @wmem_itree_find_intervals_in_subtree(ptr noundef %33, ptr noundef byval(%struct._wmem_range_t) align 8 %1, ptr noundef %34)
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds nuw %struct._wmem_tree_node_t, ptr %35, i32 0, i32 2
+  %37 = load ptr, ptr %36, align 8
+  %38 = load ptr, ptr %5, align 8
+  call void @wmem_itree_find_intervals_in_subtree(ptr noundef %37, ptr noundef byval(%struct._wmem_range_t) align 8 %1, ptr noundef %38)
+  store i32 0, ptr %7, align 4
+  br label %39
+
+39:                                               ; preds = %30, %21, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %40 = load i32, ptr %7, align 4
+  switch i32 %40, label %42 [
+    i32 0, label %41
+    i32 1, label %41
+  ]
+
+41:                                               ; preds = %39, %39
   ret void
+
+42:                                               ; preds = %39
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @wmem_print_itree(ptr noundef %0) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden void @wmem_print_itree(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -438,49 +502,74 @@ define hidden void @wmem_print_itree(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @wmem_print_tree(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @wmem_print_tree(ptr noundef, ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @print_range(ptr noundef %0) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @print_range(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  store ptr %4, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #5
   %5 = load ptr, ptr %2, align 8
-  %6 = icmp ne ptr %5, null
-  br i1 %6, label %8, label %7
-
-7:                                                ; preds = %1
-  br label %19
+  store ptr %5, ptr %3, align 8
+  %6 = load ptr, ptr %2, align 8
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %9, label %8
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct._wmem_range_t, ptr %9, i32 0, i32 0
-  %11 = load i64, ptr %10, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct._wmem_range_t, ptr %12, i32 0, i32 1
-  %14 = load i64, ptr %13, align 8
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct._wmem_range_t, ptr %15, i32 0, i32 2
-  %17 = load i64, ptr %16, align 8
-  %18 = call i32 (ptr, ...) @printf(ptr noundef @.str, i64 noundef %11, i64 noundef %14, i64 noundef %17)
-  br label %19
+  store i32 1, ptr %4, align 4
+  br label %20
 
-19:                                               ; preds = %8, %7
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds nuw %struct._wmem_range_t, ptr %10, i32 0, i32 0
+  %12 = load i64, ptr %11, align 8
+  %13 = load ptr, ptr %3, align 8
+  %14 = getelementptr inbounds nuw %struct._wmem_range_t, ptr %13, i32 0, i32 1
+  %15 = load i64, ptr %14, align 8
+  %16 = load ptr, ptr %3, align 8
+  %17 = getelementptr inbounds nuw %struct._wmem_range_t, ptr %16, i32 0, i32 2
+  %18 = load i64, ptr %17, align 8
+  %19 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef @.str, i64 noundef %12, i64 noundef %15, i64 noundef %18)
+  store i32 0, ptr %4, align 4
+  br label %20
+
+20:                                               ; preds = %9, %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #5
+  %21 = load i32, ptr %4, align 4
+  switch i32 %21, label %23 [
+    i32 0, label %22
+    i32 1, label %22
+  ]
+
+22:                                               ; preds = %20, %20
   ret void
+
+23:                                               ; preds = %20
+  unreachable
 }
 
-declare void @wmem_list_prepend(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @wmem_list_prepend(ptr noundef, ptr noundef) #3
 
-declare i32 @printf(ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @__printf_chk(i32 noundef, ptr noundef, ...) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}

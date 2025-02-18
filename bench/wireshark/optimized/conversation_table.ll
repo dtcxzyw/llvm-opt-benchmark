@@ -4,10 +4,11 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct._stat_tap_ui = type { i32, ptr, ptr, ptr, i64, ptr }
-%struct._conversation_item_t = type { ptr, %struct._address, %struct._address, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32 }
+%struct._conversation_item_t = type { ptr, %struct._address, %struct._address, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, %struct._conversation_extension_tcp_t }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.nstime_t = type { i64, i32 }
-%struct._endpoint_item_t = type { ptr, %struct._address, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i32, i32 }
+%struct._conversation_extension_tcp_t = type { i64 }
+%struct._endpoint_item_t = type { ptr, %struct._address, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i8, i8 }
 %struct._conversation_key_t = type { %struct._address, %struct._address, i32, i32, i32 }
 %struct.endpoint_key_t = type { %struct._address, i32 }
 
@@ -26,13 +27,14 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [15 x i8] c"%s==%s%s%s%s%s\00", align 1
 @.str.11 = private unnamed_addr constant [8 x i8] c"INVALID\00", align 1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @get_conversation_hide_ports(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr %0, align 8
-  ret i32 %2
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
+define zeroext i1 @get_conversation_hide_ports(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+  %2 = load i8, ptr %0, align 8, !range !6, !noundef !7
+  %3 = trunc nuw i8 %2 to i1
+  ret i1 %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
 define i32 @get_conversation_proto_id(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
@@ -47,38 +49,38 @@ define i32 @get_conversation_proto_id(ptr noundef readonly captures(address_is_n
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
 define ptr @get_conversation_packet_func(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
 define ptr @get_endpoint_packet_func(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
 define ptr @get_hostlist_packet_func(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @dissector_conversation_init(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = tail call ptr @g_string_new(ptr noundef nonnull @.str) #10
+  %3 = tail call ptr @g_string_new(ptr noundef nonnull @.str)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %5) #10
-  %7 = tail call ptr @g_string_append(ptr noundef %3, ptr noundef %6) #10
+  %6 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %5)
+  %7 = tail call ptr @g_string_append(ptr noundef %3, ptr noundef %6)
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %8, i64 noundef %10) #11
+  %11 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %8, i64 noundef %10) #13
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %17
 
@@ -92,42 +94,52 @@ define void @dissector_conversation_init(ptr noundef %0, ptr noundef %1) #1 {
 
 17:                                               ; preds = %12, %2
   %.0 = phi ptr [ null, %2 ], [ %spec.select, %12 ]
-  %18 = tail call ptr @g_string_free(ptr noundef nonnull %3, i32 noundef 1) #10
+  %18 = tail call ptr @g_string_free(ptr noundef %3, i32 noundef 1)
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %20 = load ptr, ptr %19, align 8
   %.not16 = icmp eq ptr %20, null
   br i1 %.not16, label %22, label %21
 
 21:                                               ; preds = %17
-  tail call void %20(ptr noundef nonnull %1, ptr noundef %.0) #10
+  tail call void %20(ptr noundef %1, ptr noundef %.0)
   br label %22
 
 22:                                               ; preds = %21, %17
   ret void
 }
 
-declare ptr @g_string_new(ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
-declare ptr @g_string_append(ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_string_new(ptr noundef) local_unnamed_addr #3
 
-declare ptr @proto_get_protocol_filter_name(i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_string_append(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_get_protocol_filter_name(i32 noundef) local_unnamed_addr #3
 
-declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @dissector_endpoint_init(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = tail call ptr @g_string_new(ptr noundef nonnull @.str.1) #10
+  %3 = tail call ptr @g_string_new(ptr noundef nonnull @.str.1)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %5) #10
-  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %3, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %6) #10
+  %6 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %5)
+  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %3, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %6)
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %7, i64 noundef %9) #11
+  %10 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %7, i64 noundef %9) #13
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %16
 
@@ -141,33 +153,34 @@ define void @dissector_endpoint_init(ptr noundef %0, ptr noundef %1) #1 {
 
 16:                                               ; preds = %11, %2
   %.0 = phi ptr [ %spec.select, %11 ], [ null, %2 ]
-  %17 = tail call ptr @g_string_free(ptr noundef nonnull %3, i32 noundef 1) #10
+  %17 = tail call ptr @g_string_free(ptr noundef %3, i32 noundef 1)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load ptr, ptr %18, align 8
   %.not16 = icmp eq ptr %19, null
   br i1 %.not16, label %21, label %20
 
 20:                                               ; preds = %16
-  tail call void %19(ptr noundef nonnull %1, ptr noundef %.0) #10
+  tail call void %19(ptr noundef %1, ptr noundef %.0)
   br label %21
 
 21:                                               ; preds = %20, %16
   ret void
 }
 
-declare void @g_string_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @g_string_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @dissector_hostlist_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = tail call ptr @g_string_new(ptr noundef nonnull @.str.1) #10
+  %3 = tail call ptr @g_string_new(ptr noundef nonnull @.str.1)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %5) #10
-  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %3, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %6) #10
+  %6 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %5)
+  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %3, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %6)
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %7, i64 noundef %9) #11
+  %10 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %7, i64 noundef %9) #13
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %11, label %16
 
@@ -181,119 +194,131 @@ define void @dissector_hostlist_init(ptr noundef %0, ptr noundef %1) local_unnam
 
 16:                                               ; preds = %11, %2
   %.0.i = phi ptr [ %spec.select.i, %11 ], [ null, %2 ]
-  %17 = tail call ptr @g_string_free(ptr noundef nonnull %3, i32 noundef 1) #10
+  %17 = tail call ptr @g_string_free(ptr noundef %3, i32 noundef 1)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load ptr, ptr %18, align 8
   %.not16.i = icmp eq ptr %19, null
   br i1 %.not16.i, label %dissector_endpoint_init.exit, label %20
 
 20:                                               ; preds = %16
-  tail call void %19(ptr noundef nonnull %1, ptr noundef %.0.i) #10
+  tail call void %19(ptr noundef %1, ptr noundef %.0.i)
   br label %dissector_endpoint_init.exit
 
 dissector_endpoint_init.exit:                     ; preds = %16, %20
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @get_conversation_by_proto_id(i32 noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @registered_ct_tables, align 8
-  %3 = tail call ptr @find_protocol_by_id(i32 noundef %0) #10
-  %4 = tail call ptr @proto_get_protocol_short_name(ptr noundef %3) #10
-  %5 = tail call ptr @wmem_tree_lookup_string(ptr noundef %2, ptr noundef %4, i32 noundef 0) #10
+  %3 = tail call ptr @find_protocol_by_id(i32 noundef %0)
+  %4 = tail call ptr @proto_get_protocol_short_name(ptr noundef %3)
+  %5 = tail call ptr @wmem_tree_lookup_string(ptr noundef %2, ptr noundef %4, i32 noundef 0)
   ret ptr %5
 }
 
-declare ptr @wmem_tree_lookup_string(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_tree_lookup_string(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @proto_get_protocol_short_name(ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_get_protocol_short_name(ptr noundef) local_unnamed_addr #3
 
-declare ptr @find_protocol_by_id(i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_protocol_by_id(i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
-define void @register_conversation_table(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
-  %5 = tail call ptr @wmem_epan_scope() #10
-  %6 = tail call noalias ptr @wmem_alloc(ptr noundef %5, i64 noundef 40) #10
-  store i32 %1, ptr %6, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %0, ptr %7, align 4
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %2, ptr %8, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %3, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  %11 = load ptr, ptr @registered_ct_tables, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %16
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define void @register_conversation_table(i32 noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+  %5 = zext i1 %1 to i8
+  %6 = tail call ptr @wmem_epan_scope()
+  %7 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %6, i64 noundef 40) #14
+  store i8 %5, ptr %7, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 %0, ptr %8, align 4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %2, ptr %9, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %3, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  %12 = load ptr, ptr @registered_ct_tables, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %17
 
-13:                                               ; preds = %4
-  %14 = tail call ptr @wmem_epan_scope() #10
-  %15 = tail call noalias ptr @wmem_tree_new(ptr noundef %14) #10
-  store ptr %15, ptr @registered_ct_tables, align 8
-  br label %16
+14:                                               ; preds = %4
+  %15 = tail call ptr @wmem_epan_scope()
+  %16 = tail call noalias ptr @wmem_tree_new(ptr noundef %15)
+  store ptr %16, ptr @registered_ct_tables, align 8
+  br label %17
 
-16:                                               ; preds = %13, %4
-  %17 = phi ptr [ %15, %13 ], [ %11, %4 ]
-  %18 = tail call ptr @find_protocol_by_id(i32 noundef %0) #10
-  %19 = tail call ptr @proto_get_protocol_short_name(ptr noundef %18) #10
-  tail call void @wmem_tree_insert_string(ptr noundef %17, ptr noundef %19, ptr noundef nonnull %6, i32 noundef 0) #10
+17:                                               ; preds = %14, %4
+  %18 = phi ptr [ %16, %14 ], [ %12, %4 ]
+  %19 = tail call ptr @find_protocol_by_id(i32 noundef %0)
+  %20 = tail call ptr @proto_get_protocol_short_name(ptr noundef %19)
+  tail call void @wmem_tree_insert_string(ptr noundef %18, ptr noundef %20, ptr noundef %7, i32 noundef 0)
   ret void
 }
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare ptr @wmem_epan_scope() local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_epan_scope() local_unnamed_addr #3
 
-declare noalias ptr @wmem_tree_new(ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_tree_new(ptr noundef) local_unnamed_addr #3
 
-declare void @wmem_tree_insert_string(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @wmem_tree_insert_string(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @conversation_table_set_gui_info(ptr noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @registered_ct_tables, align 8
-  %3 = tail call zeroext i1 @wmem_tree_foreach(ptr noundef %2, ptr noundef nonnull @set_conv_gui_data, ptr noundef %0) #10
+  %3 = tail call zeroext i1 @wmem_tree_foreach(ptr noundef %2, ptr noundef nonnull @set_conv_gui_data, ptr noundef %0)
   ret void
 }
 
-declare zeroext i1 @wmem_tree_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @wmem_tree_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @set_conv_gui_data(ptr readnone captures(none) %0, ptr noundef initializes((24, 32)) %1, ptr noundef %2) #1 {
   %4 = alloca %struct._stat_tap_ui, align 8
-  %5 = tail call ptr @g_string_new(ptr noundef nonnull @.str) #10
+  %5 = tail call ptr @g_string_new(ptr noundef nonnull @.str)
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %2, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %8) #10
-  %10 = tail call ptr @g_string_append(ptr noundef %5, ptr noundef %9) #10
+  %9 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %8)
+  %10 = tail call ptr @g_string_append(ptr noundef %5, ptr noundef %9)
   store i32 4, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %11, align 8
-  %12 = tail call ptr @g_string_free(ptr noundef %5, i32 noundef 0) #10
+  %12 = tail call ptr @g_string_free(ptr noundef %5, i32 noundef 0)
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %12, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @dissector_conversation_init, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  call void @register_stat_tap_ui(ptr noundef nonnull %4, ptr noundef %1) #10
+  call void @register_stat_tap_ui(ptr noundef nonnull %4, ptr noundef %1)
   %16 = load ptr, ptr %13, align 8
-  call void @g_free(ptr noundef %16) #10
+  call void @g_free(ptr noundef %16)
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #15
   ret i1 false
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @endpoint_table_set_gui_info(ptr noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @registered_ct_tables, align 8
-  %3 = tail call zeroext i1 @wmem_tree_foreach(ptr noundef %2, ptr noundef nonnull @set_endpoint_gui_data, ptr noundef %0) #10
+  %3 = tail call zeroext i1 @wmem_tree_foreach(ptr noundef %2, ptr noundef nonnull @set_endpoint_gui_data, ptr noundef %0)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @set_endpoint_gui_data(ptr readnone captures(none) %0, ptr noundef initializes((32, 40)) %1, ptr noundef %2) #1 {
   %4 = alloca %struct._stat_tap_ui, align 8
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #15
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %2, ptr %5, align 8
   store i32 5, ptr %4, align 8
@@ -301,44 +326,46 @@ define internal noundef zeroext i1 @set_endpoint_gui_data(ptr readnone captures(
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %8) #10
-  %10 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %9) #10
+  %9 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %8)
+  %10 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %9)
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %10, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @dissector_endpoint_init, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  call void @register_stat_tap_ui(ptr noundef nonnull %4, ptr noundef %1) #10
+  call void @register_stat_tap_ui(ptr noundef nonnull %4, ptr noundef %1)
   %14 = load ptr, ptr %11, align 8
-  call void @g_free(ptr noundef %14) #10
+  call void @g_free(ptr noundef %14)
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #15
   ret i1 false
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @hostlist_table_set_gui_info(ptr noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @registered_ct_tables, align 8
-  %3 = tail call zeroext i1 @wmem_tree_foreach(ptr noundef %2, ptr noundef nonnull @set_endpoint_gui_data, ptr noundef %0) #10
+  %3 = tail call zeroext i1 @wmem_tree_foreach(ptr noundef %2, ptr noundef nonnull @set_endpoint_gui_data, ptr noundef %0)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @conversation_table_iterate_tables(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr @registered_ct_tables, align 8
-  %4 = tail call zeroext i1 @wmem_tree_foreach(ptr noundef %3, ptr noundef %0, ptr noundef %1) #10
+  %4 = tail call zeroext i1 @wmem_tree_foreach(ptr noundef %3, ptr noundef %0, ptr noundef %1)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define i32 @conversation_table_get_num() local_unnamed_addr #1 {
   %1 = load ptr, ptr @registered_ct_tables, align 8
-  %2 = tail call i32 @wmem_tree_count(ptr noundef %1) #10
+  %2 = tail call i32 @wmem_tree_count(ptr noundef %1)
   ret i32 %2
 }
 
-declare i32 @wmem_tree_count(ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @wmem_tree_count(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @reset_conversation_table_data(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %40, label %2
@@ -378,7 +405,7 @@ define void @reset_conversation_table_data(ptr noundef captures(address_is_null)
   br i1 %.not6.i.i, label %free_address.exit, label %19
 
 19:                                               ; preds = %16
-  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %18) #10
+  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %18)
   br label %free_address.exit
 
 free_address.exit:                                ; preds = %.lr.ph, %12, %16, %19
@@ -401,7 +428,7 @@ free_address.exit:                                ; preds = %.lr.ph, %12, %16, %
   br i1 %.not6.i.i18, label %free_address.exit19, label %29
 
 29:                                               ; preds = %26
-  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %28) #10
+  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %28)
   br label %free_address.exit19
 
 free_address.exit19:                              ; preds = %free_address.exit, %22, %26, %29
@@ -412,11 +439,11 @@ free_address.exit19:                              ; preds = %free_address.exit, 
   %32 = load i32, ptr %31, align 8
   %33 = zext i32 %32 to i64
   %34 = icmp samesign ult i64 %indvars.iv.next, %33
-  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !4
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %free_address.exit19, %.preheader
   %.lcssa = phi ptr [ %4, %.preheader ], [ %30, %free_address.exit19 ]
-  %35 = tail call ptr @g_array_free(ptr noundef nonnull %.lcssa, i32 noundef 1) #10
+  %35 = tail call ptr @g_array_free(ptr noundef %.lcssa, i32 noundef 1)
   br label %36
 
 36:                                               ; preds = %._crit_edge, %2
@@ -425,7 +452,7 @@ free_address.exit19:                              ; preds = %free_address.exit, 
   br i1 %.not16, label %39, label %38
 
 38:                                               ; preds = %36
-  tail call void @g_hash_table_destroy(ptr noundef nonnull %37) #10
+  tail call void @g_hash_table_destroy(ptr noundef nonnull %37)
   br label %39
 
 39:                                               ; preds = %38, %36
@@ -436,11 +463,13 @@ free_address.exit19:                              ; preds = %free_address.exit, 
   ret void
 }
 
-declare ptr @g_array_free(ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_array_free(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @reset_endpoint_table_data(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %29, label %2
@@ -479,22 +508,22 @@ define void @reset_endpoint_table_data(ptr noundef captures(address_is_null) %0)
   br i1 %.not6.i.i, label %free_address.exit, label %18
 
 18:                                               ; preds = %15
-  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %17) #10
+  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %17)
   br label %free_address.exit
 
 free_address.exit:                                ; preds = %.lr.ph, %11, %15, %18
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load ptr, ptr %3, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
   %23 = icmp samesign ult i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %free_address.exit, %.preheader
   %.lcssa = phi ptr [ %4, %.preheader ], [ %19, %free_address.exit ]
-  %24 = tail call ptr @g_array_free(ptr noundef nonnull %.lcssa, i32 noundef 1) #10
+  %24 = tail call ptr @g_array_free(ptr noundef %.lcssa, i32 noundef 1)
   br label %25
 
 25:                                               ; preds = %._crit_edge, %2
@@ -503,7 +532,7 @@ free_address.exit:                                ; preds = %.lr.ph, %11, %15, %
   br i1 %.not15, label %28, label %27
 
 27:                                               ; preds = %25
-  tail call void @g_hash_table_destroy(ptr noundef nonnull %26) #10
+  tail call void @g_hash_table_destroy(ptr noundef nonnull %26)
   br label %28
 
 28:                                               ; preds = %27, %25
@@ -514,7 +543,7 @@ free_address.exit:                                ; preds = %.lr.ph, %11, %15, %
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @reset_hostlist_table_data(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %reset_endpoint_table_data.exit, label %2
@@ -553,22 +582,22 @@ define void @reset_hostlist_table_data(ptr noundef captures(address_is_null) %0)
   br i1 %.not6.i.i.i, label %free_address.exit.i, label %18
 
 18:                                               ; preds = %15
-  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %17) #10
+  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %17)
   br label %free_address.exit.i
 
 free_address.exit.i:                              ; preds = %18, %15, %11, %.lr.ph.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = load ptr, ptr %3, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
   %23 = icmp samesign ult i64 %indvars.iv.next.i, %22
-  br i1 %23, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
+  br i1 %23, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %free_address.exit.i, %.preheader.i
   %.lcssa.i = phi ptr [ %4, %.preheader.i ], [ %19, %free_address.exit.i ]
-  %24 = tail call ptr @g_array_free(ptr noundef nonnull %.lcssa.i, i32 noundef 1) #10
+  %24 = tail call ptr @g_array_free(ptr noundef %.lcssa.i, i32 noundef 1)
   br label %25
 
 25:                                               ; preds = %._crit_edge.i, %2
@@ -577,7 +606,7 @@ free_address.exit.i:                              ; preds = %18, %15, %11, %.lr.
   br i1 %.not15.i, label %28, label %27
 
 27:                                               ; preds = %25
-  tail call void @g_hash_table_destroy(ptr noundef nonnull %26) #10
+  tail call void @g_hash_table_destroy(ptr noundef nonnull %26)
   br label %28
 
 28:                                               ; preds = %27, %25
@@ -588,17 +617,16 @@ reset_endpoint_table_data.exit:                   ; preds = %1, %28
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define ptr @get_conversation_address(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %6, label %4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define ptr @get_conversation_address(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
+  br i1 %2, label %4, label %6
 
 4:                                                ; preds = %3
-  %5 = tail call ptr @address_to_display(ptr noundef %0, ptr noundef %1) #10
+  %5 = tail call ptr @address_to_display(ptr noundef %0, ptr noundef %1)
   br label %8
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @address_to_str(ptr noundef %0, ptr noundef %1) #10
+  %7 = tail call ptr @address_to_str(ptr noundef %0, ptr noundef %1)
   br label %8
 
 8:                                                ; preds = %6, %4
@@ -606,14 +634,15 @@ define ptr @get_conversation_address(ptr noundef %0, ptr noundef %1, i32 noundef
   ret ptr %.0
 }
 
-declare ptr @address_to_display(ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @address_to_display(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @address_to_str(ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @address_to_str(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
-define ptr @get_conversation_port(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
-  %.not = icmp eq i32 %3, 0
-  %spec.select = select i1 %.not, i32 0, i32 %2
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define ptr @get_conversation_port(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
+  %spec.select = select i1 %3, i32 %2, i32 0
   switch i32 %spec.select, label %13 [
     i32 2, label %5
     i32 3, label %7
@@ -622,23 +651,23 @@ define ptr @get_conversation_port(ptr noundef %0, i32 noundef %1, i32 noundef %2
   ]
 
 5:                                                ; preds = %4
-  %6 = tail call ptr @tcp_port_to_display(ptr noundef %0, i32 noundef %1) #10
+  %6 = tail call ptr @tcp_port_to_display(ptr noundef %0, i32 noundef %1)
   br label %15
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @udp_port_to_display(ptr noundef %0, i32 noundef %1) #10
+  %8 = tail call ptr @udp_port_to_display(ptr noundef %0, i32 noundef %1)
   br label %15
 
 9:                                                ; preds = %4
-  %10 = tail call ptr @sctp_port_to_display(ptr noundef %0, i32 noundef %1) #10
+  %10 = tail call ptr @sctp_port_to_display(ptr noundef %0, i32 noundef %1)
   br label %15
 
 11:                                               ; preds = %4
-  %12 = tail call ptr @dccp_port_to_display(ptr noundef %0, i32 noundef %1) #10
+  %12 = tail call ptr @dccp_port_to_display(ptr noundef %0, i32 noundef %1)
   br label %15
 
 13:                                               ; preds = %4
-  %14 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef %1) #10
+  %14 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef %1)
   br label %15
 
 15:                                               ; preds = %13, %11, %9, %7, %5
@@ -646,22 +675,26 @@ define ptr @get_conversation_port(ptr noundef %0, i32 noundef %1, i32 noundef %2
   ret ptr %.0
 }
 
-declare ptr @tcp_port_to_display(ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @tcp_port_to_display(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @udp_port_to_display(ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @udp_port_to_display(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @sctp_port_to_display(ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @sctp_port_to_display(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @dccp_port_to_display(ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @dccp_port_to_display(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
-define ptr @get_endpoint_port(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define ptr @get_endpoint_port(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 8
-  %.not = icmp eq i32 %2, 0
-  %spec.store.select = select i1 %.not, i32 0, i32 %5
+  %spec.store.select = select i1 %2, i32 %5, i32 0
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %7 = load i32, ptr %6, align 4
   switch i32 %spec.store.select, label %16 [
@@ -672,23 +705,23 @@ define ptr @get_endpoint_port(ptr noundef %0, ptr noundef readonly captures(none
   ]
 
 8:                                                ; preds = %3
-  %9 = tail call ptr @tcp_port_to_display(ptr noundef %0, i32 noundef %7) #10
+  %9 = tail call ptr @tcp_port_to_display(ptr noundef %0, i32 noundef %7)
   br label %18
 
 10:                                               ; preds = %3
-  %11 = tail call ptr @udp_port_to_display(ptr noundef %0, i32 noundef %7) #10
+  %11 = tail call ptr @udp_port_to_display(ptr noundef %0, i32 noundef %7)
   br label %18
 
 12:                                               ; preds = %3
-  %13 = tail call ptr @sctp_port_to_display(ptr noundef %0, i32 noundef %7) #10
+  %13 = tail call ptr @sctp_port_to_display(ptr noundef %0, i32 noundef %7)
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call ptr @dccp_port_to_display(ptr noundef %0, i32 noundef %7) #10
+  %15 = tail call ptr @dccp_port_to_display(ptr noundef %0, i32 noundef %7)
   br label %18
 
 16:                                               ; preds = %3
-  %17 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef %7) #10
+  %17 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef %7)
   br label %18
 
 18:                                               ; preds = %16, %14, %12, %10, %8
@@ -696,14 +729,14 @@ define ptr @get_endpoint_port(ptr noundef %0, ptr noundef readonly captures(none
   ret ptr %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @get_conversation_filter(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = load i32, ptr @usb_address_type, align 4
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @address_type_get_by_name(ptr noundef nonnull @.str.5) #10
+  %6 = tail call i32 @address_type_get_by_name(ptr noundef nonnull @.str.5)
   store i32 %6, ptr @usb_address_type, align 4
   br label %7
 
@@ -720,14 +753,14 @@ define ptr @get_conversation_filter(ptr noundef %0, i32 noundef %1) local_unname
 10:                                               ; preds = %7, %7, %7, %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %12 = load i32, ptr %11, align 4
-  %13 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef %12) #10
+  %13 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef %12)
   %.pr = load i32, ptr %8, align 8
   br label %ct_port_to_str.exit
 
 ct_port_to_str.exit:                              ; preds = %7, %10
   %14 = phi i32 [ %9, %7 ], [ %.pr, %10 ]
   %.0.i = phi ptr [ null, %7 ], [ %13, %10 ]
-  switch i32 %14, label %ct_port_to_str.exit136 [
+  switch i32 %14, label %ct_port_to_str.exit158 [
     i32 2, label %15
     i32 3, label %15
     i32 1, label %15
@@ -737,607 +770,921 @@ ct_port_to_str.exit:                              ; preds = %7, %10
 15:                                               ; preds = %ct_port_to_str.exit, %ct_port_to_str.exit, %ct_port_to_str.exit, %ct_port_to_str.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = load i32, ptr %16, align 8
-  %18 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef %17) #10
-  br label %ct_port_to_str.exit136
+  %18 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef %17)
+  br label %ct_port_to_str.exit158
 
-ct_port_to_str.exit136:                           ; preds = %ct_port_to_str.exit, %15
-  %.0.i135 = phi ptr [ %18, %15 ], [ null, %ct_port_to_str.exit ]
+ct_port_to_str.exit158:                           ; preds = %ct_port_to_str.exit, %15
+  %.0.i157 = phi ptr [ %18, %15 ], [ null, %ct_port_to_str.exit ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = tail call ptr @address_to_str(ptr noundef null, ptr noundef nonnull %19) #10
+  %20 = tail call ptr @address_to_str(ptr noundef null, ptr noundef nonnull %19)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = tail call ptr @address_to_str(ptr noundef null, ptr noundef nonnull %21) #10
-  %23 = load i32, ptr %19, align 8
-  %24 = icmp eq i32 %23, 7
-  %25 = load i32, ptr @usb_address_type, align 4
-  %26 = icmp eq i32 %23, %25
-  %or.cond = select i1 %24, i1 true, i1 %26
-  br i1 %or.cond, label %27, label %29
+  %22 = tail call ptr @address_to_str(ptr noundef null, ptr noundef nonnull %21)
+  %23 = load i32, ptr %8, align 8
+  %24 = icmp eq i32 %23, 39
+  br i1 %24, label %.thread, label %25
 
-27:                                               ; preds = %ct_port_to_str.exit136
-  %28 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, ptr noundef %20) #10
-  tail call void @wmem_free(ptr noundef null, ptr noundef %20) #10
-  %.pre = load i32, ptr @usb_address_type, align 4
-  br label %29
+25:                                               ; preds = %ct_port_to_str.exit158
+  %26 = load i32, ptr %19, align 8
+  %27 = icmp eq i32 %26, 7
+  %28 = load i32, ptr @usb_address_type, align 4
+  %29 = icmp eq i32 %26, %28
+  %or.cond = select i1 %27, i1 true, i1 %29
+  br i1 %or.cond, label %30, label %.thread408
 
-29:                                               ; preds = %ct_port_to_str.exit136, %27
-  %30 = phi i32 [ %.pre, %27 ], [ %25, %ct_port_to_str.exit136 ]
-  %.0 = phi ptr [ %28, %27 ], [ %20, %ct_port_to_str.exit136 ]
-  %31 = load i32, ptr %21, align 8
-  %32 = icmp eq i32 %31, 7
-  %33 = icmp eq i32 %31, %30
-  %or.cond134 = select i1 %32, i1 true, i1 %33
-  br i1 %or.cond134, label %34, label %36
+30:                                               ; preds = %25
+  %31 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, ptr noundef %20)
+  tail call void @wmem_free(ptr noundef null, ptr noundef %20)
+  %.pr214.pre = load i32, ptr %8, align 8
+  %32 = icmp eq i32 %.pr214.pre, 39
+  br i1 %32, label %.thread, label %.thread408
 
-34:                                               ; preds = %29
-  %35 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, ptr noundef %22) #10
-  tail call void @wmem_free(ptr noundef null, ptr noundef %22) #10
-  br label %36
+.thread408:                                       ; preds = %25, %30
+  %.0.ph411 = phi ptr [ %31, %30 ], [ %20, %25 ]
+  %33 = load i32, ptr %21, align 8
+  %34 = icmp eq i32 %33, 7
+  %35 = load i32, ptr @usb_address_type, align 4
+  %36 = icmp eq i32 %33, %35
+  %or.cond156 = select i1 %34, i1 true, i1 %36
+  br i1 %or.cond156, label %37, label %.thread
 
-36:                                               ; preds = %29, %34
-  %.0117 = phi ptr [ %35, %34 ], [ %22, %29 ]
-  switch i32 %1, label %277 [
-    i32 0, label %37
-    i32 1, label %75
-    i32 2, label %113
-    i32 3, label %151
-    i32 4, label %172
-    i32 5, label %193
-    i32 6, label %214
-    i32 8, label %235
-    i32 7, label %256
+37:                                               ; preds = %.thread408
+  %38 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, ptr noundef %22)
+  tail call void @wmem_free(ptr noundef null, ptr noundef %22)
+  br label %.thread
+
+.thread:                                          ; preds = %ct_port_to_str.exit158, %.thread408, %37, %30
+  %.0216 = phi ptr [ %31, %30 ], [ %.0.ph411, %37 ], [ %.0.ph411, %.thread408 ], [ %20, %ct_port_to_str.exit158 ]
+  %.0137 = phi ptr [ %22, %30 ], [ %38, %37 ], [ %22, %.thread408 ], [ %22, %ct_port_to_str.exit158 ]
+  switch i32 %1, label %359 [
+    i32 0, label %39
+    i32 1, label %131
+    i32 2, label %176
+    i32 3, label %221
+    i32 4, label %244
+    i32 5, label %267
+    i32 6, label %290
+    i32 8, label %313
+    i32 7, label %336
   ]
 
-37:                                               ; preds = %36
-  %38 = load ptr, ptr %0, align 8
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %conversation_get_filter_name.exit.thread, label %40
+39:                                               ; preds = %.thread
+  %40 = tail call i32 @strcmp(ptr noundef %.0216, ptr noundef %.0137) #13
+  %41 = icmp eq i32 %40, 0
+  %42 = icmp eq ptr %0, null
+  br i1 %41, label %43, label %87
 
-40:                                               ; preds = %37
-  %41 = load ptr, ptr %38, align 8
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %conversation_get_filter_name.exit, label %43
+43:                                               ; preds = %39
+  br i1 %42, label %conversation_get_filter_name.exit.thread, label %44
 
-43:                                               ; preds = %40
-  %44 = tail call ptr %41(ptr noundef nonnull %0, i32 noundef 2) #10
-  %.pr186.pre209.pre = load ptr, ptr %0, align 8
-  br label %conversation_get_filter_name.exit
+44:                                               ; preds = %43
+  %45 = load ptr, ptr %0, align 8
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %conversation_get_filter_name.exit.thread412, label %47
 
-conversation_get_filter_name.exit:                ; preds = %40, %43
-  %.pr186.pre209 = phi ptr [ %.pr186.pre209.pre, %43 ], [ %38, %40 ]
-  %.0.i137 = phi ptr [ %44, %43 ], [ @.str.11, %40 ]
-  %.not130 = icmp eq ptr %.0.i, null
-  br i1 %.not130, label %conversation_get_filter_name.exit139, label %45
-
-conversation_get_filter_name.exit.thread:         ; preds = %37
-  %.not130216 = icmp eq ptr %.0.i, null
-  br i1 %.not130216, label %conversation_get_filter_name.exit141, label %.thread
-
-.thread:                                          ; preds = %conversation_get_filter_name.exit.thread
-  br label %conversation_get_filter_name.exit141
-
-45:                                               ; preds = %conversation_get_filter_name.exit
-  %46 = icmp eq ptr %.pr186.pre209, null
-  br i1 %46, label %conversation_get_filter_name.exit141, label %47
-
-47:                                               ; preds = %45
-  %48 = load ptr, ptr %.pr186.pre209, align 8
+47:                                               ; preds = %44
+  %48 = load ptr, ptr %45, align 8
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %conversation_get_filter_name.exit141, label %50
+  br i1 %49, label %conversation_get_filter_name.exit, label %50
 
 50:                                               ; preds = %47
-  %51 = tail call ptr %48(ptr noundef nonnull %0, i32 noundef 5) #10
-  %.pr186.pre = load ptr, ptr %0, align 8
-  br label %conversation_get_filter_name.exit139
+  %51 = tail call ptr %48(ptr noundef nonnull %0, i32 noundef 0)
+  %.pr333.pre402.pre = load ptr, ptr %0, align 8
+  br label %conversation_get_filter_name.exit
 
-conversation_get_filter_name.exit139:             ; preds = %conversation_get_filter_name.exit, %50
-  %52 = phi ptr [ @.str.8, %50 ], [ @.str.1, %conversation_get_filter_name.exit ]
-  %.pr186 = phi ptr [ %.pr186.pre, %50 ], [ %.pr186.pre209, %conversation_get_filter_name.exit ]
-  %.ph = phi ptr [ %.0.i, %50 ], [ @.str.1, %conversation_get_filter_name.exit ]
-  %.ph184 = phi ptr [ @.str.9, %50 ], [ @.str.1, %conversation_get_filter_name.exit ]
-  %.ph185 = phi ptr [ %51, %50 ], [ @.str.1, %conversation_get_filter_name.exit ]
-  %53 = icmp eq ptr %.pr186, null
-  br i1 %53, label %conversation_get_filter_name.exit141, label %54
+conversation_get_filter_name.exit:                ; preds = %47, %50
+  %.pr333.pre402 = phi ptr [ %.pr333.pre402.pre, %50 ], [ %45, %47 ]
+  %.0.i159 = phi ptr [ %51, %50 ], [ @.str.11, %47 ]
+  %.not152 = icmp eq ptr %.0.i, null
+  br i1 %.not152, label %conversation_get_filter_name.exit161.thread231, label %52
 
-54:                                               ; preds = %conversation_get_filter_name.exit139
-  %.pr188 = load ptr, ptr %.pr186, align 8
-  %55 = icmp eq ptr %.pr188, null
-  br i1 %55, label %conversation_get_filter_name.exit141, label %56
+conversation_get_filter_name.exit.thread412:      ; preds = %44
+  %.not152415 = icmp eq ptr %.0.i, null
+  br i1 %.not152415, label %conversation_get_filter_name.exit163, label %.thread419
 
-56:                                               ; preds = %54
-  %57 = tail call ptr %.pr188(ptr noundef nonnull %0, i32 noundef 2) #10
-  br label %conversation_get_filter_name.exit141
-
-conversation_get_filter_name.exit141:             ; preds = %conversation_get_filter_name.exit.thread, %.thread, %47, %45, %conversation_get_filter_name.exit139, %54, %56
-  %58 = phi ptr [ %52, %56 ], [ %52, %54 ], [ %52, %conversation_get_filter_name.exit139 ], [ @.str.8, %45 ], [ @.str.8, %47 ], [ @.str.8, %.thread ], [ @.str.1, %conversation_get_filter_name.exit.thread ]
-  %.0.i137218 = phi ptr [ %.0.i137, %56 ], [ %.0.i137, %54 ], [ %.0.i137, %conversation_get_filter_name.exit139 ], [ %.0.i137, %45 ], [ %.0.i137, %47 ], [ @.str.11, %.thread ], [ @.str.11, %conversation_get_filter_name.exit.thread ]
-  %59 = phi ptr [ %.ph185, %56 ], [ %.ph185, %54 ], [ %.ph185, %conversation_get_filter_name.exit139 ], [ @.str.11, %45 ], [ @.str.11, %47 ], [ @.str.11, %.thread ], [ @.str.1, %conversation_get_filter_name.exit.thread ]
-  %60 = phi ptr [ %.ph184, %56 ], [ %.ph184, %54 ], [ %.ph184, %conversation_get_filter_name.exit139 ], [ @.str.9, %45 ], [ @.str.9, %47 ], [ @.str.9, %.thread ], [ @.str.1, %conversation_get_filter_name.exit.thread ]
-  %61 = phi ptr [ %.ph, %56 ], [ %.ph, %54 ], [ %.ph, %conversation_get_filter_name.exit139 ], [ %.0.i, %45 ], [ %.0.i, %47 ], [ %.0.i, %.thread ], [ @.str.1, %conversation_get_filter_name.exit.thread ]
-  %.0.i140 = phi ptr [ %57, %56 ], [ @.str.11, %54 ], [ @.str.11, %conversation_get_filter_name.exit139 ], [ @.str.11, %45 ], [ @.str.11, %47 ], [ @.str.11, %.thread ], [ @.str.11, %conversation_get_filter_name.exit.thread ]
-  %.not131 = icmp eq ptr %.0.i135, null
-  %62 = select i1 %.not131, ptr @.str.1, ptr @.str.8
-  br i1 %.not131, label %conversation_get_filter_name.exit143, label %63
-
-63:                                               ; preds = %conversation_get_filter_name.exit141
-  %64 = load ptr, ptr %0, align 8
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %conversation_get_filter_name.exit143, label %66
-
-66:                                               ; preds = %63
-  %67 = load ptr, ptr %64, align 8
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %conversation_get_filter_name.exit143, label %69
-
-69:                                               ; preds = %66
-  %70 = tail call ptr %67(ptr noundef nonnull %0, i32 noundef 5) #10
-  br label %conversation_get_filter_name.exit143
-
-conversation_get_filter_name.exit143:             ; preds = %69, %66, %63, %conversation_get_filter_name.exit141
-  %71 = phi ptr [ @.str.1, %conversation_get_filter_name.exit141 ], [ %.0.i135, %63 ], [ %.0.i135, %66 ], [ %.0.i135, %69 ]
-  %72 = phi ptr [ @.str.1, %conversation_get_filter_name.exit141 ], [ @.str.9, %63 ], [ @.str.9, %66 ], [ @.str.9, %69 ]
-  %73 = phi ptr [ @.str.1, %conversation_get_filter_name.exit141 ], [ @.str.11, %63 ], [ @.str.11, %66 ], [ %70, %69 ]
-  %74 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %.0.i137218, ptr noundef %.0, ptr noundef nonnull %58, ptr noundef %59, ptr noundef nonnull %60, ptr noundef nonnull %61, ptr noundef %.0.i140, ptr noundef %.0117, ptr noundef nonnull %62, ptr noundef %73, ptr noundef nonnull %72, ptr noundef nonnull %71) #10
-  br label %279
-
-75:                                               ; preds = %36
-  %76 = load ptr, ptr %0, align 8
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %conversation_get_filter_name.exit145.thread, label %78
-
-78:                                               ; preds = %75
-  %79 = load ptr, ptr %76, align 8
-  %80 = icmp eq ptr %79, null
-  br i1 %80, label %conversation_get_filter_name.exit145, label %81
-
-81:                                               ; preds = %78
-  %82 = tail call ptr %79(ptr noundef nonnull %0, i32 noundef 0) #10
-  %.pr192.pre207.pre = load ptr, ptr %0, align 8
-  br label %conversation_get_filter_name.exit145
-
-conversation_get_filter_name.exit145:             ; preds = %78, %81
-  %.pr192.pre207 = phi ptr [ %.pr192.pre207.pre, %81 ], [ %76, %78 ]
-  %.0.i144 = phi ptr [ %82, %81 ], [ @.str.11, %78 ]
-  %.not128 = icmp eq ptr %.0.i, null
-  br i1 %.not128, label %conversation_get_filter_name.exit147, label %83
-
-conversation_get_filter_name.exit145.thread:      ; preds = %75
-  %.not128230 = icmp eq ptr %.0.i, null
-  br i1 %.not128230, label %conversation_get_filter_name.exit149, label %.thread235
-
-.thread235:                                       ; preds = %conversation_get_filter_name.exit145.thread
-  br label %conversation_get_filter_name.exit149
-
-83:                                               ; preds = %conversation_get_filter_name.exit145
-  %84 = icmp eq ptr %.pr192.pre207, null
-  br i1 %84, label %conversation_get_filter_name.exit149, label %85
-
-85:                                               ; preds = %83
-  %86 = load ptr, ptr %.pr192.pre207, align 8
-  %87 = icmp eq ptr %86, null
-  br i1 %87, label %conversation_get_filter_name.exit149, label %88
-
-88:                                               ; preds = %85
-  %89 = tail call ptr %86(ptr noundef nonnull %0, i32 noundef 3) #10
-  %.pr192.pre = load ptr, ptr %0, align 8
-  br label %conversation_get_filter_name.exit147
-
-conversation_get_filter_name.exit147:             ; preds = %conversation_get_filter_name.exit145, %88
-  %90 = phi ptr [ @.str.8, %88 ], [ @.str.1, %conversation_get_filter_name.exit145 ]
-  %.pr192 = phi ptr [ %.pr192.pre, %88 ], [ %.pr192.pre207, %conversation_get_filter_name.exit145 ]
-  %.ph189 = phi ptr [ %.0.i, %88 ], [ @.str.1, %conversation_get_filter_name.exit145 ]
-  %.ph190 = phi ptr [ @.str.9, %88 ], [ @.str.1, %conversation_get_filter_name.exit145 ]
-  %.ph191 = phi ptr [ %89, %88 ], [ @.str.1, %conversation_get_filter_name.exit145 ]
-  %91 = icmp eq ptr %.pr192, null
-  br i1 %91, label %conversation_get_filter_name.exit149, label %92
-
-92:                                               ; preds = %conversation_get_filter_name.exit147
-  %.pr195 = load ptr, ptr %.pr192, align 8
-  %93 = icmp eq ptr %.pr195, null
-  br i1 %93, label %conversation_get_filter_name.exit149, label %94
-
-94:                                               ; preds = %92
-  %95 = tail call ptr %.pr195(ptr noundef nonnull %0, i32 noundef 1) #10
-  br label %conversation_get_filter_name.exit149
-
-conversation_get_filter_name.exit149:             ; preds = %conversation_get_filter_name.exit145.thread, %.thread235, %85, %83, %conversation_get_filter_name.exit147, %92, %94
-  %96 = phi ptr [ %90, %94 ], [ %90, %92 ], [ %90, %conversation_get_filter_name.exit147 ], [ @.str.8, %83 ], [ @.str.8, %85 ], [ @.str.8, %.thread235 ], [ @.str.1, %conversation_get_filter_name.exit145.thread ]
-  %.0.i144232 = phi ptr [ %.0.i144, %94 ], [ %.0.i144, %92 ], [ %.0.i144, %conversation_get_filter_name.exit147 ], [ %.0.i144, %83 ], [ %.0.i144, %85 ], [ @.str.11, %.thread235 ], [ @.str.11, %conversation_get_filter_name.exit145.thread ]
-  %97 = phi ptr [ %.ph191, %94 ], [ %.ph191, %92 ], [ %.ph191, %conversation_get_filter_name.exit147 ], [ @.str.11, %83 ], [ @.str.11, %85 ], [ @.str.11, %.thread235 ], [ @.str.1, %conversation_get_filter_name.exit145.thread ]
-  %98 = phi ptr [ %.ph190, %94 ], [ %.ph190, %92 ], [ %.ph190, %conversation_get_filter_name.exit147 ], [ @.str.9, %83 ], [ @.str.9, %85 ], [ @.str.9, %.thread235 ], [ @.str.1, %conversation_get_filter_name.exit145.thread ]
-  %99 = phi ptr [ %.ph189, %94 ], [ %.ph189, %92 ], [ %.ph189, %conversation_get_filter_name.exit147 ], [ %.0.i, %83 ], [ %.0.i, %85 ], [ %.0.i, %.thread235 ], [ @.str.1, %conversation_get_filter_name.exit145.thread ]
-  %.0.i148 = phi ptr [ %95, %94 ], [ @.str.11, %92 ], [ @.str.11, %conversation_get_filter_name.exit147 ], [ @.str.11, %83 ], [ @.str.11, %85 ], [ @.str.11, %.thread235 ], [ @.str.11, %conversation_get_filter_name.exit145.thread ]
-  %.not129 = icmp eq ptr %.0.i135, null
-  %100 = select i1 %.not129, ptr @.str.1, ptr @.str.8
-  br i1 %.not129, label %conversation_get_filter_name.exit151, label %101
-
-101:                                              ; preds = %conversation_get_filter_name.exit149
-  %102 = load ptr, ptr %0, align 8
-  %103 = icmp eq ptr %102, null
-  br i1 %103, label %conversation_get_filter_name.exit151, label %104
-
-104:                                              ; preds = %101
-  %105 = load ptr, ptr %102, align 8
-  %106 = icmp eq ptr %105, null
-  br i1 %106, label %conversation_get_filter_name.exit151, label %107
-
-107:                                              ; preds = %104
-  %108 = tail call ptr %105(ptr noundef nonnull %0, i32 noundef 4) #10
-  br label %conversation_get_filter_name.exit151
-
-conversation_get_filter_name.exit151:             ; preds = %107, %104, %101, %conversation_get_filter_name.exit149
-  %109 = phi ptr [ @.str.1, %conversation_get_filter_name.exit149 ], [ %.0.i135, %101 ], [ %.0.i135, %104 ], [ %.0.i135, %107 ]
-  %110 = phi ptr [ @.str.1, %conversation_get_filter_name.exit149 ], [ @.str.9, %101 ], [ @.str.9, %104 ], [ @.str.9, %107 ]
-  %111 = phi ptr [ @.str.1, %conversation_get_filter_name.exit149 ], [ @.str.11, %101 ], [ @.str.11, %104 ], [ %108, %107 ]
-  %112 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %.0.i144232, ptr noundef %.0, ptr noundef nonnull %96, ptr noundef %97, ptr noundef nonnull %98, ptr noundef nonnull %99, ptr noundef %.0.i148, ptr noundef %.0117, ptr noundef nonnull %100, ptr noundef %111, ptr noundef nonnull %110, ptr noundef nonnull %109) #10
-  br label %279
-
-113:                                              ; preds = %36
-  %114 = load ptr, ptr %0, align 8
-  %115 = icmp eq ptr %114, null
-  br i1 %115, label %conversation_get_filter_name.exit153.thread, label %116
-
-116:                                              ; preds = %113
-  %117 = load ptr, ptr %114, align 8
-  %118 = icmp eq ptr %117, null
-  br i1 %118, label %conversation_get_filter_name.exit153, label %119
-
-119:                                              ; preds = %116
-  %120 = tail call ptr %117(ptr noundef nonnull %0, i32 noundef 1) #10
-  %.pr200.pre205.pre = load ptr, ptr %0, align 8
-  br label %conversation_get_filter_name.exit153
-
-conversation_get_filter_name.exit153:             ; preds = %116, %119
-  %.pr200.pre205 = phi ptr [ %.pr200.pre205.pre, %119 ], [ %114, %116 ]
-  %.0.i152 = phi ptr [ %120, %119 ], [ @.str.11, %116 ]
-  %.not126 = icmp eq ptr %.0.i, null
-  br i1 %.not126, label %conversation_get_filter_name.exit155, label %121
-
-conversation_get_filter_name.exit153.thread:      ; preds = %113
-  %.not126245 = icmp eq ptr %.0.i, null
-  br i1 %.not126245, label %conversation_get_filter_name.exit157, label %.thread250
-
-.thread250:                                       ; preds = %conversation_get_filter_name.exit153.thread
-  br label %conversation_get_filter_name.exit157
-
-121:                                              ; preds = %conversation_get_filter_name.exit153
-  %122 = icmp eq ptr %.pr200.pre205, null
-  br i1 %122, label %conversation_get_filter_name.exit157, label %123
-
-123:                                              ; preds = %121
-  %124 = load ptr, ptr %.pr200.pre205, align 8
-  %125 = icmp eq ptr %124, null
-  br i1 %125, label %conversation_get_filter_name.exit157, label %126
-
-126:                                              ; preds = %123
-  %127 = tail call ptr %124(ptr noundef nonnull %0, i32 noundef 4) #10
-  %.pr200.pre = load ptr, ptr %0, align 8
-  br label %conversation_get_filter_name.exit155
-
-conversation_get_filter_name.exit155:             ; preds = %conversation_get_filter_name.exit153, %126
-  %128 = phi ptr [ @.str.8, %126 ], [ @.str.1, %conversation_get_filter_name.exit153 ]
-  %.pr200 = phi ptr [ %.pr200.pre, %126 ], [ %.pr200.pre205, %conversation_get_filter_name.exit153 ]
-  %.ph197 = phi ptr [ %.0.i, %126 ], [ @.str.1, %conversation_get_filter_name.exit153 ]
-  %.ph198 = phi ptr [ @.str.9, %126 ], [ @.str.1, %conversation_get_filter_name.exit153 ]
-  %.ph199 = phi ptr [ %127, %126 ], [ @.str.1, %conversation_get_filter_name.exit153 ]
-  %129 = icmp eq ptr %.pr200, null
-  br i1 %129, label %conversation_get_filter_name.exit157, label %130
-
-130:                                              ; preds = %conversation_get_filter_name.exit155
-  %.pr203 = load ptr, ptr %.pr200, align 8
-  %131 = icmp eq ptr %.pr203, null
-  br i1 %131, label %conversation_get_filter_name.exit157, label %132
-
-132:                                              ; preds = %130
-  %133 = tail call ptr %.pr203(ptr noundef nonnull %0, i32 noundef 0) #10
-  br label %conversation_get_filter_name.exit157
-
-conversation_get_filter_name.exit157:             ; preds = %conversation_get_filter_name.exit153.thread, %.thread250, %123, %121, %conversation_get_filter_name.exit155, %130, %132
-  %134 = phi ptr [ %128, %132 ], [ %128, %130 ], [ %128, %conversation_get_filter_name.exit155 ], [ @.str.8, %121 ], [ @.str.8, %123 ], [ @.str.8, %.thread250 ], [ @.str.1, %conversation_get_filter_name.exit153.thread ]
-  %.0.i152247 = phi ptr [ %.0.i152, %132 ], [ %.0.i152, %130 ], [ %.0.i152, %conversation_get_filter_name.exit155 ], [ %.0.i152, %121 ], [ %.0.i152, %123 ], [ @.str.11, %.thread250 ], [ @.str.11, %conversation_get_filter_name.exit153.thread ]
-  %135 = phi ptr [ %.ph199, %132 ], [ %.ph199, %130 ], [ %.ph199, %conversation_get_filter_name.exit155 ], [ @.str.11, %121 ], [ @.str.11, %123 ], [ @.str.11, %.thread250 ], [ @.str.1, %conversation_get_filter_name.exit153.thread ]
-  %136 = phi ptr [ %.ph198, %132 ], [ %.ph198, %130 ], [ %.ph198, %conversation_get_filter_name.exit155 ], [ @.str.9, %121 ], [ @.str.9, %123 ], [ @.str.9, %.thread250 ], [ @.str.1, %conversation_get_filter_name.exit153.thread ]
-  %137 = phi ptr [ %.ph197, %132 ], [ %.ph197, %130 ], [ %.ph197, %conversation_get_filter_name.exit155 ], [ %.0.i, %121 ], [ %.0.i, %123 ], [ %.0.i, %.thread250 ], [ @.str.1, %conversation_get_filter_name.exit153.thread ]
-  %.0.i156 = phi ptr [ %133, %132 ], [ @.str.11, %130 ], [ @.str.11, %conversation_get_filter_name.exit155 ], [ @.str.11, %121 ], [ @.str.11, %123 ], [ @.str.11, %.thread250 ], [ @.str.11, %conversation_get_filter_name.exit153.thread ]
-  %.not127 = icmp eq ptr %.0.i135, null
-  %138 = select i1 %.not127, ptr @.str.1, ptr @.str.8
-  br i1 %.not127, label %conversation_get_filter_name.exit159, label %139
-
-139:                                              ; preds = %conversation_get_filter_name.exit157
-  %140 = load ptr, ptr %0, align 8
-  %141 = icmp eq ptr %140, null
-  br i1 %141, label %conversation_get_filter_name.exit159, label %142
-
-142:                                              ; preds = %139
-  %143 = load ptr, ptr %140, align 8
-  %144 = icmp eq ptr %143, null
-  br i1 %144, label %conversation_get_filter_name.exit159, label %145
-
-145:                                              ; preds = %142
-  %146 = tail call ptr %143(ptr noundef nonnull %0, i32 noundef 3) #10
-  br label %conversation_get_filter_name.exit159
-
-conversation_get_filter_name.exit159:             ; preds = %145, %142, %139, %conversation_get_filter_name.exit157
-  %147 = phi ptr [ @.str.1, %conversation_get_filter_name.exit157 ], [ %.0.i135, %139 ], [ %.0.i135, %142 ], [ %.0.i135, %145 ]
-  %148 = phi ptr [ @.str.1, %conversation_get_filter_name.exit157 ], [ @.str.9, %139 ], [ @.str.9, %142 ], [ @.str.9, %145 ]
-  %149 = phi ptr [ @.str.1, %conversation_get_filter_name.exit157 ], [ @.str.11, %139 ], [ @.str.11, %142 ], [ %146, %145 ]
-  %150 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %.0.i152247, ptr noundef %.0, ptr noundef nonnull %134, ptr noundef %135, ptr noundef nonnull %136, ptr noundef nonnull %137, ptr noundef %.0.i156, ptr noundef %.0117, ptr noundef nonnull %138, ptr noundef %149, ptr noundef nonnull %148, ptr noundef nonnull %147) #10
-  br label %279
-
-151:                                              ; preds = %36
-  %152 = load ptr, ptr %0, align 8
-  %153 = icmp eq ptr %152, null
-  br i1 %153, label %conversation_get_filter_name.exit161, label %154
-
-154:                                              ; preds = %151
-  %155 = load ptr, ptr %152, align 8
-  %156 = icmp eq ptr %155, null
-  br i1 %156, label %conversation_get_filter_name.exit161, label %157
-
-157:                                              ; preds = %154
-  %158 = tail call ptr %155(ptr noundef nonnull %0, i32 noundef 2) #10
-  br label %conversation_get_filter_name.exit161
-
-conversation_get_filter_name.exit161:             ; preds = %151, %154, %157
-  %.0.i160 = phi ptr [ %158, %157 ], [ @.str.11, %154 ], [ @.str.11, %151 ]
-  %.not125 = icmp eq ptr %.0.i, null
-  %159 = select i1 %.not125, ptr @.str.1, ptr @.str.8
-  br i1 %.not125, label %conversation_get_filter_name.exit163, label %160
-
-160:                                              ; preds = %conversation_get_filter_name.exit161
-  %161 = load ptr, ptr %0, align 8
-  %162 = icmp eq ptr %161, null
-  br i1 %162, label %conversation_get_filter_name.exit163, label %163
-
-163:                                              ; preds = %160
-  %164 = load ptr, ptr %161, align 8
-  %165 = icmp eq ptr %164, null
-  br i1 %165, label %conversation_get_filter_name.exit163, label %166
-
-166:                                              ; preds = %163
-  %167 = tail call ptr %164(ptr noundef nonnull %0, i32 noundef 5) #10
+.thread419:                                       ; preds = %conversation_get_filter_name.exit.thread412
   br label %conversation_get_filter_name.exit163
 
-conversation_get_filter_name.exit163:             ; preds = %166, %163, %160, %conversation_get_filter_name.exit161
-  %168 = phi ptr [ @.str.1, %conversation_get_filter_name.exit161 ], [ %.0.i, %160 ], [ %.0.i, %163 ], [ %.0.i, %166 ]
-  %169 = phi ptr [ @.str.1, %conversation_get_filter_name.exit161 ], [ @.str.9, %160 ], [ @.str.9, %163 ], [ @.str.9, %166 ]
-  %170 = phi ptr [ @.str.1, %conversation_get_filter_name.exit161 ], [ @.str.11, %160 ], [ @.str.11, %163 ], [ %167, %166 ]
-  %171 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef %.0.i160, ptr noundef %.0, ptr noundef nonnull %159, ptr noundef %170, ptr noundef nonnull %169, ptr noundef nonnull %168) #10
-  br label %279
+conversation_get_filter_name.exit.thread:         ; preds = %43
+  %.not152218 = icmp eq ptr %.0.i, null
+  br i1 %.not152218, label %conversation_get_filter_name.exit163.thread, label %.thread221
 
-172:                                              ; preds = %36
-  %173 = load ptr, ptr %0, align 8
-  %174 = icmp eq ptr %173, null
-  br i1 %174, label %conversation_get_filter_name.exit165, label %175
+.thread221:                                       ; preds = %conversation_get_filter_name.exit.thread
+  br label %conversation_get_filter_name.exit163.thread
 
-175:                                              ; preds = %172
-  %176 = load ptr, ptr %173, align 8
-  %177 = icmp eq ptr %176, null
-  br i1 %177, label %conversation_get_filter_name.exit165, label %178
+52:                                               ; preds = %conversation_get_filter_name.exit
+  %53 = icmp eq ptr %.pr333.pre402, null
+  br i1 %53, label %conversation_get_filter_name.exit163, label %54
 
-178:                                              ; preds = %175
-  %179 = tail call ptr %176(ptr noundef nonnull %0, i32 noundef 0) #10
+54:                                               ; preds = %52
+  %55 = load ptr, ptr %.pr333.pre402, align 8
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %conversation_get_filter_name.exit163, label %57
+
+57:                                               ; preds = %54
+  %58 = tail call ptr %55(ptr noundef nonnull %0, i32 noundef 5)
+  %.pr333.pre = load ptr, ptr %0, align 8
+  br label %conversation_get_filter_name.exit161.thread231
+
+conversation_get_filter_name.exit161.thread231:   ; preds = %conversation_get_filter_name.exit, %57
+  %.pr333 = phi ptr [ %.pr333.pre, %57 ], [ %.pr333.pre402, %conversation_get_filter_name.exit ]
+  %.ph = phi ptr [ %58, %57 ], [ @.str.1, %conversation_get_filter_name.exit ]
+  %.ph330 = phi ptr [ @.str.9, %57 ], [ @.str.1, %conversation_get_filter_name.exit ]
+  %.ph331 = phi ptr [ %.0.i, %57 ], [ @.str.1, %conversation_get_filter_name.exit ]
+  %.ph332 = phi ptr [ @.str.8, %57 ], [ @.str.1, %conversation_get_filter_name.exit ]
+  %59 = icmp eq ptr %.pr333, null
+  br i1 %59, label %conversation_get_filter_name.exit163, label %60
+
+60:                                               ; preds = %conversation_get_filter_name.exit161.thread231
+  %.pr339 = load ptr, ptr %.pr333, align 8
+  %61 = icmp eq ptr %.pr339, null
+  br i1 %61, label %conversation_get_filter_name.exit163, label %62
+
+62:                                               ; preds = %60
+  %63 = tail call ptr %.pr339(ptr noundef nonnull %0, i32 noundef 1)
+  br label %conversation_get_filter_name.exit163
+
+conversation_get_filter_name.exit163.thread:      ; preds = %conversation_get_filter_name.exit.thread, %.thread221
+  %.ph428 = phi ptr [ @.str.1, %conversation_get_filter_name.exit.thread ], [ @.str.11, %.thread221 ]
+  %.ph429 = phi ptr [ @.str.1, %conversation_get_filter_name.exit.thread ], [ @.str.9, %.thread221 ]
+  %.ph430 = phi ptr [ @.str.1, %conversation_get_filter_name.exit.thread ], [ %.0.i, %.thread221 ]
+  %.ph431 = phi ptr [ @.str.1, %conversation_get_filter_name.exit.thread ], [ @.str.8, %.thread221 ]
+  %.not153434 = icmp eq ptr %.0.i157, null
+  %64 = select i1 %.not153434, ptr @.str.1, ptr @.str.8
+  %.str.1.mux436 = select i1 %.not153434, ptr @.str.1, ptr %.0.i157
+  %.str.1.mux381437 = select i1 %.not153434, ptr @.str.1, ptr @.str.9
+  %.str.1.mux382438 = select i1 %.not153434, ptr @.str.1, ptr @.str.11
   br label %conversation_get_filter_name.exit165
 
-conversation_get_filter_name.exit165:             ; preds = %172, %175, %178
-  %.0.i164 = phi ptr [ %179, %178 ], [ @.str.11, %175 ], [ @.str.11, %172 ]
-  %.not124 = icmp eq ptr %.0.i, null
-  %180 = select i1 %.not124, ptr @.str.1, ptr @.str.8
-  br i1 %.not124, label %conversation_get_filter_name.exit167, label %181
+conversation_get_filter_name.exit163:             ; preds = %conversation_get_filter_name.exit.thread412, %.thread419, %54, %52, %conversation_get_filter_name.exit161.thread231, %60, %62
+  %65 = phi ptr [ %.ph, %62 ], [ %.ph, %60 ], [ %.ph, %conversation_get_filter_name.exit161.thread231 ], [ @.str.11, %52 ], [ @.str.11, %54 ], [ @.str.11, %.thread419 ], [ @.str.1, %conversation_get_filter_name.exit.thread412 ]
+  %66 = phi ptr [ %.ph330, %62 ], [ %.ph330, %60 ], [ %.ph330, %conversation_get_filter_name.exit161.thread231 ], [ @.str.9, %52 ], [ @.str.9, %54 ], [ @.str.9, %.thread419 ], [ @.str.1, %conversation_get_filter_name.exit.thread412 ]
+  %67 = phi ptr [ %.ph331, %62 ], [ %.ph331, %60 ], [ %.ph331, %conversation_get_filter_name.exit161.thread231 ], [ %.0.i, %52 ], [ %.0.i, %54 ], [ %.0.i, %.thread419 ], [ @.str.1, %conversation_get_filter_name.exit.thread412 ]
+  %.0.i159220228 = phi ptr [ %.0.i159, %62 ], [ %.0.i159, %60 ], [ %.0.i159, %conversation_get_filter_name.exit161.thread231 ], [ %.0.i159, %52 ], [ %.0.i159, %54 ], [ @.str.11, %.thread419 ], [ @.str.11, %conversation_get_filter_name.exit.thread412 ]
+  %68 = phi ptr [ %.ph332, %62 ], [ %.ph332, %60 ], [ %.ph332, %conversation_get_filter_name.exit161.thread231 ], [ @.str.8, %52 ], [ @.str.8, %54 ], [ @.str.8, %.thread419 ], [ @.str.1, %conversation_get_filter_name.exit.thread412 ]
+  %.0.i162 = phi ptr [ %63, %62 ], [ @.str.11, %60 ], [ @.str.11, %conversation_get_filter_name.exit161.thread231 ], [ @.str.11, %52 ], [ @.str.11, %54 ], [ @.str.11, %.thread419 ], [ @.str.11, %conversation_get_filter_name.exit.thread412 ]
+  %.not153 = icmp eq ptr %.0.i157, null
+  %69 = select i1 %.not153, ptr @.str.1, ptr @.str.8
+  %.str.1.mux = select i1 %.not153, ptr @.str.1, ptr %.0.i157
+  %.str.1.mux381 = select i1 %.not153, ptr @.str.1, ptr @.str.9
+  %.str.1.mux382 = select i1 %.not153, ptr @.str.1, ptr @.str.11
+  br i1 %.not153, label %conversation_get_filter_name.exit165, label %70
 
-181:                                              ; preds = %conversation_get_filter_name.exit165
-  %182 = load ptr, ptr %0, align 8
-  %183 = icmp eq ptr %182, null
-  br i1 %183, label %conversation_get_filter_name.exit167, label %184
+70:                                               ; preds = %conversation_get_filter_name.exit163
+  %71 = load ptr, ptr %0, align 8
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %conversation_get_filter_name.exit165, label %73
 
-184:                                              ; preds = %181
-  %185 = load ptr, ptr %182, align 8
-  %186 = icmp eq ptr %185, null
-  br i1 %186, label %conversation_get_filter_name.exit167, label %187
+73:                                               ; preds = %70
+  %74 = load ptr, ptr %71, align 8
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %conversation_get_filter_name.exit165, label %76
 
-187:                                              ; preds = %184
-  %188 = tail call ptr %185(ptr noundef nonnull %0, i32 noundef 3) #10
+76:                                               ; preds = %73
+  %77 = tail call ptr %74(ptr noundef nonnull %0, i32 noundef 5)
+  br label %conversation_get_filter_name.exit165
+
+conversation_get_filter_name.exit165:             ; preds = %conversation_get_filter_name.exit163.thread, %conversation_get_filter_name.exit163, %76, %73, %70
+  %78 = phi ptr [ %69, %conversation_get_filter_name.exit163 ], [ %69, %70 ], [ %69, %73 ], [ %69, %76 ], [ %64, %conversation_get_filter_name.exit163.thread ]
+  %.0.i162440 = phi ptr [ %.0.i162, %conversation_get_filter_name.exit163 ], [ %.0.i162, %70 ], [ %.0.i162, %73 ], [ %.0.i162, %76 ], [ @.str.11, %conversation_get_filter_name.exit163.thread ]
+  %79 = phi ptr [ %68, %conversation_get_filter_name.exit163 ], [ %68, %70 ], [ %68, %73 ], [ %68, %76 ], [ %.ph431, %conversation_get_filter_name.exit163.thread ]
+  %.0.i159220228439 = phi ptr [ %.0.i159220228, %conversation_get_filter_name.exit163 ], [ %.0.i159220228, %70 ], [ %.0.i159220228, %73 ], [ %.0.i159220228, %76 ], [ @.str.11, %conversation_get_filter_name.exit163.thread ]
+  %80 = phi ptr [ %67, %conversation_get_filter_name.exit163 ], [ %67, %70 ], [ %67, %73 ], [ %67, %76 ], [ %.ph430, %conversation_get_filter_name.exit163.thread ]
+  %81 = phi ptr [ %66, %conversation_get_filter_name.exit163 ], [ %66, %70 ], [ %66, %73 ], [ %66, %76 ], [ %.ph429, %conversation_get_filter_name.exit163.thread ]
+  %82 = phi ptr [ %65, %conversation_get_filter_name.exit163 ], [ %65, %70 ], [ %65, %73 ], [ %65, %76 ], [ %.ph428, %conversation_get_filter_name.exit163.thread ]
+  %83 = phi ptr [ %.str.1.mux, %conversation_get_filter_name.exit163 ], [ %.0.i157, %70 ], [ %.0.i157, %73 ], [ %.0.i157, %76 ], [ %.str.1.mux436, %conversation_get_filter_name.exit163.thread ]
+  %84 = phi ptr [ %.str.1.mux381, %conversation_get_filter_name.exit163 ], [ @.str.9, %70 ], [ @.str.9, %73 ], [ @.str.9, %76 ], [ %.str.1.mux381437, %conversation_get_filter_name.exit163.thread ]
+  %85 = phi ptr [ %.str.1.mux382, %conversation_get_filter_name.exit163 ], [ @.str.11, %70 ], [ @.str.11, %73 ], [ %77, %76 ], [ %.str.1.mux382438, %conversation_get_filter_name.exit163.thread ]
+  %86 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %.0.i159220228439, ptr noundef %.0216, ptr noundef nonnull %79, ptr noundef %82, ptr noundef nonnull %81, ptr noundef nonnull %80, ptr noundef %.0.i162440, ptr noundef %.0137, ptr noundef nonnull %78, ptr noundef %85, ptr noundef nonnull %84, ptr noundef nonnull %83)
+  br label %361
+
+87:                                               ; preds = %39
+  br i1 %42, label %conversation_get_filter_name.exit167.thread, label %88
+
+88:                                               ; preds = %87
+  %89 = load ptr, ptr %0, align 8
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %conversation_get_filter_name.exit167.thread441, label %91
+
+91:                                               ; preds = %88
+  %92 = load ptr, ptr %89, align 8
+  %93 = icmp eq ptr %92, null
+  br i1 %93, label %conversation_get_filter_name.exit167, label %94
+
+94:                                               ; preds = %91
+  %95 = tail call ptr %92(ptr noundef nonnull %0, i32 noundef 2)
+  %.pr346.pre400.pre = load ptr, ptr %0, align 8
   br label %conversation_get_filter_name.exit167
 
-conversation_get_filter_name.exit167:             ; preds = %187, %184, %181, %conversation_get_filter_name.exit165
-  %189 = phi ptr [ @.str.1, %conversation_get_filter_name.exit165 ], [ %.0.i, %181 ], [ %.0.i, %184 ], [ %.0.i, %187 ]
-  %190 = phi ptr [ @.str.1, %conversation_get_filter_name.exit165 ], [ @.str.9, %181 ], [ @.str.9, %184 ], [ @.str.9, %187 ]
-  %191 = phi ptr [ @.str.1, %conversation_get_filter_name.exit165 ], [ @.str.11, %181 ], [ @.str.11, %184 ], [ %188, %187 ]
-  %192 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef %.0.i164, ptr noundef %.0, ptr noundef nonnull %180, ptr noundef %191, ptr noundef nonnull %190, ptr noundef nonnull %189) #10
-  br label %279
+conversation_get_filter_name.exit167:             ; preds = %91, %94
+  %.pr346.pre400 = phi ptr [ %.pr346.pre400.pre, %94 ], [ %89, %91 ]
+  %.0.i166 = phi ptr [ %95, %94 ], [ @.str.11, %91 ]
+  %.not150 = icmp eq ptr %.0.i, null
+  br i1 %.not150, label %conversation_get_filter_name.exit169.thread249, label %96
 
-193:                                              ; preds = %36
-  %194 = load ptr, ptr %0, align 8
-  %195 = icmp eq ptr %194, null
-  br i1 %195, label %conversation_get_filter_name.exit169, label %196
+conversation_get_filter_name.exit167.thread441:   ; preds = %88
+  %.not150444 = icmp eq ptr %.0.i, null
+  br i1 %.not150444, label %conversation_get_filter_name.exit171, label %.thread448
 
-196:                                              ; preds = %193
-  %197 = load ptr, ptr %194, align 8
-  %198 = icmp eq ptr %197, null
-  br i1 %198, label %conversation_get_filter_name.exit169, label %199
-
-199:                                              ; preds = %196
-  %200 = tail call ptr %197(ptr noundef nonnull %0, i32 noundef 1) #10
-  br label %conversation_get_filter_name.exit169
-
-conversation_get_filter_name.exit169:             ; preds = %193, %196, %199
-  %.0.i168 = phi ptr [ %200, %199 ], [ @.str.11, %196 ], [ @.str.11, %193 ]
-  %.not123 = icmp eq ptr %.0.i, null
-  %201 = select i1 %.not123, ptr @.str.1, ptr @.str.8
-  br i1 %.not123, label %conversation_get_filter_name.exit171, label %202
-
-202:                                              ; preds = %conversation_get_filter_name.exit169
-  %203 = load ptr, ptr %0, align 8
-  %204 = icmp eq ptr %203, null
-  br i1 %204, label %conversation_get_filter_name.exit171, label %205
-
-205:                                              ; preds = %202
-  %206 = load ptr, ptr %203, align 8
-  %207 = icmp eq ptr %206, null
-  br i1 %207, label %conversation_get_filter_name.exit171, label %208
-
-208:                                              ; preds = %205
-  %209 = tail call ptr %206(ptr noundef nonnull %0, i32 noundef 4) #10
+.thread448:                                       ; preds = %conversation_get_filter_name.exit167.thread441
   br label %conversation_get_filter_name.exit171
 
-conversation_get_filter_name.exit171:             ; preds = %208, %205, %202, %conversation_get_filter_name.exit169
-  %210 = phi ptr [ @.str.1, %conversation_get_filter_name.exit169 ], [ %.0.i, %202 ], [ %.0.i, %205 ], [ %.0.i, %208 ]
-  %211 = phi ptr [ @.str.1, %conversation_get_filter_name.exit169 ], [ @.str.9, %202 ], [ @.str.9, %205 ], [ @.str.9, %208 ]
-  %212 = phi ptr [ @.str.1, %conversation_get_filter_name.exit169 ], [ @.str.11, %202 ], [ @.str.11, %205 ], [ %209, %208 ]
-  %213 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef %.0.i168, ptr noundef %.0, ptr noundef nonnull %201, ptr noundef %212, ptr noundef nonnull %211, ptr noundef nonnull %210) #10
-  br label %279
+conversation_get_filter_name.exit167.thread:      ; preds = %87
+  %.not150235 = icmp eq ptr %.0.i, null
+  br i1 %.not150235, label %conversation_get_filter_name.exit171.thread, label %.thread238
 
-214:                                              ; preds = %36
-  %215 = load ptr, ptr %0, align 8
-  %216 = icmp eq ptr %215, null
-  br i1 %216, label %conversation_get_filter_name.exit173, label %217
+.thread238:                                       ; preds = %conversation_get_filter_name.exit167.thread
+  br label %conversation_get_filter_name.exit171.thread
 
-217:                                              ; preds = %214
-  %218 = load ptr, ptr %215, align 8
-  %219 = icmp eq ptr %218, null
-  br i1 %219, label %conversation_get_filter_name.exit173, label %220
+96:                                               ; preds = %conversation_get_filter_name.exit167
+  %97 = icmp eq ptr %.pr346.pre400, null
+  br i1 %97, label %conversation_get_filter_name.exit171, label %98
 
-220:                                              ; preds = %217
-  %221 = tail call ptr %218(ptr noundef nonnull %0, i32 noundef 2) #10
+98:                                               ; preds = %96
+  %99 = load ptr, ptr %.pr346.pre400, align 8
+  %100 = icmp eq ptr %99, null
+  br i1 %100, label %conversation_get_filter_name.exit171, label %101
+
+101:                                              ; preds = %98
+  %102 = tail call ptr %99(ptr noundef nonnull %0, i32 noundef 5)
+  %.pr346.pre = load ptr, ptr %0, align 8
+  br label %conversation_get_filter_name.exit169.thread249
+
+conversation_get_filter_name.exit169.thread249:   ; preds = %conversation_get_filter_name.exit167, %101
+  %.pr346 = phi ptr [ %.pr346.pre, %101 ], [ %.pr346.pre400, %conversation_get_filter_name.exit167 ]
+  %.ph342 = phi ptr [ %102, %101 ], [ @.str.1, %conversation_get_filter_name.exit167 ]
+  %.ph343 = phi ptr [ @.str.9, %101 ], [ @.str.1, %conversation_get_filter_name.exit167 ]
+  %.ph344 = phi ptr [ %.0.i, %101 ], [ @.str.1, %conversation_get_filter_name.exit167 ]
+  %.ph345 = phi ptr [ @.str.8, %101 ], [ @.str.1, %conversation_get_filter_name.exit167 ]
+  %103 = icmp eq ptr %.pr346, null
+  br i1 %103, label %conversation_get_filter_name.exit171, label %104
+
+104:                                              ; preds = %conversation_get_filter_name.exit169.thread249
+  %.pr352 = load ptr, ptr %.pr346, align 8
+  %105 = icmp eq ptr %.pr352, null
+  br i1 %105, label %conversation_get_filter_name.exit171, label %106
+
+106:                                              ; preds = %104
+  %107 = tail call ptr %.pr352(ptr noundef nonnull %0, i32 noundef 2)
+  br label %conversation_get_filter_name.exit171
+
+conversation_get_filter_name.exit171.thread:      ; preds = %conversation_get_filter_name.exit167.thread, %.thread238
+  %.ph457 = phi ptr [ @.str.1, %conversation_get_filter_name.exit167.thread ], [ @.str.11, %.thread238 ]
+  %.ph458 = phi ptr [ @.str.1, %conversation_get_filter_name.exit167.thread ], [ @.str.9, %.thread238 ]
+  %.ph459 = phi ptr [ @.str.1, %conversation_get_filter_name.exit167.thread ], [ %.0.i, %.thread238 ]
+  %.ph460 = phi ptr [ @.str.1, %conversation_get_filter_name.exit167.thread ], [ @.str.8, %.thread238 ]
+  %.not151463 = icmp eq ptr %.0.i157, null
+  %108 = select i1 %.not151463, ptr @.str.1, ptr @.str.8
+  %.str.1.mux384465 = select i1 %.not151463, ptr @.str.1, ptr %.0.i157
+  %.str.1.mux385466 = select i1 %.not151463, ptr @.str.1, ptr @.str.9
+  %.str.1.mux386467 = select i1 %.not151463, ptr @.str.1, ptr @.str.11
   br label %conversation_get_filter_name.exit173
 
-conversation_get_filter_name.exit173:             ; preds = %214, %217, %220
-  %.0.i172 = phi ptr [ %221, %220 ], [ @.str.11, %217 ], [ @.str.11, %214 ]
-  %.not122 = icmp eq ptr %.0.i135, null
-  %222 = select i1 %.not122, ptr @.str.1, ptr @.str.8
-  br i1 %.not122, label %conversation_get_filter_name.exit175, label %223
+conversation_get_filter_name.exit171:             ; preds = %conversation_get_filter_name.exit167.thread441, %.thread448, %98, %96, %conversation_get_filter_name.exit169.thread249, %104, %106
+  %109 = phi ptr [ %.ph342, %106 ], [ %.ph342, %104 ], [ %.ph342, %conversation_get_filter_name.exit169.thread249 ], [ @.str.11, %96 ], [ @.str.11, %98 ], [ @.str.11, %.thread448 ], [ @.str.1, %conversation_get_filter_name.exit167.thread441 ]
+  %110 = phi ptr [ %.ph343, %106 ], [ %.ph343, %104 ], [ %.ph343, %conversation_get_filter_name.exit169.thread249 ], [ @.str.9, %96 ], [ @.str.9, %98 ], [ @.str.9, %.thread448 ], [ @.str.1, %conversation_get_filter_name.exit167.thread441 ]
+  %111 = phi ptr [ %.ph344, %106 ], [ %.ph344, %104 ], [ %.ph344, %conversation_get_filter_name.exit169.thread249 ], [ %.0.i, %96 ], [ %.0.i, %98 ], [ %.0.i, %.thread448 ], [ @.str.1, %conversation_get_filter_name.exit167.thread441 ]
+  %.0.i166237246 = phi ptr [ %.0.i166, %106 ], [ %.0.i166, %104 ], [ %.0.i166, %conversation_get_filter_name.exit169.thread249 ], [ %.0.i166, %96 ], [ %.0.i166, %98 ], [ @.str.11, %.thread448 ], [ @.str.11, %conversation_get_filter_name.exit167.thread441 ]
+  %112 = phi ptr [ %.ph345, %106 ], [ %.ph345, %104 ], [ %.ph345, %conversation_get_filter_name.exit169.thread249 ], [ @.str.8, %96 ], [ @.str.8, %98 ], [ @.str.8, %.thread448 ], [ @.str.1, %conversation_get_filter_name.exit167.thread441 ]
+  %.0.i170 = phi ptr [ %107, %106 ], [ @.str.11, %104 ], [ @.str.11, %conversation_get_filter_name.exit169.thread249 ], [ @.str.11, %96 ], [ @.str.11, %98 ], [ @.str.11, %.thread448 ], [ @.str.11, %conversation_get_filter_name.exit167.thread441 ]
+  %.not151 = icmp eq ptr %.0.i157, null
+  %113 = select i1 %.not151, ptr @.str.1, ptr @.str.8
+  %.str.1.mux384 = select i1 %.not151, ptr @.str.1, ptr %.0.i157
+  %.str.1.mux385 = select i1 %.not151, ptr @.str.1, ptr @.str.9
+  %.str.1.mux386 = select i1 %.not151, ptr @.str.1, ptr @.str.11
+  br i1 %.not151, label %conversation_get_filter_name.exit173, label %114
 
-223:                                              ; preds = %conversation_get_filter_name.exit173
+114:                                              ; preds = %conversation_get_filter_name.exit171
+  %115 = load ptr, ptr %0, align 8
+  %116 = icmp eq ptr %115, null
+  br i1 %116, label %conversation_get_filter_name.exit173, label %117
+
+117:                                              ; preds = %114
+  %118 = load ptr, ptr %115, align 8
+  %119 = icmp eq ptr %118, null
+  br i1 %119, label %conversation_get_filter_name.exit173, label %120
+
+120:                                              ; preds = %117
+  %121 = tail call ptr %118(ptr noundef nonnull %0, i32 noundef 5)
+  br label %conversation_get_filter_name.exit173
+
+conversation_get_filter_name.exit173:             ; preds = %conversation_get_filter_name.exit171.thread, %conversation_get_filter_name.exit171, %120, %117, %114
+  %122 = phi ptr [ %113, %conversation_get_filter_name.exit171 ], [ %113, %114 ], [ %113, %117 ], [ %113, %120 ], [ %108, %conversation_get_filter_name.exit171.thread ]
+  %.0.i170469 = phi ptr [ %.0.i170, %conversation_get_filter_name.exit171 ], [ %.0.i170, %114 ], [ %.0.i170, %117 ], [ %.0.i170, %120 ], [ @.str.11, %conversation_get_filter_name.exit171.thread ]
+  %123 = phi ptr [ %112, %conversation_get_filter_name.exit171 ], [ %112, %114 ], [ %112, %117 ], [ %112, %120 ], [ %.ph460, %conversation_get_filter_name.exit171.thread ]
+  %.0.i166237246468 = phi ptr [ %.0.i166237246, %conversation_get_filter_name.exit171 ], [ %.0.i166237246, %114 ], [ %.0.i166237246, %117 ], [ %.0.i166237246, %120 ], [ @.str.11, %conversation_get_filter_name.exit171.thread ]
+  %124 = phi ptr [ %111, %conversation_get_filter_name.exit171 ], [ %111, %114 ], [ %111, %117 ], [ %111, %120 ], [ %.ph459, %conversation_get_filter_name.exit171.thread ]
+  %125 = phi ptr [ %110, %conversation_get_filter_name.exit171 ], [ %110, %114 ], [ %110, %117 ], [ %110, %120 ], [ %.ph458, %conversation_get_filter_name.exit171.thread ]
+  %126 = phi ptr [ %109, %conversation_get_filter_name.exit171 ], [ %109, %114 ], [ %109, %117 ], [ %109, %120 ], [ %.ph457, %conversation_get_filter_name.exit171.thread ]
+  %127 = phi ptr [ %.str.1.mux384, %conversation_get_filter_name.exit171 ], [ %.0.i157, %114 ], [ %.0.i157, %117 ], [ %.0.i157, %120 ], [ %.str.1.mux384465, %conversation_get_filter_name.exit171.thread ]
+  %128 = phi ptr [ %.str.1.mux385, %conversation_get_filter_name.exit171 ], [ @.str.9, %114 ], [ @.str.9, %117 ], [ @.str.9, %120 ], [ %.str.1.mux385466, %conversation_get_filter_name.exit171.thread ]
+  %129 = phi ptr [ %.str.1.mux386, %conversation_get_filter_name.exit171 ], [ @.str.11, %114 ], [ @.str.11, %117 ], [ %121, %120 ], [ %.str.1.mux386467, %conversation_get_filter_name.exit171.thread ]
+  %130 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %.0.i166237246468, ptr noundef %.0216, ptr noundef nonnull %123, ptr noundef %126, ptr noundef nonnull %125, ptr noundef nonnull %124, ptr noundef %.0.i170469, ptr noundef %.0137, ptr noundef nonnull %122, ptr noundef %129, ptr noundef nonnull %128, ptr noundef nonnull %127)
+  br label %361
+
+131:                                              ; preds = %.thread
+  %132 = icmp eq ptr %0, null
+  br i1 %132, label %conversation_get_filter_name.exit175.thread, label %133
+
+133:                                              ; preds = %131
+  %134 = load ptr, ptr %0, align 8
+  %135 = icmp eq ptr %134, null
+  br i1 %135, label %conversation_get_filter_name.exit175.thread470, label %136
+
+136:                                              ; preds = %133
+  %137 = load ptr, ptr %134, align 8
+  %138 = icmp eq ptr %137, null
+  br i1 %138, label %conversation_get_filter_name.exit175, label %139
+
+139:                                              ; preds = %136
+  %140 = tail call ptr %137(ptr noundef nonnull %0, i32 noundef 0)
+  %.pr359.pre398.pre = load ptr, ptr %0, align 8
+  br label %conversation_get_filter_name.exit175
+
+conversation_get_filter_name.exit175:             ; preds = %136, %139
+  %.pr359.pre398 = phi ptr [ %.pr359.pre398.pre, %139 ], [ %134, %136 ]
+  %.0.i174 = phi ptr [ %140, %139 ], [ @.str.11, %136 ]
+  %.not148 = icmp eq ptr %.0.i, null
+  br i1 %.not148, label %conversation_get_filter_name.exit177.thread267, label %141
+
+conversation_get_filter_name.exit175.thread470:   ; preds = %133
+  %.not148473 = icmp eq ptr %.0.i, null
+  br i1 %.not148473, label %conversation_get_filter_name.exit179, label %.thread477
+
+.thread477:                                       ; preds = %conversation_get_filter_name.exit175.thread470
+  br label %conversation_get_filter_name.exit179
+
+conversation_get_filter_name.exit175.thread:      ; preds = %131
+  %.not148253 = icmp eq ptr %.0.i, null
+  br i1 %.not148253, label %conversation_get_filter_name.exit179.thread, label %.thread256
+
+.thread256:                                       ; preds = %conversation_get_filter_name.exit175.thread
+  br label %conversation_get_filter_name.exit179.thread
+
+141:                                              ; preds = %conversation_get_filter_name.exit175
+  %142 = icmp eq ptr %.pr359.pre398, null
+  br i1 %142, label %conversation_get_filter_name.exit179, label %143
+
+143:                                              ; preds = %141
+  %144 = load ptr, ptr %.pr359.pre398, align 8
+  %145 = icmp eq ptr %144, null
+  br i1 %145, label %conversation_get_filter_name.exit179, label %146
+
+146:                                              ; preds = %143
+  %147 = tail call ptr %144(ptr noundef nonnull %0, i32 noundef 3)
+  %.pr359.pre = load ptr, ptr %0, align 8
+  br label %conversation_get_filter_name.exit177.thread267
+
+conversation_get_filter_name.exit177.thread267:   ; preds = %conversation_get_filter_name.exit175, %146
+  %.pr359 = phi ptr [ %.pr359.pre, %146 ], [ %.pr359.pre398, %conversation_get_filter_name.exit175 ]
+  %.ph355 = phi ptr [ %147, %146 ], [ @.str.1, %conversation_get_filter_name.exit175 ]
+  %.ph356 = phi ptr [ @.str.9, %146 ], [ @.str.1, %conversation_get_filter_name.exit175 ]
+  %.ph357 = phi ptr [ %.0.i, %146 ], [ @.str.1, %conversation_get_filter_name.exit175 ]
+  %.ph358 = phi ptr [ @.str.8, %146 ], [ @.str.1, %conversation_get_filter_name.exit175 ]
+  %148 = icmp eq ptr %.pr359, null
+  br i1 %148, label %conversation_get_filter_name.exit179, label %149
+
+149:                                              ; preds = %conversation_get_filter_name.exit177.thread267
+  %.pr365 = load ptr, ptr %.pr359, align 8
+  %150 = icmp eq ptr %.pr365, null
+  br i1 %150, label %conversation_get_filter_name.exit179, label %151
+
+151:                                              ; preds = %149
+  %152 = tail call ptr %.pr365(ptr noundef nonnull %0, i32 noundef 1)
+  br label %conversation_get_filter_name.exit179
+
+conversation_get_filter_name.exit179.thread:      ; preds = %conversation_get_filter_name.exit175.thread, %.thread256
+  %.ph486 = phi ptr [ @.str.1, %conversation_get_filter_name.exit175.thread ], [ @.str.11, %.thread256 ]
+  %.ph487 = phi ptr [ @.str.1, %conversation_get_filter_name.exit175.thread ], [ @.str.9, %.thread256 ]
+  %.ph488 = phi ptr [ @.str.1, %conversation_get_filter_name.exit175.thread ], [ %.0.i, %.thread256 ]
+  %.ph489 = phi ptr [ @.str.1, %conversation_get_filter_name.exit175.thread ], [ @.str.8, %.thread256 ]
+  %.not149492 = icmp eq ptr %.0.i157, null
+  %153 = select i1 %.not149492, ptr @.str.1, ptr @.str.8
+  %.str.1.mux388494 = select i1 %.not149492, ptr @.str.1, ptr %.0.i157
+  %.str.1.mux389495 = select i1 %.not149492, ptr @.str.1, ptr @.str.9
+  %.str.1.mux390496 = select i1 %.not149492, ptr @.str.1, ptr @.str.11
+  br label %conversation_get_filter_name.exit181
+
+conversation_get_filter_name.exit179:             ; preds = %conversation_get_filter_name.exit175.thread470, %.thread477, %143, %141, %conversation_get_filter_name.exit177.thread267, %149, %151
+  %154 = phi ptr [ %.ph355, %151 ], [ %.ph355, %149 ], [ %.ph355, %conversation_get_filter_name.exit177.thread267 ], [ @.str.11, %141 ], [ @.str.11, %143 ], [ @.str.11, %.thread477 ], [ @.str.1, %conversation_get_filter_name.exit175.thread470 ]
+  %155 = phi ptr [ %.ph356, %151 ], [ %.ph356, %149 ], [ %.ph356, %conversation_get_filter_name.exit177.thread267 ], [ @.str.9, %141 ], [ @.str.9, %143 ], [ @.str.9, %.thread477 ], [ @.str.1, %conversation_get_filter_name.exit175.thread470 ]
+  %156 = phi ptr [ %.ph357, %151 ], [ %.ph357, %149 ], [ %.ph357, %conversation_get_filter_name.exit177.thread267 ], [ %.0.i, %141 ], [ %.0.i, %143 ], [ %.0.i, %.thread477 ], [ @.str.1, %conversation_get_filter_name.exit175.thread470 ]
+  %.0.i174255264 = phi ptr [ %.0.i174, %151 ], [ %.0.i174, %149 ], [ %.0.i174, %conversation_get_filter_name.exit177.thread267 ], [ %.0.i174, %141 ], [ %.0.i174, %143 ], [ @.str.11, %.thread477 ], [ @.str.11, %conversation_get_filter_name.exit175.thread470 ]
+  %157 = phi ptr [ %.ph358, %151 ], [ %.ph358, %149 ], [ %.ph358, %conversation_get_filter_name.exit177.thread267 ], [ @.str.8, %141 ], [ @.str.8, %143 ], [ @.str.8, %.thread477 ], [ @.str.1, %conversation_get_filter_name.exit175.thread470 ]
+  %.0.i178 = phi ptr [ %152, %151 ], [ @.str.11, %149 ], [ @.str.11, %conversation_get_filter_name.exit177.thread267 ], [ @.str.11, %141 ], [ @.str.11, %143 ], [ @.str.11, %.thread477 ], [ @.str.11, %conversation_get_filter_name.exit175.thread470 ]
+  %.not149 = icmp eq ptr %.0.i157, null
+  %158 = select i1 %.not149, ptr @.str.1, ptr @.str.8
+  %.str.1.mux388 = select i1 %.not149, ptr @.str.1, ptr %.0.i157
+  %.str.1.mux389 = select i1 %.not149, ptr @.str.1, ptr @.str.9
+  %.str.1.mux390 = select i1 %.not149, ptr @.str.1, ptr @.str.11
+  br i1 %.not149, label %conversation_get_filter_name.exit181, label %159
+
+159:                                              ; preds = %conversation_get_filter_name.exit179
+  %160 = load ptr, ptr %0, align 8
+  %161 = icmp eq ptr %160, null
+  br i1 %161, label %conversation_get_filter_name.exit181, label %162
+
+162:                                              ; preds = %159
+  %163 = load ptr, ptr %160, align 8
+  %164 = icmp eq ptr %163, null
+  br i1 %164, label %conversation_get_filter_name.exit181, label %165
+
+165:                                              ; preds = %162
+  %166 = tail call ptr %163(ptr noundef nonnull %0, i32 noundef 4)
+  br label %conversation_get_filter_name.exit181
+
+conversation_get_filter_name.exit181:             ; preds = %conversation_get_filter_name.exit179.thread, %conversation_get_filter_name.exit179, %165, %162, %159
+  %167 = phi ptr [ %158, %conversation_get_filter_name.exit179 ], [ %158, %159 ], [ %158, %162 ], [ %158, %165 ], [ %153, %conversation_get_filter_name.exit179.thread ]
+  %.0.i178498 = phi ptr [ %.0.i178, %conversation_get_filter_name.exit179 ], [ %.0.i178, %159 ], [ %.0.i178, %162 ], [ %.0.i178, %165 ], [ @.str.11, %conversation_get_filter_name.exit179.thread ]
+  %168 = phi ptr [ %157, %conversation_get_filter_name.exit179 ], [ %157, %159 ], [ %157, %162 ], [ %157, %165 ], [ %.ph489, %conversation_get_filter_name.exit179.thread ]
+  %.0.i174255264497 = phi ptr [ %.0.i174255264, %conversation_get_filter_name.exit179 ], [ %.0.i174255264, %159 ], [ %.0.i174255264, %162 ], [ %.0.i174255264, %165 ], [ @.str.11, %conversation_get_filter_name.exit179.thread ]
+  %169 = phi ptr [ %156, %conversation_get_filter_name.exit179 ], [ %156, %159 ], [ %156, %162 ], [ %156, %165 ], [ %.ph488, %conversation_get_filter_name.exit179.thread ]
+  %170 = phi ptr [ %155, %conversation_get_filter_name.exit179 ], [ %155, %159 ], [ %155, %162 ], [ %155, %165 ], [ %.ph487, %conversation_get_filter_name.exit179.thread ]
+  %171 = phi ptr [ %154, %conversation_get_filter_name.exit179 ], [ %154, %159 ], [ %154, %162 ], [ %154, %165 ], [ %.ph486, %conversation_get_filter_name.exit179.thread ]
+  %172 = phi ptr [ %.str.1.mux388, %conversation_get_filter_name.exit179 ], [ %.0.i157, %159 ], [ %.0.i157, %162 ], [ %.0.i157, %165 ], [ %.str.1.mux388494, %conversation_get_filter_name.exit179.thread ]
+  %173 = phi ptr [ %.str.1.mux389, %conversation_get_filter_name.exit179 ], [ @.str.9, %159 ], [ @.str.9, %162 ], [ @.str.9, %165 ], [ %.str.1.mux389495, %conversation_get_filter_name.exit179.thread ]
+  %174 = phi ptr [ %.str.1.mux390, %conversation_get_filter_name.exit179 ], [ @.str.11, %159 ], [ @.str.11, %162 ], [ %166, %165 ], [ %.str.1.mux390496, %conversation_get_filter_name.exit179.thread ]
+  %175 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %.0.i174255264497, ptr noundef %.0216, ptr noundef nonnull %168, ptr noundef %171, ptr noundef nonnull %170, ptr noundef nonnull %169, ptr noundef %.0.i178498, ptr noundef %.0137, ptr noundef nonnull %167, ptr noundef %174, ptr noundef nonnull %173, ptr noundef nonnull %172)
+  br label %361
+
+176:                                              ; preds = %.thread
+  %177 = icmp eq ptr %0, null
+  br i1 %177, label %conversation_get_filter_name.exit183.thread, label %178
+
+178:                                              ; preds = %176
+  %179 = load ptr, ptr %0, align 8
+  %180 = icmp eq ptr %179, null
+  br i1 %180, label %conversation_get_filter_name.exit183.thread499, label %181
+
+181:                                              ; preds = %178
+  %182 = load ptr, ptr %179, align 8
+  %183 = icmp eq ptr %182, null
+  br i1 %183, label %conversation_get_filter_name.exit183, label %184
+
+184:                                              ; preds = %181
+  %185 = tail call ptr %182(ptr noundef nonnull %0, i32 noundef 1)
+  %.pr372.pre396.pre = load ptr, ptr %0, align 8
+  br label %conversation_get_filter_name.exit183
+
+conversation_get_filter_name.exit183:             ; preds = %181, %184
+  %.pr372.pre396 = phi ptr [ %.pr372.pre396.pre, %184 ], [ %179, %181 ]
+  %.0.i182 = phi ptr [ %185, %184 ], [ @.str.11, %181 ]
+  %.not146 = icmp eq ptr %.0.i, null
+  br i1 %.not146, label %conversation_get_filter_name.exit185.thread285, label %186
+
+conversation_get_filter_name.exit183.thread499:   ; preds = %178
+  %.not146502 = icmp eq ptr %.0.i, null
+  br i1 %.not146502, label %conversation_get_filter_name.exit187, label %.thread506
+
+.thread506:                                       ; preds = %conversation_get_filter_name.exit183.thread499
+  br label %conversation_get_filter_name.exit187
+
+conversation_get_filter_name.exit183.thread:      ; preds = %176
+  %.not146271 = icmp eq ptr %.0.i, null
+  br i1 %.not146271, label %conversation_get_filter_name.exit187.thread, label %.thread274
+
+.thread274:                                       ; preds = %conversation_get_filter_name.exit183.thread
+  br label %conversation_get_filter_name.exit187.thread
+
+186:                                              ; preds = %conversation_get_filter_name.exit183
+  %187 = icmp eq ptr %.pr372.pre396, null
+  br i1 %187, label %conversation_get_filter_name.exit187, label %188
+
+188:                                              ; preds = %186
+  %189 = load ptr, ptr %.pr372.pre396, align 8
+  %190 = icmp eq ptr %189, null
+  br i1 %190, label %conversation_get_filter_name.exit187, label %191
+
+191:                                              ; preds = %188
+  %192 = tail call ptr %189(ptr noundef nonnull %0, i32 noundef 4)
+  %.pr372.pre = load ptr, ptr %0, align 8
+  br label %conversation_get_filter_name.exit185.thread285
+
+conversation_get_filter_name.exit185.thread285:   ; preds = %conversation_get_filter_name.exit183, %191
+  %.pr372 = phi ptr [ %.pr372.pre, %191 ], [ %.pr372.pre396, %conversation_get_filter_name.exit183 ]
+  %.ph368 = phi ptr [ %192, %191 ], [ @.str.1, %conversation_get_filter_name.exit183 ]
+  %.ph369 = phi ptr [ @.str.9, %191 ], [ @.str.1, %conversation_get_filter_name.exit183 ]
+  %.ph370 = phi ptr [ %.0.i, %191 ], [ @.str.1, %conversation_get_filter_name.exit183 ]
+  %.ph371 = phi ptr [ @.str.8, %191 ], [ @.str.1, %conversation_get_filter_name.exit183 ]
+  %193 = icmp eq ptr %.pr372, null
+  br i1 %193, label %conversation_get_filter_name.exit187, label %194
+
+194:                                              ; preds = %conversation_get_filter_name.exit185.thread285
+  %.pr378 = load ptr, ptr %.pr372, align 8
+  %195 = icmp eq ptr %.pr378, null
+  br i1 %195, label %conversation_get_filter_name.exit187, label %196
+
+196:                                              ; preds = %194
+  %197 = tail call ptr %.pr378(ptr noundef nonnull %0, i32 noundef 0)
+  br label %conversation_get_filter_name.exit187
+
+conversation_get_filter_name.exit187.thread:      ; preds = %conversation_get_filter_name.exit183.thread, %.thread274
+  %.ph515 = phi ptr [ @.str.1, %conversation_get_filter_name.exit183.thread ], [ @.str.11, %.thread274 ]
+  %.ph516 = phi ptr [ @.str.1, %conversation_get_filter_name.exit183.thread ], [ @.str.9, %.thread274 ]
+  %.ph517 = phi ptr [ @.str.1, %conversation_get_filter_name.exit183.thread ], [ %.0.i, %.thread274 ]
+  %.ph518 = phi ptr [ @.str.1, %conversation_get_filter_name.exit183.thread ], [ @.str.8, %.thread274 ]
+  %.not147521 = icmp eq ptr %.0.i157, null
+  %198 = select i1 %.not147521, ptr @.str.1, ptr @.str.8
+  %.str.1.mux392523 = select i1 %.not147521, ptr @.str.1, ptr %.0.i157
+  %.str.1.mux393524 = select i1 %.not147521, ptr @.str.1, ptr @.str.9
+  %.str.1.mux394525 = select i1 %.not147521, ptr @.str.1, ptr @.str.11
+  br label %conversation_get_filter_name.exit189
+
+conversation_get_filter_name.exit187:             ; preds = %conversation_get_filter_name.exit183.thread499, %.thread506, %188, %186, %conversation_get_filter_name.exit185.thread285, %194, %196
+  %199 = phi ptr [ %.ph368, %196 ], [ %.ph368, %194 ], [ %.ph368, %conversation_get_filter_name.exit185.thread285 ], [ @.str.11, %186 ], [ @.str.11, %188 ], [ @.str.11, %.thread506 ], [ @.str.1, %conversation_get_filter_name.exit183.thread499 ]
+  %200 = phi ptr [ %.ph369, %196 ], [ %.ph369, %194 ], [ %.ph369, %conversation_get_filter_name.exit185.thread285 ], [ @.str.9, %186 ], [ @.str.9, %188 ], [ @.str.9, %.thread506 ], [ @.str.1, %conversation_get_filter_name.exit183.thread499 ]
+  %201 = phi ptr [ %.ph370, %196 ], [ %.ph370, %194 ], [ %.ph370, %conversation_get_filter_name.exit185.thread285 ], [ %.0.i, %186 ], [ %.0.i, %188 ], [ %.0.i, %.thread506 ], [ @.str.1, %conversation_get_filter_name.exit183.thread499 ]
+  %.0.i182273282 = phi ptr [ %.0.i182, %196 ], [ %.0.i182, %194 ], [ %.0.i182, %conversation_get_filter_name.exit185.thread285 ], [ %.0.i182, %186 ], [ %.0.i182, %188 ], [ @.str.11, %.thread506 ], [ @.str.11, %conversation_get_filter_name.exit183.thread499 ]
+  %202 = phi ptr [ %.ph371, %196 ], [ %.ph371, %194 ], [ %.ph371, %conversation_get_filter_name.exit185.thread285 ], [ @.str.8, %186 ], [ @.str.8, %188 ], [ @.str.8, %.thread506 ], [ @.str.1, %conversation_get_filter_name.exit183.thread499 ]
+  %.0.i186 = phi ptr [ %197, %196 ], [ @.str.11, %194 ], [ @.str.11, %conversation_get_filter_name.exit185.thread285 ], [ @.str.11, %186 ], [ @.str.11, %188 ], [ @.str.11, %.thread506 ], [ @.str.11, %conversation_get_filter_name.exit183.thread499 ]
+  %.not147 = icmp eq ptr %.0.i157, null
+  %203 = select i1 %.not147, ptr @.str.1, ptr @.str.8
+  %.str.1.mux392 = select i1 %.not147, ptr @.str.1, ptr %.0.i157
+  %.str.1.mux393 = select i1 %.not147, ptr @.str.1, ptr @.str.9
+  %.str.1.mux394 = select i1 %.not147, ptr @.str.1, ptr @.str.11
+  br i1 %.not147, label %conversation_get_filter_name.exit189, label %204
+
+204:                                              ; preds = %conversation_get_filter_name.exit187
+  %205 = load ptr, ptr %0, align 8
+  %206 = icmp eq ptr %205, null
+  br i1 %206, label %conversation_get_filter_name.exit189, label %207
+
+207:                                              ; preds = %204
+  %208 = load ptr, ptr %205, align 8
+  %209 = icmp eq ptr %208, null
+  br i1 %209, label %conversation_get_filter_name.exit189, label %210
+
+210:                                              ; preds = %207
+  %211 = tail call ptr %208(ptr noundef nonnull %0, i32 noundef 3)
+  br label %conversation_get_filter_name.exit189
+
+conversation_get_filter_name.exit189:             ; preds = %conversation_get_filter_name.exit187.thread, %conversation_get_filter_name.exit187, %210, %207, %204
+  %212 = phi ptr [ %203, %conversation_get_filter_name.exit187 ], [ %203, %204 ], [ %203, %207 ], [ %203, %210 ], [ %198, %conversation_get_filter_name.exit187.thread ]
+  %.0.i186527 = phi ptr [ %.0.i186, %conversation_get_filter_name.exit187 ], [ %.0.i186, %204 ], [ %.0.i186, %207 ], [ %.0.i186, %210 ], [ @.str.11, %conversation_get_filter_name.exit187.thread ]
+  %213 = phi ptr [ %202, %conversation_get_filter_name.exit187 ], [ %202, %204 ], [ %202, %207 ], [ %202, %210 ], [ %.ph518, %conversation_get_filter_name.exit187.thread ]
+  %.0.i182273282526 = phi ptr [ %.0.i182273282, %conversation_get_filter_name.exit187 ], [ %.0.i182273282, %204 ], [ %.0.i182273282, %207 ], [ %.0.i182273282, %210 ], [ @.str.11, %conversation_get_filter_name.exit187.thread ]
+  %214 = phi ptr [ %201, %conversation_get_filter_name.exit187 ], [ %201, %204 ], [ %201, %207 ], [ %201, %210 ], [ %.ph517, %conversation_get_filter_name.exit187.thread ]
+  %215 = phi ptr [ %200, %conversation_get_filter_name.exit187 ], [ %200, %204 ], [ %200, %207 ], [ %200, %210 ], [ %.ph516, %conversation_get_filter_name.exit187.thread ]
+  %216 = phi ptr [ %199, %conversation_get_filter_name.exit187 ], [ %199, %204 ], [ %199, %207 ], [ %199, %210 ], [ %.ph515, %conversation_get_filter_name.exit187.thread ]
+  %217 = phi ptr [ %.str.1.mux392, %conversation_get_filter_name.exit187 ], [ %.0.i157, %204 ], [ %.0.i157, %207 ], [ %.0.i157, %210 ], [ %.str.1.mux392523, %conversation_get_filter_name.exit187.thread ]
+  %218 = phi ptr [ %.str.1.mux393, %conversation_get_filter_name.exit187 ], [ @.str.9, %204 ], [ @.str.9, %207 ], [ @.str.9, %210 ], [ %.str.1.mux393524, %conversation_get_filter_name.exit187.thread ]
+  %219 = phi ptr [ %.str.1.mux394, %conversation_get_filter_name.exit187 ], [ @.str.11, %204 ], [ @.str.11, %207 ], [ %211, %210 ], [ %.str.1.mux394525, %conversation_get_filter_name.exit187.thread ]
+  %220 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %.0.i182273282526, ptr noundef %.0216, ptr noundef nonnull %213, ptr noundef %216, ptr noundef nonnull %215, ptr noundef nonnull %214, ptr noundef %.0.i186527, ptr noundef %.0137, ptr noundef nonnull %212, ptr noundef %219, ptr noundef nonnull %218, ptr noundef nonnull %217)
+  br label %361
+
+221:                                              ; preds = %.thread
+  %222 = icmp eq ptr %0, null
+  br i1 %222, label %conversation_get_filter_name.exit191.thread, label %223
+
+223:                                              ; preds = %221
   %224 = load ptr, ptr %0, align 8
   %225 = icmp eq ptr %224, null
-  br i1 %225, label %conversation_get_filter_name.exit175, label %226
+  br i1 %225, label %conversation_get_filter_name.exit191, label %226
 
 226:                                              ; preds = %223
   %227 = load ptr, ptr %224, align 8
   %228 = icmp eq ptr %227, null
-  br i1 %228, label %conversation_get_filter_name.exit175, label %229
+  br i1 %228, label %conversation_get_filter_name.exit191, label %229
 
 229:                                              ; preds = %226
-  %230 = tail call ptr %227(ptr noundef nonnull %0, i32 noundef 5) #10
-  br label %conversation_get_filter_name.exit175
+  %230 = tail call ptr %227(ptr noundef nonnull %0, i32 noundef 2)
+  br label %conversation_get_filter_name.exit191
 
-conversation_get_filter_name.exit175:             ; preds = %229, %226, %223, %conversation_get_filter_name.exit173
-  %231 = phi ptr [ @.str.1, %conversation_get_filter_name.exit173 ], [ %.0.i135, %223 ], [ %.0.i135, %226 ], [ %.0.i135, %229 ]
-  %232 = phi ptr [ @.str.1, %conversation_get_filter_name.exit173 ], [ @.str.9, %223 ], [ @.str.9, %226 ], [ @.str.9, %229 ]
-  %233 = phi ptr [ @.str.1, %conversation_get_filter_name.exit173 ], [ @.str.11, %223 ], [ @.str.11, %226 ], [ %230, %229 ]
-  %234 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef %.0.i172, ptr noundef %.0117, ptr noundef nonnull %222, ptr noundef %233, ptr noundef nonnull %232, ptr noundef nonnull %231) #10
-  br label %279
+conversation_get_filter_name.exit191:             ; preds = %223, %226, %229
+  %.0.i190 = phi ptr [ %230, %229 ], [ @.str.11, %226 ], [ @.str.11, %223 ]
+  %.not145 = icmp eq ptr %.0.i, null
+  br i1 %.not145, label %conversation_get_filter_name.exit193, label %231
 
-235:                                              ; preds = %36
-  %236 = load ptr, ptr %0, align 8
-  %237 = icmp eq ptr %236, null
-  br i1 %237, label %conversation_get_filter_name.exit177, label %238
+conversation_get_filter_name.exit191.thread:      ; preds = %221
+  %.not145289 = icmp eq ptr %.0.i, null
+  br i1 %.not145289, label %conversation_get_filter_name.exit193, label %.thread292
 
-238:                                              ; preds = %235
-  %239 = load ptr, ptr %236, align 8
-  %240 = icmp eq ptr %239, null
-  br i1 %240, label %conversation_get_filter_name.exit177, label %241
+.thread292:                                       ; preds = %conversation_get_filter_name.exit191.thread
+  br label %conversation_get_filter_name.exit193
 
-241:                                              ; preds = %238
-  %242 = tail call ptr %239(ptr noundef nonnull %0, i32 noundef 0) #10
-  br label %conversation_get_filter_name.exit177
+231:                                              ; preds = %conversation_get_filter_name.exit191
+  %232 = load ptr, ptr %0, align 8
+  %233 = icmp eq ptr %232, null
+  br i1 %233, label %conversation_get_filter_name.exit193, label %234
 
-conversation_get_filter_name.exit177:             ; preds = %235, %238, %241
-  %.0.i176 = phi ptr [ %242, %241 ], [ @.str.11, %238 ], [ @.str.11, %235 ]
-  %.not121 = icmp eq ptr %.0.i135, null
-  %243 = select i1 %.not121, ptr @.str.1, ptr @.str.8
-  br i1 %.not121, label %conversation_get_filter_name.exit179, label %244
+234:                                              ; preds = %231
+  %235 = load ptr, ptr %232, align 8
+  %236 = icmp eq ptr %235, null
+  br i1 %236, label %conversation_get_filter_name.exit193, label %237
 
-244:                                              ; preds = %conversation_get_filter_name.exit177
-  %245 = load ptr, ptr %0, align 8
-  %246 = icmp eq ptr %245, null
-  br i1 %246, label %conversation_get_filter_name.exit179, label %247
+237:                                              ; preds = %234
+  %238 = tail call ptr %235(ptr noundef nonnull %0, i32 noundef 5)
+  br label %conversation_get_filter_name.exit193
 
-247:                                              ; preds = %244
-  %248 = load ptr, ptr %245, align 8
-  %249 = icmp eq ptr %248, null
-  br i1 %249, label %conversation_get_filter_name.exit179, label %250
+conversation_get_filter_name.exit193:             ; preds = %237, %234, %231, %.thread292, %conversation_get_filter_name.exit191.thread, %conversation_get_filter_name.exit191
+  %239 = phi ptr [ @.str.1, %conversation_get_filter_name.exit191 ], [ @.str.1, %conversation_get_filter_name.exit191.thread ], [ @.str.8, %237 ], [ @.str.8, %234 ], [ @.str.8, %231 ], [ @.str.8, %.thread292 ]
+  %.0.i190291 = phi ptr [ %.0.i190, %conversation_get_filter_name.exit191 ], [ @.str.11, %conversation_get_filter_name.exit191.thread ], [ %.0.i190, %237 ], [ %.0.i190, %234 ], [ %.0.i190, %231 ], [ @.str.11, %.thread292 ]
+  %240 = phi ptr [ @.str.1, %conversation_get_filter_name.exit191 ], [ @.str.1, %conversation_get_filter_name.exit191.thread ], [ %.0.i, %237 ], [ %.0.i, %234 ], [ %.0.i, %231 ], [ %.0.i, %.thread292 ]
+  %241 = phi ptr [ @.str.1, %conversation_get_filter_name.exit191 ], [ @.str.1, %conversation_get_filter_name.exit191.thread ], [ @.str.9, %237 ], [ @.str.9, %234 ], [ @.str.9, %231 ], [ @.str.9, %.thread292 ]
+  %242 = phi ptr [ @.str.1, %conversation_get_filter_name.exit191 ], [ @.str.1, %conversation_get_filter_name.exit191.thread ], [ %238, %237 ], [ @.str.11, %234 ], [ @.str.11, %231 ], [ @.str.11, %.thread292 ]
+  %243 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef %.0.i190291, ptr noundef %.0216, ptr noundef nonnull %239, ptr noundef %242, ptr noundef nonnull %241, ptr noundef nonnull %240)
+  br label %361
 
-250:                                              ; preds = %247
-  %251 = tail call ptr %248(ptr noundef nonnull %0, i32 noundef 3) #10
-  br label %conversation_get_filter_name.exit179
+244:                                              ; preds = %.thread
+  %245 = icmp eq ptr %0, null
+  br i1 %245, label %conversation_get_filter_name.exit195.thread, label %246
 
-conversation_get_filter_name.exit179:             ; preds = %250, %247, %244, %conversation_get_filter_name.exit177
-  %252 = phi ptr [ @.str.1, %conversation_get_filter_name.exit177 ], [ %.0.i135, %244 ], [ %.0.i135, %247 ], [ %.0.i135, %250 ]
-  %253 = phi ptr [ @.str.1, %conversation_get_filter_name.exit177 ], [ @.str.9, %244 ], [ @.str.9, %247 ], [ @.str.9, %250 ]
-  %254 = phi ptr [ @.str.1, %conversation_get_filter_name.exit177 ], [ @.str.11, %244 ], [ @.str.11, %247 ], [ %251, %250 ]
-  %255 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef %.0.i176, ptr noundef %.0117, ptr noundef nonnull %243, ptr noundef %254, ptr noundef nonnull %253, ptr noundef nonnull %252) #10
-  br label %279
+246:                                              ; preds = %244
+  %247 = load ptr, ptr %0, align 8
+  %248 = icmp eq ptr %247, null
+  br i1 %248, label %conversation_get_filter_name.exit195, label %249
 
-256:                                              ; preds = %36
-  %257 = load ptr, ptr %0, align 8
-  %258 = icmp eq ptr %257, null
-  br i1 %258, label %conversation_get_filter_name.exit181, label %259
+249:                                              ; preds = %246
+  %250 = load ptr, ptr %247, align 8
+  %251 = icmp eq ptr %250, null
+  br i1 %251, label %conversation_get_filter_name.exit195, label %252
 
-259:                                              ; preds = %256
-  %260 = load ptr, ptr %257, align 8
-  %261 = icmp eq ptr %260, null
-  br i1 %261, label %conversation_get_filter_name.exit181, label %262
+252:                                              ; preds = %249
+  %253 = tail call ptr %250(ptr noundef nonnull %0, i32 noundef 0)
+  br label %conversation_get_filter_name.exit195
 
-262:                                              ; preds = %259
-  %263 = tail call ptr %260(ptr noundef nonnull %0, i32 noundef 1) #10
-  br label %conversation_get_filter_name.exit181
+conversation_get_filter_name.exit195:             ; preds = %246, %249, %252
+  %.0.i194 = phi ptr [ %253, %252 ], [ @.str.11, %249 ], [ @.str.11, %246 ]
+  %.not144 = icmp eq ptr %.0.i, null
+  br i1 %.not144, label %conversation_get_filter_name.exit197, label %254
 
-conversation_get_filter_name.exit181:             ; preds = %256, %259, %262
-  %.0.i180 = phi ptr [ %263, %262 ], [ @.str.11, %259 ], [ @.str.11, %256 ]
-  %.not = icmp eq ptr %.0.i135, null
-  %264 = select i1 %.not, ptr @.str.1, ptr @.str.8
-  br i1 %.not, label %conversation_get_filter_name.exit183, label %265
+conversation_get_filter_name.exit195.thread:      ; preds = %244
+  %.not144296 = icmp eq ptr %.0.i, null
+  br i1 %.not144296, label %conversation_get_filter_name.exit197, label %.thread299
 
-265:                                              ; preds = %conversation_get_filter_name.exit181
-  %266 = load ptr, ptr %0, align 8
-  %267 = icmp eq ptr %266, null
-  br i1 %267, label %conversation_get_filter_name.exit183, label %268
+.thread299:                                       ; preds = %conversation_get_filter_name.exit195.thread
+  br label %conversation_get_filter_name.exit197
 
-268:                                              ; preds = %265
-  %269 = load ptr, ptr %266, align 8
-  %270 = icmp eq ptr %269, null
-  br i1 %270, label %conversation_get_filter_name.exit183, label %271
+254:                                              ; preds = %conversation_get_filter_name.exit195
+  %255 = load ptr, ptr %0, align 8
+  %256 = icmp eq ptr %255, null
+  br i1 %256, label %conversation_get_filter_name.exit197, label %257
 
-271:                                              ; preds = %268
-  %272 = tail call ptr %269(ptr noundef nonnull %0, i32 noundef 4) #10
-  br label %conversation_get_filter_name.exit183
+257:                                              ; preds = %254
+  %258 = load ptr, ptr %255, align 8
+  %259 = icmp eq ptr %258, null
+  br i1 %259, label %conversation_get_filter_name.exit197, label %260
 
-conversation_get_filter_name.exit183:             ; preds = %271, %268, %265, %conversation_get_filter_name.exit181
-  %273 = phi ptr [ @.str.1, %conversation_get_filter_name.exit181 ], [ %.0.i135, %265 ], [ %.0.i135, %268 ], [ %.0.i135, %271 ]
-  %274 = phi ptr [ @.str.1, %conversation_get_filter_name.exit181 ], [ @.str.9, %265 ], [ @.str.9, %268 ], [ @.str.9, %271 ]
-  %275 = phi ptr [ @.str.1, %conversation_get_filter_name.exit181 ], [ @.str.11, %265 ], [ @.str.11, %268 ], [ %272, %271 ]
-  %276 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef %.0.i180, ptr noundef %.0117, ptr noundef nonnull %264, ptr noundef %275, ptr noundef nonnull %274, ptr noundef nonnull %273) #10
-  br label %279
+260:                                              ; preds = %257
+  %261 = tail call ptr %258(ptr noundef nonnull %0, i32 noundef 3)
+  br label %conversation_get_filter_name.exit197
 
-277:                                              ; preds = %36
-  %278 = tail call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef nonnull @.str.11) #10
-  br label %279
+conversation_get_filter_name.exit197:             ; preds = %260, %257, %254, %.thread299, %conversation_get_filter_name.exit195.thread, %conversation_get_filter_name.exit195
+  %262 = phi ptr [ @.str.1, %conversation_get_filter_name.exit195 ], [ @.str.1, %conversation_get_filter_name.exit195.thread ], [ @.str.8, %260 ], [ @.str.8, %257 ], [ @.str.8, %254 ], [ @.str.8, %.thread299 ]
+  %.0.i194298 = phi ptr [ %.0.i194, %conversation_get_filter_name.exit195 ], [ @.str.11, %conversation_get_filter_name.exit195.thread ], [ %.0.i194, %260 ], [ %.0.i194, %257 ], [ %.0.i194, %254 ], [ @.str.11, %.thread299 ]
+  %263 = phi ptr [ @.str.1, %conversation_get_filter_name.exit195 ], [ @.str.1, %conversation_get_filter_name.exit195.thread ], [ %.0.i, %260 ], [ %.0.i, %257 ], [ %.0.i, %254 ], [ %.0.i, %.thread299 ]
+  %264 = phi ptr [ @.str.1, %conversation_get_filter_name.exit195 ], [ @.str.1, %conversation_get_filter_name.exit195.thread ], [ @.str.9, %260 ], [ @.str.9, %257 ], [ @.str.9, %254 ], [ @.str.9, %.thread299 ]
+  %265 = phi ptr [ @.str.1, %conversation_get_filter_name.exit195 ], [ @.str.1, %conversation_get_filter_name.exit195.thread ], [ %261, %260 ], [ @.str.11, %257 ], [ @.str.11, %254 ], [ @.str.11, %.thread299 ]
+  %266 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef %.0.i194298, ptr noundef %.0216, ptr noundef nonnull %262, ptr noundef %265, ptr noundef nonnull %264, ptr noundef nonnull %263)
+  br label %361
 
-279:                                              ; preds = %277, %conversation_get_filter_name.exit183, %conversation_get_filter_name.exit179, %conversation_get_filter_name.exit175, %conversation_get_filter_name.exit171, %conversation_get_filter_name.exit167, %conversation_get_filter_name.exit163, %conversation_get_filter_name.exit159, %conversation_get_filter_name.exit151, %conversation_get_filter_name.exit143
-  %.0118 = phi ptr [ %278, %277 ], [ %276, %conversation_get_filter_name.exit183 ], [ %255, %conversation_get_filter_name.exit179 ], [ %234, %conversation_get_filter_name.exit175 ], [ %213, %conversation_get_filter_name.exit171 ], [ %192, %conversation_get_filter_name.exit167 ], [ %171, %conversation_get_filter_name.exit163 ], [ %150, %conversation_get_filter_name.exit159 ], [ %112, %conversation_get_filter_name.exit151 ], [ %74, %conversation_get_filter_name.exit143 ]
-  tail call void @g_free(ptr noundef %.0.i) #10
-  tail call void @g_free(ptr noundef %.0.i135) #10
-  tail call void @wmem_free(ptr noundef null, ptr noundef %.0) #10
-  tail call void @wmem_free(ptr noundef null, ptr noundef %.0117) #10
-  ret ptr %.0118
+267:                                              ; preds = %.thread
+  %268 = icmp eq ptr %0, null
+  br i1 %268, label %conversation_get_filter_name.exit199.thread, label %269
+
+269:                                              ; preds = %267
+  %270 = load ptr, ptr %0, align 8
+  %271 = icmp eq ptr %270, null
+  br i1 %271, label %conversation_get_filter_name.exit199, label %272
+
+272:                                              ; preds = %269
+  %273 = load ptr, ptr %270, align 8
+  %274 = icmp eq ptr %273, null
+  br i1 %274, label %conversation_get_filter_name.exit199, label %275
+
+275:                                              ; preds = %272
+  %276 = tail call ptr %273(ptr noundef nonnull %0, i32 noundef 1)
+  br label %conversation_get_filter_name.exit199
+
+conversation_get_filter_name.exit199:             ; preds = %269, %272, %275
+  %.0.i198 = phi ptr [ %276, %275 ], [ @.str.11, %272 ], [ @.str.11, %269 ]
+  %.not143 = icmp eq ptr %.0.i, null
+  br i1 %.not143, label %conversation_get_filter_name.exit201, label %277
+
+conversation_get_filter_name.exit199.thread:      ; preds = %267
+  %.not143303 = icmp eq ptr %.0.i, null
+  br i1 %.not143303, label %conversation_get_filter_name.exit201, label %.thread306
+
+.thread306:                                       ; preds = %conversation_get_filter_name.exit199.thread
+  br label %conversation_get_filter_name.exit201
+
+277:                                              ; preds = %conversation_get_filter_name.exit199
+  %278 = load ptr, ptr %0, align 8
+  %279 = icmp eq ptr %278, null
+  br i1 %279, label %conversation_get_filter_name.exit201, label %280
+
+280:                                              ; preds = %277
+  %281 = load ptr, ptr %278, align 8
+  %282 = icmp eq ptr %281, null
+  br i1 %282, label %conversation_get_filter_name.exit201, label %283
+
+283:                                              ; preds = %280
+  %284 = tail call ptr %281(ptr noundef nonnull %0, i32 noundef 4)
+  br label %conversation_get_filter_name.exit201
+
+conversation_get_filter_name.exit201:             ; preds = %283, %280, %277, %.thread306, %conversation_get_filter_name.exit199.thread, %conversation_get_filter_name.exit199
+  %285 = phi ptr [ @.str.1, %conversation_get_filter_name.exit199 ], [ @.str.1, %conversation_get_filter_name.exit199.thread ], [ @.str.8, %283 ], [ @.str.8, %280 ], [ @.str.8, %277 ], [ @.str.8, %.thread306 ]
+  %.0.i198305 = phi ptr [ %.0.i198, %conversation_get_filter_name.exit199 ], [ @.str.11, %conversation_get_filter_name.exit199.thread ], [ %.0.i198, %283 ], [ %.0.i198, %280 ], [ %.0.i198, %277 ], [ @.str.11, %.thread306 ]
+  %286 = phi ptr [ @.str.1, %conversation_get_filter_name.exit199 ], [ @.str.1, %conversation_get_filter_name.exit199.thread ], [ %.0.i, %283 ], [ %.0.i, %280 ], [ %.0.i, %277 ], [ %.0.i, %.thread306 ]
+  %287 = phi ptr [ @.str.1, %conversation_get_filter_name.exit199 ], [ @.str.1, %conversation_get_filter_name.exit199.thread ], [ @.str.9, %283 ], [ @.str.9, %280 ], [ @.str.9, %277 ], [ @.str.9, %.thread306 ]
+  %288 = phi ptr [ @.str.1, %conversation_get_filter_name.exit199 ], [ @.str.1, %conversation_get_filter_name.exit199.thread ], [ %284, %283 ], [ @.str.11, %280 ], [ @.str.11, %277 ], [ @.str.11, %.thread306 ]
+  %289 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef %.0.i198305, ptr noundef %.0216, ptr noundef nonnull %285, ptr noundef %288, ptr noundef nonnull %287, ptr noundef nonnull %286)
+  br label %361
+
+290:                                              ; preds = %.thread
+  %291 = icmp eq ptr %0, null
+  br i1 %291, label %conversation_get_filter_name.exit203.thread, label %292
+
+292:                                              ; preds = %290
+  %293 = load ptr, ptr %0, align 8
+  %294 = icmp eq ptr %293, null
+  br i1 %294, label %conversation_get_filter_name.exit203, label %295
+
+295:                                              ; preds = %292
+  %296 = load ptr, ptr %293, align 8
+  %297 = icmp eq ptr %296, null
+  br i1 %297, label %conversation_get_filter_name.exit203, label %298
+
+298:                                              ; preds = %295
+  %299 = tail call ptr %296(ptr noundef nonnull %0, i32 noundef 2)
+  br label %conversation_get_filter_name.exit203
+
+conversation_get_filter_name.exit203:             ; preds = %292, %295, %298
+  %.0.i202 = phi ptr [ %299, %298 ], [ @.str.11, %295 ], [ @.str.11, %292 ]
+  %.not142 = icmp eq ptr %.0.i157, null
+  br i1 %.not142, label %conversation_get_filter_name.exit205, label %300
+
+conversation_get_filter_name.exit203.thread:      ; preds = %290
+  %.not142310 = icmp eq ptr %.0.i157, null
+  br i1 %.not142310, label %conversation_get_filter_name.exit205, label %.thread313
+
+.thread313:                                       ; preds = %conversation_get_filter_name.exit203.thread
+  br label %conversation_get_filter_name.exit205
+
+300:                                              ; preds = %conversation_get_filter_name.exit203
+  %301 = load ptr, ptr %0, align 8
+  %302 = icmp eq ptr %301, null
+  br i1 %302, label %conversation_get_filter_name.exit205, label %303
+
+303:                                              ; preds = %300
+  %304 = load ptr, ptr %301, align 8
+  %305 = icmp eq ptr %304, null
+  br i1 %305, label %conversation_get_filter_name.exit205, label %306
+
+306:                                              ; preds = %303
+  %307 = tail call ptr %304(ptr noundef nonnull %0, i32 noundef 5)
+  br label %conversation_get_filter_name.exit205
+
+conversation_get_filter_name.exit205:             ; preds = %306, %303, %300, %.thread313, %conversation_get_filter_name.exit203.thread, %conversation_get_filter_name.exit203
+  %308 = phi ptr [ @.str.1, %conversation_get_filter_name.exit203 ], [ @.str.1, %conversation_get_filter_name.exit203.thread ], [ @.str.8, %306 ], [ @.str.8, %303 ], [ @.str.8, %300 ], [ @.str.8, %.thread313 ]
+  %.0.i202312 = phi ptr [ %.0.i202, %conversation_get_filter_name.exit203 ], [ @.str.11, %conversation_get_filter_name.exit203.thread ], [ %.0.i202, %306 ], [ %.0.i202, %303 ], [ %.0.i202, %300 ], [ @.str.11, %.thread313 ]
+  %309 = phi ptr [ @.str.1, %conversation_get_filter_name.exit203 ], [ @.str.1, %conversation_get_filter_name.exit203.thread ], [ %.0.i157, %306 ], [ %.0.i157, %303 ], [ %.0.i157, %300 ], [ %.0.i157, %.thread313 ]
+  %310 = phi ptr [ @.str.1, %conversation_get_filter_name.exit203 ], [ @.str.1, %conversation_get_filter_name.exit203.thread ], [ @.str.9, %306 ], [ @.str.9, %303 ], [ @.str.9, %300 ], [ @.str.9, %.thread313 ]
+  %311 = phi ptr [ @.str.1, %conversation_get_filter_name.exit203 ], [ @.str.1, %conversation_get_filter_name.exit203.thread ], [ %307, %306 ], [ @.str.11, %303 ], [ @.str.11, %300 ], [ @.str.11, %.thread313 ]
+  %312 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef %.0.i202312, ptr noundef %.0137, ptr noundef nonnull %308, ptr noundef %311, ptr noundef nonnull %310, ptr noundef nonnull %309)
+  br label %361
+
+313:                                              ; preds = %.thread
+  %314 = icmp eq ptr %0, null
+  br i1 %314, label %conversation_get_filter_name.exit207.thread, label %315
+
+315:                                              ; preds = %313
+  %316 = load ptr, ptr %0, align 8
+  %317 = icmp eq ptr %316, null
+  br i1 %317, label %conversation_get_filter_name.exit207, label %318
+
+318:                                              ; preds = %315
+  %319 = load ptr, ptr %316, align 8
+  %320 = icmp eq ptr %319, null
+  br i1 %320, label %conversation_get_filter_name.exit207, label %321
+
+321:                                              ; preds = %318
+  %322 = tail call ptr %319(ptr noundef nonnull %0, i32 noundef 0)
+  br label %conversation_get_filter_name.exit207
+
+conversation_get_filter_name.exit207:             ; preds = %315, %318, %321
+  %.0.i206 = phi ptr [ %322, %321 ], [ @.str.11, %318 ], [ @.str.11, %315 ]
+  %.not141 = icmp eq ptr %.0.i157, null
+  br i1 %.not141, label %conversation_get_filter_name.exit209, label %323
+
+conversation_get_filter_name.exit207.thread:      ; preds = %313
+  %.not141317 = icmp eq ptr %.0.i157, null
+  br i1 %.not141317, label %conversation_get_filter_name.exit209, label %.thread320
+
+.thread320:                                       ; preds = %conversation_get_filter_name.exit207.thread
+  br label %conversation_get_filter_name.exit209
+
+323:                                              ; preds = %conversation_get_filter_name.exit207
+  %324 = load ptr, ptr %0, align 8
+  %325 = icmp eq ptr %324, null
+  br i1 %325, label %conversation_get_filter_name.exit209, label %326
+
+326:                                              ; preds = %323
+  %327 = load ptr, ptr %324, align 8
+  %328 = icmp eq ptr %327, null
+  br i1 %328, label %conversation_get_filter_name.exit209, label %329
+
+329:                                              ; preds = %326
+  %330 = tail call ptr %327(ptr noundef nonnull %0, i32 noundef 3)
+  br label %conversation_get_filter_name.exit209
+
+conversation_get_filter_name.exit209:             ; preds = %329, %326, %323, %.thread320, %conversation_get_filter_name.exit207.thread, %conversation_get_filter_name.exit207
+  %331 = phi ptr [ @.str.1, %conversation_get_filter_name.exit207 ], [ @.str.1, %conversation_get_filter_name.exit207.thread ], [ @.str.8, %329 ], [ @.str.8, %326 ], [ @.str.8, %323 ], [ @.str.8, %.thread320 ]
+  %.0.i206319 = phi ptr [ %.0.i206, %conversation_get_filter_name.exit207 ], [ @.str.11, %conversation_get_filter_name.exit207.thread ], [ %.0.i206, %329 ], [ %.0.i206, %326 ], [ %.0.i206, %323 ], [ @.str.11, %.thread320 ]
+  %332 = phi ptr [ @.str.1, %conversation_get_filter_name.exit207 ], [ @.str.1, %conversation_get_filter_name.exit207.thread ], [ %.0.i157, %329 ], [ %.0.i157, %326 ], [ %.0.i157, %323 ], [ %.0.i157, %.thread320 ]
+  %333 = phi ptr [ @.str.1, %conversation_get_filter_name.exit207 ], [ @.str.1, %conversation_get_filter_name.exit207.thread ], [ @.str.9, %329 ], [ @.str.9, %326 ], [ @.str.9, %323 ], [ @.str.9, %.thread320 ]
+  %334 = phi ptr [ @.str.1, %conversation_get_filter_name.exit207 ], [ @.str.1, %conversation_get_filter_name.exit207.thread ], [ %330, %329 ], [ @.str.11, %326 ], [ @.str.11, %323 ], [ @.str.11, %.thread320 ]
+  %335 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef %.0.i206319, ptr noundef %.0137, ptr noundef nonnull %331, ptr noundef %334, ptr noundef nonnull %333, ptr noundef nonnull %332)
+  br label %361
+
+336:                                              ; preds = %.thread
+  %337 = icmp eq ptr %0, null
+  br i1 %337, label %conversation_get_filter_name.exit211.thread, label %338
+
+338:                                              ; preds = %336
+  %339 = load ptr, ptr %0, align 8
+  %340 = icmp eq ptr %339, null
+  br i1 %340, label %conversation_get_filter_name.exit211, label %341
+
+341:                                              ; preds = %338
+  %342 = load ptr, ptr %339, align 8
+  %343 = icmp eq ptr %342, null
+  br i1 %343, label %conversation_get_filter_name.exit211, label %344
+
+344:                                              ; preds = %341
+  %345 = tail call ptr %342(ptr noundef nonnull %0, i32 noundef 1)
+  br label %conversation_get_filter_name.exit211
+
+conversation_get_filter_name.exit211:             ; preds = %338, %341, %344
+  %.0.i210 = phi ptr [ %345, %344 ], [ @.str.11, %341 ], [ @.str.11, %338 ]
+  %.not = icmp eq ptr %.0.i157, null
+  br i1 %.not, label %conversation_get_filter_name.exit213, label %346
+
+conversation_get_filter_name.exit211.thread:      ; preds = %336
+  %.not324 = icmp eq ptr %.0.i157, null
+  br i1 %.not324, label %conversation_get_filter_name.exit213, label %.thread327
+
+.thread327:                                       ; preds = %conversation_get_filter_name.exit211.thread
+  br label %conversation_get_filter_name.exit213
+
+346:                                              ; preds = %conversation_get_filter_name.exit211
+  %347 = load ptr, ptr %0, align 8
+  %348 = icmp eq ptr %347, null
+  br i1 %348, label %conversation_get_filter_name.exit213, label %349
+
+349:                                              ; preds = %346
+  %350 = load ptr, ptr %347, align 8
+  %351 = icmp eq ptr %350, null
+  br i1 %351, label %conversation_get_filter_name.exit213, label %352
+
+352:                                              ; preds = %349
+  %353 = tail call ptr %350(ptr noundef nonnull %0, i32 noundef 4)
+  br label %conversation_get_filter_name.exit213
+
+conversation_get_filter_name.exit213:             ; preds = %352, %349, %346, %.thread327, %conversation_get_filter_name.exit211.thread, %conversation_get_filter_name.exit211
+  %354 = phi ptr [ @.str.1, %conversation_get_filter_name.exit211 ], [ @.str.1, %conversation_get_filter_name.exit211.thread ], [ @.str.8, %352 ], [ @.str.8, %349 ], [ @.str.8, %346 ], [ @.str.8, %.thread327 ]
+  %.0.i210326 = phi ptr [ %.0.i210, %conversation_get_filter_name.exit211 ], [ @.str.11, %conversation_get_filter_name.exit211.thread ], [ %.0.i210, %352 ], [ %.0.i210, %349 ], [ %.0.i210, %346 ], [ @.str.11, %.thread327 ]
+  %355 = phi ptr [ @.str.1, %conversation_get_filter_name.exit211 ], [ @.str.1, %conversation_get_filter_name.exit211.thread ], [ %.0.i157, %352 ], [ %.0.i157, %349 ], [ %.0.i157, %346 ], [ %.0.i157, %.thread327 ]
+  %356 = phi ptr [ @.str.1, %conversation_get_filter_name.exit211 ], [ @.str.1, %conversation_get_filter_name.exit211.thread ], [ @.str.9, %352 ], [ @.str.9, %349 ], [ @.str.9, %346 ], [ @.str.9, %.thread327 ]
+  %357 = phi ptr [ @.str.1, %conversation_get_filter_name.exit211 ], [ @.str.1, %conversation_get_filter_name.exit211.thread ], [ %353, %352 ], [ @.str.11, %349 ], [ @.str.11, %346 ], [ @.str.11, %.thread327 ]
+  %358 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef %.0.i210326, ptr noundef %.0137, ptr noundef nonnull %354, ptr noundef %357, ptr noundef nonnull %356, ptr noundef nonnull %355)
+  br label %361
+
+359:                                              ; preds = %.thread
+  %360 = tail call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef nonnull @.str.11)
+  br label %361
+
+361:                                              ; preds = %conversation_get_filter_name.exit165, %conversation_get_filter_name.exit173, %359, %conversation_get_filter_name.exit213, %conversation_get_filter_name.exit209, %conversation_get_filter_name.exit205, %conversation_get_filter_name.exit201, %conversation_get_filter_name.exit197, %conversation_get_filter_name.exit193, %conversation_get_filter_name.exit189, %conversation_get_filter_name.exit181
+  %.0138 = phi ptr [ %360, %359 ], [ %358, %conversation_get_filter_name.exit213 ], [ %335, %conversation_get_filter_name.exit209 ], [ %312, %conversation_get_filter_name.exit205 ], [ %289, %conversation_get_filter_name.exit201 ], [ %266, %conversation_get_filter_name.exit197 ], [ %243, %conversation_get_filter_name.exit193 ], [ %220, %conversation_get_filter_name.exit189 ], [ %175, %conversation_get_filter_name.exit181 ], [ %86, %conversation_get_filter_name.exit165 ], [ %130, %conversation_get_filter_name.exit173 ]
+  tail call void @g_free(ptr noundef %.0.i)
+  tail call void @g_free(ptr noundef %.0.i157)
+  tail call void @wmem_free(ptr noundef null, ptr noundef %.0216)
+  tail call void @wmem_free(ptr noundef null, ptr noundef %.0137)
+  ret ptr %.0138
 }
 
-declare i32 @address_type_get_by_name(ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @address_type_get_by_name(ptr noundef) local_unnamed_addr #3
 
-declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
-declare void @g_free(ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare void @g_free(ptr noundef) #3
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @get_endpoint_filter(ptr noundef %0) local_unnamed_addr #1 {
   %2 = load i32, ptr @usb_address_type, align 4
   %3 = icmp eq i32 %2, -1
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @address_type_get_by_name(ptr noundef nonnull @.str.5) #10
+  %5 = tail call i32 @address_type_get_by_name(ptr noundef nonnull @.str.5)
   store i32 %5, ptr @usb_address_type, align 4
   br label %6
 
@@ -1354,13 +1701,13 @@ define ptr @get_endpoint_filter(ptr noundef %0) local_unnamed_addr #1 {
 9:                                                ; preds = %6, %6, %6, %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %11 = load i32, ptr %10, align 4
-  %12 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef %11) #10
+  %12 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef %11)
   br label %13
 
 13:                                               ; preds = %6, %9
   %.0 = phi ptr [ %12, %9 ], [ null, %6 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = tail call ptr @address_to_str(ptr noundef null, ptr noundef nonnull %14) #10
+  %15 = tail call ptr @address_to_str(ptr noundef null, ptr noundef nonnull %14)
   %16 = load i32, ptr %14, align 8
   %17 = icmp eq i32 %16, 7
   %18 = load i32, ptr @usb_address_type, align 4
@@ -1369,384 +1716,414 @@ define ptr @get_endpoint_filter(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %or.cond, label %20, label %22
 
 20:                                               ; preds = %13
-  %21 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, ptr noundef %15) #10
-  tail call void @wmem_free(ptr noundef null, ptr noundef %15) #10
+  %21 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, ptr noundef %15)
+  tail call void @wmem_free(ptr noundef null, ptr noundef %15)
   br label %22
 
-22:                                               ; preds = %20, %13
+22:                                               ; preds = %13, %20
   %.019 = phi ptr [ %21, %20 ], [ %15, %13 ]
-  %23 = load ptr, ptr %0, align 8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %endpoint_get_filter_name.exit, label %25
+  %23 = icmp eq ptr %0, null
+  br i1 %23, label %endpoint_get_filter_name.exit.thread, label %24
 
-25:                                               ; preds = %22
-  %26 = load ptr, ptr %23, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %endpoint_get_filter_name.exit, label %28
+24:                                               ; preds = %22
+  %25 = load ptr, ptr %0, align 8
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %endpoint_get_filter_name.exit, label %27
 
-28:                                               ; preds = %25
-  %29 = tail call ptr %26(ptr noundef nonnull %0, i32 noundef 2) #10
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %25, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %endpoint_get_filter_name.exit, label %30
+
+30:                                               ; preds = %27
+  %31 = tail call ptr %28(ptr noundef nonnull %0, i32 noundef 2)
   br label %endpoint_get_filter_name.exit
 
-endpoint_get_filter_name.exit:                    ; preds = %22, %25, %28
-  %.0.i = phi ptr [ %29, %28 ], [ @.str.11, %25 ], [ @.str.11, %22 ]
+endpoint_get_filter_name.exit:                    ; preds = %24, %27, %30
+  %.0.i = phi ptr [ %31, %30 ], [ @.str.11, %27 ], [ @.str.11, %24 ]
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %endpoint_get_filter_name.exit23, label %30
+  br i1 %.not, label %endpoint_get_filter_name.exit23, label %32
 
-30:                                               ; preds = %endpoint_get_filter_name.exit
-  %31 = load ptr, ptr %0, align 8
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %endpoint_get_filter_name.exit23, label %33
+endpoint_get_filter_name.exit.thread:             ; preds = %22
+  %.not25 = icmp eq ptr %.0, null
+  br i1 %.not25, label %endpoint_get_filter_name.exit23, label %.thread
 
-33:                                               ; preds = %30
-  %34 = load ptr, ptr %31, align 8
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %endpoint_get_filter_name.exit23, label %36
-
-36:                                               ; preds = %33
-  %37 = tail call ptr %34(ptr noundef nonnull %0, i32 noundef 5) #10
+.thread:                                          ; preds = %endpoint_get_filter_name.exit.thread
   br label %endpoint_get_filter_name.exit23
 
-endpoint_get_filter_name.exit23:                  ; preds = %36, %33, %30, %endpoint_get_filter_name.exit
-  %38 = phi ptr [ @.str.1, %endpoint_get_filter_name.exit ], [ %.0, %30 ], [ %.0, %33 ], [ %.0, %36 ]
-  %39 = phi ptr [ @.str.1, %endpoint_get_filter_name.exit ], [ @.str.9, %30 ], [ @.str.9, %33 ], [ @.str.9, %36 ]
-  %40 = phi ptr [ @.str.1, %endpoint_get_filter_name.exit ], [ @.str.8, %30 ], [ @.str.8, %33 ], [ @.str.8, %36 ]
-  %41 = phi ptr [ @.str.1, %endpoint_get_filter_name.exit ], [ @.str.11, %30 ], [ @.str.11, %33 ], [ %37, %36 ]
-  %42 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef %.0.i, ptr noundef %.019, ptr noundef nonnull %40, ptr noundef %41, ptr noundef nonnull %39, ptr noundef nonnull %38) #10
-  tail call void @g_free(ptr noundef %.0) #10
-  tail call void @wmem_free(ptr noundef null, ptr noundef %.019) #10
-  ret ptr %42
+32:                                               ; preds = %endpoint_get_filter_name.exit
+  %33 = load ptr, ptr %0, align 8
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %endpoint_get_filter_name.exit23, label %35
+
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %33, align 8
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %endpoint_get_filter_name.exit23, label %38
+
+38:                                               ; preds = %35
+  %39 = tail call ptr %36(ptr noundef nonnull %0, i32 noundef 5)
+  br label %endpoint_get_filter_name.exit23
+
+endpoint_get_filter_name.exit23:                  ; preds = %38, %35, %32, %.thread, %endpoint_get_filter_name.exit.thread, %endpoint_get_filter_name.exit
+  %.0.i27 = phi ptr [ %.0.i, %endpoint_get_filter_name.exit ], [ @.str.11, %endpoint_get_filter_name.exit.thread ], [ %.0.i, %38 ], [ %.0.i, %35 ], [ %.0.i, %32 ], [ @.str.11, %.thread ]
+  %40 = phi ptr [ @.str.1, %endpoint_get_filter_name.exit ], [ @.str.1, %endpoint_get_filter_name.exit.thread ], [ %.0, %38 ], [ %.0, %35 ], [ %.0, %32 ], [ %.0, %.thread ]
+  %41 = phi ptr [ @.str.1, %endpoint_get_filter_name.exit ], [ @.str.1, %endpoint_get_filter_name.exit.thread ], [ @.str.9, %38 ], [ @.str.9, %35 ], [ @.str.9, %32 ], [ @.str.9, %.thread ]
+  %42 = phi ptr [ @.str.1, %endpoint_get_filter_name.exit ], [ @.str.1, %endpoint_get_filter_name.exit.thread ], [ @.str.8, %38 ], [ @.str.8, %35 ], [ @.str.8, %32 ], [ @.str.8, %.thread ]
+  %43 = phi ptr [ @.str.1, %endpoint_get_filter_name.exit ], [ @.str.1, %endpoint_get_filter_name.exit.thread ], [ %39, %38 ], [ @.str.11, %35 ], [ @.str.11, %32 ], [ @.str.11, %.thread ]
+  %44 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef %.0.i27, ptr noundef %.019, ptr noundef nonnull %42, ptr noundef %43, ptr noundef nonnull %41, ptr noundef nonnull %40)
+  tail call void @g_free(ptr noundef %.0)
+  tail call void @wmem_free(ptr noundef null, ptr noundef %.019)
+  ret ptr %44
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @get_hostlist_filter(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @get_endpoint_filter(ptr noundef %0)
   ret ptr %2
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @add_conversation_table_data(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef readonly captures(none) %8, ptr noundef %9, i32 noundef %10) local_unnamed_addr #1 {
-  tail call void @add_conversation_table_data_with_conv_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10)
+  %12 = tail call ptr @add_conversation_table_data_with_conv_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define void @add_conversation_table_data_with_conv_id(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef readonly captures(none) %9, ptr noundef %10, i32 noundef %11) local_unnamed_addr #1 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define ptr @add_conversation_table_data_with_conv_id(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef readonly captures(none) %9, ptr noundef %10, i32 noundef %11) local_unnamed_addr #1 {
   %13 = alloca %struct._conversation_key_t, align 8
   %14 = alloca ptr, align 8
   %15 = alloca %struct._conversation_item_t, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %22
+  br i1 %18, label %.thread116, label %21
 
-19:                                               ; preds = %12
-  %20 = tail call ptr @g_array_sized_new(i32 noundef 0, i32 noundef 0, i32 noundef 192, i32 noundef 10000) #10
-  store ptr %20, ptr %16, align 8
-  %21 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @conversation_hash, ptr noundef nonnull @conversation_equal, ptr noundef nonnull @g_free, ptr noundef null) #10
-  store ptr %21, ptr %0, align 8
-  br label %.thread102
+.thread116:                                       ; preds = %12
+  %19 = tail call ptr @g_array_sized_new(i32 noundef 0, i32 noundef 0, i32 noundef 200, i32 noundef 10000)
+  store ptr %19, ptr %16, align 8
+  %20 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @conversation_hash, ptr noundef nonnull @conversation_equal, ptr noundef nonnull @g_free, ptr noundef null)
+  store ptr %20, ptr %0, align 8
+  br label %45
 
-22:                                               ; preds = %12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %23 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %24 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  store i32 %3, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %13, i64 52
-  store i32 %4, ptr %25, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  store i32 %5, ptr %26, align 8
-  %27 = load ptr, ptr %0, align 8
-  %28 = call i32 @g_hash_table_lookup_extended(ptr noundef %27, ptr noundef nonnull %13, ptr noundef null, ptr noundef nonnull %14) #10
-  %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %.thread, label %29
+21:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef align 8 dereferenceable(24) %1, i64 24, i1 false)
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef align 8 dereferenceable(24) %2, i64 24, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  store i32 %3, ptr %23, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 52
+  store i32 %4, ptr %24, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  store i32 %5, ptr %25, align 8
+  %26 = load ptr, ptr %0, align 8
+  %27 = call i32 @g_hash_table_lookup_extended(ptr noundef %26, ptr noundef nonnull %13, ptr noundef null, ptr noundef nonnull %14)
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %.thread, label %28
 
-29:                                               ; preds = %22
-  %30 = load ptr, ptr %16, align 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr %14, align 8
-  %33 = ptrtoint ptr %32 to i64
-  %34 = and i64 %33, 4294967295
-  %35 = getelementptr %struct._conversation_item_t, ptr %31, i64 %34
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %.thread, label %.thread117
+28:                                               ; preds = %21
+  %29 = load ptr, ptr %16, align 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = load ptr, ptr %14, align 8
+  %32 = ptrtoint ptr %31 to i64
+  %33 = and i64 %32, 4294967295
+  %34 = getelementptr %struct._conversation_item_t, ptr %30, i64 %33
+  %.not136 = icmp eq ptr %34, null
+  br i1 %.not136, label %.thread, label %141
 
-.thread:                                          ; preds = %22, %29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  store i32 %4, ptr %24, align 8
-  store i32 %3, ptr %25, align 4
-  %37 = load ptr, ptr %0, align 8
-  %38 = call i32 @g_hash_table_lookup_extended(ptr noundef %37, ptr noundef nonnull %13, ptr noundef null, ptr noundef nonnull %14) #10
-  %.not94 = icmp eq i32 %38, 0
-  br i1 %.not94, label %.thread102, label %39
+.thread:                                          ; preds = %21, %28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef align 8 dereferenceable(24) %2, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef align 8 dereferenceable(24) %1, i64 24, i1 false)
+  store i32 %4, ptr %23, align 8
+  store i32 %3, ptr %24, align 4
+  %35 = load ptr, ptr %0, align 8
+  %36 = call i32 @g_hash_table_lookup_extended(ptr noundef %35, ptr noundef nonnull %13, ptr noundef null, ptr noundef nonnull %14)
+  %.not109 = icmp eq i32 %36, 0
+  br i1 %.not109, label %.thread119, label %37
 
-39:                                               ; preds = %.thread
-  %40 = load ptr, ptr %16, align 8
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %14, align 8
-  %43 = ptrtoint ptr %42 to i64
-  %44 = and i64 %43, 4294967295
-  %45 = getelementptr %struct._conversation_item_t, ptr %41, i64 %44
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %.thread102, label %141
+.thread119:                                       ; preds = %.thread
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #15
+  br label %45
 
-.thread102:                                       ; preds = %.thread, %19, %39
-  %47 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %48 = load i32, ptr %1, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %52 = load ptr, ptr %51, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false)
-  store i32 %48, ptr %47, align 8
-  %53 = icmp eq i32 %50, 0
-  br i1 %53, label %copy_address.exit, label %54
+37:                                               ; preds = %.thread
+  %38 = load ptr, ptr %16, align 8
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %14, align 8
+  %41 = ptrtoint ptr %40 to i64
+  %42 = and i64 %41, 4294967295
+  %43 = getelementptr %struct._conversation_item_t, ptr %39, i64 %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #15
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %45, label %.thread128
 
-54:                                               ; preds = %.thread102
-  %55 = sext i32 %50 to i64
-  %56 = call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %52, i64 noundef %55) #10
-  %57 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr %56, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr %56, ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  store i32 %50, ptr %59, align 4
+45:                                               ; preds = %.thread119, %.thread116, %37
+  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %15) #15
+  %46 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %47 = load i32, ptr %1, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %49 = load i32, ptr %48, align 4
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %51 = load ptr, ptr %50, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false)
+  store i32 %47, ptr %46, align 8
+  %52 = icmp eq i32 %49, 0
+  br i1 %52, label %copy_address.exit, label %53
+
+53:                                               ; preds = %45
+  %54 = sext i32 %49 to i64
+  %55 = call ptr @wmem_memdup(ptr noundef null, ptr noundef %51, i64 noundef %54) #16
+  %56 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  store ptr %55, ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store ptr %55, ptr %57, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  store i32 %49, ptr %58, align 4
   br label %copy_address.exit
 
-copy_address.exit:                                ; preds = %.thread102, %54
-  %60 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %61 = load i32, ptr %2, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %65 = load ptr, ptr %64, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, i8 0, i64 24, i1 false)
-  store i32 %61, ptr %60, align 8
-  %66 = icmp eq i32 %63, 0
-  br i1 %66, label %copy_address.exit100, label %67
+copy_address.exit:                                ; preds = %45, %53
+  %59 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %60 = load i32, ptr %2, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %62 = load i32, ptr %61, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %64 = load ptr, ptr %63, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false)
+  store i32 %60, ptr %59, align 8
+  %65 = icmp eq i32 %62, 0
+  br i1 %65, label %copy_address.exit114, label %66
 
-67:                                               ; preds = %copy_address.exit
-  %68 = sext i32 %63 to i64
-  %69 = call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %65, i64 noundef %68) #10
-  %70 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  store ptr %69, ptr %70, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  store ptr %69, ptr %71, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %15, i64 36
-  store i32 %63, ptr %72, align 4
-  br label %copy_address.exit100
+66:                                               ; preds = %copy_address.exit
+  %67 = sext i32 %62 to i64
+  %68 = call ptr @wmem_memdup(ptr noundef null, ptr noundef %64, i64 noundef %67) #16
+  %69 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  store ptr %68, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  store ptr %68, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %15, i64 36
+  store i32 %62, ptr %71, align 4
+  br label %copy_address.exit114
 
-copy_address.exit100:                             ; preds = %copy_address.exit, %67
+copy_address.exit114:                             ; preds = %copy_address.exit, %66
   store ptr %10, ptr %15, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  store i32 %11, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %15, i64 60
-  store i32 %3, ptr %74, align 4
-  %75 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  store i32 %4, ptr %75, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %15, i64 68
-  store i32 %5, ptr %76, align 4
-  %77 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  %.not97 = icmp eq ptr %8, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %77, i8 0, i64 64, i1 false)
-  br i1 %.not97, label %82, label %78
+  %72 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  store i32 %11, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %15, i64 60
+  store i32 %3, ptr %73, align 4
+  %74 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  store i32 %4, ptr %74, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %15, i64 68
+  store i32 %5, ptr %75, align 4
+  %76 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  %.not111 = icmp eq ptr %8, null
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %76, i8 0, i64 64, i1 false)
+  br i1 %.not111, label %81, label %77
 
-78:                                               ; preds = %copy_address.exit100
-  %79 = getelementptr inbounds nuw i8, ptr %15, i64 136
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  %80 = getelementptr inbounds nuw i8, ptr %15, i64 152
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  %81 = getelementptr inbounds nuw i8, ptr %15, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  br label %86
+77:                                               ; preds = %copy_address.exit114
+  %78 = getelementptr inbounds nuw i8, ptr %15, i64 136
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull align 1 dereferenceable(16) %8, i64 noundef 16, i1 noundef false) #15
+  %79 = getelementptr inbounds nuw i8, ptr %15, i64 152
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 1 dereferenceable(16) %8, i64 noundef 16, i1 noundef false) #15
+  %80 = getelementptr inbounds nuw i8, ptr %15, i64 168
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef align 1 dereferenceable(16) %9, i64 noundef 16, i1 noundef false) #15
+  br label %85
 
-82:                                               ; preds = %copy_address.exit100
-  %83 = getelementptr inbounds nuw i8, ptr %15, i64 168
-  call void @nstime_set_unset(ptr noundef nonnull %83) #10
-  %84 = getelementptr inbounds nuw i8, ptr %15, i64 136
-  call void @nstime_set_unset(ptr noundef nonnull %84) #10
-  %85 = getelementptr inbounds nuw i8, ptr %15, i64 152
-  call void @nstime_set_unset(ptr noundef nonnull %85) #10
-  br label %86
+81:                                               ; preds = %copy_address.exit114
+  %82 = getelementptr inbounds nuw i8, ptr %15, i64 168
+  call void @nstime_set_unset(ptr noundef nonnull %82)
+  %83 = getelementptr inbounds nuw i8, ptr %15, i64 136
+  call void @nstime_set_unset(ptr noundef nonnull %83)
+  %84 = getelementptr inbounds nuw i8, ptr %15, i64 152
+  call void @nstime_set_unset(ptr noundef nonnull %84)
+  br label %85
 
-86:                                               ; preds = %82, %78
-  %87 = load ptr, ptr %16, align 8
-  %88 = call ptr @g_array_append_vals(ptr noundef %87, ptr noundef nonnull %15, i32 noundef 1) #10
-  %89 = load ptr, ptr %16, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %91 = load i32, ptr %90, align 8
-  %92 = add i32 %91, -1
-  %93 = load ptr, ptr %89, align 8
-  %94 = zext i32 %92 to i64
-  %95 = getelementptr %struct._conversation_item_t, ptr %93, i64 %94
-  %96 = call noalias dereferenceable_or_null(64) ptr @g_malloc_n(i64 noundef 1, i64 noundef 64) #12
-  %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %98 = load i32, ptr %97, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %95, i64 12
-  %100 = load i32, ptr %99, align 4
-  %101 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  %102 = load ptr, ptr %101, align 8
-  store i32 %98, ptr %96, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %96, i64 4
-  store i32 %100, ptr %103, align 4
-  %104 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store ptr %102, ptr %104, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  store ptr null, ptr %105, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %96, i64 24
-  %107 = getelementptr inbounds nuw i8, ptr %95, i64 32
-  %108 = load i32, ptr %107, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %95, i64 36
-  %110 = load i32, ptr %109, align 4
-  %111 = getelementptr inbounds nuw i8, ptr %95, i64 40
-  %112 = load ptr, ptr %111, align 8
-  store i32 %108, ptr %106, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %96, i64 28
-  store i32 %110, ptr %113, align 4
-  %114 = getelementptr inbounds nuw i8, ptr %96, i64 32
-  store ptr %112, ptr %114, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %96, i64 40
-  store ptr null, ptr %115, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %96, i64 48
-  store i32 %3, ptr %116, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %96, i64 52
-  store i32 %4, ptr %117, align 4
-  %118 = getelementptr inbounds nuw i8, ptr %96, i64 56
-  store i32 %5, ptr %118, align 8
-  %119 = load ptr, ptr %0, align 8
-  %120 = inttoptr i64 %94 to ptr
-  %121 = call i32 @g_hash_table_insert(ptr noundef %119, ptr noundef nonnull %96, ptr noundef %120) #10
-  %122 = sext i32 %6 to i64
-  %123 = getelementptr inbounds nuw i8, ptr %95, i64 112
-  %124 = load i64, ptr %123, align 8
-  %125 = add i64 %124, %122
-  store i64 %125, ptr %123, align 8
-  %126 = sext i32 %7 to i64
-  %127 = getelementptr inbounds nuw i8, ptr %95, i64 128
-  %128 = load i64, ptr %127, align 8
-  %129 = add i64 %128, %126
-  store i64 %129, ptr %127, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %95, i64 184
-  store i32 1, ptr %130, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %132 = load i32, ptr %131, align 8
-  %133 = and i32 %132, 1048576
-  %.not98 = icmp eq i32 %133, 0
-  br i1 %.not98, label %134, label %180
+85:                                               ; preds = %81, %77
+  %86 = load ptr, ptr %16, align 8
+  %87 = call ptr @g_array_append_vals(ptr noundef %86, ptr noundef nonnull %15, i32 noundef 1)
+  %88 = load ptr, ptr %16, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %90 = load i32, ptr %89, align 8
+  %91 = add i32 %90, -1
+  %92 = load ptr, ptr %88, align 8
+  %93 = zext i32 %91 to i64
+  %94 = getelementptr %struct._conversation_item_t, ptr %92, i64 %93
+  %95 = call noalias dereferenceable_or_null(64) ptr @g_malloc(i64 noundef 64) #17
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  %97 = load i32, ptr %96, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %94, i64 12
+  %99 = load i32, ptr %98, align 4
+  %100 = getelementptr inbounds nuw i8, ptr %94, i64 16
+  %101 = load ptr, ptr %100, align 8
+  store i32 %97, ptr %95, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %95, i64 4
+  store i32 %99, ptr %102, align 4
+  %103 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  store ptr %101, ptr %103, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %95, i64 16
+  store ptr null, ptr %104, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %95, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %94, i64 32
+  %107 = load i32, ptr %106, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %94, i64 36
+  %109 = load i32, ptr %108, align 4
+  %110 = getelementptr inbounds nuw i8, ptr %94, i64 40
+  %111 = load ptr, ptr %110, align 8
+  store i32 %107, ptr %105, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %95, i64 28
+  store i32 %109, ptr %112, align 4
+  %113 = getelementptr inbounds nuw i8, ptr %95, i64 32
+  store ptr %111, ptr %113, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %95, i64 40
+  store ptr null, ptr %114, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %95, i64 48
+  store i32 %3, ptr %115, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %95, i64 52
+  store i32 %4, ptr %116, align 4
+  %117 = getelementptr inbounds nuw i8, ptr %95, i64 56
+  store i32 %5, ptr %117, align 8
+  %118 = load ptr, ptr %0, align 8
+  %119 = inttoptr i64 %93 to ptr
+  %120 = call i32 @g_hash_table_insert(ptr noundef %118, ptr noundef %95, ptr noundef %119)
+  %121 = sext i32 %6 to i64
+  %122 = getelementptr inbounds nuw i8, ptr %94, i64 112
+  %123 = load i64, ptr %122, align 8
+  %124 = add i64 %123, %121
+  store i64 %124, ptr %122, align 8
+  %125 = sext i32 %7 to i64
+  %126 = getelementptr inbounds nuw i8, ptr %94, i64 128
+  %127 = load i64, ptr %126, align 8
+  %128 = add i64 %127, %125
+  store i64 %128, ptr %126, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %94, i64 184
+  store i8 1, ptr %129, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %131 = load i32, ptr %130, align 8
+  %132 = and i32 %131, 1048576
+  %.not112 = icmp eq i32 %132, 0
+  br i1 %.not112, label %133, label %140
 
-134:                                              ; preds = %86
-  %135 = getelementptr inbounds nuw i8, ptr %95, i64 80
-  %136 = load i64, ptr %135, align 8
-  %137 = add i64 %136, %122
-  store i64 %137, ptr %135, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %95, i64 96
-  %139 = load i64, ptr %138, align 8
-  %140 = add i64 %139, %126
-  store i64 %140, ptr %138, align 8
-  store i32 0, ptr %130, align 8
+133:                                              ; preds = %85
+  %134 = getelementptr inbounds nuw i8, ptr %94, i64 80
+  %135 = load i64, ptr %134, align 8
+  %136 = add i64 %135, %121
+  store i64 %136, ptr %134, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %94, i64 96
+  %138 = load i64, ptr %137, align 8
+  %139 = add i64 %138, %125
+  store i64 %139, ptr %137, align 8
+  store i8 0, ptr %129, align 8
+  br label %140
+
+140:                                              ; preds = %133, %85
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15) #15
   br label %180
 
-141:                                              ; preds = %39
+141:                                              ; preds = %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #15
   %142 = sext i32 %6 to i64
-  %143 = getelementptr inbounds nuw i8, ptr %45, i64 104
+  %143 = getelementptr inbounds nuw i8, ptr %34, i64 112
   %144 = load i64, ptr %143, align 8
   %145 = add i64 %144, %142
   store i64 %145, ptr %143, align 8
   %146 = sext i32 %7 to i64
-  %147 = getelementptr inbounds nuw i8, ptr %45, i64 120
+  %147 = getelementptr inbounds nuw i8, ptr %34, i64 128
   %148 = load i64, ptr %147, align 8
   %149 = add i64 %148, %146
   store i64 %149, ptr %147, align 8
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %151 = load i32, ptr %150, align 8
   %152 = and i32 %151, 1048576
-  %.not96 = icmp eq i32 %152, 0
-  br i1 %.not96, label %171, label %180
+  %.not110 = icmp eq i32 %152, 0
+  br i1 %.not110, label %164, label %180
 
-.thread117:                                       ; preds = %29
+.thread128:                                       ; preds = %37
   %153 = sext i32 %6 to i64
-  %154 = getelementptr inbounds nuw i8, ptr %35, i64 112
+  %154 = getelementptr inbounds nuw i8, ptr %43, i64 104
   %155 = load i64, ptr %154, align 8
   %156 = add i64 %155, %153
   store i64 %156, ptr %154, align 8
   %157 = sext i32 %7 to i64
-  %158 = getelementptr inbounds nuw i8, ptr %35, i64 128
+  %158 = getelementptr inbounds nuw i8, ptr %43, i64 120
   %159 = load i64, ptr %158, align 8
   %160 = add i64 %159, %157
   store i64 %160, ptr %158, align 8
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %162 = load i32, ptr %161, align 8
   %163 = and i32 %162, 1048576
-  %.not96120 = icmp eq i32 %163, 0
-  br i1 %.not96120, label %164, label %180
+  %.not110130 = icmp eq i32 %163, 0
+  br i1 %.not110130, label %171, label %180
 
-164:                                              ; preds = %.thread117
-  %165 = getelementptr inbounds nuw i8, ptr %35, i64 80
+164:                                              ; preds = %141
+  %165 = getelementptr inbounds nuw i8, ptr %34, i64 80
   %166 = load i64, ptr %165, align 8
-  %167 = add i64 %166, %153
+  %167 = add i64 %166, %142
   store i64 %167, ptr %165, align 8
-  %168 = getelementptr inbounds nuw i8, ptr %35, i64 96
+  %168 = getelementptr inbounds nuw i8, ptr %34, i64 96
   %169 = load i64, ptr %168, align 8
-  %170 = add i64 %169, %157
+  %170 = add i64 %169, %146
   store i64 %170, ptr %168, align 8
   br label %178
 
-171:                                              ; preds = %141
-  %172 = getelementptr inbounds nuw i8, ptr %45, i64 72
+171:                                              ; preds = %.thread128
+  %172 = getelementptr inbounds nuw i8, ptr %43, i64 72
   %173 = load i64, ptr %172, align 8
-  %174 = add i64 %173, %142
+  %174 = add i64 %173, %153
   store i64 %174, ptr %172, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %45, i64 88
+  %175 = getelementptr inbounds nuw i8, ptr %43, i64 88
   %176 = load i64, ptr %175, align 8
-  %177 = add i64 %176, %146
+  %177 = add i64 %176, %157
   store i64 %177, ptr %175, align 8
   br label %178
 
 178:                                              ; preds = %171, %164
-  %.0109113122127 = phi ptr [ %45, %171 ], [ %35, %164 ]
-  %179 = getelementptr inbounds nuw i8, ptr %.0109113122127, i64 184
-  store i32 0, ptr %179, align 8
+  %.2123126131134 = phi ptr [ %43, %171 ], [ %34, %164 ]
+  %179 = getelementptr inbounds nuw i8, ptr %.2123126131134, i64 184
+  store i8 0, ptr %179, align 8
   br label %180
 
-180:                                              ; preds = %.thread117, %141, %178, %86, %134
-  %.2 = phi ptr [ %95, %86 ], [ %95, %134 ], [ %45, %141 ], [ %.0109113122127, %178 ], [ %35, %.thread117 ]
-  %.not99 = icmp eq ptr %8, null
-  br i1 %.not99, label %192, label %181
+180:                                              ; preds = %.thread128, %141, %178, %140
+  %.3 = phi ptr [ %94, %140 ], [ %34, %141 ], [ %.2123126131134, %178 ], [ %43, %.thread128 ]
+  %.not113 = icmp eq ptr %8, null
+  br i1 %.not113, label %192, label %181
 
 181:                                              ; preds = %180
-  %182 = getelementptr inbounds nuw i8, ptr %.2, i64 152
-  %183 = call i32 @nstime_cmp(ptr noundef nonnull %8, ptr noundef nonnull %182) #10
+  %182 = getelementptr inbounds nuw i8, ptr %.3, i64 152
+  %183 = call i32 @nstime_cmp(ptr noundef nonnull %8, ptr noundef nonnull %182)
   %184 = icmp sgt i32 %183, 0
   br i1 %184, label %185, label %186
 
 185:                                              ; preds = %181
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %182, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %182, ptr noundef nonnull align 1 dereferenceable(16) %8, i64 noundef 16, i1 noundef false) #15
   br label %192
 
 186:                                              ; preds = %181
-  %187 = getelementptr inbounds nuw i8, ptr %.2, i64 136
-  %188 = call i32 @nstime_cmp(ptr noundef nonnull %8, ptr noundef nonnull %187) #10
+  %187 = getelementptr inbounds nuw i8, ptr %.3, i64 136
+  %188 = call i32 @nstime_cmp(ptr noundef nonnull %8, ptr noundef nonnull %187)
   %189 = icmp slt i32 %188, 0
   br i1 %189, label %190, label %192
 
 190:                                              ; preds = %186
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %187, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  %191 = getelementptr inbounds nuw i8, ptr %.2, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %191, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %187, ptr noundef nonnull align 1 dereferenceable(16) %8, i64 noundef 16, i1 noundef false) #15
+  %191 = getelementptr inbounds nuw i8, ptr %.3, i64 168
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %191, ptr noundef align 1 dereferenceable(16) %9, i64 noundef 16, i1 noundef false) #15
   br label %192
 
 192:                                              ; preds = %185, %190, %186, %180
-  ret void
+  ret ptr %.3
 }
 
-declare ptr @g_array_sized_new(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_array_sized_new(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @conversation_hash(ptr noundef readonly captures(none) %0) #4 {
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
+define internal i32 @conversation_hash(ptr noundef readonly captures(none) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1770,7 +2147,7 @@ define internal i32 @conversation_hash(ptr noundef readonly captures(none) %0) #
   %13 = xor i32 %12, %11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %add_address_to_hash.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %add_address_to_hash.exit, label %.lr.ph.i, !llvm.loop !11
 
 add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %1
   %.011.lcssa.i = phi i32 [ 0, %1 ], [ %13, %.lr.ph.i ]
@@ -1800,7 +2177,7 @@ add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %1
   %28 = xor i32 %27, %26
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i15, 1
   %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, %wide.trip.count.i13
-  br i1 %exitcond.not.i18, label %add_address_to_hash.exit19, label %.lr.ph.i14, !llvm.loop !7
+  br i1 %exitcond.not.i18, label %add_address_to_hash.exit19, label %.lr.ph.i14, !llvm.loop !11
 
 add_address_to_hash.exit19:                       ; preds = %.lr.ph.i14, %add_address_to_hash.exit
   %.011.lcssa.i11 = phi i32 [ %16, %add_address_to_hash.exit ], [ %28, %.lr.ph.i14 ]
@@ -1813,14 +2190,14 @@ add_address_to_hash.exit19:                       ; preds = %.lr.ph.i14, %add_ad
   ret i32 %34
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @conversation_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+define internal range(i32 0, 2) i32 @conversation_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %addresses_equal.exit28
+  br i1 %7, label %8, label %addresses_equal.exit25
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1884,7 +2261,7 @@ define internal range(i32 0, 2) i32 @conversation_equal(ptr noundef readonly cap
 
 51:                                               ; preds = %45
   %52 = icmp eq i32 %47, 0
-  br i1 %52, label %addresses_equal.exit28, label %53
+  br i1 %52, label %addresses_equal.exit25, label %53
 
 53:                                               ; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1892,26 +2269,26 @@ define internal range(i32 0, 2) i32 @conversation_equal(ptr noundef readonly cap
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %57 = load ptr, ptr %56, align 8
   %58 = sext i32 %47 to i64
-  %bcmp.i24 = tail call i32 @bcmp(ptr %55, ptr %57, i64 %58)
-  %59 = icmp eq i32 %bcmp.i24, 0
-  br i1 %59, label %addresses_equal.exit28, label %addresses_equal.exit
+  %bcmp.i21 = tail call i32 @bcmp(ptr %55, ptr %57, i64 %58)
+  %59 = icmp eq i32 %bcmp.i21, 0
+  br i1 %59, label %addresses_equal.exit25, label %addresses_equal.exit
 
 addresses_equal.exit:                             ; preds = %8, %53, %45, %39, %32, %24, %20, %16
   %60 = icmp eq i32 %15, %12
-  br i1 %60, label %61, label %addresses_equal.exit28
+  br i1 %60, label %61, label %addresses_equal.exit25
 
 61:                                               ; preds = %addresses_equal.exit
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %63 = load i32, ptr %62, align 4
   %64 = icmp eq i32 %10, %63
-  br i1 %64, label %65, label %addresses_equal.exit28
+  br i1 %64, label %65, label %addresses_equal.exit25
 
 65:                                               ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %67 = load i32, ptr %66, align 8
   %68 = load i32, ptr %1, align 8
   %69 = icmp eq i32 %67, %68
-  br i1 %69, label %70, label %addresses_equal.exit28
+  br i1 %69, label %70, label %addresses_equal.exit25
 
 70:                                               ; preds = %65
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1919,7 +2296,7 @@ addresses_equal.exit:                             ; preds = %8, %53, %45, %39, %
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %74 = load i32, ptr %73, align 4
   %75 = icmp eq i32 %72, %74
-  br i1 %75, label %76, label %addresses_equal.exit28
+  br i1 %75, label %76, label %addresses_equal.exit25
 
 76:                                               ; preds = %70
   %77 = icmp eq i32 %72, 0
@@ -1931,16 +2308,16 @@ addresses_equal.exit:                             ; preds = %8, %53, %45, %39, %
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %82 = load ptr, ptr %81, align 8
   %83 = sext i32 %72 to i64
-  %bcmp.i27 = tail call i32 @bcmp(ptr %80, ptr %82, i64 %83)
-  %84 = icmp eq i32 %bcmp.i27, 0
-  br i1 %84, label %85, label %addresses_equal.exit28
+  %bcmp.i24 = tail call i32 @bcmp(ptr %80, ptr %82, i64 %83)
+  %84 = icmp eq i32 %bcmp.i24, 0
+  br i1 %84, label %85, label %addresses_equal.exit25
 
 85:                                               ; preds = %78, %76
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %87 = load i32, ptr %0, align 8
   %88 = load i32, ptr %86, align 8
   %89 = icmp eq i32 %87, %88
-  br i1 %89, label %90, label %addresses_equal.exit28
+  br i1 %89, label %90, label %addresses_equal.exit25
 
 90:                                               ; preds = %85
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1948,11 +2325,11 @@ addresses_equal.exit:                             ; preds = %8, %53, %45, %39, %
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %94 = load i32, ptr %93, align 4
   %95 = icmp eq i32 %92, %94
-  br i1 %95, label %96, label %addresses_equal.exit28
+  br i1 %95, label %96, label %addresses_equal.exit25
 
 96:                                               ; preds = %90
   %97 = icmp eq i32 %92, 0
-  br i1 %97, label %addresses_equal.exit31.thread, label %98
+  br i1 %97, label %addresses_equal.exit28.thread, label %98
 
 98:                                               ; preds = %96
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1960,82 +2337,197 @@ addresses_equal.exit:                             ; preds = %8, %53, %45, %39, %
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %102 = load ptr, ptr %101, align 8
   %103 = sext i32 %92 to i64
-  %bcmp.i30 = tail call i32 @bcmp(ptr %100, ptr %102, i64 %103)
-  %104 = icmp eq i32 %bcmp.i30, 0
-  br i1 %104, label %addresses_equal.exit31.thread, label %addresses_equal.exit28
+  %bcmp.i27 = tail call i32 @bcmp(ptr %100, ptr %102, i64 %103)
+  %104 = icmp eq i32 %bcmp.i27, 0
+  br i1 %104, label %addresses_equal.exit28.thread, label %addresses_equal.exit25
 
-addresses_equal.exit31.thread:                    ; preds = %98, %96
-  br label %addresses_equal.exit28
+addresses_equal.exit28.thread:                    ; preds = %98, %96
+  br label %addresses_equal.exit25
 
-addresses_equal.exit28:                           ; preds = %51, %53, %2, %61, %addresses_equal.exit, %65, %70, %78, %85, %90, %98, %addresses_equal.exit31.thread
-  %.0 = phi i32 [ 1, %addresses_equal.exit31.thread ], [ 0, %98 ], [ 0, %90 ], [ 0, %85 ], [ 0, %78 ], [ 0, %70 ], [ 0, %65 ], [ 0, %addresses_equal.exit ], [ 0, %61 ], [ 0, %2 ], [ 1, %53 ], [ 1, %51 ]
+addresses_equal.exit25:                           ; preds = %51, %53, %2, %61, %addresses_equal.exit, %65, %70, %78, %85, %90, %98, %addresses_equal.exit28.thread
+  %.0 = phi i32 [ 1, %addresses_equal.exit28.thread ], [ 0, %98 ], [ 0, %90 ], [ 0, %85 ], [ 0, %78 ], [ 0, %70 ], [ 0, %65 ], [ 0, %addresses_equal.exit ], [ 0, %61 ], [ 0, %2 ], [ 1, %53 ], [ 1, %51 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
-declare i32 @g_hash_table_lookup_extended(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_hash_table_lookup_extended(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @nstime_set_unset(ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @nstime_set_unset(ptr noundef) local_unnamed_addr #3
 
-declare ptr @g_array_append_vals(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_array_append_vals(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #7
+; Function Attrs: null_pointer_is_valid allocsize(0)
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #9
 
-declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @nstime_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @nstime_cmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
-define void @add_endpoint_table_data(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #1 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define void @add_conversation_table_data_extended(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef readonly captures(none) %9, ptr noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef readonly captures(none) %13) local_unnamed_addr #1 {
+  %15 = tail call ptr @add_conversation_table_data_with_conv_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, i32 noundef %11)
+  %16 = tail call ptr @find_conversation(i32 noundef %12, ptr noundef %1, ptr noundef %2, i32 noundef %11, i32 noundef %3, i32 noundef %4, i32 noundef 0)
+  %.not = icmp eq ptr %16, null
+  br i1 %.not, label %20, label %17
+
+17:                                               ; preds = %14
+  %18 = tail call i32 %13(ptr noundef nonnull %16)
+  %19 = sext i32 %18 to i64
+  br label %20
+
+20:                                               ; preds = %14, %17
+  %storemerge = phi i64 [ %19, %17 ], [ 0, %14 ]
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 192
+  store i64 %storemerge, ptr %21, align 1
+  ret void
+}
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_conversation(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define void @add_conversation_table_data_ipv4_subnet(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef readonly captures(none) %9, ptr noundef %10, i32 noundef %11) local_unnamed_addr #1 {
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = load i32, ptr %16, align 1
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = load i32, ptr %19, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  %21 = tail call ptr @new_ipv4(i32 noundef %17)
+  store volatile ptr %21, ptr %13, align 8
+  %.0..0..0..0.11 = load volatile ptr, ptr %13, align 8
+  %22 = tail call zeroext i1 @fill_dummy_ip4(i32 noundef %17, ptr noundef %.0..0..0..0.11)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  %23 = tail call ptr @new_ipv4(i32 noundef %20)
+  store volatile ptr %23, ptr %14, align 8
+  %.0..0..0..0.8 = load volatile ptr, ptr %14, align 8
+  %24 = tail call zeroext i1 @fill_dummy_ip4(i32 noundef %20, ptr noundef %.0..0..0..0.8)
+  %25 = tail call ptr @wmem_epan_scope()
+  %26 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %25, i64 noundef 24) #14
+  %.0..0..0..0.12 = load volatile ptr, ptr %13, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 277
+  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #13
+  %29 = trunc i64 %28 to i32
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  store i32 %29, ptr %30, align 4
+  %31 = tail call ptr @wmem_file_scope()
+  %.0..0..0..0.13 = load volatile ptr, ptr %13, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 277
+  %33 = tail call noalias ptr @wmem_strdup(ptr noundef %31, ptr noundef nonnull %32)
+  %34 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store ptr %33, ptr %34, align 8
+  store i32 7, ptr %26, align 8
+  %35 = tail call ptr @wmem_epan_scope()
+  %36 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %35, i64 noundef 24) #14
+  %.0..0..0..0.9 = load volatile ptr, ptr %14, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.9, i64 277
+  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #13
+  %39 = trunc i64 %38 to i32
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  store i32 %39, ptr %40, align 4
+  %41 = tail call ptr @wmem_file_scope()
+  %.0..0..0..0.10 = load volatile ptr, ptr %14, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.10, i64 277
+  %43 = tail call noalias ptr @wmem_strdup(ptr noundef %41, ptr noundef nonnull %42)
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store ptr %43, ptr %44, align 8
+  store i32 7, ptr %36, align 8
+  %45 = tail call ptr @add_conversation_table_data_with_conv_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, i32 noundef %11)
+  %brmerge = select i1 %22, i1 true, i1 %24
+  br i1 %brmerge, label %46, label %49
+
+46:                                               ; preds = %12
+  %.mux45 = select i1 %22, ptr %26, ptr %1
+  %47 = select i1 %24, ptr %36, ptr %2
+  %48 = tail call ptr @add_conversation_table_data_with_conv_id(ptr noundef %0, ptr noundef %.mux45, ptr noundef %47, i32 noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, i32 noundef %11)
+  br label %49
+
+49:                                               ; preds = %12, %46
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  ret void
+}
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @new_ipv4(i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @fill_dummy_ip4(i32 noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_file_scope() local_unnamed_addr #3
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define void @add_endpoint_table_data(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #1 {
   %9 = alloca %struct.endpoint_key_t, align 8
   %10 = alloca ptr, align 8
   %11 = alloca %struct._endpoint_item_t, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %18
+  br i1 %14, label %.thread, label %17
 
-15:                                               ; preds = %8
-  %16 = tail call ptr @g_array_sized_new(i32 noundef 0, i32 noundef 0, i32 noundef 112, i32 noundef 10000) #10
-  store ptr %16, ptr %12, align 8
-  %17 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @endpoint_hash, ptr noundef nonnull @endpoint_match, ptr noundef nonnull @g_free, ptr noundef null) #10
-  store ptr %17, ptr %0, align 8
-  br label %.thread
+.thread:                                          ; preds = %8
+  %15 = tail call ptr @g_array_sized_new(i32 noundef 0, i32 noundef 0, i32 noundef 112, i32 noundef 10000)
+  store ptr %15, ptr %12, align 8
+  %16 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @endpoint_hash, ptr noundef nonnull @endpoint_match, ptr noundef nonnull @g_free, ptr noundef null)
+  store ptr %16, ptr %0, align 8
+  br label %37
 
-18:                                               ; preds = %8
-  %19 = load i32, ptr %1, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %23 = load ptr, ptr %22, align 8
-  store i32 %19, ptr %9, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %21, ptr %24, align 4
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %23, ptr %25, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i32 %2, ptr %27, align 8
-  %28 = load ptr, ptr %0, align 8
-  %29 = call i32 @g_hash_table_lookup_extended(ptr noundef %28, ptr noundef nonnull %9, ptr noundef null, ptr noundef nonnull %10) #10
-  %.not = icmp eq i32 %29, 0
-  br i1 %.not, label %.thread, label %30
+17:                                               ; preds = %8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
+  %18 = load i32, ptr %1, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %20 = load i32, ptr %19, align 4
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %22 = load ptr, ptr %21, align 8
+  store i32 %18, ptr %9, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 %20, ptr %23, align 4
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %22, ptr %24, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr null, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store i32 %2, ptr %26, align 8
+  %27 = load ptr, ptr %0, align 8
+  %28 = call i32 @g_hash_table_lookup_extended(ptr noundef %27, ptr noundef nonnull %9, ptr noundef null, ptr noundef nonnull %10)
+  %.not = icmp eq i32 %28, 0
+  br i1 %.not, label %.thread60, label %29
 
-30:                                               ; preds = %18
-  %31 = load ptr, ptr %12, align 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %10, align 8
-  %34 = ptrtoint ptr %33 to i64
-  %35 = and i64 %34, 4294967295
-  %36 = getelementptr %struct._endpoint_item_t, ptr %32, i64 %35
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %.thread, label %79
+.thread60:                                        ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #15
+  br label %37
 
-.thread:                                          ; preds = %18, %15, %30
+29:                                               ; preds = %17
+  %30 = load ptr, ptr %12, align 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr %10, align 8
+  %33 = ptrtoint ptr %32 to i64
+  %34 = and i64 %33, 4294967295
+  %35 = getelementptr %struct._endpoint_item_t, ptr %31, i64 %34
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #15
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %79
+
+37:                                               ; preds = %.thread60, %.thread, %29
+  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %11) #15
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %39 = load i32, ptr %1, align 8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2047,9 +2539,9 @@ define void @add_endpoint_table_data(ptr noundef captures(none) %0, ptr noundef 
   %44 = icmp eq i32 %41, 0
   br i1 %44, label %copy_address.exit, label %45
 
-45:                                               ; preds = %.thread
+45:                                               ; preds = %37
   %46 = sext i32 %41 to i64
-  %47 = call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %43, i64 noundef %46) #10
+  %47 = call ptr @wmem_memdup(ptr noundef null, ptr noundef %43, i64 noundef %46) #16
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %47, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -2058,7 +2550,7 @@ define void @add_endpoint_table_data(ptr noundef captures(none) %0, ptr noundef 
   store i32 %41, ptr %50, align 4
   br label %copy_address.exit
 
-copy_address.exit:                                ; preds = %.thread, %45
+copy_address.exit:                                ; preds = %37, %45
   store ptr %6, ptr %11, align 8
   %51 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i32 %7, ptr %51, align 8
@@ -2067,11 +2559,11 @@ copy_address.exit:                                ; preds = %.thread, %45
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %54 = getelementptr inbounds nuw i8, ptr %11, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %53, i8 0, i64 64, i1 false)
-  store i32 1, ptr %54, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %11, i64 108
-  store i32 1, ptr %55, align 4
+  store i8 1, ptr %54, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %11, i64 105
+  store i8 1, ptr %55, align 1
   %56 = load ptr, ptr %12, align 8
-  %57 = call ptr @g_array_append_vals(ptr noundef %56, ptr noundef nonnull %11, i32 noundef 1) #10
+  %57 = call ptr @g_array_append_vals(ptr noundef %56, ptr noundef nonnull %11, i32 noundef 1)
   %58 = load ptr, ptr %12, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i32, ptr %59, align 8
@@ -2079,7 +2571,7 @@ copy_address.exit:                                ; preds = %.thread, %45
   %62 = load ptr, ptr %58, align 8
   %63 = zext i32 %61 to i64
   %64 = getelementptr %struct._endpoint_item_t, ptr %62, i64 %63
-  %65 = call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #12
+  %65 = call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #17
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %67 = load i32, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 12
@@ -2097,56 +2589,55 @@ copy_address.exit:                                ; preds = %.thread, %45
   store i32 %2, ptr %75, align 8
   %76 = load ptr, ptr %0, align 8
   %77 = inttoptr i64 %63 to ptr
-  %78 = call i32 @g_hash_table_insert(ptr noundef %76, ptr noundef nonnull %65, ptr noundef %77) #10
+  %78 = call i32 @g_hash_table_insert(ptr noundef %76, ptr noundef %65, ptr noundef %77)
+  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %11) #15
   br label %79
 
-79:                                               ; preds = %copy_address.exit, %30
-  %.1 = phi ptr [ %64, %copy_address.exit ], [ %36, %30 ]
-  %80 = getelementptr inbounds nuw i8, ptr %.1, i64 104
-  store i32 1, ptr %80, align 8
+79:                                               ; preds = %copy_address.exit, %29
+  %.2 = phi ptr [ %64, %copy_address.exit ], [ %35, %29 ]
+  %80 = getelementptr inbounds nuw i8, ptr %.2, i64 104
+  store i8 1, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load i32, ptr %81, align 8
   %83 = and i32 %82, 1048576
-  %.not45 = icmp eq i32 %83, 0
-  br i1 %.not45, label %84, label %94
+  %.not58 = icmp eq i32 %83, 0
+  br i1 %.not58, label %84, label %94
 
 84:                                               ; preds = %79
-  %.not46 = icmp eq i32 %3, 0
   %85 = sext i32 %4 to i64
   %86 = sext i32 %5 to i64
-  %. = select i1 %.not46, i64 40, i64 48
-  %.61 = select i1 %.not46, i64 56, i64 64
-  %87 = getelementptr inbounds nuw i8, ptr %.1, i64 %.
+  %. = select i1 %3, i64 48, i64 40
+  %.74 = select i1 %3, i64 64, i64 56
+  %87 = getelementptr inbounds nuw i8, ptr %.2, i64 %.
   %88 = load i64, ptr %87, align 8
   %89 = add i64 %88, %85
   store i64 %89, ptr %87, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %.1, i64 %.61
+  %90 = getelementptr inbounds nuw i8, ptr %.2, i64 %.74
   %91 = load i64, ptr %90, align 8
   %92 = add i64 %91, %86
   store i64 %92, ptr %90, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %.1, i64 108
-  store i32 0, ptr %93, align 4
+  %93 = getelementptr inbounds nuw i8, ptr %.2, i64 105
+  store i8 0, ptr %93, align 1
   br label %94
 
 94:                                               ; preds = %84, %79
-  %.not47 = icmp eq i32 %3, 0
   %95 = sext i32 %4 to i64
   %96 = sext i32 %5 to i64
-  %.62 = select i1 %.not47, i64 72, i64 80
-  %.63 = select i1 %.not47, i64 88, i64 96
-  %97 = getelementptr inbounds nuw i8, ptr %.1, i64 %.62
+  %.75 = select i1 %3, i64 80, i64 72
+  %.76 = select i1 %3, i64 96, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %.2, i64 %.75
   %98 = load i64, ptr %97, align 8
   %99 = add i64 %98, %95
   store i64 %99, ptr %97, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %.1, i64 %.63
+  %100 = getelementptr inbounds nuw i8, ptr %.2, i64 %.76
   %101 = load i64, ptr %100, align 8
   %102 = add i64 %101, %96
   store i64 %102, ptr %100, align 8
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @endpoint_hash(ptr noundef readonly captures(none) %0) #4 {
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
+define internal i32 @endpoint_hash(ptr noundef readonly captures(none) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2170,7 +2661,7 @@ define internal i32 @endpoint_hash(ptr noundef readonly captures(none) %0) #4 {
   %13 = xor i32 %12, %11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %add_address_to_hash.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %add_address_to_hash.exit, label %.lr.ph.i, !llvm.loop !11
 
 add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %1
   %.011.lcssa.i = phi i32 [ 0, %1 ], [ %13, %.lr.ph.i ]
@@ -2180,8 +2671,8 @@ add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %1
   ret i32 %16
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @endpoint_match(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+define internal range(i32 0, 2) i32 @endpoint_match(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2225,43 +2716,99 @@ addresses_equal.exit:                             ; preds = %2, %8, %12, %20, %a
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define void @add_hostlist_table_data(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #1 {
-  tail call void @add_endpoint_table_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7)
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define void @add_endpoint_table_data_ipv4_subnet(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #1 {
+  %9 = alloca ptr, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %11 = load ptr, ptr %10, align 8
+  %12 = load i32, ptr %11, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  %13 = tail call ptr @new_ipv4(i32 noundef %12)
+  store volatile ptr %13, ptr %9, align 8
+  %.0..0..0..0.4 = load volatile ptr, ptr %9, align 8
+  %14 = tail call zeroext i1 @fill_dummy_ip4(i32 noundef %12, ptr noundef %.0..0..0..0.4)
+  %15 = tail call ptr @wmem_epan_scope()
+  %16 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %15, i64 noundef 24) #14
+  %.0..0..0..0.5 = load volatile ptr, ptr %9, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.5, i64 277
+  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #13
+  %19 = trunc i64 %18 to i32
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  store i32 %19, ptr %20, align 4
+  %21 = tail call ptr @wmem_file_scope()
+  %.0..0..0..0.6 = load volatile ptr, ptr %9, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.6, i64 277
+  %23 = tail call noalias ptr @wmem_strdup(ptr noundef %21, ptr noundef nonnull %22)
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store ptr %23, ptr %24, align 8
+  store i32 7, ptr %16, align 8
+  br i1 %14, label %25, label %.sink.split
+
+25:                                               ; preds = %8
+  tail call void @add_endpoint_table_data(ptr noundef %0, ptr noundef %16, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7)
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %27 = load i32, ptr %26, align 8
+  %28 = and i32 %27, 512
+  %.not = icmp eq i32 %28, 0
+  br i1 %.not, label %29, label %.sink.split
+
+.sink.split:                                      ; preds = %8, %25
+  tail call void @add_endpoint_table_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7)
+  br label %29
+
+29:                                               ; preds = %.sink.split, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   ret void
 }
 
-declare void @register_stat_tap_ui(ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define void @add_hostlist_table_data(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #1 {
+  tail call void @add_endpoint_table_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7)
+  ret void
+}
 
-declare noalias ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @register_stat_tap_ui(ptr noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: null_pointer_is_valid allocsize(2)
+declare ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
-attributes #12 = { nounwind allocsize(0,1) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nounwind willreturn memory(read) }
+attributes #14 = { allocsize(1) }
+attributes #15 = { nounwind }
+attributes #16 = { allocsize(2) }
+attributes #17 = { allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

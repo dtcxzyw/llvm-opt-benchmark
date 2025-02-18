@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
 %struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
 
 @proto_register_epon.hf = internal global [9 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_epon_dpoe_security, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 4, i32 2, ptr null, i64 0, ptr @.str.2, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_epon_dpoe_reserved, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 4, i32 1, ptr null, i64 252, ptr @.str.5, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_epon_dpoe_encrypted, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 2, i32 8, ptr null, i64 2, ptr @.str.8, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_epon_dpoe_keyid, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 4, i32 2, ptr null, i64 1, ptr @.str.11, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_epon_dpoe_encrypted_data, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 30, i32 0, ptr null, i64 0, ptr @.str.14, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_epon_mode, %struct._header_field_info { ptr @.str.15, ptr @.str.16, i32 2, i32 16, ptr @epon_mode_tfs, i64 32768, ptr @.str.17, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_epon_llid, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 5, i32 4, ptr null, i64 32767, ptr @.str.20, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_epon_checksum, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 4, i32 2, ptr null, i64 0, ptr @.str.23, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_epon_checksum_status, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 4, i32 0, ptr @proto_checksum_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
@@ -53,7 +51,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_epon = internal global i32 0, align 4
 @ett_epon_sec = internal global i32 0, align 4
 @ett_epon_checksum = internal global i32 0, align 4
-@proto_register_epon.ei = internal global [5 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_epon_checksum_bad, %struct.expert_field_info { ptr @.str.26, i32 16777216, i32 8388608, ptr @.str.27, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_epon_sld_bad, %struct.expert_field_info { ptr @.str.28, i32 117440512, i32 8388608, ptr @.str.29, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_epon_dpoe_reserved_bad, %struct.expert_field_info { ptr @.str.30, i32 117440512, i32 8388608, ptr @.str.31, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_epon_dpoe_bad, %struct.expert_field_info { ptr @.str.32, i32 117440512, i32 8388608, ptr @.str.33, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_epon_dpoe_encrypted_data, %struct.expert_field_info { ptr @.str.30, i32 83886080, i32 4194304, ptr @.str.34, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_epon.ei = internal global [5 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_epon_checksum_bad, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.26, i32 16777216, i32 8388608, ptr @.str.27, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_epon_sld_bad, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.28, i32 117440512, i32 8388608, ptr @.str.29, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_epon_dpoe_reserved_bad, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.30, i32 117440512, i32 8388608, ptr @.str.31, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_epon_dpoe_bad, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.32, i32 117440512, i32 8388608, ptr @.str.33, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_epon_dpoe_encrypted_data, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.30, i32 83886080, i32 4194304, ptr @.str.34, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_epon_checksum_bad = internal global %struct.expert_field zeroinitializer, align 4
 @.str.26 = private unnamed_addr constant [25 x i8] c"epon.checksum_bad.expert\00", align 1
 @.str.27 = private unnamed_addr constant [13 x i8] c"Bad checksum\00", align 1
@@ -86,219 +84,246 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.47 = private unnamed_addr constant [36 x i8] c" [EPON PREAMBLE CHECKSUM INCORRECT]\00", align 1
 @.str.48 = private unnamed_addr constant [13 x i8] c" [ENCRYPTED]\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_epon() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37) #2
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37)
   store i32 %1, ptr @proto_epon, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_epon.hf, i32 noundef 9) #2
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_epon.ett, i32 noundef 3) #2
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_epon.hf, i32 noundef 9)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_epon.ett, i32 noundef 3)
   %2 = load i32, ptr @proto_epon, align 4
-  %3 = tail call ptr @expert_register_protocol(i32 noundef %2) #2
-  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_epon.ei, i32 noundef 5) #2
+  %3 = tail call ptr @expert_register_protocol(i32 noundef %2)
+  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_epon.ei, i32 noundef 5)
   %4 = load i32, ptr @proto_epon, align 4
-  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.37, ptr noundef nonnull @dissect_epon, i32 noundef %4) #2
+  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.37, ptr noundef nonnull @dissect_epon, i32 noundef %4)
   store ptr %5, ptr @epon_handle, align 8
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_epon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
-  %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
+  %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
   %6 = icmp eq i32 %5, 1431688533
   br i1 %6, label %17, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef 0) #2
+  %8 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef 0)
   %9 = icmp eq i32 %8, 5625173
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #2
+  %11 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0)
   %12 = icmp eq i16 %11, -10923
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %10
   %14 = load i32, ptr @proto_epon, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #2
-  %16 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %15, ptr noundef nonnull @ei_epon_sld_bad) #2
-  br label %81
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %16 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %15, ptr noundef nonnull @ei_epon_sld_bad)
+  br label %83
 
 17:                                               ; preds = %10, %7, %4
   %.082 = phi i32 [ 2, %4 ], [ 1, %7 ], [ 0, %10 ]
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
-  tail call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef nonnull @.str.36) #2
+  tail call void @col_set_str(ptr noundef %19, i32 noundef 35, ptr noundef nonnull @.str.36)
   %20 = load ptr, ptr %18, align 8
-  tail call void @col_set_str(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.42) #2
+  tail call void @col_set_str(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.42)
   %21 = load i32, ptr @proto_epon, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef %.082, i32 noundef 6, i32 noundef 0) #2
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef %.082, i32 noundef 6, i32 noundef 0)
   %23 = load i32, ptr @ett_epon, align 4
-  %24 = tail call ptr @proto_item_add_subtree(ptr noundef %22, i32 noundef %23) #2
+  %24 = tail call ptr @proto_item_add_subtree(ptr noundef %22, i32 noundef %23)
   %25 = add nuw nsw i32 %.082, 2
-  %26 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %25) #2
-  %.not = icmp eq i8 %26, 85
-  br i1 %.not, label %51, label %27
+  %26 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %25)
+  %.not84 = icmp eq i8 %26, 85
+  br i1 %.not84, label %53, label %27
 
 27:                                               ; preds = %17
   %28 = zext i8 %26 to i32
   %29 = load i32, ptr @hf_epon_dpoe_security, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %29, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0) #2
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %29, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0)
   %31 = load i32, ptr @ett_epon_sec, align 4
-  %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #2
+  %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31)
   %33 = and i32 %28, 252
   %34 = and i32 %28, 2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.43) #2
   %.not85 = icmp eq i32 %34, 0
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.43)
   br i1 %.not85, label %37, label %35
 
 35:                                               ; preds = %27
   %36 = and i32 %28, 1
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.44, i32 noundef %36) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.44, i32 noundef %36)
   br label %38
 
 37:                                               ; preds = %27
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.45) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.45)
   br label %38
 
 38:                                               ; preds = %37, %35
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.46) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.46)
   %.not86 = icmp eq i32 %33, 84
   br i1 %.not86, label %43, label %39
 
 39:                                               ; preds = %38
   %40 = load i32, ptr @hf_epon_dpoe_reserved, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %40, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0) #2
-  %42 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %32, ptr noundef nonnull @ei_epon_dpoe_reserved_bad) #2
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %40, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0)
+  %42 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %32, ptr noundef nonnull @ei_epon_dpoe_reserved_bad)
   br label %43
 
 43:                                               ; preds = %39, %38
   %44 = load i32, ptr @hf_epon_dpoe_encrypted, align 4
-  %45 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %44, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0) #2
+  %45 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %44, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0)
   %46 = load i32, ptr @hf_epon_dpoe_keyid, align 4
-  %47 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %46, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0) #2
+  %47 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %46, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0)
   %48 = and i32 %28, 3
   %or.cond = icmp eq i32 %48, 0
   br i1 %or.cond, label %49, label %51
 
 49:                                               ; preds = %43
-  %50 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %32, ptr noundef nonnull @ei_epon_dpoe_bad) #2
+  %50 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %32, ptr noundef nonnull @ei_epon_dpoe_bad)
   br label %51
 
-51:                                               ; preds = %43, %49, %17
-  %.081 = phi i32 [ 0, %49 ], [ %34, %43 ], [ 0, %17 ]
-  %52 = load i32, ptr @hf_epon_mode, align 4
-  %53 = add nuw nsw i32 %.082, 3
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %52, ptr noundef %0, i32 noundef %53, i32 noundef 2, i32 noundef 0) #2
-  %55 = load i32, ptr @hf_epon_llid, align 4
-  %56 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %55, ptr noundef %0, i32 noundef %53, i32 noundef 2, i32 noundef 0) #2
-  %57 = add nuw nsw i32 %.082, 5
-  %58 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %57) #2
-  %59 = trunc nuw nsw i32 %.082 to i8
-  %60 = tail call zeroext i8 @get_crc8_ieee8023_epon(ptr noundef %0, i8 noundef zeroext 5, i8 noundef zeroext %59) #2
-  %61 = zext i8 %60 to i32
-  %62 = load i32, ptr @hf_epon_checksum, align 4
-  %63 = load i32, ptr @hf_epon_checksum_status, align 4
-  %64 = tail call ptr @proto_tree_add_checksum(ptr noundef %24, ptr noundef %0, i32 noundef %57, i32 noundef %62, i32 noundef %63, ptr noundef nonnull @ei_epon_checksum_bad, ptr noundef nonnull %1, i32 noundef %61, i32 noundef 0, i32 noundef 1) #2
-  %.not87 = icmp eq i8 %58, %60
-  br i1 %.not87, label %67, label %65
+51:                                               ; preds = %49, %43
+  %52 = icmp ne i32 %34, 0
+  br label %53
 
-65:                                               ; preds = %51
-  %66 = load ptr, ptr %18, align 8
-  tail call void @col_append_str(ptr noundef %66, i32 noundef 25, ptr noundef nonnull @.str.47) #2
-  br label %67
+53:                                               ; preds = %51, %17
+  %.081 = phi i1 [ %52, %51 ], [ false, %17 ]
+  %54 = load i32, ptr @hf_epon_mode, align 4
+  %55 = add nuw nsw i32 %.082, 3
+  %56 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %54, ptr noundef %0, i32 noundef %55, i32 noundef 2, i32 noundef 0)
+  %57 = load i32, ptr @hf_epon_llid, align 4
+  %58 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %57, ptr noundef %0, i32 noundef %55, i32 noundef 2, i32 noundef 0)
+  %59 = add nuw nsw i32 %.082, 5
+  %60 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %59)
+  %61 = trunc nuw nsw i32 %.082 to i8
+  %62 = tail call zeroext i8 @get_crc8_ieee8023_epon(ptr noundef %0, i8 noundef zeroext 5, i8 noundef zeroext %61)
+  %63 = zext i8 %62 to i32
+  %64 = load i32, ptr @hf_epon_checksum, align 4
+  %65 = load i32, ptr @hf_epon_checksum_status, align 4
+  %66 = tail call ptr @proto_tree_add_checksum(ptr noundef %24, ptr noundef %0, i32 noundef %59, i32 noundef %64, i32 noundef %65, ptr noundef nonnull @ei_epon_checksum_bad, ptr noundef %1, i32 noundef %63, i32 noundef 0, i32 noundef 1)
+  %.not = icmp eq i8 %60, %62
+  br i1 %.not, label %69, label %67
 
-67:                                               ; preds = %65, %51
-  %.not88 = icmp eq i32 %.081, 0
-  br i1 %.not88, label %74, label %68
+67:                                               ; preds = %53
+  %68 = load ptr, ptr %18, align 8
+  tail call void @col_append_str(ptr noundef %68, i32 noundef 25, ptr noundef nonnull @.str.47)
+  br label %69
 
-68:                                               ; preds = %67
-  %69 = load i32, ptr @hf_epon_dpoe_encrypted_data, align 4
-  %70 = add nuw nsw i32 %.082, 6
-  %71 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %69, ptr noundef %0, i32 noundef %70, i32 noundef -1, i32 noundef 0) #2
-  %72 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %71, ptr noundef nonnull @ei_epon_dpoe_encrypted_data) #2
-  %73 = load ptr, ptr %18, align 8
-  tail call void @col_append_str(ptr noundef %73, i32 noundef 25, ptr noundef nonnull @.str.48) #2
-  br label %79
+69:                                               ; preds = %67, %53
+  br i1 %.081, label %70, label %76
 
-74:                                               ; preds = %67
-  %75 = add nuw nsw i32 %.082, 6
-  %76 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %75) #2
-  %77 = load ptr, ptr @eth_maybefcs_handle, align 8
-  %78 = tail call i32 @call_dissector(ptr noundef %77, ptr noundef %76, ptr noundef nonnull %1, ptr noundef %2) #2
-  br label %79
-
-79:                                               ; preds = %74, %68
-  %80 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+70:                                               ; preds = %69
+  %71 = load i32, ptr @hf_epon_dpoe_encrypted_data, align 4
+  %72 = add nuw nsw i32 %.082, 6
+  %73 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %71, ptr noundef %0, i32 noundef %72, i32 noundef -1, i32 noundef 0)
+  %74 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_epon_dpoe_encrypted_data)
+  %75 = load ptr, ptr %18, align 8
+  tail call void @col_append_str(ptr noundef %75, i32 noundef 25, ptr noundef nonnull @.str.48)
   br label %81
 
-81:                                               ; preds = %79, %13
-  %.0 = phi i32 [ %80, %79 ], [ 0, %13 ]
+76:                                               ; preds = %69
+  %77 = add nuw nsw i32 %.082, 6
+  %78 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %77)
+  %79 = load ptr, ptr @eth_maybefcs_handle, align 8
+  %80 = tail call i32 @call_dissector(ptr noundef %79, ptr noundef %78, ptr noundef %1, ptr noundef %2)
+  br label %81
+
+81:                                               ; preds = %76, %70
+  %82 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  br label %83
+
+83:                                               ; preds = %81, %13
+  %.0 = phi i32 [ %82, %81 ], [ 0, %13 ]
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_epon() local_unnamed_addr #0 {
   %1 = load ptr, ptr @epon_handle, align 8
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.38, i32 noundef 172, ptr noundef %1) #2
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.38, i32 noundef 172, ptr noundef %1)
   %2 = load i32, ptr @proto_epon, align 4
-  %3 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.39, i32 noundef %2) #2
+  %3 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.39, i32 noundef %2)
   store ptr %3, ptr @eth_maybefcs_handle, align 8
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i8 @get_crc8_ieee8023_epon(ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}

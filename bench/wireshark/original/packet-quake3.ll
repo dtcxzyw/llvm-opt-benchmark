@@ -3,8 +3,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -78,12 +77,11 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.39 = private unnamed_addr constant [44 x i8] c"Quake III Arena Master Server UDP Base Port\00", align 1
 @.str.40 = private unnamed_addr constant [60 x i8] c"Set the UDP base port for the Quake III Arena Master Server\00", align 1
 @gbl_quake3_master_port = internal global i32 27950, align 4
-@proto_reg_handoff_quake3.initialized = internal global i32 0, align 4
+@proto_reg_handoff_quake3.initialized = internal global i8 0, align 1
 @proto_reg_handoff_quake3.server_port = internal global i32 0, align 4
 @proto_reg_handoff_quake3.master_port = internal global i32 0, align 4
 @.str.41 = private unnamed_addr constant [9 x i8] c"udp.port\00", align 1
 @.str.42 = private unnamed_addr constant [14 x i8] c"Direction: %s\00", align 1
-@names_direction = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.48 }, %struct._value_string { i32 1, ptr @.str.49 }, %struct._value_string { i32 2, ptr @.str.50 }, %struct._value_string { i32 3, ptr @.str.51 }, %struct._value_string { i32 4, ptr @.str.52 }, %struct._value_string zeroinitializer], align 16
 @.str.43 = private unnamed_addr constant [3 x i8] c"%u\00", align 1
 @.str.44 = private unnamed_addr constant [16 x i8] c"Connectionless \00", align 1
 @.str.45 = private unnamed_addr constant [21 x i8] c"Type: Connectionless\00", align 1
@@ -94,53 +92,55 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.50 = private unnamed_addr constant [17 x i8] c"Server to Client\00", align 1
 @.str.51 = private unnamed_addr constant [17 x i8] c"Client to Master\00", align 1
 @.str.52 = private unnamed_addr constant [17 x i8] c"Master to Client\00", align 1
-@.str.53 = private unnamed_addr constant [15 x i8] c"statusResponse\00", align 1
-@.str.54 = private unnamed_addr constant [10 x i8] c"getstatus\00", align 1
-@.str.55 = private unnamed_addr constant [13 x i8] c"infoResponse\00", align 1
-@.str.56 = private unnamed_addr constant [8 x i8] c"getinfo\00", align 1
-@.str.57 = private unnamed_addr constant [18 x i8] c"challengeResponse\00", align 1
-@.str.58 = private unnamed_addr constant [13 x i8] c"getchallenge\00", align 1
-@.str.59 = private unnamed_addr constant [16 x i8] c"connectResponse\00", align 1
-@.str.60 = private unnamed_addr constant [8 x i8] c"connect\00", align 1
-@.str.61 = private unnamed_addr constant [13 x i8] c"rconResponse\00", align 1
-@.str.62 = private unnamed_addr constant [5 x i8] c"rcon\00", align 1
-@.str.63 = private unnamed_addr constant [16 x i8] c"getmotdResponse\00", align 1
-@.str.64 = private unnamed_addr constant [8 x i8] c"getmotd\00", align 1
-@.str.65 = private unnamed_addr constant [19 x i8] c"getserversResponse\00", align 1
-@.str.66 = private unnamed_addr constant [31 x i8] c"Text: getserversResponse<DATA>\00", align 1
-@names_command = internal constant [19 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.48 }, %struct._value_string { i32 1, ptr @.str.72 }, %struct._value_string { i32 2, ptr @.str.73 }, %struct._value_string { i32 3, ptr @.str.74 }, %struct._value_string { i32 4, ptr @.str.75 }, %struct._value_string { i32 5, ptr @.str.76 }, %struct._value_string { i32 6, ptr @.str.77 }, %struct._value_string { i32 7, ptr @.str.78 }, %struct._value_string { i32 8, ptr @.str.79 }, %struct._value_string { i32 9, ptr @.str.80 }, %struct._value_string { i32 10, ptr @.str.81 }, %struct._value_string { i32 11, ptr @.str.82 }, %struct._value_string { i32 12, ptr @.str.83 }, %struct._value_string { i32 13, ptr @.str.84 }, %struct._value_string { i32 14, ptr @.str.85 }, %struct._value_string { i32 15, ptr @.str.86 }, %struct._value_string { i32 16, ptr @.str.87 }, %struct._value_string { i32 17, ptr @.str.88 }, %struct._value_string zeroinitializer], align 16
-@.str.67 = private unnamed_addr constant [14 x i8] c"Server: %s:%u\00", align 1
-@.str.68 = private unnamed_addr constant [11 x i8] c"getservers\00", align 1
-@.str.69 = private unnamed_addr constant [16 x i8] c"getKeyAuthorize\00", align 1
-@.str.70 = private unnamed_addr constant [15 x i8] c"getIpAuthorize\00", align 1
-@.str.71 = private unnamed_addr constant [12 x i8] c"ipAuthorize\00", align 1
-@.str.72 = private unnamed_addr constant [13 x i8] c"Reply Status\00", align 1
-@.str.73 = private unnamed_addr constant [15 x i8] c"Request Status\00", align 1
-@.str.74 = private unnamed_addr constant [11 x i8] c"Reply Info\00", align 1
-@.str.75 = private unnamed_addr constant [13 x i8] c"Request Info\00", align 1
-@.str.76 = private unnamed_addr constant [16 x i8] c"Reply Challenge\00", align 1
-@.str.77 = private unnamed_addr constant [18 x i8] c"Request Challenge\00", align 1
-@.str.78 = private unnamed_addr constant [14 x i8] c"Reply Connect\00", align 1
-@.str.79 = private unnamed_addr constant [16 x i8] c"Request Connect\00", align 1
-@.str.80 = private unnamed_addr constant [21 x i8] c"Reply Remote Command\00", align 1
-@.str.81 = private unnamed_addr constant [23 x i8] c"Request Remote Command\00", align 1
-@.str.82 = private unnamed_addr constant [23 x i8] c"Reply Motto of the Day\00", align 1
-@.str.83 = private unnamed_addr constant [25 x i8] c"Request Motto of the Day\00", align 1
-@.str.84 = private unnamed_addr constant [14 x i8] c"Reply Servers\00", align 1
-@.str.85 = private unnamed_addr constant [16 x i8] c"Request Servers\00", align 1
-@.str.86 = private unnamed_addr constant [26 x i8] c"Request Key Authorization\00", align 1
-@.str.87 = private unnamed_addr constant [25 x i8] c"Request IP Authorization\00", align 1
-@.str.88 = private unnamed_addr constant [23 x i8] c"Reply IP Authorization\00", align 1
-@.str.89 = private unnamed_addr constant [26 x i8] c"Current Sequence: %u (%s)\00", align 1
-@names_reliable = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.93 }, %struct._value_string { i32 1, ptr @.str.22 }, %struct._value_string zeroinitializer], align 16
-@.str.90 = private unnamed_addr constant [30 x i8] c"Acknowledge Sequence: %u (%s)\00", align 1
-@.str.91 = private unnamed_addr constant [16 x i8] c"Client Commands\00", align 1
-@.str.92 = private unnamed_addr constant [16 x i8] c"Server Commands\00", align 1
-@.str.93 = private unnamed_addr constant [13 x i8] c"Non Reliable\00", align 1
+@names_direction = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.48 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.49 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.50 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.51 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.52 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.54 = private unnamed_addr constant [15 x i8] c"statusResponse\00", align 1
+@.str.55 = private unnamed_addr constant [10 x i8] c"getstatus\00", align 1
+@.str.56 = private unnamed_addr constant [13 x i8] c"infoResponse\00", align 1
+@.str.57 = private unnamed_addr constant [8 x i8] c"getinfo\00", align 1
+@.str.58 = private unnamed_addr constant [18 x i8] c"challengeResponse\00", align 1
+@.str.59 = private unnamed_addr constant [13 x i8] c"getchallenge\00", align 1
+@.str.60 = private unnamed_addr constant [16 x i8] c"connectResponse\00", align 1
+@.str.61 = private unnamed_addr constant [8 x i8] c"connect\00", align 1
+@.str.62 = private unnamed_addr constant [13 x i8] c"rconResponse\00", align 1
+@.str.63 = private unnamed_addr constant [5 x i8] c"rcon\00", align 1
+@.str.64 = private unnamed_addr constant [16 x i8] c"getmotdResponse\00", align 1
+@.str.65 = private unnamed_addr constant [8 x i8] c"getmotd\00", align 1
+@.str.66 = private unnamed_addr constant [19 x i8] c"getserversResponse\00", align 1
+@.str.67 = private unnamed_addr constant [31 x i8] c"Text: getserversResponse<DATA>\00", align 1
+@.str.68 = private unnamed_addr constant [14 x i8] c"Server: %s:%u\00", align 1
+@.str.69 = private unnamed_addr constant [11 x i8] c"getservers\00", align 1
+@.str.70 = private unnamed_addr constant [16 x i8] c"getKeyAuthorize\00", align 1
+@.str.71 = private unnamed_addr constant [15 x i8] c"getIpAuthorize\00", align 1
+@.str.72 = private unnamed_addr constant [12 x i8] c"ipAuthorize\00", align 1
+@.str.73 = private unnamed_addr constant [13 x i8] c"Reply Status\00", align 1
+@.str.74 = private unnamed_addr constant [15 x i8] c"Request Status\00", align 1
+@.str.75 = private unnamed_addr constant [11 x i8] c"Reply Info\00", align 1
+@.str.76 = private unnamed_addr constant [13 x i8] c"Request Info\00", align 1
+@.str.77 = private unnamed_addr constant [16 x i8] c"Reply Challenge\00", align 1
+@.str.78 = private unnamed_addr constant [18 x i8] c"Request Challenge\00", align 1
+@.str.79 = private unnamed_addr constant [14 x i8] c"Reply Connect\00", align 1
+@.str.80 = private unnamed_addr constant [16 x i8] c"Request Connect\00", align 1
+@.str.81 = private unnamed_addr constant [21 x i8] c"Reply Remote Command\00", align 1
+@.str.82 = private unnamed_addr constant [23 x i8] c"Request Remote Command\00", align 1
+@.str.83 = private unnamed_addr constant [23 x i8] c"Reply Motto of the Day\00", align 1
+@.str.84 = private unnamed_addr constant [25 x i8] c"Request Motto of the Day\00", align 1
+@.str.85 = private unnamed_addr constant [14 x i8] c"Reply Servers\00", align 1
+@.str.86 = private unnamed_addr constant [16 x i8] c"Request Servers\00", align 1
+@.str.87 = private unnamed_addr constant [26 x i8] c"Request Key Authorization\00", align 1
+@.str.88 = private unnamed_addr constant [25 x i8] c"Request IP Authorization\00", align 1
+@.str.89 = private unnamed_addr constant [23 x i8] c"Reply IP Authorization\00", align 1
+@names_command = internal constant [19 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.48 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.73 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.74 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.75 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.76 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.77 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.78 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.79 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.80 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.81 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.82 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.83 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.84 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.85 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.87 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.88 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.89 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.91 = private unnamed_addr constant [26 x i8] c"Current Sequence: %u (%s)\00", align 1
+@.str.92 = private unnamed_addr constant [30 x i8] c"Acknowledge Sequence: %u (%s)\00", align 1
+@.str.93 = private unnamed_addr constant [16 x i8] c"Client Commands\00", align 1
+@.str.94 = private unnamed_addr constant [16 x i8] c"Server Commands\00", align 1
+@.str.95 = private unnamed_addr constant [13 x i8] c"Non Reliable\00", align 1
+@names_reliable = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.95 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.22 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_quake3() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #4
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.32, ptr noundef @.str.33, ptr noundef @.str.34)
   store i32 %2, ptr @proto_quake3, align 4
   %3 = load i32, ptr @proto_quake3, align 4
@@ -156,18 +156,26 @@ define hidden void @proto_register_quake3() #0 {
   call void @prefs_register_uint_preference(ptr noundef %8, ptr noundef @.str.35, ptr noundef @.str.36, ptr noundef @.str.37, i32 noundef 10, ptr noundef @gbl_quake3_server_port)
   %9 = load ptr, ptr %1, align 8
   call void @prefs_register_uint_preference(ptr noundef %9, ptr noundef @.str.38, ptr noundef @.str.39, ptr noundef @.str.40, i32 noundef 10, ptr noundef @gbl_quake3_master_port)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #4
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_quake3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -181,18 +189,22 @@ define internal i32 @dissect_quake3(ptr noundef %0, ptr noundef %1, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
   store ptr null, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
   store ptr null, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
   store i32 0, ptr %11, align 4
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct._packet_info, ptr %13, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct._packet_info, ptr %13, i32 0, i32 1
   %15 = load ptr, ptr %14, align 8
-  call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef @.str.33)
+  call void @col_set_str(ptr noundef %15, i32 noundef 35, ptr noundef @.str.33)
   %16 = load ptr, ptr %7, align 8
   %17 = icmp ne ptr %16, null
   br i1 %17, label %18, label %32
 
 18:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
   %19 = load ptr, ptr %7, align 8
   %20 = load i32, ptr @proto_quake3, align 4
   %21 = load ptr, ptr %5, align 8
@@ -209,6 +221,7 @@ define internal i32 @dissect_quake3(ptr noundef %0, ptr noundef %1, ptr noundef 
   %30 = call ptr @val_to_str(i32 noundef %29, ptr noundef @names_direction, ptr noundef @.str.43)
   %31 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %26, i32 noundef %27, ptr noundef %28, i32 noundef 0, i32 noundef 0, ptr noundef @.str.42, ptr noundef %30)
   store ptr %31, ptr %10, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
   br label %32
 
 32:                                               ; preds = %18, %4
@@ -219,7 +232,7 @@ define internal i32 @dissect_quake3(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 36:                                               ; preds = %32
   %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds %struct._packet_info, ptr %37, i32 0, i32 1
+  %38 = getelementptr inbounds nuw %struct._packet_info, ptr %37, i32 0, i32 1
   %39 = load ptr, ptr %38, align 8
   call void @col_set_str(ptr noundef %39, i32 noundef 25, ptr noundef @.str.44)
   %40 = load ptr, ptr %9, align 8
@@ -234,7 +247,7 @@ define internal i32 @dissect_quake3(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 47:                                               ; preds = %32
   %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr inbounds %struct._packet_info, ptr %48, i32 0, i32 1
+  %49 = getelementptr inbounds nuw %struct._packet_info, ptr %48, i32 0, i32 1
   %50 = load ptr, ptr %49, align 8
   call void @col_set_str(ptr noundef %50, i32 noundef 25, ptr noundef @.str.46)
   %51 = load ptr, ptr %9, align 8
@@ -266,27 +279,32 @@ define internal i32 @dissect_quake3(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 68:                                               ; preds = %64, %61, %58
   %69 = load ptr, ptr %6, align 8
-  %70 = getelementptr inbounds %struct._packet_info, ptr %69, i32 0, i32 1
+  %70 = getelementptr inbounds nuw %struct._packet_info, ptr %69, i32 0, i32 1
   %71 = load ptr, ptr %70, align 8
   %72 = load i32, ptr %11, align 4
   %73 = call ptr @val_to_str(i32 noundef %72, ptr noundef @names_direction, ptr noundef @.str.43)
   call void @col_append_str(ptr noundef %71, i32 noundef 25, ptr noundef %73)
   %74 = load ptr, ptr %5, align 8
   %75 = call i32 @tvb_captured_length(ptr noundef %74)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret i32 %75
 }
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_quake3() #0 {
   %1 = alloca i32, align 4
-  %2 = load i32, ptr @proto_reg_handoff_quake3.initialized, align 4
-  %3 = icmp ne i32 %2, 0
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #4
+  %2 = load i8, ptr @proto_reg_handoff_quake3.initialized, align 1, !range !6, !noundef !7
+  %3 = trunc i8 %2 to i1
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %0
-  store i32 1, ptr @proto_reg_handoff_quake3.initialized, align 4
+  store i8 1, ptr @proto_reg_handoff_quake3.initialized, align 1
   br label %30
 
 5:                                                ; preds = %0
@@ -310,7 +328,7 @@ define hidden void @proto_reg_handoff_quake3() #0 {
   %15 = load i32, ptr %1, align 4
   %16 = add i32 %15, 1
   store i32 %16, ptr %1, align 4
-  br label %6, !llvm.loop !4
+  br label %6, !llvm.loop !8
 
 17:                                               ; preds = %6
   store i32 0, ptr %1, align 4
@@ -333,7 +351,7 @@ define hidden void @proto_reg_handoff_quake3() #0 {
   %27 = load i32, ptr %1, align 4
   %28 = add i32 %27, 1
   store i32 %28, ptr %1, align 4
-  br label %18, !llvm.loop !6
+  br label %18, !llvm.loop !10
 
 29:                                               ; preds = %18
   br label %30
@@ -363,7 +381,7 @@ define hidden void @proto_reg_handoff_quake3() #0 {
   %42 = load i32, ptr %1, align 4
   %43 = add i32 %42, 1
   store i32 %43, ptr %1, align 4
-  br label %33, !llvm.loop !7
+  br label %33, !llvm.loop !11
 
 44:                                               ; preds = %33
   store i32 0, ptr %1, align 4
@@ -386,33 +404,47 @@ define hidden void @proto_reg_handoff_quake3() #0 {
   %54 = load i32, ptr %1, align 4
   %55 = add i32 %54, 1
   store i32 %55, ptr %1, align 4
-  br label %45, !llvm.loop !8
+  br label %45, !llvm.loop !12
 
 56:                                               ; preds = %45
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #4
   ret void
 }
 
-declare void @prefs_register_uint_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_uint_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @dissector_delete_uint(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_delete_uint(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
 
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_quake3_ConnectionlessPacket(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -427,7 +459,7 @@ define internal void @dissect_quake3_ConnectionlessPacket(ptr noundef %0, ptr no
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
-  %18 = alloca i32, align 4
+  %18 = alloca i8, align 1
   %19 = alloca i32, align 4
   %20 = alloca i32, align 4
   %21 = alloca i16, align 2
@@ -436,9 +468,19 @@ define internal void @dissect_quake3_ConnectionlessPacket(ptr noundef %0, ptr no
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
   store ptr null, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
   store ptr null, ptr %11, align 8
-  store i32 0, ptr %18, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %18) #4
+  store i8 0, ptr %18, align 1
   %23 = load ptr, ptr %7, align 8
   %24 = load ptr, ptr %5, align 8
   %25 = load i32, ptr @ett_quake3_connectionless, align 4
@@ -454,7 +496,7 @@ define internal void @dissect_quake3_ConnectionlessPacket(ptr noundef %0, ptr no
   %33 = call ptr @proto_tree_add_uint(ptr noundef %29, i32 noundef %30, ptr noundef %31, i32 noundef 0, i32 noundef 4, i32 noundef %32)
   store i32 4, ptr %14, align 4
   %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds %struct._packet_info, ptr %34, i32 0, i32 50
+  %35 = getelementptr inbounds nuw %struct._packet_info, ptr %34, i32 0, i32 51
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %5, align 8
   %38 = load i32, ptr %14, align 4
@@ -483,7 +525,7 @@ define internal void @dissect_quake3_ConnectionlessPacket(ptr noundef %0, ptr no
   store i32 0, ptr %16, align 4
   store i32 0, ptr %17, align 4
   %54 = load ptr, ptr %12, align 8
-  %55 = call i32 @strncmp(ptr noundef %54, ptr noundef @.str.53, i64 noundef 14) #3
+  %55 = call i32 @strncmp(ptr noundef %54, ptr noundef @.str.54, i64 noundef 14) #5
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %59
 
@@ -496,7 +538,7 @@ define internal void @dissect_quake3_ConnectionlessPacket(ptr noundef %0, ptr no
 
 59:                                               ; preds = %53
   %60 = load ptr, ptr %12, align 8
-  %61 = call i32 @strncmp(ptr noundef %60, ptr noundef @.str.54, i64 noundef 9) #3
+  %61 = call i32 @strncmp(ptr noundef %60, ptr noundef @.str.55, i64 noundef 9) #5
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %63, label %65
 
@@ -509,7 +551,7 @@ define internal void @dissect_quake3_ConnectionlessPacket(ptr noundef %0, ptr no
 
 65:                                               ; preds = %59
   %66 = load ptr, ptr %12, align 8
-  %67 = call i32 @strncmp(ptr noundef %66, ptr noundef @.str.55, i64 noundef 12) #3
+  %67 = call i32 @strncmp(ptr noundef %66, ptr noundef @.str.56, i64 noundef 12) #5
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %71
 
@@ -522,7 +564,7 @@ define internal void @dissect_quake3_ConnectionlessPacket(ptr noundef %0, ptr no
 
 71:                                               ; preds = %65
   %72 = load ptr, ptr %12, align 8
-  %73 = call i32 @strncmp(ptr noundef %72, ptr noundef @.str.56, i64 noundef 7) #3
+  %73 = call i32 @strncmp(ptr noundef %72, ptr noundef @.str.57, i64 noundef 7) #5
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %75, label %77
 
@@ -535,7 +577,7 @@ define internal void @dissect_quake3_ConnectionlessPacket(ptr noundef %0, ptr no
 
 77:                                               ; preds = %71
   %78 = load ptr, ptr %12, align 8
-  %79 = call i32 @strncmp(ptr noundef %78, ptr noundef @.str.57, i64 noundef 17) #3
+  %79 = call i32 @strncmp(ptr noundef %78, ptr noundef @.str.58, i64 noundef 17) #5
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %81, label %83
 
@@ -548,7 +590,7 @@ define internal void @dissect_quake3_ConnectionlessPacket(ptr noundef %0, ptr no
 
 83:                                               ; preds = %77
   %84 = load ptr, ptr %12, align 8
-  %85 = call i32 @strncmp(ptr noundef %84, ptr noundef @.str.58, i64 noundef 12) #3
+  %85 = call i32 @strncmp(ptr noundef %84, ptr noundef @.str.59, i64 noundef 12) #5
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %87, label %89
 
@@ -561,7 +603,7 @@ define internal void @dissect_quake3_ConnectionlessPacket(ptr noundef %0, ptr no
 
 89:                                               ; preds = %83
   %90 = load ptr, ptr %12, align 8
-  %91 = call i32 @strncmp(ptr noundef %90, ptr noundef @.str.59, i64 noundef 15) #3
+  %91 = call i32 @strncmp(ptr noundef %90, ptr noundef @.str.60, i64 noundef 15) #5
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %93, label %95
 
@@ -574,7 +616,7 @@ define internal void @dissect_quake3_ConnectionlessPacket(ptr noundef %0, ptr no
 
 95:                                               ; preds = %89
   %96 = load ptr, ptr %12, align 8
-  %97 = call i32 @strncmp(ptr noundef %96, ptr noundef @.str.60, i64 noundef 7) #3
+  %97 = call i32 @strncmp(ptr noundef %96, ptr noundef @.str.61, i64 noundef 7) #5
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %99, label %101
 
@@ -587,7 +629,7 @@ define internal void @dissect_quake3_ConnectionlessPacket(ptr noundef %0, ptr no
 
 101:                                              ; preds = %95
   %102 = load ptr, ptr %12, align 8
-  %103 = call i32 @strncmp(ptr noundef %102, ptr noundef @.str.61, i64 noundef 12) #3
+  %103 = call i32 @strncmp(ptr noundef %102, ptr noundef @.str.62, i64 noundef 12) #5
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %105, label %107
 
@@ -600,7 +642,7 @@ define internal void @dissect_quake3_ConnectionlessPacket(ptr noundef %0, ptr no
 
 107:                                              ; preds = %101
   %108 = load ptr, ptr %12, align 8
-  %109 = call i32 @strncmp(ptr noundef %108, ptr noundef @.str.62, i64 noundef 4) #3
+  %109 = call i32 @strncmp(ptr noundef %108, ptr noundef @.str.63, i64 noundef 4) #5
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %111, label %113
 
@@ -613,7 +655,7 @@ define internal void @dissect_quake3_ConnectionlessPacket(ptr noundef %0, ptr no
 
 113:                                              ; preds = %107
   %114 = load ptr, ptr %12, align 8
-  %115 = call i32 @strncmp(ptr noundef %114, ptr noundef @.str.63, i64 noundef 15) #3
+  %115 = call i32 @strncmp(ptr noundef %114, ptr noundef @.str.64, i64 noundef 15) #5
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %117, label %119
 
@@ -626,7 +668,7 @@ define internal void @dissect_quake3_ConnectionlessPacket(ptr noundef %0, ptr no
 
 119:                                              ; preds = %113
   %120 = load ptr, ptr %12, align 8
-  %121 = call i32 @strncmp(ptr noundef %120, ptr noundef @.str.64, i64 noundef 7) #3
+  %121 = call i32 @strncmp(ptr noundef %120, ptr noundef @.str.65, i64 noundef 7) #5
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %123, label %125
 
@@ -639,11 +681,12 @@ define internal void @dissect_quake3_ConnectionlessPacket(ptr noundef %0, ptr no
 
 125:                                              ; preds = %119
   %126 = load ptr, ptr %12, align 8
-  %127 = call i32 @strncmp(ptr noundef %126, ptr noundef @.str.65, i64 noundef 18) #3
+  %127 = call i32 @strncmp(ptr noundef %126, ptr noundef @.str.66, i64 noundef 18) #5
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %129, label %199
 
 129:                                              ; preds = %125
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   store i32 13, ptr %16, align 4
   %130 = load ptr, ptr %8, align 8
   store i32 4, ptr %130, align 4
@@ -659,7 +702,7 @@ define internal void @dissect_quake3_ConnectionlessPacket(ptr noundef %0, ptr no
   %137 = call i32 @tvb_captured_length_remaining(ptr noundef %135, i32 noundef %136)
   call void @proto_item_set_len(ptr noundef %134, i32 noundef %137)
   %138 = load ptr, ptr %10, align 8
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %138, ptr noundef @.str.66)
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %138, ptr noundef @.str.67)
   br label %139
 
 139:                                              ; preds = %133, %129
@@ -679,7 +722,7 @@ define internal void @dissect_quake3_ConnectionlessPacket(ptr noundef %0, ptr no
   br label %151
 
 151:                                              ; preds = %142, %139
-  store i32 1, ptr %18, align 4
+  store i8 1, ptr %18, align 1
   %152 = load i32, ptr %14, align 4
   %153 = add i32 %152, 18
   store i32 %153, ptr %19, align 4
@@ -693,6 +736,8 @@ define internal void @dissect_quake3_ConnectionlessPacket(ptr noundef %0, ptr no
   br i1 %158, label %159, label %198
 
 159:                                              ; preds = %154
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %21) #4
   %160 = load ptr, ptr %5, align 8
   %161 = load i32, ptr %19, align 4
   %162 = add i32 %161, 1
@@ -708,6 +753,7 @@ define internal void @dissect_quake3_ConnectionlessPacket(ptr noundef %0, ptr no
   br i1 %169, label %170, label %195
 
 170:                                              ; preds = %159
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #4
   %171 = load ptr, ptr %11, align 8
   %172 = load ptr, ptr %5, align 8
   %173 = load i32, ptr %19, align 4
@@ -716,7 +762,7 @@ define internal void @dissect_quake3_ConnectionlessPacket(ptr noundef %0, ptr no
   %176 = call ptr @get_hostname(i32 noundef %175)
   %177 = load i16, ptr %21, align 2
   %178 = zext i16 %177 to i32
-  %179 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %171, ptr noundef %172, i32 noundef %173, i32 noundef 7, i32 noundef %174, ptr noundef null, ptr noundef @.str.67, ptr noundef %176, i32 noundef %178)
+  %179 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %171, ptr noundef %172, i32 noundef %173, i32 noundef 7, i32 noundef %174, ptr noundef null, ptr noundef @.str.68, ptr noundef %176, i32 noundef %178)
   store ptr %179, ptr %22, align 8
   %180 = load ptr, ptr %22, align 8
   %181 = load i32, ptr @hf_quake3_server_addr, align 4
@@ -733,20 +779,24 @@ define internal void @dissect_quake3_ConnectionlessPacket(ptr noundef %0, ptr no
   %192 = load i16, ptr %21, align 2
   %193 = zext i16 %192 to i32
   %194 = call ptr @proto_tree_add_uint(ptr noundef %187, i32 noundef %188, ptr noundef %189, i32 noundef %191, i32 noundef 2, i32 noundef %193)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #4
   br label %195
 
 195:                                              ; preds = %170, %159
   %196 = load i32, ptr %19, align 4
   %197 = add i32 %196, 7
   store i32 %197, ptr %19, align 4
-  br label %154, !llvm.loop !9
+  call void @llvm.lifetime.end.p0(i64 2, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #4
+  br label %154, !llvm.loop !13
 
 198:                                              ; preds = %154
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
   br label %229
 
 199:                                              ; preds = %125
   %200 = load ptr, ptr %12, align 8
-  %201 = call i32 @strncmp(ptr noundef %200, ptr noundef @.str.68, i64 noundef 10) #3
+  %201 = call i32 @strncmp(ptr noundef %200, ptr noundef @.str.69, i64 noundef 10) #5
   %202 = icmp eq i32 %201, 0
   br i1 %202, label %203, label %205
 
@@ -759,7 +809,7 @@ define internal void @dissect_quake3_ConnectionlessPacket(ptr noundef %0, ptr no
 
 205:                                              ; preds = %199
   %206 = load ptr, ptr %12, align 8
-  %207 = call i32 @strncmp(ptr noundef %206, ptr noundef @.str.69, i64 noundef 15) #3
+  %207 = call i32 @strncmp(ptr noundef %206, ptr noundef @.str.70, i64 noundef 15) #5
   %208 = icmp eq i32 %207, 0
   br i1 %208, label %209, label %211
 
@@ -772,7 +822,7 @@ define internal void @dissect_quake3_ConnectionlessPacket(ptr noundef %0, ptr no
 
 211:                                              ; preds = %205
   %212 = load ptr, ptr %12, align 8
-  %213 = call i32 @strncmp(ptr noundef %212, ptr noundef @.str.70, i64 noundef 14) #3
+  %213 = call i32 @strncmp(ptr noundef %212, ptr noundef @.str.71, i64 noundef 14) #5
   %214 = icmp eq i32 %213, 0
   br i1 %214, label %215, label %217
 
@@ -785,7 +835,7 @@ define internal void @dissect_quake3_ConnectionlessPacket(ptr noundef %0, ptr no
 
 217:                                              ; preds = %211
   %218 = load ptr, ptr %12, align 8
-  %219 = call i32 @strncmp(ptr noundef %218, ptr noundef @.str.71, i64 noundef 11) #3
+  %219 = call i32 @strncmp(ptr noundef %218, ptr noundef @.str.72, i64 noundef 11) #5
   %220 = icmp eq i32 %219, 0
   br i1 %220, label %221, label %223
 
@@ -852,29 +902,41 @@ define internal void @dissect_quake3_ConnectionlessPacket(ptr noundef %0, ptr no
 241:                                              ; preds = %240, %57
   %242 = load ptr, ptr %11, align 8
   %243 = icmp ne ptr %242, null
-  br i1 %243, label %244, label %256
+  br i1 %243, label %244, label %258
 
 244:                                              ; preds = %241
-  %245 = load i32, ptr %18, align 4
-  %246 = icmp eq i32 %245, 0
-  br i1 %246, label %247, label %256
+  %245 = load i8, ptr %18, align 1, !range !6, !noundef !7
+  %246 = trunc i8 %245 to i1
+  %247 = zext i1 %246 to i32
+  %248 = icmp eq i32 %247, 0
+  br i1 %248, label %249, label %258
 
-247:                                              ; preds = %244
-  %248 = load ptr, ptr %11, align 8
-  %249 = load i32, ptr @hf_quake3_connectionless_command, align 4
-  %250 = load ptr, ptr %5, align 8
-  %251 = load i32, ptr %14, align 4
-  %252 = load i32, ptr %17, align 4
-  %253 = load i32, ptr %16, align 4
-  %254 = call ptr @val_to_str_const(i32 noundef %253, ptr noundef @names_command, ptr noundef @.str.48)
-  %255 = call ptr @proto_tree_add_string(ptr noundef %248, i32 noundef %249, ptr noundef %250, i32 noundef %251, i32 noundef %252, ptr noundef %254)
-  br label %256
+249:                                              ; preds = %244
+  %250 = load ptr, ptr %11, align 8
+  %251 = load i32, ptr @hf_quake3_connectionless_command, align 4
+  %252 = load ptr, ptr %5, align 8
+  %253 = load i32, ptr %14, align 4
+  %254 = load i32, ptr %17, align 4
+  %255 = load i32, ptr %16, align 4
+  %256 = call ptr @val_to_str_const(i32 noundef %255, ptr noundef @names_command, ptr noundef @.str.48)
+  %257 = call ptr @proto_tree_add_string(ptr noundef %250, i32 noundef %251, ptr noundef %252, i32 noundef %253, i32 noundef %254, ptr noundef %256)
+  br label %258
 
-256:                                              ; preds = %247, %244, %241
+258:                                              ; preds = %249, %244, %241
+  call void @llvm.lifetime.end.p0(i64 1, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_quake3_GamePacket(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -896,8 +958,15 @@ define internal void @dissect_quake3_GamePacket(ptr noundef %0, ptr noundef %1, 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
   %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct._packet_info, ptr %21, i32 0, i32 24
+  %22 = getelementptr inbounds nuw %struct._packet_info, ptr %21, i32 0, i32 25
   %23 = load i32, ptr %22, align 8
   %24 = load i32, ptr @gbl_quake3_server_port, align 4
   %25 = icmp eq i32 %23, %24
@@ -928,6 +997,7 @@ define internal void @dissect_quake3_GamePacket(ptr noundef %0, ptr noundef %1, 
   br i1 %43, label %44, label %67
 
 44:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #4
   %45 = load ptr, ptr %9, align 8
   %46 = load ptr, ptr %5, align 8
   %47 = load i32, ptr %14, align 4
@@ -935,7 +1005,7 @@ define internal void @dissect_quake3_GamePacket(ptr noundef %0, ptr noundef %1, 
   %49 = load i32, ptr %10, align 4
   %50 = load i32, ptr %12, align 4
   %51 = call ptr @val_to_str(i32 noundef %50, ptr noundef @names_reliable, ptr noundef @.str.43)
-  %52 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %45, ptr noundef %46, i32 noundef %47, i32 noundef 2, i32 noundef %48, ptr noundef null, ptr noundef @.str.89, i32 noundef %49, ptr noundef %51)
+  %52 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %45, ptr noundef %46, i32 noundef %47, i32 noundef 2, i32 noundef %48, ptr noundef null, ptr noundef @.str.91, i32 noundef %49, ptr noundef %51)
   store ptr %52, ptr %16, align 8
   %53 = load ptr, ptr %16, align 8
   %54 = load i32, ptr @hf_quake3_game_seq1, align 4
@@ -951,6 +1021,7 @@ define internal void @dissect_quake3_GamePacket(ptr noundef %0, ptr noundef %1, 
   %64 = load i32, ptr %12, align 4
   %65 = sext i32 %64 to i64
   %66 = call ptr @proto_tree_add_boolean(ptr noundef %59, i32 noundef %60, ptr noundef %61, i32 noundef %63, i32 noundef 1, i64 noundef %65)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #4
   br label %67
 
 67:                                               ; preds = %44, %4
@@ -975,6 +1046,7 @@ define internal void @dissect_quake3_GamePacket(ptr noundef %0, ptr noundef %1, 
   br i1 %81, label %82, label %105
 
 82:                                               ; preds = %67
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   %83 = load ptr, ptr %9, align 8
   %84 = load ptr, ptr %5, align 8
   %85 = load i32, ptr %14, align 4
@@ -982,7 +1054,7 @@ define internal void @dissect_quake3_GamePacket(ptr noundef %0, ptr noundef %1, 
   %87 = load i32, ptr %11, align 4
   %88 = load i32, ptr %13, align 4
   %89 = call ptr @val_to_str(i32 noundef %88, ptr noundef @names_reliable, ptr noundef @.str.43)
-  %90 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %83, ptr noundef %84, i32 noundef %85, i32 noundef 2, i32 noundef %86, ptr noundef null, ptr noundef @.str.90, i32 noundef %87, ptr noundef %89)
+  %90 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %83, ptr noundef %84, i32 noundef %85, i32 noundef 2, i32 noundef %86, ptr noundef null, ptr noundef @.str.92, i32 noundef %87, ptr noundef %89)
   store ptr %90, ptr %17, align 8
   %91 = load ptr, ptr %17, align 8
   %92 = load i32, ptr @hf_quake3_game_seq2, align 4
@@ -998,6 +1070,7 @@ define internal void @dissect_quake3_GamePacket(ptr noundef %0, ptr noundef %1, 
   %102 = load i32, ptr %13, align 4
   %103 = sext i32 %102 to i64
   %104 = call ptr @proto_tree_add_boolean(ptr noundef %97, i32 noundef %98, ptr noundef %99, i32 noundef %101, i32 noundef 1, i64 noundef %103)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   br label %105
 
 105:                                              ; preds = %82, %67
@@ -1010,6 +1083,7 @@ define internal void @dissect_quake3_GamePacket(ptr noundef %0, ptr noundef %1, 
   br i1 %110, label %111, label %128
 
 111:                                              ; preds = %105
+  call void @llvm.lifetime.start.p0(i64 2, ptr %18) #4
   %112 = load ptr, ptr %5, align 8
   %113 = load i32, ptr %14, align 4
   %114 = call zeroext i16 @tvb_get_letohs(ptr noundef %112, i32 noundef %113)
@@ -1032,6 +1106,7 @@ define internal void @dissect_quake3_GamePacket(ptr noundef %0, ptr noundef %1, 
   %126 = load i32, ptr %14, align 4
   %127 = add i32 %126, 2
   store i32 %127, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %18) #4
   br label %128
 
 128:                                              ; preds = %125, %105
@@ -1045,10 +1120,12 @@ define internal void @dissect_quake3_GamePacket(ptr noundef %0, ptr noundef %1, 
   br i1 %134, label %135, label %159
 
 135:                                              ; preds = %128
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #4
   %136 = load ptr, ptr %5, align 8
   %137 = load i32, ptr %14, align 4
   %138 = call ptr @tvb_new_subset_remaining(ptr noundef %136, i32 noundef %137)
   store ptr %138, ptr %19, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #4
   %139 = load ptr, ptr %8, align 8
   %140 = load i32, ptr %139, align 4
   %141 = icmp eq i32 %140, 1
@@ -1058,7 +1135,7 @@ define internal void @dissect_quake3_GamePacket(ptr noundef %0, ptr noundef %1, 
   %143 = load ptr, ptr %9, align 8
   %144 = load ptr, ptr %19, align 8
   %145 = load i32, ptr @ett_quake3_game_clc, align 4
-  %146 = call ptr @proto_tree_add_subtree(ptr noundef %143, ptr noundef %144, i32 noundef 0, i32 noundef -1, i32 noundef %145, ptr noundef null, ptr noundef @.str.91)
+  %146 = call ptr @proto_tree_add_subtree(ptr noundef %143, ptr noundef %144, i32 noundef 0, i32 noundef -1, i32 noundef %145, ptr noundef null, ptr noundef @.str.93)
   store ptr %146, ptr %20, align 8
   %147 = load ptr, ptr %19, align 8
   %148 = load ptr, ptr %6, align 8
@@ -1070,7 +1147,7 @@ define internal void @dissect_quake3_GamePacket(ptr noundef %0, ptr noundef %1, 
   %151 = load ptr, ptr %9, align 8
   %152 = load ptr, ptr %19, align 8
   %153 = load i32, ptr @ett_quake3_game_svc, align 4
-  %154 = call ptr @proto_tree_add_subtree(ptr noundef %151, ptr noundef %152, i32 noundef 0, i32 noundef -1, i32 noundef %153, ptr noundef null, ptr noundef @.str.92)
+  %154 = call ptr @proto_tree_add_subtree(ptr noundef %151, ptr noundef %152, i32 noundef 0, i32 noundef -1, i32 noundef %153, ptr noundef null, ptr noundef @.str.94)
   store ptr %154, ptr %20, align 8
   %155 = load ptr, ptr %19, align 8
   %156 = load ptr, ptr %6, align 8
@@ -1079,56 +1156,85 @@ define internal void @dissect_quake3_GamePacket(ptr noundef %0, ptr noundef %1, 
   br label %158
 
 158:                                              ; preds = %150, %142
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #4
   br label %159
 
 159:                                              ; preds = %158, %128
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret void
 }
 
-declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) #2
 
-declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #2
 
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @tvb_get_stringz_enc(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_get_stringz_enc(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #2
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #3
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) #2
 
-declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #2
 
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #2
 
-declare i32 @tvb_get_ipv4(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ipv4(ptr noundef, i32 noundef) #2
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #2
 
-declare ptr @get_hostname(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @get_hostname(i32 noundef) #2
 
-declare ptr @proto_tree_add_ipv4(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_ipv4(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) #2
 
-declare i32 @tvb_reported_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) #2
 
-declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_quake3_client_commands(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1143,7 +1249,7 @@ define internal void @dissect_quake3_client_commands(ptr noundef %0, ptr noundef
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_quake3_server_commands(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1158,22 +1264,29 @@ define internal void @dissect_quake3_server_commands(ptr noundef %0, ptr noundef
   ret void
 }
 
-declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
+attributes #5 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}

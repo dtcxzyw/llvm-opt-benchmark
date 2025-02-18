@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.tlv_info_t = type { i8, i8, i8, i8, i32, i32 }
 
 @ett_mac_mgmt_msg_reg_req_decoder = internal global i32 0, align 4
@@ -55,7 +54,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_reg_phs = internal global i32 0, align 4
 @hf_reg_arq = internal global i32 0, align 4
 @hf_reg_dsx_flow_control = internal global i32 0, align 4
-@include_cor2_changes = external local_unnamed_addr global i32, align 4
+@include_cor2_changes = external local_unnamed_addr global i8, align 1
 @hf_reg_mac_crc_support = internal global i32 0, align 4
 @hf_tlv_type = internal global i32 0, align 4
 @hf_reg_mca_flow_control = internal global i32 0, align 4
@@ -145,7 +144,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.25 = private unnamed_addr constant [41 x i8] c"wmx.reg.arq_ack_type_selective_ack_entry\00", align 1
 @.str.26 = private unnamed_addr constant [49 x i8] c"Bandwidth request and CINR report header support\00", align 1
 @.str.27 = private unnamed_addr constant [53 x i8] c"wmx.reg.bandwidth_request_cinr_report_header_support\00", align 1
-@tfs_support = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.199 }, %struct._value_string { i32 1, ptr @.str.197 }, %struct._value_string zeroinitializer], align 16
 @.str.28 = private unnamed_addr constant [58 x i8] c"Bandwidth request and uplink sleep control header support\00", align 1
 @.str.29 = private unnamed_addr constant [58 x i8] c"wmx.reg.bandwidth_request_ul_sleep_control_header_support\00", align 1
 @.str.30 = private unnamed_addr constant [40 x i8] c"CQICH Allocation Request header support\00", align 1
@@ -154,7 +152,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.33 = private unnamed_addr constant [44 x i8] c"wmx.reg.dl_sleep_control_extended_subheader\00", align 1
 @.str.34 = private unnamed_addr constant [17 x i8] c"DSx flow control\00", align 1
 @.str.35 = private unnamed_addr constant [25 x i8] c"wmx.reg.dsx_flow_control\00", align 1
-@unique_no_limit = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.200 }, %struct._value_string zeroinitializer], align 16
 @.str.36 = private unnamed_addr constant [20 x i8] c"Packet, 802.1Q VLAN\00", align 1
 @.str.37 = private unnamed_addr constant [21 x i8] c"wmx.reg.encap_802_1q\00", align 1
 @.str.38 = private unnamed_addr constant [23 x i8] c"Packet, 802.3/Ethernet\00", align 1
@@ -190,7 +187,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.68 = private unnamed_addr constant [58 x i8] c"wmx.reg.bandwidth_request_ul_tx_pwr_report_header_support\00", align 1
 @.str.69 = private unnamed_addr constant [53 x i8] c"MDHO/FBSS HO. BS ignore all other bits when set to 1\00", align 1
 @.str.70 = private unnamed_addr constant [29 x i8] c"wmx.reg.fbss_mdho_ho_disable\00", align 1
-@tfs_reg_fbss_mdho_ho_disable = internal constant %struct.true_false_string { ptr @.str.201, ptr @.str.202 }, align 8
+@tfs_reg_fbss_mdho_ho_disable = internal constant %struct.true_false_string { ptr @.str.203, ptr @.str.204 }, align 8
 @.str.71 = private unnamed_addr constant [24 x i8] c"Feedback header support\00", align 1
 @.str.72 = private unnamed_addr constant [32 x i8] c"wmx.reg.feedback_header_support\00", align 1
 @.str.73 = private unnamed_addr constant [36 x i8] c"Feedback request extended subheader\00", align 1
@@ -210,15 +207,14 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.85 = private unnamed_addr constant [26 x i8] c"wmx.reg.idle_mode_timeout\00", align 1
 @.str.86 = private unnamed_addr constant [19 x i8] c"IP management mode\00", align 1
 @.str.87 = private unnamed_addr constant [21 x i8] c"wmx.reg.ip_mgmt_mode\00", align 1
-@tfs_reg_ip_mgmt_mode = internal constant %struct.true_false_string { ptr @.str.203, ptr @.str.204 }, align 8
+@tfs_reg_ip_mgmt_mode = internal constant %struct.true_false_string { ptr @.str.205, ptr @.str.206 }, align 8
 @.str.88 = private unnamed_addr constant [11 x i8] c"IP version\00", align 1
 @.str.89 = private unnamed_addr constant [19 x i8] c"wmx.reg.ip_version\00", align 1
-@vals_reg_ip_version = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.205 }, %struct._value_string { i32 2, ptr @.str.206 }, %struct._value_string zeroinitializer], align 16
 @.str.90 = private unnamed_addr constant [22 x i8] c"MAC Address of the SS\00", align 1
 @.str.91 = private unnamed_addr constant [20 x i8] c"wmx.reg.mac_address\00", align 1
 @.str.92 = private unnamed_addr constant [8 x i8] c"MAC CRC\00", align 1
 @.str.93 = private unnamed_addr constant [24 x i8] c"wmx.reg.mac_crc_support\00", align 1
-@tfs_mac_crc_support = internal constant %struct.true_false_string { ptr @.str.207, ptr @.str.208 }, align 8
+@tfs_mac_crc_support = internal constant %struct.true_false_string { ptr @.str.210, ptr @.str.211 }, align 8
 @.str.94 = private unnamed_addr constant [39 x i8] c"Maximum number of classification rules\00", align 1
 @.str.95 = private unnamed_addr constant [24 x i8] c"wmx.reg.max_classifiers\00", align 1
 @.str.96 = private unnamed_addr constant [60 x i8] c"Maximum number of bursts transmitted concurrently to the MS\00", align 1
@@ -253,7 +249,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.125 = private unnamed_addr constant [40 x i8] c"wmx.reg.pdu_sn_short_extended_subheader\00", align 1
 @.str.126 = private unnamed_addr constant [12 x i8] c"PHS support\00", align 1
 @.str.127 = private unnamed_addr constant [12 x i8] c"wmx.reg.phs\00", align 1
-@vals_reg_phs_support = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.209 }, %struct._value_string { i32 1, ptr @.str.210 }, %struct._value_string { i32 2, ptr @.str.211 }, %struct._value_string { i32 3, ptr @.str.212 }, %struct._value_string zeroinitializer], align 16
 @.str.128 = private unnamed_addr constant [34 x i8] c"PHY channel report header support\00", align 1
 @.str.129 = private unnamed_addr constant [42 x i8] c"wmx.reg.phy_channel_report_header_support\00", align 1
 @.str.130 = private unnamed_addr constant [17 x i8] c"wmx.reg.reserved\00", align 1
@@ -267,7 +262,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.138 = private unnamed_addr constant [38 x i8] c"wmx.reg.sn_request_extended_subheader\00", align 1
 @.str.139 = private unnamed_addr constant [22 x i8] c"SS management support\00", align 1
 @.str.140 = private unnamed_addr constant [24 x i8] c"wmx.reg.ss_mgmt_support\00", align 1
-@tfs_reg_ss_mgmt_support = internal constant %struct.true_false_string { ptr @.str.213, ptr @.str.214 }, align 8
+@tfs_reg_ss_mgmt_support = internal constant %struct.true_false_string { ptr @.str.217, ptr @.str.218 }, align 8
 @.str.141 = private unnamed_addr constant [51 x i8] c"Number of Uplink transport CIDs the SS can support\00", align 1
 @.str.142 = private unnamed_addr constant [26 x i8] c"wmx.reg.ul_cids_supported\00", align 1
 @.str.143 = private unnamed_addr constant [38 x i8] c"UL Tx power report extended subheader\00", align 1
@@ -335,34 +330,39 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.197 = private unnamed_addr constant [10 x i8] c"supported\00", align 1
 @.str.198 = private unnamed_addr constant [12 x i8] c"unsupported\00", align 1
 @.str.199 = private unnamed_addr constant [14 x i8] c"not supported\00", align 1
-@.str.200 = private unnamed_addr constant [9 x i8] c"no limit\00", align 1
-@.str.201 = private unnamed_addr constant [8 x i8] c"Disable\00", align 1
-@.str.202 = private unnamed_addr constant [7 x i8] c"Enable\00", align 1
-@.str.203 = private unnamed_addr constant [16 x i8] c"IP-managed mode\00", align 1
-@.str.204 = private unnamed_addr constant [15 x i8] c"Unmanaged mode\00", align 1
-@.str.205 = private unnamed_addr constant [5 x i8] c"IPv4\00", align 1
-@.str.206 = private unnamed_addr constant [5 x i8] c"IPV6\00", align 1
-@.str.207 = private unnamed_addr constant [26 x i8] c"MAC CRC Support (Default)\00", align 1
-@.str.208 = private unnamed_addr constant [19 x i8] c"No MAC CRC Support\00", align 1
-@.str.209 = private unnamed_addr constant [15 x i8] c"no PHS support\00", align 1
-@.str.210 = private unnamed_addr constant [8 x i8] c"ATM PHS\00", align 1
-@.str.211 = private unnamed_addr constant [11 x i8] c"Packet PHS\00", align 1
-@.str.212 = private unnamed_addr constant [19 x i8] c"ATM and Packet PHS\00", align 1
-@.str.213 = private unnamed_addr constant [32 x i8] c"secondary management connection\00", align 1
-@.str.214 = private unnamed_addr constant [35 x i8] c"no secondary management connection\00", align 1
-@.str.215 = private unnamed_addr constant [32 x i8] c"MAC Management Message, REG-REQ\00", align 1
-@.str.216 = private unnamed_addr constant [30 x i8] c"Uplink Service Flow Encodings\00", align 1
-@.str.217 = private unnamed_addr constant [32 x i8] c"Downlink Service Flow Encodings\00", align 1
-@.str.218 = private unnamed_addr constant [11 x i8] c"HMAC Tuple\00", align 1
-@.str.219 = private unnamed_addr constant [11 x i8] c"CMAC Tuple\00", align 1
-@.str.220 = private unnamed_addr constant [27 x i8] c" (HMAC Tuple is missing !)\00", align 1
+@tfs_support = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.199 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.197 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.201 = private unnamed_addr constant [9 x i8] c"no limit\00", align 1
+@unique_no_limit = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.201 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.203 = private unnamed_addr constant [8 x i8] c"Disable\00", align 1
+@.str.204 = private unnamed_addr constant [7 x i8] c"Enable\00", align 1
+@.str.205 = private unnamed_addr constant [16 x i8] c"IP-managed mode\00", align 1
+@.str.206 = private unnamed_addr constant [15 x i8] c"Unmanaged mode\00", align 1
+@.str.207 = private unnamed_addr constant [5 x i8] c"IPv4\00", align 1
+@.str.208 = private unnamed_addr constant [5 x i8] c"IPV6\00", align 1
+@vals_reg_ip_version = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.207 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.208 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.210 = private unnamed_addr constant [26 x i8] c"MAC CRC Support (Default)\00", align 1
+@.str.211 = private unnamed_addr constant [19 x i8] c"No MAC CRC Support\00", align 1
+@.str.212 = private unnamed_addr constant [15 x i8] c"no PHS support\00", align 1
+@.str.213 = private unnamed_addr constant [8 x i8] c"ATM PHS\00", align 1
+@.str.214 = private unnamed_addr constant [11 x i8] c"Packet PHS\00", align 1
+@.str.215 = private unnamed_addr constant [19 x i8] c"ATM and Packet PHS\00", align 1
+@vals_reg_phs_support = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.212 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.213 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.214 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.215 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.217 = private unnamed_addr constant [32 x i8] c"secondary management connection\00", align 1
+@.str.218 = private unnamed_addr constant [35 x i8] c"no secondary management connection\00", align 1
+@.str.219 = private unnamed_addr constant [32 x i8] c"MAC Management Message, REG-REQ\00", align 1
+@.str.220 = private unnamed_addr constant [30 x i8] c"Uplink Service Flow Encodings\00", align 1
+@.str.221 = private unnamed_addr constant [32 x i8] c"Downlink Service Flow Encodings\00", align 1
+@.str.222 = private unnamed_addr constant [11 x i8] c"HMAC Tuple\00", align 1
+@.str.223 = private unnamed_addr constant [11 x i8] c"CMAC Tuple\00", align 1
+@.str.224 = private unnamed_addr constant [27 x i8] c" (HMAC Tuple is missing !)\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_extended_tlv(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.tlv_info_t, align 4
-  %10 = tail call i32 @tvb_reported_length(ptr noundef %2) #2
-  %11 = call i32 @init_tlv_info(ptr noundef nonnull %9, ptr noundef %2, i32 noundef %6) #2
-  switch i32 %1, label %317 [
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #3
+  %10 = tail call i32 @tvb_reported_length(ptr noundef %2)
+  %11 = call i32 @init_tlv_info(ptr noundef nonnull %9, ptr noundef %2, i32 noundef %6)
+  switch i32 %1, label %318 [
     i32 1, label %12
     i32 2, label %16
     i32 3, label %19
@@ -375,81 +375,81 @@ define hidden void @dissect_extended_tlv(ptr noundef %0, i32 noundef %1, ptr nou
     i32 10, label %114
     i32 11, label %117
     i32 12, label %120
-    i32 13, label %128
-    i32 14, label %131
-    i32 15, label %134
-    i32 18, label %137
-    i32 20, label %140
-    i32 21, label %188
-    i32 22, label %191
-    i32 23, label %194
-    i32 26, label %197
-    i32 27, label %212
-    i32 29, label %229
-    i32 31, label %232
-    i32 40, label %243
-    i32 41, label %258
-    i32 42, label %261
-    i32 43, label %264
-    i32 47, label %305
-    i32 143, label %314
-    i32 144, label %314
-    i32 147, label %314
-    i32 148, label %314
-    i32 141, label %314
+    i32 13, label %129
+    i32 14, label %132
+    i32 15, label %135
+    i32 18, label %138
+    i32 20, label %141
+    i32 21, label %189
+    i32 22, label %192
+    i32 23, label %195
+    i32 26, label %198
+    i32 27, label %213
+    i32 29, label %230
+    i32 31, label %233
+    i32 40, label %244
+    i32 41, label %259
+    i32 42, label %262
+    i32 43, label %265
+    i32 47, label %306
+    i32 143, label %315
+    i32 144, label %315
+    i32 147, label %315
+    i32 148, label %315
+    i32 141, label %315
   ]
 
 12:                                               ; preds = %8
   %13 = load i32, ptr @ett_mac_mgmt_msg_reg_req_decoder, align 4
-  %14 = call ptr @add_protocol_subtree(ptr noundef nonnull %9, i32 noundef %13, ptr noundef %0, i32 noundef %7, ptr noundef %2, i32 noundef %6, i32 noundef %4, ptr noundef nonnull @.str) #2
-  %15 = call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef %3, i32 noundef %4) #2
-  call void @wimax_service_flow_encodings_decoder(ptr noundef %15, ptr noundef %5, ptr noundef %14) #2
+  %14 = call ptr @add_protocol_subtree(ptr noundef nonnull %9, i32 noundef %13, ptr noundef %0, i32 noundef %7, ptr noundef %2, i32 noundef %6, i32 noundef %4, ptr noundef nonnull @.str)
+  %15 = call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef %3, i32 noundef %4)
+  call void @wimax_service_flow_encodings_decoder(ptr noundef %15, ptr noundef %5, ptr noundef %14)
   br label %.loopexit
 
 16:                                               ; preds = %8
   %17 = load i32, ptr @hf_reg_ss_mgmt_support, align 4
-  %18 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %17, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
+  %18 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %17, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   br label %.loopexit
 
 19:                                               ; preds = %8
   %20 = load i32, ptr @hf_reg_ip_mgmt_mode, align 4
-  %21 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %20, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
+  %21 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %20, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   br label %.loopexit
 
 22:                                               ; preds = %8
   %23 = load i32, ptr @hf_reg_ip_version, align 4
-  %24 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %23, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
+  %24 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %23, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   br label %.loopexit
 
 25:                                               ; preds = %8
   %26 = load i32, ptr @hf_reg_ul_cids, align 4
-  %27 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %26, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
+  %27 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %26, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   br label %.loopexit
 
 28:                                               ; preds = %8
   %29 = load i32, ptr @hf_reg_power_saving_class_capability, align 4
-  %30 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %29, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
+  %30 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %29, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   %31 = load i32, ptr @ett_mac_mgmt_msg_reg_req_decoder, align 4
-  %32 = call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #2
+  %32 = call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31)
   %33 = load i32, ptr @hf_reg_power_saving_class_type_i, align 4
-  %34 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %33, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0) #2
+  %34 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %33, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0)
   %35 = load i32, ptr @hf_reg_power_saving_class_type_ii, align 4
-  %36 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %35, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0) #2
+  %36 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %35, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0)
   %37 = load i32, ptr @hf_reg_power_saving_class_type_iii, align 4
-  %38 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %37, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0) #2
+  %38 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %37, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0)
   %39 = load i32, ptr @hf_reg_multi_active_power_saving_classes, align 4
-  %40 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %39, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0) #2
+  %40 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %39, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0)
   %41 = load i32, ptr @hf_reg_total_power_saving_class_instances, align 4
-  %42 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %41, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0) #2
+  %42 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %41, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0)
   %43 = load i32, ptr @hf_reg_power_saving_class_reserved, align 4
-  %44 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %43, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0) #2
+  %44 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %43, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0)
   br label %.loopexit
 
 45:                                               ; preds = %8
   %46 = load i32, ptr @hf_reg_ip_phs_sdu_encap, align 4
-  %47 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %46, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
+  %47 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %46, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   %48 = load i32, ptr @ett_mac_mgmt_msg_reg_req_decoder, align 4
-  %49 = call ptr @proto_item_add_subtree(ptr noundef %47, i32 noundef %48) #2
+  %49 = call ptr @proto_item_add_subtree(ptr noundef %47, i32 noundef %48)
   switch i32 %4, label %.loopexit [
     i32 2, label %50
     i32 4, label %79
@@ -457,436 +457,464 @@ define hidden void @dissect_extended_tlv(ptr noundef %0, i32 noundef %1, ptr nou
 
 50:                                               ; preds = %45
   %51 = load i32, ptr @hf_reg_encap_atm_2, align 4
-  %52 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %51, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0) #2
+  %52 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %51, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0)
   %53 = load i32, ptr @hf_reg_encap_ipv4_2, align 4
-  %54 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %53, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0) #2
+  %54 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %53, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0)
   %55 = load i32, ptr @hf_reg_encap_ipv6_2, align 4
-  %56 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %55, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0) #2
+  %56 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %55, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0)
   %57 = load i32, ptr @hf_reg_encap_802_3_2, align 4
-  %58 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %57, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0) #2
+  %58 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %57, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0)
   %59 = load i32, ptr @hf_reg_encap_802_1q_2, align 4
-  %60 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %59, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0) #2
+  %60 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %59, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0)
   %61 = load i32, ptr @hf_reg_encap_ipv4_802_3_2, align 4
-  %62 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %61, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0) #2
+  %62 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %61, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0)
   %63 = load i32, ptr @hf_reg_encap_ipv6_802_3_2, align 4
-  %64 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %63, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0) #2
+  %64 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %63, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0)
   %65 = load i32, ptr @hf_reg_encap_ipv4_802_1q_2, align 4
-  %66 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %65, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0) #2
+  %66 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %65, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0)
   %67 = load i32, ptr @hf_reg_encap_ipv6_802_1q_2, align 4
-  %68 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %67, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0) #2
+  %68 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %67, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0)
   %69 = load i32, ptr @hf_reg_encap_packet_8023_ethernet_and_rohc_header_compression_2, align 4
-  %70 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %69, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0) #2
+  %70 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %69, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0)
   %71 = load i32, ptr @hf_reg_encap_packet_8023_ethernet_and_ecrtp_header_compression_2, align 4
-  %72 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %71, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0) #2
+  %72 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %71, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0)
   %73 = load i32, ptr @hf_reg_encap_packet_ip_rohc_header_compression_2, align 4
-  %74 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %73, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0) #2
+  %74 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %73, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0)
   %75 = load i32, ptr @hf_reg_encap_packet_ip_ecrtp_header_compression_2, align 4
-  %76 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %75, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0) #2
+  %76 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %75, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0)
   %77 = load i32, ptr @hf_reg_encap_rsvd_2, align 4
-  %78 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %77, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0) #2
+  %78 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %77, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef 0)
   br label %.loopexit
 
 79:                                               ; preds = %45
   %80 = load i32, ptr @hf_reg_encap_atm_4, align 4
-  %81 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %80, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0) #2
+  %81 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %80, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %82 = load i32, ptr @hf_reg_encap_ipv4_4, align 4
-  %83 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %82, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0) #2
+  %83 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %82, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %84 = load i32, ptr @hf_reg_encap_ipv6_4, align 4
-  %85 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %84, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0) #2
+  %85 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %84, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %86 = load i32, ptr @hf_reg_encap_802_3_4, align 4
-  %87 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %86, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0) #2
+  %87 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %86, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %88 = load i32, ptr @hf_reg_encap_802_1q_4, align 4
-  %89 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %88, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0) #2
+  %89 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %88, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %90 = load i32, ptr @hf_reg_encap_ipv4_802_3_4, align 4
-  %91 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %90, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0) #2
+  %91 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %90, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %92 = load i32, ptr @hf_reg_encap_ipv6_802_3_4, align 4
-  %93 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %92, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0) #2
+  %93 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %92, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %94 = load i32, ptr @hf_reg_encap_ipv4_802_1q_4, align 4
-  %95 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %94, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0) #2
+  %95 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %94, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %96 = load i32, ptr @hf_reg_encap_ipv6_802_1q_4, align 4
-  %97 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %96, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0) #2
+  %97 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %96, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %98 = load i32, ptr @hf_reg_encap_packet_8023_ethernet_and_rohc_header_compression_4, align 4
-  %99 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %98, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0) #2
+  %99 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %98, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %100 = load i32, ptr @hf_reg_encap_packet_8023_ethernet_and_ecrtp_header_compression_4, align 4
-  %101 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %100, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0) #2
+  %101 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %100, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %102 = load i32, ptr @hf_reg_encap_packet_ip_rohc_header_compression_4, align 4
-  %103 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %102, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0) #2
+  %103 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %102, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %104 = load i32, ptr @hf_reg_encap_packet_ip_ecrtp_header_compression_4, align 4
-  %105 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %104, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0) #2
+  %105 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %104, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %106 = load i32, ptr @hf_reg_encap_rsvd_4, align 4
-  %107 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %106, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0) #2
+  %107 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %106, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   br label %.loopexit
 
 108:                                              ; preds = %8
   %109 = load i32, ptr @hf_reg_max_classifiers, align 4
-  %110 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %109, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
+  %110 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %109, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   br label %.loopexit
 
 111:                                              ; preds = %8
   %112 = load i32, ptr @hf_reg_phs, align 4
-  %113 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %112, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
+  %113 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %112, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   br label %.loopexit
 
 114:                                              ; preds = %8
   %115 = load i32, ptr @hf_reg_arq, align 4
-  %116 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %115, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
+  %116 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %115, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   br label %.loopexit
 
 117:                                              ; preds = %8
   %118 = load i32, ptr @hf_reg_dsx_flow_control, align 4
-  %119 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %118, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
+  %119 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %118, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   br label %.loopexit
 
 120:                                              ; preds = %8
-  %121 = load i32, ptr @include_cor2_changes, align 4
-  %.not = icmp eq i32 %121, 0
-  br i1 %.not, label %122, label %125
+  %121 = load i8, ptr @include_cor2_changes, align 1, !range !6, !noundef !7
+  %122 = trunc nuw i8 %121 to i1
+  br i1 %122, label %126, label %123
 
-122:                                              ; preds = %120
-  %123 = load i32, ptr @hf_reg_mac_crc_support, align 4
-  %124 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %123, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
+123:                                              ; preds = %120
+  %124 = load i32, ptr @hf_reg_mac_crc_support, align 4
+  %125 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %124, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   br label %.loopexit
 
-125:                                              ; preds = %120
-  %126 = load i32, ptr @hf_tlv_type, align 4
-  %127 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %126, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
+126:                                              ; preds = %120
+  %127 = load i32, ptr @hf_tlv_type, align 4
+  %128 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %127, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   br label %.loopexit
 
-128:                                              ; preds = %8
-  %129 = load i32, ptr @hf_reg_mca_flow_control, align 4
-  %130 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %129, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
+129:                                              ; preds = %8
+  %130 = load i32, ptr @hf_reg_mca_flow_control, align 4
+  %131 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %130, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   br label %.loopexit
 
-131:                                              ; preds = %8
-  %132 = load i32, ptr @hf_reg_mcast_polling_cids, align 4
-  %133 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %132, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
+132:                                              ; preds = %8
+  %133 = load i32, ptr @hf_reg_mcast_polling_cids, align 4
+  %134 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %133, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   br label %.loopexit
 
-134:                                              ; preds = %8
-  %135 = load i32, ptr @hf_reg_num_dl_trans_cid, align 4
-  %136 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %135, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
+135:                                              ; preds = %8
+  %136 = load i32, ptr @hf_reg_num_dl_trans_cid, align 4
+  %137 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %136, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   br label %.loopexit
 
-137:                                              ; preds = %8
-  %138 = load i32, ptr @hf_reg_mac_address, align 4
-  %139 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %138, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
+138:                                              ; preds = %8
+  %139 = load i32, ptr @hf_reg_mac_address, align 4
+  %140 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %139, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   br label %.loopexit
 
-140:                                              ; preds = %8
-  %141 = load i32, ptr @ett_mac_mgmt_msg_reg_req_decoder, align 4
-  %142 = call ptr @add_protocol_subtree(ptr noundef nonnull %9, i32 noundef %141, ptr noundef %0, i32 noundef %7, ptr noundef %2, i32 noundef %6, i32 noundef %4, ptr noundef nonnull @.str.1) #2
-  %143 = add i32 %4, %3
-  %144 = icmp ult i32 %3, %143
-  br i1 %144, label %.lr.ph, label %.loopexit
+141:                                              ; preds = %8
+  %142 = load i32, ptr @ett_mac_mgmt_msg_reg_req_decoder, align 4
+  %143 = call ptr @add_protocol_subtree(ptr noundef nonnull %9, i32 noundef %142, ptr noundef %0, i32 noundef %7, ptr noundef %2, i32 noundef %6, i32 noundef %4, ptr noundef nonnull @.str.1)
+  %144 = add i32 %4, %3
+  %145 = icmp ult i32 %3, %144
+  br i1 %145, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %140, %185
-  %.0413 = phi i32 [ %186, %185 ], [ %3, %140 ]
-  %145 = call i32 @init_tlv_info(ptr noundef nonnull %9, ptr noundef %2, i32 noundef %.0413) #2
-  %146 = call i32 @get_tlv_type(ptr noundef nonnull %9) #2
-  %147 = call i32 @get_tlv_length(ptr noundef nonnull %9) #2
-  %148 = icmp eq i32 %146, -1
-  %149 = add i32 %147, -64001
-  %150 = icmp ult i32 %149, -64000
-  %or.cond3 = select i1 %148, i1 true, i1 %150
-  br i1 %or.cond3, label %151, label %157
+.lr.ph:                                           ; preds = %141, %186
+  %.0413 = phi i32 [ %187, %186 ], [ %3, %141 ]
+  %146 = call i32 @init_tlv_info(ptr noundef nonnull %9, ptr noundef %2, i32 noundef %.0413)
+  %147 = call i32 @get_tlv_type(ptr noundef nonnull %9)
+  %148 = call i32 @get_tlv_length(ptr noundef nonnull %9)
+  %149 = icmp eq i32 %147, -1
+  %150 = add i32 %148, -64001
+  %151 = icmp ult i32 %150, -64000
+  %or.cond3 = select i1 %149, i1 true, i1 %151
+  br i1 %or.cond3, label %152, label %158
 
-151:                                              ; preds = %.lr.ph
-  %152 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %153 = load ptr, ptr %152, align 8
-  call void @col_append_sep_str(ptr noundef %153, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.2) #2
-  %154 = load i32, ptr @hf_reg_invalid_tlv, align 4
-  %155 = sub i32 %10, %6
-  %156 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %154, ptr noundef %2, i32 noundef %6, i32 noundef %155, i32 noundef 0) #2
+152:                                              ; preds = %.lr.ph
+  %153 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %154 = load ptr, ptr %153, align 8
+  call void @col_append_sep_str(ptr noundef %154, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.2)
+  %155 = load i32, ptr @hf_reg_invalid_tlv, align 4
+  %156 = sub i32 %10, %6
+  %157 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %155, ptr noundef %2, i32 noundef %6, i32 noundef %156, i32 noundef 0)
   br label %.loopexit
 
-157:                                              ; preds = %.lr.ph
-  %158 = call i32 @get_tlv_value_offset(ptr noundef nonnull %9) #2
-  %159 = add i32 %158, %.0413
-  %160 = call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %159) #2
-  %161 = zext i16 %160 to i32
-  switch i32 %146, label %180 [
-    i32 1, label %162
-    i32 2, label %171
+158:                                              ; preds = %.lr.ph
+  %159 = call i32 @get_tlv_value_offset(ptr noundef nonnull %9)
+  %160 = add i32 %159, %.0413
+  %161 = call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %160)
+  %162 = zext i16 %161 to i32
+  switch i32 %147, label %181 [
+    i32 1, label %163
+    i32 2, label %172
   ]
 
-162:                                              ; preds = %157
-  %163 = load i32, ptr @hf_reg_tlv_t_20_1_max_mac_level_data_per_dl_frame, align 4
-  %164 = call i32 @get_tlv_value_offset(ptr noundef nonnull %9) #2
-  %165 = sub i32 %159, %164
-  %166 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %142, i32 noundef %163, ptr noundef %2, i32 noundef %165, i32 noundef 0) #2
-  %167 = icmp eq i16 %160, 0
-  br i1 %167, label %168, label %169
+163:                                              ; preds = %158
+  %164 = load i32, ptr @hf_reg_tlv_t_20_1_max_mac_level_data_per_dl_frame, align 4
+  %165 = call i32 @get_tlv_value_offset(ptr noundef nonnull %9)
+  %166 = sub i32 %160, %165
+  %167 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %143, i32 noundef %164, ptr noundef %2, i32 noundef %166, i32 noundef 0)
+  %168 = icmp eq i16 %161, 0
+  br i1 %168, label %169, label %170
 
-168:                                              ; preds = %162
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %166, ptr noundef nonnull @.str.3) #2
-  br label %185
+169:                                              ; preds = %163
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %167, ptr noundef nonnull @.str.3)
+  br label %186
 
-169:                                              ; preds = %162
-  %170 = shl nuw nsw i32 %161, 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %166, ptr noundef nonnull @.str.4, i32 noundef %170) #2
-  br label %185
+170:                                              ; preds = %163
+  %171 = shl nuw nsw i32 %162, 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %167, ptr noundef nonnull @.str.4, i32 noundef %171)
+  br label %186
 
-171:                                              ; preds = %157
-  %172 = load i32, ptr @hf_reg_tlv_t_20_2_max_mac_level_data_per_ul_frame, align 4
-  %173 = call i32 @get_tlv_value_offset(ptr noundef nonnull %9) #2
-  %174 = sub i32 %159, %173
-  %175 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %142, i32 noundef %172, ptr noundef %2, i32 noundef %174, i32 noundef 0) #2
-  %176 = icmp eq i16 %160, 0
-  br i1 %176, label %177, label %178
+172:                                              ; preds = %158
+  %173 = load i32, ptr @hf_reg_tlv_t_20_2_max_mac_level_data_per_ul_frame, align 4
+  %174 = call i32 @get_tlv_value_offset(ptr noundef nonnull %9)
+  %175 = sub i32 %160, %174
+  %176 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %143, i32 noundef %173, ptr noundef %2, i32 noundef %175, i32 noundef 0)
+  %177 = icmp eq i16 %161, 0
+  br i1 %177, label %178, label %179
 
-177:                                              ; preds = %171
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %175, ptr noundef nonnull @.str.3) #2
-  br label %185
+178:                                              ; preds = %172
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %176, ptr noundef nonnull @.str.3)
+  br label %186
 
-178:                                              ; preds = %171
-  %179 = shl nuw nsw i32 %161, 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %175, ptr noundef nonnull @.str.4, i32 noundef %179) #2
-  br label %185
+179:                                              ; preds = %172
+  %180 = shl nuw nsw i32 %162, 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %176, ptr noundef nonnull @.str.4, i32 noundef %180)
+  br label %186
 
-180:                                              ; preds = %157
-  %181 = load i32, ptr @hf_reg_invalid_tlv, align 4
-  %182 = call i32 @get_tlv_value_offset(ptr noundef nonnull %9) #2
-  %183 = sub i32 %159, %182
-  %184 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %142, i32 noundef %181, ptr noundef %2, i32 noundef %183, i32 noundef 0) #2
-  br label %185
+181:                                              ; preds = %158
+  %182 = load i32, ptr @hf_reg_invalid_tlv, align 4
+  %183 = call i32 @get_tlv_value_offset(ptr noundef nonnull %9)
+  %184 = sub i32 %160, %183
+  %185 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %143, i32 noundef %182, ptr noundef %2, i32 noundef %184, i32 noundef 0)
+  br label %186
 
-185:                                              ; preds = %177, %178, %168, %169, %180
-  %186 = add i32 %159, %147
-  %187 = icmp ult i32 %186, %143
-  br i1 %187, label %.lr.ph, label %.loopexit, !llvm.loop !4
+186:                                              ; preds = %178, %179, %169, %170, %181
+  %187 = add i32 %160, %148
+  %188 = icmp ult i32 %187, %144
+  br i1 %188, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
-188:                                              ; preds = %8
-  %189 = load i32, ptr @hf_reg_tlv_t_21_packing_support, align 4
-  %190 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %189, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
+189:                                              ; preds = %8
+  %190 = load i32, ptr @hf_reg_tlv_t_21_packing_support, align 4
+  %191 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %190, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   br label %.loopexit
 
-191:                                              ; preds = %8
-  %192 = load i32, ptr @hf_reg_tlv_t_22_mac_extended_rtps_support, align 4
-  %193 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %192, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
+192:                                              ; preds = %8
+  %193 = load i32, ptr @hf_reg_tlv_t_22_mac_extended_rtps_support, align 4
+  %194 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %193, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   br label %.loopexit
 
-194:                                              ; preds = %8
-  %195 = load i32, ptr @hf_reg_tlv_t_23_max_num_bursts_concurrently_to_the_ms, align 4
-  %196 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %195, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
+195:                                              ; preds = %8
+  %196 = load i32, ptr @hf_reg_tlv_t_23_max_num_bursts_concurrently_to_the_ms, align 4
+  %197 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %196, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   br label %.loopexit
 
-197:                                              ; preds = %8
-  %198 = load i32, ptr @hf_reg_tlv_t_26_method_alloc_ip_addr_secondary_mgmnt_conn, align 4
-  %199 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %198, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
-  %200 = load i32, ptr @ett_mac_mgmt_msg_reg_req_decoder, align 4
-  %201 = call ptr @proto_item_add_subtree(ptr noundef %199, i32 noundef %200) #2
-  %202 = load i32, ptr @hf_reg_method_for_allocating_ip_addr_sec_mgmt_conn_dhcp, align 4
-  %203 = call ptr @proto_tree_add_item(ptr noundef %201, i32 noundef %202, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
-  %204 = load i32, ptr @hf_reg_method_for_allocating_ip_addr_sec_mgmt_conn_mobile_ipv4, align 4
-  %205 = call ptr @proto_tree_add_item(ptr noundef %201, i32 noundef %204, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
-  %206 = load i32, ptr @hf_reg_method_for_allocating_ip_addr_sec_mgmt_conn_dhcpv6, align 4
-  %207 = call ptr @proto_tree_add_item(ptr noundef %201, i32 noundef %206, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
-  %208 = load i32, ptr @hf_reg_method_for_allocating_ip_addr_sec_mgmt_conn_ipv6, align 4
-  %209 = call ptr @proto_tree_add_item(ptr noundef %201, i32 noundef %208, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
-  %210 = load i32, ptr @hf_reg_method_for_allocating_ip_addr_sec_mgmt_conn_rsvd, align 4
-  %211 = call ptr @proto_tree_add_item(ptr noundef %201, i32 noundef %210, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
+198:                                              ; preds = %8
+  %199 = load i32, ptr @hf_reg_tlv_t_26_method_alloc_ip_addr_secondary_mgmnt_conn, align 4
+  %200 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %199, ptr noundef %2, i32 noundef %6, i32 noundef 0)
+  %201 = load i32, ptr @ett_mac_mgmt_msg_reg_req_decoder, align 4
+  %202 = call ptr @proto_item_add_subtree(ptr noundef %200, i32 noundef %201)
+  %203 = load i32, ptr @hf_reg_method_for_allocating_ip_addr_sec_mgmt_conn_dhcp, align 4
+  %204 = call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %203, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0)
+  %205 = load i32, ptr @hf_reg_method_for_allocating_ip_addr_sec_mgmt_conn_mobile_ipv4, align 4
+  %206 = call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %205, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0)
+  %207 = load i32, ptr @hf_reg_method_for_allocating_ip_addr_sec_mgmt_conn_dhcpv6, align 4
+  %208 = call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %207, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0)
+  %209 = load i32, ptr @hf_reg_method_for_allocating_ip_addr_sec_mgmt_conn_ipv6, align 4
+  %210 = call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %209, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0)
+  %211 = load i32, ptr @hf_reg_method_for_allocating_ip_addr_sec_mgmt_conn_rsvd, align 4
+  %212 = call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %211, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
-212:                                              ; preds = %8
-  %213 = load i32, ptr @hf_reg_tlv_t_27_handover_supported, align 4
-  %214 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %213, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
-  %215 = load i32, ptr @ett_mac_mgmt_msg_reg_req_decoder, align 4
-  %216 = call ptr @proto_item_add_subtree(ptr noundef %214, i32 noundef %215) #2
-  %217 = load i32, ptr @hf_reg_tlv_t_27_handover_fbss_mdho_ho_disable, align 4
-  %218 = call ptr @proto_tree_add_item(ptr noundef %216, i32 noundef %217, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
-  %219 = load i32, ptr @hf_reg_tlv_t_27_handover_fbss_mdho_dl_rf_monitoring_maps, align 4
-  %220 = call ptr @proto_tree_add_item(ptr noundef %216, i32 noundef %219, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
-  %221 = load i32, ptr @hf_reg_tlv_t_27_handover_mdho_dl_monitoring_single_map, align 4
-  %222 = call ptr @proto_tree_add_item(ptr noundef %216, i32 noundef %221, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
-  %223 = load i32, ptr @hf_reg_tlv_t_27_handover_mdho_dl_monitoring_maps, align 4
-  %224 = call ptr @proto_tree_add_item(ptr noundef %216, i32 noundef %223, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
-  %225 = load i32, ptr @hf_reg_tlv_t_27_handover_mdho_ul_multiple, align 4
-  %226 = call ptr @proto_tree_add_item(ptr noundef %216, i32 noundef %225, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
-  %227 = load i32, ptr @hf_reg_tlv_t_27_handover_reserved, align 4
-  %228 = call ptr @proto_tree_add_item(ptr noundef %216, i32 noundef %227, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
+213:                                              ; preds = %8
+  %214 = load i32, ptr @hf_reg_tlv_t_27_handover_supported, align 4
+  %215 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %214, ptr noundef %2, i32 noundef %6, i32 noundef 0)
+  %216 = load i32, ptr @ett_mac_mgmt_msg_reg_req_decoder, align 4
+  %217 = call ptr @proto_item_add_subtree(ptr noundef %215, i32 noundef %216)
+  %218 = load i32, ptr @hf_reg_tlv_t_27_handover_fbss_mdho_ho_disable, align 4
+  %219 = call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %218, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0)
+  %220 = load i32, ptr @hf_reg_tlv_t_27_handover_fbss_mdho_dl_rf_monitoring_maps, align 4
+  %221 = call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %220, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0)
+  %222 = load i32, ptr @hf_reg_tlv_t_27_handover_mdho_dl_monitoring_single_map, align 4
+  %223 = call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %222, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0)
+  %224 = load i32, ptr @hf_reg_tlv_t_27_handover_mdho_dl_monitoring_maps, align 4
+  %225 = call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %224, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0)
+  %226 = load i32, ptr @hf_reg_tlv_t_27_handover_mdho_ul_multiple, align 4
+  %227 = call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %226, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0)
+  %228 = load i32, ptr @hf_reg_tlv_t_27_handover_reserved, align 4
+  %229 = call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %228, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
-229:                                              ; preds = %8
-  %230 = load i32, ptr @hf_reg_tlv_t_29_ho_process_opt_ms_timer, align 4
-  %231 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %230, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
+230:                                              ; preds = %8
+  %231 = load i32, ptr @hf_reg_tlv_t_29_ho_process_opt_ms_timer, align 4
+  %232 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %231, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   br label %.loopexit
 
-232:                                              ; preds = %8
-  %233 = load i32, ptr @hf_reg_tlv_t_31_mobility_features_supported, align 4
-  %234 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %233, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
-  %235 = load i32, ptr @ett_mac_mgmt_msg_reg_req_decoder, align 4
-  %236 = call ptr @proto_item_add_subtree(ptr noundef %234, i32 noundef %235) #2
-  %237 = load i32, ptr @hf_reg_tlv_t_31_mobility_handover, align 4
-  %238 = call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %237, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
-  %239 = load i32, ptr @hf_reg_tlv_t_31_mobility_sleep_mode, align 4
-  %240 = call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %239, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
-  %241 = load i32, ptr @hf_reg_tlv_t_31_mobility_idle_mode, align 4
-  %242 = call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %241, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
+233:                                              ; preds = %8
+  %234 = load i32, ptr @hf_reg_tlv_t_31_mobility_features_supported, align 4
+  %235 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %234, ptr noundef %2, i32 noundef %6, i32 noundef 0)
+  %236 = load i32, ptr @ett_mac_mgmt_msg_reg_req_decoder, align 4
+  %237 = call ptr @proto_item_add_subtree(ptr noundef %235, i32 noundef %236)
+  %238 = load i32, ptr @hf_reg_tlv_t_31_mobility_handover, align 4
+  %239 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %238, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0)
+  %240 = load i32, ptr @hf_reg_tlv_t_31_mobility_sleep_mode, align 4
+  %241 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %240, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0)
+  %242 = load i32, ptr @hf_reg_tlv_t_31_mobility_idle_mode, align 4
+  %243 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %242, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
-243:                                              ; preds = %8
-  %244 = load i32, ptr @hf_reg_tlv_t_40_arq_ack_type, align 4
-  %245 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %244, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
-  %246 = load i32, ptr @ett_mac_mgmt_msg_reg_req_decoder, align 4
-  %247 = call ptr @proto_item_add_subtree(ptr noundef %245, i32 noundef %246) #2
-  %248 = load i32, ptr @hf_reg_tlv_t_40_arq_ack_type_selective_ack_entry, align 4
-  %249 = call ptr @proto_tree_add_item(ptr noundef %247, i32 noundef %248, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
-  %250 = load i32, ptr @hf_reg_tlv_t_40_arq_ack_type_cumulative_ack_entry, align 4
-  %251 = call ptr @proto_tree_add_item(ptr noundef %247, i32 noundef %250, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
-  %252 = load i32, ptr @hf_reg_tlv_t_40_arq_ack_type_cumulative_with_selective_ack_entry, align 4
-  %253 = call ptr @proto_tree_add_item(ptr noundef %247, i32 noundef %252, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
-  %254 = load i32, ptr @hf_reg_tlv_t_40_arq_ack_type_cumulative_ack_with_block_sequence_ack, align 4
-  %255 = call ptr @proto_tree_add_item(ptr noundef %247, i32 noundef %254, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
-  %256 = load i32, ptr @hf_reg_tlv_t_40_arq_ack_type_reserved, align 4
-  %257 = call ptr @proto_tree_add_item(ptr noundef %247, i32 noundef %256, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
+244:                                              ; preds = %8
+  %245 = load i32, ptr @hf_reg_tlv_t_40_arq_ack_type, align 4
+  %246 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %245, ptr noundef %2, i32 noundef %6, i32 noundef 0)
+  %247 = load i32, ptr @ett_mac_mgmt_msg_reg_req_decoder, align 4
+  %248 = call ptr @proto_item_add_subtree(ptr noundef %246, i32 noundef %247)
+  %249 = load i32, ptr @hf_reg_tlv_t_40_arq_ack_type_selective_ack_entry, align 4
+  %250 = call ptr @proto_tree_add_item(ptr noundef %248, i32 noundef %249, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0)
+  %251 = load i32, ptr @hf_reg_tlv_t_40_arq_ack_type_cumulative_ack_entry, align 4
+  %252 = call ptr @proto_tree_add_item(ptr noundef %248, i32 noundef %251, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0)
+  %253 = load i32, ptr @hf_reg_tlv_t_40_arq_ack_type_cumulative_with_selective_ack_entry, align 4
+  %254 = call ptr @proto_tree_add_item(ptr noundef %248, i32 noundef %253, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0)
+  %255 = load i32, ptr @hf_reg_tlv_t_40_arq_ack_type_cumulative_ack_with_block_sequence_ack, align 4
+  %256 = call ptr @proto_tree_add_item(ptr noundef %248, i32 noundef %255, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0)
+  %257 = load i32, ptr @hf_reg_tlv_t_40_arq_ack_type_reserved, align 4
+  %258 = call ptr @proto_tree_add_item(ptr noundef %248, i32 noundef %257, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
-258:                                              ; preds = %8
-  %259 = load i32, ptr @hf_reg_tlv_t_41_ho_connections_param_processing_time, align 4
-  %260 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %259, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
+259:                                              ; preds = %8
+  %260 = load i32, ptr @hf_reg_tlv_t_41_ho_connections_param_processing_time, align 4
+  %261 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %260, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   br label %.loopexit
 
-261:                                              ; preds = %8
-  %262 = load i32, ptr @hf_reg_tlv_t_42_ho_tek_processing_time, align 4
-  %263 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %262, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
+262:                                              ; preds = %8
+  %263 = load i32, ptr @hf_reg_tlv_t_42_ho_tek_processing_time, align 4
+  %264 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %263, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   br label %.loopexit
 
-264:                                              ; preds = %8
-  %265 = load i32, ptr @hf_reg_tlv_t_43_mac_header_ext_header_support, align 4
-  %266 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %265, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
-  %267 = load i32, ptr @ett_mac_mgmt_msg_reg_req_decoder, align 4
-  %268 = call ptr @proto_item_add_subtree(ptr noundef %266, i32 noundef %267) #2
-  %269 = load i32, ptr @hf_reg_tlv_t_43_bandwidth_request_ul_tx_power_report_header_support, align 4
-  %270 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %269, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0) #2
-  %271 = load i32, ptr @hf_reg_tlv_t_43_bandwidth_request_cinr_report_header_support, align 4
-  %272 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %271, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0) #2
-  %273 = load i32, ptr @hf_reg_tlv_t_43_cqich_allocation_request_header_support, align 4
-  %274 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %273, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0) #2
-  %275 = load i32, ptr @hf_reg_tlv_t_43_phy_channel_report_header_support, align 4
-  %276 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %275, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0) #2
-  %277 = load i32, ptr @hf_reg_tlv_t_43_bandwidth_request_ul_sleep_control_header_support, align 4
-  %278 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %277, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0) #2
-  %279 = load i32, ptr @hf_reg_tlv_t_43_sn_report_header_support, align 4
-  %280 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %279, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0) #2
-  %281 = load i32, ptr @hf_reg_tlv_t_43_feedback_header_support, align 4
-  %282 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %281, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0) #2
-  %283 = load i32, ptr @hf_reg_tlv_t_43_sdu_sn_extended_subheader_support_and_parameter, align 4
-  %284 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %283, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0) #2
-  %285 = load i32, ptr @hf_reg_tlv_t_43_sdu_sn_parameter, align 4
-  %286 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %285, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0) #2
-  %287 = load i32, ptr @hf_reg_tlv_t_43_dl_sleep_control_extended_subheader, align 4
-  %288 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %287, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0) #2
-  %289 = load i32, ptr @hf_reg_tlv_t_43_feedback_request_extended_subheader, align 4
-  %290 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %289, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0) #2
-  %291 = load i32, ptr @hf_reg_tlv_t_43_mimo_mode_feedback_extended_subheader, align 4
-  %292 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %291, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0) #2
-  %293 = load i32, ptr @hf_reg_tlv_t_43_ul_tx_power_report_extended_subheader, align 4
-  %294 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %293, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0) #2
-  %295 = load i32, ptr @hf_reg_tlv_t_43_mini_feedback_extended_subheader, align 4
-  %296 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %295, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0) #2
-  %297 = load i32, ptr @hf_reg_tlv_t_43_sn_request_extended_subheader, align 4
-  %298 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %297, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0) #2
-  %299 = load i32, ptr @hf_reg_tlv_t_43_pdu_sn_short_extended_subheader, align 4
-  %300 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %299, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0) #2
-  %301 = load i32, ptr @hf_reg_tlv_t_43_pdu_sn_long_extended_subheader, align 4
-  %302 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %301, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0) #2
-  %303 = load i32, ptr @hf_reg_tlv_t_43_reserved, align 4
-  %304 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %303, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0) #2
+265:                                              ; preds = %8
+  %266 = load i32, ptr @hf_reg_tlv_t_43_mac_header_ext_header_support, align 4
+  %267 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %266, ptr noundef %2, i32 noundef %6, i32 noundef 0)
+  %268 = load i32, ptr @ett_mac_mgmt_msg_reg_req_decoder, align 4
+  %269 = call ptr @proto_item_add_subtree(ptr noundef %267, i32 noundef %268)
+  %270 = load i32, ptr @hf_reg_tlv_t_43_bandwidth_request_ul_tx_power_report_header_support, align 4
+  %271 = call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %270, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0)
+  %272 = load i32, ptr @hf_reg_tlv_t_43_bandwidth_request_cinr_report_header_support, align 4
+  %273 = call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %272, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0)
+  %274 = load i32, ptr @hf_reg_tlv_t_43_cqich_allocation_request_header_support, align 4
+  %275 = call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %274, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0)
+  %276 = load i32, ptr @hf_reg_tlv_t_43_phy_channel_report_header_support, align 4
+  %277 = call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %276, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0)
+  %278 = load i32, ptr @hf_reg_tlv_t_43_bandwidth_request_ul_sleep_control_header_support, align 4
+  %279 = call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %278, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0)
+  %280 = load i32, ptr @hf_reg_tlv_t_43_sn_report_header_support, align 4
+  %281 = call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %280, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0)
+  %282 = load i32, ptr @hf_reg_tlv_t_43_feedback_header_support, align 4
+  %283 = call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %282, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0)
+  %284 = load i32, ptr @hf_reg_tlv_t_43_sdu_sn_extended_subheader_support_and_parameter, align 4
+  %285 = call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %284, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0)
+  %286 = load i32, ptr @hf_reg_tlv_t_43_sdu_sn_parameter, align 4
+  %287 = call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %286, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0)
+  %288 = load i32, ptr @hf_reg_tlv_t_43_dl_sleep_control_extended_subheader, align 4
+  %289 = call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %288, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0)
+  %290 = load i32, ptr @hf_reg_tlv_t_43_feedback_request_extended_subheader, align 4
+  %291 = call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %290, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0)
+  %292 = load i32, ptr @hf_reg_tlv_t_43_mimo_mode_feedback_extended_subheader, align 4
+  %293 = call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %292, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0)
+  %294 = load i32, ptr @hf_reg_tlv_t_43_ul_tx_power_report_extended_subheader, align 4
+  %295 = call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %294, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0)
+  %296 = load i32, ptr @hf_reg_tlv_t_43_mini_feedback_extended_subheader, align 4
+  %297 = call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %296, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0)
+  %298 = load i32, ptr @hf_reg_tlv_t_43_sn_request_extended_subheader, align 4
+  %299 = call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %298, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0)
+  %300 = load i32, ptr @hf_reg_tlv_t_43_pdu_sn_short_extended_subheader, align 4
+  %301 = call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %300, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0)
+  %302 = load i32, ptr @hf_reg_tlv_t_43_pdu_sn_long_extended_subheader, align 4
+  %303 = call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %302, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0)
+  %304 = load i32, ptr @hf_reg_tlv_t_43_reserved, align 4
+  %305 = call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %304, ptr noundef %2, i32 noundef %3, i32 noundef 3, i32 noundef 0)
   br label %.loopexit
 
-305:                                              ; preds = %8
-  %306 = load i32, ptr @hf_reg_req_bs_switching_timer, align 4
-  %307 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %306, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
-  %308 = load i32, ptr @ett_mac_mgmt_msg_reg_req_decoder, align 4
-  %309 = call ptr @proto_item_add_subtree(ptr noundef %307, i32 noundef %308) #2
-  %310 = load i32, ptr @hf_reg_req_min_time_for_intra_fa, align 4
-  %311 = call ptr @proto_tree_add_item(ptr noundef %309, i32 noundef %310, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
-  %312 = load i32, ptr @hf_reg_req_min_time_for_inter_fa, align 4
-  %313 = call ptr @proto_tree_add_item(ptr noundef %309, i32 noundef %312, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
+306:                                              ; preds = %8
+  %307 = load i32, ptr @hf_reg_req_bs_switching_timer, align 4
+  %308 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %307, ptr noundef %2, i32 noundef %6, i32 noundef 0)
+  %309 = load i32, ptr @ett_mac_mgmt_msg_reg_req_decoder, align 4
+  %310 = call ptr @proto_item_add_subtree(ptr noundef %308, i32 noundef %309)
+  %311 = load i32, ptr @hf_reg_req_min_time_for_intra_fa, align 4
+  %312 = call ptr @proto_tree_add_item(ptr noundef %310, i32 noundef %311, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0)
+  %313 = load i32, ptr @hf_reg_req_min_time_for_inter_fa, align 4
+  %314 = call ptr @proto_tree_add_item(ptr noundef %310, i32 noundef %313, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
-314:                                              ; preds = %8, %8, %8, %8, %8
-  %315 = call ptr @tvb_new_subset_remaining(ptr noundef %2, i32 noundef %6) #2
-  %316 = call i32 @wimax_common_tlv_encoding_decoder(ptr noundef %315, ptr noundef %5, ptr noundef %0) #2
+315:                                              ; preds = %8, %8, %8, %8, %8
+  %316 = call ptr @tvb_new_subset_remaining(ptr noundef %2, i32 noundef %6)
+  %317 = call i32 @wimax_common_tlv_encoding_decoder(ptr noundef %316, ptr noundef %5, ptr noundef %0)
   br label %.loopexit
 
-317:                                              ; preds = %8
-  %318 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %7, ptr noundef %2, i32 noundef %6, i32 noundef 0) #2
+318:                                              ; preds = %8
+  %319 = call ptr @add_tlv_subtree(ptr noundef nonnull %9, ptr noundef %0, i32 noundef %7, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %185, %140, %45, %151, %122, %125, %50, %79, %317, %314, %305, %264, %261, %258, %243, %232, %229, %212, %197, %194, %191, %188, %137, %134, %131, %128, %117, %114, %111, %108, %28, %25, %22, %19, %16, %12
+.loopexit:                                        ; preds = %186, %141, %45, %152, %123, %126, %50, %79, %318, %315, %306, %265, %262, %259, %244, %233, %230, %213, %198, %195, %192, %189, %138, %135, %132, %129, %117, %114, %111, %108, %28, %25, %22, %19, %16, %12
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #3
   ret void
 }
 
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @init_tlv_info(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
 
-declare ptr @add_protocol_subtree(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @init_tlv_info(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @wimax_service_flow_encodings_decoder(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @add_protocol_subtree(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @wimax_service_flow_encodings_decoder(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @add_tlv_subtree(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @add_tlv_subtree(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @get_tlv_type(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @get_tlv_length(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @get_tlv_type(ptr noundef) local_unnamed_addr #2
 
-declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @get_tlv_length(ptr noundef) local_unnamed_addr #2
 
-declare i32 @get_tlv_value_offset(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @get_tlv_value_offset(ptr noundef) local_unnamed_addr #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @wimax_common_tlv_encoding_decoder(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @wimax_common_tlv_encoding_decoder(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_mac_mgmt_msg_reg_req() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.192, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.194) #2
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.192, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.194)
   store i32 %1, ptr @proto_mac_mgmt_msg_reg_req_decoder, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_mac_mgmt_msg_reg_req.hf, i32 noundef 111) #2
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_mac_mgmt_msg_reg_req.ett, i32 noundef 1) #2
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_mac_mgmt_msg_reg_req.hf, i32 noundef 111)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_mac_mgmt_msg_reg_req.ett, i32 noundef 1)
   %2 = load i32, ptr @proto_mac_mgmt_msg_reg_req_decoder, align 4
-  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.195, ptr noundef nonnull @dissect_mac_mgmt_msg_reg_req_decoder, i32 noundef %2) #2
+  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.195, ptr noundef nonnull @dissect_mac_mgmt_msg_reg_req_decoder, i32 noundef %2)
   store ptr %3, ptr @reg_req_handle, align 8
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mac_mgmt_msg_reg_req_decoder(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.tlv_info_t, align 4
-  %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #3
+  %6 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %7 = load i32, ptr @proto_mac_mgmt_msg_reg_req_decoder, align 4
-  %8 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 0, i32 noundef %6, ptr noundef nonnull @.str.215) #2
+  %8 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 0, i32 noundef %6, ptr noundef nonnull @.str.219)
   %9 = load i32, ptr @ett_mac_mgmt_msg_reg_req_decoder, align 4
-  %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9) #2
-  %.not104 = icmp eq i32 %6, 0
-  br i1 %.not104, label %.loopexit.thread, label %.lr.ph
+  %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9)
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %71
   %.0103 = phi i32 [ %72, %71 ], [ 0, %4 ]
-  %.095102 = phi i32 [ %.1, %71 ], [ 0, %4 ]
-  %11 = call i32 @init_tlv_info(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %.0103) #2
-  %12 = call i32 @get_tlv_type(ptr noundef nonnull %5) #2
-  %13 = call i32 @get_tlv_length(ptr noundef nonnull %5) #2
+  %.095102 = phi i1 [ %.1, %71 ], [ false, %4 ]
+  %11 = call i32 @init_tlv_info(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %.0103)
+  %12 = call i32 @get_tlv_type(ptr noundef nonnull %5)
+  %13 = call i32 @get_tlv_length(ptr noundef nonnull %5)
   %14 = icmp eq i32 %12, -1
   %15 = add i32 %13, -64001
   %16 = icmp ult i32 %15, -64000
@@ -896,14 +924,14 @@ define internal i32 @dissect_mac_mgmt_msg_reg_req_decoder(ptr noundef %0, ptr no
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
-  call void @col_append_sep_str(ptr noundef %19, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.2) #2
+  call void @col_append_sep_str(ptr noundef %19, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.2)
   %20 = load i32, ptr @hf_reg_invalid_tlv, align 4
   %21 = sub i32 %6, %.0103
-  %22 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %20, ptr noundef %0, i32 noundef %.0103, i32 noundef %21, i32 noundef 0) #2
-  br label %.loopexit
+  %22 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %20, ptr noundef %0, i32 noundef %.0103, i32 noundef %21, i32 noundef 0)
+  br i1 %.095102, label %74, label %.critedge
 
 23:                                               ; preds = %.lr.ph
-  %24 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #2
+  %24 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5)
   %25 = add i32 %24, %.0103
   switch i32 %12, label %68 [
     i32 1, label %26
@@ -954,12 +982,12 @@ define internal i32 @dissect_mac_mgmt_msg_reg_req_decoder(ptr noundef %0, ptr no
 
 28:                                               ; preds = %23
   %29 = load i32, ptr @hf_reg_req_secondary_mgmt_cid, align 4
-  %30 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %29, ptr noundef %0, i32 noundef %.0103, i32 noundef 0) #2
+  %30 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %29, ptr noundef %0, i32 noundef %.0103, i32 noundef 0)
   br label %71
 
 31:                                               ; preds = %23
   %32 = load i32, ptr @hf_reg_req_tlv_t_32_sleep_mode_recovery_time, align 4
-  %33 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %32, ptr noundef %0, i32 noundef %.0103, i32 noundef 0) #2
+  %33 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %32, ptr noundef %0, i32 noundef %.0103, i32 noundef 0)
   br label %71
 
 34:                                               ; preds = %23
@@ -971,111 +999,120 @@ define internal i32 @dissect_mac_mgmt_msg_reg_req_decoder(ptr noundef %0, ptr no
 
 35:                                               ; preds = %34
   %36 = load i32, ptr @hf_ms_previous_ip_address_v4, align 4
-  %37 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %36, ptr noundef %0, i32 noundef %.0103, i32 noundef 0) #2
+  %37 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %36, ptr noundef %0, i32 noundef %.0103, i32 noundef 0)
   br label %71
 
 38:                                               ; preds = %34
   %39 = load i32, ptr @hf_ms_previous_ip_address_v6, align 4
-  %40 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %39, ptr noundef %0, i32 noundef %.0103, i32 noundef 0) #2
+  %40 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %39, ptr noundef %0, i32 noundef %.0103, i32 noundef 0)
   br label %71
 
 41:                                               ; preds = %23
   %42 = load i32, ptr @hf_idle_mode_timeout, align 4
-  %43 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %42, ptr noundef %0, i32 noundef %.0103, i32 noundef 0) #2
+  %43 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %42, ptr noundef %0, i32 noundef %.0103, i32 noundef 0)
   br label %71
 
 44:                                               ; preds = %23
   %45 = load i32, ptr @hf_reg_req_tlv_t_45_ms_periodic_ranging_timer, align 4
-  %46 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %45, ptr noundef %0, i32 noundef %.0103, i32 noundef 0) #2
+  %46 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %45, ptr noundef %0, i32 noundef %.0103, i32 noundef 0)
   br label %71
 
 47:                                               ; preds = %23
   %48 = load i32, ptr @hf_reg_tlv_t_46_handover_indication_readiness_timer, align 4
-  %49 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %48, ptr noundef %0, i32 noundef %.0103, i32 noundef 0) #2
+  %49 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %48, ptr noundef %0, i32 noundef %.0103, i32 noundef 0)
   br label %71
 
 50:                                               ; preds = %23
   %51 = load i32, ptr @ett_mac_mgmt_msg_reg_req_decoder, align 4
   %52 = load i32, ptr @proto_mac_mgmt_msg_reg_req_decoder, align 4
-  %53 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %51, ptr noundef %10, i32 noundef %52, ptr noundef %0, i32 noundef %.0103, i32 noundef %13, ptr noundef nonnull @.str.216) #2
-  %54 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %25, i32 noundef %13) #2
-  call void @wimax_service_flow_encodings_decoder(ptr noundef %54, ptr noundef %1, ptr noundef %53) #2
+  %53 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %51, ptr noundef %10, i32 noundef %52, ptr noundef %0, i32 noundef %.0103, i32 noundef %13, ptr noundef nonnull @.str.220)
+  %54 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %25, i32 noundef %13)
+  call void @wimax_service_flow_encodings_decoder(ptr noundef %54, ptr noundef %1, ptr noundef %53)
   br label %71
 
 55:                                               ; preds = %23
   %56 = load i32, ptr @ett_mac_mgmt_msg_reg_req_decoder, align 4
   %57 = load i32, ptr @proto_mac_mgmt_msg_reg_req_decoder, align 4
-  %58 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %56, ptr noundef %10, i32 noundef %57, ptr noundef %0, i32 noundef %.0103, i32 noundef %13, ptr noundef nonnull @.str.217) #2
-  %59 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %25, i32 noundef %13) #2
-  call void @wimax_service_flow_encodings_decoder(ptr noundef %59, ptr noundef %1, ptr noundef %58) #2
+  %58 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %56, ptr noundef %10, i32 noundef %57, ptr noundef %0, i32 noundef %.0103, i32 noundef %13, ptr noundef nonnull @.str.221)
+  %59 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %25, i32 noundef %13)
+  call void @wimax_service_flow_encodings_decoder(ptr noundef %59, ptr noundef %1, ptr noundef %58)
   br label %71
 
 60:                                               ; preds = %23
   %61 = load i32, ptr @ett_mac_mgmt_msg_reg_req_decoder, align 4
   %62 = load i32, ptr @proto_mac_mgmt_msg_reg_req_decoder, align 4
-  %63 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %61, ptr noundef %10, i32 noundef %62, ptr noundef %0, i32 noundef %.0103, i32 noundef %13, ptr noundef nonnull @.str.218) #2
-  call void @wimax_hmac_tuple_decoder(ptr noundef %63, ptr noundef %0, i32 noundef %25, i32 noundef %13) #2
+  %63 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %61, ptr noundef %10, i32 noundef %62, ptr noundef %0, i32 noundef %.0103, i32 noundef %13, ptr noundef nonnull @.str.222)
+  call void @wimax_hmac_tuple_decoder(ptr noundef %63, ptr noundef %0, i32 noundef %25, i32 noundef %13)
   br label %71
 
 64:                                               ; preds = %23
   %65 = load i32, ptr @ett_mac_mgmt_msg_reg_req_decoder, align 4
   %66 = load i32, ptr @proto_mac_mgmt_msg_reg_req_decoder, align 4
-  %67 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %65, ptr noundef %10, i32 noundef %66, ptr noundef %0, i32 noundef %.0103, i32 noundef %13, ptr noundef nonnull @.str.219) #2
-  call void @wimax_cmac_tuple_decoder(ptr noundef %67, ptr noundef %0, i32 noundef %25, i32 noundef %13) #2
+  %67 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %65, ptr noundef %10, i32 noundef %66, ptr noundef %0, i32 noundef %.0103, i32 noundef %13, ptr noundef nonnull @.str.223)
+  call void @wimax_cmac_tuple_decoder(ptr noundef %67, ptr noundef %0, i32 noundef %25, i32 noundef %13)
   br label %71
 
 68:                                               ; preds = %23
   %69 = load i32, ptr @hf_tlv_type, align 4
-  %70 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %69, ptr noundef %0, i32 noundef %.0103, i32 noundef 0) #2
+  %70 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %69, ptr noundef %0, i32 noundef %.0103, i32 noundef 0)
   br label %71
 
 71:                                               ; preds = %34, %35, %38, %68, %64, %60, %55, %50, %47, %44, %41, %31, %28, %26
-  %.1 = phi i32 [ %.095102, %68 ], [ %.095102, %64 ], [ 1, %60 ], [ %.095102, %55 ], [ %.095102, %50 ], [ %.095102, %47 ], [ %.095102, %44 ], [ %.095102, %41 ], [ %.095102, %35 ], [ %.095102, %38 ], [ %.095102, %31 ], [ %.095102, %28 ], [ %.095102, %26 ], [ %.095102, %34 ]
+  %.1 = phi i1 [ %.095102, %68 ], [ %.095102, %64 ], [ true, %60 ], [ %.095102, %55 ], [ %.095102, %50 ], [ %.095102, %47 ], [ %.095102, %44 ], [ %.095102, %41 ], [ %.095102, %35 ], [ %.095102, %38 ], [ %.095102, %31 ], [ %.095102, %28 ], [ %.095102, %26 ], [ %.095102, %34 ]
   %72 = add i32 %25, %13
   %73 = icmp ult i32 %72, %6
-  br i1 %73, label %.lr.ph, label %.loopexit, !llvm.loop !6
+  br i1 %73, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
-.loopexit:                                        ; preds = %71, %17
-  %.095101 = phi i32 [ %.095102, %17 ], [ %.1, %71 ]
-  %.not = icmp eq i32 %.095101, 0
-  br i1 %.not, label %.loopexit.thread, label %74
+.loopexit:                                        ; preds = %71
+  br i1 %.1, label %74, label %.critedge
 
-.loopexit.thread:                                 ; preds = %4, %.loopexit
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.220) #2
+.critedge:                                        ; preds = %17, %4, %.loopexit
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.224)
   br label %74
 
-74:                                               ; preds = %.loopexit.thread, %.loopexit
-  %75 = call i32 @tvb_captured_length(ptr noundef %0) #2
+74:                                               ; preds = %17, %.critedge, %.loopexit
+  %75 = call i32 @tvb_captured_length(ptr noundef %0)
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #3
   ret i32 %75
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_mac_mgmt_msg_reg_req() local_unnamed_addr #0 {
   %1 = load ptr, ptr @reg_req_handle, align 8
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.196, i32 noundef 6, ptr noundef %1) #2
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.196, i32 noundef 6, ptr noundef %1)
   ret void
 }
 
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @wimax_hmac_tuple_decoder(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @wimax_hmac_tuple_decoder(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @wimax_cmac_tuple_decoder(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @wimax_cmac_tuple_decoder(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}

@@ -5,34 +5,31 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 %struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct.enum_val_t = type { ptr, ptr, i32 }
 %struct.reassembly_table = type { ptr, ptr, ptr, ptr, ptr }
 %struct.reassembly_table_functions = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._fragment_items = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.usbll_address_t = type { i8, i8, i8 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct.anon = type { i8, [3 x i8] }
-%struct._frame_data = type { i32, i32, i32, i32, i64, ptr, ptr, ptr, i16, i16, %struct.nstime_t, %struct.nstime_t, i32, i32, i8 }
+%struct._frame_data = type <{ i32, i32, i32, i32, i32, [4 x i8], i64, ptr, ptr, ptr, i8, i16, [5 x i8], %struct.nstime_t, %struct.nstime_t, i32, i32 }>
 %struct.usbll_data = type { i32, ptr, ptr, ptr }
 %struct.usbll_transaction_info = type { i32, i8, i8, i8, i32, ptr, ptr }
-%struct.usbll_endpoint_info = type { i32, i32, i16, i8, i32, i32, i32, i32, i32 }
-%struct.usbll_transfer_info = type { i32, i32, i32, i32, i32 }
-%struct._usb_pseudo_urb_t = type { i32, i8, i8, i8, i16, i32 }
-%struct._usb_conv_info_t = type { i16, i16, i8, i32, i8, i8, i16, i32, i32, i32, i8, i32, i16, i16, i16, i8, i16, i32, i16, i8, ptr, ptr, ptr, i32, ptr }
-%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.usbll_endpoint_info = type { i32, i32, i16, i8, i8, i32, i32, i32, i32 }
+%struct.usbll_transfer_info = type { i32, i32, i32, i8, i8 }
+%struct._usb_pseudo_urb_t = type { i8, i8, i8, i8, i16, i32 }
+%struct._usb_conv_info_t = type { i8, i16, i16, i16, i16, i8, i16, i32, i16, i8, ptr, ptr, i32, ptr }
+%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.field_info = type { ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32 }
 
 @.str = private unnamed_addr constant [11 x i8] c"%d us (%d)\00", align 1
-@proto_register_usbll.hf = internal global [37 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_usbll_pid, %struct._header_field_info { ptr @.str.1, ptr @.str.2, i32 4, i32 514, ptr @usb_packetid_vals_ext, i64 0, ptr @.str.3, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_src, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_dst, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_addr, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_device_addr, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 5, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_endp, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 5, i32 1, ptr null, i64 1920, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_sof_framenum, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 5, i32 1, ptr null, i64 2047, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_crc5, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 5, i32 2, ptr null, i64 63488, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_crc5_status, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 4, i32 0, ptr @proto_checksum_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_data, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_data_crc, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_data_crc_status, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 4, i32 0, ptr @proto_checksum_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_hub_addr, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 6, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_sc, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 6, i32 1, ptr @usb_start_complete_vals, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_port, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 6, i32 1, ptr null, i64 32512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_s, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 6, i32 1, ptr @usb_split_speed_vals, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_e, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 6, i32 1, ptr null, i64 65536, ptr @.str.36, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_u, %struct._header_field_info { ptr @.str.37, ptr @.str.38, i32 6, i32 1, ptr null, i64 65536, ptr @.str.36, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_iso_se, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 6, i32 1, ptr @usb_split_iso_se_vals, i64 98304, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_et, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 6, i32 1, ptr @usb_endpoint_type_vals, i64 393216, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_crc5, %struct._header_field_info { ptr @.str.16, ptr @.str.43, i32 6, i32 2, ptr null, i64 16252928, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_crc5_status, %struct._header_field_info { ptr @.str.18, ptr @.str.44, i32 4, i32 0, ptr @proto_checksum_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_fragments, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_fragment, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 35, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_fragment_overlap, %struct._header_field_info { ptr @.str.49, ptr @.str.50, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_fragment_overlap_conflicts, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_fragment_multiple_tails, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_fragment_too_long_fragment, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_fragment_error, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 35, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_fragment_count, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_reassembled_in, %struct._header_field_info { ptr @.str.61, ptr @.str.62, i32 35, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_reassembled_length, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_subpid, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 4, i32 514, ptr @usb_subpid_vals_ext, i64 0, ptr @.str.67, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_lpm_link_state, %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 5, i32 6, ptr @lpm_link_state_str, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_lpm_besl, %struct._header_field_info { ptr @.str.70, ptr @.str.71, i32 5, i32 6, ptr @usb_lpm_besl_str, i64 240, ptr @.str.72, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_lpm_remote_wake, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 5, i32 1, ptr @usb_lpm_remote_wake_vals, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_lpm_reserved, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 5, i32 1, ptr null, i64 1536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@proto_register_usbll.hf = internal global [37 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_usbll_pid, %struct._header_field_info { ptr @.str.1, ptr @.str.2, i32 4, i32 514, ptr @usb_packetid_vals_ext, i64 0, ptr @.str.3, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_src, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_dst, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_addr, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_device_addr, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 5, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_endp, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 5, i32 1, ptr null, i64 1920, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_sof_framenum, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 5, i32 1, ptr null, i64 2047, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_crc5, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 5, i32 2, ptr null, i64 63488, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_crc5_status, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 4, i32 0, ptr @proto_checksum_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_data, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 30, i32 2048, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_data_crc, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_data_crc_status, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 4, i32 0, ptr @proto_checksum_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_hub_addr, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 6, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_sc, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 6, i32 1, ptr @usb_start_complete_vals, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_port, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 6, i32 1, ptr null, i64 32512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_s, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 6, i32 1, ptr @usb_split_speed_vals, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_e, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 6, i32 1, ptr null, i64 65536, ptr @.str.36, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_u, %struct._header_field_info { ptr @.str.37, ptr @.str.38, i32 6, i32 1, ptr null, i64 65536, ptr @.str.36, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_iso_se, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 6, i32 1, ptr @usb_split_iso_se_vals, i64 98304, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_et, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 6, i32 1, ptr @usb_endpoint_type_vals, i64 393216, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_crc5, %struct._header_field_info { ptr @.str.16, ptr @.str.43, i32 6, i32 2, ptr null, i64 16252928, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_crc5_status, %struct._header_field_info { ptr @.str.18, ptr @.str.44, i32 4, i32 0, ptr @proto_checksum_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_fragments, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_fragment, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 35, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_fragment_overlap, %struct._header_field_info { ptr @.str.49, ptr @.str.50, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_fragment_overlap_conflicts, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_fragment_multiple_tails, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_fragment_too_long_fragment, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_fragment_error, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 35, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_fragment_count, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_reassembled_in, %struct._header_field_info { ptr @.str.61, ptr @.str.62, i32 35, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_reassembled_length, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_subpid, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 4, i32 514, ptr @usb_subpid_vals_ext, i64 0, ptr @.str.67, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_lpm_link_state, %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 5, i32 6, ptr @lpm_link_state_str, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_lpm_besl, %struct._header_field_info { ptr @.str.70, ptr @.str.71, i32 5, i32 6, ptr @usb_lpm_besl_str, i64 240, ptr @.str.72, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_lpm_remote_wake, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 5, i32 1, ptr @usb_lpm_remote_wake_vals, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_lpm_reserved, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 5, i32 1, ptr null, i64 1536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_usbll_pid = internal global i32 0, align 4
 @.str.1 = private unnamed_addr constant [4 x i8] c"PID\00", align 1
 @.str.2 = private unnamed_addr constant [10 x i8] c"usbll.pid\00", align 1
-@usb_packetid_vals_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 16, ptr @usb_packetid_vals, ptr @.str.108 }, align 8
+@usb_packetid_vals_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 16, ptr @usb_packetid_vals, ptr @.str.110 }, align 8
 @.str.3 = private unnamed_addr constant [14 x i8] c"USB Packet ID\00", align 1
 @hf_usbll_src = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [7 x i8] c"Source\00", align 1
@@ -74,14 +71,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_usbll_split_sc = internal global i32 0, align 4
 @.str.28 = private unnamed_addr constant [3 x i8] c"SC\00", align 1
 @.str.29 = private unnamed_addr constant [15 x i8] c"usbll.split_sc\00", align 1
-@usb_start_complete_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.125 }, %struct._value_string { i32 1, ptr @.str.126 }, %struct._value_string zeroinitializer], align 16
 @hf_usbll_split_port = internal global i32 0, align 4
 @.str.30 = private unnamed_addr constant [5 x i8] c"Port\00", align 1
 @.str.31 = private unnamed_addr constant [17 x i8] c"usbll.split_port\00", align 1
 @hf_usbll_split_s = internal global i32 0, align 4
 @.str.32 = private unnamed_addr constant [6 x i8] c"Speed\00", align 1
 @.str.33 = private unnamed_addr constant [14 x i8] c"usbll.split_s\00", align 1
-@usb_split_speed_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.127 }, %struct._value_string { i32 1, ptr @.str.128 }, %struct._value_string zeroinitializer], align 16
 @hf_usbll_split_e = internal global i32 0, align 4
 @.str.34 = private unnamed_addr constant [2 x i8] c"E\00", align 1
 @.str.35 = private unnamed_addr constant [14 x i8] c"usbll.split_e\00", align 1
@@ -92,11 +87,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_usbll_split_iso_se = internal global i32 0, align 4
 @.str.39 = private unnamed_addr constant [14 x i8] c"Start and End\00", align 1
 @.str.40 = private unnamed_addr constant [15 x i8] c"usbll.split_se\00", align 1
-@usb_split_iso_se_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.129 }, %struct._value_string { i32 1, ptr @.str.130 }, %struct._value_string { i32 2, ptr @.str.131 }, %struct._value_string { i32 3, ptr @.str.132 }, %struct._value_string zeroinitializer], align 16
 @hf_usbll_split_et = internal global i32 0, align 4
 @.str.41 = private unnamed_addr constant [14 x i8] c"Endpoint Type\00", align 1
 @.str.42 = private unnamed_addr constant [15 x i8] c"usbll.split_et\00", align 1
-@usb_endpoint_type_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.133 }, %struct._value_string { i32 1, ptr @.str.134 }, %struct._value_string { i32 2, ptr @.str.135 }, %struct._value_string { i32 3, ptr @.str.136 }, %struct._value_string zeroinitializer], align 16
 @hf_usbll_split_crc5 = internal global i32 0, align 4
 @.str.43 = private unnamed_addr constant [17 x i8] c"usbll.split_crc5\00", align 1
 @hf_usbll_split_crc5_status = internal global i32 0, align 4
@@ -134,7 +127,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_usbll_subpid = internal global i32 0, align 4
 @.str.65 = private unnamed_addr constant [7 x i8] c"SubPID\00", align 1
 @.str.66 = private unnamed_addr constant [13 x i8] c"usbll.subpid\00", align 1
-@usb_subpid_vals_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 16, ptr @usb_subpid_vals, ptr @.str.137 }, align 8
+@usb_subpid_vals_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 16, ptr @usb_subpid_vals, ptr @.str.144 }, align 8
 @.str.67 = private unnamed_addr constant [29 x i8] c"Extended Token Packet SubPID\00", align 1
 @hf_usbll_lpm_link_state = internal global i32 0, align 4
 @.str.68 = private unnamed_addr constant [11 x i8] c"bLinkState\00", align 1
@@ -146,11 +139,10 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_usbll_lpm_remote_wake = internal global i32 0, align 4
 @.str.73 = private unnamed_addr constant [12 x i8] c"bRemoteWake\00", align 1
 @.str.74 = private unnamed_addr constant [22 x i8] c"usbll.lpm_remote_wake\00", align 1
-@usb_lpm_remote_wake_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.156 }, %struct._value_string { i32 1, ptr @.str.157 }, %struct._value_string zeroinitializer], align 16
 @hf_usbll_lpm_reserved = internal global i32 0, align 4
 @.str.75 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
 @.str.76 = private unnamed_addr constant [19 x i8] c"usbll.lpm_reserved\00", align 1
-@proto_register_usbll.ei = internal global [11 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_invalid_pid, %struct.expert_field_info { ptr @.str.77, i32 117440512, i32 8388608, ptr @.str.78, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_invalid_subpid, %struct.expert_field_info { ptr @.str.79, i32 117440512, i32 8388608, ptr @.str.80, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_conflicting_subpid, %struct.expert_field_info { ptr @.str.81, i32 117440512, i32 8388608, ptr @.str.82, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_undecoded, %struct.expert_field_info { ptr @.str.83, i32 83886080, i32 6291456, ptr @.str.84, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_wrong_crc5, %struct.expert_field_info { ptr @.str.85, i32 150994944, i32 6291456, ptr @.str.86, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_wrong_split_crc5, %struct.expert_field_info { ptr @.str.87, i32 150994944, i32 6291456, ptr @.str.86, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_wrong_crc16, %struct.expert_field_info { ptr @.str.88, i32 150994944, i32 6291456, ptr @.str.86, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_invalid_s, %struct.expert_field_info { ptr @.str.89, i32 117440512, i32 8388608, ptr @.str.90, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_invalid_e_u, %struct.expert_field_info { ptr @.str.91, i32 117440512, i32 8388608, ptr @.str.90, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_invalid_pid_sequence, %struct.expert_field_info { ptr @.str.92, i32 117440512, i32 8388608, ptr @.str.93, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_invalid_setup_data, %struct.expert_field_info { ptr @.str.94, i32 117440512, i32 8388608, ptr @.str.95, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_usbll.ei = internal global [11 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_invalid_pid, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.77, i32 117440512, i32 8388608, ptr @.str.78, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_invalid_subpid, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.79, i32 117440512, i32 8388608, ptr @.str.80, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_conflicting_subpid, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.81, i32 117440512, i32 8388608, ptr @.str.82, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.83, i32 83886080, i32 6291456, ptr @.str.84, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_wrong_crc5, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.85, i32 150994944, i32 6291456, ptr @.str.86, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_wrong_split_crc5, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.87, i32 150994944, i32 6291456, ptr @.str.88, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_wrong_crc16, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.89, i32 150994944, i32 6291456, ptr @.str.90, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_invalid_s, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.91, i32 117440512, i32 8388608, ptr @.str.92, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_invalid_e_u, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.93, i32 117440512, i32 8388608, ptr @.str.92, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_invalid_pid_sequence, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.94, i32 117440512, i32 8388608, ptr @.str.95, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_invalid_setup_data, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.96, i32 117440512, i32 8388608, ptr @.str.97, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_invalid_pid = internal global %struct.expert_field zeroinitializer, align 4
 @.str.77 = private unnamed_addr constant [18 x i8] c"usbll.invalid_pid\00", align 1
 @.str.78 = private unnamed_addr constant [22 x i8] c"Invalid USB Packet ID\00", align 1
@@ -165,185 +157,198 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.84 = private unnamed_addr constant [44 x i8] c"Not dissected yet (report to wireshark.org)\00", align 1
 @ei_wrong_crc5 = internal global %struct.expert_field zeroinitializer, align 4
 @.str.85 = private unnamed_addr constant [17 x i8] c"usbll.crc5.wrong\00", align 1
-@.str.86 = private unnamed_addr constant [10 x i8] c"Wrong CRC\00", align 1
+@.str.86 = private unnamed_addr constant [11 x i8] c"Wrong CRC5\00", align 1
 @ei_wrong_split_crc5 = internal global %struct.expert_field zeroinitializer, align 4
 @.str.87 = private unnamed_addr constant [23 x i8] c"usbll.split_crc5.wrong\00", align 1
+@.str.88 = private unnamed_addr constant [17 x i8] c"Wrong Split CRC5\00", align 1
 @ei_wrong_crc16 = internal global %struct.expert_field zeroinitializer, align 4
-@.str.88 = private unnamed_addr constant [18 x i8] c"usbll.crc16.wrong\00", align 1
+@.str.89 = private unnamed_addr constant [18 x i8] c"usbll.crc16.wrong\00", align 1
+@.str.90 = private unnamed_addr constant [12 x i8] c"Wrong CRC16\00", align 1
 @ei_invalid_s = internal global %struct.expert_field zeroinitializer, align 4
-@.str.89 = private unnamed_addr constant [16 x i8] c"usbll.invalid_s\00", align 1
-@.str.90 = private unnamed_addr constant [24 x i8] c"Invalid bit (Must be 0)\00", align 1
+@.str.91 = private unnamed_addr constant [16 x i8] c"usbll.invalid_s\00", align 1
+@.str.92 = private unnamed_addr constant [24 x i8] c"Invalid bit (Must be 0)\00", align 1
 @ei_invalid_e_u = internal global %struct.expert_field zeroinitializer, align 4
-@.str.91 = private unnamed_addr constant [18 x i8] c"usbll.invalid_e_u\00", align 1
+@.str.93 = private unnamed_addr constant [18 x i8] c"usbll.invalid_e_u\00", align 1
 @ei_invalid_pid_sequence = internal global %struct.expert_field zeroinitializer, align 4
-@.str.92 = private unnamed_addr constant [27 x i8] c"usbll.invalid_pid_sequence\00", align 1
-@.str.93 = private unnamed_addr constant [21 x i8] c"Invalid PID Sequence\00", align 1
+@.str.94 = private unnamed_addr constant [27 x i8] c"usbll.invalid_pid_sequence\00", align 1
+@.str.95 = private unnamed_addr constant [21 x i8] c"Invalid PID Sequence\00", align 1
 @ei_invalid_setup_data = internal global %struct.expert_field zeroinitializer, align 4
-@.str.94 = private unnamed_addr constant [25 x i8] c"usbll.invalid_setup_data\00", align 1
-@.str.95 = private unnamed_addr constant [38 x i8] c"Invalid data length (Must be 8 bytes)\00", align 1
+@.str.96 = private unnamed_addr constant [25 x i8] c"usbll.invalid_setup_data\00", align 1
+@.str.97 = private unnamed_addr constant [38 x i8] c"Invalid data length (Must be 8 bytes)\00", align 1
 @proto_register_usbll.ett = internal global [3 x ptr] [ptr @ett_usbll, ptr @ett_usbll_transfer_fragment, ptr @ett_usbll_transfer_fragments], align 16
 @ett_usbll = internal global i32 0, align 4
 @ett_usbll_transfer_fragment = internal global i32 0, align 4
 @ett_usbll_transfer_fragments = internal global i32 0, align 4
 @transfer_info = internal global ptr null, align 8
-@.str.96 = private unnamed_addr constant [15 x i8] c"USB Link Layer\00", align 1
-@.str.97 = private unnamed_addr constant [6 x i8] c"USBLL\00", align 1
-@.str.98 = private unnamed_addr constant [6 x i8] c"usbll\00", align 1
+@.str.98 = private unnamed_addr constant [15 x i8] c"USB Link Layer\00", align 1
+@.str.99 = private unnamed_addr constant [6 x i8] c"USBLL\00", align 1
+@.str.100 = private unnamed_addr constant [6 x i8] c"usbll\00", align 1
 @proto_usbll = internal global i32 0, align 4
-@.str.99 = private unnamed_addr constant [37 x i8] c"global_pref_dissect_unknown_speed_as\00", align 1
-@.str.100 = private unnamed_addr constant [32 x i8] c"Decode unknown speed packets as\00", align 1
-@.str.101 = private unnamed_addr constant [57 x i8] c"Use specified speed if speed is not indicated in capture\00", align 1
+@.str.101 = private unnamed_addr constant [37 x i8] c"global_pref_dissect_unknown_speed_as\00", align 1
+@.str.102 = private unnamed_addr constant [32 x i8] c"Decode unknown speed packets as\00", align 1
+@.str.103 = private unnamed_addr constant [57 x i8] c"Use specified speed if speed is not indicated in capture\00", align 1
 @global_dissect_unknown_speed_as = internal global i32 0, align 4
-@dissect_unknown_speed_as = internal constant [5 x %struct.enum_val_t] [%struct.enum_val_t { ptr @.str.158, ptr @.str.159, i32 0 }, %struct.enum_val_t { ptr @.str.160, ptr @.str.161, i32 1 }, %struct.enum_val_t { ptr @.str.162, ptr @.str.163, i32 2 }, %struct.enum_val_t { ptr @.str.164, ptr @.str.165, i32 3 }, %struct.enum_val_t zeroinitializer], align 16
 @unknown_speed_handle = internal global ptr null, align 8
-@.str.102 = private unnamed_addr constant [16 x i8] c"usbll.low_speed\00", align 1
+@.str.104 = private unnamed_addr constant [16 x i8] c"usbll.low_speed\00", align 1
 @low_speed_handle = internal global ptr null, align 8
-@.str.103 = private unnamed_addr constant [17 x i8] c"usbll.full_speed\00", align 1
+@.str.105 = private unnamed_addr constant [17 x i8] c"usbll.full_speed\00", align 1
 @full_speed_handle = internal global ptr null, align 8
-@.str.104 = private unnamed_addr constant [17 x i8] c"usbll.high_speed\00", align 1
+@.str.106 = private unnamed_addr constant [17 x i8] c"usbll.high_speed\00", align 1
 @high_speed_handle = internal global ptr null, align 8
-@.str.105 = private unnamed_addr constant [9 x i8] c"AT_USBLL\00", align 1
-@.str.106 = private unnamed_addr constant [14 x i8] c"USBLL Address\00", align 1
+@.str.107 = private unnamed_addr constant [9 x i8] c"AT_USBLL\00", align 1
+@.str.108 = private unnamed_addr constant [14 x i8] c"USBLL Address\00", align 1
 @usbll_address_type = internal global i32 -1, align 4
 @usbll_reassembly_table = internal global %struct.reassembly_table zeroinitializer, align 8
 @usbll_reassembly_table_functions = internal constant %struct.reassembly_table_functions { ptr @usbll_fragment_key_hash, ptr @usbll_fragment_key_equal, ptr @usbll_fragment_key, ptr @usbll_fragment_key, ptr @usbll_fragment_free_key, ptr @usbll_fragment_free_key }, align 8
-@.str.107 = private unnamed_addr constant [11 x i8] c"wtap_encap\00", align 1
-@usb_packetid_vals = internal constant [17 x %struct._value_string] [%struct._value_string { i32 15, ptr @.str.109 }, %struct._value_string { i32 30, ptr @.str.110 }, %struct._value_string { i32 45, ptr @.str.111 }, %struct._value_string { i32 60, ptr @.str.112 }, %struct._value_string { i32 75, ptr @.str.113 }, %struct._value_string { i32 90, ptr @.str.114 }, %struct._value_string { i32 105, ptr @.str.115 }, %struct._value_string { i32 120, ptr @.str.116 }, %struct._value_string { i32 135, ptr @.str.117 }, %struct._value_string { i32 150, ptr @.str.118 }, %struct._value_string { i32 165, ptr @.str.119 }, %struct._value_string { i32 180, ptr @.str.120 }, %struct._value_string { i32 195, ptr @.str.121 }, %struct._value_string { i32 210, ptr @.str.122 }, %struct._value_string { i32 225, ptr @.str.123 }, %struct._value_string { i32 240, ptr @.str.124 }, %struct._value_string zeroinitializer], align 16
-@.str.108 = private unnamed_addr constant [18 x i8] c"usb_packetid_vals\00", align 1
-@.str.109 = private unnamed_addr constant [6 x i8] c"MDATA\00", align 1
-@.str.110 = private unnamed_addr constant [6 x i8] c"STALL\00", align 1
-@.str.111 = private unnamed_addr constant [6 x i8] c"SETUP\00", align 1
-@.str.112 = private unnamed_addr constant [8 x i8] c"PRE/ERR\00", align 1
-@.str.113 = private unnamed_addr constant [6 x i8] c"DATA1\00", align 1
-@.str.114 = private unnamed_addr constant [4 x i8] c"NAK\00", align 1
-@.str.115 = private unnamed_addr constant [3 x i8] c"IN\00", align 1
-@.str.116 = private unnamed_addr constant [6 x i8] c"SPLIT\00", align 1
-@.str.117 = private unnamed_addr constant [6 x i8] c"DATA2\00", align 1
-@.str.118 = private unnamed_addr constant [5 x i8] c"NYET\00", align 1
-@.str.119 = private unnamed_addr constant [4 x i8] c"SOF\00", align 1
-@.str.120 = private unnamed_addr constant [5 x i8] c"PING\00", align 1
-@.str.121 = private unnamed_addr constant [6 x i8] c"DATA0\00", align 1
-@.str.122 = private unnamed_addr constant [4 x i8] c"ACK\00", align 1
-@.str.123 = private unnamed_addr constant [4 x i8] c"OUT\00", align 1
-@.str.124 = private unnamed_addr constant [4 x i8] c"EXT\00", align 1
-@.str.125 = private unnamed_addr constant [6 x i8] c"Start\00", align 1
-@.str.126 = private unnamed_addr constant [9 x i8] c"Complete\00", align 1
-@.str.127 = private unnamed_addr constant [5 x i8] c"Full\00", align 1
-@.str.128 = private unnamed_addr constant [4 x i8] c"Low\00", align 1
-@.str.129 = private unnamed_addr constant [60 x i8] c"High-speed data is the middle of the fullspeed data payload\00", align 1
-@.str.130 = private unnamed_addr constant [64 x i8] c"High-speed data is the beginning of the full-speed data payload\00", align 1
-@.str.131 = private unnamed_addr constant [58 x i8] c"High-speed data is the end of the full-speed data payload\00", align 1
-@.str.132 = private unnamed_addr constant [54 x i8] c"High-speed data is all of the full-speed data payload\00", align 1
-@.str.133 = private unnamed_addr constant [8 x i8] c"Control\00", align 1
-@.str.134 = private unnamed_addr constant [12 x i8] c"Isochronous\00", align 1
-@.str.135 = private unnamed_addr constant [5 x i8] c"Bulk\00", align 1
-@.str.136 = private unnamed_addr constant [10 x i8] c"Interrupt\00", align 1
-@usb_subpid_vals = internal constant [17 x %struct._value_string] [%struct._value_string { i32 15, ptr @.str.138 }, %struct._value_string { i32 30, ptr @.str.139 }, %struct._value_string { i32 45, ptr @.str.140 }, %struct._value_string { i32 60, ptr @.str.141 }, %struct._value_string { i32 75, ptr @.str.142 }, %struct._value_string { i32 90, ptr @.str.143 }, %struct._value_string { i32 105, ptr @.str.144 }, %struct._value_string { i32 120, ptr @.str.145 }, %struct._value_string { i32 135, ptr @.str.146 }, %struct._value_string { i32 150, ptr @.str.147 }, %struct._value_string { i32 165, ptr @.str.148 }, %struct._value_string { i32 180, ptr @.str.149 }, %struct._value_string { i32 195, ptr @.str.150 }, %struct._value_string { i32 210, ptr @.str.151 }, %struct._value_string { i32 225, ptr @.str.152 }, %struct._value_string { i32 240, ptr @.str.153 }, %struct._value_string zeroinitializer], align 16
-@.str.137 = private unnamed_addr constant [16 x i8] c"usb_subpid_vals\00", align 1
-@.str.138 = private unnamed_addr constant [17 x i8] c"Reserved (MDATA)\00", align 1
-@.str.139 = private unnamed_addr constant [17 x i8] c"Reserved (STALL)\00", align 1
-@.str.140 = private unnamed_addr constant [31 x i8] c"Reserved (conflict with SETUP)\00", align 1
-@.str.141 = private unnamed_addr constant [29 x i8] c"Reserved (conflict with PRE)\00", align 1
-@.str.142 = private unnamed_addr constant [17 x i8] c"Reserved (DATA1)\00", align 1
-@.str.143 = private unnamed_addr constant [15 x i8] c"Reserved (NAK)\00", align 1
-@.str.144 = private unnamed_addr constant [28 x i8] c"Reserved (conflict with IN)\00", align 1
-@.str.145 = private unnamed_addr constant [31 x i8] c"Reserved (conflict with SPLIT)\00", align 1
-@.str.146 = private unnamed_addr constant [17 x i8] c"Reserved (DATA2)\00", align 1
-@.str.147 = private unnamed_addr constant [16 x i8] c"Reserved (NYET)\00", align 1
-@.str.148 = private unnamed_addr constant [29 x i8] c"Reserved (conflict with SOF)\00", align 1
-@.str.149 = private unnamed_addr constant [30 x i8] c"Reserved (conflict with PING)\00", align 1
-@.str.150 = private unnamed_addr constant [4 x i8] c"LPM\00", align 1
-@.str.151 = private unnamed_addr constant [15 x i8] c"Reserved (ACK)\00", align 1
-@.str.152 = private unnamed_addr constant [29 x i8] c"Reserved (conflict with OUT)\00", align 1
-@.str.153 = private unnamed_addr constant [15 x i8] c"Reserved (EXT)\00", align 1
-@.str.154 = private unnamed_addr constant [11 x i8] c"L1 (Sleep)\00", align 1
-@.str.155 = private unnamed_addr constant [24 x i8] c"Reserved for future use\00", align 1
-@.str.156 = private unnamed_addr constant [8 x i8] c"Disable\00", align 1
-@.str.157 = private unnamed_addr constant [7 x i8] c"Enable\00", align 1
-@.str.158 = private unnamed_addr constant [4 x i8] c"unk\00", align 1
-@.str.159 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
-@.str.160 = private unnamed_addr constant [4 x i8] c"low\00", align 1
-@.str.161 = private unnamed_addr constant [10 x i8] c"Low-Speed\00", align 1
-@.str.162 = private unnamed_addr constant [5 x i8] c"full\00", align 1
-@.str.163 = private unnamed_addr constant [11 x i8] c"Full-Speed\00", align 1
-@.str.164 = private unnamed_addr constant [5 x i8] c"high\00", align 1
-@.str.165 = private unnamed_addr constant [11 x i8] c"High-Speed\00", align 1
+@.str.109 = private unnamed_addr constant [11 x i8] c"wtap_encap\00", align 1
+@.str.110 = private unnamed_addr constant [18 x i8] c"usb_packetid_vals\00", align 1
+@.str.111 = private unnamed_addr constant [6 x i8] c"MDATA\00", align 1
+@.str.112 = private unnamed_addr constant [6 x i8] c"STALL\00", align 1
+@.str.113 = private unnamed_addr constant [6 x i8] c"SETUP\00", align 1
+@.str.114 = private unnamed_addr constant [8 x i8] c"PRE/ERR\00", align 1
+@.str.115 = private unnamed_addr constant [6 x i8] c"DATA1\00", align 1
+@.str.116 = private unnamed_addr constant [4 x i8] c"NAK\00", align 1
+@.str.117 = private unnamed_addr constant [3 x i8] c"IN\00", align 1
+@.str.118 = private unnamed_addr constant [6 x i8] c"SPLIT\00", align 1
+@.str.119 = private unnamed_addr constant [6 x i8] c"DATA2\00", align 1
+@.str.120 = private unnamed_addr constant [5 x i8] c"NYET\00", align 1
+@.str.121 = private unnamed_addr constant [4 x i8] c"SOF\00", align 1
+@.str.122 = private unnamed_addr constant [5 x i8] c"PING\00", align 1
+@.str.123 = private unnamed_addr constant [6 x i8] c"DATA0\00", align 1
+@.str.124 = private unnamed_addr constant [4 x i8] c"ACK\00", align 1
+@.str.125 = private unnamed_addr constant [4 x i8] c"OUT\00", align 1
+@.str.126 = private unnamed_addr constant [4 x i8] c"EXT\00", align 1
+@usb_packetid_vals = internal constant [17 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.111 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.112 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.113 }, { i32, [4 x i8], ptr } { i32 60, [4 x i8] zeroinitializer, ptr @.str.114 }, { i32, [4 x i8], ptr } { i32 75, [4 x i8] zeroinitializer, ptr @.str.115 }, { i32, [4 x i8], ptr } { i32 90, [4 x i8] zeroinitializer, ptr @.str.116 }, { i32, [4 x i8], ptr } { i32 105, [4 x i8] zeroinitializer, ptr @.str.117 }, { i32, [4 x i8], ptr } { i32 120, [4 x i8] zeroinitializer, ptr @.str.118 }, { i32, [4 x i8], ptr } { i32 135, [4 x i8] zeroinitializer, ptr @.str.119 }, { i32, [4 x i8], ptr } { i32 150, [4 x i8] zeroinitializer, ptr @.str.120 }, { i32, [4 x i8], ptr } { i32 165, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 180, [4 x i8] zeroinitializer, ptr @.str.122 }, { i32, [4 x i8], ptr } { i32 195, [4 x i8] zeroinitializer, ptr @.str.123 }, { i32, [4 x i8], ptr } { i32 210, [4 x i8] zeroinitializer, ptr @.str.124 }, { i32, [4 x i8], ptr } { i32 225, [4 x i8] zeroinitializer, ptr @.str.125 }, { i32, [4 x i8], ptr } { i32 240, [4 x i8] zeroinitializer, ptr @.str.126 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.128 = private unnamed_addr constant [6 x i8] c"Start\00", align 1
+@.str.129 = private unnamed_addr constant [9 x i8] c"Complete\00", align 1
+@usb_start_complete_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.128 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.129 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.131 = private unnamed_addr constant [5 x i8] c"Full\00", align 1
+@.str.132 = private unnamed_addr constant [4 x i8] c"Low\00", align 1
+@usb_split_speed_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.131 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.132 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.134 = private unnamed_addr constant [60 x i8] c"High-speed data is the middle of the fullspeed data payload\00", align 1
+@.str.135 = private unnamed_addr constant [64 x i8] c"High-speed data is the beginning of the full-speed data payload\00", align 1
+@.str.136 = private unnamed_addr constant [58 x i8] c"High-speed data is the end of the full-speed data payload\00", align 1
+@.str.137 = private unnamed_addr constant [54 x i8] c"High-speed data is all of the full-speed data payload\00", align 1
+@usb_split_iso_se_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.134 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.135 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.136 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.137 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.139 = private unnamed_addr constant [8 x i8] c"Control\00", align 1
+@.str.140 = private unnamed_addr constant [12 x i8] c"Isochronous\00", align 1
+@.str.141 = private unnamed_addr constant [5 x i8] c"Bulk\00", align 1
+@.str.142 = private unnamed_addr constant [10 x i8] c"Interrupt\00", align 1
+@usb_endpoint_type_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.139 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.140 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.141 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.144 = private unnamed_addr constant [16 x i8] c"usb_subpid_vals\00", align 1
+@.str.145 = private unnamed_addr constant [17 x i8] c"Reserved (MDATA)\00", align 1
+@.str.146 = private unnamed_addr constant [17 x i8] c"Reserved (STALL)\00", align 1
+@.str.147 = private unnamed_addr constant [31 x i8] c"Reserved (conflict with SETUP)\00", align 1
+@.str.148 = private unnamed_addr constant [29 x i8] c"Reserved (conflict with PRE)\00", align 1
+@.str.149 = private unnamed_addr constant [17 x i8] c"Reserved (DATA1)\00", align 1
+@.str.150 = private unnamed_addr constant [15 x i8] c"Reserved (NAK)\00", align 1
+@.str.151 = private unnamed_addr constant [28 x i8] c"Reserved (conflict with IN)\00", align 1
+@.str.152 = private unnamed_addr constant [31 x i8] c"Reserved (conflict with SPLIT)\00", align 1
+@.str.153 = private unnamed_addr constant [17 x i8] c"Reserved (DATA2)\00", align 1
+@.str.154 = private unnamed_addr constant [16 x i8] c"Reserved (NYET)\00", align 1
+@.str.155 = private unnamed_addr constant [29 x i8] c"Reserved (conflict with SOF)\00", align 1
+@.str.156 = private unnamed_addr constant [30 x i8] c"Reserved (conflict with PING)\00", align 1
+@.str.157 = private unnamed_addr constant [4 x i8] c"LPM\00", align 1
+@.str.158 = private unnamed_addr constant [15 x i8] c"Reserved (ACK)\00", align 1
+@.str.159 = private unnamed_addr constant [29 x i8] c"Reserved (conflict with OUT)\00", align 1
+@.str.160 = private unnamed_addr constant [15 x i8] c"Reserved (EXT)\00", align 1
+@usb_subpid_vals = internal constant [17 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.145 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.146 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.147 }, { i32, [4 x i8], ptr } { i32 60, [4 x i8] zeroinitializer, ptr @.str.148 }, { i32, [4 x i8], ptr } { i32 75, [4 x i8] zeroinitializer, ptr @.str.149 }, { i32, [4 x i8], ptr } { i32 90, [4 x i8] zeroinitializer, ptr @.str.150 }, { i32, [4 x i8], ptr } { i32 105, [4 x i8] zeroinitializer, ptr @.str.151 }, { i32, [4 x i8], ptr } { i32 120, [4 x i8] zeroinitializer, ptr @.str.152 }, { i32, [4 x i8], ptr } { i32 135, [4 x i8] zeroinitializer, ptr @.str.153 }, { i32, [4 x i8], ptr } { i32 150, [4 x i8] zeroinitializer, ptr @.str.154 }, { i32, [4 x i8], ptr } { i32 165, [4 x i8] zeroinitializer, ptr @.str.155 }, { i32, [4 x i8], ptr } { i32 180, [4 x i8] zeroinitializer, ptr @.str.156 }, { i32, [4 x i8], ptr } { i32 195, [4 x i8] zeroinitializer, ptr @.str.157 }, { i32, [4 x i8], ptr } { i32 210, [4 x i8] zeroinitializer, ptr @.str.158 }, { i32, [4 x i8], ptr } { i32 225, [4 x i8] zeroinitializer, ptr @.str.159 }, { i32, [4 x i8], ptr } { i32 240, [4 x i8] zeroinitializer, ptr @.str.160 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.162 = private unnamed_addr constant [11 x i8] c"L1 (Sleep)\00", align 1
+@.str.163 = private unnamed_addr constant [24 x i8] c"Reserved for future use\00", align 1
+@.str.164 = private unnamed_addr constant [8 x i8] c"Disable\00", align 1
+@.str.165 = private unnamed_addr constant [7 x i8] c"Enable\00", align 1
+@usb_lpm_remote_wake_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.164 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.167 = private unnamed_addr constant [4 x i8] c"unk\00", align 1
+@.str.168 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
+@.str.169 = private unnamed_addr constant [4 x i8] c"low\00", align 1
+@.str.170 = private unnamed_addr constant [10 x i8] c"Low-Speed\00", align 1
+@.str.171 = private unnamed_addr constant [5 x i8] c"full\00", align 1
+@.str.172 = private unnamed_addr constant [11 x i8] c"Full-Speed\00", align 1
+@.str.173 = private unnamed_addr constant [5 x i8] c"high\00", align 1
+@.str.174 = private unnamed_addr constant [11 x i8] c"High-Speed\00", align 1
+@dissect_unknown_speed_as = internal constant [5 x { ptr, ptr, i32, [4 x i8] }] [{ ptr, ptr, i32, [4 x i8] } { ptr @.str.167, ptr @.str.168, i32 0, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } { ptr @.str.169, ptr @.str.170, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } { ptr @.str.171, ptr @.str.172, i32 2, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } { ptr @.str.173, ptr @.str.174, i32 3, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } zeroinitializer], align 16
 @usbll_data_ptr = internal global ptr null, align 8
-@.str.166 = private unnamed_addr constant [24 x i8] c"Invalid SubPID (0x%02x)\00", align 1
-@.str.167 = private unnamed_addr constant [27 x i8] c"Invalid Packet ID (0x%02x)\00", align 1
-@.str.168 = private unnamed_addr constant [29 x i8] c"%s:%u: failed assertion \22%s\22\00", align 1
-@.str.169 = private unnamed_addr constant [31 x i8] c"epan/dissectors/packet-usbll.c\00", align 1
-@.str.170 = private unnamed_addr constant [25 x i8] c"data->prev != ((void*)0)\00", align 1
-@.str.171 = private unnamed_addr constant [38 x i8] c"data->prev->transaction != ((void*)0)\00", align 1
-@.str.172 = private unnamed_addr constant [12 x i8] c"pid != 0x78\00", align 1
+@.str.176 = private unnamed_addr constant [24 x i8] c"Invalid SubPID (0x%02x)\00", align 1
+@.str.177 = private unnamed_addr constant [27 x i8] c"Invalid Packet ID (0x%02x)\00", align 1
+@.str.178 = private unnamed_addr constant [29 x i8] c"%s:%u: failed assertion \22%s\22\00", align 1
+@.str.179 = private unnamed_addr constant [31 x i8] c"epan/dissectors/packet-usbll.c\00", align 1
+@.str.180 = private unnamed_addr constant [25 x i8] c"data->prev != ((void*)0)\00", align 1
+@.str.181 = private unnamed_addr constant [38 x i8] c"data->prev->transaction != ((void*)0)\00", align 1
+@.str.182 = private unnamed_addr constant [12 x i8] c"pid != 0x78\00", align 1
 @dissect_usbll_lpm_token.attributes_fields = internal constant [5 x ptr] [ptr @hf_usbll_lpm_link_state, ptr @hf_usbll_lpm_besl, ptr @hf_usbll_lpm_remote_wake, ptr @hf_usbll_lpm_reserved, ptr null], align 16
 @dissect_usbll_token.address_fields = internal constant [3 x ptr] [ptr @hf_usbll_device_addr, ptr @hf_usbll_endp, ptr null], align 16
-@.str.173 = private unnamed_addr constant [99 x i8] c"usbll_is_non_split_token(data->transaction_state) || usbll_is_split_token(data->transaction_state)\00", align 1
-@.str.174 = private unnamed_addr constant [37 x i8] c"data->prev->transaction->pid == 0x78\00", align 1
-@.str.175 = private unnamed_addr constant [24 x i8] c"!((pinfo)->fd->visited)\00", align 1
-@.str.176 = private unnamed_addr constant [37 x i8] c"usbll_is_split_complete_token(state)\00", align 1
-@.str.177 = private unnamed_addr constant [19 x i8] c"hub_address <= 127\00", align 1
-@.str.178 = private unnamed_addr constant [12 x i8] c"port <= 127\00", align 1
+@.str.183 = private unnamed_addr constant [99 x i8] c"usbll_is_non_split_token(data->transaction_state) || usbll_is_split_token(data->transaction_state)\00", align 1
+@.str.184 = private unnamed_addr constant [37 x i8] c"data->prev->transaction->pid == 0x78\00", align 1
+@.str.185 = private unnamed_addr constant [24 x i8] c"!((pinfo)->fd->visited)\00", align 1
+@.str.186 = private unnamed_addr constant [37 x i8] c"usbll_is_split_complete_token(state)\00", align 1
+@.str.187 = private unnamed_addr constant [19 x i8] c"hub_address <= 127\00", align 1
+@.str.188 = private unnamed_addr constant [12 x i8] c"port <= 127\00", align 1
 @tt_periodic = internal global ptr null, align 8
 @tt_non_periodic = internal global ptr null, align 8
-@.str.179 = private unnamed_addr constant [50 x i8] c"usbll_is_non_periodic_split_complete_token(state)\00", align 1
-@.str.180 = private unnamed_addr constant [34 x i8] c"usbll_is_split_start_token(state)\00", align 1
-@.str.181 = private unnamed_addr constant [47 x i8] c"usbll_is_non_periodic_split_start_token(state)\00", align 1
-@.str.182 = private unnamed_addr constant [11 x i8] c"!from_host\00", align 1
-@.str.183 = private unnamed_addr constant [30 x i8] c"ep_info->transfer_offset == 0\00", align 1
-@.str.184 = private unnamed_addr constant [28 x i8] c"ep_info->last_data_len == 0\00", align 1
-@.str.185 = private unnamed_addr constant [34 x i8] c"ep_info->active_transfer_key != 0\00", align 1
-@.str.186 = private unnamed_addr constant [12 x i8] c"addr <= 127\00", align 1
-@.str.187 = private unnamed_addr constant [9 x i8] c"ep <= 15\00", align 1
+@.str.189 = private unnamed_addr constant [50 x i8] c"usbll_is_non_periodic_split_complete_token(state)\00", align 1
+@.str.190 = private unnamed_addr constant [34 x i8] c"usbll_is_split_start_token(state)\00", align 1
+@.str.191 = private unnamed_addr constant [47 x i8] c"usbll_is_non_periodic_split_start_token(state)\00", align 1
+@.str.192 = private unnamed_addr constant [11 x i8] c"!from_host\00", align 1
+@.str.193 = private unnamed_addr constant [30 x i8] c"ep_info->transfer_offset == 0\00", align 1
+@.str.194 = private unnamed_addr constant [28 x i8] c"ep_info->last_data_len == 0\00", align 1
+@.str.195 = private unnamed_addr constant [34 x i8] c"ep_info->active_transfer_key != 0\00", align 1
+@.str.196 = private unnamed_addr constant [12 x i8] c"addr <= 127\00", align 1
+@.str.197 = private unnamed_addr constant [9 x i8] c"ep <= 15\00", align 1
 @ep_info_in = internal global ptr null, align 8
 @ep_info_out = internal global ptr null, align 8
-@.str.188 = private unnamed_addr constant [25 x i8] c"ep_info_in != ((void*)0)\00", align 1
-@.str.189 = private unnamed_addr constant [26 x i8] c"ep_info_out != ((void*)0)\00", align 1
-@.str.190 = private unnamed_addr constant [29 x i8] c"(addr >= 0) && (addr <= 127)\00", align 1
-@.str.191 = private unnamed_addr constant [55 x i8] c"%s:%u: failed assertion \22DISSECTOR_ASSERT_NOT_REACHED\22\00", align 1
-@.str.192 = private unnamed_addr constant [34 x i8] c"ep_info->type != USBLL_EP_UNKNOWN\00", align 1
-@.str.193 = private unnamed_addr constant [34 x i8] c"ep_info->type != USBLL_EP_CONTROL\00", align 1
-@.str.194 = private unnamed_addr constant [30 x i8] c"ep_info->max_packet_size != 0\00", align 1
-@.str.195 = private unnamed_addr constant [34 x i8] c"ep_info->type == USBLL_EP_CONTROL\00", align 1
-@.str.196 = private unnamed_addr constant [32 x i8] c"data->transaction != ((void*)0)\00", align 1
-@.str.197 = private unnamed_addr constant [45 x i8] c"data->transaction->split_start != ((void*)0)\00", align 1
-@.str.198 = private unnamed_addr constant [48 x i8] c"data->transaction->split_complete != ((void*)0)\00", align 1
-@.str.199 = private unnamed_addr constant [32 x i8] c"ep_in->active_transfer_key == 0\00", align 1
-@.str.200 = private unnamed_addr constant [33 x i8] c"ep_out->active_transfer_key == 0\00", align 1
-@.str.201 = private unnamed_addr constant [10 x i8] c" Complete\00", align 1
-@.str.202 = private unnamed_addr constant [7 x i8] c" Start\00", align 1
-@.str.203 = private unnamed_addr constant [30 x i8] c"((tmp & 0x060000) >> 17) == 1\00", align 1
-@.str.204 = private unnamed_addr constant [13 x i8] c"USB transfer\00", align 1
-@usbll_frag_items = internal constant %struct._fragment_items { ptr @ett_usbll_transfer_fragment, ptr @ett_usbll_transfer_fragments, ptr @hf_usbll_transfer_fragments, ptr @hf_usbll_transfer_fragment, ptr @hf_usbll_transfer_fragment_overlap, ptr @hf_usbll_transfer_fragment_overlap_conflicts, ptr @hf_usbll_transfer_fragment_multiple_tails, ptr @hf_usbll_transfer_fragment_too_long_fragment, ptr @hf_usbll_transfer_fragment_error, ptr @hf_usbll_transfer_fragment_count, ptr @hf_usbll_transfer_reassembled_in, ptr @hf_usbll_transfer_reassembled_length, ptr null, ptr @.str.205 }, align 8
-@.str.205 = private unnamed_addr constant [23 x i8] c"USB transfer fragments\00", align 1
-@.str.206 = private unnamed_addr constant [5 x i8] c"host\00", align 1
-@.str.207 = private unnamed_addr constant [10 x i8] c"broadcast\00", align 1
-@.str.208 = private unnamed_addr constant [6 x i8] c"%d:%d\00", align 1
-@.str.209 = private unnamed_addr constant [6 x i8] c"%d.%d\00", align 1
+@.str.198 = private unnamed_addr constant [25 x i8] c"ep_info_in != ((void*)0)\00", align 1
+@.str.199 = private unnamed_addr constant [26 x i8] c"ep_info_out != ((void*)0)\00", align 1
+@.str.200 = private unnamed_addr constant [29 x i8] c"(addr >= 0) && (addr <= 127)\00", align 1
+@.str.201 = private unnamed_addr constant [55 x i8] c"%s:%u: failed assertion \22DISSECTOR_ASSERT_NOT_REACHED\22\00", align 1
+@.str.202 = private unnamed_addr constant [34 x i8] c"ep_info->type != USBLL_EP_UNKNOWN\00", align 1
+@.str.203 = private unnamed_addr constant [34 x i8] c"ep_info->type != USBLL_EP_CONTROL\00", align 1
+@.str.204 = private unnamed_addr constant [30 x i8] c"ep_info->max_packet_size != 0\00", align 1
+@.str.205 = private unnamed_addr constant [34 x i8] c"ep_info->type == USBLL_EP_CONTROL\00", align 1
+@.str.206 = private unnamed_addr constant [32 x i8] c"data->transaction != ((void*)0)\00", align 1
+@.str.207 = private unnamed_addr constant [45 x i8] c"data->transaction->split_start != ((void*)0)\00", align 1
+@.str.208 = private unnamed_addr constant [48 x i8] c"data->transaction->split_complete != ((void*)0)\00", align 1
+@.str.209 = private unnamed_addr constant [32 x i8] c"ep_in->active_transfer_key == 0\00", align 1
+@.str.210 = private unnamed_addr constant [33 x i8] c"ep_out->active_transfer_key == 0\00", align 1
+@.str.211 = private unnamed_addr constant [10 x i8] c" Complete\00", align 1
+@.str.212 = private unnamed_addr constant [7 x i8] c" Start\00", align 1
+@.str.213 = private unnamed_addr constant [30 x i8] c"((tmp & 0x060000) >> 17) == 1\00", align 1
+@.str.214 = private unnamed_addr constant [13 x i8] c"USB transfer\00", align 1
+@usbll_frag_items = internal constant %struct._fragment_items { ptr @ett_usbll_transfer_fragment, ptr @ett_usbll_transfer_fragments, ptr @hf_usbll_transfer_fragments, ptr @hf_usbll_transfer_fragment, ptr @hf_usbll_transfer_fragment_overlap, ptr @hf_usbll_transfer_fragment_overlap_conflicts, ptr @hf_usbll_transfer_fragment_multiple_tails, ptr @hf_usbll_transfer_fragment_too_long_fragment, ptr @hf_usbll_transfer_fragment_error, ptr @hf_usbll_transfer_fragment_count, ptr @hf_usbll_transfer_reassembled_in, ptr @hf_usbll_transfer_reassembled_length, ptr null, ptr @.str.215 }, align 8
+@.str.215 = private unnamed_addr constant [23 x i8] c"USB transfer fragments\00", align 1
+@.str.216 = private unnamed_addr constant [5 x i8] c"host\00", align 1
+@.str.217 = private unnamed_addr constant [10 x i8] c"broadcast\00", align 1
+@.str.218 = private unnamed_addr constant [6 x i8] c"%d:%d\00", align 1
+@.str.219 = private unnamed_addr constant [6 x i8] c"%d.%d\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @usb_lpm_besl_str(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
-  %7 = trunc i32 %6 to i8
-  %8 = call i32 @besl_to_us(i8 noundef zeroext %7)
-  %9 = load i32, ptr %4, align 4
-  %10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %5, i64 noundef 240, ptr noundef @.str, i32 noundef %8, i32 noundef %9) #7
+  %6 = load ptr, ptr %3, align 8
+  %7 = call i64 @llvm.objectsize.i64.p0(ptr %6, i1 false, i1 true, i1 true)
+  %8 = load i32, ptr %4, align 4
+  %9 = trunc i32 %8 to i8
+  %10 = call i32 @besl_to_us(i8 noundef zeroext %9)
+  %11 = load i32, ptr %4, align 4
+  %12 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %5, i64 noundef 240, i32 noundef 2, i64 noundef %7, ptr noundef @.str, i32 noundef %10, i32 noundef %11)
   ret void
 }
 
-; Function Attrs: nounwind
-declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @besl_to_us(i8 noundef zeroext %0) #0 {
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.objectsize.i64.p0(ptr, i1 immarg, i1 immarg, i1 immarg) #2
+
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @besl_to_us(i8 noundef zeroext %0) #3 {
   %2 = alloca i8, align 1
   %3 = alloca i32, align 4
   store i8 %0, ptr %2, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #11
   %4 = load i8, ptr %2, align 1
   %5 = zext i8 %4 to i32
   %6 = icmp eq i32 %5, 0
@@ -392,18 +397,21 @@ define internal i32 @besl_to_us(i8 noundef zeroext %0) #0 {
 
 28:                                               ; preds = %27, %7
   %29 = load i32, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #11
   ret i32 %29
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_usbll() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #11
   %3 = call ptr @wmem_epan_scope()
   %4 = call ptr @wmem_file_scope()
   %5 = call noalias ptr @wmem_map_new_autoreset(ptr noundef %3, ptr noundef %4, ptr noundef @g_direct_hash, ptr noundef @g_direct_equal)
   store ptr %5, ptr @transfer_info, align 8
-  %6 = call i32 @proto_register_protocol(ptr noundef @.str.96, ptr noundef @.str.97, ptr noundef @.str.98)
+  %6 = call i32 @proto_register_protocol(ptr noundef @.str.98, ptr noundef @.str.99, ptr noundef @.str.100)
   store i32 %6, ptr @proto_usbll, align 4
   %7 = load i32, ptr @proto_usbll, align 4
   call void @proto_register_field_array(i32 noundef %7, ptr noundef @proto_register_usbll.hf, i32 noundef 37)
@@ -417,27 +425,32 @@ define hidden void @proto_register_usbll() #0 {
   %12 = call ptr @prefs_register_protocol(i32 noundef %11, ptr noundef null)
   store ptr %12, ptr %1, align 8
   %13 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %13, ptr noundef @.str.99, ptr noundef @.str.100, ptr noundef @.str.101, ptr noundef @global_dissect_unknown_speed_as, ptr noundef @dissect_unknown_speed_as, i32 noundef 0)
+  call void @prefs_register_enum_preference(ptr noundef %13, ptr noundef @.str.101, ptr noundef @.str.102, ptr noundef @.str.103, ptr noundef @global_dissect_unknown_speed_as, ptr noundef @dissect_unknown_speed_as, i1 noundef zeroext false)
   %14 = load i32, ptr @proto_usbll, align 4
-  %15 = call ptr @register_dissector(ptr noundef @.str.98, ptr noundef @dissect_usbll_unknown_speed, i32 noundef %14)
+  %15 = call ptr @register_dissector(ptr noundef @.str.100, ptr noundef @dissect_usbll_unknown_speed, i32 noundef %14)
   store ptr %15, ptr @unknown_speed_handle, align 8
   %16 = load i32, ptr @proto_usbll, align 4
-  %17 = call ptr @register_dissector(ptr noundef @.str.102, ptr noundef @dissect_usbll_low_speed, i32 noundef %16)
+  %17 = call ptr @register_dissector(ptr noundef @.str.104, ptr noundef @dissect_usbll_low_speed, i32 noundef %16)
   store ptr %17, ptr @low_speed_handle, align 8
   %18 = load i32, ptr @proto_usbll, align 4
-  %19 = call ptr @register_dissector(ptr noundef @.str.103, ptr noundef @dissect_usbll_full_speed, i32 noundef %18)
+  %19 = call ptr @register_dissector(ptr noundef @.str.105, ptr noundef @dissect_usbll_full_speed, i32 noundef %18)
   store ptr %19, ptr @full_speed_handle, align 8
   %20 = load i32, ptr @proto_usbll, align 4
-  %21 = call ptr @register_dissector(ptr noundef @.str.104, ptr noundef @dissect_usbll_high_speed, i32 noundef %20)
+  %21 = call ptr @register_dissector(ptr noundef @.str.106, ptr noundef @dissect_usbll_high_speed, i32 noundef %20)
   store ptr %21, ptr @high_speed_handle, align 8
   call void @register_cleanup_routine(ptr noundef @usbll_cleanup_data)
-  %22 = call i32 @address_type_dissector_register(ptr noundef @.str.105, ptr noundef @.str.106, ptr noundef @usbll_addr_to_str, ptr noundef @usbll_addr_str_len, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+  %22 = call i32 @address_type_dissector_register(ptr noundef @.str.107, ptr noundef @.str.108, ptr noundef @usbll_addr_to_str, ptr noundef @usbll_addr_str_len, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   store i32 %22, ptr @usbll_address_type, align 4
   call void @reassembly_table_register(ptr noundef @usbll_reassembly_table, ptr noundef @usbll_reassembly_table_functions)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #11
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @lpm_link_state_str(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -445,51 +458,66 @@ define internal void @lpm_link_state_str(ptr noundef %0, i32 noundef %1) #0 {
   store i32 %1, ptr %4, align 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 1
-  br i1 %6, label %7, label %10
+  br i1 %6, label %7, label %12
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %3, align 8
-  %9 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %8, i64 noundef 240, ptr noundef @.str.154) #7
-  br label %13
+  %9 = load ptr, ptr %3, align 8
+  %10 = call i64 @llvm.objectsize.i64.p0(ptr %9, i1 false, i1 true, i1 true)
+  %11 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %8, i64 noundef 240, i32 noundef 2, i64 noundef %10, ptr noundef @.str.162)
+  br label %17
 
-10:                                               ; preds = %2
-  %11 = load ptr, ptr %3, align 8
-  %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %11, i64 noundef 240, ptr noundef @.str.155) #7
-  br label %13
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %3, align 8
+  %14 = load ptr, ptr %3, align 8
+  %15 = call i64 @llvm.objectsize.i64.p0(ptr %14, i1 false, i1 true, i1 true)
+  %16 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %13, i64 noundef 240, i32 noundef 2, i64 noundef %15, ptr noundef @.str.163)
+  br label %17
 
-13:                                               ; preds = %10, %7
+17:                                               ; preds = %12, %7
   ret void
 }
 
-declare noalias ptr @wmem_map_new_autoreset(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_map_new_autoreset(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-declare ptr @wmem_epan_scope() #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_epan_scope() #1
 
-declare ptr @wmem_file_scope() #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_file_scope() #1
 
-; Function Attrs: nounwind willreturn memory(none)
-declare i32 @g_direct_hash(ptr noundef) #3
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(none)
+declare i32 @g_direct_hash(ptr noundef) #5
 
-; Function Attrs: nounwind willreturn memory(none)
-declare i32 @g_direct_equal(ptr noundef, ptr noundef) #3
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(none)
+declare i32 @g_direct_equal(ptr noundef, ptr noundef) #5
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
-declare ptr @expert_register_protocol(i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #1
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #1
 
-declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) #1
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usbll_unknown_speed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -507,7 +535,7 @@ define internal i32 @dissect_usbll_unknown_speed(ptr noundef %0, ptr noundef %1,
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usbll_low_speed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -524,7 +552,7 @@ define internal i32 @dissect_usbll_low_speed(ptr noundef %0, ptr noundef %1, ptr
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usbll_full_speed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -541,7 +569,7 @@ define internal i32 @dissect_usbll_full_speed(ptr noundef %0, ptr noundef %1, pt
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usbll_high_speed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -558,10 +586,11 @@ define internal i32 @dissect_usbll_high_speed(ptr noundef %0, ptr noundef %1, pt
   ret i32 %12
 }
 
-declare void @register_cleanup_routine(ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare void @register_cleanup_routine(ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal void @usbll_cleanup_data() #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @usbll_cleanup_data() #3 {
   store ptr null, ptr @usbll_data_ptr, align 8
   store ptr null, ptr @tt_non_periodic, align 8
   store ptr null, ptr @tt_periodic, align 8
@@ -570,9 +599,10 @@ define internal void @usbll_cleanup_data() #0 {
   ret void
 }
 
-declare i32 @address_type_dissector_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @address_type_dissector_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @usbll_addr_to_str(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -581,12 +611,13 @@ define internal i32 @usbll_addr_to_str(ptr noundef %0, ptr noundef %1, i32 nound
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct._address, ptr %8, i32 0, i32 2
+  %9 = getelementptr inbounds nuw %struct._address, ptr %8, i32 0, i32 2
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %7, align 8
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds %struct.usbll_address_t, ptr %11, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.usbll_address_t, ptr %11, i32 0, i32 0
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = and i32 %14, 1
@@ -597,12 +628,12 @@ define internal i32 @usbll_addr_to_str(ptr noundef %0, ptr noundef %1, i32 nound
   %18 = load ptr, ptr %5, align 8
   %19 = load i32, ptr %6, align 4
   %20 = sext i32 %19 to i64
-  %21 = call i64 @g_strlcpy(ptr noundef %18, ptr noundef @.str.206, i64 noundef %20)
-  br label %69
+  %21 = call i64 @g_strlcpy(ptr noundef %18, ptr noundef @.str.216, i64 noundef %20)
+  br label %73
 
 22:                                               ; preds = %3
   %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds %struct.usbll_address_t, ptr %23, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %struct.usbll_address_t, ptr %23, i32 0, i32 0
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = and i32 %26, 4
@@ -613,89 +644,100 @@ define internal i32 @usbll_addr_to_str(ptr noundef %0, ptr noundef %1, i32 nound
   %30 = load ptr, ptr %5, align 8
   %31 = load i32, ptr %6, align 4
   %32 = sext i32 %31 to i64
-  %33 = call i64 @g_strlcpy(ptr noundef %30, ptr noundef @.str.207, i64 noundef %32)
-  br label %68
+  %33 = call i64 @g_strlcpy(ptr noundef %30, ptr noundef @.str.217, i64 noundef %32)
+  br label %72
 
 34:                                               ; preds = %22
   %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds %struct.usbll_address_t, ptr %35, i32 0, i32 0
+  %36 = getelementptr inbounds nuw %struct.usbll_address_t, ptr %35, i32 0, i32 0
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %39 = and i32 %38, 2
   %40 = icmp ne i32 %39, 0
-  br i1 %40, label %41, label %54
+  br i1 %40, label %41, label %56
 
 41:                                               ; preds = %34
   %42 = load ptr, ptr %5, align 8
   %43 = load i32, ptr %6, align 4
   %44 = sext i32 %43 to i64
-  %45 = load ptr, ptr %7, align 8
-  %46 = getelementptr inbounds %struct.usbll_address_t, ptr %45, i32 0, i32 1
-  %47 = load i8, ptr %46, align 1
-  %48 = zext i8 %47 to i32
-  %49 = load ptr, ptr %7, align 8
-  %50 = getelementptr inbounds %struct.usbll_address_t, ptr %49, i32 0, i32 2
-  %51 = load i8, ptr %50, align 1
-  %52 = zext i8 %51 to i32
-  %53 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %42, i64 noundef %44, ptr noundef @.str.208, i32 noundef %48, i32 noundef %52) #7
-  br label %67
+  %45 = load ptr, ptr %5, align 8
+  %46 = call i64 @llvm.objectsize.i64.p0(ptr %45, i1 false, i1 true, i1 true)
+  %47 = load ptr, ptr %7, align 8
+  %48 = getelementptr inbounds nuw %struct.usbll_address_t, ptr %47, i32 0, i32 1
+  %49 = load i8, ptr %48, align 1
+  %50 = zext i8 %49 to i32
+  %51 = load ptr, ptr %7, align 8
+  %52 = getelementptr inbounds nuw %struct.usbll_address_t, ptr %51, i32 0, i32 2
+  %53 = load i8, ptr %52, align 1
+  %54 = zext i8 %53 to i32
+  %55 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %42, i64 noundef %44, i32 noundef 2, i64 noundef %46, ptr noundef @.str.218, i32 noundef %50, i32 noundef %54)
+  br label %71
 
-54:                                               ; preds = %34
-  %55 = load ptr, ptr %5, align 8
-  %56 = load i32, ptr %6, align 4
-  %57 = sext i32 %56 to i64
-  %58 = load ptr, ptr %7, align 8
-  %59 = getelementptr inbounds %struct.usbll_address_t, ptr %58, i32 0, i32 1
-  %60 = load i8, ptr %59, align 1
-  %61 = zext i8 %60 to i32
+56:                                               ; preds = %34
+  %57 = load ptr, ptr %5, align 8
+  %58 = load i32, ptr %6, align 4
+  %59 = sext i32 %58 to i64
+  %60 = load ptr, ptr %5, align 8
+  %61 = call i64 @llvm.objectsize.i64.p0(ptr %60, i1 false, i1 true, i1 true)
   %62 = load ptr, ptr %7, align 8
-  %63 = getelementptr inbounds %struct.usbll_address_t, ptr %62, i32 0, i32 2
+  %63 = getelementptr inbounds nuw %struct.usbll_address_t, ptr %62, i32 0, i32 1
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
-  %66 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %55, i64 noundef %57, ptr noundef @.str.209, i32 noundef %61, i32 noundef %65) #7
-  br label %67
+  %66 = load ptr, ptr %7, align 8
+  %67 = getelementptr inbounds nuw %struct.usbll_address_t, ptr %66, i32 0, i32 2
+  %68 = load i8, ptr %67, align 1
+  %69 = zext i8 %68 to i32
+  %70 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %57, i64 noundef %59, i32 noundef 2, i64 noundef %61, ptr noundef @.str.219, i32 noundef %65, i32 noundef %69)
+  br label %71
 
-67:                                               ; preds = %54, %41
-  br label %68
+71:                                               ; preds = %56, %41
+  br label %72
 
-68:                                               ; preds = %67, %29
-  br label %69
+72:                                               ; preds = %71, %29
+  br label %73
 
-69:                                               ; preds = %68, %17
-  %70 = load ptr, ptr %5, align 8
-  %71 = call i64 @strlen(ptr noundef %70) #8
-  %72 = add i64 %71, 1
-  %73 = trunc i64 %72 to i32
-  ret i32 %73
+73:                                               ; preds = %72, %17
+  %74 = load ptr, ptr %5, align 8
+  %75 = call i64 @strlen(ptr noundef %74) #12
+  %76 = add i64 %75, 1
+  %77 = trunc i64 %76 to i32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  ret i32 %77
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @usbll_addr_str_len(ptr noundef %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @usbll_addr_str_len(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   ret i32 50
 }
 
-declare void @reassembly_table_register(ptr noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare void @reassembly_table_register(ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_usbll() #0 {
   %1 = load ptr, ptr @unknown_speed_handle, align 8
-  call void @dissector_add_uint(ptr noundef @.str.107, i32 noundef 208, ptr noundef %1)
+  call void @dissector_add_uint(ptr noundef @.str.109, i32 noundef 208, ptr noundef %1)
   %2 = load ptr, ptr @low_speed_handle, align 8
-  call void @dissector_add_uint(ptr noundef @.str.107, i32 noundef 215, ptr noundef %2)
+  call void @dissector_add_uint(ptr noundef @.str.109, i32 noundef 215, ptr noundef %2)
   %3 = load ptr, ptr @full_speed_handle, align 8
-  call void @dissector_add_uint(ptr noundef @.str.107, i32 noundef 216, ptr noundef %3)
+  call void @dissector_add_uint(ptr noundef @.str.109, i32 noundef 216, ptr noundef %3)
   %4 = load ptr, ptr @high_speed_handle, align 8
-  call void @dissector_add_uint(ptr noundef @.str.107, i32 noundef 217, ptr noundef %4)
+  call void @dissector_add_uint(ptr noundef @.str.109, i32 noundef 217, ptr noundef %4)
   ret void
 }
 
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #1
 
-declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usbll_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -707,14 +749,23 @@ define internal i32 @dissect_usbll_packet(ptr noundef %0, ptr noundef %1, ptr no
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i8, align 1
-  %15 = alloca i32, align 4
+  %15 = alloca i8, align 1
   %16 = alloca ptr, align 8
   %17 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #11
   store i32 0, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #11
   %18 = load ptr, ptr %7, align 8
   %19 = load i32, ptr @proto_usbll, align 4
   %20 = load ptr, ptr %5, align 8
@@ -727,13 +778,13 @@ define internal i32 @dissect_usbll_packet(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %25, ptr %10, align 8
   %26 = load ptr, ptr %5, align 8
   %27 = load i32, ptr %11, align 4
-  %28 = call zeroext i8 @tvb_get_guint8(ptr noundef %26, i32 noundef %27)
+  %28 = call zeroext i8 @tvb_get_uint8(ptr noundef %26, i32 noundef %27)
   store i8 %28, ptr %14, align 1
   %29 = load ptr, ptr %6, align 8
-  %30 = getelementptr inbounds %struct._packet_info, ptr %29, i32 0, i32 8
+  %30 = getelementptr inbounds nuw %struct._packet_info, ptr %29, i32 0, i32 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds %struct._frame_data, ptr %31, i32 0, i32 9
-  %33 = load i16, ptr %32, align 2
+  %32 = getelementptr inbounds nuw %struct._frame_data, ptr %31, i32 0, i32 11
+  %33 = load i16, ptr %32, align 1
   %34 = lshr i16 %33, 3
   %35 = and i16 %34, 1
   %36 = zext i16 %35 to i32
@@ -758,214 +809,212 @@ define internal i32 @dissect_usbll_packet(ptr noundef %0, ptr noundef %1, ptr no
 
 46:                                               ; preds = %41, %38
   %47 = load ptr, ptr %17, align 8
-  %48 = getelementptr inbounds %struct.usbll_data, ptr %47, i32 0, i32 0
+  %48 = getelementptr inbounds nuw %struct.usbll_data, ptr %47, i32 0, i32 0
   %49 = load i32, ptr %48, align 8
-  %50 = call i32 @usbll_is_extended_subpid(i32 noundef %49)
-  store i32 %50, ptr %15, align 4
-  %51 = load i32, ptr %15, align 4
-  %52 = icmp ne i32 %51, 0
-  br i1 %52, label %53, label %62
+  %50 = call zeroext i1 @usbll_is_extended_subpid(i32 noundef %49)
+  %51 = zext i1 %50 to i8
+  store i8 %51, ptr %15, align 1
+  %52 = load i8, ptr %15, align 1, !range !6, !noundef !7
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %54, label %63
 
-53:                                               ; preds = %46
-  %54 = load ptr, ptr %10, align 8
-  %55 = load i32, ptr @hf_usbll_subpid, align 4
-  %56 = load ptr, ptr %5, align 8
-  %57 = load i32, ptr %11, align 4
-  %58 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %55, ptr noundef %56, i32 noundef %57, i32 noundef 1, i32 noundef -2147483648)
-  %59 = load i8, ptr %14, align 1
-  %60 = zext i8 %59 to i32
-  %61 = call ptr @try_val_to_str(i32 noundef %60, ptr noundef @usb_subpid_vals)
-  store ptr %61, ptr %16, align 8
-  br label %71
+54:                                               ; preds = %46
+  %55 = load ptr, ptr %10, align 8
+  %56 = load i32, ptr @hf_usbll_subpid, align 4
+  %57 = load ptr, ptr %5, align 8
+  %58 = load i32, ptr %11, align 4
+  %59 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %56, ptr noundef %57, i32 noundef %58, i32 noundef 1, i32 noundef -2147483648)
+  %60 = load i8, ptr %14, align 1
+  %61 = zext i8 %60 to i32
+  %62 = call ptr @try_val_to_str(i32 noundef %61, ptr noundef @usb_subpid_vals)
+  store ptr %62, ptr %16, align 8
+  br label %72
 
-62:                                               ; preds = %46
-  %63 = load ptr, ptr %10, align 8
-  %64 = load i32, ptr @hf_usbll_pid, align 4
-  %65 = load ptr, ptr %5, align 8
-  %66 = load i32, ptr %11, align 4
-  %67 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %64, ptr noundef %65, i32 noundef %66, i32 noundef 1, i32 noundef -2147483648)
-  %68 = load i8, ptr %14, align 1
-  %69 = zext i8 %68 to i32
-  %70 = call ptr @try_val_to_str(i32 noundef %69, ptr noundef @usb_packetid_vals)
-  store ptr %70, ptr %16, align 8
-  br label %71
+63:                                               ; preds = %46
+  %64 = load ptr, ptr %10, align 8
+  %65 = load i32, ptr @hf_usbll_pid, align 4
+  %66 = load ptr, ptr %5, align 8
+  %67 = load i32, ptr %11, align 4
+  %68 = call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %65, ptr noundef %66, i32 noundef %67, i32 noundef 1, i32 noundef -2147483648)
+  %69 = load i8, ptr %14, align 1
+  %70 = zext i8 %69 to i32
+  %71 = call ptr @try_val_to_str(i32 noundef %70, ptr noundef @usb_packetid_vals)
+  store ptr %71, ptr %16, align 8
+  br label %72
 
-71:                                               ; preds = %62, %53
-  %72 = load i32, ptr %11, align 4
-  %73 = add i32 %72, 1
-  store i32 %73, ptr %11, align 4
-  %74 = load ptr, ptr %6, align 8
-  %75 = getelementptr inbounds %struct._packet_info, ptr %74, i32 0, i32 1
-  %76 = load ptr, ptr %75, align 8
-  call void @col_set_str(ptr noundef %76, i32 noundef 34, ptr noundef @.str.97)
-  %77 = load ptr, ptr %16, align 8
-  %78 = icmp ne ptr %77, null
-  br i1 %78, label %79, label %84
+72:                                               ; preds = %63, %54
+  %73 = load i32, ptr %11, align 4
+  %74 = add i32 %73, 1
+  store i32 %74, ptr %11, align 4
+  %75 = load ptr, ptr %6, align 8
+  %76 = getelementptr inbounds nuw %struct._packet_info, ptr %75, i32 0, i32 1
+  %77 = load ptr, ptr %76, align 8
+  call void @col_set_str(ptr noundef %77, i32 noundef 35, ptr noundef @.str.99)
+  %78 = load ptr, ptr %16, align 8
+  %79 = icmp ne ptr %78, null
+  br i1 %79, label %80, label %85
 
-79:                                               ; preds = %71
-  %80 = load ptr, ptr %6, align 8
-  %81 = getelementptr inbounds %struct._packet_info, ptr %80, i32 0, i32 1
-  %82 = load ptr, ptr %81, align 8
-  %83 = load ptr, ptr %16, align 8
-  call void @col_set_str(ptr noundef %82, i32 noundef 25, ptr noundef %83)
+80:                                               ; preds = %72
+  %81 = load ptr, ptr %6, align 8
+  %82 = getelementptr inbounds nuw %struct._packet_info, ptr %81, i32 0, i32 1
+  %83 = load ptr, ptr %82, align 8
+  %84 = load ptr, ptr %16, align 8
+  call void @col_set_str(ptr noundef %83, i32 noundef 25, ptr noundef %84)
+  br label %107
+
+85:                                               ; preds = %72
+  %86 = load i8, ptr %15, align 1, !range !6, !noundef !7
+  %87 = trunc i8 %86 to i1
+  br i1 %87, label %88, label %97
+
+88:                                               ; preds = %85
+  %89 = load ptr, ptr %6, align 8
+  %90 = getelementptr inbounds nuw %struct._packet_info, ptr %89, i32 0, i32 1
+  %91 = load ptr, ptr %90, align 8
+  %92 = load i8, ptr %14, align 1
+  %93 = zext i8 %92 to i32
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %91, i32 noundef 25, ptr noundef @.str.176, i32 noundef %93)
+  %94 = load ptr, ptr %6, align 8
+  %95 = load ptr, ptr %9, align 8
+  %96 = call ptr @expert_add_info(ptr noundef %94, ptr noundef %95, ptr noundef @ei_invalid_subpid)
   br label %106
 
-84:                                               ; preds = %71
-  %85 = load i32, ptr %15, align 4
-  %86 = icmp ne i32 %85, 0
-  br i1 %86, label %87, label %96
-
-87:                                               ; preds = %84
-  %88 = load ptr, ptr %6, align 8
-  %89 = getelementptr inbounds %struct._packet_info, ptr %88, i32 0, i32 1
-  %90 = load ptr, ptr %89, align 8
-  %91 = load i8, ptr %14, align 1
-  %92 = zext i8 %91 to i32
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %90, i32 noundef 25, ptr noundef @.str.166, i32 noundef %92)
-  %93 = load ptr, ptr %6, align 8
-  %94 = load ptr, ptr %9, align 8
-  %95 = call ptr @expert_add_info(ptr noundef %93, ptr noundef %94, ptr noundef @ei_invalid_subpid)
-  br label %105
-
-96:                                               ; preds = %84
-  %97 = load ptr, ptr %6, align 8
-  %98 = getelementptr inbounds %struct._packet_info, ptr %97, i32 0, i32 1
-  %99 = load ptr, ptr %98, align 8
-  %100 = load i8, ptr %14, align 1
-  %101 = zext i8 %100 to i32
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %99, i32 noundef 25, ptr noundef @.str.167, i32 noundef %101)
-  %102 = load ptr, ptr %6, align 8
-  %103 = load ptr, ptr %9, align 8
-  %104 = call ptr @expert_add_info(ptr noundef %102, ptr noundef %103, ptr noundef @ei_invalid_pid)
-  br label %105
-
-105:                                              ; preds = %96, %87
+97:                                               ; preds = %85
+  %98 = load ptr, ptr %6, align 8
+  %99 = getelementptr inbounds nuw %struct._packet_info, ptr %98, i32 0, i32 1
+  %100 = load ptr, ptr %99, align 8
+  %101 = load i8, ptr %14, align 1
+  %102 = zext i8 %101 to i32
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %100, i32 noundef 25, ptr noundef @.str.177, i32 noundef %102)
+  %103 = load ptr, ptr %6, align 8
+  %104 = load ptr, ptr %9, align 8
+  %105 = call ptr @expert_add_info(ptr noundef %103, ptr noundef %104, ptr noundef @ei_invalid_pid)
   br label %106
 
-106:                                              ; preds = %105, %79
-  %107 = load i32, ptr %11, align 4
-  store i32 %107, ptr %12, align 4
+106:                                              ; preds = %97, %88
+  br label %107
+
+107:                                              ; preds = %106, %80
+  %108 = load i32, ptr %11, align 4
+  store i32 %108, ptr %12, align 4
   store i32 -1, ptr %13, align 4
-  %108 = load i32, ptr %15, align 4
-  %109 = icmp ne i32 %108, 0
-  br i1 %109, label %110, label %121
+  %109 = load i8, ptr %15, align 1, !range !6, !noundef !7
+  %110 = trunc i8 %109 to i1
+  br i1 %110, label %111, label %122
 
-110:                                              ; preds = %106
-  %111 = load i8, ptr %14, align 1
-  %112 = zext i8 %111 to i32
-  switch i32 %112, label %119 [
-    i32 195, label %113
+111:                                              ; preds = %107
+  %112 = load i8, ptr %14, align 1
+  %113 = zext i8 %112 to i32
+  switch i32 %113, label %120 [
+    i32 195, label %114
   ]
 
-113:                                              ; preds = %110
-  %114 = load ptr, ptr %5, align 8
-  %115 = load ptr, ptr %6, align 8
-  %116 = load ptr, ptr %10, align 8
-  %117 = load i32, ptr %11, align 4
-  %118 = call i32 @dissect_usbll_lpm_token(ptr noundef %114, ptr noundef %115, ptr noundef %116, i32 noundef %117)
-  store i32 %118, ptr %11, align 4
-  br label %120
+114:                                              ; preds = %111
+  %115 = load ptr, ptr %5, align 8
+  %116 = load ptr, ptr %6, align 8
+  %117 = load ptr, ptr %10, align 8
+  %118 = load i32, ptr %11, align 4
+  %119 = call i32 @dissect_usbll_lpm_token(ptr noundef %115, ptr noundef %116, ptr noundef %117, i32 noundef %118)
+  store i32 %119, ptr %11, align 4
+  br label %121
 
-119:                                              ; preds = %110
-  br label %120
+120:                                              ; preds = %111
+  br label %121
 
-120:                                              ; preds = %119, %113
+121:                                              ; preds = %120, %114
   br label %166
 
-121:                                              ; preds = %106
-  %122 = load i8, ptr %14, align 1
-  %123 = zext i8 %122 to i32
-  switch i32 %123, label %164 [
-    i32 45, label %124
-    i32 225, label %124
-    i32 105, label %124
-    i32 180, label %124
-    i32 240, label %124
-    i32 195, label %133
-    i32 75, label %133
-    i32 135, label %133
-    i32 15, label %133
-    i32 210, label %141
-    i32 90, label %141
-    i32 150, label %141
-    i32 30, label %141
-    i32 165, label %149
-    i32 120, label %155
-    i32 60, label %163
+122:                                              ; preds = %107
+  %123 = load i8, ptr %14, align 1
+  %124 = zext i8 %123 to i32
+  switch i32 %124, label %164 [
+    i32 45, label %125
+    i32 225, label %125
+    i32 105, label %125
+    i32 180, label %125
+    i32 240, label %125
+    i32 195, label %134
+    i32 75, label %134
+    i32 135, label %134
+    i32 15, label %134
+    i32 210, label %142
+    i32 90, label %142
+    i32 150, label %142
+    i32 30, label %142
+    i32 165, label %150
+    i32 120, label %156
+    i32 60, label %165
   ]
 
-124:                                              ; preds = %121, %121, %121, %121, %121
-  %125 = load ptr, ptr %5, align 8
-  %126 = load ptr, ptr %6, align 8
-  %127 = load ptr, ptr %10, align 8
-  %128 = load i32, ptr %11, align 4
-  %129 = load i8, ptr %14, align 1
-  %130 = load ptr, ptr %17, align 8
-  %131 = load i32, ptr %8, align 4
-  %132 = call i32 @dissect_usbll_token(ptr noundef %125, ptr noundef %126, ptr noundef %127, i32 noundef %128, i8 noundef zeroext %129, ptr noundef %130, i32 noundef %131)
-  store i32 %132, ptr %11, align 4
+125:                                              ; preds = %122, %122, %122, %122, %122
+  %126 = load ptr, ptr %5, align 8
+  %127 = load ptr, ptr %6, align 8
+  %128 = load ptr, ptr %10, align 8
+  %129 = load i32, ptr %11, align 4
+  %130 = load i8, ptr %14, align 1
+  %131 = load ptr, ptr %17, align 8
+  %132 = load i32, ptr %8, align 4
+  %133 = call i32 @dissect_usbll_token(ptr noundef %126, ptr noundef %127, ptr noundef %128, i32 noundef %129, i8 noundef zeroext %130, ptr noundef %131, i32 noundef %132)
+  store i32 %133, ptr %11, align 4
   br label %165
 
-133:                                              ; preds = %121, %121, %121, %121
-  %134 = load ptr, ptr %5, align 8
-  %135 = load ptr, ptr %6, align 8
-  %136 = load ptr, ptr %10, align 8
-  %137 = load i32, ptr %11, align 4
-  %138 = load i8, ptr %14, align 1
-  %139 = load ptr, ptr %17, align 8
-  %140 = call i32 @dissect_usbll_data(ptr noundef %134, ptr noundef %135, ptr noundef %136, i32 noundef %137, i8 noundef zeroext %138, ptr noundef %139, ptr noundef %13)
-  store i32 %140, ptr %11, align 4
+134:                                              ; preds = %122, %122, %122, %122
+  %135 = load ptr, ptr %5, align 8
+  %136 = load ptr, ptr %6, align 8
+  %137 = load ptr, ptr %10, align 8
+  %138 = load i32, ptr %11, align 4
+  %139 = load i8, ptr %14, align 1
+  %140 = load ptr, ptr %17, align 8
+  %141 = call i32 @dissect_usbll_data(ptr noundef %135, ptr noundef %136, ptr noundef %137, i32 noundef %138, i8 noundef zeroext %139, ptr noundef %140, ptr noundef %13)
+  store i32 %141, ptr %11, align 4
   br label %165
 
-141:                                              ; preds = %121, %121, %121, %121
-  %142 = load ptr, ptr %5, align 8
-  %143 = load ptr, ptr %6, align 8
-  %144 = load ptr, ptr %10, align 8
-  %145 = load i32, ptr %11, align 4
-  %146 = load i8, ptr %14, align 1
-  %147 = load ptr, ptr %17, align 8
-  %148 = call i32 @dissect_usbll_handshake(ptr noundef %142, ptr noundef %143, ptr noundef %144, i32 noundef %145, i8 noundef zeroext %146, ptr noundef %147)
-  store i32 %148, ptr %11, align 4
+142:                                              ; preds = %122, %122, %122, %122
+  %143 = load ptr, ptr %5, align 8
+  %144 = load ptr, ptr %6, align 8
+  %145 = load ptr, ptr %10, align 8
+  %146 = load i32, ptr %11, align 4
+  %147 = load i8, ptr %14, align 1
+  %148 = load ptr, ptr %17, align 8
+  %149 = call i32 @dissect_usbll_handshake(ptr noundef %143, ptr noundef %144, ptr noundef %145, i32 noundef %146, i8 noundef zeroext %147, ptr noundef %148)
+  store i32 %149, ptr %11, align 4
   store i32 0, ptr %13, align 4
   br label %165
 
-149:                                              ; preds = %121
-  %150 = load ptr, ptr %5, align 8
-  %151 = load ptr, ptr %6, align 8
-  %152 = load ptr, ptr %10, align 8
-  %153 = load i32, ptr %11, align 4
-  %154 = call i32 @dissect_usbll_sof(ptr noundef %150, ptr noundef %151, ptr noundef %152, i32 noundef %153)
-  store i32 %154, ptr %11, align 4
+150:                                              ; preds = %122
+  %151 = load ptr, ptr %5, align 8
+  %152 = load ptr, ptr %6, align 8
+  %153 = load ptr, ptr %10, align 8
+  %154 = load i32, ptr %11, align 4
+  %155 = call i32 @dissect_usbll_sof(ptr noundef %151, ptr noundef %152, ptr noundef %153, i32 noundef %154)
+  store i32 %155, ptr %11, align 4
   br label %165
 
-155:                                              ; preds = %121
-  %156 = load ptr, ptr %5, align 8
-  %157 = load ptr, ptr %6, align 8
-  %158 = load ptr, ptr %10, align 8
-  %159 = load i32, ptr %11, align 4
-  %160 = load i8, ptr %14, align 1
-  %161 = load ptr, ptr %17, align 8
-  %162 = call i32 @dissect_usbll_split(ptr noundef %156, ptr noundef %157, ptr noundef %158, i32 noundef %159, i8 noundef zeroext %160, ptr noundef %161)
-  store i32 %162, ptr %11, align 4
+156:                                              ; preds = %122
+  %157 = load ptr, ptr %5, align 8
+  %158 = load ptr, ptr %6, align 8
+  %159 = load ptr, ptr %10, align 8
+  %160 = load i32, ptr %11, align 4
+  %161 = load i8, ptr %14, align 1
+  %162 = load ptr, ptr %17, align 8
+  %163 = call i32 @dissect_usbll_split(ptr noundef %157, ptr noundef %158, ptr noundef %159, i32 noundef %160, i8 noundef zeroext %161, ptr noundef %162)
+  store i32 %163, ptr %11, align 4
   br label %165
 
-163:                                              ; preds = %121
+164:                                              ; preds = %122
   br label %165
 
-164:                                              ; preds = %121
-  br label %165
-
-165:                                              ; preds = %164, %163, %155, %149, %141, %133, %124
+165:                                              ; preds = %164, %122, %156, %150, %142, %134, %125
   br label %166
 
-166:                                              ; preds = %165, %120
+166:                                              ; preds = %165, %121
   %167 = load ptr, ptr %10, align 8
   %168 = load ptr, ptr %5, align 8
   %169 = load ptr, ptr %6, align 8
   %170 = load ptr, ptr %17, align 8
   call void @usbll_generate_address(ptr noundef %167, ptr noundef %168, ptr noundef %169, ptr noundef %170)
   %171 = load ptr, ptr %17, align 8
-  %172 = getelementptr inbounds %struct.usbll_data, ptr %171, i32 0, i32 0
+  %172 = getelementptr inbounds nuw %struct.usbll_data, ptr %171, i32 0, i32 0
   %173 = load i32, ptr %172, align 8
   %174 = icmp eq i32 %173, 1
   br i1 %174, label %175, label %179
@@ -978,7 +1027,7 @@ define internal i32 @dissect_usbll_packet(ptr noundef %0, ptr noundef %1, ptr no
 
 179:                                              ; preds = %166
   %180 = load ptr, ptr %17, align 8
-  %181 = getelementptr inbounds %struct.usbll_data, ptr %180, i32 0, i32 0
+  %181 = getelementptr inbounds nuw %struct.usbll_data, ptr %180, i32 0, i32 0
   %182 = load i32, ptr %181, align 8
   %183 = icmp eq i32 %182, 106
   br i1 %183, label %184, label %188
@@ -1030,16 +1079,28 @@ define internal i32 @dissect_usbll_packet(ptr noundef %0, ptr noundef %1, ptr no
 
 215:                                              ; preds = %208, %205
   %216 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
   ret i32 %216
 }
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @usbll_restore_data(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
@@ -1047,25 +1108,26 @@ define internal ptr @usbll_restore_data(ptr noundef %0) #0 {
   %4 = load ptr, ptr %2, align 8
   %5 = load i32, ptr @proto_usbll, align 4
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct._packet_info, ptr %6, i32 0, i32 3
+  %7 = getelementptr inbounds nuw %struct._packet_info, ptr %6, i32 0, i32 3
   %8 = load i32, ptr %7, align 4
   %9 = call ptr @p_get_proto_data(ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %8)
   ret ptr %9
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @usbll_create_data(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
   %4 = call ptr @wmem_file_scope()
-  %5 = call noalias ptr @wmem_alloc0(ptr noundef %4, i64 noundef 32)
+  %5 = call noalias ptr @wmem_alloc0(ptr noundef %4, i64 noundef 32) #13
   store ptr %5, ptr %3, align 8
   %6 = call ptr @wmem_file_scope()
   %7 = load ptr, ptr %2, align 8
   %8 = load i32, ptr @proto_usbll, align 4
   %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 3
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 3
   %11 = load i32, ptr %10, align 4
   %12 = load ptr, ptr %3, align 8
   call void @p_add_proto_data(ptr noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %11, ptr noundef %12)
@@ -1081,14 +1143,14 @@ define internal ptr @usbll_create_data(ptr noundef %0) #0 {
 
 18:                                               ; preds = %15, %1
   %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds %struct.usbll_data, ptr %19, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %struct.usbll_data, ptr %19, i32 0, i32 0
   store i32 0, ptr %20, align 8
   %21 = load ptr, ptr @usbll_data_ptr, align 8
   %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.usbll_data, ptr %22, i32 0, i32 2
+  %23 = getelementptr inbounds nuw %struct.usbll_data, ptr %22, i32 0, i32 2
   store ptr %21, ptr %23, align 8
   %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.usbll_data, ptr %24, i32 0, i32 2
+  %25 = getelementptr inbounds nuw %struct.usbll_data, ptr %24, i32 0, i32 2
   %26 = load ptr, ptr %25, align 8
   %27 = icmp ne ptr %26, null
   br i1 %27, label %28, label %34
@@ -1096,34 +1158,35 @@ define internal ptr @usbll_create_data(ptr noundef %0) #0 {
 28:                                               ; preds = %18
   %29 = load ptr, ptr %3, align 8
   %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds %struct.usbll_data, ptr %30, i32 0, i32 2
+  %31 = getelementptr inbounds nuw %struct.usbll_data, ptr %30, i32 0, i32 2
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %struct.usbll_data, ptr %32, i32 0, i32 3
+  %33 = getelementptr inbounds nuw %struct.usbll_data, ptr %32, i32 0, i32 3
   store ptr %29, ptr %33, align 8
   br label %34
 
 34:                                               ; preds = %28, %18
   %35 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret ptr %35
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @check_for_extended_subpid(i8 noundef zeroext %0, ptr noundef %1) #0 {
   %3 = alloca i8, align 1
   %4 = alloca ptr, align 8
   store i8 %0, ptr %3, align 1
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %struct.usbll_data, ptr %5, i32 0, i32 2
+  %6 = getelementptr inbounds nuw %struct.usbll_data, ptr %5, i32 0, i32 2
   %7 = load ptr, ptr %6, align 8
   %8 = icmp ne ptr %7, null
   br i1 %8, label %9, label %52
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.usbll_data, ptr %10, i32 0, i32 2
+  %11 = getelementptr inbounds nuw %struct.usbll_data, ptr %10, i32 0, i32 2
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds %struct.usbll_data, ptr %12, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %struct.usbll_data, ptr %12, i32 0, i32 0
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 104
   br i1 %15, label %16, label %52
@@ -1132,17 +1195,17 @@ define internal void @check_for_extended_subpid(i8 noundef zeroext %0, ptr nound
   %17 = load i8, ptr %3, align 1
   %18 = call i32 @usbll_next_state(i32 noundef 104, i8 noundef zeroext %17)
   %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.usbll_data, ptr %19, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %struct.usbll_data, ptr %19, i32 0, i32 0
   store i32 %18, ptr %20, align 8
   %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %struct.usbll_data, ptr %21, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct.usbll_data, ptr %21, i32 0, i32 0
   %23 = load i32, ptr %22, align 8
   %24 = icmp ne i32 %23, 105
   br i1 %24, label %25, label %51
 
 25:                                               ; preds = %16
   %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %struct.usbll_data, ptr %26, i32 0, i32 2
+  %27 = getelementptr inbounds nuw %struct.usbll_data, ptr %26, i32 0, i32 2
   %28 = load ptr, ptr %27, align 8
   %29 = icmp ne ptr %28, null
   br i1 %29, label %30, label %31
@@ -1151,7 +1214,7 @@ define internal void @check_for_extended_subpid(i8 noundef zeroext %0, ptr nound
   br label %33
 
 31:                                               ; preds = %25
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 2308, ptr noundef @.str.170) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 2320, ptr noundef @.str.180) #14
   unreachable
 
 32:                                               ; No predecessors!
@@ -1159,9 +1222,9 @@ define internal void @check_for_extended_subpid(i8 noundef zeroext %0, ptr nound
 
 33:                                               ; preds = %32, %30
   %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct.usbll_data, ptr %34, i32 0, i32 2
+  %35 = getelementptr inbounds nuw %struct.usbll_data, ptr %34, i32 0, i32 2
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds %struct.usbll_data, ptr %36, i32 0, i32 1
+  %37 = getelementptr inbounds nuw %struct.usbll_data, ptr %36, i32 0, i32 1
   %38 = load ptr, ptr %37, align 8
   %39 = icmp ne ptr %38, null
   br i1 %39, label %40, label %41
@@ -1170,7 +1233,7 @@ define internal void @check_for_extended_subpid(i8 noundef zeroext %0, ptr nound
   br label %43
 
 41:                                               ; preds = %33
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 2309, ptr noundef @.str.171) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 2321, ptr noundef @.str.181) #14
   unreachable
 
 42:                                               ; No predecessors!
@@ -1178,12 +1241,12 @@ define internal void @check_for_extended_subpid(i8 noundef zeroext %0, ptr nound
 
 43:                                               ; preds = %42, %40
   %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %struct.usbll_data, ptr %44, i32 0, i32 2
+  %45 = getelementptr inbounds nuw %struct.usbll_data, ptr %44, i32 0, i32 2
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %struct.usbll_data, ptr %46, i32 0, i32 1
+  %47 = getelementptr inbounds nuw %struct.usbll_data, ptr %46, i32 0, i32 1
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds %struct.usbll_data, ptr %49, i32 0, i32 1
+  %50 = getelementptr inbounds nuw %struct.usbll_data, ptr %49, i32 0, i32 1
   store ptr %48, ptr %50, align 8
   br label %51
 
@@ -1194,9 +1257,9 @@ define internal void @check_for_extended_subpid(i8 noundef zeroext %0, ptr nound
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @usbll_is_extended_subpid(i32 noundef %0) #0 {
-  %2 = alloca i32, align 4
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @usbll_is_extended_subpid(i32 noundef %0) #3 {
+  %2 = alloca i1, align 1
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
   %4 = load i32, ptr %3, align 4
@@ -1208,27 +1271,31 @@ define internal i32 @usbll_is_extended_subpid(i32 noundef %0) #0 {
   ]
 
 5:                                                ; preds = %1, %1, %1, %1
-  store i32 1, ptr %2, align 4
+  store i1 true, ptr %2, align 1
   br label %7
 
 6:                                                ; preds = %1
-  store i32 0, ptr %2, align 4
+  store i1 false, ptr %2, align 1
   br label %7
 
 7:                                                ; preds = %6, %5
-  %8 = load i32, ptr %2, align 4
-  ret i32 %8
+  %8 = load i1, ptr %2, align 1
+  ret i1 %8
 }
 
-declare ptr @try_val_to_str(i32 noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @try_val_to_str(i32 noundef, ptr noundef) #1
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
 
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
+; Function Attrs: null_pointer_is_valid
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usbll_lpm_token(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1239,6 +1306,7 @@ define internal i32 @dissect_usbll_lpm_token(ptr noundef %0, ptr noundef %1, ptr
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #11
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %8, align 4
   %12 = call zeroext i16 @tvb_get_letohs(ptr noundef %10, i32 noundef %11)
@@ -1263,10 +1331,11 @@ define internal i32 @dissect_usbll_lpm_token(ptr noundef %0, ptr noundef %1, ptr
   %29 = add i32 %28, 2
   store i32 %29, ptr %8, align 4
   %30 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #11
   ret i32 %30
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usbll_token(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef %5, i32 noundef %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -1288,6 +1357,9 @@ define internal i32 @dissect_usbll_token(ptr noundef %0, ptr noundef %1, ptr nou
   store i8 %4, ptr %12, align 1
   store ptr %5, ptr %13, align 8
   store i32 %6, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #11
+  call void @llvm.lifetime.start.p0(i64 2, ptr %17) #11
   %21 = load ptr, ptr %8, align 8
   %22 = load i32, ptr %11, align 4
   %23 = call zeroext i16 @tvb_get_letohs(ptr noundef %21, i32 noundef %22)
@@ -1323,30 +1395,33 @@ define internal i32 @dissect_usbll_token(ptr noundef %0, ptr noundef %1, ptr nou
   %49 = add i32 %48, 2
   store i32 %49, ptr %11, align 4
   %50 = load ptr, ptr %9, align 8
-  %51 = getelementptr inbounds %struct._packet_info, ptr %50, i32 0, i32 8
+  %51 = getelementptr inbounds nuw %struct._packet_info, ptr %50, i32 0, i32 8
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds %struct._frame_data, ptr %52, i32 0, i32 9
-  %54 = load i16, ptr %53, align 2
+  %53 = getelementptr inbounds nuw %struct._frame_data, ptr %52, i32 0, i32 11
+  %54 = load i16, ptr %53, align 1
   %55 = lshr i16 %54, 3
   %56 = and i16 %55, 1
   %57 = zext i16 %56 to i32
   %58 = icmp ne i32 %57, 0
-  br i1 %58, label %255, label %59
+  br i1 %58, label %251, label %59
 
 59:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #11
   store ptr null, ptr %19, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #11
   store ptr null, ptr %20, align 8
   %60 = load ptr, ptr %13, align 8
-  %61 = getelementptr inbounds %struct.usbll_data, ptr %60, i32 0, i32 2
+  %61 = getelementptr inbounds nuw %struct.usbll_data, ptr %60, i32 0, i32 2
   %62 = load ptr, ptr %61, align 8
   %63 = icmp ne ptr %62, null
   br i1 %63, label %64, label %70
 
 64:                                               ; preds = %59
   %65 = load ptr, ptr %13, align 8
-  %66 = getelementptr inbounds %struct.usbll_data, ptr %65, i32 0, i32 2
+  %66 = getelementptr inbounds nuw %struct.usbll_data, ptr %65, i32 0, i32 2
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds %struct.usbll_data, ptr %67, i32 0, i32 0
+  %68 = getelementptr inbounds nuw %struct.usbll_data, ptr %67, i32 0, i32 0
   %69 = load i32, ptr %68, align 8
   br label %71
 
@@ -1360,289 +1435,291 @@ define internal i32 @dissect_usbll_token(ptr noundef %0, ptr noundef %1, ptr nou
   %74 = load i8, ptr %12, align 1
   %75 = call i32 @usbll_next_state(i32 noundef %73, i8 noundef zeroext %74)
   %76 = load ptr, ptr %13, align 8
-  %77 = getelementptr inbounds %struct.usbll_data, ptr %76, i32 0, i32 0
+  %77 = getelementptr inbounds nuw %struct.usbll_data, ptr %76, i32 0, i32 0
   store i32 %75, ptr %77, align 8
   %78 = load ptr, ptr %13, align 8
-  %79 = getelementptr inbounds %struct.usbll_data, ptr %78, i32 0, i32 0
+  %79 = getelementptr inbounds nuw %struct.usbll_data, ptr %78, i32 0, i32 0
   %80 = load i32, ptr %79, align 8
-  %81 = call i32 @usbll_is_non_split_token(i32 noundef %80)
-  %82 = icmp ne i32 %81, 0
-  br i1 %82, label %89, label %83
+  %81 = call zeroext i1 @usbll_is_non_split_token(i32 noundef %80)
+  br i1 %81, label %87, label %82
 
-83:                                               ; preds = %71
-  %84 = load ptr, ptr %13, align 8
-  %85 = getelementptr inbounds %struct.usbll_data, ptr %84, i32 0, i32 0
-  %86 = load i32, ptr %85, align 8
-  %87 = call i32 @usbll_is_split_token(i32 noundef %86)
-  %88 = icmp ne i32 %87, 0
-  br i1 %88, label %89, label %90
+82:                                               ; preds = %71
+  %83 = load ptr, ptr %13, align 8
+  %84 = getelementptr inbounds nuw %struct.usbll_data, ptr %83, i32 0, i32 0
+  %85 = load i32, ptr %84, align 8
+  %86 = call zeroext i1 @usbll_is_split_token(i32 noundef %85)
+  br i1 %86, label %87, label %88
 
-89:                                               ; preds = %83, %71
-  br label %92
+87:                                               ; preds = %82, %71
+  br label %90
 
-90:                                               ; preds = %83
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1598, ptr noundef @.str.173) #9
+88:                                               ; preds = %82
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1598, ptr noundef @.str.183) #14
   unreachable
 
-91:                                               ; No predecessors!
-  br label %92
+89:                                               ; No predecessors!
+  br label %90
 
-92:                                               ; preds = %91, %89
-  %93 = load ptr, ptr %13, align 8
-  %94 = getelementptr inbounds %struct.usbll_data, ptr %93, i32 0, i32 0
-  %95 = load i32, ptr %94, align 8
-  %96 = call i32 @usbll_is_split_complete_token(i32 noundef %95)
-  %97 = icmp ne i32 %96, 0
-  br i1 %97, label %98, label %171
+90:                                               ; preds = %89, %87
+  %91 = load ptr, ptr %13, align 8
+  %92 = getelementptr inbounds nuw %struct.usbll_data, ptr %91, i32 0, i32 0
+  %93 = load i32, ptr %92, align 8
+  %94 = call zeroext i1 @usbll_is_split_complete_token(i32 noundef %93)
+  br i1 %94, label %95, label %168
 
-98:                                               ; preds = %92
-  %99 = load ptr, ptr %13, align 8
-  %100 = getelementptr inbounds %struct.usbll_data, ptr %99, i32 0, i32 2
-  %101 = load ptr, ptr %100, align 8
-  %102 = icmp ne ptr %101, null
-  br i1 %102, label %103, label %104
+95:                                               ; preds = %90
+  %96 = load ptr, ptr %13, align 8
+  %97 = getelementptr inbounds nuw %struct.usbll_data, ptr %96, i32 0, i32 2
+  %98 = load ptr, ptr %97, align 8
+  %99 = icmp ne ptr %98, null
+  br i1 %99, label %100, label %101
 
-103:                                              ; preds = %98
-  br label %106
+100:                                              ; preds = %95
+  br label %103
 
-104:                                              ; preds = %98
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1602, ptr noundef @.str.170) #9
+101:                                              ; preds = %95
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1602, ptr noundef @.str.180) #14
   unreachable
 
-105:                                              ; No predecessors!
-  br label %106
+102:                                              ; No predecessors!
+  br label %103
 
-106:                                              ; preds = %105, %103
-  %107 = load ptr, ptr %13, align 8
-  %108 = getelementptr inbounds %struct.usbll_data, ptr %107, i32 0, i32 2
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds %struct.usbll_data, ptr %109, i32 0, i32 1
-  %111 = load ptr, ptr %110, align 8
-  %112 = icmp ne ptr %111, null
-  br i1 %112, label %113, label %114
+103:                                              ; preds = %102, %100
+  %104 = load ptr, ptr %13, align 8
+  %105 = getelementptr inbounds nuw %struct.usbll_data, ptr %104, i32 0, i32 2
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds nuw %struct.usbll_data, ptr %106, i32 0, i32 1
+  %108 = load ptr, ptr %107, align 8
+  %109 = icmp ne ptr %108, null
+  br i1 %109, label %110, label %111
 
-113:                                              ; preds = %106
-  br label %116
+110:                                              ; preds = %103
+  br label %113
 
-114:                                              ; preds = %106
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1603, ptr noundef @.str.171) #9
+111:                                              ; preds = %103
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1603, ptr noundef @.str.181) #14
   unreachable
 
-115:                                              ; No predecessors!
-  br label %116
+112:                                              ; No predecessors!
+  br label %113
 
-116:                                              ; preds = %115, %113
-  %117 = load ptr, ptr %13, align 8
-  %118 = getelementptr inbounds %struct.usbll_data, ptr %117, i32 0, i32 2
-  %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds %struct.usbll_data, ptr %119, i32 0, i32 1
-  %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds %struct.usbll_transaction_info, ptr %121, i32 0, i32 1
-  %123 = load i8, ptr %122, align 4
-  %124 = zext i8 %123 to i32
-  %125 = icmp eq i32 %124, 120
-  br i1 %125, label %126, label %127
+113:                                              ; preds = %112, %110
+  %114 = load ptr, ptr %13, align 8
+  %115 = getelementptr inbounds nuw %struct.usbll_data, ptr %114, i32 0, i32 2
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr inbounds nuw %struct.usbll_data, ptr %116, i32 0, i32 1
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %118, i32 0, i32 1
+  %120 = load i8, ptr %119, align 4
+  %121 = zext i8 %120 to i32
+  %122 = icmp eq i32 %121, 120
+  br i1 %122, label %123, label %124
 
-126:                                              ; preds = %116
-  br label %129
+123:                                              ; preds = %113
+  br label %126
 
-127:                                              ; preds = %116
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1604, ptr noundef @.str.174) #9
+124:                                              ; preds = %113
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1604, ptr noundef @.str.184) #14
   unreachable
 
-128:                                              ; No predecessors!
-  br label %129
+125:                                              ; No predecessors!
+  br label %126
 
-129:                                              ; preds = %128, %126
-  %130 = load ptr, ptr %13, align 8
-  %131 = getelementptr inbounds %struct.usbll_data, ptr %130, i32 0, i32 2
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds %struct.usbll_data, ptr %132, i32 0, i32 1
-  %134 = load ptr, ptr %133, align 8
-  store ptr %134, ptr %20, align 8
-  %135 = load ptr, ptr %9, align 8
-  %136 = load ptr, ptr %13, align 8
-  %137 = getelementptr inbounds %struct.usbll_data, ptr %136, i32 0, i32 0
-  %138 = load i32, ptr %137, align 8
+126:                                              ; preds = %125, %123
+  %127 = load ptr, ptr %13, align 8
+  %128 = getelementptr inbounds nuw %struct.usbll_data, ptr %127, i32 0, i32 2
+  %129 = load ptr, ptr %128, align 8
+  %130 = getelementptr inbounds nuw %struct.usbll_data, ptr %129, i32 0, i32 1
+  %131 = load ptr, ptr %130, align 8
+  store ptr %131, ptr %20, align 8
+  %132 = load ptr, ptr %9, align 8
+  %133 = load ptr, ptr %13, align 8
+  %134 = getelementptr inbounds nuw %struct.usbll_data, ptr %133, i32 0, i32 0
+  %135 = load i32, ptr %134, align 8
+  %136 = load ptr, ptr %20, align 8
+  %137 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %136, i32 0, i32 2
+  %138 = load i8, ptr %137, align 1
   %139 = load ptr, ptr %20, align 8
-  %140 = getelementptr inbounds %struct.usbll_transaction_info, ptr %139, i32 0, i32 2
-  %141 = load i8, ptr %140, align 1
-  %142 = load ptr, ptr %20, align 8
-  %143 = getelementptr inbounds %struct.usbll_transaction_info, ptr %142, i32 0, i32 3
-  %144 = load i8, ptr %143, align 2
-  %145 = call ptr @tt_restore_transaction(ptr noundef %135, i32 noundef %138, i8 noundef zeroext %141, i8 noundef zeroext %144)
-  store ptr %145, ptr %19, align 8
-  %146 = load ptr, ptr %19, align 8
-  %147 = icmp eq ptr %146, null
-  br i1 %147, label %148, label %163
+  %140 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %139, i32 0, i32 3
+  %141 = load i8, ptr %140, align 2
+  %142 = call ptr @tt_restore_transaction(ptr noundef %132, i32 noundef %135, i8 noundef zeroext %138, i8 noundef zeroext %141)
+  store ptr %142, ptr %19, align 8
+  %143 = load ptr, ptr %19, align 8
+  %144 = icmp eq ptr %143, null
+  br i1 %144, label %145, label %160
 
-148:                                              ; preds = %129
-  %149 = call ptr @wmem_file_scope()
-  %150 = call noalias ptr @wmem_alloc0(ptr noundef %149, i64 noundef 32)
-  store ptr %150, ptr %19, align 8
-  %151 = load i8, ptr %12, align 1
+145:                                              ; preds = %126
+  %146 = call ptr @wmem_file_scope()
+  %147 = call noalias ptr @wmem_alloc0(ptr noundef %146, i64 noundef 32) #13
+  store ptr %147, ptr %19, align 8
+  %148 = load i8, ptr %12, align 1
+  %149 = load ptr, ptr %19, align 8
+  %150 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %149, i32 0, i32 1
+  store i8 %148, ptr %150, align 4
+  %151 = load i8, ptr %15, align 1
   %152 = load ptr, ptr %19, align 8
-  %153 = getelementptr inbounds %struct.usbll_transaction_info, ptr %152, i32 0, i32 1
-  store i8 %151, ptr %153, align 4
-  %154 = load i8, ptr %15, align 1
+  %153 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %152, i32 0, i32 2
+  store i8 %151, ptr %153, align 1
+  %154 = load i8, ptr %16, align 1
   %155 = load ptr, ptr %19, align 8
-  %156 = getelementptr inbounds %struct.usbll_transaction_info, ptr %155, i32 0, i32 2
-  store i8 %154, ptr %156, align 1
-  %157 = load i8, ptr %16, align 1
+  %156 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %155, i32 0, i32 3
+  store i8 %154, ptr %156, align 2
+  %157 = load i32, ptr %14, align 4
   %158 = load ptr, ptr %19, align 8
-  %159 = getelementptr inbounds %struct.usbll_transaction_info, ptr %158, i32 0, i32 3
-  store i8 %157, ptr %159, align 2
-  %160 = load i32, ptr %14, align 4
-  %161 = load ptr, ptr %19, align 8
-  %162 = getelementptr inbounds %struct.usbll_transaction_info, ptr %161, i32 0, i32 4
-  store i32 %160, ptr %162, align 8
-  br label %163
+  %159 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %158, i32 0, i32 4
+  store i32 %157, ptr %159, align 8
+  br label %160
 
-163:                                              ; preds = %148, %129
-  %164 = load ptr, ptr %13, align 8
-  %165 = getelementptr inbounds %struct.usbll_data, ptr %164, i32 0, i32 2
-  %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds %struct.usbll_data, ptr %166, i32 0, i32 1
-  %168 = load ptr, ptr %167, align 8
-  %169 = load ptr, ptr %19, align 8
-  %170 = getelementptr inbounds %struct.usbll_transaction_info, ptr %169, i32 0, i32 6
-  store ptr %168, ptr %170, align 8
-  br label %191
+160:                                              ; preds = %145, %126
+  %161 = load ptr, ptr %13, align 8
+  %162 = getelementptr inbounds nuw %struct.usbll_data, ptr %161, i32 0, i32 2
+  %163 = load ptr, ptr %162, align 8
+  %164 = getelementptr inbounds nuw %struct.usbll_data, ptr %163, i32 0, i32 1
+  %165 = load ptr, ptr %164, align 8
+  %166 = load ptr, ptr %19, align 8
+  %167 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %166, i32 0, i32 6
+  store ptr %165, ptr %167, align 8
+  br label %188
 
-171:                                              ; preds = %92
-  %172 = call ptr @wmem_file_scope()
-  %173 = call noalias ptr @wmem_alloc0(ptr noundef %172, i64 noundef 32)
-  store ptr %173, ptr %19, align 8
-  %174 = load ptr, ptr %9, align 8
-  %175 = getelementptr inbounds %struct._packet_info, ptr %174, i32 0, i32 3
-  %176 = load i32, ptr %175, align 4
+168:                                              ; preds = %90
+  %169 = call ptr @wmem_file_scope()
+  %170 = call noalias ptr @wmem_alloc0(ptr noundef %169, i64 noundef 32) #13
+  store ptr %170, ptr %19, align 8
+  %171 = load ptr, ptr %9, align 8
+  %172 = getelementptr inbounds nuw %struct._packet_info, ptr %171, i32 0, i32 3
+  %173 = load i32, ptr %172, align 4
+  %174 = load ptr, ptr %19, align 8
+  %175 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %174, i32 0, i32 0
+  store i32 %173, ptr %175, align 8
+  %176 = load i8, ptr %12, align 1
   %177 = load ptr, ptr %19, align 8
-  %178 = getelementptr inbounds %struct.usbll_transaction_info, ptr %177, i32 0, i32 0
-  store i32 %176, ptr %178, align 8
-  %179 = load i8, ptr %12, align 1
+  %178 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %177, i32 0, i32 1
+  store i8 %176, ptr %178, align 4
+  %179 = load i8, ptr %15, align 1
   %180 = load ptr, ptr %19, align 8
-  %181 = getelementptr inbounds %struct.usbll_transaction_info, ptr %180, i32 0, i32 1
-  store i8 %179, ptr %181, align 4
-  %182 = load i8, ptr %15, align 1
+  %181 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %180, i32 0, i32 2
+  store i8 %179, ptr %181, align 1
+  %182 = load i8, ptr %16, align 1
   %183 = load ptr, ptr %19, align 8
-  %184 = getelementptr inbounds %struct.usbll_transaction_info, ptr %183, i32 0, i32 2
-  store i8 %182, ptr %184, align 1
-  %185 = load i8, ptr %16, align 1
+  %184 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %183, i32 0, i32 3
+  store i8 %182, ptr %184, align 2
+  %185 = load i32, ptr %14, align 4
   %186 = load ptr, ptr %19, align 8
-  %187 = getelementptr inbounds %struct.usbll_transaction_info, ptr %186, i32 0, i32 3
-  store i8 %185, ptr %187, align 2
-  %188 = load i32, ptr %14, align 4
-  %189 = load ptr, ptr %19, align 8
-  %190 = getelementptr inbounds %struct.usbll_transaction_info, ptr %189, i32 0, i32 4
-  store i32 %188, ptr %190, align 8
-  br label %191
+  %187 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %186, i32 0, i32 4
+  store i32 %185, ptr %187, align 8
+  br label %188
 
-191:                                              ; preds = %171, %163
-  %192 = load ptr, ptr %13, align 8
-  %193 = getelementptr inbounds %struct.usbll_data, ptr %192, i32 0, i32 0
-  %194 = load i32, ptr %193, align 8
-  %195 = call i32 @usbll_is_split_start_token(i32 noundef %194)
-  %196 = icmp ne i32 %195, 0
-  br i1 %196, label %197, label %251
+188:                                              ; preds = %168, %160
+  %189 = load ptr, ptr %13, align 8
+  %190 = getelementptr inbounds nuw %struct.usbll_data, ptr %189, i32 0, i32 0
+  %191 = load i32, ptr %190, align 8
+  %192 = call zeroext i1 @usbll_is_split_start_token(i32 noundef %191)
+  br i1 %192, label %193, label %247
 
-197:                                              ; preds = %191
-  %198 = load ptr, ptr %13, align 8
-  %199 = getelementptr inbounds %struct.usbll_data, ptr %198, i32 0, i32 2
-  %200 = load ptr, ptr %199, align 8
-  %201 = icmp ne ptr %200, null
-  br i1 %201, label %202, label %203
+193:                                              ; preds = %188
+  %194 = load ptr, ptr %13, align 8
+  %195 = getelementptr inbounds nuw %struct.usbll_data, ptr %194, i32 0, i32 2
+  %196 = load ptr, ptr %195, align 8
+  %197 = icmp ne ptr %196, null
+  br i1 %197, label %198, label %199
 
-202:                                              ; preds = %197
-  br label %205
+198:                                              ; preds = %193
+  br label %201
 
-203:                                              ; preds = %197
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1634, ptr noundef @.str.170) #9
+199:                                              ; preds = %193
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1634, ptr noundef @.str.180) #14
   unreachable
 
-204:                                              ; No predecessors!
-  br label %205
+200:                                              ; No predecessors!
+  br label %201
 
-205:                                              ; preds = %204, %202
-  %206 = load ptr, ptr %13, align 8
-  %207 = getelementptr inbounds %struct.usbll_data, ptr %206, i32 0, i32 2
-  %208 = load ptr, ptr %207, align 8
-  %209 = getelementptr inbounds %struct.usbll_data, ptr %208, i32 0, i32 1
-  %210 = load ptr, ptr %209, align 8
-  %211 = icmp ne ptr %210, null
-  br i1 %211, label %212, label %213
+201:                                              ; preds = %200, %198
+  %202 = load ptr, ptr %13, align 8
+  %203 = getelementptr inbounds nuw %struct.usbll_data, ptr %202, i32 0, i32 2
+  %204 = load ptr, ptr %203, align 8
+  %205 = getelementptr inbounds nuw %struct.usbll_data, ptr %204, i32 0, i32 1
+  %206 = load ptr, ptr %205, align 8
+  %207 = icmp ne ptr %206, null
+  br i1 %207, label %208, label %209
 
-212:                                              ; preds = %205
-  br label %215
+208:                                              ; preds = %201
+  br label %211
 
-213:                                              ; preds = %205
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1635, ptr noundef @.str.171) #9
+209:                                              ; preds = %201
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1635, ptr noundef @.str.181) #14
   unreachable
 
-214:                                              ; No predecessors!
-  br label %215
+210:                                              ; No predecessors!
+  br label %211
 
-215:                                              ; preds = %214, %212
-  %216 = load ptr, ptr %13, align 8
-  %217 = getelementptr inbounds %struct.usbll_data, ptr %216, i32 0, i32 2
-  %218 = load ptr, ptr %217, align 8
-  %219 = getelementptr inbounds %struct.usbll_data, ptr %218, i32 0, i32 1
-  %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr inbounds %struct.usbll_transaction_info, ptr %220, i32 0, i32 1
-  %222 = load i8, ptr %221, align 4
-  %223 = zext i8 %222 to i32
-  %224 = icmp eq i32 %223, 120
-  br i1 %224, label %225, label %226
+211:                                              ; preds = %210, %208
+  %212 = load ptr, ptr %13, align 8
+  %213 = getelementptr inbounds nuw %struct.usbll_data, ptr %212, i32 0, i32 2
+  %214 = load ptr, ptr %213, align 8
+  %215 = getelementptr inbounds nuw %struct.usbll_data, ptr %214, i32 0, i32 1
+  %216 = load ptr, ptr %215, align 8
+  %217 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %216, i32 0, i32 1
+  %218 = load i8, ptr %217, align 4
+  %219 = zext i8 %218 to i32
+  %220 = icmp eq i32 %219, 120
+  br i1 %220, label %221, label %222
 
-225:                                              ; preds = %215
-  br label %228
+221:                                              ; preds = %211
+  br label %224
 
-226:                                              ; preds = %215
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1636, ptr noundef @.str.174) #9
+222:                                              ; preds = %211
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1636, ptr noundef @.str.184) #14
   unreachable
 
-227:                                              ; No predecessors!
-  br label %228
+223:                                              ; No predecessors!
+  br label %224
 
-228:                                              ; preds = %227, %225
-  %229 = load ptr, ptr %13, align 8
-  %230 = getelementptr inbounds %struct.usbll_data, ptr %229, i32 0, i32 2
-  %231 = load ptr, ptr %230, align 8
-  %232 = getelementptr inbounds %struct.usbll_data, ptr %231, i32 0, i32 1
-  %233 = load ptr, ptr %232, align 8
-  %234 = load ptr, ptr %19, align 8
-  %235 = getelementptr inbounds %struct.usbll_transaction_info, ptr %234, i32 0, i32 5
-  store ptr %233, ptr %235, align 8
-  %236 = load ptr, ptr %9, align 8
-  %237 = load ptr, ptr %13, align 8
-  %238 = getelementptr inbounds %struct.usbll_data, ptr %237, i32 0, i32 0
-  %239 = load i32, ptr %238, align 8
-  %240 = load ptr, ptr %19, align 8
-  %241 = getelementptr inbounds %struct.usbll_transaction_info, ptr %240, i32 0, i32 5
-  %242 = load ptr, ptr %241, align 8
-  %243 = getelementptr inbounds %struct.usbll_transaction_info, ptr %242, i32 0, i32 2
-  %244 = load i8, ptr %243, align 1
-  %245 = load ptr, ptr %19, align 8
-  %246 = getelementptr inbounds %struct.usbll_transaction_info, ptr %245, i32 0, i32 5
-  %247 = load ptr, ptr %246, align 8
-  %248 = getelementptr inbounds %struct.usbll_transaction_info, ptr %247, i32 0, i32 3
-  %249 = load i8, ptr %248, align 2
-  %250 = load ptr, ptr %19, align 8
-  call void @tt_store_transaction(ptr noundef %236, i32 noundef %239, i8 noundef zeroext %244, i8 noundef zeroext %249, ptr noundef %250)
+224:                                              ; preds = %223, %221
+  %225 = load ptr, ptr %13, align 8
+  %226 = getelementptr inbounds nuw %struct.usbll_data, ptr %225, i32 0, i32 2
+  %227 = load ptr, ptr %226, align 8
+  %228 = getelementptr inbounds nuw %struct.usbll_data, ptr %227, i32 0, i32 1
+  %229 = load ptr, ptr %228, align 8
+  %230 = load ptr, ptr %19, align 8
+  %231 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %230, i32 0, i32 5
+  store ptr %229, ptr %231, align 8
+  %232 = load ptr, ptr %9, align 8
+  %233 = load ptr, ptr %13, align 8
+  %234 = getelementptr inbounds nuw %struct.usbll_data, ptr %233, i32 0, i32 0
+  %235 = load i32, ptr %234, align 8
+  %236 = load ptr, ptr %19, align 8
+  %237 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %236, i32 0, i32 5
+  %238 = load ptr, ptr %237, align 8
+  %239 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %238, i32 0, i32 2
+  %240 = load i8, ptr %239, align 1
+  %241 = load ptr, ptr %19, align 8
+  %242 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %241, i32 0, i32 5
+  %243 = load ptr, ptr %242, align 8
+  %244 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %243, i32 0, i32 3
+  %245 = load i8, ptr %244, align 2
+  %246 = load ptr, ptr %19, align 8
+  call void @tt_store_transaction(ptr noundef %232, i32 noundef %235, i8 noundef zeroext %240, i8 noundef zeroext %245, ptr noundef %246)
+  br label %247
+
+247:                                              ; preds = %224, %188
+  %248 = load ptr, ptr %19, align 8
+  %249 = load ptr, ptr %13, align 8
+  %250 = getelementptr inbounds nuw %struct.usbll_data, ptr %249, i32 0, i32 1
+  store ptr %248, ptr %250, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #11
   br label %251
 
-251:                                              ; preds = %228, %191
-  %252 = load ptr, ptr %19, align 8
-  %253 = load ptr, ptr %13, align 8
-  %254 = getelementptr inbounds %struct.usbll_data, ptr %253, i32 0, i32 1
-  store ptr %252, ptr %254, align 8
-  br label %255
-
-255:                                              ; preds = %251, %7
-  %256 = load i32, ptr %11, align 4
-  ret i32 %256
+251:                                              ; preds = %247, %7
+  %252 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %17) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #11
+  ret i32 %252
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usbll_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -1659,17 +1736,18 @@ define internal i32 @dissect_usbll_data(ptr noundef %0, ptr noundef %1, ptr noun
   %20 = alloca ptr, align 8
   %21 = alloca ptr, align 8
   %22 = alloca i32, align 4
-  %23 = alloca ptr, align 8
+  %23 = alloca i32, align 4
   %24 = alloca ptr, align 8
-  %25 = alloca [8 x i8], align 1
-  %26 = alloca i32, align 4
-  %27 = alloca i16, align 2
-  %28 = alloca i32, align 4
-  %29 = alloca ptr, align 8
-  %30 = alloca i32, align 4
-  %31 = alloca ptr, align 8
-  %32 = alloca i32, align 4
-  %33 = alloca i16, align 2
+  %25 = alloca ptr, align 8
+  %26 = alloca [8 x i8], align 1
+  %27 = alloca i8, align 1
+  %28 = alloca i16, align 2
+  %29 = alloca i32, align 4
+  %30 = alloca ptr, align 8
+  %31 = alloca i8, align 1
+  %32 = alloca ptr, align 8
+  %33 = alloca i32, align 4
+  %34 = alloca i16, align 2
   store ptr %0, ptr %9, align 8
   store ptr %1, ptr %10, align 8
   store ptr %2, ptr %11, align 8
@@ -1677,1070 +1755,1114 @@ define internal i32 @dissect_usbll_data(ptr noundef %0, ptr noundef %1, ptr noun
   store i8 %4, ptr %13, align 1
   store ptr %5, ptr %14, align 8
   store ptr %6, ptr %15, align 8
-  %34 = load i32, ptr %12, align 4
-  store i32 %34, ptr %18, align 4
-  %35 = load ptr, ptr %9, align 8
-  %36 = load i32, ptr %12, align 4
-  %37 = call i32 @tvb_reported_length_remaining(ptr noundef %35, i32 noundef %36)
-  %38 = sub i32 %37, 2
-  store i32 %38, ptr %19, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %16) #11
+  call void @llvm.lifetime.start.p0(i64 2, ptr %17) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #11
+  %35 = load i32, ptr %12, align 4
+  store i32 %35, ptr %18, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #11
+  %36 = load ptr, ptr %9, align 8
+  %37 = load i32, ptr %12, align 4
+  %38 = call i32 @tvb_reported_length_remaining(ptr noundef %36, i32 noundef %37)
+  %39 = sub i32 %38, 2
+  store i32 %39, ptr %19, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #11
   store ptr null, ptr %20, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #11
   store ptr null, ptr %21, align 8
-  %39 = load i32, ptr %19, align 4
-  %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %41, label %51
-
-41:                                               ; preds = %7
-  %42 = load ptr, ptr %11, align 8
-  %43 = load i32, ptr @hf_usbll_data, align 4
-  %44 = load ptr, ptr %9, align 8
-  %45 = load i32, ptr %12, align 4
+  %40 = load ptr, ptr %11, align 8
+  %41 = load i32, ptr @hf_usbll_data, align 4
+  %42 = load ptr, ptr %9, align 8
+  %43 = load i32, ptr %12, align 4
+  %44 = load i32, ptr %19, align 4
+  %45 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef %43, i32 noundef %44, i32 noundef 0)
+  store ptr %45, ptr %20, align 8
   %46 = load i32, ptr %19, align 4
-  %47 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %45, i32 noundef %46, i32 noundef 0)
-  store ptr %47, ptr %20, align 8
-  %48 = load i32, ptr %19, align 4
-  %49 = load i32, ptr %12, align 4
-  %50 = add i32 %49, %48
-  store i32 %50, ptr %12, align 4
-  br label %51
-
-51:                                               ; preds = %41, %7
+  %47 = load i32, ptr %12, align 4
+  %48 = add i32 %47, %46
+  store i32 %48, ptr %12, align 4
+  %49 = load ptr, ptr %9, align 8
+  %50 = load i32, ptr %12, align 4
+  %51 = call zeroext i16 @tvb_get_letohs(ptr noundef %49, i32 noundef %50)
+  store i16 %51, ptr %17, align 2
   %52 = load ptr, ptr %9, align 8
   %53 = load i32, ptr %12, align 4
-  %54 = call zeroext i16 @tvb_get_letohs(ptr noundef %52, i32 noundef %53)
-  store i16 %54, ptr %17, align 2
-  %55 = load ptr, ptr %9, align 8
-  %56 = load i32, ptr %12, align 4
-  %57 = sub i32 %56, 1
-  %58 = call zeroext i16 @crc16_usb_tvb_offset(ptr noundef %55, i32 noundef 1, i32 noundef %57)
-  store i16 %58, ptr %16, align 2
-  %59 = load ptr, ptr %11, align 8
-  %60 = load ptr, ptr %9, align 8
-  %61 = load i32, ptr %12, align 4
-  %62 = load i32, ptr @hf_usbll_data_crc, align 4
-  %63 = load i32, ptr @hf_usbll_data_crc_status, align 4
-  %64 = load ptr, ptr %10, align 8
-  %65 = load i16, ptr %16, align 2
-  %66 = zext i16 %65 to i32
-  %67 = call ptr @proto_tree_add_checksum(ptr noundef %59, ptr noundef %60, i32 noundef %61, i32 noundef %62, i32 noundef %63, ptr noundef @ei_wrong_crc16, ptr noundef %64, i32 noundef %66, i32 noundef -2147483648, i32 noundef 1)
-  %68 = load i32, ptr %12, align 4
-  %69 = add i32 %68, 2
-  store i32 %69, ptr %12, align 4
-  %70 = load ptr, ptr %10, align 8
-  %71 = getelementptr inbounds %struct._packet_info, ptr %70, i32 0, i32 8
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds %struct._frame_data, ptr %72, i32 0, i32 9
-  %74 = load i16, ptr %73, align 2
-  %75 = lshr i16 %74, 3
-  %76 = and i16 %75, 1
-  %77 = zext i16 %76 to i32
-  %78 = icmp ne i32 %77, 0
-  br i1 %78, label %129, label %79
+  %54 = sub i32 %53, 1
+  %55 = call zeroext i16 @crc16_usb_tvb_offset(ptr noundef %52, i32 noundef 1, i32 noundef %54)
+  store i16 %55, ptr %16, align 2
+  %56 = load ptr, ptr %11, align 8
+  %57 = load ptr, ptr %9, align 8
+  %58 = load i32, ptr %12, align 4
+  %59 = load i32, ptr @hf_usbll_data_crc, align 4
+  %60 = load i32, ptr @hf_usbll_data_crc_status, align 4
+  %61 = load ptr, ptr %10, align 8
+  %62 = load i16, ptr %16, align 2
+  %63 = zext i16 %62 to i32
+  %64 = call ptr @proto_tree_add_checksum(ptr noundef %56, ptr noundef %57, i32 noundef %58, i32 noundef %59, i32 noundef %60, ptr noundef @ei_wrong_crc16, ptr noundef %61, i32 noundef %63, i32 noundef -2147483648, i32 noundef 1)
+  %65 = load i32, ptr %12, align 4
+  %66 = add i32 %65, 2
+  store i32 %66, ptr %12, align 4
+  %67 = load ptr, ptr %10, align 8
+  %68 = getelementptr inbounds nuw %struct._packet_info, ptr %67, i32 0, i32 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds nuw %struct._frame_data, ptr %69, i32 0, i32 11
+  %71 = load i16, ptr %70, align 1
+  %72 = lshr i16 %71, 3
+  %73 = and i16 %72, 1
+  %74 = zext i16 %73 to i32
+  %75 = icmp ne i32 %74, 0
+  br i1 %75, label %126, label %76
 
-79:                                               ; preds = %51
-  %80 = load ptr, ptr %14, align 8
-  %81 = getelementptr inbounds %struct.usbll_data, ptr %80, i32 0, i32 2
-  %82 = load ptr, ptr %81, align 8
-  %83 = icmp ne ptr %82, null
-  br i1 %83, label %84, label %90
+76:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #11
+  %77 = load ptr, ptr %14, align 8
+  %78 = getelementptr inbounds nuw %struct.usbll_data, ptr %77, i32 0, i32 2
+  %79 = load ptr, ptr %78, align 8
+  %80 = icmp ne ptr %79, null
+  br i1 %80, label %81, label %87
 
-84:                                               ; preds = %79
-  %85 = load ptr, ptr %14, align 8
-  %86 = getelementptr inbounds %struct.usbll_data, ptr %85, i32 0, i32 2
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds %struct.usbll_data, ptr %87, i32 0, i32 0
-  %89 = load i32, ptr %88, align 8
-  br label %91
+81:                                               ; preds = %76
+  %82 = load ptr, ptr %14, align 8
+  %83 = getelementptr inbounds nuw %struct.usbll_data, ptr %82, i32 0, i32 2
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds nuw %struct.usbll_data, ptr %84, i32 0, i32 0
+  %86 = load i32, ptr %85, align 8
+  br label %88
 
-90:                                               ; preds = %79
-  br label %91
+87:                                               ; preds = %76
+  br label %88
 
-91:                                               ; preds = %90, %84
-  %92 = phi i32 [ %89, %84 ], [ 0, %90 ]
-  store i32 %92, ptr %22, align 4
-  %93 = load i32, ptr %22, align 4
-  %94 = load i8, ptr %13, align 1
-  %95 = call i32 @usbll_next_state(i32 noundef %93, i8 noundef zeroext %94)
-  %96 = load ptr, ptr %14, align 8
-  %97 = getelementptr inbounds %struct.usbll_data, ptr %96, i32 0, i32 0
-  store i32 %95, ptr %97, align 8
-  %98 = load ptr, ptr %14, align 8
-  %99 = getelementptr inbounds %struct.usbll_data, ptr %98, i32 0, i32 0
-  %100 = load i32, ptr %99, align 8
-  %101 = icmp ne i32 %100, 1
-  br i1 %101, label %102, label %128
+88:                                               ; preds = %87, %81
+  %89 = phi i32 [ %86, %81 ], [ 0, %87 ]
+  store i32 %89, ptr %22, align 4
+  %90 = load i32, ptr %22, align 4
+  %91 = load i8, ptr %13, align 1
+  %92 = call i32 @usbll_next_state(i32 noundef %90, i8 noundef zeroext %91)
+  %93 = load ptr, ptr %14, align 8
+  %94 = getelementptr inbounds nuw %struct.usbll_data, ptr %93, i32 0, i32 0
+  store i32 %92, ptr %94, align 8
+  %95 = load ptr, ptr %14, align 8
+  %96 = getelementptr inbounds nuw %struct.usbll_data, ptr %95, i32 0, i32 0
+  %97 = load i32, ptr %96, align 8
+  %98 = icmp ne i32 %97, 1
+  br i1 %98, label %99, label %125
 
-102:                                              ; preds = %91
-  %103 = load ptr, ptr %14, align 8
-  %104 = getelementptr inbounds %struct.usbll_data, ptr %103, i32 0, i32 2
-  %105 = load ptr, ptr %104, align 8
-  %106 = icmp ne ptr %105, null
-  br i1 %106, label %107, label %108
+99:                                               ; preds = %88
+  %100 = load ptr, ptr %14, align 8
+  %101 = getelementptr inbounds nuw %struct.usbll_data, ptr %100, i32 0, i32 2
+  %102 = load ptr, ptr %101, align 8
+  %103 = icmp ne ptr %102, null
+  br i1 %103, label %104, label %105
 
-107:                                              ; preds = %102
-  br label %110
+104:                                              ; preds = %99
+  br label %107
 
-108:                                              ; preds = %102
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1813, ptr noundef @.str.170) #9
+105:                                              ; preds = %99
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1825, ptr noundef @.str.180) #14
   unreachable
 
-109:                                              ; No predecessors!
-  br label %110
+106:                                              ; No predecessors!
+  br label %107
 
-110:                                              ; preds = %109, %107
-  %111 = load ptr, ptr %14, align 8
-  %112 = getelementptr inbounds %struct.usbll_data, ptr %111, i32 0, i32 2
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds %struct.usbll_data, ptr %113, i32 0, i32 1
-  %115 = load ptr, ptr %114, align 8
-  %116 = icmp ne ptr %115, null
-  br i1 %116, label %117, label %118
+107:                                              ; preds = %106, %104
+  %108 = load ptr, ptr %14, align 8
+  %109 = getelementptr inbounds nuw %struct.usbll_data, ptr %108, i32 0, i32 2
+  %110 = load ptr, ptr %109, align 8
+  %111 = getelementptr inbounds nuw %struct.usbll_data, ptr %110, i32 0, i32 1
+  %112 = load ptr, ptr %111, align 8
+  %113 = icmp ne ptr %112, null
+  br i1 %113, label %114, label %115
 
-117:                                              ; preds = %110
-  br label %120
+114:                                              ; preds = %107
+  br label %117
 
-118:                                              ; preds = %110
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1814, ptr noundef @.str.171) #9
+115:                                              ; preds = %107
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1826, ptr noundef @.str.181) #14
   unreachable
 
-119:                                              ; No predecessors!
-  br label %120
+116:                                              ; No predecessors!
+  br label %117
 
-120:                                              ; preds = %119, %117
-  %121 = load ptr, ptr %14, align 8
-  %122 = getelementptr inbounds %struct.usbll_data, ptr %121, i32 0, i32 2
-  %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds %struct.usbll_data, ptr %123, i32 0, i32 1
-  %125 = load ptr, ptr %124, align 8
-  %126 = load ptr, ptr %14, align 8
-  %127 = getelementptr inbounds %struct.usbll_data, ptr %126, i32 0, i32 1
-  store ptr %125, ptr %127, align 8
-  br label %128
+117:                                              ; preds = %116, %114
+  %118 = load ptr, ptr %14, align 8
+  %119 = getelementptr inbounds nuw %struct.usbll_data, ptr %118, i32 0, i32 2
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds nuw %struct.usbll_data, ptr %120, i32 0, i32 1
+  %122 = load ptr, ptr %121, align 8
+  %123 = load ptr, ptr %14, align 8
+  %124 = getelementptr inbounds nuw %struct.usbll_data, ptr %123, i32 0, i32 1
+  store ptr %122, ptr %124, align 8
+  br label %125
 
-128:                                              ; preds = %120, %91
-  br label %129
+125:                                              ; preds = %117, %88
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #11
+  br label %126
 
-129:                                              ; preds = %128, %51
-  %130 = load i16, ptr %17, align 2
-  %131 = zext i16 %130 to i32
-  %132 = load i16, ptr %16, align 2
-  %133 = zext i16 %132 to i32
-  %134 = icmp ne i32 %131, %133
-  br i1 %134, label %135, label %137
+126:                                              ; preds = %125, %7
+  %127 = load i16, ptr %17, align 2
+  %128 = zext i16 %127 to i32
+  %129 = load i16, ptr %16, align 2
+  %130 = zext i16 %129 to i32
+  %131 = icmp ne i32 %128, %130
+  br i1 %131, label %132, label %134
 
-135:                                              ; preds = %129
-  %136 = load i32, ptr %12, align 4
-  store i32 %136, ptr %8, align 4
-  br label %793
+132:                                              ; preds = %126
+  %133 = load i32, ptr %12, align 4
+  store i32 %133, ptr %8, align 4
+  store i32 1, ptr %23, align 4
+  br label %804
 
-137:                                              ; preds = %129
-  %138 = load ptr, ptr %14, align 8
-  %139 = getelementptr inbounds %struct.usbll_data, ptr %138, i32 0, i32 0
-  %140 = load i32, ptr %139, align 8
-  %141 = call i32 @usbll_is_setup_data(i32 noundef %140)
-  %142 = icmp ne i32 %141, 0
-  br i1 %142, label %143, label %311
+134:                                              ; preds = %126
+  %135 = load ptr, ptr %14, align 8
+  %136 = getelementptr inbounds nuw %struct.usbll_data, ptr %135, i32 0, i32 0
+  %137 = load i32, ptr %136, align 8
+  %138 = call zeroext i1 @usbll_is_setup_data(i32 noundef %137)
+  br i1 %138, label %139, label %307
 
-143:                                              ; preds = %137
-  %144 = load i32, ptr %19, align 4
-  %145 = icmp ne i32 %144, 8
-  br i1 %145, label %146, label %150
+139:                                              ; preds = %134
+  %140 = load i32, ptr %19, align 4
+  %141 = icmp ne i32 %140, 8
+  br i1 %141, label %142, label %146
 
-146:                                              ; preds = %143
+142:                                              ; preds = %139
+  %143 = load ptr, ptr %10, align 8
+  %144 = load ptr, ptr %20, align 8
+  %145 = call ptr @expert_add_info(ptr noundef %143, ptr noundef %144, ptr noundef @ei_invalid_setup_data)
+  br label %306
+
+146:                                              ; preds = %139
   %147 = load ptr, ptr %10, align 8
-  %148 = load ptr, ptr %20, align 8
-  %149 = call ptr @expert_add_info(ptr noundef %147, ptr noundef %148, ptr noundef @ei_invalid_setup_data)
-  br label %310
+  %148 = getelementptr inbounds nuw %struct._packet_info, ptr %147, i32 0, i32 8
+  %149 = load ptr, ptr %148, align 8
+  %150 = getelementptr inbounds nuw %struct._frame_data, ptr %149, i32 0, i32 11
+  %151 = load i16, ptr %150, align 1
+  %152 = lshr i16 %151, 3
+  %153 = and i16 %152, 1
+  %154 = zext i16 %153 to i32
+  %155 = icmp ne i32 %154, 0
+  br i1 %155, label %305, label %156
 
-150:                                              ; preds = %143
-  %151 = load ptr, ptr %10, align 8
-  %152 = getelementptr inbounds %struct._packet_info, ptr %151, i32 0, i32 8
-  %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds %struct._frame_data, ptr %153, i32 0, i32 9
-  %155 = load i16, ptr %154, align 2
-  %156 = lshr i16 %155, 3
-  %157 = and i16 %156, 1
-  %158 = zext i16 %157 to i32
-  %159 = icmp ne i32 %158, 0
-  br i1 %159, label %309, label %160
+156:                                              ; preds = %146
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #11
+  %157 = load ptr, ptr %10, align 8
+  %158 = load ptr, ptr %14, align 8
+  %159 = getelementptr inbounds nuw %struct.usbll_data, ptr %158, i32 0, i32 1
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %160, i32 0, i32 2
+  %162 = load i8, ptr %161, align 1
+  %163 = load ptr, ptr %14, align 8
+  %164 = getelementptr inbounds nuw %struct.usbll_data, ptr %163, i32 0, i32 1
+  %165 = load ptr, ptr %164, align 8
+  %166 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %165, i32 0, i32 3
+  %167 = load i8, ptr %166, align 2
+  %168 = call ptr @usbll_get_endpoint_info(ptr noundef %157, i8 noundef zeroext %162, i8 noundef zeroext %167, i1 noundef zeroext true)
+  store ptr %168, ptr %24, align 8
+  %169 = load ptr, ptr %10, align 8
+  %170 = load ptr, ptr %14, align 8
+  %171 = getelementptr inbounds nuw %struct.usbll_data, ptr %170, i32 0, i32 1
+  %172 = load ptr, ptr %171, align 8
+  %173 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %172, i32 0, i32 2
+  %174 = load i8, ptr %173, align 1
+  %175 = load ptr, ptr %14, align 8
+  %176 = getelementptr inbounds nuw %struct.usbll_data, ptr %175, i32 0, i32 1
+  %177 = load ptr, ptr %176, align 8
+  %178 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %177, i32 0, i32 3
+  %179 = load i8, ptr %178, align 2
+  %180 = call ptr @usbll_get_endpoint_info(ptr noundef %169, i8 noundef zeroext %174, i8 noundef zeroext %179, i1 noundef zeroext false)
+  store ptr %180, ptr %25, align 8
+  %181 = load ptr, ptr %24, align 8
+  %182 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %181, i32 0, i32 0
+  %183 = load i32, ptr %182, align 4
+  %184 = icmp eq i32 %183, 1
+  br i1 %184, label %185, label %304
 
-160:                                              ; preds = %150
-  %161 = load ptr, ptr %10, align 8
-  %162 = load ptr, ptr %14, align 8
-  %163 = getelementptr inbounds %struct.usbll_data, ptr %162, i32 0, i32 1
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds %struct.usbll_transaction_info, ptr %164, i32 0, i32 2
-  %166 = load i8, ptr %165, align 1
-  %167 = load ptr, ptr %14, align 8
-  %168 = getelementptr inbounds %struct.usbll_data, ptr %167, i32 0, i32 1
-  %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds %struct.usbll_transaction_info, ptr %169, i32 0, i32 3
-  %171 = load i8, ptr %170, align 2
-  %172 = call ptr @usbll_get_endpoint_info(ptr noundef %161, i8 noundef zeroext %166, i8 noundef zeroext %171, i32 noundef 1)
-  store ptr %172, ptr %23, align 8
-  %173 = load ptr, ptr %10, align 8
-  %174 = load ptr, ptr %14, align 8
-  %175 = getelementptr inbounds %struct.usbll_data, ptr %174, i32 0, i32 1
-  %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds %struct.usbll_transaction_info, ptr %176, i32 0, i32 2
-  %178 = load i8, ptr %177, align 1
-  %179 = load ptr, ptr %14, align 8
-  %180 = getelementptr inbounds %struct.usbll_data, ptr %179, i32 0, i32 1
-  %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds %struct.usbll_transaction_info, ptr %181, i32 0, i32 3
-  %183 = load i8, ptr %182, align 2
-  %184 = call ptr @usbll_get_endpoint_info(ptr noundef %173, i8 noundef zeroext %178, i8 noundef zeroext %183, i32 noundef 0)
-  store ptr %184, ptr %24, align 8
-  %185 = load ptr, ptr %23, align 8
-  %186 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %185, i32 0, i32 0
-  %187 = load i32, ptr %186, align 4
-  %188 = icmp eq i32 %187, 1
-  br i1 %188, label %189, label %308
+185:                                              ; preds = %156
+  %186 = load ptr, ptr %25, align 8
+  %187 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %186, i32 0, i32 0
+  %188 = load i32, ptr %187, align 4
+  %189 = icmp eq i32 %188, 1
+  br i1 %189, label %190, label %304
 
-189:                                              ; preds = %160
-  %190 = load ptr, ptr %24, align 8
-  %191 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %190, i32 0, i32 0
-  %192 = load i32, ptr %191, align 4
-  %193 = icmp eq i32 %192, 1
-  br i1 %193, label %194, label %308
-
-194:                                              ; preds = %189
-  %195 = load ptr, ptr %9, align 8
-  %196 = getelementptr inbounds [8 x i8], ptr %25, i64 0, i64 0
-  %197 = load i32, ptr %18, align 4
-  %198 = call ptr @tvb_memcpy(ptr noundef %195, ptr noundef %196, i32 noundef %197, i64 noundef 8)
-  %199 = getelementptr [8 x i8], ptr %25, i64 0, i64 0
-  %200 = load i8, ptr %199, align 1
-  %201 = zext i8 %200 to i32
-  %202 = and i32 %201, 128
-  %203 = icmp ne i32 %202, 0
-  %204 = select i1 %203, i32 0, i32 1
-  store i32 %204, ptr %26, align 4
-  %205 = getelementptr [8 x i8], ptr %25, i64 0, i64 6
-  %206 = load i8, ptr %205, align 1
-  %207 = zext i8 %206 to i32
-  %208 = getelementptr [8 x i8], ptr %25, i64 0, i64 7
-  %209 = load i8, ptr %208, align 1
-  %210 = zext i8 %209 to i32
-  %211 = shl i32 %210, 8
-  %212 = or i32 %207, %211
-  %213 = trunc i32 %212 to i16
-  store i16 %213, ptr %27, align 2
-  %214 = load ptr, ptr %23, align 8
-  %215 = load ptr, ptr %23, align 8
-  %216 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %215, i32 0, i32 2
-  %217 = load i16, ptr %216, align 4
-  call void @usbll_reset_endpoint_info(ptr noundef %214, i32 noundef 1, i16 noundef zeroext %217)
-  %218 = load ptr, ptr %24, align 8
-  %219 = load ptr, ptr %24, align 8
-  %220 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %219, i32 0, i32 2
-  %221 = load i16, ptr %220, align 4
-  call void @usbll_reset_endpoint_info(ptr noundef %218, i32 noundef 1, i16 noundef zeroext %221)
-  %222 = call ptr @wmem_file_scope()
-  %223 = call noalias ptr @wmem_alloc0(ptr noundef %222, i64 noundef 20)
-  store ptr %223, ptr %21, align 8
-  %224 = load ptr, ptr %10, align 8
-  %225 = getelementptr inbounds %struct._packet_info, ptr %224, i32 0, i32 3
-  %226 = load i32, ptr %225, align 4
+190:                                              ; preds = %185
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %27) #11
+  call void @llvm.lifetime.start.p0(i64 2, ptr %28) #11
+  %191 = load ptr, ptr %9, align 8
+  %192 = getelementptr inbounds [8 x i8], ptr %26, i64 0, i64 0
+  %193 = load i32, ptr %18, align 4
+  %194 = call ptr @tvb_memcpy(ptr noundef %191, ptr noundef %192, i32 noundef %193, i64 noundef 8)
+  %195 = getelementptr [8 x i8], ptr %26, i64 0, i64 0
+  %196 = load i8, ptr %195, align 1
+  %197 = zext i8 %196 to i32
+  %198 = and i32 %197, 128
+  %199 = icmp ne i32 %198, 0
+  %200 = select i1 %199, i32 0, i32 1
+  %201 = icmp ne i32 %200, 0
+  %202 = zext i1 %201 to i8
+  store i8 %202, ptr %27, align 1
+  %203 = getelementptr [8 x i8], ptr %26, i64 0, i64 6
+  %204 = load i8, ptr %203, align 1
+  %205 = zext i8 %204 to i32
+  %206 = getelementptr [8 x i8], ptr %26, i64 0, i64 7
+  %207 = load i8, ptr %206, align 1
+  %208 = zext i8 %207 to i32
+  %209 = shl i32 %208, 8
+  %210 = or i32 %205, %209
+  %211 = trunc i32 %210 to i16
+  store i16 %211, ptr %28, align 2
+  %212 = load ptr, ptr %24, align 8
+  %213 = load ptr, ptr %24, align 8
+  %214 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %213, i32 0, i32 2
+  %215 = load i16, ptr %214, align 4
+  call void @usbll_reset_endpoint_info(ptr noundef %212, i32 noundef 1, i16 noundef zeroext %215)
+  %216 = load ptr, ptr %25, align 8
+  %217 = load ptr, ptr %25, align 8
+  %218 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %217, i32 0, i32 2
+  %219 = load i16, ptr %218, align 4
+  call void @usbll_reset_endpoint_info(ptr noundef %216, i32 noundef 1, i16 noundef zeroext %219)
+  %220 = call ptr @wmem_file_scope()
+  %221 = call noalias ptr @wmem_alloc0(ptr noundef %220, i64 noundef 16) #13
+  store ptr %221, ptr %21, align 8
+  %222 = load ptr, ptr %10, align 8
+  %223 = getelementptr inbounds nuw %struct._packet_info, ptr %222, i32 0, i32 3
+  %224 = load i32, ptr %223, align 4
+  %225 = load ptr, ptr %21, align 8
+  %226 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %225, i32 0, i32 0
+  store i32 %224, ptr %226, align 4
   %227 = load ptr, ptr %21, align 8
-  %228 = getelementptr inbounds %struct.usbll_transfer_info, ptr %227, i32 0, i32 0
-  store i32 %226, ptr %228, align 4
+  %228 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %227, i32 0, i32 1
+  store i32 0, ptr %228, align 4
   %229 = load ptr, ptr %21, align 8
-  %230 = getelementptr inbounds %struct.usbll_transfer_info, ptr %229, i32 0, i32 1
-  store i32 0, ptr %230, align 4
+  %230 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %229, i32 0, i32 2
+  store i32 1, ptr %230, align 4
   %231 = load ptr, ptr %21, align 8
-  %232 = getelementptr inbounds %struct.usbll_transfer_info, ptr %231, i32 0, i32 2
-  store i32 1, ptr %232, align 4
-  %233 = load ptr, ptr %21, align 8
-  %234 = getelementptr inbounds %struct.usbll_transfer_info, ptr %233, i32 0, i32 3
-  store i32 1, ptr %234, align 4
-  %235 = load i16, ptr %27, align 2
-  %236 = zext i16 %235 to i32
-  %237 = icmp sgt i32 %236, 0
-  br i1 %237, label %238, label %278
+  %232 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %231, i32 0, i32 3
+  store i8 1, ptr %232, align 4
+  %233 = load i16, ptr %28, align 2
+  %234 = zext i16 %233 to i32
+  %235 = icmp sgt i32 %234, 0
+  br i1 %235, label %236, label %276
 
-238:                                              ; preds = %194
-  %239 = load i32, ptr %26, align 4
-  %240 = icmp ne i32 %239, 0
-  br i1 %240, label %241, label %263
+236:                                              ; preds = %190
+  %237 = load i8, ptr %27, align 1, !range !6, !noundef !7
+  %238 = trunc i8 %237 to i1
+  br i1 %238, label %239, label %261
 
-241:                                              ; preds = %238
-  %242 = load ptr, ptr %21, align 8
-  %243 = getelementptr inbounds %struct.usbll_transfer_info, ptr %242, i32 0, i32 4
-  store i32 1, ptr %243, align 4
-  %244 = load ptr, ptr %10, align 8
-  %245 = getelementptr inbounds %struct._packet_info, ptr %244, i32 0, i32 3
-  %246 = load i32, ptr %245, align 4
-  %247 = load ptr, ptr %23, align 8
-  %248 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %247, i32 0, i32 5
-  store i32 %246, ptr %248, align 4
-  %249 = load i16, ptr %27, align 2
-  %250 = zext i16 %249 to i32
-  %251 = add i32 8, %250
-  %252 = load ptr, ptr %23, align 8
-  %253 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %252, i32 0, i32 8
-  store i32 %251, ptr %253, align 4
-  %254 = load ptr, ptr %23, align 8
-  %255 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %254, i32 0, i32 6
-  store i32 8, ptr %255, align 4
-  %256 = load i8, ptr %13, align 1
-  %257 = load ptr, ptr %23, align 8
-  %258 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %257, i32 0, i32 3
-  store i8 %256, ptr %258, align 2
-  %259 = load ptr, ptr %23, align 8
-  %260 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %259, i32 0, i32 4
+239:                                              ; preds = %236
+  %240 = load ptr, ptr %21, align 8
+  %241 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %240, i32 0, i32 4
+  store i8 1, ptr %241, align 1
+  %242 = load ptr, ptr %10, align 8
+  %243 = getelementptr inbounds nuw %struct._packet_info, ptr %242, i32 0, i32 3
+  %244 = load i32, ptr %243, align 4
+  %245 = load ptr, ptr %24, align 8
+  %246 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %245, i32 0, i32 5
+  store i32 %244, ptr %246, align 4
+  %247 = load i16, ptr %28, align 2
+  %248 = zext i16 %247 to i32
+  %249 = add i32 8, %248
+  %250 = load ptr, ptr %24, align 8
+  %251 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %250, i32 0, i32 8
+  store i32 %249, ptr %251, align 4
+  %252 = load ptr, ptr %24, align 8
+  %253 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %252, i32 0, i32 6
+  store i32 8, ptr %253, align 4
+  %254 = load i8, ptr %13, align 1
+  %255 = load ptr, ptr %24, align 8
+  %256 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %255, i32 0, i32 3
+  store i8 %254, ptr %256, align 2
+  %257 = load ptr, ptr %24, align 8
+  %258 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %257, i32 0, i32 4
+  store i8 0, ptr %258, align 1
+  %259 = load ptr, ptr %24, align 8
+  %260 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %259, i32 0, i32 7
   store i32 0, ptr %260, align 4
-  %261 = load ptr, ptr %23, align 8
-  %262 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %261, i32 0, i32 7
-  store i32 0, ptr %262, align 4
-  br label %277
+  br label %275
 
-263:                                              ; preds = %238
-  %264 = load ptr, ptr %21, align 8
-  %265 = getelementptr inbounds %struct.usbll_transfer_info, ptr %264, i32 0, i32 4
-  store i32 0, ptr %265, align 4
-  %266 = load i16, ptr %27, align 2
-  %267 = zext i16 %266 to i32
-  %268 = load ptr, ptr %24, align 8
-  %269 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %268, i32 0, i32 8
-  store i32 %267, ptr %269, align 4
-  %270 = load i8, ptr %13, align 1
-  %271 = load ptr, ptr %24, align 8
-  %272 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %271, i32 0, i32 3
-  store i8 %270, ptr %272, align 2
-  %273 = load ptr, ptr %24, align 8
-  %274 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %273, i32 0, i32 4
+261:                                              ; preds = %236
+  %262 = load ptr, ptr %21, align 8
+  %263 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %262, i32 0, i32 4
+  store i8 0, ptr %263, align 1
+  %264 = load i16, ptr %28, align 2
+  %265 = zext i16 %264 to i32
+  %266 = load ptr, ptr %25, align 8
+  %267 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %266, i32 0, i32 8
+  store i32 %265, ptr %267, align 4
+  %268 = load i8, ptr %13, align 1
+  %269 = load ptr, ptr %25, align 8
+  %270 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %269, i32 0, i32 3
+  store i8 %268, ptr %270, align 2
+  %271 = load ptr, ptr %25, align 8
+  %272 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %271, i32 0, i32 4
+  store i8 0, ptr %272, align 1
+  %273 = load ptr, ptr %25, align 8
+  %274 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %273, i32 0, i32 7
   store i32 0, ptr %274, align 4
-  %275 = load ptr, ptr %24, align 8
-  %276 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %275, i32 0, i32 7
-  store i32 0, ptr %276, align 4
-  br label %277
+  br label %275
 
-277:                                              ; preds = %263, %241
-  br label %278
+275:                                              ; preds = %261, %239
+  br label %276
 
-278:                                              ; preds = %277, %194
-  %279 = getelementptr inbounds [8 x i8], ptr %25, i64 0, i64 0
-  %280 = call i32 @is_get_device_descriptor(ptr noundef %279)
-  %281 = icmp ne i32 %280, 0
-  br i1 %281, label %282, label %285
+276:                                              ; preds = %275, %190
+  %277 = getelementptr inbounds [8 x i8], ptr %26, i64 0, i64 0
+  %278 = call zeroext i1 @is_get_device_descriptor(ptr noundef %277)
+  br i1 %278, label %279, label %282
 
-282:                                              ; preds = %278
-  %283 = load ptr, ptr %24, align 8
-  %284 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %283, i32 0, i32 1
-  store i32 1, ptr %284, align 4
-  br label %299
+279:                                              ; preds = %276
+  %280 = load ptr, ptr %25, align 8
+  %281 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %280, i32 0, i32 1
+  store i32 1, ptr %281, align 4
+  br label %295
 
-285:                                              ; preds = %278
-  %286 = getelementptr inbounds [8 x i8], ptr %25, i64 0, i64 0
-  %287 = call i32 @is_set_address(ptr noundef %286)
-  %288 = icmp ne i32 %287, 0
-  br i1 %288, label %289, label %298
+282:                                              ; preds = %276
+  %283 = getelementptr inbounds [8 x i8], ptr %26, i64 0, i64 0
+  %284 = call zeroext i1 @is_set_address(ptr noundef %283)
+  br i1 %284, label %285, label %294
 
-289:                                              ; preds = %285
-  %290 = getelementptr [8 x i8], ptr %25, i64 0, i64 2
-  %291 = load i8, ptr %290, align 1
-  %292 = zext i8 %291 to i32
-  store i32 %292, ptr %28, align 4
-  %293 = load i32, ptr %28, align 4
-  %294 = icmp sgt i32 %293, 0
-  br i1 %294, label %295, label %297
+285:                                              ; preds = %282
+  call void @llvm.lifetime.start.p0(i64 4, ptr %29) #11
+  %286 = getelementptr [8 x i8], ptr %26, i64 0, i64 2
+  %287 = load i8, ptr %286, align 1
+  %288 = zext i8 %287 to i32
+  store i32 %288, ptr %29, align 4
+  %289 = load i32, ptr %29, align 4
+  %290 = icmp sgt i32 %289, 0
+  br i1 %290, label %291, label %293
 
-295:                                              ; preds = %289
-  %296 = load i32, ptr %28, align 4
-  call void @usbll_reset_device_endpoints(i32 noundef %296)
-  br label %297
+291:                                              ; preds = %285
+  %292 = load i32, ptr %29, align 4
+  call void @usbll_reset_device_endpoints(i32 noundef %292)
+  br label %293
 
-297:                                              ; preds = %295, %289
-  br label %298
+293:                                              ; preds = %291, %285
+  call void @llvm.lifetime.end.p0(i64 4, ptr %29) #11
+  br label %294
 
-298:                                              ; preds = %297, %285
-  br label %299
+294:                                              ; preds = %293, %282
+  br label %295
 
-299:                                              ; preds = %298, %282
-  %300 = load ptr, ptr @transfer_info, align 8
-  %301 = load ptr, ptr %10, align 8
-  %302 = getelementptr inbounds %struct._packet_info, ptr %301, i32 0, i32 3
-  %303 = load i32, ptr %302, align 4
-  %304 = zext i32 %303 to i64
-  %305 = inttoptr i64 %304 to ptr
-  %306 = load ptr, ptr %21, align 8
-  %307 = call ptr @wmem_map_insert(ptr noundef %300, ptr noundef %305, ptr noundef %306)
-  br label %308
+295:                                              ; preds = %294, %279
+  %296 = load ptr, ptr @transfer_info, align 8
+  %297 = load ptr, ptr %10, align 8
+  %298 = getelementptr inbounds nuw %struct._packet_info, ptr %297, i32 0, i32 3
+  %299 = load i32, ptr %298, align 4
+  %300 = zext i32 %299 to i64
+  %301 = inttoptr i64 %300 to ptr
+  %302 = load ptr, ptr %21, align 8
+  %303 = call ptr @wmem_map_insert(ptr noundef %296, ptr noundef %301, ptr noundef %302)
+  call void @llvm.lifetime.end.p0(i64 2, ptr %28) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %27) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #11
+  br label %304
 
-308:                                              ; preds = %299, %189, %160
-  br label %309
+304:                                              ; preds = %295, %185, %156
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #11
+  br label %305
 
-309:                                              ; preds = %308, %150
-  br label %310
+305:                                              ; preds = %304, %146
+  br label %306
 
-310:                                              ; preds = %309, %146
-  br label %789
+306:                                              ; preds = %305, %142
+  br label %800
 
-311:                                              ; preds = %137
-  %312 = load ptr, ptr %10, align 8
-  %313 = getelementptr inbounds %struct._packet_info, ptr %312, i32 0, i32 8
-  %314 = load ptr, ptr %313, align 8
-  %315 = getelementptr inbounds %struct._frame_data, ptr %314, i32 0, i32 9
-  %316 = load i16, ptr %315, align 2
-  %317 = lshr i16 %316, 3
-  %318 = and i16 %317, 1
-  %319 = zext i16 %318 to i32
-  %320 = icmp ne i32 %319, 0
-  br i1 %320, label %788, label %321
+307:                                              ; preds = %134
+  %308 = load ptr, ptr %10, align 8
+  %309 = getelementptr inbounds nuw %struct._packet_info, ptr %308, i32 0, i32 8
+  %310 = load ptr, ptr %309, align 8
+  %311 = getelementptr inbounds nuw %struct._frame_data, ptr %310, i32 0, i32 11
+  %312 = load i16, ptr %311, align 1
+  %313 = lshr i16 %312, 3
+  %314 = and i16 %313, 1
+  %315 = zext i16 %314 to i32
+  %316 = icmp ne i32 %315, 0
+  br i1 %316, label %799, label %317
 
-321:                                              ; preds = %311
-  %322 = load ptr, ptr %14, align 8
-  %323 = getelementptr inbounds %struct.usbll_data, ptr %322, i32 0, i32 0
-  %324 = load i32, ptr %323, align 8
-  %325 = icmp ne i32 %324, 1
-  br i1 %325, label %326, label %788
+317:                                              ; preds = %307
+  %318 = load ptr, ptr %14, align 8
+  %319 = getelementptr inbounds nuw %struct.usbll_data, ptr %318, i32 0, i32 0
+  %320 = load i32, ptr %319, align 8
+  %321 = icmp ne i32 %320, 1
+  br i1 %321, label %322, label %799
 
-326:                                              ; preds = %321
-  %327 = load ptr, ptr %14, align 8
-  %328 = getelementptr inbounds %struct.usbll_data, ptr %327, i32 0, i32 0
-  %329 = load i32, ptr %328, align 8
-  %330 = call i32 @usbll_is_data_from_host(i32 noundef %329)
-  store i32 %330, ptr %30, align 4
-  %331 = load ptr, ptr %10, align 8
-  %332 = load ptr, ptr %14, align 8
-  %333 = getelementptr inbounds %struct.usbll_data, ptr %332, i32 0, i32 1
-  %334 = load ptr, ptr %333, align 8
-  %335 = getelementptr inbounds %struct.usbll_transaction_info, ptr %334, i32 0, i32 2
-  %336 = load i8, ptr %335, align 1
-  %337 = load ptr, ptr %14, align 8
-  %338 = getelementptr inbounds %struct.usbll_data, ptr %337, i32 0, i32 1
-  %339 = load ptr, ptr %338, align 8
-  %340 = getelementptr inbounds %struct.usbll_transaction_info, ptr %339, i32 0, i32 3
-  %341 = load i8, ptr %340, align 2
-  %342 = load i32, ptr %30, align 4
-  %343 = call ptr @usbll_get_endpoint_info(ptr noundef %331, i8 noundef zeroext %336, i8 noundef zeroext %341, i32 noundef %342)
-  store ptr %343, ptr %29, align 8
-  %344 = load ptr, ptr %29, align 8
-  %345 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %344, i32 0, i32 0
-  %346 = load i32, ptr %345, align 4
-  %347 = icmp eq i32 %346, 1
-  br i1 %347, label %348, label %551
+322:                                              ; preds = %317
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %31) #11
+  %323 = load ptr, ptr %14, align 8
+  %324 = getelementptr inbounds nuw %struct.usbll_data, ptr %323, i32 0, i32 0
+  %325 = load i32, ptr %324, align 8
+  %326 = call zeroext i1 @usbll_is_data_from_host(i32 noundef %325)
+  %327 = zext i1 %326 to i8
+  store i8 %327, ptr %31, align 1
+  %328 = load ptr, ptr %10, align 8
+  %329 = load ptr, ptr %14, align 8
+  %330 = getelementptr inbounds nuw %struct.usbll_data, ptr %329, i32 0, i32 1
+  %331 = load ptr, ptr %330, align 8
+  %332 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %331, i32 0, i32 2
+  %333 = load i8, ptr %332, align 1
+  %334 = load ptr, ptr %14, align 8
+  %335 = getelementptr inbounds nuw %struct.usbll_data, ptr %334, i32 0, i32 1
+  %336 = load ptr, ptr %335, align 8
+  %337 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %336, i32 0, i32 3
+  %338 = load i8, ptr %337, align 2
+  %339 = load i8, ptr %31, align 1, !range !6, !noundef !7
+  %340 = trunc i8 %339 to i1
+  %341 = call ptr @usbll_get_endpoint_info(ptr noundef %328, i8 noundef zeroext %333, i8 noundef zeroext %338, i1 noundef zeroext %340)
+  store ptr %341, ptr %30, align 8
+  %342 = load ptr, ptr %30, align 8
+  %343 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %342, i32 0, i32 0
+  %344 = load i32, ptr %343, align 4
+  %345 = icmp eq i32 %344, 1
+  br i1 %345, label %346, label %552
 
-348:                                              ; preds = %326
-  %349 = load ptr, ptr %29, align 8
-  %350 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %349, i32 0, i32 8
-  %351 = load i32, ptr %350, align 4
-  %352 = icmp ugt i32 %351, 0
-  br i1 %352, label %353, label %549
+346:                                              ; preds = %322
+  %347 = load ptr, ptr %30, align 8
+  %348 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %347, i32 0, i32 8
+  %349 = load i32, ptr %348, align 4
+  %350 = icmp ugt i32 %349, 0
+  br i1 %350, label %351, label %550
 
-353:                                              ; preds = %348
-  %354 = load i8, ptr %13, align 1
-  %355 = zext i8 %354 to i32
-  %356 = load ptr, ptr %29, align 8
-  %357 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %356, i32 0, i32 3
-  %358 = load i8, ptr %357, align 2
-  %359 = zext i8 %358 to i32
-  %360 = icmp eq i32 %355, %359
-  br i1 %360, label %361, label %411
+351:                                              ; preds = %346
+  %352 = load i8, ptr %13, align 1
+  %353 = zext i8 %352 to i32
+  %354 = load ptr, ptr %30, align 8
+  %355 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %354, i32 0, i32 3
+  %356 = load i8, ptr %355, align 2
+  %357 = zext i8 %356 to i32
+  %358 = icmp eq i32 %353, %357
+  br i1 %358, label %359, label %410
 
-361:                                              ; preds = %353
-  %362 = load ptr, ptr %29, align 8
-  %363 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %362, i32 0, i32 7
-  %364 = load i32, ptr %363, align 4
-  %365 = icmp eq i32 %364, 0
-  br i1 %365, label %366, label %369
+359:                                              ; preds = %351
+  %360 = load ptr, ptr %30, align 8
+  %361 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %360, i32 0, i32 7
+  %362 = load i32, ptr %361, align 4
+  %363 = icmp eq i32 %362, 0
+  br i1 %363, label %364, label %367
 
-366:                                              ; preds = %361
-  %367 = load ptr, ptr %14, align 8
-  %368 = getelementptr inbounds %struct.usbll_data, ptr %367, i32 0, i32 0
-  store i32 1, ptr %368, align 8
-  br label %410
+364:                                              ; preds = %359
+  %365 = load ptr, ptr %14, align 8
+  %366 = getelementptr inbounds nuw %struct.usbll_data, ptr %365, i32 0, i32 0
+  store i32 1, ptr %366, align 8
+  br label %409
 
-369:                                              ; preds = %361
-  %370 = call ptr @wmem_file_scope()
-  %371 = call noalias ptr @wmem_alloc0(ptr noundef %370, i64 noundef 20)
-  store ptr %371, ptr %21, align 8
-  %372 = load ptr, ptr %29, align 8
-  %373 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %372, i32 0, i32 5
-  %374 = load i32, ptr %373, align 4
-  %375 = load ptr, ptr %21, align 8
-  %376 = getelementptr inbounds %struct.usbll_transfer_info, ptr %375, i32 0, i32 0
-  store i32 %374, ptr %376, align 4
-  %377 = load ptr, ptr %29, align 8
-  %378 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %377, i32 0, i32 6
-  %379 = load i32, ptr %378, align 4
-  %380 = load ptr, ptr %29, align 8
-  %381 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %380, i32 0, i32 7
-  %382 = load i32, ptr %381, align 4
-  %383 = sub i32 %379, %382
+367:                                              ; preds = %359
+  %368 = call ptr @wmem_file_scope()
+  %369 = call noalias ptr @wmem_alloc0(ptr noundef %368, i64 noundef 16) #13
+  store ptr %369, ptr %21, align 8
+  %370 = load ptr, ptr %30, align 8
+  %371 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %370, i32 0, i32 5
+  %372 = load i32, ptr %371, align 4
+  %373 = load ptr, ptr %21, align 8
+  %374 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %373, i32 0, i32 0
+  store i32 %372, ptr %374, align 4
+  %375 = load ptr, ptr %30, align 8
+  %376 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %375, i32 0, i32 6
+  %377 = load i32, ptr %376, align 4
+  %378 = load ptr, ptr %30, align 8
+  %379 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %378, i32 0, i32 7
+  %380 = load i32, ptr %379, align 4
+  %381 = sub i32 %377, %380
+  %382 = load ptr, ptr %21, align 8
+  %383 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %382, i32 0, i32 1
+  store i32 %381, ptr %383, align 4
   %384 = load ptr, ptr %21, align 8
-  %385 = getelementptr inbounds %struct.usbll_transfer_info, ptr %384, i32 0, i32 1
-  store i32 %383, ptr %385, align 4
-  %386 = load ptr, ptr %21, align 8
-  %387 = getelementptr inbounds %struct.usbll_transfer_info, ptr %386, i32 0, i32 2
-  store i32 1, ptr %387, align 4
-  %388 = load i32, ptr %30, align 4
-  %389 = load ptr, ptr %21, align 8
-  %390 = getelementptr inbounds %struct.usbll_transfer_info, ptr %389, i32 0, i32 3
-  store i32 %388, ptr %390, align 4
-  %391 = load ptr, ptr %29, align 8
+  %385 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %384, i32 0, i32 2
+  store i32 1, ptr %385, align 4
+  %386 = load i8, ptr %31, align 1, !range !6, !noundef !7
+  %387 = trunc i8 %386 to i1
+  %388 = load ptr, ptr %21, align 8
+  %389 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %388, i32 0, i32 3
+  %390 = zext i1 %387 to i8
+  store i8 %390, ptr %389, align 4
+  %391 = load ptr, ptr %30, align 8
   %392 = load ptr, ptr %21, align 8
-  %393 = getelementptr inbounds %struct.usbll_transfer_info, ptr %392, i32 0, i32 1
+  %393 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %392, i32 0, i32 1
   %394 = load i32, ptr %393, align 4
   %395 = load i32, ptr %19, align 4
-  %396 = call i32 @packet_ends_transfer(ptr noundef %391, i32 noundef %394, i32 noundef %395)
-  %397 = icmp ne i32 %396, 0
-  %398 = xor i1 %397, true
-  %399 = zext i1 %398 to i32
-  %400 = load ptr, ptr %21, align 8
-  %401 = getelementptr inbounds %struct.usbll_transfer_info, ptr %400, i32 0, i32 4
-  store i32 %399, ptr %401, align 4
-  %402 = load ptr, ptr @transfer_info, align 8
-  %403 = load ptr, ptr %10, align 8
-  %404 = getelementptr inbounds %struct._packet_info, ptr %403, i32 0, i32 3
-  %405 = load i32, ptr %404, align 4
-  %406 = zext i32 %405 to i64
-  %407 = inttoptr i64 %406 to ptr
-  %408 = load ptr, ptr %21, align 8
-  %409 = call ptr @wmem_map_insert(ptr noundef %402, ptr noundef %407, ptr noundef %408)
-  br label %410
+  %396 = call zeroext i1 @packet_ends_transfer(ptr noundef %391, i32 noundef %394, i32 noundef %395)
+  %397 = xor i1 %396, true
+  %398 = load ptr, ptr %21, align 8
+  %399 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %398, i32 0, i32 4
+  %400 = zext i1 %397 to i8
+  store i8 %400, ptr %399, align 1
+  %401 = load ptr, ptr @transfer_info, align 8
+  %402 = load ptr, ptr %10, align 8
+  %403 = getelementptr inbounds nuw %struct._packet_info, ptr %402, i32 0, i32 3
+  %404 = load i32, ptr %403, align 4
+  %405 = zext i32 %404 to i64
+  %406 = inttoptr i64 %405 to ptr
+  %407 = load ptr, ptr %21, align 8
+  %408 = call ptr @wmem_map_insert(ptr noundef %401, ptr noundef %406, ptr noundef %407)
+  br label %409
 
-410:                                              ; preds = %369, %366
-  br label %548
+409:                                              ; preds = %367, %364
+  br label %549
 
-411:                                              ; preds = %353
-  %412 = load i8, ptr %13, align 1
-  %413 = zext i8 %412 to i32
-  %414 = icmp eq i32 %413, 195
-  br i1 %414, label %419, label %415
+410:                                              ; preds = %351
+  %411 = load i8, ptr %13, align 1
+  %412 = zext i8 %411 to i32
+  %413 = icmp eq i32 %412, 195
+  br i1 %413, label %418, label %414
 
-415:                                              ; preds = %411
-  %416 = load i8, ptr %13, align 1
-  %417 = zext i8 %416 to i32
-  %418 = icmp eq i32 %417, 75
-  br i1 %418, label %419, label %544
+414:                                              ; preds = %410
+  %415 = load i8, ptr %13, align 1
+  %416 = zext i8 %415 to i32
+  %417 = icmp eq i32 %416, 75
+  br i1 %417, label %418, label %545
 
-419:                                              ; preds = %415, %411
-  %420 = load ptr, ptr %29, align 8
-  %421 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %420, i32 0, i32 5
-  %422 = load i32, ptr %421, align 4
-  %423 = icmp eq i32 %422, 0
-  br i1 %423, label %424, label %490
+418:                                              ; preds = %414, %410
+  %419 = load ptr, ptr %30, align 8
+  %420 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %419, i32 0, i32 5
+  %421 = load i32, ptr %420, align 4
+  %422 = icmp eq i32 %421, 0
+  br i1 %422, label %423, label %489
 
-424:                                              ; preds = %419
-  %425 = load i32, ptr %30, align 4
-  %426 = icmp ne i32 %425, 0
-  br i1 %426, label %428, label %427
+423:                                              ; preds = %418
+  %424 = load i8, ptr %31, align 1, !range !6, !noundef !7
+  %425 = trunc i8 %424 to i1
+  br i1 %425, label %427, label %426
 
-427:                                              ; preds = %424
-  br label %430
+426:                                              ; preds = %423
+  br label %429
 
-428:                                              ; preds = %424
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1957, ptr noundef @.str.182) #9
+427:                                              ; preds = %423
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1969, ptr noundef @.str.192) #14
   unreachable
 
-429:                                              ; No predecessors!
-  br label %430
+428:                                              ; No predecessors!
+  br label %429
 
-430:                                              ; preds = %429, %427
-  %431 = load ptr, ptr %29, align 8
-  %432 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %431, i32 0, i32 6
-  %433 = load i32, ptr %432, align 4
-  %434 = icmp eq i32 %433, 0
-  br i1 %434, label %435, label %436
+429:                                              ; preds = %428, %426
+  %430 = load ptr, ptr %30, align 8
+  %431 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %430, i32 0, i32 6
+  %432 = load i32, ptr %431, align 4
+  %433 = icmp eq i32 %432, 0
+  br i1 %433, label %434, label %435
 
-435:                                              ; preds = %430
-  br label %438
+434:                                              ; preds = %429
+  br label %437
 
-436:                                              ; preds = %430
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1958, ptr noundef @.str.183) #9
+435:                                              ; preds = %429
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1970, ptr noundef @.str.193) #14
   unreachable
 
-437:                                              ; No predecessors!
-  br label %438
+436:                                              ; No predecessors!
+  br label %437
 
-438:                                              ; preds = %437, %435
-  %439 = load ptr, ptr %29, align 8
-  %440 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %439, i32 0, i32 7
-  %441 = load i32, ptr %440, align 4
-  %442 = icmp eq i32 %441, 0
-  br i1 %442, label %443, label %444
+437:                                              ; preds = %436, %434
+  %438 = load ptr, ptr %30, align 8
+  %439 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %438, i32 0, i32 7
+  %440 = load i32, ptr %439, align 4
+  %441 = icmp eq i32 %440, 0
+  br i1 %441, label %442, label %443
 
-443:                                              ; preds = %438
-  br label %446
+442:                                              ; preds = %437
+  br label %445
 
-444:                                              ; preds = %438
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1959, ptr noundef @.str.184) #9
+443:                                              ; preds = %437
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1971, ptr noundef @.str.194) #14
   unreachable
 
-445:                                              ; No predecessors!
-  br label %446
+444:                                              ; No predecessors!
+  br label %445
 
-446:                                              ; preds = %445, %443
-  %447 = load ptr, ptr %10, align 8
-  %448 = getelementptr inbounds %struct._packet_info, ptr %447, i32 0, i32 3
-  %449 = load i32, ptr %448, align 4
-  %450 = load ptr, ptr %29, align 8
-  %451 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %450, i32 0, i32 5
-  store i32 %449, ptr %451, align 4
-  %452 = load ptr, ptr %29, align 8
-  %453 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %452, i32 0, i32 1
-  %454 = load i32, ptr %453, align 4
-  %455 = icmp eq i32 %454, 1
-  br i1 %455, label %456, label %489
+445:                                              ; preds = %444, %442
+  %446 = load ptr, ptr %10, align 8
+  %447 = getelementptr inbounds nuw %struct._packet_info, ptr %446, i32 0, i32 3
+  %448 = load i32, ptr %447, align 4
+  %449 = load ptr, ptr %30, align 8
+  %450 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %449, i32 0, i32 5
+  store i32 %448, ptr %450, align 4
+  %451 = load ptr, ptr %30, align 8
+  %452 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %451, i32 0, i32 1
+  %453 = load i32, ptr %452, align 4
+  %454 = icmp eq i32 %453, 1
+  br i1 %454, label %455, label %488
 
-456:                                              ; preds = %446
-  %457 = load i32, ptr %19, align 4
-  %458 = icmp sge i32 %457, 8
-  br i1 %458, label %459, label %489
+455:                                              ; preds = %445
+  %456 = load i32, ptr %19, align 4
+  %457 = icmp sge i32 %456, 8
+  br i1 %457, label %458, label %488
 
-459:                                              ; preds = %456
-  %460 = load ptr, ptr %10, align 8
-  %461 = load ptr, ptr %14, align 8
-  %462 = getelementptr inbounds %struct.usbll_data, ptr %461, i32 0, i32 1
-  %463 = load ptr, ptr %462, align 8
-  %464 = getelementptr inbounds %struct.usbll_transaction_info, ptr %463, i32 0, i32 2
-  %465 = load i8, ptr %464, align 1
-  %466 = load ptr, ptr %14, align 8
-  %467 = getelementptr inbounds %struct.usbll_data, ptr %466, i32 0, i32 1
-  %468 = load ptr, ptr %467, align 8
-  %469 = getelementptr inbounds %struct.usbll_transaction_info, ptr %468, i32 0, i32 3
-  %470 = load i8, ptr %469, align 2
-  %471 = call ptr @usbll_get_endpoint_info(ptr noundef %460, i8 noundef zeroext %465, i8 noundef zeroext %470, i32 noundef 1)
-  store ptr %471, ptr %31, align 8
-  %472 = load ptr, ptr %9, align 8
-  %473 = load i32, ptr %18, align 4
-  %474 = add i32 %473, 7
-  %475 = call zeroext i8 @tvb_get_guint8(ptr noundef %472, i32 noundef %474)
-  %476 = zext i8 %475 to i16
-  store i16 %476, ptr %33, align 2
-  %477 = load ptr, ptr %14, align 8
-  %478 = call i32 @usbll_get_data_transaction_speed(ptr noundef %477)
-  store i32 %478, ptr %32, align 4
-  %479 = load i32, ptr %32, align 4
-  %480 = load i16, ptr %33, align 2
-  %481 = zext i16 %480 to i32
-  %482 = call i32 @sanitize_usb_max_packet_size(i8 noundef zeroext 0, i32 noundef %479, i32 noundef %481)
-  %483 = trunc i32 %482 to i16
-  store i16 %483, ptr %33, align 2
-  %484 = load i16, ptr %33, align 2
-  %485 = load ptr, ptr %31, align 8
-  %486 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %485, i32 0, i32 2
-  store i16 %484, ptr %486, align 4
-  %487 = load ptr, ptr %29, align 8
-  %488 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %487, i32 0, i32 2
-  store i16 %484, ptr %488, align 4
+458:                                              ; preds = %455
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %33) #11
+  call void @llvm.lifetime.start.p0(i64 2, ptr %34) #11
+  %459 = load ptr, ptr %10, align 8
+  %460 = load ptr, ptr %14, align 8
+  %461 = getelementptr inbounds nuw %struct.usbll_data, ptr %460, i32 0, i32 1
+  %462 = load ptr, ptr %461, align 8
+  %463 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %462, i32 0, i32 2
+  %464 = load i8, ptr %463, align 1
+  %465 = load ptr, ptr %14, align 8
+  %466 = getelementptr inbounds nuw %struct.usbll_data, ptr %465, i32 0, i32 1
+  %467 = load ptr, ptr %466, align 8
+  %468 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %467, i32 0, i32 3
+  %469 = load i8, ptr %468, align 2
+  %470 = call ptr @usbll_get_endpoint_info(ptr noundef %459, i8 noundef zeroext %464, i8 noundef zeroext %469, i1 noundef zeroext true)
+  store ptr %470, ptr %32, align 8
+  %471 = load ptr, ptr %9, align 8
+  %472 = load i32, ptr %18, align 4
+  %473 = add i32 %472, 7
+  %474 = call zeroext i8 @tvb_get_uint8(ptr noundef %471, i32 noundef %473)
+  %475 = zext i8 %474 to i16
+  store i16 %475, ptr %34, align 2
+  %476 = load ptr, ptr %14, align 8
+  %477 = call i32 @usbll_get_data_transaction_speed(ptr noundef %476)
+  store i32 %477, ptr %33, align 4
+  %478 = load i32, ptr %33, align 4
+  %479 = load i16, ptr %34, align 2
+  %480 = zext i16 %479 to i32
+  %481 = call i32 @sanitize_usb_max_packet_size(i8 noundef zeroext 0, i32 noundef %478, i32 noundef %480)
+  %482 = trunc i32 %481 to i16
+  store i16 %482, ptr %34, align 2
+  %483 = load i16, ptr %34, align 2
+  %484 = load ptr, ptr %32, align 8
+  %485 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %484, i32 0, i32 2
+  store i16 %483, ptr %485, align 4
+  %486 = load ptr, ptr %30, align 8
+  %487 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %486, i32 0, i32 2
+  store i16 %483, ptr %487, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %34) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %33) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #11
+  br label %488
+
+488:                                              ; preds = %458, %455, %445
   br label %489
 
-489:                                              ; preds = %459, %456, %446
-  br label %490
-
-490:                                              ; preds = %489, %419
-  %491 = call ptr @wmem_file_scope()
-  %492 = call noalias ptr @wmem_alloc0(ptr noundef %491, i64 noundef 20)
-  store ptr %492, ptr %21, align 8
-  %493 = load ptr, ptr %29, align 8
-  %494 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %493, i32 0, i32 5
-  %495 = load i32, ptr %494, align 4
-  %496 = load ptr, ptr %21, align 8
-  %497 = getelementptr inbounds %struct.usbll_transfer_info, ptr %496, i32 0, i32 0
-  store i32 %495, ptr %497, align 4
-  %498 = load ptr, ptr %29, align 8
-  %499 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %498, i32 0, i32 6
-  %500 = load i32, ptr %499, align 4
-  %501 = load ptr, ptr %21, align 8
-  %502 = getelementptr inbounds %struct.usbll_transfer_info, ptr %501, i32 0, i32 1
-  store i32 %500, ptr %502, align 4
-  %503 = load ptr, ptr %21, align 8
-  %504 = getelementptr inbounds %struct.usbll_transfer_info, ptr %503, i32 0, i32 2
-  store i32 1, ptr %504, align 4
-  %505 = load i32, ptr %30, align 4
+489:                                              ; preds = %488, %418
+  %490 = call ptr @wmem_file_scope()
+  %491 = call noalias ptr @wmem_alloc0(ptr noundef %490, i64 noundef 16) #13
+  store ptr %491, ptr %21, align 8
+  %492 = load ptr, ptr %30, align 8
+  %493 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %492, i32 0, i32 5
+  %494 = load i32, ptr %493, align 4
+  %495 = load ptr, ptr %21, align 8
+  %496 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %495, i32 0, i32 0
+  store i32 %494, ptr %496, align 4
+  %497 = load ptr, ptr %30, align 8
+  %498 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %497, i32 0, i32 6
+  %499 = load i32, ptr %498, align 4
+  %500 = load ptr, ptr %21, align 8
+  %501 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %500, i32 0, i32 1
+  store i32 %499, ptr %501, align 4
+  %502 = load ptr, ptr %21, align 8
+  %503 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %502, i32 0, i32 2
+  store i32 1, ptr %503, align 4
+  %504 = load i8, ptr %31, align 1, !range !6, !noundef !7
+  %505 = trunc i8 %504 to i1
   %506 = load ptr, ptr %21, align 8
-  %507 = getelementptr inbounds %struct.usbll_transfer_info, ptr %506, i32 0, i32 3
-  store i32 %505, ptr %507, align 4
-  %508 = load ptr, ptr %29, align 8
-  %509 = load ptr, ptr %21, align 8
-  %510 = getelementptr inbounds %struct.usbll_transfer_info, ptr %509, i32 0, i32 1
-  %511 = load i32, ptr %510, align 4
-  %512 = load i32, ptr %19, align 4
-  %513 = call i32 @packet_ends_transfer(ptr noundef %508, i32 noundef %511, i32 noundef %512)
-  %514 = icmp ne i32 %513, 0
+  %507 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %506, i32 0, i32 3
+  %508 = zext i1 %505 to i8
+  store i8 %508, ptr %507, align 4
+  %509 = load ptr, ptr %30, align 8
+  %510 = load ptr, ptr %21, align 8
+  %511 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %510, i32 0, i32 1
+  %512 = load i32, ptr %511, align 4
+  %513 = load i32, ptr %19, align 4
+  %514 = call zeroext i1 @packet_ends_transfer(ptr noundef %509, i32 noundef %512, i32 noundef %513)
   %515 = xor i1 %514, true
-  %516 = zext i1 %515 to i32
-  %517 = load ptr, ptr %21, align 8
-  %518 = getelementptr inbounds %struct.usbll_transfer_info, ptr %517, i32 0, i32 4
-  store i32 %516, ptr %518, align 4
+  %516 = load ptr, ptr %21, align 8
+  %517 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %516, i32 0, i32 4
+  %518 = zext i1 %515 to i8
+  store i8 %518, ptr %517, align 1
   %519 = load ptr, ptr @transfer_info, align 8
   %520 = load ptr, ptr %10, align 8
-  %521 = getelementptr inbounds %struct._packet_info, ptr %520, i32 0, i32 3
+  %521 = getelementptr inbounds nuw %struct._packet_info, ptr %520, i32 0, i32 3
   %522 = load i32, ptr %521, align 4
   %523 = zext i32 %522 to i64
   %524 = inttoptr i64 %523 to ptr
   %525 = load ptr, ptr %21, align 8
   %526 = call ptr @wmem_map_insert(ptr noundef %519, ptr noundef %524, ptr noundef %525)
   %527 = load i8, ptr %13, align 1
-  %528 = load ptr, ptr %29, align 8
-  %529 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %528, i32 0, i32 3
+  %528 = load ptr, ptr %30, align 8
+  %529 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %528, i32 0, i32 3
   store i8 %527, ptr %529, align 2
   %530 = load ptr, ptr %14, align 8
-  %531 = getelementptr inbounds %struct.usbll_data, ptr %530, i32 0, i32 0
+  %531 = getelementptr inbounds nuw %struct.usbll_data, ptr %530, i32 0, i32 0
   %532 = load i32, ptr %531, align 8
-  %533 = call i32 @usbll_is_split_data_from_device(i32 noundef %532)
-  %534 = load ptr, ptr %29, align 8
-  %535 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %534, i32 0, i32 4
-  store i32 %533, ptr %535, align 4
-  %536 = load i32, ptr %19, align 4
-  %537 = load ptr, ptr %29, align 8
-  %538 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %537, i32 0, i32 6
-  %539 = load i32, ptr %538, align 4
-  %540 = add i32 %539, %536
-  store i32 %540, ptr %538, align 4
-  %541 = load i32, ptr %19, align 4
-  %542 = load ptr, ptr %29, align 8
-  %543 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %542, i32 0, i32 7
-  store i32 %541, ptr %543, align 4
-  br label %547
-
-544:                                              ; preds = %415
-  %545 = load ptr, ptr %14, align 8
-  %546 = getelementptr inbounds %struct.usbll_data, ptr %545, i32 0, i32 0
-  store i32 1, ptr %546, align 8
-  br label %547
-
-547:                                              ; preds = %544, %490
+  %533 = call zeroext i1 @usbll_is_split_data_from_device(i32 noundef %532)
+  %534 = load ptr, ptr %30, align 8
+  %535 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %534, i32 0, i32 4
+  %536 = zext i1 %533 to i8
+  store i8 %536, ptr %535, align 1
+  %537 = load i32, ptr %19, align 4
+  %538 = load ptr, ptr %30, align 8
+  %539 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %538, i32 0, i32 6
+  %540 = load i32, ptr %539, align 4
+  %541 = add i32 %540, %537
+  store i32 %541, ptr %539, align 4
+  %542 = load i32, ptr %19, align 4
+  %543 = load ptr, ptr %30, align 8
+  %544 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %543, i32 0, i32 7
+  store i32 %542, ptr %544, align 4
   br label %548
 
-548:                                              ; preds = %547, %410
-  br label %550
+545:                                              ; preds = %414
+  %546 = load ptr, ptr %14, align 8
+  %547 = getelementptr inbounds nuw %struct.usbll_data, ptr %546, i32 0, i32 0
+  store i32 1, ptr %547, align 8
+  br label %548
 
-549:                                              ; preds = %348
-  br label %550
+548:                                              ; preds = %545, %489
+  br label %549
 
-550:                                              ; preds = %549, %548
-  br label %787
+549:                                              ; preds = %548, %409
+  br label %551
 
-551:                                              ; preds = %326
-  %552 = load ptr, ptr %29, align 8
-  %553 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %552, i32 0, i32 0
-  %554 = load i32, ptr %553, align 4
-  %555 = icmp eq i32 %554, 2
-  br i1 %555, label %561, label %556
+550:                                              ; preds = %346
+  br label %551
 
-556:                                              ; preds = %551
-  %557 = load ptr, ptr %29, align 8
-  %558 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %557, i32 0, i32 0
-  %559 = load i32, ptr %558, align 4
-  %560 = icmp eq i32 %559, 3
-  br i1 %560, label %561, label %752
+551:                                              ; preds = %550, %549
+  br label %798
 
-561:                                              ; preds = %556, %551
-  %562 = load i8, ptr %13, align 1
-  %563 = zext i8 %562 to i32
-  %564 = load ptr, ptr %29, align 8
-  %565 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %564, i32 0, i32 3
-  %566 = load i8, ptr %565, align 2
-  %567 = zext i8 %566 to i32
-  %568 = icmp eq i32 %563, %567
-  br i1 %568, label %569, label %621
+552:                                              ; preds = %322
+  %553 = load ptr, ptr %30, align 8
+  %554 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %553, i32 0, i32 0
+  %555 = load i32, ptr %554, align 4
+  %556 = icmp eq i32 %555, 2
+  br i1 %556, label %562, label %557
 
-569:                                              ; preds = %561
-  %570 = load ptr, ptr %29, align 8
-  %571 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %570, i32 0, i32 5
-  %572 = load i32, ptr %571, align 4
-  %573 = icmp ne i32 %572, 0
-  br i1 %573, label %574, label %575
+557:                                              ; preds = %552
+  %558 = load ptr, ptr %30, align 8
+  %559 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %558, i32 0, i32 0
+  %560 = load i32, ptr %559, align 4
+  %561 = icmp eq i32 %560, 3
+  br i1 %561, label %562, label %761
 
-574:                                              ; preds = %569
-  br label %577
+562:                                              ; preds = %557, %552
+  %563 = load i8, ptr %13, align 1
+  %564 = zext i8 %563 to i32
+  %565 = load ptr, ptr %30, align 8
+  %566 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %565, i32 0, i32 3
+  %567 = load i8, ptr %566, align 2
+  %568 = zext i8 %567 to i32
+  %569 = icmp eq i32 %564, %568
+  br i1 %569, label %570, label %623
 
-575:                                              ; preds = %569
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 2005, ptr noundef @.str.185) #9
+570:                                              ; preds = %562
+  %571 = load ptr, ptr %30, align 8
+  %572 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %571, i32 0, i32 5
+  %573 = load i32, ptr %572, align 4
+  %574 = icmp ne i32 %573, 0
+  br i1 %574, label %575, label %576
+
+575:                                              ; preds = %570
+  br label %578
+
+576:                                              ; preds = %570
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 2017, ptr noundef @.str.195) #14
   unreachable
 
-576:                                              ; No predecessors!
-  br label %577
+577:                                              ; No predecessors!
+  br label %578
 
-577:                                              ; preds = %576, %574
-  %578 = call ptr @wmem_file_scope()
-  %579 = call noalias ptr @wmem_alloc0(ptr noundef %578, i64 noundef 20)
-  store ptr %579, ptr %21, align 8
-  %580 = load ptr, ptr %29, align 8
-  %581 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %580, i32 0, i32 5
-  %582 = load i32, ptr %581, align 4
-  %583 = load ptr, ptr %21, align 8
-  %584 = getelementptr inbounds %struct.usbll_transfer_info, ptr %583, i32 0, i32 0
-  store i32 %582, ptr %584, align 4
-  %585 = load ptr, ptr %29, align 8
-  %586 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %585, i32 0, i32 6
-  %587 = load i32, ptr %586, align 4
-  %588 = load ptr, ptr %29, align 8
-  %589 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %588, i32 0, i32 7
-  %590 = load i32, ptr %589, align 4
-  %591 = sub i32 %587, %590
-  %592 = load ptr, ptr %21, align 8
-  %593 = getelementptr inbounds %struct.usbll_transfer_info, ptr %592, i32 0, i32 1
-  store i32 %591, ptr %593, align 4
-  %594 = load ptr, ptr %29, align 8
-  %595 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %594, i32 0, i32 0
-  %596 = load i32, ptr %595, align 4
-  %597 = load ptr, ptr %21, align 8
-  %598 = getelementptr inbounds %struct.usbll_transfer_info, ptr %597, i32 0, i32 2
-  store i32 %596, ptr %598, align 4
-  %599 = load i32, ptr %30, align 4
-  %600 = load ptr, ptr %21, align 8
-  %601 = getelementptr inbounds %struct.usbll_transfer_info, ptr %600, i32 0, i32 3
-  store i32 %599, ptr %601, align 4
-  %602 = load ptr, ptr %29, align 8
-  %603 = load ptr, ptr %21, align 8
-  %604 = getelementptr inbounds %struct.usbll_transfer_info, ptr %603, i32 0, i32 1
-  %605 = load i32, ptr %604, align 4
-  %606 = load i32, ptr %19, align 4
-  %607 = call i32 @packet_ends_transfer(ptr noundef %602, i32 noundef %605, i32 noundef %606)
-  %608 = icmp ne i32 %607, 0
-  %609 = xor i1 %608, true
-  %610 = zext i1 %609 to i32
-  %611 = load ptr, ptr %21, align 8
-  %612 = getelementptr inbounds %struct.usbll_transfer_info, ptr %611, i32 0, i32 4
-  store i32 %610, ptr %612, align 4
-  %613 = load ptr, ptr @transfer_info, align 8
-  %614 = load ptr, ptr %10, align 8
-  %615 = getelementptr inbounds %struct._packet_info, ptr %614, i32 0, i32 3
-  %616 = load i32, ptr %615, align 4
-  %617 = zext i32 %616 to i64
-  %618 = inttoptr i64 %617 to ptr
-  %619 = load ptr, ptr %21, align 8
-  %620 = call ptr @wmem_map_insert(ptr noundef %613, ptr noundef %618, ptr noundef %619)
-  br label %751
+578:                                              ; preds = %577, %575
+  %579 = call ptr @wmem_file_scope()
+  %580 = call noalias ptr @wmem_alloc0(ptr noundef %579, i64 noundef 16) #13
+  store ptr %580, ptr %21, align 8
+  %581 = load ptr, ptr %30, align 8
+  %582 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %581, i32 0, i32 5
+  %583 = load i32, ptr %582, align 4
+  %584 = load ptr, ptr %21, align 8
+  %585 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %584, i32 0, i32 0
+  store i32 %583, ptr %585, align 4
+  %586 = load ptr, ptr %30, align 8
+  %587 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %586, i32 0, i32 6
+  %588 = load i32, ptr %587, align 4
+  %589 = load ptr, ptr %30, align 8
+  %590 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %589, i32 0, i32 7
+  %591 = load i32, ptr %590, align 4
+  %592 = sub i32 %588, %591
+  %593 = load ptr, ptr %21, align 8
+  %594 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %593, i32 0, i32 1
+  store i32 %592, ptr %594, align 4
+  %595 = load ptr, ptr %30, align 8
+  %596 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %595, i32 0, i32 0
+  %597 = load i32, ptr %596, align 4
+  %598 = load ptr, ptr %21, align 8
+  %599 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %598, i32 0, i32 2
+  store i32 %597, ptr %599, align 4
+  %600 = load i8, ptr %31, align 1, !range !6, !noundef !7
+  %601 = trunc i8 %600 to i1
+  %602 = load ptr, ptr %21, align 8
+  %603 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %602, i32 0, i32 3
+  %604 = zext i1 %601 to i8
+  store i8 %604, ptr %603, align 4
+  %605 = load ptr, ptr %30, align 8
+  %606 = load ptr, ptr %21, align 8
+  %607 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %606, i32 0, i32 1
+  %608 = load i32, ptr %607, align 4
+  %609 = load i32, ptr %19, align 4
+  %610 = call zeroext i1 @packet_ends_transfer(ptr noundef %605, i32 noundef %608, i32 noundef %609)
+  %611 = xor i1 %610, true
+  %612 = load ptr, ptr %21, align 8
+  %613 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %612, i32 0, i32 4
+  %614 = zext i1 %611 to i8
+  store i8 %614, ptr %613, align 1
+  %615 = load ptr, ptr @transfer_info, align 8
+  %616 = load ptr, ptr %10, align 8
+  %617 = getelementptr inbounds nuw %struct._packet_info, ptr %616, i32 0, i32 3
+  %618 = load i32, ptr %617, align 4
+  %619 = zext i32 %618 to i64
+  %620 = inttoptr i64 %619 to ptr
+  %621 = load ptr, ptr %21, align 8
+  %622 = call ptr @wmem_map_insert(ptr noundef %615, ptr noundef %620, ptr noundef %621)
+  br label %760
 
-621:                                              ; preds = %561
-  %622 = load ptr, ptr %29, align 8
-  %623 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %622, i32 0, i32 5
-  %624 = load i32, ptr %623, align 4
-  %625 = icmp eq i32 %624, 0
-  br i1 %625, label %636, label %626
+623:                                              ; preds = %562
+  %624 = load ptr, ptr %30, align 8
+  %625 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %624, i32 0, i32 5
+  %626 = load i32, ptr %625, align 4
+  %627 = icmp eq i32 %626, 0
+  br i1 %627, label %641, label %628
 
-626:                                              ; preds = %621
-  %627 = load ptr, ptr %29, align 8
-  %628 = load ptr, ptr %29, align 8
-  %629 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %628, i32 0, i32 6
-  %630 = load i32, ptr %629, align 4
-  %631 = load ptr, ptr %29, align 8
-  %632 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %631, i32 0, i32 7
-  %633 = load i32, ptr %632, align 4
-  %634 = call i32 @packet_ends_transfer(ptr noundef %627, i32 noundef %630, i32 noundef %633)
-  %635 = icmp ne i32 %634, 0
-  br i1 %635, label %636, label %693
+628:                                              ; preds = %623
+  %629 = load ptr, ptr %30, align 8
+  %630 = load ptr, ptr %30, align 8
+  %631 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %630, i32 0, i32 6
+  %632 = load i32, ptr %631, align 4
+  %633 = load ptr, ptr %30, align 8
+  %634 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %633, i32 0, i32 7
+  %635 = load i32, ptr %634, align 4
+  %636 = sub i32 %632, %635
+  %637 = load ptr, ptr %30, align 8
+  %638 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %637, i32 0, i32 7
+  %639 = load i32, ptr %638, align 4
+  %640 = call zeroext i1 @packet_ends_transfer(ptr noundef %629, i32 noundef %636, i32 noundef %639)
+  br i1 %640, label %641, label %700
 
-636:                                              ; preds = %626, %621
-  %637 = call ptr @wmem_file_scope()
-  %638 = call noalias ptr @wmem_alloc0(ptr noundef %637, i64 noundef 20)
-  store ptr %638, ptr %21, align 8
-  %639 = load ptr, ptr %10, align 8
-  %640 = getelementptr inbounds %struct._packet_info, ptr %639, i32 0, i32 3
-  %641 = load i32, ptr %640, align 4
-  %642 = load ptr, ptr %21, align 8
-  %643 = getelementptr inbounds %struct.usbll_transfer_info, ptr %642, i32 0, i32 0
-  store i32 %641, ptr %643, align 4
-  %644 = load ptr, ptr %21, align 8
-  %645 = getelementptr inbounds %struct.usbll_transfer_info, ptr %644, i32 0, i32 1
-  store i32 0, ptr %645, align 4
-  %646 = load ptr, ptr %29, align 8
-  %647 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %646, i32 0, i32 0
-  %648 = load i32, ptr %647, align 4
+641:                                              ; preds = %628, %623
+  %642 = call ptr @wmem_file_scope()
+  %643 = call noalias ptr @wmem_alloc0(ptr noundef %642, i64 noundef 16) #13
+  store ptr %643, ptr %21, align 8
+  %644 = load ptr, ptr %10, align 8
+  %645 = getelementptr inbounds nuw %struct._packet_info, ptr %644, i32 0, i32 3
+  %646 = load i32, ptr %645, align 4
+  %647 = load ptr, ptr %21, align 8
+  %648 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %647, i32 0, i32 0
+  store i32 %646, ptr %648, align 4
   %649 = load ptr, ptr %21, align 8
-  %650 = getelementptr inbounds %struct.usbll_transfer_info, ptr %649, i32 0, i32 2
-  store i32 %648, ptr %650, align 4
-  %651 = load i32, ptr %30, align 4
-  %652 = load ptr, ptr %21, align 8
-  %653 = getelementptr inbounds %struct.usbll_transfer_info, ptr %652, i32 0, i32 3
-  store i32 %651, ptr %653, align 4
-  %654 = load ptr, ptr %29, align 8
-  %655 = load ptr, ptr %21, align 8
-  %656 = getelementptr inbounds %struct.usbll_transfer_info, ptr %655, i32 0, i32 1
-  %657 = load i32, ptr %656, align 4
-  %658 = load i32, ptr %19, align 4
-  %659 = call i32 @packet_ends_transfer(ptr noundef %654, i32 noundef %657, i32 noundef %658)
-  %660 = icmp ne i32 %659, 0
-  %661 = xor i1 %660, true
-  %662 = zext i1 %661 to i32
-  %663 = load ptr, ptr %21, align 8
-  %664 = getelementptr inbounds %struct.usbll_transfer_info, ptr %663, i32 0, i32 4
-  store i32 %662, ptr %664, align 4
-  %665 = load ptr, ptr @transfer_info, align 8
-  %666 = load ptr, ptr %10, align 8
-  %667 = getelementptr inbounds %struct._packet_info, ptr %666, i32 0, i32 3
-  %668 = load i32, ptr %667, align 4
-  %669 = zext i32 %668 to i64
-  %670 = inttoptr i64 %669 to ptr
-  %671 = load ptr, ptr %21, align 8
-  %672 = call ptr @wmem_map_insert(ptr noundef %665, ptr noundef %670, ptr noundef %671)
-  %673 = load i8, ptr %13, align 1
-  %674 = load ptr, ptr %29, align 8
-  %675 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %674, i32 0, i32 3
-  store i8 %673, ptr %675, align 2
-  %676 = load ptr, ptr %14, align 8
-  %677 = getelementptr inbounds %struct.usbll_data, ptr %676, i32 0, i32 0
-  %678 = load i32, ptr %677, align 8
-  %679 = call i32 @usbll_is_split_data_from_device(i32 noundef %678)
-  %680 = load ptr, ptr %29, align 8
-  %681 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %680, i32 0, i32 4
-  store i32 %679, ptr %681, align 4
-  %682 = load ptr, ptr %10, align 8
-  %683 = getelementptr inbounds %struct._packet_info, ptr %682, i32 0, i32 3
-  %684 = load i32, ptr %683, align 4
-  %685 = load ptr, ptr %29, align 8
-  %686 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %685, i32 0, i32 5
-  store i32 %684, ptr %686, align 4
-  %687 = load i32, ptr %19, align 4
-  %688 = load ptr, ptr %29, align 8
-  %689 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %688, i32 0, i32 6
-  store i32 %687, ptr %689, align 4
-  %690 = load i32, ptr %19, align 4
-  %691 = load ptr, ptr %29, align 8
-  %692 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %691, i32 0, i32 7
-  store i32 %690, ptr %692, align 4
-  br label %750
+  %650 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %649, i32 0, i32 1
+  store i32 0, ptr %650, align 4
+  %651 = load ptr, ptr %30, align 8
+  %652 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %651, i32 0, i32 0
+  %653 = load i32, ptr %652, align 4
+  %654 = load ptr, ptr %21, align 8
+  %655 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %654, i32 0, i32 2
+  store i32 %653, ptr %655, align 4
+  %656 = load i8, ptr %31, align 1, !range !6, !noundef !7
+  %657 = trunc i8 %656 to i1
+  %658 = load ptr, ptr %21, align 8
+  %659 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %658, i32 0, i32 3
+  %660 = zext i1 %657 to i8
+  store i8 %660, ptr %659, align 4
+  %661 = load ptr, ptr %30, align 8
+  %662 = load ptr, ptr %21, align 8
+  %663 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %662, i32 0, i32 1
+  %664 = load i32, ptr %663, align 4
+  %665 = load i32, ptr %19, align 4
+  %666 = call zeroext i1 @packet_ends_transfer(ptr noundef %661, i32 noundef %664, i32 noundef %665)
+  %667 = xor i1 %666, true
+  %668 = load ptr, ptr %21, align 8
+  %669 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %668, i32 0, i32 4
+  %670 = zext i1 %667 to i8
+  store i8 %670, ptr %669, align 1
+  %671 = load ptr, ptr @transfer_info, align 8
+  %672 = load ptr, ptr %10, align 8
+  %673 = getelementptr inbounds nuw %struct._packet_info, ptr %672, i32 0, i32 3
+  %674 = load i32, ptr %673, align 4
+  %675 = zext i32 %674 to i64
+  %676 = inttoptr i64 %675 to ptr
+  %677 = load ptr, ptr %21, align 8
+  %678 = call ptr @wmem_map_insert(ptr noundef %671, ptr noundef %676, ptr noundef %677)
+  %679 = load i8, ptr %13, align 1
+  %680 = load ptr, ptr %30, align 8
+  %681 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %680, i32 0, i32 3
+  store i8 %679, ptr %681, align 2
+  %682 = load ptr, ptr %14, align 8
+  %683 = getelementptr inbounds nuw %struct.usbll_data, ptr %682, i32 0, i32 0
+  %684 = load i32, ptr %683, align 8
+  %685 = call zeroext i1 @usbll_is_split_data_from_device(i32 noundef %684)
+  %686 = load ptr, ptr %30, align 8
+  %687 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %686, i32 0, i32 4
+  %688 = zext i1 %685 to i8
+  store i8 %688, ptr %687, align 1
+  %689 = load ptr, ptr %10, align 8
+  %690 = getelementptr inbounds nuw %struct._packet_info, ptr %689, i32 0, i32 3
+  %691 = load i32, ptr %690, align 4
+  %692 = load ptr, ptr %30, align 8
+  %693 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %692, i32 0, i32 5
+  store i32 %691, ptr %693, align 4
+  %694 = load i32, ptr %19, align 4
+  %695 = load ptr, ptr %30, align 8
+  %696 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %695, i32 0, i32 6
+  store i32 %694, ptr %696, align 4
+  %697 = load i32, ptr %19, align 4
+  %698 = load ptr, ptr %30, align 8
+  %699 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %698, i32 0, i32 7
+  store i32 %697, ptr %699, align 4
+  br label %759
 
-693:                                              ; preds = %626
-  %694 = call ptr @wmem_file_scope()
-  %695 = call noalias ptr @wmem_alloc0(ptr noundef %694, i64 noundef 20)
-  store ptr %695, ptr %21, align 8
-  %696 = load ptr, ptr %29, align 8
-  %697 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %696, i32 0, i32 5
-  %698 = load i32, ptr %697, align 4
-  %699 = load ptr, ptr %21, align 8
-  %700 = getelementptr inbounds %struct.usbll_transfer_info, ptr %699, i32 0, i32 0
-  store i32 %698, ptr %700, align 4
-  %701 = load ptr, ptr %29, align 8
-  %702 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %701, i32 0, i32 6
-  %703 = load i32, ptr %702, align 4
-  %704 = load ptr, ptr %21, align 8
-  %705 = getelementptr inbounds %struct.usbll_transfer_info, ptr %704, i32 0, i32 1
-  store i32 %703, ptr %705, align 4
-  %706 = load ptr, ptr %29, align 8
-  %707 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %706, i32 0, i32 0
-  %708 = load i32, ptr %707, align 4
-  %709 = load ptr, ptr %21, align 8
-  %710 = getelementptr inbounds %struct.usbll_transfer_info, ptr %709, i32 0, i32 2
-  store i32 %708, ptr %710, align 4
-  %711 = load i32, ptr %30, align 4
-  %712 = load ptr, ptr %21, align 8
-  %713 = getelementptr inbounds %struct.usbll_transfer_info, ptr %712, i32 0, i32 3
-  store i32 %711, ptr %713, align 4
-  %714 = load ptr, ptr %29, align 8
-  %715 = load ptr, ptr %21, align 8
-  %716 = getelementptr inbounds %struct.usbll_transfer_info, ptr %715, i32 0, i32 1
-  %717 = load i32, ptr %716, align 4
-  %718 = load i32, ptr %19, align 4
-  %719 = call i32 @packet_ends_transfer(ptr noundef %714, i32 noundef %717, i32 noundef %718)
-  %720 = icmp ne i32 %719, 0
-  %721 = xor i1 %720, true
-  %722 = zext i1 %721 to i32
-  %723 = load ptr, ptr %21, align 8
-  %724 = getelementptr inbounds %struct.usbll_transfer_info, ptr %723, i32 0, i32 4
-  store i32 %722, ptr %724, align 4
-  %725 = load ptr, ptr @transfer_info, align 8
-  %726 = load ptr, ptr %10, align 8
-  %727 = getelementptr inbounds %struct._packet_info, ptr %726, i32 0, i32 3
-  %728 = load i32, ptr %727, align 4
-  %729 = zext i32 %728 to i64
-  %730 = inttoptr i64 %729 to ptr
-  %731 = load ptr, ptr %21, align 8
-  %732 = call ptr @wmem_map_insert(ptr noundef %725, ptr noundef %730, ptr noundef %731)
-  %733 = load i8, ptr %13, align 1
-  %734 = load ptr, ptr %29, align 8
-  %735 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %734, i32 0, i32 3
-  store i8 %733, ptr %735, align 2
-  %736 = load ptr, ptr %14, align 8
-  %737 = getelementptr inbounds %struct.usbll_data, ptr %736, i32 0, i32 0
-  %738 = load i32, ptr %737, align 8
-  %739 = call i32 @usbll_is_split_data_from_device(i32 noundef %738)
-  %740 = load ptr, ptr %29, align 8
-  %741 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %740, i32 0, i32 4
-  store i32 %739, ptr %741, align 4
-  %742 = load i32, ptr %19, align 4
-  %743 = load ptr, ptr %29, align 8
-  %744 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %743, i32 0, i32 6
-  %745 = load i32, ptr %744, align 4
-  %746 = add i32 %745, %742
-  store i32 %746, ptr %744, align 4
-  %747 = load i32, ptr %19, align 4
-  %748 = load ptr, ptr %29, align 8
-  %749 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %748, i32 0, i32 7
-  store i32 %747, ptr %749, align 4
-  br label %750
+700:                                              ; preds = %628
+  %701 = call ptr @wmem_file_scope()
+  %702 = call noalias ptr @wmem_alloc0(ptr noundef %701, i64 noundef 16) #13
+  store ptr %702, ptr %21, align 8
+  %703 = load ptr, ptr %30, align 8
+  %704 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %703, i32 0, i32 5
+  %705 = load i32, ptr %704, align 4
+  %706 = load ptr, ptr %21, align 8
+  %707 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %706, i32 0, i32 0
+  store i32 %705, ptr %707, align 4
+  %708 = load ptr, ptr %30, align 8
+  %709 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %708, i32 0, i32 6
+  %710 = load i32, ptr %709, align 4
+  %711 = load ptr, ptr %21, align 8
+  %712 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %711, i32 0, i32 1
+  store i32 %710, ptr %712, align 4
+  %713 = load ptr, ptr %30, align 8
+  %714 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %713, i32 0, i32 0
+  %715 = load i32, ptr %714, align 4
+  %716 = load ptr, ptr %21, align 8
+  %717 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %716, i32 0, i32 2
+  store i32 %715, ptr %717, align 4
+  %718 = load i8, ptr %31, align 1, !range !6, !noundef !7
+  %719 = trunc i8 %718 to i1
+  %720 = load ptr, ptr %21, align 8
+  %721 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %720, i32 0, i32 3
+  %722 = zext i1 %719 to i8
+  store i8 %722, ptr %721, align 4
+  %723 = load ptr, ptr %30, align 8
+  %724 = load ptr, ptr %21, align 8
+  %725 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %724, i32 0, i32 1
+  %726 = load i32, ptr %725, align 4
+  %727 = load i32, ptr %19, align 4
+  %728 = call zeroext i1 @packet_ends_transfer(ptr noundef %723, i32 noundef %726, i32 noundef %727)
+  %729 = xor i1 %728, true
+  %730 = load ptr, ptr %21, align 8
+  %731 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %730, i32 0, i32 4
+  %732 = zext i1 %729 to i8
+  store i8 %732, ptr %731, align 1
+  %733 = load ptr, ptr @transfer_info, align 8
+  %734 = load ptr, ptr %10, align 8
+  %735 = getelementptr inbounds nuw %struct._packet_info, ptr %734, i32 0, i32 3
+  %736 = load i32, ptr %735, align 4
+  %737 = zext i32 %736 to i64
+  %738 = inttoptr i64 %737 to ptr
+  %739 = load ptr, ptr %21, align 8
+  %740 = call ptr @wmem_map_insert(ptr noundef %733, ptr noundef %738, ptr noundef %739)
+  %741 = load i8, ptr %13, align 1
+  %742 = load ptr, ptr %30, align 8
+  %743 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %742, i32 0, i32 3
+  store i8 %741, ptr %743, align 2
+  %744 = load ptr, ptr %14, align 8
+  %745 = getelementptr inbounds nuw %struct.usbll_data, ptr %744, i32 0, i32 0
+  %746 = load i32, ptr %745, align 8
+  %747 = call zeroext i1 @usbll_is_split_data_from_device(i32 noundef %746)
+  %748 = load ptr, ptr %30, align 8
+  %749 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %748, i32 0, i32 4
+  %750 = zext i1 %747 to i8
+  store i8 %750, ptr %749, align 1
+  %751 = load i32, ptr %19, align 4
+  %752 = load ptr, ptr %30, align 8
+  %753 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %752, i32 0, i32 6
+  %754 = load i32, ptr %753, align 4
+  %755 = add i32 %754, %751
+  store i32 %755, ptr %753, align 4
+  %756 = load i32, ptr %19, align 4
+  %757 = load ptr, ptr %30, align 8
+  %758 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %757, i32 0, i32 7
+  store i32 %756, ptr %758, align 4
+  br label %759
 
-750:                                              ; preds = %693, %636
-  br label %751
+759:                                              ; preds = %700, %641
+  br label %760
 
-751:                                              ; preds = %750, %577
-  br label %786
+760:                                              ; preds = %759, %578
+  br label %797
 
-752:                                              ; preds = %556
-  %753 = load ptr, ptr %29, align 8
-  %754 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %753, i32 0, i32 0
-  %755 = load i32, ptr %754, align 4
-  %756 = icmp eq i32 %755, 4
-  br i1 %756, label %757, label %785
+761:                                              ; preds = %557
+  %762 = load ptr, ptr %30, align 8
+  %763 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %762, i32 0, i32 0
+  %764 = load i32, ptr %763, align 4
+  %765 = icmp eq i32 %764, 4
+  br i1 %765, label %766, label %796
 
-757:                                              ; preds = %752
-  %758 = call ptr @wmem_file_scope()
-  %759 = call noalias ptr @wmem_alloc0(ptr noundef %758, i64 noundef 20)
-  store ptr %759, ptr %21, align 8
-  %760 = load ptr, ptr %10, align 8
-  %761 = getelementptr inbounds %struct._packet_info, ptr %760, i32 0, i32 3
-  %762 = load i32, ptr %761, align 4
-  %763 = load ptr, ptr %21, align 8
-  %764 = getelementptr inbounds %struct.usbll_transfer_info, ptr %763, i32 0, i32 0
-  store i32 %762, ptr %764, align 4
-  %765 = load ptr, ptr %21, align 8
-  %766 = getelementptr inbounds %struct.usbll_transfer_info, ptr %765, i32 0, i32 1
-  store i32 0, ptr %766, align 4
-  %767 = load ptr, ptr %29, align 8
-  %768 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %767, i32 0, i32 0
-  %769 = load i32, ptr %768, align 4
-  %770 = load ptr, ptr %21, align 8
-  %771 = getelementptr inbounds %struct.usbll_transfer_info, ptr %770, i32 0, i32 2
-  store i32 %769, ptr %771, align 4
-  %772 = load i32, ptr %30, align 4
-  %773 = load ptr, ptr %21, align 8
-  %774 = getelementptr inbounds %struct.usbll_transfer_info, ptr %773, i32 0, i32 3
-  store i32 %772, ptr %774, align 4
-  %775 = load ptr, ptr %21, align 8
-  %776 = getelementptr inbounds %struct.usbll_transfer_info, ptr %775, i32 0, i32 4
-  store i32 0, ptr %776, align 4
-  %777 = load ptr, ptr @transfer_info, align 8
-  %778 = load ptr, ptr %10, align 8
-  %779 = getelementptr inbounds %struct._packet_info, ptr %778, i32 0, i32 3
-  %780 = load i32, ptr %779, align 4
-  %781 = zext i32 %780 to i64
-  %782 = inttoptr i64 %781 to ptr
+766:                                              ; preds = %761
+  %767 = call ptr @wmem_file_scope()
+  %768 = call noalias ptr @wmem_alloc0(ptr noundef %767, i64 noundef 16) #13
+  store ptr %768, ptr %21, align 8
+  %769 = load ptr, ptr %10, align 8
+  %770 = getelementptr inbounds nuw %struct._packet_info, ptr %769, i32 0, i32 3
+  %771 = load i32, ptr %770, align 4
+  %772 = load ptr, ptr %21, align 8
+  %773 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %772, i32 0, i32 0
+  store i32 %771, ptr %773, align 4
+  %774 = load ptr, ptr %21, align 8
+  %775 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %774, i32 0, i32 1
+  store i32 0, ptr %775, align 4
+  %776 = load ptr, ptr %30, align 8
+  %777 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %776, i32 0, i32 0
+  %778 = load i32, ptr %777, align 4
+  %779 = load ptr, ptr %21, align 8
+  %780 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %779, i32 0, i32 2
+  store i32 %778, ptr %780, align 4
+  %781 = load i8, ptr %31, align 1, !range !6, !noundef !7
+  %782 = trunc i8 %781 to i1
   %783 = load ptr, ptr %21, align 8
-  %784 = call ptr @wmem_map_insert(ptr noundef %777, ptr noundef %782, ptr noundef %783)
-  br label %785
+  %784 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %783, i32 0, i32 3
+  %785 = zext i1 %782 to i8
+  store i8 %785, ptr %784, align 4
+  %786 = load ptr, ptr %21, align 8
+  %787 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %786, i32 0, i32 4
+  store i8 0, ptr %787, align 1
+  %788 = load ptr, ptr @transfer_info, align 8
+  %789 = load ptr, ptr %10, align 8
+  %790 = getelementptr inbounds nuw %struct._packet_info, ptr %789, i32 0, i32 3
+  %791 = load i32, ptr %790, align 4
+  %792 = zext i32 %791 to i64
+  %793 = inttoptr i64 %792 to ptr
+  %794 = load ptr, ptr %21, align 8
+  %795 = call ptr @wmem_map_insert(ptr noundef %788, ptr noundef %793, ptr noundef %794)
+  br label %796
 
-785:                                              ; preds = %757, %752
-  br label %786
+796:                                              ; preds = %766, %761
+  br label %797
 
-786:                                              ; preds = %785, %751
-  br label %787
+797:                                              ; preds = %796, %760
+  br label %798
 
-787:                                              ; preds = %786, %550
-  br label %788
+798:                                              ; preds = %797, %551
+  call void @llvm.lifetime.end.p0(i64 1, ptr %31) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #11
+  br label %799
 
-788:                                              ; preds = %787, %321, %311
-  br label %789
+799:                                              ; preds = %798, %317, %307
+  br label %800
 
-789:                                              ; preds = %788, %310
-  %790 = load i32, ptr %19, align 4
-  %791 = load ptr, ptr %15, align 8
-  store i32 %790, ptr %791, align 4
-  %792 = load i32, ptr %12, align 4
-  store i32 %792, ptr %8, align 4
-  br label %793
+800:                                              ; preds = %799, %306
+  %801 = load i32, ptr %19, align 4
+  %802 = load ptr, ptr %15, align 8
+  store i32 %801, ptr %802, align 4
+  %803 = load i32, ptr %12, align 4
+  store i32 %803, ptr %8, align 4
+  store i32 1, ptr %23, align 4
+  br label %804
 
-793:                                              ; preds = %789, %135
-  %794 = load i32, ptr %8, align 4
-  ret i32 %794
+804:                                              ; preds = %800, %132
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #11
+  call void @llvm.lifetime.end.p0(i64 2, ptr %17) #11
+  call void @llvm.lifetime.end.p0(i64 2, ptr %16) #11
+  %805 = load i32, ptr %8, align 4
+  ret i32 %805
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usbll_handshake(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -2752,11 +2874,11 @@ define internal i32 @dissect_usbll_handshake(ptr noundef %0, ptr noundef %1, ptr
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
   %16 = alloca ptr, align 8
-  %17 = alloca i32, align 4
+  %17 = alloca i8, align 1
   %18 = alloca ptr, align 8
   %19 = alloca ptr, align 8
   %20 = alloca i32, align 4
-  %21 = alloca i32, align 4
+  %21 = alloca i8, align 1
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
@@ -2764,28 +2886,29 @@ define internal i32 @dissect_usbll_handshake(ptr noundef %0, ptr noundef %1, ptr
   store i8 %4, ptr %11, align 1
   store ptr %5, ptr %12, align 8
   %22 = load ptr, ptr %8, align 8
-  %23 = getelementptr inbounds %struct._packet_info, ptr %22, i32 0, i32 8
+  %23 = getelementptr inbounds nuw %struct._packet_info, ptr %22, i32 0, i32 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %struct._frame_data, ptr %24, i32 0, i32 9
-  %26 = load i16, ptr %25, align 2
+  %25 = getelementptr inbounds nuw %struct._frame_data, ptr %24, i32 0, i32 11
+  %26 = load i16, ptr %25, align 1
   %27 = lshr i16 %26, 3
   %28 = and i16 %27, 1
   %29 = zext i16 %28 to i32
   %30 = icmp ne i32 %29, 0
-  br i1 %30, label %299, label %31
+  br i1 %30, label %301, label %31
 
 31:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #11
   %32 = load ptr, ptr %12, align 8
-  %33 = getelementptr inbounds %struct.usbll_data, ptr %32, i32 0, i32 2
+  %33 = getelementptr inbounds nuw %struct.usbll_data, ptr %32, i32 0, i32 2
   %34 = load ptr, ptr %33, align 8
   %35 = icmp ne ptr %34, null
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %31
   %37 = load ptr, ptr %12, align 8
-  %38 = getelementptr inbounds %struct.usbll_data, ptr %37, i32 0, i32 2
+  %38 = getelementptr inbounds nuw %struct.usbll_data, ptr %37, i32 0, i32 2
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds %struct.usbll_data, ptr %39, i32 0, i32 0
+  %40 = getelementptr inbounds nuw %struct.usbll_data, ptr %39, i32 0, i32 0
   %41 = load i32, ptr %40, align 8
   br label %43
 
@@ -2799,17 +2922,17 @@ define internal i32 @dissect_usbll_handshake(ptr noundef %0, ptr noundef %1, ptr
   %46 = load i8, ptr %11, align 1
   %47 = call i32 @usbll_next_state(i32 noundef %45, i8 noundef zeroext %46)
   %48 = load ptr, ptr %12, align 8
-  %49 = getelementptr inbounds %struct.usbll_data, ptr %48, i32 0, i32 0
+  %49 = getelementptr inbounds nuw %struct.usbll_data, ptr %48, i32 0, i32 0
   store i32 %47, ptr %49, align 8
   %50 = load ptr, ptr %12, align 8
-  %51 = getelementptr inbounds %struct.usbll_data, ptr %50, i32 0, i32 0
+  %51 = getelementptr inbounds nuw %struct.usbll_data, ptr %50, i32 0, i32 0
   %52 = load i32, ptr %51, align 8
   %53 = icmp ne i32 %52, 1
   br i1 %53, label %54, label %80
 
 54:                                               ; preds = %43
   %55 = load ptr, ptr %12, align 8
-  %56 = getelementptr inbounds %struct.usbll_data, ptr %55, i32 0, i32 2
+  %56 = getelementptr inbounds nuw %struct.usbll_data, ptr %55, i32 0, i32 2
   %57 = load ptr, ptr %56, align 8
   %58 = icmp ne ptr %57, null
   br i1 %58, label %59, label %60
@@ -2818,7 +2941,7 @@ define internal i32 @dissect_usbll_handshake(ptr noundef %0, ptr noundef %1, ptr
   br label %62
 
 60:                                               ; preds = %54
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 2197, ptr noundef @.str.170) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 2209, ptr noundef @.str.180) #14
   unreachable
 
 61:                                               ; No predecessors!
@@ -2826,9 +2949,9 @@ define internal i32 @dissect_usbll_handshake(ptr noundef %0, ptr noundef %1, ptr
 
 62:                                               ; preds = %61, %59
   %63 = load ptr, ptr %12, align 8
-  %64 = getelementptr inbounds %struct.usbll_data, ptr %63, i32 0, i32 2
+  %64 = getelementptr inbounds nuw %struct.usbll_data, ptr %63, i32 0, i32 2
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds %struct.usbll_data, ptr %65, i32 0, i32 1
+  %66 = getelementptr inbounds nuw %struct.usbll_data, ptr %65, i32 0, i32 1
   %67 = load ptr, ptr %66, align 8
   %68 = icmp ne ptr %67, null
   br i1 %68, label %69, label %70
@@ -2837,7 +2960,7 @@ define internal i32 @dissect_usbll_handshake(ptr noundef %0, ptr noundef %1, ptr
   br label %72
 
 70:                                               ; preds = %62
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 2198, ptr noundef @.str.171) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 2210, ptr noundef @.str.181) #14
   unreachable
 
 71:                                               ; No predecessors!
@@ -2845,267 +2968,279 @@ define internal i32 @dissect_usbll_handshake(ptr noundef %0, ptr noundef %1, ptr
 
 72:                                               ; preds = %71, %69
   %73 = load ptr, ptr %12, align 8
-  %74 = getelementptr inbounds %struct.usbll_data, ptr %73, i32 0, i32 2
+  %74 = getelementptr inbounds nuw %struct.usbll_data, ptr %73, i32 0, i32 2
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds %struct.usbll_data, ptr %75, i32 0, i32 1
+  %76 = getelementptr inbounds nuw %struct.usbll_data, ptr %75, i32 0, i32 1
   %77 = load ptr, ptr %76, align 8
   %78 = load ptr, ptr %12, align 8
-  %79 = getelementptr inbounds %struct.usbll_data, ptr %78, i32 0, i32 1
+  %79 = getelementptr inbounds nuw %struct.usbll_data, ptr %78, i32 0, i32 1
   store ptr %77, ptr %79, align 8
   br label %80
 
 80:                                               ; preds = %72, %43
   %81 = load ptr, ptr %12, align 8
-  %82 = getelementptr inbounds %struct.usbll_data, ptr %81, i32 0, i32 0
+  %82 = getelementptr inbounds nuw %struct.usbll_data, ptr %81, i32 0, i32 0
   %83 = load i32, ptr %82, align 8
-  %84 = call i32 @usbll_is_setup_ack(i32 noundef %83)
-  %85 = icmp ne i32 %84, 0
-  br i1 %85, label %86, label %155
+  %84 = call zeroext i1 @usbll_is_setup_ack(i32 noundef %83)
+  br i1 %84, label %85, label %154
 
-86:                                               ; preds = %80
-  %87 = load ptr, ptr %8, align 8
-  %88 = load ptr, ptr %12, align 8
-  %89 = getelementptr inbounds %struct.usbll_data, ptr %88, i32 0, i32 1
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds %struct.usbll_transaction_info, ptr %90, i32 0, i32 2
-  %92 = load i8, ptr %91, align 1
-  %93 = load ptr, ptr %12, align 8
-  %94 = getelementptr inbounds %struct.usbll_data, ptr %93, i32 0, i32 1
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds %struct.usbll_transaction_info, ptr %95, i32 0, i32 3
-  %97 = load i8, ptr %96, align 2
-  %98 = call ptr @usbll_get_endpoint_info(ptr noundef %87, i8 noundef zeroext %92, i8 noundef zeroext %97, i32 noundef 1)
-  store ptr %98, ptr %14, align 8
-  %99 = load ptr, ptr %8, align 8
-  %100 = load ptr, ptr %12, align 8
-  %101 = getelementptr inbounds %struct.usbll_data, ptr %100, i32 0, i32 1
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds %struct.usbll_transaction_info, ptr %102, i32 0, i32 2
-  %104 = load i8, ptr %103, align 1
-  %105 = load ptr, ptr %12, align 8
-  %106 = getelementptr inbounds %struct.usbll_data, ptr %105, i32 0, i32 1
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds %struct.usbll_transaction_info, ptr %107, i32 0, i32 3
-  %109 = load i8, ptr %108, align 2
-  %110 = call ptr @usbll_get_endpoint_info(ptr noundef %99, i8 noundef zeroext %104, i8 noundef zeroext %109, i32 noundef 0)
-  store ptr %110, ptr %15, align 8
-  %111 = load ptr, ptr %14, align 8
-  %112 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %111, i32 0, i32 0
-  %113 = load i32, ptr %112, align 4
-  %114 = icmp eq i32 %113, 1
-  br i1 %114, label %115, label %154
+85:                                               ; preds = %80
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #11
+  %86 = load ptr, ptr %8, align 8
+  %87 = load ptr, ptr %12, align 8
+  %88 = getelementptr inbounds nuw %struct.usbll_data, ptr %87, i32 0, i32 1
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %89, i32 0, i32 2
+  %91 = load i8, ptr %90, align 1
+  %92 = load ptr, ptr %12, align 8
+  %93 = getelementptr inbounds nuw %struct.usbll_data, ptr %92, i32 0, i32 1
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %94, i32 0, i32 3
+  %96 = load i8, ptr %95, align 2
+  %97 = call ptr @usbll_get_endpoint_info(ptr noundef %86, i8 noundef zeroext %91, i8 noundef zeroext %96, i1 noundef zeroext true)
+  store ptr %97, ptr %14, align 8
+  %98 = load ptr, ptr %8, align 8
+  %99 = load ptr, ptr %12, align 8
+  %100 = getelementptr inbounds nuw %struct.usbll_data, ptr %99, i32 0, i32 1
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %101, i32 0, i32 2
+  %103 = load i8, ptr %102, align 1
+  %104 = load ptr, ptr %12, align 8
+  %105 = getelementptr inbounds nuw %struct.usbll_data, ptr %104, i32 0, i32 1
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %106, i32 0, i32 3
+  %108 = load i8, ptr %107, align 2
+  %109 = call ptr @usbll_get_endpoint_info(ptr noundef %98, i8 noundef zeroext %103, i8 noundef zeroext %108, i1 noundef zeroext false)
+  store ptr %109, ptr %15, align 8
+  %110 = load ptr, ptr %14, align 8
+  %111 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %110, i32 0, i32 0
+  %112 = load i32, ptr %111, align 4
+  %113 = icmp eq i32 %112, 1
+  br i1 %113, label %114, label %153
 
-115:                                              ; preds = %86
-  %116 = load ptr, ptr %15, align 8
-  %117 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %116, i32 0, i32 0
-  %118 = load i32, ptr %117, align 4
-  %119 = icmp eq i32 %118, 1
-  br i1 %119, label %120, label %154
+114:                                              ; preds = %85
+  %115 = load ptr, ptr %15, align 8
+  %116 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %115, i32 0, i32 0
+  %117 = load i32, ptr %116, align 4
+  %118 = icmp eq i32 %117, 1
+  br i1 %118, label %119, label %153
 
-120:                                              ; preds = %115
-  %121 = load ptr, ptr %14, align 8
-  %122 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %121, i32 0, i32 5
-  %123 = load i32, ptr %122, align 4
-  %124 = icmp ne i32 %123, 0
-  br i1 %124, label %125, label %136
+119:                                              ; preds = %114
+  %120 = load ptr, ptr %14, align 8
+  %121 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %120, i32 0, i32 5
+  %122 = load i32, ptr %121, align 4
+  %123 = icmp ne i32 %122, 0
+  br i1 %123, label %124, label %135
 
-125:                                              ; preds = %120
-  %126 = load ptr, ptr %15, align 8
-  %127 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %126, i32 0, i32 5
-  %128 = load i32, ptr %127, align 4
-  %129 = icmp eq i32 %128, 0
-  br i1 %129, label %130, label %131
+124:                                              ; preds = %119
+  %125 = load ptr, ptr %15, align 8
+  %126 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %125, i32 0, i32 5
+  %127 = load i32, ptr %126, align 4
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %129, label %130
 
-130:                                              ; preds = %125
-  br label %133
+129:                                              ; preds = %124
+  br label %132
 
-131:                                              ; preds = %125
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 2211, ptr noundef @.str.199) #9
+130:                                              ; preds = %124
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 2223, ptr noundef @.str.209) #14
   unreachable
 
-132:                                              ; No predecessors!
-  br label %133
+131:                                              ; No predecessors!
+  br label %132
 
-133:                                              ; preds = %132, %130
-  %134 = load ptr, ptr %14, align 8
-  %135 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %134, i32 0, i32 4
-  store i32 1, ptr %135, align 4
-  br label %153
-
-136:                                              ; preds = %120
-  %137 = load ptr, ptr %15, align 8
-  %138 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %137, i32 0, i32 5
-  %139 = load i32, ptr %138, align 4
-  %140 = icmp ne i32 %139, 0
-  br i1 %140, label %141, label %152
-
-141:                                              ; preds = %136
-  %142 = load ptr, ptr %14, align 8
-  %143 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %142, i32 0, i32 5
-  %144 = load i32, ptr %143, align 4
-  %145 = icmp eq i32 %144, 0
-  br i1 %145, label %146, label %147
-
-146:                                              ; preds = %141
-  br label %149
-
-147:                                              ; preds = %141
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 2216, ptr noundef @.str.200) #9
-  unreachable
-
-148:                                              ; No predecessors!
-  br label %149
-
-149:                                              ; preds = %148, %146
-  %150 = load ptr, ptr %15, align 8
-  %151 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %150, i32 0, i32 4
-  store i32 1, ptr %151, align 4
+132:                                              ; preds = %131, %129
+  %133 = load ptr, ptr %14, align 8
+  %134 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %133, i32 0, i32 4
+  store i8 1, ptr %134, align 1
   br label %152
 
-152:                                              ; preds = %149, %136
+135:                                              ; preds = %119
+  %136 = load ptr, ptr %15, align 8
+  %137 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %136, i32 0, i32 5
+  %138 = load i32, ptr %137, align 4
+  %139 = icmp ne i32 %138, 0
+  br i1 %139, label %140, label %151
+
+140:                                              ; preds = %135
+  %141 = load ptr, ptr %14, align 8
+  %142 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %141, i32 0, i32 5
+  %143 = load i32, ptr %142, align 4
+  %144 = icmp eq i32 %143, 0
+  br i1 %144, label %145, label %146
+
+145:                                              ; preds = %140
+  br label %148
+
+146:                                              ; preds = %140
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 2228, ptr noundef @.str.210) #14
+  unreachable
+
+147:                                              ; No predecessors!
+  br label %148
+
+148:                                              ; preds = %147, %145
+  %149 = load ptr, ptr %15, align 8
+  %150 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %149, i32 0, i32 4
+  store i8 1, ptr %150, align 1
+  br label %151
+
+151:                                              ; preds = %148, %135
+  br label %152
+
+152:                                              ; preds = %151, %132
   br label %153
 
-153:                                              ; preds = %152, %133
+153:                                              ; preds = %152, %114, %85
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #11
   br label %154
 
-154:                                              ; preds = %153, %115, %86
-  br label %155
+154:                                              ; preds = %153, %80
+  %155 = load ptr, ptr %12, align 8
+  %156 = getelementptr inbounds nuw %struct.usbll_data, ptr %155, i32 0, i32 0
+  %157 = load i32, ptr %156, align 8
+  %158 = call zeroext i1 @usbll_is_data_ack(i32 noundef %157)
+  br i1 %158, label %159, label %181
 
-155:                                              ; preds = %154, %80
-  %156 = load ptr, ptr %12, align 8
-  %157 = getelementptr inbounds %struct.usbll_data, ptr %156, i32 0, i32 0
-  %158 = load i32, ptr %157, align 8
-  %159 = call i32 @usbll_is_data_ack(i32 noundef %158)
-  %160 = icmp ne i32 %159, 0
-  br i1 %160, label %161, label %181
-
-161:                                              ; preds = %155
-  %162 = load ptr, ptr %12, align 8
-  %163 = getelementptr inbounds %struct.usbll_data, ptr %162, i32 0, i32 0
-  %164 = load i32, ptr %163, align 8
-  %165 = call i32 @usbll_is_acked_data_from_host(i32 noundef %164)
-  store i32 %165, ptr %17, align 4
-  %166 = load ptr, ptr %8, align 8
-  %167 = load ptr, ptr %12, align 8
-  %168 = getelementptr inbounds %struct.usbll_data, ptr %167, i32 0, i32 1
-  %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds %struct.usbll_transaction_info, ptr %169, i32 0, i32 2
-  %171 = load i8, ptr %170, align 1
-  %172 = load ptr, ptr %12, align 8
-  %173 = getelementptr inbounds %struct.usbll_data, ptr %172, i32 0, i32 1
-  %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds %struct.usbll_transaction_info, ptr %174, i32 0, i32 3
-  %176 = load i8, ptr %175, align 2
-  %177 = load i32, ptr %17, align 4
-  %178 = call ptr @usbll_get_endpoint_info(ptr noundef %166, i8 noundef zeroext %171, i8 noundef zeroext %176, i32 noundef %177)
+159:                                              ; preds = %154
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %17) #11
+  %160 = load ptr, ptr %12, align 8
+  %161 = getelementptr inbounds nuw %struct.usbll_data, ptr %160, i32 0, i32 0
+  %162 = load i32, ptr %161, align 8
+  %163 = call zeroext i1 @usbll_is_acked_data_from_host(i32 noundef %162)
+  %164 = zext i1 %163 to i8
+  store i8 %164, ptr %17, align 1
+  %165 = load ptr, ptr %8, align 8
+  %166 = load ptr, ptr %12, align 8
+  %167 = getelementptr inbounds nuw %struct.usbll_data, ptr %166, i32 0, i32 1
+  %168 = load ptr, ptr %167, align 8
+  %169 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %168, i32 0, i32 2
+  %170 = load i8, ptr %169, align 1
+  %171 = load ptr, ptr %12, align 8
+  %172 = getelementptr inbounds nuw %struct.usbll_data, ptr %171, i32 0, i32 1
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %173, i32 0, i32 3
+  %175 = load i8, ptr %174, align 2
+  %176 = load i8, ptr %17, align 1, !range !6, !noundef !7
+  %177 = trunc i8 %176 to i1
+  %178 = call ptr @usbll_get_endpoint_info(ptr noundef %165, i8 noundef zeroext %170, i8 noundef zeroext %175, i1 noundef zeroext %177)
   store ptr %178, ptr %16, align 8
   %179 = load ptr, ptr %16, align 8
-  %180 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %179, i32 0, i32 4
-  store i32 1, ptr %180, align 4
+  %180 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %179, i32 0, i32 4
+  store i8 1, ptr %180, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %17) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #11
   br label %181
 
-181:                                              ; preds = %161, %155
+181:                                              ; preds = %159, %154
   %182 = load ptr, ptr %12, align 8
-  %183 = getelementptr inbounds %struct.usbll_data, ptr %182, i32 0, i32 0
+  %183 = getelementptr inbounds nuw %struct.usbll_data, ptr %182, i32 0, i32 0
   %184 = load i32, ptr %183, align 8
-  %185 = call i32 @usbll_is_endpoint_stall(i32 noundef %184)
-  %186 = icmp ne i32 %185, 0
-  br i1 %186, label %187, label %298
+  %185 = call zeroext i1 @usbll_is_endpoint_stall(i32 noundef %184)
+  br i1 %185, label %186, label %300
 
-187:                                              ; preds = %181
-  %188 = load ptr, ptr %12, align 8
-  %189 = getelementptr inbounds %struct.usbll_data, ptr %188, i32 0, i32 0
-  %190 = load i32, ptr %189, align 8
-  %191 = call i32 @usbll_is_stalled_data_from_host(i32 noundef %190)
-  store i32 %191, ptr %21, align 4
+186:                                              ; preds = %181
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %21) #11
+  %187 = load ptr, ptr %12, align 8
+  %188 = getelementptr inbounds nuw %struct.usbll_data, ptr %187, i32 0, i32 0
+  %189 = load i32, ptr %188, align 8
+  %190 = call zeroext i1 @usbll_is_stalled_data_from_host(i32 noundef %189)
+  %191 = zext i1 %190 to i8
+  store i8 %191, ptr %21, align 1
   %192 = load ptr, ptr %8, align 8
   %193 = load ptr, ptr %12, align 8
-  %194 = getelementptr inbounds %struct.usbll_data, ptr %193, i32 0, i32 1
+  %194 = getelementptr inbounds nuw %struct.usbll_data, ptr %193, i32 0, i32 1
   %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds %struct.usbll_transaction_info, ptr %195, i32 0, i32 2
+  %196 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %195, i32 0, i32 2
   %197 = load i8, ptr %196, align 1
   %198 = load ptr, ptr %12, align 8
-  %199 = getelementptr inbounds %struct.usbll_data, ptr %198, i32 0, i32 1
+  %199 = getelementptr inbounds nuw %struct.usbll_data, ptr %198, i32 0, i32 1
   %200 = load ptr, ptr %199, align 8
-  %201 = getelementptr inbounds %struct.usbll_transaction_info, ptr %200, i32 0, i32 3
+  %201 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %200, i32 0, i32 3
   %202 = load i8, ptr %201, align 2
-  %203 = load i32, ptr %21, align 4
-  %204 = call ptr @usbll_get_endpoint_info(ptr noundef %192, i8 noundef zeroext %197, i8 noundef zeroext %202, i32 noundef %203)
-  store ptr %204, ptr %18, align 8
-  %205 = load ptr, ptr %18, align 8
-  %206 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %205, i32 0, i32 6
-  %207 = load i32, ptr %206, align 4
-  %208 = load ptr, ptr %18, align 8
-  %209 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %208, i32 0, i32 7
-  %210 = load i32, ptr %209, align 4
-  %211 = sub i32 %207, %210
-  store i32 %211, ptr %20, align 4
-  %212 = load ptr, ptr %18, align 8
-  %213 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %212, i32 0, i32 5
-  %214 = load i32, ptr %213, align 4
-  %215 = icmp ne i32 %214, 0
-  br i1 %215, label %216, label %285
+  %203 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %204 = trunc i8 %203 to i1
+  %205 = call ptr @usbll_get_endpoint_info(ptr noundef %192, i8 noundef zeroext %197, i8 noundef zeroext %202, i1 noundef zeroext %204)
+  store ptr %205, ptr %18, align 8
+  %206 = load ptr, ptr %18, align 8
+  %207 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %206, i32 0, i32 6
+  %208 = load i32, ptr %207, align 4
+  %209 = load ptr, ptr %18, align 8
+  %210 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %209, i32 0, i32 7
+  %211 = load i32, ptr %210, align 4
+  %212 = sub i32 %208, %211
+  store i32 %212, ptr %20, align 4
+  %213 = load ptr, ptr %18, align 8
+  %214 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %213, i32 0, i32 5
+  %215 = load i32, ptr %214, align 4
+  %216 = icmp ne i32 %215, 0
+  br i1 %216, label %217, label %287
 
-216:                                              ; preds = %187
-  %217 = load ptr, ptr %18, align 8
-  %218 = load i32, ptr %20, align 4
-  %219 = load ptr, ptr %18, align 8
-  %220 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %219, i32 0, i32 7
-  %221 = load i32, ptr %220, align 4
-  %222 = call i32 @packet_ends_transfer(ptr noundef %217, i32 noundef %218, i32 noundef %221)
-  %223 = icmp ne i32 %222, 0
-  br i1 %223, label %285, label %224
+217:                                              ; preds = %186
+  %218 = load ptr, ptr %18, align 8
+  %219 = load i32, ptr %20, align 4
+  %220 = load ptr, ptr %18, align 8
+  %221 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %220, i32 0, i32 7
+  %222 = load i32, ptr %221, align 4
+  %223 = call zeroext i1 @packet_ends_transfer(ptr noundef %218, i32 noundef %219, i32 noundef %222)
+  br i1 %223, label %287, label %224
 
-224:                                              ; preds = %216
+224:                                              ; preds = %217
   %225 = call ptr @wmem_file_scope()
-  %226 = call noalias ptr @wmem_alloc0(ptr noundef %225, i64 noundef 20)
+  %226 = call noalias ptr @wmem_alloc0(ptr noundef %225, i64 noundef 16) #13
   store ptr %226, ptr %19, align 8
   %227 = load ptr, ptr %18, align 8
-  %228 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %227, i32 0, i32 5
+  %228 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %227, i32 0, i32 5
   %229 = load i32, ptr %228, align 4
   %230 = load ptr, ptr %19, align 8
-  %231 = getelementptr inbounds %struct.usbll_transfer_info, ptr %230, i32 0, i32 0
+  %231 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %230, i32 0, i32 0
   store i32 %229, ptr %231, align 4
-  %232 = load i32, ptr %21, align 4
-  %233 = icmp ne i32 %232, 0
+  %232 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %233 = trunc i8 %232 to i1
   br i1 %233, label %240, label %234
 
 234:                                              ; preds = %224
   %235 = load ptr, ptr %18, align 8
-  %236 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %235, i32 0, i32 6
+  %236 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %235, i32 0, i32 6
   %237 = load i32, ptr %236, align 4
   %238 = load ptr, ptr %19, align 8
-  %239 = getelementptr inbounds %struct.usbll_transfer_info, ptr %238, i32 0, i32 1
+  %239 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %238, i32 0, i32 1
   store i32 %237, ptr %239, align 4
   br label %266
 
 240:                                              ; preds = %224
   %241 = load ptr, ptr %12, align 8
-  %242 = getelementptr inbounds %struct.usbll_data, ptr %241, i32 0, i32 0
+  %242 = getelementptr inbounds nuw %struct.usbll_data, ptr %241, i32 0, i32 0
   %243 = load i32, ptr %242, align 8
   %244 = icmp eq i32 %243, 21
   br i1 %244, label %245, label %261
 
 245:                                              ; preds = %240
   %246 = load ptr, ptr %18, align 8
-  %247 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %246, i32 0, i32 4
-  %248 = load i32, ptr %247, align 4
-  %249 = icmp ne i32 %248, 0
+  %247 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %246, i32 0, i32 4
+  %248 = load i8, ptr %247, align 1, !range !6, !noundef !7
+  %249 = trunc i8 %248 to i1
   br i1 %249, label %250, label %256
 
 250:                                              ; preds = %245
   %251 = load ptr, ptr %18, align 8
-  %252 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %251, i32 0, i32 6
+  %252 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %251, i32 0, i32 6
   %253 = load i32, ptr %252, align 4
   %254 = load ptr, ptr %19, align 8
-  %255 = getelementptr inbounds %struct.usbll_transfer_info, ptr %254, i32 0, i32 1
+  %255 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %254, i32 0, i32 1
   store i32 %253, ptr %255, align 4
   br label %260
 
 256:                                              ; preds = %245
   %257 = load i32, ptr %20, align 4
   %258 = load ptr, ptr %19, align 8
-  %259 = getelementptr inbounds %struct.usbll_transfer_info, ptr %258, i32 0, i32 1
+  %259 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %258, i32 0, i32 1
   store i32 %257, ptr %259, align 4
   br label %260
 
@@ -3115,7 +3250,7 @@ define internal i32 @dissect_usbll_handshake(ptr noundef %0, ptr noundef %1, ptr
 261:                                              ; preds = %240
   %262 = load i32, ptr %20, align 4
   %263 = load ptr, ptr %19, align 8
-  %264 = getelementptr inbounds %struct.usbll_transfer_info, ptr %263, i32 0, i32 1
+  %264 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %263, i32 0, i32 1
   store i32 %262, ptr %264, align 4
   br label %265
 
@@ -3124,58 +3259,65 @@ define internal i32 @dissect_usbll_handshake(ptr noundef %0, ptr noundef %1, ptr
 
 266:                                              ; preds = %265, %234
   %267 = load ptr, ptr %18, align 8
-  %268 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %267, i32 0, i32 0
+  %268 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %267, i32 0, i32 0
   %269 = load i32, ptr %268, align 4
   %270 = load ptr, ptr %19, align 8
-  %271 = getelementptr inbounds %struct.usbll_transfer_info, ptr %270, i32 0, i32 2
+  %271 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %270, i32 0, i32 2
   store i32 %269, ptr %271, align 4
-  %272 = load i32, ptr %21, align 4
-  %273 = load ptr, ptr %19, align 8
-  %274 = getelementptr inbounds %struct.usbll_transfer_info, ptr %273, i32 0, i32 3
-  store i32 %272, ptr %274, align 4
-  %275 = load ptr, ptr %19, align 8
-  %276 = getelementptr inbounds %struct.usbll_transfer_info, ptr %275, i32 0, i32 4
-  store i32 0, ptr %276, align 4
-  %277 = load ptr, ptr @transfer_info, align 8
-  %278 = load ptr, ptr %8, align 8
-  %279 = getelementptr inbounds %struct._packet_info, ptr %278, i32 0, i32 3
-  %280 = load i32, ptr %279, align 4
-  %281 = zext i32 %280 to i64
-  %282 = inttoptr i64 %281 to ptr
-  %283 = load ptr, ptr %19, align 8
-  %284 = call ptr @wmem_map_insert(ptr noundef %277, ptr noundef %282, ptr noundef %283)
-  br label %285
+  %272 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %273 = trunc i8 %272 to i1
+  %274 = load ptr, ptr %19, align 8
+  %275 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %274, i32 0, i32 3
+  %276 = zext i1 %273 to i8
+  store i8 %276, ptr %275, align 4
+  %277 = load ptr, ptr %19, align 8
+  %278 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %277, i32 0, i32 4
+  store i8 0, ptr %278, align 1
+  %279 = load ptr, ptr @transfer_info, align 8
+  %280 = load ptr, ptr %8, align 8
+  %281 = getelementptr inbounds nuw %struct._packet_info, ptr %280, i32 0, i32 3
+  %282 = load i32, ptr %281, align 4
+  %283 = zext i32 %282 to i64
+  %284 = inttoptr i64 %283 to ptr
+  %285 = load ptr, ptr %19, align 8
+  %286 = call ptr @wmem_map_insert(ptr noundef %279, ptr noundef %284, ptr noundef %285)
+  br label %287
 
-285:                                              ; preds = %266, %216, %187
-  %286 = load ptr, ptr %18, align 8
-  %287 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %286, i32 0, i32 3
-  store i8 0, ptr %287, align 2
+287:                                              ; preds = %266, %217, %186
   %288 = load ptr, ptr %18, align 8
-  %289 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %288, i32 0, i32 4
-  store i32 0, ptr %289, align 4
+  %289 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %288, i32 0, i32 3
+  store i8 0, ptr %289, align 2
   %290 = load ptr, ptr %18, align 8
-  %291 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %290, i32 0, i32 5
-  store i32 0, ptr %291, align 4
+  %291 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %290, i32 0, i32 4
+  store i8 0, ptr %291, align 1
   %292 = load ptr, ptr %18, align 8
-  %293 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %292, i32 0, i32 6
+  %293 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %292, i32 0, i32 5
   store i32 0, ptr %293, align 4
   %294 = load ptr, ptr %18, align 8
-  %295 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %294, i32 0, i32 7
+  %295 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %294, i32 0, i32 6
   store i32 0, ptr %295, align 4
   %296 = load ptr, ptr %18, align 8
-  %297 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %296, i32 0, i32 8
+  %297 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %296, i32 0, i32 7
   store i32 0, ptr %297, align 4
-  br label %298
+  %298 = load ptr, ptr %18, align 8
+  %299 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %298, i32 0, i32 8
+  store i32 0, ptr %299, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %21) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #11
+  br label %300
 
-298:                                              ; preds = %285, %181
-  br label %299
+300:                                              ; preds = %287, %181
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #11
+  br label %301
 
-299:                                              ; preds = %298, %6
-  %300 = load i32, ptr %10, align 4
-  ret i32 %300
+301:                                              ; preds = %300, %6
+  %302 = load i32, ptr %10, align 4
+  ret i32 %302
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usbll_sof(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3186,6 +3328,7 @@ define internal i32 @dissect_usbll_sof(ptr noundef %0, ptr noundef %1, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr %6, align 8
@@ -3210,10 +3353,11 @@ define internal i32 @dissect_usbll_sof(ptr noundef %0, ptr noundef %1, ptr nound
   %30 = add i32 %29, 2
   store i32 %30, ptr %8, align 4
   %31 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
   ret i32 %31
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usbll_split(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -3233,9 +3377,14 @@ define internal i32 @dissect_usbll_split(ptr noundef %0, ptr noundef %1, ptr nou
   store i32 %3, ptr %10, align 4
   store i8 %4, ptr %11, align 1
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #11
   %19 = load ptr, ptr %7, align 8
   %20 = load i32, ptr %10, align 4
-  %21 = call i32 @tvb_get_gint24(ptr noundef %19, i32 noundef %20, i32 noundef -2147483648)
+  %21 = call i32 @tvb_get_int24(ptr noundef %19, i32 noundef %20, i32 noundef -2147483648)
   store i32 %21, ptr %17, align 4
   %22 = load i32, ptr %17, align 4
   %23 = and i32 %22, 127
@@ -3247,12 +3396,12 @@ define internal i32 @dissect_usbll_split(ptr noundef %0, ptr noundef %1, ptr nou
   %28 = trunc i32 %27 to i8
   store i8 %28, ptr %14, align 1
   %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds %struct._packet_info, ptr %29, i32 0, i32 1
+  %30 = getelementptr inbounds nuw %struct._packet_info, ptr %29, i32 0, i32 1
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %17, align 4
   %33 = and i32 %32, 128
   %34 = icmp ne i32 %33, 0
-  %35 = select i1 %34, ptr @.str.201, ptr @.str.202
+  %35 = select i1 %34, ptr @.str.211, ptr @.str.212
   call void @col_append_str(ptr noundef %31, i32 noundef 25, ptr noundef %35)
   %36 = load ptr, ptr %9, align 8
   %37 = load i32, ptr @hf_usbll_split_hub_addr, align 4
@@ -3307,16 +3456,16 @@ define internal i32 @dissect_usbll_split(ptr noundef %0, ptr noundef %1, ptr nou
 
 78:                                               ; preds = %6
   %79 = load ptr, ptr %12, align 8
-  %80 = getelementptr inbounds %struct.usbll_data, ptr %79, i32 0, i32 3
+  %80 = getelementptr inbounds nuw %struct.usbll_data, ptr %79, i32 0, i32 3
   %81 = load ptr, ptr %80, align 8
   %82 = icmp ne ptr %81, null
   br i1 %82, label %83, label %105
 
 83:                                               ; preds = %78
   %84 = load ptr, ptr %12, align 8
-  %85 = getelementptr inbounds %struct.usbll_data, ptr %84, i32 0, i32 3
+  %85 = getelementptr inbounds nuw %struct.usbll_data, ptr %84, i32 0, i32 3
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds %struct.usbll_data, ptr %86, i32 0, i32 0
+  %87 = getelementptr inbounds nuw %struct.usbll_data, ptr %86, i32 0, i32 0
   %88 = load i32, ptr %87, align 8
   %89 = icmp eq i32 %88, 95
   br i1 %89, label %90, label %105
@@ -3332,7 +3481,7 @@ define internal i32 @dissect_usbll_split(ptr noundef %0, ptr noundef %1, ptr nou
   br label %98
 
 96:                                               ; preds = %90
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 2098, ptr noundef @.str.203) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 2110, ptr noundef @.str.213) #14
   unreachable
 
 97:                                               ; No predecessors!
@@ -3404,25 +3553,25 @@ define internal i32 @dissect_usbll_split(ptr noundef %0, ptr noundef %1, ptr nou
 
 144:                                              ; preds = %105
   %145 = load ptr, ptr %12, align 8
-  %146 = getelementptr inbounds %struct.usbll_data, ptr %145, i32 0, i32 3
+  %146 = getelementptr inbounds nuw %struct.usbll_data, ptr %145, i32 0, i32 3
   %147 = load ptr, ptr %146, align 8
   %148 = icmp ne ptr %147, null
   br i1 %148, label %149, label %200
 
 149:                                              ; preds = %144
   %150 = load ptr, ptr %12, align 8
-  %151 = getelementptr inbounds %struct.usbll_data, ptr %150, i32 0, i32 3
+  %151 = getelementptr inbounds nuw %struct.usbll_data, ptr %150, i32 0, i32 3
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds %struct.usbll_data, ptr %152, i32 0, i32 0
+  %153 = getelementptr inbounds nuw %struct.usbll_data, ptr %152, i32 0, i32 0
   %154 = load i32, ptr %153, align 8
   %155 = icmp eq i32 %154, 97
   br i1 %155, label %163, label %156
 
 156:                                              ; preds = %149
   %157 = load ptr, ptr %12, align 8
-  %158 = getelementptr inbounds %struct.usbll_data, ptr %157, i32 0, i32 3
+  %158 = getelementptr inbounds nuw %struct.usbll_data, ptr %157, i32 0, i32 3
   %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds %struct.usbll_data, ptr %159, i32 0, i32 0
+  %160 = getelementptr inbounds nuw %struct.usbll_data, ptr %159, i32 0, i32 0
   %161 = load i32, ptr %160, align 8
   %162 = icmp eq i32 %161, 99
   br i1 %162, label %163, label %200
@@ -3438,7 +3587,7 @@ define internal i32 @dissect_usbll_split(ptr noundef %0, ptr noundef %1, ptr nou
   br label %171
 
 169:                                              ; preds = %163
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 2111, ptr noundef @.str.203) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 2123, ptr noundef @.str.213) #14
   unreachable
 
 170:                                              ; No predecessors!
@@ -3515,10 +3664,10 @@ define internal i32 @dissect_usbll_split(ptr noundef %0, ptr noundef %1, ptr nou
   %221 = add i32 %220, 3
   store i32 %221, ptr %10, align 4
   %222 = load ptr, ptr %8, align 8
-  %223 = getelementptr inbounds %struct._packet_info, ptr %222, i32 0, i32 8
+  %223 = getelementptr inbounds nuw %struct._packet_info, ptr %222, i32 0, i32 8
   %224 = load ptr, ptr %223, align 8
-  %225 = getelementptr inbounds %struct._frame_data, ptr %224, i32 0, i32 9
-  %226 = load i16, ptr %225, align 2
+  %225 = getelementptr inbounds nuw %struct._frame_data, ptr %224, i32 0, i32 11
+  %226 = load i16, ptr %225, align 1
   %227 = lshr i16 %226, 3
   %228 = and i16 %227, 1
   %229 = zext i16 %228 to i32
@@ -3526,26 +3675,27 @@ define internal i32 @dissect_usbll_split(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %230, label %304, label %231
 
 231:                                              ; preds = %203
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #11
   %232 = call ptr @wmem_file_scope()
-  %233 = call noalias ptr @wmem_alloc0(ptr noundef %232, i64 noundef 32)
+  %233 = call noalias ptr @wmem_alloc0(ptr noundef %232, i64 noundef 32) #13
   store ptr %233, ptr %18, align 8
   %234 = load ptr, ptr %8, align 8
-  %235 = getelementptr inbounds %struct._packet_info, ptr %234, i32 0, i32 3
+  %235 = getelementptr inbounds nuw %struct._packet_info, ptr %234, i32 0, i32 3
   %236 = load i32, ptr %235, align 4
   %237 = load ptr, ptr %18, align 8
-  %238 = getelementptr inbounds %struct.usbll_transaction_info, ptr %237, i32 0, i32 0
+  %238 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %237, i32 0, i32 0
   store i32 %236, ptr %238, align 8
   %239 = load i8, ptr %11, align 1
   %240 = load ptr, ptr %18, align 8
-  %241 = getelementptr inbounds %struct.usbll_transaction_info, ptr %240, i32 0, i32 1
+  %241 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %240, i32 0, i32 1
   store i8 %239, ptr %241, align 4
   %242 = load i8, ptr %13, align 1
   %243 = load ptr, ptr %18, align 8
-  %244 = getelementptr inbounds %struct.usbll_transaction_info, ptr %243, i32 0, i32 2
+  %244 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %243, i32 0, i32 2
   store i8 %242, ptr %244, align 1
   %245 = load i8, ptr %14, align 1
   %246 = load ptr, ptr %18, align 8
-  %247 = getelementptr inbounds %struct.usbll_transaction_info, ptr %246, i32 0, i32 3
+  %247 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %246, i32 0, i32 3
   store i8 %245, ptr %247, align 2
   %248 = load i32, ptr %17, align 4
   %249 = and i32 %248, 393216
@@ -3555,7 +3705,7 @@ define internal i32 @dissect_usbll_split(ptr noundef %0, ptr noundef %1, ptr nou
 
 252:                                              ; preds = %231
   %253 = load ptr, ptr %18, align 8
-  %254 = getelementptr inbounds %struct.usbll_transaction_info, ptr %253, i32 0, i32 4
+  %254 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %253, i32 0, i32 4
   store i32 2, ptr %254, align 8
   br label %262
 
@@ -3565,14 +3715,14 @@ define internal i32 @dissect_usbll_split(ptr noundef %0, ptr noundef %1, ptr nou
   %258 = icmp ne i32 %257, 0
   %259 = select i1 %258, i32 1, i32 2
   %260 = load ptr, ptr %18, align 8
-  %261 = getelementptr inbounds %struct.usbll_transaction_info, ptr %260, i32 0, i32 4
+  %261 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %260, i32 0, i32 4
   store i32 %259, ptr %261, align 8
   br label %262
 
 262:                                              ; preds = %255, %252
   %263 = load ptr, ptr %18, align 8
   %264 = load ptr, ptr %12, align 8
-  %265 = getelementptr inbounds %struct.usbll_data, ptr %264, i32 0, i32 1
+  %265 = getelementptr inbounds nuw %struct.usbll_data, ptr %264, i32 0, i32 1
   store ptr %263, ptr %265, align 8
   %266 = load i32, ptr %17, align 4
   %267 = and i32 %266, 128
@@ -3592,29 +3742,29 @@ define internal i32 @dissect_usbll_split(ptr noundef %0, ptr noundef %1, ptr nou
 
 273:                                              ; preds = %269
   %274 = load ptr, ptr %12, align 8
-  %275 = getelementptr inbounds %struct.usbll_data, ptr %274, i32 0, i32 0
+  %275 = getelementptr inbounds nuw %struct.usbll_data, ptr %274, i32 0, i32 0
   store i32 38, ptr %275, align 8
   br label %285
 
 276:                                              ; preds = %269
   %277 = load ptr, ptr %12, align 8
-  %278 = getelementptr inbounds %struct.usbll_data, ptr %277, i32 0, i32 0
+  %278 = getelementptr inbounds nuw %struct.usbll_data, ptr %277, i32 0, i32 0
   store i32 98, ptr %278, align 8
   br label %285
 
 279:                                              ; preds = %269
   %280 = load ptr, ptr %12, align 8
-  %281 = getelementptr inbounds %struct.usbll_data, ptr %280, i32 0, i32 0
+  %281 = getelementptr inbounds nuw %struct.usbll_data, ptr %280, i32 0, i32 0
   store i32 62, ptr %281, align 8
   br label %285
 
 282:                                              ; preds = %269
   %283 = load ptr, ptr %12, align 8
-  %284 = getelementptr inbounds %struct.usbll_data, ptr %283, i32 0, i32 0
+  %284 = getelementptr inbounds nuw %struct.usbll_data, ptr %283, i32 0, i32 0
   store i32 79, ptr %284, align 8
   br label %285
 
-285:                                              ; preds = %282, %279, %276, %273, %269
+285:                                              ; preds = %269, %282, %279, %276, %273
   br label %303
 
 286:                                              ; preds = %262
@@ -3630,40 +3780,46 @@ define internal i32 @dissect_usbll_split(ptr noundef %0, ptr noundef %1, ptr nou
 
 290:                                              ; preds = %286
   %291 = load ptr, ptr %12, align 8
-  %292 = getelementptr inbounds %struct.usbll_data, ptr %291, i32 0, i32 0
+  %292 = getelementptr inbounds nuw %struct.usbll_data, ptr %291, i32 0, i32 0
   store i32 25, ptr %292, align 8
   br label %302
 
 293:                                              ; preds = %286
   %294 = load ptr, ptr %12, align 8
-  %295 = getelementptr inbounds %struct.usbll_data, ptr %294, i32 0, i32 0
+  %295 = getelementptr inbounds nuw %struct.usbll_data, ptr %294, i32 0, i32 0
   store i32 94, ptr %295, align 8
   br label %302
 
 296:                                              ; preds = %286
   %297 = load ptr, ptr %12, align 8
-  %298 = getelementptr inbounds %struct.usbll_data, ptr %297, i32 0, i32 0
+  %298 = getelementptr inbounds nuw %struct.usbll_data, ptr %297, i32 0, i32 0
   store i32 53, ptr %298, align 8
   br label %302
 
 299:                                              ; preds = %286
   %300 = load ptr, ptr %12, align 8
-  %301 = getelementptr inbounds %struct.usbll_data, ptr %300, i32 0, i32 0
+  %301 = getelementptr inbounds nuw %struct.usbll_data, ptr %300, i32 0, i32 0
   store i32 74, ptr %301, align 8
   br label %302
 
-302:                                              ; preds = %299, %296, %293, %290, %286
+302:                                              ; preds = %286, %299, %296, %293, %290
   br label %303
 
 303:                                              ; preds = %302, %285
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #11
   br label %304
 
 304:                                              ; preds = %303, %203
   %305 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #11
   ret i32 %305
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @usbll_generate_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3674,7 +3830,7 @@ define internal void @usbll_generate_address(ptr noundef %0, ptr noundef %1, ptr
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %struct.usbll_data, ptr %9, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.usbll_data, ptr %9, i32 0, i32 0
   %11 = load i32, ptr %10, align 8
   switch i32 %11, label %233 [
     i32 0, label %12
@@ -3796,7 +3952,7 @@ define internal void @usbll_generate_address(ptr noundef %0, ptr noundef %1, ptr
 
 13:                                               ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds %struct.usbll_data, ptr %14, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct.usbll_data, ptr %14, i32 0, i32 1
   %16 = load ptr, ptr %15, align 8
   %17 = icmp ne ptr %16, null
   br i1 %17, label %18, label %19
@@ -3805,7 +3961,7 @@ define internal void @usbll_generate_address(ptr noundef %0, ptr noundef %1, ptr
   br label %21
 
 19:                                               ; preds = %13
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1217, ptr noundef @.str.196) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1217, ptr noundef @.str.206) #14
   unreachable
 
 20:                                               ; No predecessors!
@@ -3816,21 +3972,21 @@ define internal void @usbll_generate_address(ptr noundef %0, ptr noundef %1, ptr
   %23 = load ptr, ptr %6, align 8
   %24 = load ptr, ptr %7, align 8
   %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr inbounds %struct.usbll_data, ptr %25, i32 0, i32 1
+  %26 = getelementptr inbounds nuw %struct.usbll_data, ptr %25, i32 0, i32 1
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds %struct.usbll_transaction_info, ptr %27, i32 0, i32 2
+  %28 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %27, i32 0, i32 2
   %29 = load i8, ptr %28, align 1
   %30 = load ptr, ptr %8, align 8
-  %31 = getelementptr inbounds %struct.usbll_data, ptr %30, i32 0, i32 1
+  %31 = getelementptr inbounds nuw %struct.usbll_data, ptr %30, i32 0, i32 1
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %struct.usbll_transaction_info, ptr %32, i32 0, i32 3
+  %33 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %32, i32 0, i32 3
   %34 = load i8, ptr %33, align 2
   call void @usbll_set_address(ptr noundef %22, ptr noundef %23, ptr noundef %24, i8 noundef zeroext %29, i8 noundef zeroext %34, i8 noundef zeroext 0)
   br label %234
 
 35:                                               ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %36 = load ptr, ptr %8, align 8
-  %37 = getelementptr inbounds %struct.usbll_data, ptr %36, i32 0, i32 1
+  %37 = getelementptr inbounds nuw %struct.usbll_data, ptr %36, i32 0, i32 1
   %38 = load ptr, ptr %37, align 8
   %39 = icmp ne ptr %38, null
   br i1 %39, label %40, label %41
@@ -3839,7 +3995,7 @@ define internal void @usbll_generate_address(ptr noundef %0, ptr noundef %1, ptr
   br label %43
 
 41:                                               ; preds = %35
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1238, ptr noundef @.str.196) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1238, ptr noundef @.str.206) #14
   unreachable
 
 42:                                               ; No predecessors!
@@ -3850,21 +4006,21 @@ define internal void @usbll_generate_address(ptr noundef %0, ptr noundef %1, ptr
   %45 = load ptr, ptr %6, align 8
   %46 = load ptr, ptr %7, align 8
   %47 = load ptr, ptr %8, align 8
-  %48 = getelementptr inbounds %struct.usbll_data, ptr %47, i32 0, i32 1
+  %48 = getelementptr inbounds nuw %struct.usbll_data, ptr %47, i32 0, i32 1
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds %struct.usbll_transaction_info, ptr %49, i32 0, i32 2
+  %50 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %49, i32 0, i32 2
   %51 = load i8, ptr %50, align 1
   %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.usbll_data, ptr %52, i32 0, i32 1
+  %53 = getelementptr inbounds nuw %struct.usbll_data, ptr %52, i32 0, i32 1
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds %struct.usbll_transaction_info, ptr %54, i32 0, i32 3
+  %55 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %54, i32 0, i32 3
   %56 = load i8, ptr %55, align 2
   call void @usbll_set_address(ptr noundef %44, ptr noundef %45, ptr noundef %46, i8 noundef zeroext %51, i8 noundef zeroext %56, i8 noundef zeroext 8)
   br label %234
 
 57:                                               ; preds = %4, %4, %4, %4, %4, %4, %4, %4
   %58 = load ptr, ptr %8, align 8
-  %59 = getelementptr inbounds %struct.usbll_data, ptr %58, i32 0, i32 1
+  %59 = getelementptr inbounds nuw %struct.usbll_data, ptr %58, i32 0, i32 1
   %60 = load ptr, ptr %59, align 8
   %61 = icmp ne ptr %60, null
   br i1 %61, label %62, label %63
@@ -3873,7 +4029,7 @@ define internal void @usbll_generate_address(ptr noundef %0, ptr noundef %1, ptr
   br label %65
 
 63:                                               ; preds = %57
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1251, ptr noundef @.str.196) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1251, ptr noundef @.str.206) #14
   unreachable
 
 64:                                               ; No predecessors!
@@ -3884,21 +4040,21 @@ define internal void @usbll_generate_address(ptr noundef %0, ptr noundef %1, ptr
   %67 = load ptr, ptr %6, align 8
   %68 = load ptr, ptr %7, align 8
   %69 = load ptr, ptr %8, align 8
-  %70 = getelementptr inbounds %struct.usbll_data, ptr %69, i32 0, i32 1
+  %70 = getelementptr inbounds nuw %struct.usbll_data, ptr %69, i32 0, i32 1
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds %struct.usbll_transaction_info, ptr %71, i32 0, i32 2
+  %72 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %71, i32 0, i32 2
   %73 = load i8, ptr %72, align 1
   %74 = load ptr, ptr %8, align 8
-  %75 = getelementptr inbounds %struct.usbll_data, ptr %74, i32 0, i32 1
+  %75 = getelementptr inbounds nuw %struct.usbll_data, ptr %74, i32 0, i32 1
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds %struct.usbll_transaction_info, ptr %76, i32 0, i32 3
+  %77 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %76, i32 0, i32 3
   %78 = load i8, ptr %77, align 2
   call void @usbll_set_address(ptr noundef %66, ptr noundef %67, ptr noundef %68, i8 noundef zeroext %73, i8 noundef zeroext %78, i8 noundef zeroext 2)
   br label %234
 
 79:                                               ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %80 = load ptr, ptr %8, align 8
-  %81 = getelementptr inbounds %struct.usbll_data, ptr %80, i32 0, i32 1
+  %81 = getelementptr inbounds nuw %struct.usbll_data, ptr %80, i32 0, i32 1
   %82 = load ptr, ptr %81, align 8
   %83 = icmp ne ptr %82, null
   br i1 %83, label %84, label %85
@@ -3907,7 +4063,7 @@ define internal void @usbll_generate_address(ptr noundef %0, ptr noundef %1, ptr
   br label %87
 
 85:                                               ; preds = %79
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1273, ptr noundef @.str.196) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1273, ptr noundef @.str.206) #14
   unreachable
 
 86:                                               ; No predecessors!
@@ -3915,9 +4071,9 @@ define internal void @usbll_generate_address(ptr noundef %0, ptr noundef %1, ptr
 
 87:                                               ; preds = %86, %84
   %88 = load ptr, ptr %8, align 8
-  %89 = getelementptr inbounds %struct.usbll_data, ptr %88, i32 0, i32 1
+  %89 = getelementptr inbounds nuw %struct.usbll_data, ptr %88, i32 0, i32 1
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds %struct.usbll_transaction_info, ptr %90, i32 0, i32 5
+  %91 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %90, i32 0, i32 5
   %92 = load ptr, ptr %91, align 8
   %93 = icmp ne ptr %92, null
   br i1 %93, label %94, label %95
@@ -3926,7 +4082,7 @@ define internal void @usbll_generate_address(ptr noundef %0, ptr noundef %1, ptr
   br label %97
 
 95:                                               ; preds = %87
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1274, ptr noundef @.str.197) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1274, ptr noundef @.str.207) #14
   unreachable
 
 96:                                               ; No predecessors!
@@ -3937,21 +4093,21 @@ define internal void @usbll_generate_address(ptr noundef %0, ptr noundef %1, ptr
   %99 = load ptr, ptr %6, align 8
   %100 = load ptr, ptr %7, align 8
   %101 = load ptr, ptr %8, align 8
-  %102 = getelementptr inbounds %struct.usbll_data, ptr %101, i32 0, i32 1
+  %102 = getelementptr inbounds nuw %struct.usbll_data, ptr %101, i32 0, i32 1
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds %struct.usbll_transaction_info, ptr %103, i32 0, i32 2
+  %104 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %103, i32 0, i32 2
   %105 = load i8, ptr %104, align 1
   %106 = load ptr, ptr %8, align 8
-  %107 = getelementptr inbounds %struct.usbll_data, ptr %106, i32 0, i32 1
+  %107 = getelementptr inbounds nuw %struct.usbll_data, ptr %106, i32 0, i32 1
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds %struct.usbll_transaction_info, ptr %108, i32 0, i32 3
+  %109 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %108, i32 0, i32 3
   %110 = load i8, ptr %109, align 2
   call void @usbll_set_address(ptr noundef %98, ptr noundef %99, ptr noundef %100, i8 noundef zeroext %105, i8 noundef zeroext %110, i8 noundef zeroext 0)
   br label %234
 
 111:                                              ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %112 = load ptr, ptr %8, align 8
-  %113 = getelementptr inbounds %struct.usbll_data, ptr %112, i32 0, i32 1
+  %113 = getelementptr inbounds nuw %struct.usbll_data, ptr %112, i32 0, i32 1
   %114 = load ptr, ptr %113, align 8
   %115 = icmp ne ptr %114, null
   br i1 %115, label %116, label %117
@@ -3960,7 +4116,7 @@ define internal void @usbll_generate_address(ptr noundef %0, ptr noundef %1, ptr
   br label %119
 
 117:                                              ; preds = %111
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1289, ptr noundef @.str.196) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1289, ptr noundef @.str.206) #14
   unreachable
 
 118:                                              ; No predecessors!
@@ -3968,9 +4124,9 @@ define internal void @usbll_generate_address(ptr noundef %0, ptr noundef %1, ptr
 
 119:                                              ; preds = %118, %116
   %120 = load ptr, ptr %8, align 8
-  %121 = getelementptr inbounds %struct.usbll_data, ptr %120, i32 0, i32 1
+  %121 = getelementptr inbounds nuw %struct.usbll_data, ptr %120, i32 0, i32 1
   %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds %struct.usbll_transaction_info, ptr %122, i32 0, i32 5
+  %123 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %122, i32 0, i32 5
   %124 = load ptr, ptr %123, align 8
   %125 = icmp ne ptr %124, null
   br i1 %125, label %126, label %127
@@ -3979,7 +4135,7 @@ define internal void @usbll_generate_address(ptr noundef %0, ptr noundef %1, ptr
   br label %129
 
 127:                                              ; preds = %119
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1290, ptr noundef @.str.197) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1290, ptr noundef @.str.207) #14
   unreachable
 
 128:                                              ; No predecessors!
@@ -3990,25 +4146,25 @@ define internal void @usbll_generate_address(ptr noundef %0, ptr noundef %1, ptr
   %131 = load ptr, ptr %6, align 8
   %132 = load ptr, ptr %7, align 8
   %133 = load ptr, ptr %8, align 8
-  %134 = getelementptr inbounds %struct.usbll_data, ptr %133, i32 0, i32 1
+  %134 = getelementptr inbounds nuw %struct.usbll_data, ptr %133, i32 0, i32 1
   %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds %struct.usbll_transaction_info, ptr %135, i32 0, i32 5
+  %136 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %135, i32 0, i32 5
   %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds %struct.usbll_transaction_info, ptr %137, i32 0, i32 2
+  %138 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %137, i32 0, i32 2
   %139 = load i8, ptr %138, align 1
   %140 = load ptr, ptr %8, align 8
-  %141 = getelementptr inbounds %struct.usbll_data, ptr %140, i32 0, i32 1
+  %141 = getelementptr inbounds nuw %struct.usbll_data, ptr %140, i32 0, i32 1
   %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds %struct.usbll_transaction_info, ptr %142, i32 0, i32 5
+  %143 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %142, i32 0, i32 5
   %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds %struct.usbll_transaction_info, ptr %144, i32 0, i32 3
+  %145 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %144, i32 0, i32 3
   %146 = load i8, ptr %145, align 2
   call void @usbll_set_address(ptr noundef %130, ptr noundef %131, ptr noundef %132, i8 noundef zeroext %139, i8 noundef zeroext %146, i8 noundef zeroext 10)
   br label %234
 
 147:                                              ; preds = %4, %4, %4, %4, %4, %4, %4, %4
   %148 = load ptr, ptr %8, align 8
-  %149 = getelementptr inbounds %struct.usbll_data, ptr %148, i32 0, i32 1
+  %149 = getelementptr inbounds nuw %struct.usbll_data, ptr %148, i32 0, i32 1
   %150 = load ptr, ptr %149, align 8
   %151 = icmp ne ptr %150, null
   br i1 %151, label %152, label %153
@@ -4017,7 +4173,7 @@ define internal void @usbll_generate_address(ptr noundef %0, ptr noundef %1, ptr
   br label %155
 
 153:                                              ; preds = %147
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1303, ptr noundef @.str.196) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1303, ptr noundef @.str.206) #14
   unreachable
 
 154:                                              ; No predecessors!
@@ -4025,9 +4181,9 @@ define internal void @usbll_generate_address(ptr noundef %0, ptr noundef %1, ptr
 
 155:                                              ; preds = %154, %152
   %156 = load ptr, ptr %8, align 8
-  %157 = getelementptr inbounds %struct.usbll_data, ptr %156, i32 0, i32 1
+  %157 = getelementptr inbounds nuw %struct.usbll_data, ptr %156, i32 0, i32 1
   %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds %struct.usbll_transaction_info, ptr %158, i32 0, i32 6
+  %159 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %158, i32 0, i32 6
   %160 = load ptr, ptr %159, align 8
   %161 = icmp ne ptr %160, null
   br i1 %161, label %162, label %163
@@ -4036,7 +4192,7 @@ define internal void @usbll_generate_address(ptr noundef %0, ptr noundef %1, ptr
   br label %165
 
 163:                                              ; preds = %155
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1304, ptr noundef @.str.198) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1304, ptr noundef @.str.208) #14
   unreachable
 
 164:                                              ; No predecessors!
@@ -4047,21 +4203,21 @@ define internal void @usbll_generate_address(ptr noundef %0, ptr noundef %1, ptr
   %167 = load ptr, ptr %6, align 8
   %168 = load ptr, ptr %7, align 8
   %169 = load ptr, ptr %8, align 8
-  %170 = getelementptr inbounds %struct.usbll_data, ptr %169, i32 0, i32 1
+  %170 = getelementptr inbounds nuw %struct.usbll_data, ptr %169, i32 0, i32 1
   %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds %struct.usbll_transaction_info, ptr %171, i32 0, i32 2
+  %172 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %171, i32 0, i32 2
   %173 = load i8, ptr %172, align 1
   %174 = load ptr, ptr %8, align 8
-  %175 = getelementptr inbounds %struct.usbll_data, ptr %174, i32 0, i32 1
+  %175 = getelementptr inbounds nuw %struct.usbll_data, ptr %174, i32 0, i32 1
   %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds %struct.usbll_transaction_info, ptr %176, i32 0, i32 3
+  %177 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %176, i32 0, i32 3
   %178 = load i8, ptr %177, align 2
   call void @usbll_set_address(ptr noundef %166, ptr noundef %167, ptr noundef %168, i8 noundef zeroext %173, i8 noundef zeroext %178, i8 noundef zeroext 0)
   br label %234
 
 179:                                              ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %180 = load ptr, ptr %8, align 8
-  %181 = getelementptr inbounds %struct.usbll_data, ptr %180, i32 0, i32 1
+  %181 = getelementptr inbounds nuw %struct.usbll_data, ptr %180, i32 0, i32 1
   %182 = load ptr, ptr %181, align 8
   %183 = icmp ne ptr %182, null
   br i1 %183, label %184, label %185
@@ -4070,7 +4226,7 @@ define internal void @usbll_generate_address(ptr noundef %0, ptr noundef %1, ptr
   br label %187
 
 185:                                              ; preds = %179
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1334, ptr noundef @.str.196) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1334, ptr noundef @.str.206) #14
   unreachable
 
 186:                                              ; No predecessors!
@@ -4078,9 +4234,9 @@ define internal void @usbll_generate_address(ptr noundef %0, ptr noundef %1, ptr
 
 187:                                              ; preds = %186, %184
   %188 = load ptr, ptr %8, align 8
-  %189 = getelementptr inbounds %struct.usbll_data, ptr %188, i32 0, i32 1
+  %189 = getelementptr inbounds nuw %struct.usbll_data, ptr %188, i32 0, i32 1
   %190 = load ptr, ptr %189, align 8
-  %191 = getelementptr inbounds %struct.usbll_transaction_info, ptr %190, i32 0, i32 6
+  %191 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %190, i32 0, i32 6
   %192 = load ptr, ptr %191, align 8
   %193 = icmp ne ptr %192, null
   br i1 %193, label %194, label %195
@@ -4089,7 +4245,7 @@ define internal void @usbll_generate_address(ptr noundef %0, ptr noundef %1, ptr
   br label %197
 
 195:                                              ; preds = %187
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1335, ptr noundef @.str.198) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1335, ptr noundef @.str.208) #14
   unreachable
 
 196:                                              ; No predecessors!
@@ -4100,21 +4256,21 @@ define internal void @usbll_generate_address(ptr noundef %0, ptr noundef %1, ptr
   %199 = load ptr, ptr %6, align 8
   %200 = load ptr, ptr %7, align 8
   %201 = load ptr, ptr %8, align 8
-  %202 = getelementptr inbounds %struct.usbll_data, ptr %201, i32 0, i32 1
+  %202 = getelementptr inbounds nuw %struct.usbll_data, ptr %201, i32 0, i32 1
   %203 = load ptr, ptr %202, align 8
-  %204 = getelementptr inbounds %struct.usbll_transaction_info, ptr %203, i32 0, i32 2
+  %204 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %203, i32 0, i32 2
   %205 = load i8, ptr %204, align 1
   %206 = load ptr, ptr %8, align 8
-  %207 = getelementptr inbounds %struct.usbll_data, ptr %206, i32 0, i32 1
+  %207 = getelementptr inbounds nuw %struct.usbll_data, ptr %206, i32 0, i32 1
   %208 = load ptr, ptr %207, align 8
-  %209 = getelementptr inbounds %struct.usbll_transaction_info, ptr %208, i32 0, i32 3
+  %209 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %208, i32 0, i32 3
   %210 = load i8, ptr %209, align 2
   call void @usbll_set_address(ptr noundef %198, ptr noundef %199, ptr noundef %200, i8 noundef zeroext %205, i8 noundef zeroext %210, i8 noundef zeroext 8)
   br label %234
 
 211:                                              ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %212 = load ptr, ptr %8, align 8
-  %213 = getelementptr inbounds %struct.usbll_data, ptr %212, i32 0, i32 1
+  %213 = getelementptr inbounds nuw %struct.usbll_data, ptr %212, i32 0, i32 1
   %214 = load ptr, ptr %213, align 8
   %215 = icmp ne ptr %214, null
   br i1 %215, label %216, label %217
@@ -4123,7 +4279,7 @@ define internal void @usbll_generate_address(ptr noundef %0, ptr noundef %1, ptr
   br label %219
 
 217:                                              ; preds = %211
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1351, ptr noundef @.str.196) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1351, ptr noundef @.str.206) #14
   unreachable
 
 218:                                              ; No predecessors!
@@ -4134,33 +4290,36 @@ define internal void @usbll_generate_address(ptr noundef %0, ptr noundef %1, ptr
   %221 = load ptr, ptr %6, align 8
   %222 = load ptr, ptr %7, align 8
   %223 = load ptr, ptr %8, align 8
-  %224 = getelementptr inbounds %struct.usbll_data, ptr %223, i32 0, i32 1
+  %224 = getelementptr inbounds nuw %struct.usbll_data, ptr %223, i32 0, i32 1
   %225 = load ptr, ptr %224, align 8
-  %226 = getelementptr inbounds %struct.usbll_transaction_info, ptr %225, i32 0, i32 2
+  %226 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %225, i32 0, i32 2
   %227 = load i8, ptr %226, align 1
   %228 = load ptr, ptr %8, align 8
-  %229 = getelementptr inbounds %struct.usbll_data, ptr %228, i32 0, i32 1
+  %229 = getelementptr inbounds nuw %struct.usbll_data, ptr %228, i32 0, i32 1
   %230 = load ptr, ptr %229, align 8
-  %231 = getelementptr inbounds %struct.usbll_transaction_info, ptr %230, i32 0, i32 3
+  %231 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %230, i32 0, i32 3
   %232 = load i8, ptr %231, align 2
   call void @usbll_set_address(ptr noundef %220, ptr noundef %221, ptr noundef %222, i8 noundef zeroext %227, i8 noundef zeroext %232, i8 noundef zeroext 10)
   br label %234
 
 233:                                              ; preds = %4
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.191, ptr noundef @.str.169, i32 noundef 1357) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.201, ptr noundef @.str.179, i32 noundef 1357) #14
   unreachable
 
 234:                                              ; preds = %219, %197, %165, %129, %97, %65, %43, %21, %12
   ret void
 }
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
 
-declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @usbll_construct_urb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -4178,10 +4337,11 @@ define internal void @usbll_construct_urb(ptr noundef %0, ptr noundef %1, ptr no
   store i32 %3, ptr %10, align 4
   store i32 %4, ptr %11, align 4
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #11
   store ptr null, ptr %13, align 8
   %17 = load ptr, ptr @transfer_info, align 8
   %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %struct._packet_info, ptr %18, i32 0, i32 3
+  %19 = getelementptr inbounds nuw %struct._packet_info, ptr %18, i32 0, i32 3
   %20 = load i32, ptr %19, align 4
   %21 = zext i32 %20 to i64
   %22 = inttoptr i64 %21 to ptr
@@ -4189,42 +4349,43 @@ define internal void @usbll_construct_urb(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %23, ptr %13, align 8
   %24 = load ptr, ptr %13, align 8
   %25 = icmp ne ptr %24, null
-  br i1 %25, label %26, label %137
+  br i1 %25, label %26, label %140
 
 26:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #11
   %27 = load ptr, ptr %13, align 8
-  %28 = getelementptr inbounds %struct.usbll_transfer_info, ptr %27, i32 0, i32 0
+  %28 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %27, i32 0, i32 0
   %29 = load i32, ptr %28, align 4
   %30 = load ptr, ptr %8, align 8
-  %31 = getelementptr inbounds %struct._packet_info, ptr %30, i32 0, i32 3
+  %31 = getelementptr inbounds nuw %struct._packet_info, ptr %30, i32 0, i32 3
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %29, %32
   br i1 %33, label %34, label %61
 
 34:                                               ; preds = %26
   %35 = load ptr, ptr %13, align 8
-  %36 = getelementptr inbounds %struct.usbll_transfer_info, ptr %35, i32 0, i32 4
-  %37 = load i32, ptr %36, align 4
-  %38 = icmp ne i32 %37, 0
+  %36 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %35, i32 0, i32 4
+  %37 = load i8, ptr %36, align 1, !range !6, !noundef !7
+  %38 = trunc i8 %37 to i1
   br i1 %38, label %61, label %39
 
 39:                                               ; preds = %34
   %40 = load ptr, ptr %13, align 8
-  %41 = getelementptr inbounds %struct.usbll_transfer_info, ptr %40, i32 0, i32 2
+  %41 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %40, i32 0, i32 2
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %42, 1
   br i1 %43, label %44, label %49
 
 44:                                               ; preds = %39
   %45 = load ptr, ptr %13, align 8
-  %46 = getelementptr inbounds %struct.usbll_transfer_info, ptr %45, i32 0, i32 3
-  %47 = load i32, ptr %46, align 4
-  %48 = icmp ne i32 %47, 0
+  %46 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %45, i32 0, i32 3
+  %47 = load i8, ptr %46, align 4, !range !6, !noundef !7
+  %48 = trunc i8 %47 to i1
   br i1 %48, label %54, label %49
 
 49:                                               ; preds = %44, %39
   %50 = load ptr, ptr %13, align 8
-  %51 = getelementptr inbounds %struct.usbll_transfer_info, ptr %50, i32 0, i32 2
+  %51 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %50, i32 0, i32 2
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, 4
   br i1 %53, label %54, label %61
@@ -4237,141 +4398,153 @@ define internal void @usbll_construct_urb(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %58, ptr %14, align 8
   %59 = load ptr, ptr %8, align 8
   %60 = load ptr, ptr %14, align 8
-  call void @add_new_data_source(ptr noundef %59, ptr noundef %60, ptr noundef @.str.204)
-  br label %85
+  call void @add_new_data_source(ptr noundef %59, ptr noundef %60, ptr noundef @.str.214)
+  br label %86
 
 61:                                               ; preds = %49, %34, %26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #11
   %62 = load ptr, ptr %7, align 8
   %63 = load i32, ptr %10, align 4
   %64 = load ptr, ptr %8, align 8
   %65 = load ptr, ptr %13, align 8
-  %66 = getelementptr inbounds %struct.usbll_transfer_info, ptr %65, i32 0, i32 0
+  %66 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %65, i32 0, i32 0
   %67 = load i32, ptr %66, align 4
   %68 = load ptr, ptr %13, align 8
-  %69 = getelementptr inbounds %struct.usbll_transfer_info, ptr %68, i32 0, i32 1
+  %69 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %68, i32 0, i32 1
   %70 = load i32, ptr %69, align 4
   %71 = load i32, ptr %11, align 4
   %72 = load ptr, ptr %13, align 8
-  %73 = getelementptr inbounds %struct.usbll_transfer_info, ptr %72, i32 0, i32 4
-  %74 = load i32, ptr %73, align 4
-  %75 = load ptr, ptr %13, align 8
-  %76 = getelementptr inbounds %struct.usbll_transfer_info, ptr %75, i32 0, i32 0
-  %77 = load i32, ptr %76, align 4
-  %78 = call ptr @fragment_add_check_with_fallback(ptr noundef @usbll_reassembly_table, ptr noundef %62, i32 noundef %63, ptr noundef %64, i32 noundef %67, ptr noundef null, i32 noundef %70, i32 noundef %71, i32 noundef %74, i32 noundef %77)
-  store ptr %78, ptr %15, align 8
-  %79 = load ptr, ptr %7, align 8
-  %80 = load i32, ptr %10, align 4
-  %81 = load ptr, ptr %8, align 8
-  %82 = load ptr, ptr %15, align 8
-  %83 = load ptr, ptr %9, align 8
-  %84 = call ptr @process_reassembled_data(ptr noundef %79, i32 noundef %80, ptr noundef %81, ptr noundef @.str.204, ptr noundef %82, ptr noundef @usbll_frag_items, ptr noundef null, ptr noundef %83)
-  store ptr %84, ptr %14, align 8
-  br label %85
+  %73 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %72, i32 0, i32 4
+  %74 = load i8, ptr %73, align 1, !range !6, !noundef !7
+  %75 = trunc i8 %74 to i1
+  %76 = load ptr, ptr %13, align 8
+  %77 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %76, i32 0, i32 0
+  %78 = load i32, ptr %77, align 4
+  %79 = call ptr @fragment_add_check_with_fallback(ptr noundef @usbll_reassembly_table, ptr noundef %62, i32 noundef %63, ptr noundef %64, i32 noundef %67, ptr noundef null, i32 noundef %70, i32 noundef %71, i1 noundef zeroext %75, i32 noundef %78)
+  store ptr %79, ptr %15, align 8
+  %80 = load ptr, ptr %7, align 8
+  %81 = load i32, ptr %10, align 4
+  %82 = load ptr, ptr %8, align 8
+  %83 = load ptr, ptr %15, align 8
+  %84 = load ptr, ptr %9, align 8
+  %85 = call ptr @process_reassembled_data(ptr noundef %80, i32 noundef %81, ptr noundef %82, ptr noundef @.str.214, ptr noundef %83, ptr noundef @usbll_frag_items, ptr noundef null, ptr noundef %84)
+  store ptr %85, ptr %14, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #11
+  br label %86
 
-85:                                               ; preds = %61, %54
-  %86 = load ptr, ptr %14, align 8
-  %87 = icmp ne ptr %86, null
-  br i1 %87, label %88, label %136
+86:                                               ; preds = %61, %54
+  %87 = load ptr, ptr %14, align 8
+  %88 = icmp ne ptr %87, null
+  br i1 %88, label %89, label %139
 
-88:                                               ; preds = %85
-  %89 = load ptr, ptr %13, align 8
-  %90 = getelementptr inbounds %struct.usbll_transfer_info, ptr %89, i32 0, i32 3
-  %91 = load i32, ptr %90, align 4
-  %92 = getelementptr inbounds %struct._usb_pseudo_urb_t, ptr %16, i32 0, i32 0
-  store i32 %91, ptr %92, align 4
-  %93 = load ptr, ptr %13, align 8
-  %94 = getelementptr inbounds %struct.usbll_transfer_info, ptr %93, i32 0, i32 2
-  %95 = load i32, ptr %94, align 4
-  switch i32 %95, label %106 [
-    i32 0, label %96
-    i32 1, label %98
-    i32 2, label %100
-    i32 3, label %102
-    i32 4, label %104
+89:                                               ; preds = %86
+  call void @llvm.lifetime.start.p0(i64 12, ptr %16) #11
+  %90 = load ptr, ptr %13, align 8
+  %91 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %90, i32 0, i32 3
+  %92 = load i8, ptr %91, align 4, !range !6, !noundef !7
+  %93 = trunc i8 %92 to i1
+  %94 = getelementptr inbounds nuw %struct._usb_pseudo_urb_t, ptr %16, i32 0, i32 0
+  %95 = zext i1 %93 to i8
+  store i8 %95, ptr %94, align 4
+  %96 = load ptr, ptr %13, align 8
+  %97 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %96, i32 0, i32 2
+  %98 = load i32, ptr %97, align 4
+  switch i32 %98, label %109 [
+    i32 0, label %99
+    i32 1, label %101
+    i32 2, label %103
+    i32 3, label %105
+    i32 4, label %107
   ]
 
-96:                                               ; preds = %88
-  %97 = getelementptr inbounds %struct._usb_pseudo_urb_t, ptr %16, i32 0, i32 1
-  store i8 -1, ptr %97, align 4
-  br label %107
+99:                                               ; preds = %89
+  %100 = getelementptr inbounds nuw %struct._usb_pseudo_urb_t, ptr %16, i32 0, i32 1
+  store i8 -1, ptr %100, align 1
+  br label %110
 
-98:                                               ; preds = %88
-  %99 = getelementptr inbounds %struct._usb_pseudo_urb_t, ptr %16, i32 0, i32 1
-  store i8 2, ptr %99, align 4
-  br label %107
+101:                                              ; preds = %89
+  %102 = getelementptr inbounds nuw %struct._usb_pseudo_urb_t, ptr %16, i32 0, i32 1
+  store i8 2, ptr %102, align 1
+  br label %110
 
-100:                                              ; preds = %88
-  %101 = getelementptr inbounds %struct._usb_pseudo_urb_t, ptr %16, i32 0, i32 1
-  store i8 3, ptr %101, align 4
-  br label %107
+103:                                              ; preds = %89
+  %104 = getelementptr inbounds nuw %struct._usb_pseudo_urb_t, ptr %16, i32 0, i32 1
+  store i8 3, ptr %104, align 1
+  br label %110
 
-102:                                              ; preds = %88
-  %103 = getelementptr inbounds %struct._usb_pseudo_urb_t, ptr %16, i32 0, i32 1
-  store i8 1, ptr %103, align 4
-  br label %107
+105:                                              ; preds = %89
+  %106 = getelementptr inbounds nuw %struct._usb_pseudo_urb_t, ptr %16, i32 0, i32 1
+  store i8 1, ptr %106, align 1
+  br label %110
 
-104:                                              ; preds = %88
-  %105 = getelementptr inbounds %struct._usb_pseudo_urb_t, ptr %16, i32 0, i32 1
-  store i8 0, ptr %105, align 4
-  br label %107
+107:                                              ; preds = %89
+  %108 = getelementptr inbounds nuw %struct._usb_pseudo_urb_t, ptr %16, i32 0, i32 1
+  store i8 0, ptr %108, align 1
+  br label %110
 
-106:                                              ; preds = %88
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.191, ptr noundef @.str.169, i32 noundef 1770) #9
+109:                                              ; preds = %89
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.201, ptr noundef @.str.179, i32 noundef 1784) #14
   unreachable
 
-107:                                              ; preds = %104, %102, %100, %98, %96
-  %108 = load ptr, ptr %12, align 8
-  %109 = getelementptr inbounds %struct.usbll_data, ptr %108, i32 0, i32 1
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds %struct.usbll_transaction_info, ptr %110, i32 0, i32 2
-  %112 = load i8, ptr %111, align 1
-  %113 = getelementptr inbounds %struct._usb_pseudo_urb_t, ptr %16, i32 0, i32 2
-  store i8 %112, ptr %113, align 1
-  %114 = load ptr, ptr %12, align 8
-  %115 = getelementptr inbounds %struct.usbll_data, ptr %114, i32 0, i32 1
-  %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds %struct.usbll_transaction_info, ptr %116, i32 0, i32 3
-  %118 = load i8, ptr %117, align 2
-  %119 = zext i8 %118 to i32
-  %120 = load ptr, ptr %13, align 8
-  %121 = getelementptr inbounds %struct.usbll_transfer_info, ptr %120, i32 0, i32 3
-  %122 = load i32, ptr %121, align 4
-  %123 = icmp ne i32 %122, 0
-  %124 = select i1 %123, i32 0, i32 128
-  %125 = or i32 %119, %124
-  %126 = trunc i32 %125 to i8
-  %127 = getelementptr inbounds %struct._usb_pseudo_urb_t, ptr %16, i32 0, i32 3
-  store i8 %126, ptr %127, align 2
-  %128 = getelementptr inbounds %struct._usb_pseudo_urb_t, ptr %16, i32 0, i32 4
-  store i16 0, ptr %128, align 4
-  %129 = load ptr, ptr %12, align 8
-  %130 = call i32 @usbll_get_data_transaction_speed(ptr noundef %129)
-  %131 = getelementptr inbounds %struct._usb_pseudo_urb_t, ptr %16, i32 0, i32 5
-  store i32 %130, ptr %131, align 4
-  %132 = load ptr, ptr %14, align 8
-  %133 = load ptr, ptr %8, align 8
-  %134 = load ptr, ptr %9, align 8
-  %135 = call ptr @proto_tree_get_parent_tree(ptr noundef %134)
-  call void @dissect_usb_common(ptr noundef %132, ptr noundef %133, ptr noundef %135, i32 noundef 6, ptr noundef %16)
-  br label %136
+110:                                              ; preds = %107, %105, %103, %101, %99
+  %111 = load ptr, ptr %12, align 8
+  %112 = getelementptr inbounds nuw %struct.usbll_data, ptr %111, i32 0, i32 1
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %113, i32 0, i32 2
+  %115 = load i8, ptr %114, align 1
+  %116 = getelementptr inbounds nuw %struct._usb_pseudo_urb_t, ptr %16, i32 0, i32 2
+  store i8 %115, ptr %116, align 2
+  %117 = load ptr, ptr %12, align 8
+  %118 = getelementptr inbounds nuw %struct.usbll_data, ptr %117, i32 0, i32 1
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %119, i32 0, i32 3
+  %121 = load i8, ptr %120, align 2
+  %122 = zext i8 %121 to i32
+  %123 = load ptr, ptr %13, align 8
+  %124 = getelementptr inbounds nuw %struct.usbll_transfer_info, ptr %123, i32 0, i32 3
+  %125 = load i8, ptr %124, align 4, !range !6, !noundef !7
+  %126 = trunc i8 %125 to i1
+  %127 = select i1 %126, i32 0, i32 128
+  %128 = or i32 %122, %127
+  %129 = trunc i32 %128 to i8
+  %130 = getelementptr inbounds nuw %struct._usb_pseudo_urb_t, ptr %16, i32 0, i32 3
+  store i8 %129, ptr %130, align 1
+  %131 = getelementptr inbounds nuw %struct._usb_pseudo_urb_t, ptr %16, i32 0, i32 4
+  store i16 0, ptr %131, align 4
+  %132 = load ptr, ptr %12, align 8
+  %133 = call i32 @usbll_get_data_transaction_speed(ptr noundef %132)
+  %134 = getelementptr inbounds nuw %struct._usb_pseudo_urb_t, ptr %16, i32 0, i32 5
+  store i32 %133, ptr %134, align 4
+  %135 = load ptr, ptr %14, align 8
+  %136 = load ptr, ptr %8, align 8
+  %137 = load ptr, ptr %9, align 8
+  %138 = call ptr @proto_tree_get_parent_tree(ptr noundef %137)
+  call void @dissect_usb_common(ptr noundef %135, ptr noundef %136, ptr noundef %138, i32 noundef 6, ptr noundef %16)
+  call void @llvm.lifetime.end.p0(i64 12, ptr %16) #11
+  br label %139
 
-136:                                              ; preds = %107, %85
-  br label %137
+139:                                              ; preds = %110, %86
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #11
+  br label %140
 
-137:                                              ; preds = %136, %6
+140:                                              ; preds = %139, %6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #11
   ret void
 }
 
-declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) #2
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) #6
 
-declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @usbll_next_state(i32 noundef %0, i8 noundef zeroext %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -5242,7 +5415,7 @@ define internal i32 @usbll_next_state(i32 noundef %0, i8 noundef zeroext %1) #0 
   br label %250
 
 248:                                              ; preds = %243
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 790, ptr noundef @.str.172) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 790, ptr noundef @.str.182) #14
   unreachable
 
 249:                                              ; No predecessors!
@@ -5257,20 +5430,24 @@ define internal i32 @usbll_next_state(i32 noundef %0, i8 noundef zeroext %1) #0 
   ret i32 %252
 }
 
-; Function Attrs: noreturn
-declare void @proto_report_dissector_bug(ptr noundef, ...) #5
+; Function Attrs: noreturn null_pointer_is_valid
+declare void @proto_report_dissector_bug(ptr noundef, ...) #8
 
-declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) #1
 
-declare void @proto_tree_add_bitmask_list_value(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare void @proto_tree_add_bitmask_list_value(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) #1
 
-declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
-declare zeroext i8 @crc5_usb_11bit_input(i16 noundef zeroext) #2
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @crc5_usb_11bit_input(i16 noundef zeroext) #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @usbll_is_non_split_token(i32 noundef %0) #0 {
-  %2 = alloca i32, align 4
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @usbll_is_non_split_token(i32 noundef %0) #3 {
+  %2 = alloca i1, align 1
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
   %4 = load i32, ptr %3, align 4
@@ -5283,61 +5460,55 @@ define internal i32 @usbll_is_non_split_token(i32 noundef %0) #0 {
   ]
 
 5:                                                ; preds = %1, %1, %1, %1, %1
-  store i32 1, ptr %2, align 4
+  store i1 true, ptr %2, align 1
   br label %7
 
 6:                                                ; preds = %1
-  store i32 0, ptr %2, align 4
+  store i1 false, ptr %2, align 1
   br label %7
 
 7:                                                ; preds = %6, %5
-  %8 = load i32, ptr %2, align 4
-  ret i32 %8
+  %8 = load i1, ptr %2, align 1
+  ret i1 %8
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @usbll_is_split_token(i32 noundef %0) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @usbll_is_split_token(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
-  %4 = call i32 @usbll_is_split_start_token(i32 noundef %3)
-  %5 = icmp ne i32 %4, 0
-  br i1 %5, label %10, label %6
+  %4 = call zeroext i1 @usbll_is_split_start_token(i32 noundef %3)
+  br i1 %4, label %8, label %5
 
-6:                                                ; preds = %1
-  %7 = load i32, ptr %2, align 4
-  %8 = call i32 @usbll_is_split_complete_token(i32 noundef %7)
-  %9 = icmp ne i32 %8, 0
-  br label %10
+5:                                                ; preds = %1
+  %6 = load i32, ptr %2, align 4
+  %7 = call zeroext i1 @usbll_is_split_complete_token(i32 noundef %6)
+  br label %8
 
-10:                                               ; preds = %6, %1
-  %11 = phi i1 [ true, %1 ], [ %9, %6 ]
-  %12 = zext i1 %11 to i32
-  ret i32 %12
+8:                                                ; preds = %5, %1
+  %9 = phi i1 [ true, %1 ], [ %7, %5 ]
+  ret i1 %9
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @usbll_is_split_complete_token(i32 noundef %0) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @usbll_is_split_complete_token(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
-  %4 = call i32 @usbll_is_non_periodic_split_complete_token(i32 noundef %3)
-  %5 = icmp ne i32 %4, 0
-  br i1 %5, label %10, label %6
+  %4 = call zeroext i1 @usbll_is_non_periodic_split_complete_token(i32 noundef %3)
+  br i1 %4, label %8, label %5
 
-6:                                                ; preds = %1
-  %7 = load i32, ptr %2, align 4
-  %8 = call i32 @usbll_is_periodic_split_complete_token(i32 noundef %7)
-  %9 = icmp ne i32 %8, 0
-  br label %10
+5:                                                ; preds = %1
+  %6 = load i32, ptr %2, align 4
+  %7 = call zeroext i1 @usbll_is_periodic_split_complete_token(i32 noundef %6)
+  br label %8
 
-10:                                               ; preds = %6, %1
-  %11 = phi i1 [ true, %1 ], [ %9, %6 ]
-  %12 = zext i1 %11 to i32
-  ret i32 %12
+8:                                                ; preds = %5, %1
+  %9 = phi i1 [ true, %1 ], [ %7, %5 ]
+  ret i1 %9
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @tt_restore_transaction(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5349,10 +5520,10 @@ define internal ptr @tt_restore_transaction(ptr noundef %0, i32 noundef %1, i8 n
   store i8 %2, ptr %8, align 1
   store i8 %3, ptr %9, align 1
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds %struct._packet_info, ptr %10, i32 0, i32 8
+  %11 = getelementptr inbounds nuw %struct._packet_info, ptr %10, i32 0, i32 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds %struct._frame_data, ptr %12, i32 0, i32 9
-  %14 = load i16, ptr %13, align 2
+  %13 = getelementptr inbounds nuw %struct._frame_data, ptr %12, i32 0, i32 11
+  %14 = load i16, ptr %13, align 1
   %15 = lshr i16 %14, 3
   %16 = and i16 %15, 1
   %17 = zext i16 %16 to i32
@@ -5363,7 +5534,7 @@ define internal ptr @tt_restore_transaction(ptr noundef %0, i32 noundef %1, i8 n
   br label %22
 
 20:                                               ; preds = %4
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1367, ptr noundef @.str.175) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1367, ptr noundef @.str.185) #14
   unreachable
 
 21:                                               ; No predecessors!
@@ -5371,141 +5542,135 @@ define internal ptr @tt_restore_transaction(ptr noundef %0, i32 noundef %1, i8 n
 
 22:                                               ; preds = %21, %19
   %23 = load i32, ptr %7, align 4
-  %24 = call i32 @usbll_is_split_complete_token(i32 noundef %23)
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %27
+  %24 = call zeroext i1 @usbll_is_split_complete_token(i32 noundef %23)
+  br i1 %24, label %25, label %26
+
+25:                                               ; preds = %22
+  br label %28
 
 26:                                               ; preds = %22
-  br label %29
-
-27:                                               ; preds = %22
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1368, ptr noundef @.str.176) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1368, ptr noundef @.str.186) #14
   unreachable
 
-28:                                               ; No predecessors!
-  br label %29
+27:                                               ; No predecessors!
+  br label %28
 
-29:                                               ; preds = %28, %26
-  %30 = load i8, ptr %8, align 1
-  %31 = zext i8 %30 to i32
-  %32 = icmp sle i32 %31, 127
-  br i1 %32, label %33, label %34
+28:                                               ; preds = %27, %25
+  %29 = load i8, ptr %8, align 1
+  %30 = zext i8 %29 to i32
+  %31 = icmp sle i32 %30, 127
+  br i1 %31, label %32, label %33
 
-33:                                               ; preds = %29
-  br label %36
+32:                                               ; preds = %28
+  br label %35
 
-34:                                               ; preds = %29
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1369, ptr noundef @.str.177) #9
+33:                                               ; preds = %28
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1369, ptr noundef @.str.187) #14
   unreachable
 
-35:                                               ; No predecessors!
-  br label %36
+34:                                               ; No predecessors!
+  br label %35
 
-36:                                               ; preds = %35, %33
-  %37 = load i8, ptr %9, align 1
-  %38 = zext i8 %37 to i32
-  %39 = icmp sle i32 %38, 127
-  br i1 %39, label %40, label %41
+35:                                               ; preds = %34, %32
+  %36 = load i8, ptr %9, align 1
+  %37 = zext i8 %36 to i32
+  %38 = icmp sle i32 %37, 127
+  br i1 %38, label %39, label %40
 
-40:                                               ; preds = %36
-  br label %43
+39:                                               ; preds = %35
+  br label %42
 
-41:                                               ; preds = %36
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1370, ptr noundef @.str.178) #9
+40:                                               ; preds = %35
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1370, ptr noundef @.str.188) #14
   unreachable
 
-42:                                               ; No predecessors!
-  br label %43
+41:                                               ; No predecessors!
+  br label %42
 
-43:                                               ; preds = %42, %40
-  %44 = load ptr, ptr @tt_periodic, align 8
-  %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %49
+42:                                               ; preds = %41, %39
+  %43 = load ptr, ptr @tt_periodic, align 8
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %45, label %48
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr @tt_non_periodic, align 8
-  %48 = icmp ne ptr %47, null
-  br i1 %48, label %50, label %49
+45:                                               ; preds = %42
+  %46 = load ptr, ptr @tt_non_periodic, align 8
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %49, label %48
 
-49:                                               ; preds = %46, %43
+48:                                               ; preds = %45, %42
   store ptr null, ptr %5, align 8
-  br label %81
+  br label %78
 
-50:                                               ; preds = %46
-  %51 = load i32, ptr %7, align 4
-  %52 = call i32 @usbll_is_periodic_split_complete_token(i32 noundef %51)
-  %53 = icmp ne i32 %52, 0
-  br i1 %53, label %54, label %64
+49:                                               ; preds = %45
+  %50 = load i32, ptr %7, align 4
+  %51 = call zeroext i1 @usbll_is_periodic_split_complete_token(i32 noundef %50)
+  br i1 %51, label %52, label %62
 
-54:                                               ; preds = %50
-  %55 = load ptr, ptr @tt_periodic, align 8
-  %56 = load i8, ptr %8, align 1
-  %57 = zext i8 %56 to i64
-  %58 = getelementptr ptr, ptr %55, i64 %57
-  %59 = load ptr, ptr %58, align 8
-  %60 = load i8, ptr %9, align 1
-  %61 = zext i8 %60 to i64
-  %62 = getelementptr ptr, ptr %59, i64 %61
-  %63 = load ptr, ptr %62, align 8
-  store ptr %63, ptr %5, align 8
-  br label %81
+52:                                               ; preds = %49
+  %53 = load ptr, ptr @tt_periodic, align 8
+  %54 = load i8, ptr %8, align 1
+  %55 = zext i8 %54 to i64
+  %56 = getelementptr ptr, ptr %53, i64 %55
+  %57 = load ptr, ptr %56, align 8
+  %58 = load i8, ptr %9, align 1
+  %59 = zext i8 %58 to i64
+  %60 = getelementptr ptr, ptr %57, i64 %59
+  %61 = load ptr, ptr %60, align 8
+  store ptr %61, ptr %5, align 8
+  br label %78
 
-64:                                               ; preds = %50
-  %65 = load i32, ptr %7, align 4
-  %66 = call i32 @usbll_is_non_periodic_split_complete_token(i32 noundef %65)
-  %67 = icmp ne i32 %66, 0
-  br i1 %67, label %68, label %69
+62:                                               ; preds = %49
+  %63 = load i32, ptr %7, align 4
+  %64 = call zeroext i1 @usbll_is_non_periodic_split_complete_token(i32 noundef %63)
+  br i1 %64, label %65, label %66
 
-68:                                               ; preds = %64
-  br label %71
+65:                                               ; preds = %62
+  br label %68
 
-69:                                               ; preds = %64
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1384, ptr noundef @.str.179) #9
+66:                                               ; preds = %62
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1384, ptr noundef @.str.189) #14
   unreachable
 
-70:                                               ; No predecessors!
-  br label %71
+67:                                               ; No predecessors!
+  br label %68
 
-71:                                               ; preds = %70, %68
-  %72 = load ptr, ptr @tt_non_periodic, align 8
-  %73 = load i8, ptr %8, align 1
-  %74 = zext i8 %73 to i64
-  %75 = getelementptr ptr, ptr %72, i64 %74
-  %76 = load ptr, ptr %75, align 8
-  %77 = load i8, ptr %9, align 1
-  %78 = zext i8 %77 to i64
-  %79 = getelementptr ptr, ptr %76, i64 %78
-  %80 = load ptr, ptr %79, align 8
-  store ptr %80, ptr %5, align 8
-  br label %81
+68:                                               ; preds = %67, %65
+  %69 = load ptr, ptr @tt_non_periodic, align 8
+  %70 = load i8, ptr %8, align 1
+  %71 = zext i8 %70 to i64
+  %72 = getelementptr ptr, ptr %69, i64 %71
+  %73 = load ptr, ptr %72, align 8
+  %74 = load i8, ptr %9, align 1
+  %75 = zext i8 %74 to i64
+  %76 = getelementptr ptr, ptr %73, i64 %75
+  %77 = load ptr, ptr %76, align 8
+  store ptr %77, ptr %5, align 8
+  br label %78
 
-81:                                               ; preds = %71, %54, %49
-  %82 = load ptr, ptr %5, align 8
-  ret ptr %82
+78:                                               ; preds = %68, %52, %48
+  %79 = load ptr, ptr %5, align 8
+  ret ptr %79
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @usbll_is_split_start_token(i32 noundef %0) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @usbll_is_split_start_token(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
-  %4 = call i32 @usbll_is_non_periodic_split_start_token(i32 noundef %3)
-  %5 = icmp ne i32 %4, 0
-  br i1 %5, label %10, label %6
+  %4 = call zeroext i1 @usbll_is_non_periodic_split_start_token(i32 noundef %3)
+  br i1 %4, label %8, label %5
 
-6:                                                ; preds = %1
-  %7 = load i32, ptr %2, align 4
-  %8 = call i32 @usbll_is_periodic_split_start_token(i32 noundef %7)
-  %9 = icmp ne i32 %8, 0
-  br label %10
+5:                                                ; preds = %1
+  %6 = load i32, ptr %2, align 4
+  %7 = call zeroext i1 @usbll_is_periodic_split_start_token(i32 noundef %6)
+  br label %8
 
-10:                                               ; preds = %6, %1
-  %11 = phi i1 [ true, %1 ], [ %9, %6 ]
-  %12 = zext i1 %11 to i32
-  ret i32 %12
+8:                                                ; preds = %5, %1
+  %9 = phi i1 [ true, %1 ], [ %7, %5 ]
+  ret i1 %9
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @tt_store_transaction(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -5519,10 +5684,10 @@ define internal void @tt_store_transaction(ptr noundef %0, i32 noundef %1, i8 no
   store i8 %3, ptr %9, align 1
   store ptr %4, ptr %10, align 8
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct._packet_info, ptr %12, i32 0, i32 8
+  %13 = getelementptr inbounds nuw %struct._packet_info, ptr %12, i32 0, i32 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct._frame_data, ptr %14, i32 0, i32 9
-  %16 = load i16, ptr %15, align 2
+  %15 = getelementptr inbounds nuw %struct._frame_data, ptr %14, i32 0, i32 11
+  %16 = load i16, ptr %15, align 1
   %17 = lshr i16 %16, 3
   %18 = and i16 %17, 1
   %19 = zext i16 %18 to i32
@@ -5533,7 +5698,7 @@ define internal void @tt_store_transaction(ptr noundef %0, i32 noundef %1, i8 no
   br label %24
 
 22:                                               ; preds = %5
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1393, ptr noundef @.str.175) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1393, ptr noundef @.str.185) #14
   unreachable
 
 23:                                               ; No predecessors!
@@ -5541,176 +5706,175 @@ define internal void @tt_store_transaction(ptr noundef %0, i32 noundef %1, i8 no
 
 24:                                               ; preds = %23, %21
   %25 = load i32, ptr %7, align 4
-  %26 = call i32 @usbll_is_split_start_token(i32 noundef %25)
-  %27 = icmp ne i32 %26, 0
-  br i1 %27, label %28, label %29
+  %26 = call zeroext i1 @usbll_is_split_start_token(i32 noundef %25)
+  br i1 %26, label %27, label %28
+
+27:                                               ; preds = %24
+  br label %30
 
 28:                                               ; preds = %24
-  br label %31
-
-29:                                               ; preds = %24
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1394, ptr noundef @.str.180) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1394, ptr noundef @.str.190) #14
   unreachable
 
-30:                                               ; No predecessors!
-  br label %31
+29:                                               ; No predecessors!
+  br label %30
 
-31:                                               ; preds = %30, %28
-  %32 = load i8, ptr %8, align 1
-  %33 = zext i8 %32 to i32
-  %34 = icmp sle i32 %33, 127
-  br i1 %34, label %35, label %36
+30:                                               ; preds = %29, %27
+  %31 = load i8, ptr %8, align 1
+  %32 = zext i8 %31 to i32
+  %33 = icmp sle i32 %32, 127
+  br i1 %33, label %34, label %35
 
-35:                                               ; preds = %31
-  br label %38
+34:                                               ; preds = %30
+  br label %37
 
-36:                                               ; preds = %31
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1395, ptr noundef @.str.177) #9
+35:                                               ; preds = %30
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1395, ptr noundef @.str.187) #14
   unreachable
 
-37:                                               ; No predecessors!
-  br label %38
+36:                                               ; No predecessors!
+  br label %37
 
-38:                                               ; preds = %37, %35
-  %39 = load i8, ptr %9, align 1
-  %40 = zext i8 %39 to i32
-  %41 = icmp sle i32 %40, 127
-  br i1 %41, label %42, label %43
+37:                                               ; preds = %36, %34
+  %38 = load i8, ptr %9, align 1
+  %39 = zext i8 %38 to i32
+  %40 = icmp sle i32 %39, 127
+  br i1 %40, label %41, label %42
 
-42:                                               ; preds = %38
-  br label %45
+41:                                               ; preds = %37
+  br label %44
 
-43:                                               ; preds = %38
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1396, ptr noundef @.str.178) #9
+42:                                               ; preds = %37
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1396, ptr noundef @.str.188) #14
   unreachable
 
-44:                                               ; No predecessors!
-  br label %45
+43:                                               ; No predecessors!
+  br label %44
 
-45:                                               ; preds = %44, %42
-  %46 = load ptr, ptr @tt_periodic, align 8
-  %47 = icmp ne ptr %46, null
-  br i1 %47, label %48, label %51
+44:                                               ; preds = %43, %41
+  %45 = load ptr, ptr @tt_periodic, align 8
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %47, label %50
 
-48:                                               ; preds = %45
-  %49 = load ptr, ptr @tt_non_periodic, align 8
-  %50 = icmp ne ptr %49, null
-  br i1 %50, label %84, label %51
+47:                                               ; preds = %44
+  %48 = load ptr, ptr @tt_non_periodic, align 8
+  %49 = icmp ne ptr %48, null
+  br i1 %49, label %83, label %50
 
-51:                                               ; preds = %48, %45
-  %52 = call ptr @wmem_file_scope()
-  %53 = call noalias ptr @wmem_alloc(ptr noundef %52, i64 noundef 1024)
-  store ptr %53, ptr @tt_periodic, align 8
+50:                                               ; preds = %47, %44
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #11
+  %51 = call ptr @wmem_file_scope()
+  %52 = call noalias ptr @wmem_alloc(ptr noundef %51, i64 noundef 1024) #13
+  store ptr %52, ptr @tt_periodic, align 8
   store i32 0, ptr %11, align 4
-  br label %54
+  br label %53
 
-54:                                               ; preds = %64, %51
-  %55 = load i32, ptr %11, align 4
-  %56 = icmp slt i32 %55, 128
-  br i1 %56, label %57, label %67
+53:                                               ; preds = %63, %50
+  %54 = load i32, ptr %11, align 4
+  %55 = icmp slt i32 %54, 128
+  br i1 %55, label %56, label %66
 
-57:                                               ; preds = %54
-  %58 = call ptr @wmem_file_scope()
-  %59 = call noalias ptr @wmem_alloc0(ptr noundef %58, i64 noundef 1024)
-  %60 = load ptr, ptr @tt_periodic, align 8
-  %61 = load i32, ptr %11, align 4
-  %62 = sext i32 %61 to i64
-  %63 = getelementptr ptr, ptr %60, i64 %62
-  store ptr %59, ptr %63, align 8
-  br label %64
+56:                                               ; preds = %53
+  %57 = call ptr @wmem_file_scope()
+  %58 = call noalias ptr @wmem_alloc0(ptr noundef %57, i64 noundef 1024) #13
+  %59 = load ptr, ptr @tt_periodic, align 8
+  %60 = load i32, ptr %11, align 4
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr ptr, ptr %59, i64 %61
+  store ptr %58, ptr %62, align 8
+  br label %63
 
-64:                                               ; preds = %57
-  %65 = load i32, ptr %11, align 4
-  %66 = add i32 %65, 1
-  store i32 %66, ptr %11, align 4
-  br label %54, !llvm.loop !4
+63:                                               ; preds = %56
+  %64 = load i32, ptr %11, align 4
+  %65 = add i32 %64, 1
+  store i32 %65, ptr %11, align 4
+  br label %53, !llvm.loop !8
 
-67:                                               ; preds = %54
-  %68 = call ptr @wmem_file_scope()
-  %69 = call noalias ptr @wmem_alloc(ptr noundef %68, i64 noundef 1024)
-  store ptr %69, ptr @tt_non_periodic, align 8
+66:                                               ; preds = %53
+  %67 = call ptr @wmem_file_scope()
+  %68 = call noalias ptr @wmem_alloc(ptr noundef %67, i64 noundef 1024) #13
+  store ptr %68, ptr @tt_non_periodic, align 8
   store i32 0, ptr %11, align 4
-  br label %70
+  br label %69
 
-70:                                               ; preds = %80, %67
-  %71 = load i32, ptr %11, align 4
-  %72 = icmp slt i32 %71, 128
-  br i1 %72, label %73, label %83
+69:                                               ; preds = %79, %66
+  %70 = load i32, ptr %11, align 4
+  %71 = icmp slt i32 %70, 128
+  br i1 %71, label %72, label %82
 
-73:                                               ; preds = %70
-  %74 = call ptr @wmem_file_scope()
-  %75 = call noalias ptr @wmem_alloc0(ptr noundef %74, i64 noundef 1024)
-  %76 = load ptr, ptr @tt_non_periodic, align 8
-  %77 = load i32, ptr %11, align 4
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr ptr, ptr %76, i64 %78
-  store ptr %75, ptr %79, align 8
-  br label %80
+72:                                               ; preds = %69
+  %73 = call ptr @wmem_file_scope()
+  %74 = call noalias ptr @wmem_alloc0(ptr noundef %73, i64 noundef 1024) #13
+  %75 = load ptr, ptr @tt_non_periodic, align 8
+  %76 = load i32, ptr %11, align 4
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr ptr, ptr %75, i64 %77
+  store ptr %74, ptr %78, align 8
+  br label %79
 
-80:                                               ; preds = %73
-  %81 = load i32, ptr %11, align 4
-  %82 = add i32 %81, 1
-  store i32 %82, ptr %11, align 4
-  br label %70, !llvm.loop !6
+79:                                               ; preds = %72
+  %80 = load i32, ptr %11, align 4
+  %81 = add i32 %80, 1
+  store i32 %81, ptr %11, align 4
+  br label %69, !llvm.loop !10
 
-83:                                               ; preds = %70
-  br label %84
+82:                                               ; preds = %69
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #11
+  br label %83
 
-84:                                               ; preds = %83, %48
-  %85 = load i32, ptr %7, align 4
-  %86 = call i32 @usbll_is_periodic_split_start_token(i32 noundef %85)
-  %87 = icmp ne i32 %86, 0
-  br i1 %87, label %88, label %98
+83:                                               ; preds = %82, %47
+  %84 = load i32, ptr %7, align 4
+  %85 = call zeroext i1 @usbll_is_periodic_split_start_token(i32 noundef %84)
+  br i1 %85, label %86, label %96
 
-88:                                               ; preds = %84
-  %89 = load ptr, ptr %10, align 8
-  %90 = load ptr, ptr @tt_periodic, align 8
-  %91 = load i8, ptr %8, align 1
-  %92 = zext i8 %91 to i64
-  %93 = getelementptr ptr, ptr %90, i64 %92
-  %94 = load ptr, ptr %93, align 8
-  %95 = load i8, ptr %9, align 1
-  %96 = zext i8 %95 to i64
-  %97 = getelementptr ptr, ptr %94, i64 %96
-  store ptr %89, ptr %97, align 8
-  br label %115
+86:                                               ; preds = %83
+  %87 = load ptr, ptr %10, align 8
+  %88 = load ptr, ptr @tt_periodic, align 8
+  %89 = load i8, ptr %8, align 1
+  %90 = zext i8 %89 to i64
+  %91 = getelementptr ptr, ptr %88, i64 %90
+  %92 = load ptr, ptr %91, align 8
+  %93 = load i8, ptr %9, align 1
+  %94 = zext i8 %93 to i64
+  %95 = getelementptr ptr, ptr %92, i64 %94
+  store ptr %87, ptr %95, align 8
+  br label %112
 
-98:                                               ; preds = %84
-  %99 = load i32, ptr %7, align 4
-  %100 = call i32 @usbll_is_non_periodic_split_start_token(i32 noundef %99)
-  %101 = icmp ne i32 %100, 0
-  br i1 %101, label %102, label %103
+96:                                               ; preds = %83
+  %97 = load i32, ptr %7, align 4
+  %98 = call zeroext i1 @usbll_is_non_periodic_split_start_token(i32 noundef %97)
+  br i1 %98, label %99, label %100
 
-102:                                              ; preds = %98
-  br label %105
+99:                                               ; preds = %96
+  br label %102
 
-103:                                              ; preds = %98
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1422, ptr noundef @.str.181) #9
+100:                                              ; preds = %96
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1422, ptr noundef @.str.191) #14
   unreachable
 
-104:                                              ; No predecessors!
-  br label %105
+101:                                              ; No predecessors!
+  br label %102
 
-105:                                              ; preds = %104, %102
-  %106 = load ptr, ptr %10, align 8
-  %107 = load ptr, ptr @tt_non_periodic, align 8
-  %108 = load i8, ptr %8, align 1
-  %109 = zext i8 %108 to i64
-  %110 = getelementptr ptr, ptr %107, i64 %109
-  %111 = load ptr, ptr %110, align 8
-  %112 = load i8, ptr %9, align 1
-  %113 = zext i8 %112 to i64
-  %114 = getelementptr ptr, ptr %111, i64 %113
-  store ptr %106, ptr %114, align 8
-  br label %115
+102:                                              ; preds = %101, %99
+  %103 = load ptr, ptr %10, align 8
+  %104 = load ptr, ptr @tt_non_periodic, align 8
+  %105 = load i8, ptr %8, align 1
+  %106 = zext i8 %105 to i64
+  %107 = getelementptr ptr, ptr %104, i64 %106
+  %108 = load ptr, ptr %107, align 8
+  %109 = load i8, ptr %9, align 1
+  %110 = zext i8 %109 to i64
+  %111 = getelementptr ptr, ptr %108, i64 %110
+  store ptr %103, ptr %111, align 8
+  br label %112
 
-115:                                              ; preds = %105, %88
+112:                                              ; preds = %102, %86
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @usbll_is_non_periodic_split_complete_token(i32 noundef %0) #0 {
-  %2 = alloca i32, align 4
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @usbll_is_non_periodic_split_complete_token(i32 noundef %0) #3 {
+  %2 = alloca i1, align 1
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
   %4 = load i32, ptr %3, align 4
@@ -5723,21 +5887,21 @@ define internal i32 @usbll_is_non_periodic_split_complete_token(i32 noundef %0) 
   ]
 
 5:                                                ; preds = %1, %1, %1, %1, %1
-  store i32 1, ptr %2, align 4
+  store i1 true, ptr %2, align 1
   br label %7
 
 6:                                                ; preds = %1
-  store i32 0, ptr %2, align 4
+  store i1 false, ptr %2, align 1
   br label %7
 
 7:                                                ; preds = %6, %5
-  %8 = load i32, ptr %2, align 4
-  ret i32 %8
+  %8 = load i1, ptr %2, align 1
+  ret i1 %8
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @usbll_is_periodic_split_complete_token(i32 noundef %0) #0 {
-  %2 = alloca i32, align 4
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @usbll_is_periodic_split_complete_token(i32 noundef %0) #3 {
+  %2 = alloca i1, align 1
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
   %4 = load i32, ptr %3, align 4
@@ -5748,21 +5912,21 @@ define internal i32 @usbll_is_periodic_split_complete_token(i32 noundef %0) #0 {
   ]
 
 5:                                                ; preds = %1, %1, %1
-  store i32 1, ptr %2, align 4
+  store i1 true, ptr %2, align 1
   br label %7
 
 6:                                                ; preds = %1
-  store i32 0, ptr %2, align 4
+  store i1 false, ptr %2, align 1
   br label %7
 
 7:                                                ; preds = %6, %5
-  %8 = load i32, ptr %2, align 4
-  ret i32 %8
+  %8 = load i1, ptr %2, align 1
+  ret i1 %8
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @usbll_is_non_periodic_split_start_token(i32 noundef %0) #0 {
-  %2 = alloca i32, align 4
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @usbll_is_non_periodic_split_start_token(i32 noundef %0) #3 {
+  %2 = alloca i1, align 1
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
   %4 = load i32, ptr %3, align 4
@@ -5775,21 +5939,21 @@ define internal i32 @usbll_is_non_periodic_split_start_token(i32 noundef %0) #0 
   ]
 
 5:                                                ; preds = %1, %1, %1, %1, %1
-  store i32 1, ptr %2, align 4
+  store i1 true, ptr %2, align 1
   br label %7
 
 6:                                                ; preds = %1
-  store i32 0, ptr %2, align 4
+  store i1 false, ptr %2, align 1
   br label %7
 
 7:                                                ; preds = %6, %5
-  %8 = load i32, ptr %2, align 4
-  ret i32 %8
+  %8 = load i1, ptr %2, align 1
+  ret i1 %8
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @usbll_is_periodic_split_start_token(i32 noundef %0) #0 {
-  %2 = alloca i32, align 4
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @usbll_is_periodic_split_start_token(i32 noundef %0) #3 {
+  %2 = alloca i1, align 1
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
   %4 = load i32, ptr %3, align 4
@@ -5801,25 +5965,27 @@ define internal i32 @usbll_is_periodic_split_start_token(i32 noundef %0) #0 {
   ]
 
 5:                                                ; preds = %1, %1, %1, %1
-  store i32 1, ptr %2, align 4
+  store i1 true, ptr %2, align 1
   br label %7
 
 6:                                                ; preds = %1
-  store i32 0, ptr %2, align 4
+  store i1 false, ptr %2, align 1
   br label %7
 
 7:                                                ; preds = %6, %5
-  %8 = load i32, ptr %2, align 4
-  ret i32 %8
+  %8 = load i1, ptr %2, align 1
+  ret i1 %8
 }
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #2
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #6
 
-declare zeroext i16 @crc16_usb_tvb_offset(ptr noundef, i32 noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @crc16_usb_tvb_offset(ptr noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @usbll_is_setup_data(i32 noundef %0) #0 {
-  %2 = alloca i32, align 4
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @usbll_is_setup_data(i32 noundef %0) #3 {
+  %2 = alloca i1, align 1
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
   %4 = load i32, ptr %3, align 4
@@ -5829,24 +5995,24 @@ define internal i32 @usbll_is_setup_data(i32 noundef %0) #0 {
   ]
 
 5:                                                ; preds = %1, %1
-  store i32 1, ptr %2, align 4
+  store i1 true, ptr %2, align 1
   br label %7
 
 6:                                                ; preds = %1
-  store i32 0, ptr %2, align 4
+  store i1 false, ptr %2, align 1
   br label %7
 
 7:                                                ; preds = %6, %5
-  %8 = load i32, ptr %2, align 4
-  ret i32 %8
+  %8 = load i1, ptr %2, align 1
+  ret i1 %8
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @usbll_get_endpoint_info(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i32 noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal ptr @usbll_get_endpoint_info(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i1 noundef zeroext %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
-  %8 = alloca i32, align 4
+  %8 = alloca i8, align 1
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
@@ -5855,218 +6021,230 @@ define internal ptr @usbll_get_endpoint_info(ptr noundef %0, i8 noundef zeroext 
   store ptr %0, ptr %5, align 8
   store i8 %1, ptr %6, align 1
   store i8 %2, ptr %7, align 1
-  store i32 %3, ptr %8, align 4
-  %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds %struct._packet_info, ptr %14, i32 0, i32 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds %struct._frame_data, ptr %16, i32 0, i32 9
-  %18 = load i16, ptr %17, align 2
-  %19 = lshr i16 %18, 3
-  %20 = and i16 %19, 1
-  %21 = zext i16 %20 to i32
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %24, label %23
-
-23:                                               ; preds = %4
-  br label %26
+  %14 = zext i1 %3 to i8
+  store i8 %14, ptr %8, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  %15 = load ptr, ptr %5, align 8
+  %16 = getelementptr inbounds nuw %struct._packet_info, ptr %15, i32 0, i32 8
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds nuw %struct._frame_data, ptr %17, i32 0, i32 11
+  %19 = load i16, ptr %18, align 1
+  %20 = lshr i16 %19, 3
+  %21 = and i16 %20, 1
+  %22 = zext i16 %21 to i32
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %25, label %24
 
 24:                                               ; preds = %4
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1494, ptr noundef @.str.175) #9
+  br label %27
+
+25:                                               ; preds = %4
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1494, ptr noundef @.str.185) #14
   unreachable
 
-25:                                               ; No predecessors!
-  br label %26
+26:                                               ; No predecessors!
+  br label %27
 
-26:                                               ; preds = %25, %23
-  %27 = load i8, ptr %6, align 1
-  %28 = zext i8 %27 to i32
-  %29 = icmp sle i32 %28, 127
-  br i1 %29, label %30, label %31
+27:                                               ; preds = %26, %24
+  %28 = load i8, ptr %6, align 1
+  %29 = zext i8 %28 to i32
+  %30 = icmp sle i32 %29, 127
+  br i1 %30, label %31, label %32
 
-30:                                               ; preds = %26
-  br label %33
+31:                                               ; preds = %27
+  br label %34
 
-31:                                               ; preds = %26
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1495, ptr noundef @.str.186) #9
+32:                                               ; preds = %27
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1495, ptr noundef @.str.196) #14
   unreachable
 
-32:                                               ; No predecessors!
-  br label %33
+33:                                               ; No predecessors!
+  br label %34
 
-33:                                               ; preds = %32, %30
-  %34 = load i8, ptr %7, align 1
-  %35 = zext i8 %34 to i32
-  %36 = icmp sle i32 %35, 15
-  br i1 %36, label %37, label %38
+34:                                               ; preds = %33, %31
+  %35 = load i8, ptr %7, align 1
+  %36 = zext i8 %35 to i32
+  %37 = icmp sle i32 %36, 15
+  br i1 %37, label %38, label %39
 
-37:                                               ; preds = %33
-  br label %40
+38:                                               ; preds = %34
+  br label %41
 
-38:                                               ; preds = %33
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1496, ptr noundef @.str.187) #9
+39:                                               ; preds = %34
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1496, ptr noundef @.str.197) #14
   unreachable
 
-39:                                               ; No predecessors!
-  br label %40
+40:                                               ; No predecessors!
+  br label %41
 
-40:                                               ; preds = %39, %37
-  %41 = load ptr, ptr @ep_info_in, align 8
-  %42 = icmp ne ptr %41, null
-  br i1 %42, label %43, label %46
+41:                                               ; preds = %40, %38
+  %42 = load ptr, ptr @ep_info_in, align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %47
 
-43:                                               ; preds = %40
-  %44 = load ptr, ptr @ep_info_out, align 8
-  %45 = icmp ne ptr %44, null
-  br i1 %45, label %59, label %46
+44:                                               ; preds = %41
+  %45 = load ptr, ptr @ep_info_out, align 8
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %60, label %47
 
-46:                                               ; preds = %43, %40
+47:                                               ; preds = %44, %41
   call void @usbll_init_endpoint_tables()
-  %47 = load ptr, ptr @ep_info_in, align 8
-  %48 = icmp ne ptr %47, null
-  br i1 %48, label %49, label %50
+  %48 = load ptr, ptr @ep_info_in, align 8
+  %49 = icmp ne ptr %48, null
+  br i1 %49, label %50, label %51
 
-49:                                               ; preds = %46
-  br label %52
+50:                                               ; preds = %47
+  br label %53
 
-50:                                               ; preds = %46
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1501, ptr noundef @.str.188) #9
+51:                                               ; preds = %47
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1501, ptr noundef @.str.198) #14
   unreachable
 
-51:                                               ; No predecessors!
-  br label %52
+52:                                               ; No predecessors!
+  br label %53
 
-52:                                               ; preds = %51, %49
-  %53 = load ptr, ptr @ep_info_out, align 8
-  %54 = icmp ne ptr %53, null
-  br i1 %54, label %55, label %56
+53:                                               ; preds = %52, %50
+  %54 = load ptr, ptr @ep_info_out, align 8
+  %55 = icmp ne ptr %54, null
+  br i1 %55, label %56, label %57
 
-55:                                               ; preds = %52
-  br label %58
-
-56:                                               ; preds = %52
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1502, ptr noundef @.str.189) #9
-  unreachable
-
-57:                                               ; No predecessors!
-  br label %58
-
-58:                                               ; preds = %57, %55
+56:                                               ; preds = %53
   br label %59
 
-59:                                               ; preds = %58, %43
-  %60 = load i32, ptr %8, align 4
-  %61 = icmp ne i32 %60, 0
-  br i1 %61, label %62, label %71
+57:                                               ; preds = %53
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1502, ptr noundef @.str.199) #14
+  unreachable
 
-62:                                               ; preds = %59
-  %63 = load ptr, ptr @ep_info_out, align 8
-  %64 = load i8, ptr %6, align 1
-  %65 = zext i8 %64 to i64
-  %66 = getelementptr ptr, ptr %63, i64 %65
-  %67 = load ptr, ptr %66, align 8
-  %68 = load i8, ptr %7, align 1
-  %69 = zext i8 %68 to i64
-  %70 = getelementptr %struct.usbll_endpoint_info, ptr %67, i64 %69
-  store ptr %70, ptr %9, align 8
-  br label %80
+58:                                               ; No predecessors!
+  br label %59
 
-71:                                               ; preds = %59
-  %72 = load ptr, ptr @ep_info_in, align 8
-  %73 = load i8, ptr %6, align 1
-  %74 = zext i8 %73 to i64
-  %75 = getelementptr ptr, ptr %72, i64 %74
-  %76 = load ptr, ptr %75, align 8
-  %77 = load i8, ptr %7, align 1
-  %78 = zext i8 %77 to i64
-  %79 = getelementptr %struct.usbll_endpoint_info, ptr %76, i64 %78
-  store ptr %79, ptr %9, align 8
-  br label %80
+59:                                               ; preds = %58, %56
+  br label %60
 
-80:                                               ; preds = %71, %62
-  %81 = load i8, ptr %7, align 1
-  %82 = zext i8 %81 to i32
-  %83 = icmp ne i32 %82, 0
-  br i1 %83, label %84, label %133
+60:                                               ; preds = %59, %44
+  %61 = load i8, ptr %8, align 1, !range !6, !noundef !7
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %63, label %72
 
-84:                                               ; preds = %80
+63:                                               ; preds = %60
+  %64 = load ptr, ptr @ep_info_out, align 8
+  %65 = load i8, ptr %6, align 1
+  %66 = zext i8 %65 to i64
+  %67 = getelementptr ptr, ptr %64, i64 %66
+  %68 = load ptr, ptr %67, align 8
+  %69 = load i8, ptr %7, align 1
+  %70 = zext i8 %69 to i64
+  %71 = getelementptr %struct.usbll_endpoint_info, ptr %68, i64 %70
+  store ptr %71, ptr %9, align 8
+  br label %81
+
+72:                                               ; preds = %60
+  %73 = load ptr, ptr @ep_info_in, align 8
+  %74 = load i8, ptr %6, align 1
+  %75 = zext i8 %74 to i64
+  %76 = getelementptr ptr, ptr %73, i64 %75
+  %77 = load ptr, ptr %76, align 8
+  %78 = load i8, ptr %7, align 1
+  %79 = zext i8 %78 to i64
+  %80 = getelementptr %struct.usbll_endpoint_info, ptr %77, i64 %79
+  store ptr %80, ptr %9, align 8
+  br label %81
+
+81:                                               ; preds = %72, %63
+  %82 = load i8, ptr %7, align 1
+  %83 = zext i8 %82 to i32
+  %84 = icmp ne i32 %83, 0
+  br i1 %84, label %85, label %134
+
+85:                                               ; preds = %81
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #11
   store i32 0, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #11
   store i16 0, ptr %12, align 2
-  %85 = load i8, ptr %7, align 1
-  %86 = zext i8 %85 to i32
-  %87 = load i32, ptr %8, align 4
-  %88 = icmp ne i32 %87, 0
-  %89 = select i1 %88, i32 0, i32 128
-  %90 = or i32 %86, %89
-  %91 = trunc i32 %90 to i8
-  store i8 %91, ptr %13, align 1
-  %92 = load ptr, ptr %5, align 8
-  %93 = load i8, ptr %6, align 1
-  %94 = zext i8 %93 to i16
-  %95 = load i8, ptr %13, align 1
-  %96 = zext i8 %95 to i32
-  %97 = call ptr @get_existing_usb_ep_conv_info(ptr noundef %92, i16 noundef zeroext 0, i16 noundef zeroext %94, i32 noundef %96)
-  store ptr %97, ptr %10, align 8
-  %98 = load ptr, ptr %10, align 8
-  %99 = icmp ne ptr %98, null
-  br i1 %99, label %100, label %114
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #11
+  %86 = load i8, ptr %7, align 1
+  %87 = zext i8 %86 to i32
+  %88 = load i8, ptr %8, align 1, !range !6, !noundef !7
+  %89 = trunc i8 %88 to i1
+  %90 = select i1 %89, i32 0, i32 128
+  %91 = or i32 %87, %90
+  %92 = trunc i32 %91 to i8
+  store i8 %92, ptr %13, align 1
+  %93 = load ptr, ptr %5, align 8
+  %94 = load i8, ptr %6, align 1
+  %95 = zext i8 %94 to i16
+  %96 = load i8, ptr %13, align 1
+  %97 = zext i8 %96 to i32
+  %98 = call ptr @get_existing_usb_ep_conv_info(ptr noundef %93, i16 noundef zeroext 0, i16 noundef zeroext %95, i32 noundef %97)
+  store ptr %98, ptr %10, align 8
+  %99 = load ptr, ptr %10, align 8
+  %100 = icmp ne ptr %99, null
+  br i1 %100, label %101, label %115
 
-100:                                              ; preds = %84
-  %101 = load ptr, ptr %10, align 8
-  %102 = getelementptr inbounds %struct._usb_conv_info_t, ptr %101, i32 0, i32 6
-  %103 = load i16, ptr %102, align 2
-  %104 = zext i16 %103 to i32
-  %105 = icmp ne i32 %104, 0
-  br i1 %105, label %106, label %114
+101:                                              ; preds = %85
+  %102 = load ptr, ptr %10, align 8
+  %103 = getelementptr inbounds nuw %struct._usb_conv_info_t, ptr %102, i32 0, i32 1
+  %104 = load i16, ptr %103, align 2
+  %105 = zext i16 %104 to i32
+  %106 = icmp ne i32 %105, 0
+  br i1 %106, label %107, label %115
 
-106:                                              ; preds = %100
-  %107 = load ptr, ptr %10, align 8
-  %108 = getelementptr inbounds %struct._usb_conv_info_t, ptr %107, i32 0, i32 5
-  %109 = load i8, ptr %108, align 1
-  %110 = call i32 @usbll_ep_type_from_urb_type(i8 noundef zeroext %109)
-  store i32 %110, ptr %11, align 4
-  %111 = load ptr, ptr %10, align 8
-  %112 = getelementptr inbounds %struct._usb_conv_info_t, ptr %111, i32 0, i32 6
-  %113 = load i16, ptr %112, align 2
-  store i16 %113, ptr %12, align 2
-  br label %114
+107:                                              ; preds = %101
+  %108 = load ptr, ptr %10, align 8
+  %109 = getelementptr inbounds nuw %struct._usb_conv_info_t, ptr %108, i32 0, i32 0
+  %110 = load i8, ptr %109, align 8
+  %111 = call i32 @usbll_ep_type_from_urb_type(i8 noundef zeroext %110)
+  store i32 %111, ptr %11, align 4
+  %112 = load ptr, ptr %10, align 8
+  %113 = getelementptr inbounds nuw %struct._usb_conv_info_t, ptr %112, i32 0, i32 1
+  %114 = load i16, ptr %113, align 2
+  store i16 %114, ptr %12, align 2
+  br label %115
 
-114:                                              ; preds = %106, %100, %84
-  %115 = load ptr, ptr %9, align 8
-  %116 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %115, i32 0, i32 0
-  %117 = load i32, ptr %116, align 4
-  %118 = load i32, ptr %11, align 4
-  %119 = icmp ne i32 %117, %118
-  br i1 %119, label %128, label %120
+115:                                              ; preds = %107, %101, %85
+  %116 = load ptr, ptr %9, align 8
+  %117 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %116, i32 0, i32 0
+  %118 = load i32, ptr %117, align 4
+  %119 = load i32, ptr %11, align 4
+  %120 = icmp ne i32 %118, %119
+  br i1 %120, label %129, label %121
 
-120:                                              ; preds = %114
-  %121 = load ptr, ptr %9, align 8
-  %122 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %121, i32 0, i32 2
-  %123 = load i16, ptr %122, align 4
-  %124 = zext i16 %123 to i32
-  %125 = load i16, ptr %12, align 2
-  %126 = zext i16 %125 to i32
-  %127 = icmp ne i32 %124, %126
-  br i1 %127, label %128, label %132
+121:                                              ; preds = %115
+  %122 = load ptr, ptr %9, align 8
+  %123 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %122, i32 0, i32 2
+  %124 = load i16, ptr %123, align 4
+  %125 = zext i16 %124 to i32
+  %126 = load i16, ptr %12, align 2
+  %127 = zext i16 %126 to i32
+  %128 = icmp ne i32 %125, %127
+  br i1 %128, label %129, label %133
 
-128:                                              ; preds = %120, %114
-  %129 = load ptr, ptr %9, align 8
-  %130 = load i32, ptr %11, align 4
-  %131 = load i16, ptr %12, align 2
-  call void @usbll_reset_endpoint_info(ptr noundef %129, i32 noundef %130, i16 noundef zeroext %131)
-  br label %132
-
-132:                                              ; preds = %128, %120
+129:                                              ; preds = %121, %115
+  %130 = load ptr, ptr %9, align 8
+  %131 = load i32, ptr %11, align 4
+  %132 = load i16, ptr %12, align 2
+  call void @usbll_reset_endpoint_info(ptr noundef %130, i32 noundef %131, i16 noundef zeroext %132)
   br label %133
 
-133:                                              ; preds = %132, %80
-  %134 = load ptr, ptr %9, align 8
-  ret ptr %134
+133:                                              ; preds = %129, %121
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  br label %134
+
+134:                                              ; preds = %133, %81
+  %135 = load ptr, ptr %9, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  ret ptr %135
 }
 
-declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal void @usbll_reset_endpoint_info(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @usbll_reset_endpoint_info(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2) #3 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i16, align 2
@@ -6075,42 +6253,43 @@ define internal void @usbll_reset_endpoint_info(ptr noundef %0, i32 noundef %1, 
   store i16 %2, ptr %6, align 2
   %7 = load i32, ptr %5, align 4
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %8, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %8, i32 0, i32 0
   store i32 %7, ptr %9, align 4
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %10, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %10, i32 0, i32 1
   store i32 0, ptr %11, align 4
   %12 = load i16, ptr %6, align 2
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %13, i32 0, i32 2
+  %14 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %13, i32 0, i32 2
   store i16 %12, ptr %14, align 4
   %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %15, i32 0, i32 3
+  %16 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %15, i32 0, i32 3
   store i8 0, ptr %16, align 2
   %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %17, i32 0, i32 4
-  store i32 0, ptr %18, align 4
+  %18 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %17, i32 0, i32 4
+  store i8 0, ptr %18, align 1
   %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %19, i32 0, i32 5
+  %20 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %19, i32 0, i32 5
   store i32 0, ptr %20, align 4
   %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %21, i32 0, i32 6
+  %22 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %21, i32 0, i32 6
   store i32 0, ptr %22, align 4
   %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %23, i32 0, i32 7
+  %24 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %23, i32 0, i32 7
   store i32 0, ptr %24, align 4
   %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %25, i32 0, i32 8
+  %26 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %25, i32 0, i32 8
   store i32 0, ptr %26, align 4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @is_get_device_descriptor(ptr noundef %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @is_get_device_descriptor(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %3) #11
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr i8, ptr %5, i64 4
   %7 = load i8, ptr %6, align 1
@@ -6123,6 +6302,7 @@ define internal i32 @is_get_device_descriptor(ptr noundef %0) #0 {
   %14 = or i32 %8, %13
   %15 = trunc i32 %14 to i16
   store i16 %15, ptr %3, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %4) #11
   %16 = load ptr, ptr %2, align 8
   %17 = getelementptr i8, ptr %16, i64 6
   %18 = load i8, ptr %17, align 1
@@ -6180,17 +6360,19 @@ define internal i32 @is_get_device_descriptor(ptr noundef %0) #0 {
 
 58:                                               ; preds = %54, %50, %44, %38, %32, %1
   %59 = phi i1 [ false, %50 ], [ false, %44 ], [ false, %38 ], [ false, %32 ], [ false, %1 ], [ %57, %54 ]
-  %60 = zext i1 %59 to i32
-  ret i32 %60
+  call void @llvm.lifetime.end.p0(i64 2, ptr %4) #11
+  call void @llvm.lifetime.end.p0(i64 2, ptr %3) #11
+  ret i1 %59
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @is_set_address(ptr noundef %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @is_set_address(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
   %5 = alloca i16, align 2
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %3) #11
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr i8, ptr %6, i64 2
   %8 = load i8, ptr %7, align 1
@@ -6203,6 +6385,7 @@ define internal i32 @is_set_address(ptr noundef %0) #0 {
   %15 = or i32 %9, %14
   %16 = trunc i32 %15 to i16
   store i16 %16, ptr %3, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %4) #11
   %17 = load ptr, ptr %2, align 8
   %18 = getelementptr i8, ptr %17, i64 4
   %19 = load i8, ptr %18, align 1
@@ -6215,6 +6398,7 @@ define internal i32 @is_set_address(ptr noundef %0) #0 {
   %26 = or i32 %20, %25
   %27 = trunc i32 %26 to i16
   store i16 %27, ptr %4, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %5) #11
   %28 = load ptr, ptr %2, align 8
   %29 = getelementptr i8, ptr %28, i64 6
   %30 = load i8, ptr %29, align 1
@@ -6262,15 +6446,18 @@ define internal i32 @is_set_address(ptr noundef %0) #0 {
 
 62:                                               ; preds = %58, %54, %50, %44, %1
   %63 = phi i1 [ false, %54 ], [ false, %50 ], [ false, %44 ], [ false, %1 ], [ %61, %58 ]
-  %64 = zext i1 %63 to i32
-  ret i32 %64
+  call void @llvm.lifetime.end.p0(i64 2, ptr %5) #11
+  call void @llvm.lifetime.end.p0(i64 2, ptr %4) #11
+  call void @llvm.lifetime.end.p0(i64 2, ptr %3) #11
+  ret i1 %63
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @usbll_reset_device_endpoints(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #11
   %4 = load i32, ptr %2, align 4
   %5 = icmp sge i32 %4, 0
   br i1 %5, label %6, label %10
@@ -6284,7 +6471,7 @@ define internal void @usbll_reset_device_endpoints(i32 noundef %0) #0 {
   br label %12
 
 10:                                               ; preds = %6, %1
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1457, ptr noundef @.str.190) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1457, ptr noundef @.str.200) #14
   unreachable
 
 11:                                               ; No predecessors!
@@ -6338,17 +6525,19 @@ define internal void @usbll_reset_device_endpoints(i32 noundef %0) #0 {
   %46 = load i32, ptr %3, align 4
   %47 = add i32 %46, 1
   store i32 %47, ptr %3, align 4
-  br label %25, !llvm.loop !7
+  br label %25, !llvm.loop !11
 
 48:                                               ; preds = %25
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #11
   ret void
 }
 
-declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @usbll_is_data_from_host(i32 noundef %0) #0 {
-  %2 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @usbll_is_data_from_host(i32 noundef %0) #0 {
+  %2 = alloca i1, align 1
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
   %4 = load i32, ptr %3, align 4
@@ -6381,180 +6570,235 @@ define internal i32 @usbll_is_data_from_host(i32 noundef %0) #0 {
   ]
 
 5:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  store i32 1, ptr %2, align 4
+  store i1 true, ptr %2, align 1
   br label %8
 
 6:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  store i32 0, ptr %2, align 4
+  store i1 false, ptr %2, align 1
   br label %8
 
 7:                                                ; preds = %1
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.191, ptr noundef @.str.169, i32 noundef 940) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.201, ptr noundef @.str.179, i32 noundef 940) #14
   unreachable
 
 8:                                                ; preds = %6, %5
-  %9 = load i32, ptr %2, align 4
-  ret i32 %9
+  %9 = load i1, ptr %2, align 1
+  ret i1 %9
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @packet_ends_transfer(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
-  %4 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @packet_ends_transfer(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i1, align 1
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store i32 %1, ptr %6, align 4
   store i32 %2, ptr %7, align 4
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %8, i32 0, i32 0
-  %10 = load i32, ptr %9, align 4
-  %11 = icmp ne i32 %10, 0
-  br i1 %11, label %12, label %13
+  %10 = load ptr, ptr %5, align 8
+  %11 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %10, i32 0, i32 0
+  %12 = load i32, ptr %11, align 4
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %14, label %15
 
-12:                                               ; preds = %3
-  br label %15
+14:                                               ; preds = %3
+  br label %17
 
-13:                                               ; preds = %3
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1653, ptr noundef @.str.192) #9
+15:                                               ; preds = %3
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1653, ptr noundef @.str.202) #14
   unreachable
 
-14:                                               ; No predecessors!
-  br label %15
+16:                                               ; No predecessors!
+  br label %17
 
-15:                                               ; preds = %14, %12
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %16, i32 0, i32 8
-  %18 = load i32, ptr %17, align 4
-  %19 = icmp ne i32 %18, 0
-  br i1 %19, label %20, label %30
+17:                                               ; preds = %16, %14
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %18, i32 0, i32 8
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %32
 
-20:                                               ; preds = %15
-  %21 = load i32, ptr %6, align 4
-  %22 = load i32, ptr %7, align 4
-  %23 = add i32 %21, %22
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %24, i32 0, i32 8
-  %26 = load i32, ptr %25, align 4
-  %27 = icmp uge i32 %23, %26
-  br i1 %27, label %28, label %29
+22:                                               ; preds = %17
+  %23 = load i32, ptr %6, align 4
+  %24 = load i32, ptr %7, align 4
+  %25 = add i32 %23, %24
+  %26 = load ptr, ptr %5, align 8
+  %27 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %26, i32 0, i32 8
+  %28 = load i32, ptr %27, align 4
+  %29 = icmp uge i32 %25, %28
+  br i1 %29, label %30, label %31
 
-28:                                               ; preds = %20
-  store i32 1, ptr %4, align 4
-  br label %80
+30:                                               ; preds = %22
+  store i1 true, ptr %4, align 1
+  br label %118
 
-29:                                               ; preds = %20
-  br label %54
+31:                                               ; preds = %22
+  br label %93
 
-30:                                               ; preds = %15
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %31, i32 0, i32 0
-  %33 = load i32, ptr %32, align 4
-  %34 = icmp ne i32 %33, 1
-  br i1 %34, label %35, label %36
+32:                                               ; preds = %17
+  %33 = load ptr, ptr %5, align 8
+  %34 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %33, i32 0, i32 0
+  %35 = load i32, ptr %34, align 4
+  %36 = icmp ne i32 %35, 1
+  br i1 %36, label %37, label %38
 
-35:                                               ; preds = %30
-  br label %38
+37:                                               ; preds = %32
+  br label %40
 
-36:                                               ; preds = %30
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1667, ptr noundef @.str.193) #9
+38:                                               ; preds = %32
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1667, ptr noundef @.str.203) #14
   unreachable
 
-37:                                               ; No predecessors!
-  br label %38
+39:                                               ; No predecessors!
+  br label %40
 
-38:                                               ; preds = %37, %35
-  %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %39, i32 0, i32 2
-  %41 = load i16, ptr %40, align 4
-  %42 = zext i16 %41 to i32
-  %43 = icmp ne i32 %42, 0
-  br i1 %43, label %44, label %45
+40:                                               ; preds = %39, %37
+  %41 = load ptr, ptr %5, align 8
+  %42 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %41, i32 0, i32 2
+  %43 = load i16, ptr %42, align 4
+  %44 = zext i16 %43 to i32
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %46, label %47
 
-44:                                               ; preds = %38
-  br label %47
+46:                                               ; preds = %40
+  br label %49
 
-45:                                               ; preds = %38
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1668, ptr noundef @.str.194) #9
+47:                                               ; preds = %40
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1668, ptr noundef @.str.204) #14
   unreachable
 
-46:                                               ; No predecessors!
-  br label %47
+48:                                               ; No predecessors!
+  br label %49
 
-47:                                               ; preds = %46, %44
-  %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %48, i32 0, i32 0
-  %50 = load i32, ptr %49, align 4
-  %51 = icmp ne i32 %50, 2
-  br i1 %51, label %52, label %53
+49:                                               ; preds = %48, %46
+  %50 = load ptr, ptr %5, align 8
+  %51 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %50, i32 0, i32 0
+  %52 = load i32, ptr %51, align 4
+  %53 = icmp ne i32 %52, 2
+  br i1 %53, label %54, label %92
 
-52:                                               ; preds = %47
-  store i32 1, ptr %4, align 4
-  br label %80
-
-53:                                               ; preds = %47
-  br label %54
-
-54:                                               ; preds = %53, %29
+54:                                               ; preds = %49
   %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %55, i32 0, i32 2
+  %56 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %55, i32 0, i32 2
   %57 = load i16, ptr %56, align 4
-  %58 = icmp ne i16 %57, 0
-  br i1 %58, label %59, label %67
+  %58 = zext i16 %57 to i32
+  %59 = and i32 %58, 6144
+  %60 = ashr i32 %59, 11
+  %61 = icmp ne i32 %60, 0
+  br i1 %61, label %62, label %91
 
-59:                                               ; preds = %54
-  %60 = load i32, ptr %7, align 4
-  %61 = load ptr, ptr %5, align 8
-  %62 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %61, i32 0, i32 2
-  %63 = load i16, ptr %62, align 4
-  %64 = zext i16 %63 to i32
-  %65 = icmp slt i32 %60, %64
-  %66 = zext i1 %65 to i32
-  store i32 %66, ptr %4, align 4
-  br label %80
+62:                                               ; preds = %54
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  %63 = load ptr, ptr %5, align 8
+  %64 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %63, i32 0, i32 2
+  %65 = load i16, ptr %64, align 4
+  %66 = zext i16 %65 to i32
+  %67 = and i32 %66, 6144
+  %68 = ashr i32 %67, 11
+  %69 = add i32 %68, 1
+  %70 = load ptr, ptr %5, align 8
+  %71 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %70, i32 0, i32 2
+  %72 = load i16, ptr %71, align 4
+  %73 = zext i16 %72 to i32
+  %74 = and i32 %73, 2047
+  %75 = mul i32 %69, %74
+  store i32 %75, ptr %8, align 4
+  %76 = load i32, ptr %7, align 4
+  %77 = load ptr, ptr %5, align 8
+  %78 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %77, i32 0, i32 2
+  %79 = load i16, ptr %78, align 4
+  %80 = zext i16 %79 to i32
+  %81 = and i32 %80, 2047
+  %82 = icmp slt i32 %76, %81
+  br i1 %82, label %83, label %84
 
-67:                                               ; preds = %54
-  %68 = load ptr, ptr %5, align 8
-  %69 = getelementptr inbounds %struct.usbll_endpoint_info, ptr %68, i32 0, i32 0
-  %70 = load i32, ptr %69, align 4
-  %71 = icmp eq i32 %70, 1
-  br i1 %71, label %72, label %73
+83:                                               ; preds = %62
+  store i1 true, ptr %4, align 1
+  store i32 1, ptr %9, align 4
+  br label %90
 
-72:                                               ; preds = %67
-  br label %75
+84:                                               ; preds = %62
+  %85 = load i32, ptr %6, align 4
+  %86 = load i32, ptr %7, align 4
+  %87 = add i32 %85, %86
+  %88 = load i32, ptr %8, align 4
+  %89 = icmp uge i32 %87, %88
+  store i1 %89, ptr %4, align 1
+  store i32 1, ptr %9, align 4
+  br label %90
 
-73:                                               ; preds = %67
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1685, ptr noundef @.str.195) #9
+90:                                               ; preds = %84, %83
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  br label %118
+
+91:                                               ; preds = %54
+  store i1 true, ptr %4, align 1
+  br label %118
+
+92:                                               ; preds = %49
+  br label %93
+
+93:                                               ; preds = %92, %31
+  %94 = load ptr, ptr %5, align 8
+  %95 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %94, i32 0, i32 2
+  %96 = load i16, ptr %95, align 4
+  %97 = icmp ne i16 %96, 0
+  br i1 %97, label %98, label %105
+
+98:                                               ; preds = %93
+  %99 = load i32, ptr %7, align 4
+  %100 = load ptr, ptr %5, align 8
+  %101 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %100, i32 0, i32 2
+  %102 = load i16, ptr %101, align 4
+  %103 = zext i16 %102 to i32
+  %104 = icmp slt i32 %99, %103
+  store i1 %104, ptr %4, align 1
+  br label %118
+
+105:                                              ; preds = %93
+  %106 = load ptr, ptr %5, align 8
+  %107 = getelementptr inbounds nuw %struct.usbll_endpoint_info, ptr %106, i32 0, i32 0
+  %108 = load i32, ptr %107, align 4
+  %109 = icmp eq i32 %108, 1
+  br i1 %109, label %110, label %111
+
+110:                                              ; preds = %105
+  br label %113
+
+111:                                              ; preds = %105
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1699, ptr noundef @.str.205) #14
   unreachable
 
-74:                                               ; No predecessors!
-  br label %75
+112:                                              ; No predecessors!
+  br label %113
 
-75:                                               ; preds = %74, %72
-  %76 = load i32, ptr %7, align 4
-  %77 = icmp slt i32 %76, 64
-  br i1 %77, label %78, label %79
+113:                                              ; preds = %112, %110
+  %114 = load i32, ptr %7, align 4
+  %115 = icmp slt i32 %114, 64
+  br i1 %115, label %116, label %117
 
-78:                                               ; preds = %75
-  store i32 1, ptr %4, align 4
-  br label %80
+116:                                              ; preds = %113
+  store i1 true, ptr %4, align 1
+  br label %118
 
-79:                                               ; preds = %75
-  store i32 0, ptr %4, align 4
-  br label %80
+117:                                              ; preds = %113
+  store i1 false, ptr %4, align 1
+  br label %118
 
-80:                                               ; preds = %79, %78, %59, %52, %28
-  %81 = load i32, ptr %4, align 4
-  ret i32 %81
+118:                                              ; preds = %117, %116, %98, %91, %90, %30
+  %119 = load i1, ptr %4, align 1
+  ret i1 %119
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @usbll_get_data_transaction_speed(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %struct.usbll_data, ptr %4, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.usbll_data, ptr %4, i32 0, i32 0
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %73 [
     i32 3, label %7
@@ -6595,7 +6839,7 @@ define internal i32 @usbll_get_data_transaction_speed(ptr noundef %0) #0 {
 
 7:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.usbll_data, ptr %8, i32 0, i32 1
+  %9 = getelementptr inbounds nuw %struct.usbll_data, ptr %8, i32 0, i32 1
   %10 = load ptr, ptr %9, align 8
   %11 = icmp ne ptr %10, null
   br i1 %11, label %12, label %13
@@ -6604,7 +6848,7 @@ define internal i32 @usbll_get_data_transaction_speed(ptr noundef %0) #0 {
   br label %15
 
 13:                                               ; preds = %7
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1062, ptr noundef @.str.196) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1062, ptr noundef @.str.206) #14
   unreachable
 
 14:                                               ; No predecessors!
@@ -6612,16 +6856,16 @@ define internal i32 @usbll_get_data_transaction_speed(ptr noundef %0) #0 {
 
 15:                                               ; preds = %14, %12
   %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.usbll_data, ptr %16, i32 0, i32 1
+  %17 = getelementptr inbounds nuw %struct.usbll_data, ptr %16, i32 0, i32 1
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds %struct.usbll_transaction_info, ptr %18, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %18, i32 0, i32 4
   %20 = load i32, ptr %19, align 8
   store i32 %20, ptr %2, align 4
   br label %74
 
 21:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1
   %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.usbll_data, ptr %22, i32 0, i32 1
+  %23 = getelementptr inbounds nuw %struct.usbll_data, ptr %22, i32 0, i32 1
   %24 = load ptr, ptr %23, align 8
   %25 = icmp ne ptr %24, null
   br i1 %25, label %26, label %27
@@ -6630,7 +6874,7 @@ define internal i32 @usbll_get_data_transaction_speed(ptr noundef %0) #0 {
   br label %29
 
 27:                                               ; preds = %21
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1072, ptr noundef @.str.196) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1072, ptr noundef @.str.206) #14
   unreachable
 
 28:                                               ; No predecessors!
@@ -6638,9 +6882,9 @@ define internal i32 @usbll_get_data_transaction_speed(ptr noundef %0) #0 {
 
 29:                                               ; preds = %28, %26
   %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds %struct.usbll_data, ptr %30, i32 0, i32 1
+  %31 = getelementptr inbounds nuw %struct.usbll_data, ptr %30, i32 0, i32 1
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %struct.usbll_transaction_info, ptr %32, i32 0, i32 5
+  %33 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %32, i32 0, i32 5
   %34 = load ptr, ptr %33, align 8
   %35 = icmp ne ptr %34, null
   br i1 %35, label %36, label %37
@@ -6649,7 +6893,7 @@ define internal i32 @usbll_get_data_transaction_speed(ptr noundef %0) #0 {
   br label %39
 
 37:                                               ; preds = %29
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1073, ptr noundef @.str.197) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1073, ptr noundef @.str.207) #14
   unreachable
 
 38:                                               ; No predecessors!
@@ -6657,18 +6901,18 @@ define internal i32 @usbll_get_data_transaction_speed(ptr noundef %0) #0 {
 
 39:                                               ; preds = %38, %36
   %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.usbll_data, ptr %40, i32 0, i32 1
+  %41 = getelementptr inbounds nuw %struct.usbll_data, ptr %40, i32 0, i32 1
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct.usbll_transaction_info, ptr %42, i32 0, i32 5
+  %43 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %42, i32 0, i32 5
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds %struct.usbll_transaction_info, ptr %44, i32 0, i32 4
+  %45 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %44, i32 0, i32 4
   %46 = load i32, ptr %45, align 8
   store i32 %46, ptr %2, align 4
   br label %74
 
 47:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
   %48 = load ptr, ptr %3, align 8
-  %49 = getelementptr inbounds %struct.usbll_data, ptr %48, i32 0, i32 1
+  %49 = getelementptr inbounds nuw %struct.usbll_data, ptr %48, i32 0, i32 1
   %50 = load ptr, ptr %49, align 8
   %51 = icmp ne ptr %50, null
   br i1 %51, label %52, label %53
@@ -6677,7 +6921,7 @@ define internal i32 @usbll_get_data_transaction_speed(ptr noundef %0) #0 {
   br label %55
 
 53:                                               ; preds = %47
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1090, ptr noundef @.str.196) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1090, ptr noundef @.str.206) #14
   unreachable
 
 54:                                               ; No predecessors!
@@ -6685,9 +6929,9 @@ define internal i32 @usbll_get_data_transaction_speed(ptr noundef %0) #0 {
 
 55:                                               ; preds = %54, %52
   %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr inbounds %struct.usbll_data, ptr %56, i32 0, i32 1
+  %57 = getelementptr inbounds nuw %struct.usbll_data, ptr %56, i32 0, i32 1
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds %struct.usbll_transaction_info, ptr %58, i32 0, i32 6
+  %59 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %58, i32 0, i32 6
   %60 = load ptr, ptr %59, align 8
   %61 = icmp ne ptr %60, null
   br i1 %61, label %62, label %63
@@ -6696,7 +6940,7 @@ define internal i32 @usbll_get_data_transaction_speed(ptr noundef %0) #0 {
   br label %65
 
 63:                                               ; preds = %55
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.168, ptr noundef @.str.169, i32 noundef 1091, ptr noundef @.str.198) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.178, ptr noundef @.str.179, i32 noundef 1091, ptr noundef @.str.208) #14
   unreachable
 
 64:                                               ; No predecessors!
@@ -6704,17 +6948,17 @@ define internal i32 @usbll_get_data_transaction_speed(ptr noundef %0) #0 {
 
 65:                                               ; preds = %64, %62
   %66 = load ptr, ptr %3, align 8
-  %67 = getelementptr inbounds %struct.usbll_data, ptr %66, i32 0, i32 1
+  %67 = getelementptr inbounds nuw %struct.usbll_data, ptr %66, i32 0, i32 1
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds %struct.usbll_transaction_info, ptr %68, i32 0, i32 6
+  %69 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %68, i32 0, i32 6
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds %struct.usbll_transaction_info, ptr %70, i32 0, i32 4
+  %71 = getelementptr inbounds nuw %struct.usbll_transaction_info, ptr %70, i32 0, i32 4
   %72 = load i32, ptr %71, align 8
   store i32 %72, ptr %2, align 4
   br label %74
 
 73:                                               ; preds = %1
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.191, ptr noundef @.str.169, i32 noundef 1094) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.201, ptr noundef @.str.179, i32 noundef 1094) #14
   unreachable
 
 74:                                               ; preds = %65, %39, %15
@@ -6722,11 +6966,12 @@ define internal i32 @usbll_get_data_transaction_speed(ptr noundef %0) #0 {
   ret i32 %75
 }
 
-declare i32 @sanitize_usb_max_packet_size(i8 noundef zeroext, i32 noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @sanitize_usb_max_packet_size(i8 noundef zeroext, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @usbll_is_split_data_from_device(i32 noundef %0) #0 {
-  %2 = alloca i32, align 4
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @usbll_is_split_data_from_device(i32 noundef %0) #3 {
+  %2 = alloca i1, align 1
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
   %4 = load i32, ptr %3, align 4
@@ -6743,23 +6988,24 @@ define internal i32 @usbll_is_split_data_from_device(i32 noundef %0) #0 {
   ]
 
 5:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1
-  store i32 1, ptr %2, align 4
+  store i1 true, ptr %2, align 1
   br label %7
 
 6:                                                ; preds = %1
-  store i32 0, ptr %2, align 4
+  store i1 false, ptr %2, align 1
   br label %7
 
 7:                                                ; preds = %6, %5
-  %8 = load i32, ptr %2, align 4
-  ret i32 %8
+  %8 = load i1, ptr %2, align 1
+  ret i1 %8
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @usbll_init_endpoint_tables() #0 {
   %1 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #11
   %2 = call ptr @wmem_file_scope()
-  %3 = call noalias ptr @wmem_alloc(ptr noundef %2, i64 noundef 1024)
+  %3 = call noalias ptr @wmem_alloc(ptr noundef %2, i64 noundef 1024) #13
   store ptr %3, ptr @ep_info_in, align 8
   store i32 0, ptr %1, align 4
   br label %4
@@ -6771,7 +7017,7 @@ define internal void @usbll_init_endpoint_tables() #0 {
 
 7:                                                ; preds = %4
   %8 = call ptr @wmem_file_scope()
-  %9 = call noalias ptr @wmem_alloc(ptr noundef %8, i64 noundef 512)
+  %9 = call noalias ptr @wmem_alloc(ptr noundef %8, i64 noundef 448) #13
   %10 = load ptr, ptr @ep_info_in, align 8
   %11 = load i32, ptr %1, align 4
   %12 = sext i32 %11 to i64
@@ -6783,11 +7029,11 @@ define internal void @usbll_init_endpoint_tables() #0 {
   %15 = load i32, ptr %1, align 4
   %16 = add i32 %15, 1
   store i32 %16, ptr %1, align 4
-  br label %4, !llvm.loop !8
+  br label %4, !llvm.loop !12
 
 17:                                               ; preds = %4
   %18 = call ptr @wmem_file_scope()
-  %19 = call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef 1024)
+  %19 = call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef 1024) #13
   store ptr %19, ptr @ep_info_out, align 8
   store i32 0, ptr %1, align 4
   br label %20
@@ -6799,7 +7045,7 @@ define internal void @usbll_init_endpoint_tables() #0 {
 
 23:                                               ; preds = %20
   %24 = call ptr @wmem_file_scope()
-  %25 = call noalias ptr @wmem_alloc(ptr noundef %24, i64 noundef 512)
+  %25 = call noalias ptr @wmem_alloc(ptr noundef %24, i64 noundef 448) #13
   %26 = load ptr, ptr @ep_info_out, align 8
   %27 = load i32, ptr %1, align 4
   %28 = sext i32 %27 to i64
@@ -6811,7 +7057,7 @@ define internal void @usbll_init_endpoint_tables() #0 {
   %31 = load i32, ptr %1, align 4
   %32 = add i32 %31, 1
   store i32 %32, ptr %1, align 4
-  br label %20, !llvm.loop !9
+  br label %20, !llvm.loop !13
 
 33:                                               ; preds = %20
   store i32 0, ptr %1, align 4
@@ -6831,16 +7077,18 @@ define internal void @usbll_init_endpoint_tables() #0 {
   %40 = load i32, ptr %1, align 4
   %41 = add i32 %40, 1
   store i32 %41, ptr %1, align 4
-  br label %34, !llvm.loop !10
+  br label %34, !llvm.loop !14
 
 42:                                               ; preds = %34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #11
   ret void
 }
 
-declare ptr @get_existing_usb_ep_conv_info(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @get_existing_usb_ep_conv_info(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @usbll_ep_type_from_urb_type(i8 noundef zeroext %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @usbll_ep_type_from_urb_type(i8 noundef zeroext %0) #3 {
   %2 = alloca i32, align 4
   %3 = alloca i8, align 1
   store i8 %0, ptr %3, align 1
@@ -6878,9 +7126,9 @@ define internal i32 @usbll_ep_type_from_urb_type(i8 noundef zeroext %0) #0 {
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @usbll_is_setup_ack(i32 noundef %0) #0 {
-  %2 = alloca i32, align 4
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @usbll_is_setup_ack(i32 noundef %0) #3 {
+  %2 = alloca i1, align 1
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
   %4 = load i32, ptr %3, align 4
@@ -6890,21 +7138,21 @@ define internal i32 @usbll_is_setup_ack(i32 noundef %0) #0 {
   ]
 
 5:                                                ; preds = %1, %1
-  store i32 1, ptr %2, align 4
+  store i1 true, ptr %2, align 1
   br label %7
 
 6:                                                ; preds = %1
-  store i32 0, ptr %2, align 4
+  store i1 false, ptr %2, align 1
   br label %7
 
 7:                                                ; preds = %6, %5
-  %8 = load i32, ptr %2, align 4
-  ret i32 %8
+  %8 = load i1, ptr %2, align 1
+  ret i1 %8
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @usbll_is_data_ack(i32 noundef %0) #0 {
-  %2 = alloca i32, align 4
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @usbll_is_data_ack(i32 noundef %0) #3 {
+  %2 = alloca i1, align 1
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
   %4 = load i32, ptr %3, align 4
@@ -6918,21 +7166,21 @@ define internal i32 @usbll_is_data_ack(i32 noundef %0) #0 {
   ]
 
 5:                                                ; preds = %1, %1, %1, %1, %1, %1
-  store i32 1, ptr %2, align 4
+  store i1 true, ptr %2, align 1
   br label %7
 
 6:                                                ; preds = %1
-  store i32 0, ptr %2, align 4
+  store i1 false, ptr %2, align 1
   br label %7
 
 7:                                                ; preds = %6, %5
-  %8 = load i32, ptr %2, align 4
-  ret i32 %8
+  %8 = load i1, ptr %2, align 1
+  ret i1 %8
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @usbll_is_acked_data_from_host(i32 noundef %0) #0 {
-  %2 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @usbll_is_acked_data_from_host(i32 noundef %0) #0 {
+  %2 = alloca i1, align 1
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
   %4 = load i32, ptr %3, align 4
@@ -6946,25 +7194,25 @@ define internal i32 @usbll_is_acked_data_from_host(i32 noundef %0) #0 {
   ]
 
 5:                                                ; preds = %1, %1, %1, %1, %1
-  store i32 1, ptr %2, align 4
+  store i1 true, ptr %2, align 1
   br label %8
 
 6:                                                ; preds = %1
-  store i32 0, ptr %2, align 4
+  store i1 false, ptr %2, align 1
   br label %8
 
 7:                                                ; preds = %1
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.191, ptr noundef @.str.169, i32 noundef 1004) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.201, ptr noundef @.str.179, i32 noundef 1004) #14
   unreachable
 
 8:                                                ; preds = %6, %5
-  %9 = load i32, ptr %2, align 4
-  ret i32 %9
+  %9 = load i1, ptr %2, align 1
+  ret i1 %9
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @usbll_is_endpoint_stall(i32 noundef %0) #0 {
-  %2 = alloca i32, align 4
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @usbll_is_endpoint_stall(i32 noundef %0) #3 {
+  %2 = alloca i1, align 1
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
   %4 = load i32, ptr %3, align 4
@@ -6981,21 +7229,21 @@ define internal i32 @usbll_is_endpoint_stall(i32 noundef %0) #0 {
   ]
 
 5:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1
-  store i32 1, ptr %2, align 4
+  store i1 true, ptr %2, align 1
   br label %7
 
 6:                                                ; preds = %1
-  store i32 0, ptr %2, align 4
+  store i1 false, ptr %2, align 1
   br label %7
 
 7:                                                ; preds = %6, %5
-  %8 = load i32, ptr %2, align 4
-  ret i32 %8
+  %8 = load i1, ptr %2, align 1
+  ret i1 %8
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @usbll_is_stalled_data_from_host(i32 noundef %0) #0 {
-  %2 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @usbll_is_stalled_data_from_host(i32 noundef %0) #0 {
+  %2 = alloca i1, align 1
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
   %4 = load i32, ptr %3, align 4
@@ -7012,23 +7260,23 @@ define internal i32 @usbll_is_stalled_data_from_host(i32 noundef %0) #0 {
   ]
 
 5:                                                ; preds = %1, %1, %1, %1, %1
-  store i32 1, ptr %2, align 4
+  store i1 true, ptr %2, align 1
   br label %8
 
 6:                                                ; preds = %1, %1, %1, %1
-  store i32 0, ptr %2, align 4
+  store i1 false, ptr %2, align 1
   br label %8
 
 7:                                                ; preds = %1
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.191, ptr noundef @.str.169, i32 noundef 1043) #9
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.201, ptr noundef @.str.179, i32 noundef 1043) #14
   unreachable
 
 8:                                                ; preds = %6, %5
-  %9 = load i32, ptr %2, align 4
-  ret i32 %9
+  %9 = load i1, ptr %2, align 1
+  ret i1 %9
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @usbll_set_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -7047,15 +7295,20 @@ define internal void @usbll_set_address(ptr noundef %0, ptr noundef %1, ptr noun
   store i8 %3, ptr %10, align 1
   store i8 %4, ptr %11, align 1
   store i8 %5, ptr %12, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #11
   %18 = load ptr, ptr %9, align 8
-  %19 = getelementptr inbounds %struct._packet_info, ptr %18, i32 0, i32 50
+  %19 = getelementptr inbounds nuw %struct._packet_info, ptr %18, i32 0, i32 51
   %20 = load ptr, ptr %19, align 8
-  %21 = call noalias ptr @wmem_alloc0(ptr noundef %20, i64 noundef 3)
+  %21 = call noalias ptr @wmem_alloc0(ptr noundef %20, i64 noundef 3) #13
   store ptr %21, ptr %14, align 8
   %22 = load ptr, ptr %9, align 8
-  %23 = getelementptr inbounds %struct._packet_info, ptr %22, i32 0, i32 50
+  %23 = getelementptr inbounds nuw %struct._packet_info, ptr %22, i32 0, i32 51
   %24 = load ptr, ptr %23, align 8
-  %25 = call noalias ptr @wmem_alloc0(ptr noundef %24, i64 noundef 3)
+  %25 = call noalias ptr @wmem_alloc0(ptr noundef %24, i64 noundef 3) #13
   store ptr %25, ptr %15, align 8
   %26 = load i8, ptr %12, align 1
   %27 = zext i8 %26 to i32
@@ -7065,7 +7318,7 @@ define internal void @usbll_set_address(ptr noundef %0, ptr noundef %1, ptr noun
 
 30:                                               ; preds = %6
   %31 = load ptr, ptr %14, align 8
-  %32 = getelementptr inbounds %struct.usbll_address_t, ptr %31, i32 0, i32 0
+  %32 = getelementptr inbounds nuw %struct.usbll_address_t, ptr %31, i32 0, i32 0
   store i8 1, ptr %32, align 1
   %33 = load i8, ptr %12, align 1
   %34 = zext i8 %33 to i32
@@ -7075,21 +7328,21 @@ define internal void @usbll_set_address(ptr noundef %0, ptr noundef %1, ptr noun
 
 37:                                               ; preds = %30
   %38 = load ptr, ptr %15, align 8
-  %39 = getelementptr inbounds %struct.usbll_address_t, ptr %38, i32 0, i32 0
+  %39 = getelementptr inbounds nuw %struct.usbll_address_t, ptr %38, i32 0, i32 0
   store i8 4, ptr %39, align 1
   %40 = load ptr, ptr %9, align 8
-  %41 = getelementptr inbounds %struct._packet_info, ptr %40, i32 0, i32 22
+  %41 = getelementptr inbounds nuw %struct._packet_info, ptr %40, i32 0, i32 23
   store i32 0, ptr %41, align 8
   br label %68
 
 42:                                               ; preds = %30
   %43 = load i8, ptr %10, align 1
   %44 = load ptr, ptr %15, align 8
-  %45 = getelementptr inbounds %struct.usbll_address_t, ptr %44, i32 0, i32 1
+  %45 = getelementptr inbounds nuw %struct.usbll_address_t, ptr %44, i32 0, i32 1
   store i8 %43, ptr %45, align 1
   %46 = load i8, ptr %11, align 1
   %47 = load ptr, ptr %15, align 8
-  %48 = getelementptr inbounds %struct.usbll_address_t, ptr %47, i32 0, i32 2
+  %48 = getelementptr inbounds nuw %struct.usbll_address_t, ptr %47, i32 0, i32 2
   store i8 %46, ptr %48, align 1
   %49 = load i8, ptr %12, align 1
   %50 = zext i8 %49 to i32
@@ -7099,23 +7352,23 @@ define internal void @usbll_set_address(ptr noundef %0, ptr noundef %1, ptr noun
 
 53:                                               ; preds = %42
   %54 = load ptr, ptr %15, align 8
-  %55 = getelementptr inbounds %struct.usbll_address_t, ptr %54, i32 0, i32 0
+  %55 = getelementptr inbounds nuw %struct.usbll_address_t, ptr %54, i32 0, i32 0
   store i8 2, ptr %55, align 1
   %56 = load ptr, ptr %9, align 8
-  %57 = getelementptr inbounds %struct._packet_info, ptr %56, i32 0, i32 22
+  %57 = getelementptr inbounds nuw %struct._packet_info, ptr %56, i32 0, i32 23
   store i32 0, ptr %57, align 8
   br label %67
 
 58:                                               ; preds = %42
   %59 = load ptr, ptr %9, align 8
-  %60 = getelementptr inbounds %struct._packet_info, ptr %59, i32 0, i32 22
+  %60 = getelementptr inbounds nuw %struct._packet_info, ptr %59, i32 0, i32 23
   store i32 8, ptr %60, align 8
   %61 = load ptr, ptr %15, align 8
-  %62 = getelementptr inbounds %struct.usbll_address_t, ptr %61, i32 0, i32 2
+  %62 = getelementptr inbounds nuw %struct.usbll_address_t, ptr %61, i32 0, i32 2
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %65 = load ptr, ptr %9, align 8
-  %66 = getelementptr inbounds %struct._packet_info, ptr %65, i32 0, i32 24
+  %66 = getelementptr inbounds nuw %struct._packet_info, ptr %65, i32 0, i32 25
   store i32 %64, ptr %66, align 8
   br label %67
 
@@ -7127,15 +7380,15 @@ define internal void @usbll_set_address(ptr noundef %0, ptr noundef %1, ptr noun
 
 69:                                               ; preds = %6
   %70 = load ptr, ptr %15, align 8
-  %71 = getelementptr inbounds %struct.usbll_address_t, ptr %70, i32 0, i32 0
+  %71 = getelementptr inbounds nuw %struct.usbll_address_t, ptr %70, i32 0, i32 0
   store i8 1, ptr %71, align 1
   %72 = load i8, ptr %10, align 1
   %73 = load ptr, ptr %14, align 8
-  %74 = getelementptr inbounds %struct.usbll_address_t, ptr %73, i32 0, i32 1
+  %74 = getelementptr inbounds nuw %struct.usbll_address_t, ptr %73, i32 0, i32 1
   store i8 %72, ptr %74, align 1
   %75 = load i8, ptr %11, align 1
   %76 = load ptr, ptr %14, align 8
-  %77 = getelementptr inbounds %struct.usbll_address_t, ptr %76, i32 0, i32 2
+  %77 = getelementptr inbounds nuw %struct.usbll_address_t, ptr %76, i32 0, i32 2
   store i8 %75, ptr %77, align 1
   %78 = load i8, ptr %12, align 1
   %79 = zext i8 %78 to i32
@@ -7145,26 +7398,26 @@ define internal void @usbll_set_address(ptr noundef %0, ptr noundef %1, ptr noun
 
 82:                                               ; preds = %69
   %83 = load ptr, ptr %14, align 8
-  %84 = getelementptr inbounds %struct.usbll_address_t, ptr %83, i32 0, i32 0
+  %84 = getelementptr inbounds nuw %struct.usbll_address_t, ptr %83, i32 0, i32 0
   store i8 2, ptr %84, align 1
   %85 = load ptr, ptr %9, align 8
-  %86 = getelementptr inbounds %struct._packet_info, ptr %85, i32 0, i32 22
+  %86 = getelementptr inbounds nuw %struct._packet_info, ptr %85, i32 0, i32 23
   store i32 0, ptr %86, align 8
   br label %98
 
 87:                                               ; preds = %69
   %88 = load ptr, ptr %9, align 8
-  %89 = getelementptr inbounds %struct._packet_info, ptr %88, i32 0, i32 22
+  %89 = getelementptr inbounds nuw %struct._packet_info, ptr %88, i32 0, i32 23
   store i32 8, ptr %89, align 8
   %90 = load ptr, ptr %14, align 8
-  %91 = getelementptr inbounds %struct.usbll_address_t, ptr %90, i32 0, i32 2
+  %91 = getelementptr inbounds nuw %struct.usbll_address_t, ptr %90, i32 0, i32 2
   %92 = load i8, ptr %91, align 1
   %93 = zext i8 %92 to i32
   %94 = load ptr, ptr %9, align 8
-  %95 = getelementptr inbounds %struct._packet_info, ptr %94, i32 0, i32 23
+  %95 = getelementptr inbounds nuw %struct._packet_info, ptr %94, i32 0, i32 24
   store i32 %93, ptr %95, align 4
   %96 = load ptr, ptr %9, align 8
-  %97 = getelementptr inbounds %struct._packet_info, ptr %96, i32 0, i32 24
+  %97 = getelementptr inbounds nuw %struct._packet_info, ptr %96, i32 0, i32 25
   store i32 -1, ptr %97, align 8
   br label %98
 
@@ -7179,40 +7432,40 @@ define internal void @usbll_set_address(ptr noundef %0, ptr noundef %1, ptr noun
   %104 = xor i1 %103, true
   %105 = select i1 %104, i32 0, i32 1
   %106 = load ptr, ptr %9, align 8
-  %107 = getelementptr inbounds %struct._packet_info, ptr %106, i32 0, i32 36
+  %107 = getelementptr inbounds nuw %struct._packet_info, ptr %106, i32 0, i32 37
   store i32 %105, ptr %107, align 4
   %108 = load ptr, ptr %9, align 8
-  %109 = getelementptr inbounds %struct._packet_info, ptr %108, i32 0, i32 14
+  %109 = getelementptr inbounds nuw %struct._packet_info, ptr %108, i32 0, i32 14
   %110 = load i32, ptr @usbll_address_type, align 4
   %111 = load ptr, ptr %14, align 8
   call void @set_address(ptr noundef %109, i32 noundef %110, i32 noundef 3, ptr noundef %111)
   %112 = load ptr, ptr %9, align 8
-  %113 = getelementptr inbounds %struct._packet_info, ptr %112, i32 0, i32 16
+  %113 = getelementptr inbounds nuw %struct._packet_info, ptr %112, i32 0, i32 16
   %114 = load ptr, ptr %9, align 8
-  %115 = getelementptr inbounds %struct._packet_info, ptr %114, i32 0, i32 14
+  %115 = getelementptr inbounds nuw %struct._packet_info, ptr %114, i32 0, i32 14
   call void @copy_address_shallow(ptr noundef %113, ptr noundef %115)
   %116 = load ptr, ptr %9, align 8
-  %117 = getelementptr inbounds %struct._packet_info, ptr %116, i32 0, i32 15
+  %117 = getelementptr inbounds nuw %struct._packet_info, ptr %116, i32 0, i32 15
   %118 = load i32, ptr @usbll_address_type, align 4
   %119 = load ptr, ptr %15, align 8
   call void @set_address(ptr noundef %117, i32 noundef %118, i32 noundef 3, ptr noundef %119)
   %120 = load ptr, ptr %9, align 8
-  %121 = getelementptr inbounds %struct._packet_info, ptr %120, i32 0, i32 17
+  %121 = getelementptr inbounds nuw %struct._packet_info, ptr %120, i32 0, i32 17
   %122 = load ptr, ptr %9, align 8
-  %123 = getelementptr inbounds %struct._packet_info, ptr %122, i32 0, i32 15
+  %123 = getelementptr inbounds nuw %struct._packet_info, ptr %122, i32 0, i32 15
   call void @copy_address_shallow(ptr noundef %121, ptr noundef %123)
   %124 = load ptr, ptr %9, align 8
-  %125 = getelementptr inbounds %struct._packet_info, ptr %124, i32 0, i32 50
+  %125 = getelementptr inbounds nuw %struct._packet_info, ptr %124, i32 0, i32 51
   %126 = load ptr, ptr %125, align 8
   %127 = load ptr, ptr %9, align 8
-  %128 = getelementptr inbounds %struct._packet_info, ptr %127, i32 0, i32 16
+  %128 = getelementptr inbounds nuw %struct._packet_info, ptr %127, i32 0, i32 16
   %129 = call ptr @address_to_str(ptr noundef %126, ptr noundef %128)
   store ptr %129, ptr %16, align 8
   %130 = load ptr, ptr %9, align 8
-  %131 = getelementptr inbounds %struct._packet_info, ptr %130, i32 0, i32 50
+  %131 = getelementptr inbounds nuw %struct._packet_info, ptr %130, i32 0, i32 51
   %132 = load ptr, ptr %131, align 8
   %133 = load ptr, ptr %9, align 8
-  %134 = getelementptr inbounds %struct._packet_info, ptr %133, i32 0, i32 17
+  %134 = getelementptr inbounds nuw %struct._packet_info, ptr %133, i32 0, i32 17
   %135 = call ptr @address_to_str(ptr noundef %132, ptr noundef %134)
   store ptr %135, ptr %17, align 8
   %136 = load ptr, ptr %7, align 8
@@ -7247,13 +7500,19 @@ define internal void @usbll_set_address(ptr noundef %0, ptr noundef %1, ptr noun
   store ptr %158, ptr %13, align 8
   %159 = load ptr, ptr %13, align 8
   call void @proto_item_set_hidden(ptr noundef %159)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #11
   ret void
 }
 
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal void @set_address(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @set_address(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #9 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -7293,48 +7552,50 @@ define internal void @set_address(ptr noundef %0, i32 noundef %1, i32 noundef %2
 19:                                               ; preds = %18, %13
   %20 = load i32, ptr %6, align 4
   %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct._address, ptr %21, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct._address, ptr %21, i32 0, i32 0
   store i32 %20, ptr %22, align 8
   %23 = load i32, ptr %7, align 4
   %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct._address, ptr %24, i32 0, i32 1
+  %25 = getelementptr inbounds nuw %struct._address, ptr %24, i32 0, i32 1
   store i32 %23, ptr %25, align 4
   %26 = load ptr, ptr %8, align 8
   %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct._address, ptr %27, i32 0, i32 2
+  %28 = getelementptr inbounds nuw %struct._address, ptr %27, i32 0, i32 2
   store ptr %26, ptr %28, align 8
   %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct._address, ptr %29, i32 0, i32 3
+  %30 = getelementptr inbounds nuw %struct._address, ptr %29, i32 0, i32 3
   store ptr null, ptr %30, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @copy_address_shallow(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @copy_address_shallow(ptr noundef %0, ptr noundef %1) #9 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %struct._address, ptr %6, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct._address, ptr %6, i32 0, i32 0
   %8 = load i32, ptr %7, align 8
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct._address, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._address, ptr %9, i32 0, i32 1
   %11 = load i32, ptr %10, align 4
   %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct._address, ptr %12, i32 0, i32 2
+  %13 = getelementptr inbounds nuw %struct._address, ptr %12, i32 0, i32 2
   %14 = load ptr, ptr %13, align 8
   call void @set_address(ptr noundef %5, i32 noundef %8, i32 noundef %11, ptr noundef %14)
   ret void
 }
 
-declare ptr @address_to_str(ptr noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @address_to_str(ptr noundef, ptr noundef) #1
 
-declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal void @proto_item_set_generated(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @proto_item_set_generated(ptr noundef %0) #9 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -7346,22 +7607,22 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._proto_node, ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct._proto_node, ptr %7, i32 0, i32 5
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct._proto_node, ptr %12, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct._proto_node, ptr %12, i32 0, i32 5
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.field_info, ptr %14, i32 0, i32 6
+  %15 = getelementptr inbounds nuw %struct.field_info, ptr %14, i32 0, i32 6
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 2
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct._proto_node, ptr %18, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct._proto_node, ptr %18, i32 0, i32 5
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.field_info, ptr %20, i32 0, i32 6
+  %21 = getelementptr inbounds nuw %struct.field_info, ptr %20, i32 0, i32 6
   store i32 %17, ptr %21, align 4
   br label %22
 
@@ -7375,8 +7636,8 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @proto_item_set_hidden(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @proto_item_set_hidden(ptr noundef %0) #9 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -7388,22 +7649,22 @@ define internal void @proto_item_set_hidden(ptr noundef %0) #0 {
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._proto_node, ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct._proto_node, ptr %7, i32 0, i32 5
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct._proto_node, ptr %12, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct._proto_node, ptr %12, i32 0, i32 5
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.field_info, ptr %14, i32 0, i32 6
+  %15 = getelementptr inbounds nuw %struct.field_info, ptr %14, i32 0, i32 6
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 1
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct._proto_node, ptr %18, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct._proto_node, ptr %18, i32 0, i32 5
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.field_info, ptr %20, i32 0, i32 6
+  %21 = getelementptr inbounds nuw %struct.field_info, ptr %20, i32 0, i32 6
   store i32 %17, ptr %21, align 4
   br label %22
 
@@ -7417,35 +7678,47 @@ define internal void @proto_item_set_hidden(ptr noundef %0) #0 {
   ret void
 }
 
-declare i32 @tvb_get_gint24(ptr noundef, i32 noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_int24(ptr noundef, i32 noundef, i32 noundef) #1
 
-declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #1
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
-declare zeroext i8 @crc5_usb_19bit_input(i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @crc5_usb_19bit_input(i32 noundef) #1
 
-declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) #1
 
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #1
 
-declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare ptr @fragment_add_check_with_fallback(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @fragment_add_check_with_fallback(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i32 noundef) #1
 
-declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-declare void @dissect_usb_common(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare void @dissect_usb_common(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
-declare ptr @proto_tree_get_parent_tree(ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_get_parent_tree(ptr noundef) #1
 
-declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) #1
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #6
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i64 @strlen(ptr noundef) #10
 
-; Function Attrs: nounwind uwtable
-define internal i32 @usbll_fragment_key_hash(ptr noundef %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @usbll_fragment_key_hash(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -7454,8 +7727,8 @@ define internal i32 @usbll_fragment_key_hash(ptr noundef %0) #0 {
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @usbll_fragment_key_equal(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @usbll_fragment_key_equal(ptr noundef %0, ptr noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -7471,8 +7744,8 @@ define internal i32 @usbll_fragment_key_equal(ptr noundef %0, ptr noundef %1) #0
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @usbll_fragment_key(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal ptr @usbll_fragment_key(ptr noundef %0, i32 noundef %1, ptr noundef %2) #3 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -7485,34 +7758,43 @@ define internal ptr @usbll_fragment_key(ptr noundef %0, i32 noundef %1, ptr noun
   ret ptr %9
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @usbll_fragment_free_key(ptr noundef %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @usbll_fragment_free_key(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { noreturn }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
+attributes #13 = { allocsize(1) }
+attributes #14 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}

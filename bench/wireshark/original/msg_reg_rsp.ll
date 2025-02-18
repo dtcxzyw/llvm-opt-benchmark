@@ -3,9 +3,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.tlv_info_t = type { i8, i8, i8, i8, i32, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -20,7 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_reg_rsp_status = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [9 x i8] c"Response\00", align 1
 @.str.5 = private unnamed_addr constant [21 x i8] c"wmx.reg_rsp.response\00", align 1
-@vals_reg_rsp_status = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.22 }, %struct._value_string { i32 1, ptr @.str.23 }, %struct._value_string zeroinitializer], align 16
 @hf_reg_rsp_secondary_mgmt_cid = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [25 x i8] c"Secondary Management CID\00", align 1
 @.str.7 = private unnamed_addr constant [31 x i8] c"wmx.reg_rsp.secondary_mgmt_cid\00", align 1
@@ -50,21 +48,22 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.21 = private unnamed_addr constant [12 x i8] c"wmx.mgmtmsg\00", align 1
 @.str.22 = private unnamed_addr constant [3 x i8] c"OK\00", align 1
 @.str.23 = private unnamed_addr constant [31 x i8] c"Message authentication failure\00", align 1
-@.str.24 = private unnamed_addr constant [32 x i8] c"MAC Management Message, REG-RSP\00", align 1
-@.str.25 = private unnamed_addr constant [18 x i8] c"REG-RSP TLV error\00", align 1
-@.str.26 = private unnamed_addr constant [21 x i8] c"CID update encodings\00", align 1
-@.str.27 = private unnamed_addr constant [37 x i8] c"CID Update Encodings Connection Info\00", align 1
-@include_cor2_changes = external global i32, align 4
-@.str.28 = private unnamed_addr constant [32 x i8] c" (in units of 100 milliseconds)\00", align 1
-@.str.29 = private unnamed_addr constant [32 x i8] c" (multiple of 100 milliseconds)\00", align 1
-@.str.30 = private unnamed_addr constant [30 x i8] c"Uplink Service Flow Encodings\00", align 1
-@.str.31 = private unnamed_addr constant [32 x i8] c"Downlink Service Flow Encodings\00", align 1
-@.str.32 = private unnamed_addr constant [11 x i8] c"HMAC Tuple\00", align 1
-@.str.33 = private unnamed_addr constant [11 x i8] c"CMAC Tuple\00", align 1
-@.str.34 = private unnamed_addr constant [17 x i8] c"Short HMAC Tuple\00", align 1
-@.str.35 = private unnamed_addr constant [27 x i8] c" (HMAC Tuple is missing !)\00", align 1
+@vals_reg_rsp_status = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.22 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.23 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.25 = private unnamed_addr constant [32 x i8] c"MAC Management Message, REG-RSP\00", align 1
+@.str.26 = private unnamed_addr constant [18 x i8] c"REG-RSP TLV error\00", align 1
+@.str.27 = private unnamed_addr constant [21 x i8] c"CID update encodings\00", align 1
+@.str.28 = private unnamed_addr constant [37 x i8] c"CID Update Encodings Connection Info\00", align 1
+@include_cor2_changes = external global i8, align 1
+@.str.29 = private unnamed_addr constant [32 x i8] c" (in units of 100 milliseconds)\00", align 1
+@.str.30 = private unnamed_addr constant [32 x i8] c" (multiple of 100 milliseconds)\00", align 1
+@.str.31 = private unnamed_addr constant [30 x i8] c"Uplink Service Flow Encodings\00", align 1
+@.str.32 = private unnamed_addr constant [32 x i8] c"Downlink Service Flow Encodings\00", align 1
+@.str.33 = private unnamed_addr constant [11 x i8] c"HMAC Tuple\00", align 1
+@.str.34 = private unnamed_addr constant [11 x i8] c"CMAC Tuple\00", align 1
+@.str.35 = private unnamed_addr constant [17 x i8] c"Short HMAC Tuple\00", align 1
+@.str.36 = private unnamed_addr constant [27 x i8] c" (HMAC Tuple is missing !)\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_mac_mgmt_msg_reg_rsp() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.16, ptr noundef @.str.17, ptr noundef @.str.18)
   store i32 %1, ptr @proto_mac_mgmt_msg_reg_rsp_decoder, align 4
@@ -77,15 +76,19 @@ define hidden void @proto_register_mac_mgmt_msg_reg_rsp() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -99,7 +102,7 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
   %16 = alloca ptr, align 8
-  %17 = alloca i32, align 4
+  %17 = alloca i8, align 1
   %18 = alloca %struct.tlv_info_t, align 4
   %19 = alloca i32, align 4
   %20 = alloca i32, align 4
@@ -112,12 +115,29 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
   store ptr null, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
   store ptr null, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
   store ptr null, ptr %16, align 8
-  store i32 0, ptr %17, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %17) #3
+  store i8 0, ptr %17, align 1
+  call void @llvm.lifetime.start.p0(i64 12, ptr %18) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #3
   store i32 0, ptr %21, align 4
+  call void @llvm.lifetime.start.p0(i64 12, ptr %22) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #3
   %26 = load ptr, ptr %5, align 8
   %27 = call i32 @tvb_reported_length(ptr noundef %26)
   store i32 %27, ptr %11, align 4
@@ -126,7 +146,7 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
   %30 = load ptr, ptr %5, align 8
   %31 = load i32, ptr %9, align 4
   %32 = load i32, ptr %11, align 4
-  %33 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %28, i32 noundef %29, ptr noundef %30, i32 noundef %31, i32 noundef %32, ptr noundef @.str.24)
+  %33 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %28, i32 noundef %29, ptr noundef %30, i32 noundef %31, i32 noundef %32, ptr noundef @.str.25)
   store ptr %33, ptr %12, align 8
   %34 = load ptr, ptr %12, align 8
   %35 = load i32, ptr @ett_mac_mgmt_msg_reg_rsp_decoder, align 4
@@ -172,9 +192,9 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
 
 62:                                               ; preds = %59, %56, %48
   %63 = load ptr, ptr %6, align 8
-  %64 = getelementptr inbounds %struct._packet_info, ptr %63, i32 0, i32 1
+  %64 = getelementptr inbounds nuw %struct._packet_info, ptr %63, i32 0, i32 1
   %65 = load ptr, ptr %64, align 8
-  call void @col_append_sep_str(ptr noundef %65, i32 noundef 25, ptr noundef null, ptr noundef @.str.25)
+  call void @col_append_sep_str(ptr noundef %65, i32 noundef 25, ptr noundef null, ptr noundef @.str.26)
   %66 = load ptr, ptr %13, align 8
   %67 = load i32, ptr @hf_reg_invalid_tlv, align 4
   %68 = load ptr, ptr %5, align 8
@@ -269,7 +289,7 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
   %104 = load ptr, ptr %5, align 8
   %105 = load i32, ptr %9, align 4
   %106 = load i32, ptr %20, align 4
-  %107 = call ptr @add_protocol_subtree(ptr noundef %18, i32 noundef %101, ptr noundef %102, i32 noundef %103, ptr noundef %104, i32 noundef %105, i32 noundef %106, ptr noundef @.str.26)
+  %107 = call ptr @add_protocol_subtree(ptr noundef %18, i32 noundef %101, ptr noundef %102, i32 noundef %103, ptr noundef %104, i32 noundef %105, i32 noundef %106, ptr noundef @.str.27)
   store ptr %107, ptr %16, align 8
   %108 = load i32, ptr %10, align 4
   store i32 %108, ptr %21, align 4
@@ -305,9 +325,9 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
 
 127:                                              ; preds = %124, %121, %113
   %128 = load ptr, ptr %6, align 8
-  %129 = getelementptr inbounds %struct._packet_info, ptr %128, i32 0, i32 1
+  %129 = getelementptr inbounds nuw %struct._packet_info, ptr %128, i32 0, i32 1
   %130 = load ptr, ptr %129, align 8
-  call void @col_append_sep_str(ptr noundef %130, i32 noundef 25, ptr noundef null, ptr noundef @.str.25)
+  call void @col_append_sep_str(ptr noundef %130, i32 noundef 25, ptr noundef null, ptr noundef @.str.26)
   %131 = load ptr, ptr %13, align 8
   %132 = load i32, ptr @hf_reg_invalid_tlv, align 4
   %133 = load ptr, ptr %5, align 8
@@ -353,7 +373,7 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
   %160 = load ptr, ptr %5, align 8
   %161 = load i32, ptr %21, align 4
   %162 = load i32, ptr %24, align 4
-  %163 = call ptr @add_protocol_subtree(ptr noundef %22, i32 noundef %157, ptr noundef %158, i32 noundef %159, ptr noundef %160, i32 noundef %161, i32 noundef %162, ptr noundef @.str.27)
+  %163 = call ptr @add_protocol_subtree(ptr noundef %22, i32 noundef %157, ptr noundef %158, i32 noundef %159, ptr noundef %160, i32 noundef %161, i32 noundef %162, ptr noundef @.str.28)
   store ptr %163, ptr %15, align 8
   %164 = load ptr, ptr @dsc_rsp_handle, align 8
   %165 = load ptr, ptr %5, align 8
@@ -378,7 +398,7 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
   %180 = load i32, ptr %25, align 4
   %181 = add i32 %179, %180
   store i32 %181, ptr %21, align 4
-  br label %109, !llvm.loop !4
+  br label %109, !llvm.loop !6
 
 182:                                              ; preds = %127, %109
   br label %297
@@ -390,18 +410,18 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
   %187 = load i32, ptr %9, align 4
   %188 = call ptr @add_tlv_subtree(ptr noundef %18, ptr noundef %184, i32 noundef %185, ptr noundef %186, i32 noundef %187, i32 noundef 0)
   store ptr %188, ptr %14, align 8
-  %189 = load i32, ptr @include_cor2_changes, align 4
-  %190 = icmp ne i32 %189, 0
+  %189 = load i8, ptr @include_cor2_changes, align 1, !range !8, !noundef !9
+  %190 = trunc i8 %189 to i1
   br i1 %190, label %191, label %193
 
 191:                                              ; preds = %183
   %192 = load ptr, ptr %14, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %192, ptr noundef @.str.28)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %192, ptr noundef @.str.29)
   br label %195
 
 193:                                              ; preds = %183
   %194 = load ptr, ptr %14, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %194, ptr noundef @.str.29)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %194, ptr noundef @.str.30)
   br label %195
 
 195:                                              ; preds = %193, %191
@@ -414,7 +434,7 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
   %200 = load ptr, ptr %5, align 8
   %201 = load i32, ptr %9, align 4
   %202 = load i32, ptr %20, align 4
-  %203 = call ptr @add_protocol_subtree(ptr noundef %18, i32 noundef %197, ptr noundef %198, i32 noundef %199, ptr noundef %200, i32 noundef %201, i32 noundef %202, ptr noundef @.str.30)
+  %203 = call ptr @add_protocol_subtree(ptr noundef %18, i32 noundef %197, ptr noundef %198, i32 noundef %199, ptr noundef %200, i32 noundef %201, i32 noundef %202, ptr noundef @.str.31)
   store ptr %203, ptr %15, align 8
   %204 = load ptr, ptr %5, align 8
   %205 = load i32, ptr %10, align 4
@@ -432,7 +452,7 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
   %214 = load ptr, ptr %5, align 8
   %215 = load i32, ptr %9, align 4
   %216 = load i32, ptr %20, align 4
-  %217 = call ptr @add_protocol_subtree(ptr noundef %18, i32 noundef %211, ptr noundef %212, i32 noundef %213, ptr noundef %214, i32 noundef %215, i32 noundef %216, ptr noundef @.str.31)
+  %217 = call ptr @add_protocol_subtree(ptr noundef %18, i32 noundef %211, ptr noundef %212, i32 noundef %213, ptr noundef %214, i32 noundef %215, i32 noundef %216, ptr noundef @.str.32)
   store ptr %217, ptr %15, align 8
   %218 = load ptr, ptr %5, align 8
   %219 = load i32, ptr %10, align 4
@@ -450,7 +470,7 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
   %228 = load ptr, ptr %5, align 8
   %229 = load i32, ptr %9, align 4
   %230 = load i32, ptr %20, align 4
-  %231 = call ptr @add_protocol_subtree(ptr noundef %18, i32 noundef %225, ptr noundef %226, i32 noundef %227, ptr noundef %228, i32 noundef %229, i32 noundef %230, ptr noundef @.str.32)
+  %231 = call ptr @add_protocol_subtree(ptr noundef %18, i32 noundef %225, ptr noundef %226, i32 noundef %227, ptr noundef %228, i32 noundef %229, i32 noundef %230, ptr noundef @.str.33)
   store ptr %231, ptr %15, align 8
   %232 = load ptr, ptr %15, align 8
   %233 = load ptr, ptr %5, align 8
@@ -458,7 +478,7 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
   %235 = add i32 %234, 2
   %236 = load i32, ptr %20, align 4
   call void @wimax_hmac_tuple_decoder(ptr noundef %232, ptr noundef %233, i32 noundef %235, i32 noundef %236)
-  store i32 1, ptr %17, align 4
+  store i8 1, ptr %17, align 1
   br label %297
 
 237:                                              ; preds = %74
@@ -468,7 +488,7 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
   %241 = load ptr, ptr %5, align 8
   %242 = load i32, ptr %9, align 4
   %243 = load i32, ptr %20, align 4
-  %244 = call ptr @add_protocol_subtree(ptr noundef %18, i32 noundef %238, ptr noundef %239, i32 noundef %240, ptr noundef %241, i32 noundef %242, i32 noundef %243, ptr noundef @.str.33)
+  %244 = call ptr @add_protocol_subtree(ptr noundef %18, i32 noundef %238, ptr noundef %239, i32 noundef %240, ptr noundef %241, i32 noundef %242, i32 noundef %243, ptr noundef @.str.34)
   store ptr %244, ptr %15, align 8
   %245 = load ptr, ptr %15, align 8
   %246 = load ptr, ptr %5, align 8
@@ -479,8 +499,8 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
   br label %297
 
 250:                                              ; preds = %74, %74
-  %251 = load i32, ptr @include_cor2_changes, align 4
-  %252 = icmp ne i32 %251, 0
+  %251 = load i8, ptr @include_cor2_changes, align 1, !range !8, !noundef !9
+  %252 = trunc i8 %251 to i1
   br i1 %252, label %256, label %253
 
 253:                                              ; preds = %250
@@ -489,8 +509,8 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
   br i1 %255, label %262, label %256
 
 256:                                              ; preds = %253, %250
-  %257 = load i32, ptr @include_cor2_changes, align 4
-  %258 = icmp ne i32 %257, 0
+  %257 = load i8, ptr @include_cor2_changes, align 1, !range !8, !noundef !9
+  %258 = trunc i8 %257 to i1
   br i1 %258, label %259, label %274
 
 259:                                              ; preds = %256
@@ -505,7 +525,7 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
   %266 = load ptr, ptr %5, align 8
   %267 = load i32, ptr %9, align 4
   %268 = load i32, ptr %20, align 4
-  %269 = call ptr @add_protocol_subtree(ptr noundef %18, i32 noundef %263, ptr noundef %264, i32 noundef %265, ptr noundef %266, i32 noundef %267, i32 noundef %268, ptr noundef @.str.34)
+  %269 = call ptr @add_protocol_subtree(ptr noundef %18, i32 noundef %263, ptr noundef %264, i32 noundef %265, ptr noundef %266, i32 noundef %267, i32 noundef %268, ptr noundef @.str.35)
   store ptr %269, ptr %15, align 8
   %270 = load ptr, ptr %15, align 8
   %271 = load ptr, ptr %5, align 8
@@ -550,25 +570,42 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
   %299 = load i32, ptr %10, align 4
   %300 = add i32 %298, %299
   store i32 %300, ptr %9, align 4
-  br label %44, !llvm.loop !6
+  br label %44, !llvm.loop !10
 
 301:                                              ; preds = %62, %44
-  %302 = load i32, ptr %17, align 4
-  %303 = icmp ne i32 %302, 0
+  %302 = load i8, ptr %17, align 1, !range !8, !noundef !9
+  %303 = trunc i8 %302 to i1
   br i1 %303, label %306, label %304
 
 304:                                              ; preds = %301
   %305 = load ptr, ptr %13, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %305, ptr noundef @.str.35)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %305, ptr noundef @.str.36)
   br label %306
 
 306:                                              ; preds = %304, %301
   %307 = load ptr, ptr %5, align 8
   %308 = call i32 @tvb_captured_length(ptr noundef %307)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #3
+  call void @llvm.lifetime.end.p0(i64 12, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 12, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %308
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_mac_mgmt_msg_reg_rsp() #0 {
   %1 = call ptr @find_dissector(ptr noundef @.str.20)
   store ptr %1, ptr @dsc_rsp_handle, align 8
@@ -577,61 +614,96 @@ define hidden void @proto_reg_handoff_mac_mgmt_msg_reg_rsp() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @find_dissector(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @init_tlv_info(ptr noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @get_tlv_type(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @get_tlv_length(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @get_tlv_value_offset(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissect_extended_tlv(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @add_tlv_subtree(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @add_protocol_subtree(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @wimax_service_flow_encodings_decoder(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @wimax_hmac_tuple_decoder(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @wimax_cmac_tuple_decoder(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @wimax_short_hmac_tuple_decoder(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @wimax_common_tlv_encoding_decoder(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}

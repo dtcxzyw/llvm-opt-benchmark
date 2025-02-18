@@ -3,10 +3,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -88,7 +86,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_riemann_state_once = internal global i32 0, align 4
 @.str.46 = private unnamed_addr constant [5 x i8] c"once\00", align 1
 @.str.47 = private unnamed_addr constant [19 x i8] c"riemann.state.once\00", align 1
-@proto_register_riemann.ei = internal global [3 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_error_unknown_wire_tag, %struct.expert_field_info { ptr @.str.48, i32 117440512, i32 8388608, ptr @.str.49, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_error_unknown_field_number, %struct.expert_field_info { ptr @.str.50, i32 117440512, i32 8388608, ptr @.str.51, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_error_insufficient_data, %struct.expert_field_info { ptr @.str.52, i32 117440512, i32 8388608, ptr @.str.53, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_riemann.ei = internal global [3 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_error_unknown_wire_tag, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.48, i32 117440512, i32 8388608, ptr @.str.49, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_error_unknown_field_number, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.50, i32 117440512, i32 8388608, ptr @.str.51, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_error_insufficient_data, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.52, i32 117440512, i32 8388608, ptr @.str.53, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_error_unknown_wire_tag = internal global %struct.expert_field zeroinitializer, align 4
 @.str.48 = private unnamed_addr constant [25 x i8] c"riemann.unknown_wire_tag\00", align 1
 @.str.49 = private unnamed_addr constant [20 x i8] c"Invalid format type\00", align 1
@@ -165,9 +163,10 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.109 = private unnamed_addr constant [51 x i8] c"Unknown field number %d for State (wire format %d)\00", align 1
 @.str.110 = private unnamed_addr constant [46 x i8] c"Insufficient data for State (%d bytes needed)\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_riemann() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #3
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.54, ptr noundef @.str.54, ptr noundef @.str.55)
   store i32 %2, ptr @proto_riemann, align 4
   %3 = load i32, ptr @proto_riemann, align 4
@@ -184,22 +183,32 @@ define hidden void @proto_register_riemann() #0 {
   %9 = load i32, ptr @proto_riemann, align 4
   %10 = call ptr @register_dissector(ptr noundef @.str.57, ptr noundef @dissect_riemann_tcp, i32 noundef %9)
   store ptr %10, ptr @riemann_tcp_handle, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #3
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_riemann_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -216,7 +225,7 @@ define internal i32 @dissect_riemann_udp(ptr noundef %0, ptr noundef %1, ptr nou
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_riemann_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -230,13 +239,16 @@ define internal i32 @dissect_riemann_tcp(ptr noundef %0, ptr noundef %1, ptr nou
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = load ptr, ptr %8, align 8
-  call void @tcp_dissect_pdus(ptr noundef %9, ptr noundef %10, ptr noundef %11, i32 noundef 1, i32 noundef 4, ptr noundef @get_riemann_tcp_pdu_len, ptr noundef @dissect_riemann_tcp_pdu, ptr noundef %12)
+  call void @tcp_dissect_pdus(ptr noundef %9, ptr noundef %10, ptr noundef %11, i1 noundef zeroext true, i32 noundef 4, ptr noundef @get_riemann_tcp_pdu_len, ptr noundef @dissect_riemann_tcp_pdu, ptr noundef %12)
   %13 = load ptr, ptr %5, align 8
   %14 = call i32 @tvb_captured_length(ptr noundef %13)
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_riemann() #0 {
   %1 = load ptr, ptr @riemann_tcp_handle, align 8
   call void @dissector_add_for_decode_as_with_preference(ptr noundef @.str.58, ptr noundef %1)
@@ -245,9 +257,10 @@ define hidden void @proto_reg_handoff_riemann() #0 {
   ret void
 }
 
-declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_riemann(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -256,27 +269,30 @@ define internal i32 @dissect_riemann(ptr noundef %0, ptr noundef %1, ptr noundef
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
-  %12 = load ptr, ptr %6, align 8
-  %13 = load i32, ptr %9, align 4
-  %14 = call i32 @is_riemann(ptr noundef %12, i32 noundef %13)
-  %15 = icmp ne i32 %14, 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  %13 = load ptr, ptr %6, align 8
+  %14 = load i32, ptr %9, align 4
+  %15 = call zeroext i1 @is_riemann(ptr noundef %13, i32 noundef %14)
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %4
   store i32 0, ptr %5, align 4
+  store i32 1, ptr %12, align 4
   br label %38
 
 17:                                               ; preds = %4
   %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr inbounds %struct._packet_info, ptr %18, i32 0, i32 1
+  %19 = getelementptr inbounds nuw %struct._packet_info, ptr %18, i32 0, i32 1
   %20 = load ptr, ptr %19, align 8
-  call void @col_set_str(ptr noundef %20, i32 noundef 34, ptr noundef @.str.55)
+  call void @col_set_str(ptr noundef %20, i32 noundef 35, ptr noundef @.str.55)
   %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds %struct._packet_info, ptr %21, i32 0, i32 1
+  %22 = getelementptr inbounds nuw %struct._packet_info, ptr %21, i32 0, i32 1
   %23 = load ptr, ptr %22, align 8
   call void @col_clear(ptr noundef %23, i32 noundef 25)
   %24 = load ptr, ptr %8, align 8
@@ -296,16 +312,19 @@ define internal i32 @dissect_riemann(ptr noundef %0, ptr noundef %1, ptr noundef
   %36 = load i32, ptr %9, align 4
   %37 = call i32 @riemann_dissect_msg(ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36)
   store i32 %37, ptr %5, align 4
+  store i32 1, ptr %12, align 4
   br label %38
 
 38:                                               ; preds = %17, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
   %39 = load i32, ptr %5, align 4
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @is_riemann(ptr noundef %0, i32 noundef %1) #0 {
-  %3 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @is_riemann(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i1, align 1
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -314,111 +333,131 @@ define internal i32 @is_riemann(ptr noundef %0, i32 noundef %1) #0 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
-  %12 = load ptr, ptr %4, align 8
-  %13 = load i32, ptr %5, align 4
-  %14 = call i32 @tvb_reported_length_remaining(ptr noundef %12, i32 noundef %13)
-  store i32 %14, ptr %6, align 4
-  %15 = load ptr, ptr %4, align 8
-  %16 = load i32, ptr %5, align 4
-  %17 = call i32 @tvb_captured_length_remaining(ptr noundef %15, i32 noundef %16)
-  store i32 %17, ptr %7, align 4
-  %18 = load i32, ptr %6, align 4
-  %19 = icmp ult i32 %18, 16
-  br i1 %19, label %23, label %20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  %13 = load ptr, ptr %4, align 8
+  %14 = load i32, ptr %5, align 4
+  %15 = call i32 @tvb_reported_length_remaining(ptr noundef %13, i32 noundef %14)
+  store i32 %15, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %16 = load ptr, ptr %4, align 8
+  %17 = load i32, ptr %5, align 4
+  %18 = call i32 @tvb_captured_length_remaining(ptr noundef %16, i32 noundef %17)
+  store i32 %18, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  %19 = load i32, ptr %6, align 4
+  %20 = icmp ult i32 %19, 16
+  br i1 %20, label %24, label %21
 
-20:                                               ; preds = %2
-  %21 = load i32, ptr %7, align 4
-  %22 = icmp ult i32 %21, 10
-  br i1 %22, label %23, label %24
+21:                                               ; preds = %2
+  %22 = load i32, ptr %7, align 4
+  %23 = icmp ult i32 %22, 10
+  br i1 %23, label %24, label %25
 
-23:                                               ; preds = %20, %2
-  store i32 0, ptr %3, align 4
-  br label %63
+24:                                               ; preds = %21, %2
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %12, align 4
+  br label %64
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %4, align 8
-  %26 = load i32, ptr %5, align 4
-  %27 = call i64 @riemann_get_guint64(ptr noundef %25, i32 noundef %26, ptr noundef %11)
-  store i64 %27, ptr %8, align 8
-  %28 = load i64, ptr %8, align 8
-  %29 = lshr i64 %28, 3
-  store i64 %29, ptr %9, align 8
-  %30 = load i64, ptr %8, align 8
-  %31 = and i64 %30, 7
-  store i64 %31, ptr %10, align 8
-  %32 = load i64, ptr %9, align 8
-  %33 = icmp eq i64 %32, 2
-  br i1 %33, label %34, label %37
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %4, align 8
+  %27 = load i32, ptr %5, align 4
+  %28 = call i64 @riemann_get_uint64(ptr noundef %26, i32 noundef %27, ptr noundef %11)
+  store i64 %28, ptr %8, align 8
+  %29 = load i64, ptr %8, align 8
+  %30 = lshr i64 %29, 3
+  store i64 %30, ptr %9, align 8
+  %31 = load i64, ptr %8, align 8
+  %32 = and i64 %31, 7
+  store i64 %32, ptr %10, align 8
+  %33 = load i64, ptr %9, align 8
+  %34 = icmp eq i64 %33, 2
+  br i1 %34, label %35, label %38
 
-34:                                               ; preds = %24
-  %35 = load i64, ptr %10, align 8
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %61, label %37
+35:                                               ; preds = %25
+  %36 = load i64, ptr %10, align 8
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %62, label %38
 
-37:                                               ; preds = %34, %24
-  %38 = load i64, ptr %9, align 8
-  %39 = icmp eq i64 %38, 3
-  br i1 %39, label %40, label %43
+38:                                               ; preds = %35, %25
+  %39 = load i64, ptr %9, align 8
+  %40 = icmp eq i64 %39, 3
+  br i1 %40, label %41, label %44
 
-40:                                               ; preds = %37
-  %41 = load i64, ptr %10, align 8
-  %42 = icmp eq i64 %41, 2
-  br i1 %42, label %61, label %43
+41:                                               ; preds = %38
+  %42 = load i64, ptr %10, align 8
+  %43 = icmp eq i64 %42, 2
+  br i1 %43, label %62, label %44
 
-43:                                               ; preds = %40, %37
-  %44 = load i64, ptr %9, align 8
-  %45 = icmp eq i64 %44, 5
-  br i1 %45, label %46, label %49
+44:                                               ; preds = %41, %38
+  %45 = load i64, ptr %9, align 8
+  %46 = icmp eq i64 %45, 5
+  br i1 %46, label %47, label %50
 
-46:                                               ; preds = %43
-  %47 = load i64, ptr %10, align 8
-  %48 = icmp eq i64 %47, 2
-  br i1 %48, label %61, label %49
+47:                                               ; preds = %44
+  %48 = load i64, ptr %10, align 8
+  %49 = icmp eq i64 %48, 2
+  br i1 %49, label %62, label %50
 
-49:                                               ; preds = %46, %43
-  %50 = load i64, ptr %9, align 8
-  %51 = icmp eq i64 %50, 6
-  br i1 %51, label %52, label %55
+50:                                               ; preds = %47, %44
+  %51 = load i64, ptr %9, align 8
+  %52 = icmp eq i64 %51, 6
+  br i1 %52, label %53, label %56
 
-52:                                               ; preds = %49
-  %53 = load i64, ptr %10, align 8
-  %54 = icmp eq i64 %53, 2
-  br i1 %54, label %61, label %55
+53:                                               ; preds = %50
+  %54 = load i64, ptr %10, align 8
+  %55 = icmp eq i64 %54, 2
+  br i1 %55, label %62, label %56
 
-55:                                               ; preds = %52, %49
-  %56 = load i64, ptr %9, align 8
-  %57 = icmp eq i64 %56, 4
-  br i1 %57, label %58, label %62
+56:                                               ; preds = %53, %50
+  %57 = load i64, ptr %9, align 8
+  %58 = icmp eq i64 %57, 4
+  br i1 %58, label %59, label %63
 
-58:                                               ; preds = %55
-  %59 = load i64, ptr %10, align 8
-  %60 = icmp eq i64 %59, 2
-  br i1 %60, label %61, label %62
+59:                                               ; preds = %56
+  %60 = load i64, ptr %10, align 8
+  %61 = icmp eq i64 %60, 2
+  br i1 %61, label %62, label %63
 
-61:                                               ; preds = %58, %52, %46, %40, %34
-  store i32 1, ptr %3, align 4
-  br label %63
+62:                                               ; preds = %59, %53, %47, %41, %35
+  store i1 true, ptr %3, align 1
+  store i32 1, ptr %12, align 4
+  br label %64
 
-62:                                               ; preds = %58, %55
-  store i32 0, ptr %3, align 4
-  br label %63
+63:                                               ; preds = %59, %56
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %12, align 4
+  br label %64
 
-63:                                               ; preds = %62, %61, %23
-  %64 = load i32, ptr %3, align 4
-  ret i32 %64
+64:                                               ; preds = %63, %62, %24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  %65 = load i1, ptr %3, align 1
+  ret i1 %65
 }
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @col_clear(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_clear(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @riemann_dissect_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -431,20 +470,27 @@ define internal i32 @riemann_dissect_msg(ptr noundef %0, ptr noundef %1, ptr nou
   %14 = alloca i8, align 1
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  %17 = alloca i32, align 4
+  %17 = alloca i8, align 1
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
   %18 = load ptr, ptr %9, align 8
   %19 = load i32, ptr %10, align 4
   %20 = call i32 @tvb_reported_length_remaining(ptr noundef %18, i32 noundef %19)
   %21 = sext i32 %20 to i64
   store i64 %21, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
   %22 = load i32, ptr %10, align 4
   store i32 %22, ptr %16, align 4
-  store i32 0, ptr %17, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %17) #3
+  store i8 0, ptr %17, align 1
   br label %23
 
 23:                                               ; preds = %127, %5
@@ -455,7 +501,7 @@ define internal i32 @riemann_dissect_msg(ptr noundef %0, ptr noundef %1, ptr nou
 26:                                               ; preds = %23
   %27 = load ptr, ptr %9, align 8
   %28 = load i32, ptr %10, align 4
-  %29 = call i64 @riemann_get_guint64(ptr noundef %27, i32 noundef %28, ptr noundef %15)
+  %29 = call i64 @riemann_get_uint64(ptr noundef %27, i32 noundef %28, ptr noundef %15)
   store i64 %29, ptr %11, align 8
   %30 = load i64, ptr %11, align 8
   %31 = lshr i64 %30, 3
@@ -519,16 +565,16 @@ define internal i32 @riemann_dissect_msg(ptr noundef %0, ptr noundef %1, ptr nou
   %69 = load ptr, ptr %6, align 8
   %70 = load ptr, ptr %7, align 8
   call void @riemann_verify_wire_format(i64 noundef %66, ptr noundef @.str.62, i32 noundef 2, i32 noundef %68, ptr noundef %69, ptr noundef %70)
-  %71 = load i32, ptr %17, align 4
-  %72 = icmp ne i32 %71, 0
+  %71 = load i8, ptr %17, align 1, !range !6, !noundef !7
+  %72 = trunc i8 %71 to i1
   br i1 %72, label %77, label %73
 
 73:                                               ; preds = %65
   %74 = load ptr, ptr %6, align 8
-  %75 = getelementptr inbounds %struct._packet_info, ptr %74, i32 0, i32 1
+  %75 = getelementptr inbounds nuw %struct._packet_info, ptr %74, i32 0, i32 1
   %76 = load ptr, ptr %75, align 8
   call void @col_set_str(ptr noundef %76, i32 noundef 25, ptr noundef @.str.63)
-  store i32 1, ptr %17, align 4
+  store i8 1, ptr %17, align 1
   br label %77
 
 77:                                               ; preds = %73, %65
@@ -547,16 +593,16 @@ define internal i32 @riemann_dissect_msg(ptr noundef %0, ptr noundef %1, ptr nou
   %87 = load ptr, ptr %6, align 8
   %88 = load ptr, ptr %7, align 8
   call void @riemann_verify_wire_format(i64 noundef %84, ptr noundef @.str.64, i32 noundef 2, i32 noundef %86, ptr noundef %87, ptr noundef %88)
-  %89 = load i32, ptr %17, align 4
-  %90 = icmp ne i32 %89, 0
+  %89 = load i8, ptr %17, align 1, !range !6, !noundef !7
+  %90 = trunc i8 %89 to i1
   br i1 %90, label %95, label %91
 
 91:                                               ; preds = %83
   %92 = load ptr, ptr %6, align 8
-  %93 = getelementptr inbounds %struct._packet_info, ptr %92, i32 0, i32 1
+  %93 = getelementptr inbounds nuw %struct._packet_info, ptr %92, i32 0, i32 1
   %94 = load ptr, ptr %93, align 8
   call void @col_set_str(ptr noundef %94, i32 noundef 25, ptr noundef @.str.65)
-  store i32 1, ptr %17, align 4
+  store i8 1, ptr %17, align 1
   br label %95
 
 95:                                               ; preds = %91, %83
@@ -575,16 +621,16 @@ define internal i32 @riemann_dissect_msg(ptr noundef %0, ptr noundef %1, ptr nou
   %105 = load ptr, ptr %6, align 8
   %106 = load ptr, ptr %7, align 8
   call void @riemann_verify_wire_format(i64 noundef %102, ptr noundef @.str.66, i32 noundef 2, i32 noundef %104, ptr noundef %105, ptr noundef %106)
-  %107 = load i32, ptr %17, align 4
-  %108 = icmp ne i32 %107, 0
+  %107 = load i8, ptr %17, align 1, !range !6, !noundef !7
+  %108 = trunc i8 %107 to i1
   br i1 %108, label %113, label %109
 
 109:                                              ; preds = %101
   %110 = load ptr, ptr %6, align 8
-  %111 = getelementptr inbounds %struct._packet_info, ptr %110, i32 0, i32 1
+  %111 = getelementptr inbounds nuw %struct._packet_info, ptr %110, i32 0, i32 1
   %112 = load ptr, ptr %111, align 8
   call void @col_set_str(ptr noundef %112, i32 noundef 25, ptr noundef @.str.67)
-  store i32 1, ptr %17, align 4
+  store i8 1, ptr %17, align 1
   br label %113
 
 113:                                              ; preds = %109, %101
@@ -617,7 +663,7 @@ define internal i32 @riemann_dissect_msg(ptr noundef %0, ptr noundef %1, ptr nou
   %133 = load i64, ptr %13, align 8
   %134 = sub i64 %133, %132
   store i64 %134, ptr %13, align 8
-  br label %23, !llvm.loop !4
+  br label %23, !llvm.loop !8
 
 135:                                              ; preds = %23
   %136 = load i64, ptr %13, align 8
@@ -637,15 +683,24 @@ define internal i32 @riemann_dissect_msg(ptr noundef %0, ptr noundef %1, ptr nou
   %146 = load i32, ptr %10, align 4
   %147 = load i32, ptr %16, align 4
   %148 = sub i32 %146, %147
+  call void @llvm.lifetime.end.p0(i64 1, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
   ret i32 %148
 }
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #2
 
-declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i64 @riemann_get_guint64(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i64 @riemann_get_uint64(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -653,70 +708,93 @@ define internal i64 @riemann_get_guint64(ptr noundef %0, i32 noundef %1, ptr nou
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
   %10 = alloca i8, align 1
+  %11 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
   store i64 0, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
-  %11 = load ptr, ptr %7, align 8
-  store i32 0, ptr %11, align 4
-  br label %12
+  %12 = load ptr, ptr %7, align 8
+  store i32 0, ptr %12, align 4
+  br label %13
 
-12:                                               ; preds = %41, %3
-  %13 = load i32, ptr %9, align 4
-  %14 = icmp uge i32 %13, 64
-  br i1 %14, label %15, label %16
+13:                                               ; preds = %46, %3
+  br label %14
 
-15:                                               ; preds = %12
+14:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  %15 = load i32, ptr %9, align 4
+  %16 = icmp uge i32 %15, 64
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %14
   store i64 0, ptr %4, align 8
-  br label %42
+  store i32 1, ptr %11, align 4
+  br label %44
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %5, align 8
-  %18 = load i32, ptr %6, align 4
-  %19 = add i32 %18, 1
-  store i32 %19, ptr %6, align 4
-  %20 = call zeroext i8 @tvb_get_guint8(ptr noundef %17, i32 noundef %18)
-  store i8 %20, ptr %10, align 1
-  %21 = load i8, ptr %10, align 1
-  %22 = zext i8 %21 to i32
-  %23 = and i32 %22, 127
-  %24 = sext i32 %23 to i64
-  %25 = load i32, ptr %9, align 4
-  %26 = zext i32 %25 to i64
-  %27 = shl i64 %24, %26
-  %28 = load i64, ptr %8, align 8
-  %29 = or i64 %28, %27
-  store i64 %29, ptr %8, align 8
-  %30 = load i32, ptr %9, align 4
-  %31 = add i32 %30, 7
-  store i32 %31, ptr %9, align 4
-  %32 = load ptr, ptr %7, align 8
-  %33 = load i32, ptr %32, align 4
-  %34 = add i32 %33, 1
-  store i32 %34, ptr %32, align 4
-  %35 = load i8, ptr %10, align 1
-  %36 = zext i8 %35 to i32
-  %37 = and i32 %36, 128
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %41
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %6, align 4
+  %21 = add i32 %20, 1
+  store i32 %21, ptr %6, align 4
+  %22 = call zeroext i8 @tvb_get_uint8(ptr noundef %19, i32 noundef %20)
+  store i8 %22, ptr %10, align 1
+  %23 = load i8, ptr %10, align 1
+  %24 = zext i8 %23 to i32
+  %25 = and i32 %24, 127
+  %26 = sext i32 %25 to i64
+  %27 = load i32, ptr %9, align 4
+  %28 = zext i32 %27 to i64
+  %29 = shl i64 %26, %28
+  %30 = load i64, ptr %8, align 8
+  %31 = or i64 %30, %29
+  store i64 %31, ptr %8, align 8
+  %32 = load i32, ptr %9, align 4
+  %33 = add i32 %32, 7
+  store i32 %33, ptr %9, align 4
+  %34 = load ptr, ptr %7, align 8
+  %35 = load i32, ptr %34, align 4
+  %36 = add i32 %35, 1
+  store i32 %36, ptr %34, align 4
+  %37 = load i8, ptr %10, align 1
+  %38 = zext i8 %37 to i32
+  %39 = and i32 %38, 128
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %43
 
-39:                                               ; preds = %16
-  %40 = load i64, ptr %8, align 8
-  store i64 %40, ptr %4, align 8
-  br label %42
+41:                                               ; preds = %18
+  %42 = load i64, ptr %8, align 8
+  store i64 %42, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %44
 
-41:                                               ; preds = %16
-  br label %12
+43:                                               ; preds = %18
+  store i32 0, ptr %11, align 4
+  br label %44
 
-42:                                               ; preds = %39, %15
-  %43 = load i64, ptr %4, align 8
-  ret i64 %43
+44:                                               ; preds = %43, %41, %17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  %45 = load i32, ptr %11, align 4
+  switch i32 %45, label %47 [
+    i32 0, label %46
+  ]
+
+46:                                               ; preds = %44
+  br label %13
+
+47:                                               ; preds = %44
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  %48 = load i64, ptr %4, align 8
+  ret i64 %48
 }
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @riemann_verify_wire_format(i64 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
@@ -737,6 +815,7 @@ define internal void @riemann_verify_wire_format(i64 noundef %0, ptr noundef %1,
   br i1 %16, label %17, label %34
 
 17:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
   %18 = load i32, ptr %9, align 4
   switch i32 %18, label %23 [
     i32 0, label %19
@@ -775,13 +854,14 @@ define internal void @riemann_verify_wire_format(i64 noundef %0, ptr noundef %1,
   %31 = load i32, ptr %9, align 4
   %32 = load i32, ptr %10, align 4
   %33 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %25, ptr noundef %26, ptr noundef @ei_error_unknown_wire_tag, ptr noundef @.str.75, ptr noundef %27, i32 noundef %29, ptr noundef %30, i32 noundef %31, i32 noundef %32)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
   br label %34
 
 34:                                               ; preds = %24, %6
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @riemann_dissect_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -794,12 +874,15 @@ define internal i32 @riemann_dissect_string(ptr noundef %0, ptr noundef %1, i32 
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
   store i32 0, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
   %12 = load i32, ptr %7, align 4
   store i32 %12, ptr %11, align 4
   %13 = load ptr, ptr %6, align 8
   %14 = load i32, ptr %7, align 4
-  %15 = call i64 @riemann_get_guint64(ptr noundef %13, i32 noundef %14, ptr noundef %10)
+  %15 = call i64 @riemann_get_uint64(ptr noundef %13, i32 noundef %14, ptr noundef %10)
   store i64 %15, ptr %9, align 8
   %16 = load i32, ptr %10, align 4
   %17 = load i32, ptr %7, align 4
@@ -820,10 +903,13 @@ define internal i32 @riemann_dissect_string(ptr noundef %0, ptr noundef %1, i32 
   %30 = load i32, ptr %7, align 4
   %31 = load i32, ptr %11, align 4
   %32 = sub i32 %30, %31
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret i32 %32
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @riemann_dissect_query(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -841,12 +927,20 @@ define internal i32 @riemann_dissect_query(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
   %17 = load i32, ptr %8, align 4
   store i32 %17, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
   store i32 0, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
   %18 = load ptr, ptr %7, align 8
   %19 = load i32, ptr %8, align 4
-  %20 = call i64 @riemann_get_guint64(ptr noundef %18, i32 noundef %19, ptr noundef %14)
+  %20 = call i64 @riemann_get_uint64(ptr noundef %18, i32 noundef %19, ptr noundef %14)
   store i64 %20, ptr %11, align 8
   %21 = load ptr, ptr %6, align 8
   %22 = load i32, ptr @hf_riemann_query, align 4
@@ -869,15 +963,15 @@ define internal i32 @riemann_dissect_query(ptr noundef %0, ptr noundef %1, ptr n
   store i32 %36, ptr %8, align 4
   br label %37
 
-37:                                               ; preds = %82, %4
+37:                                               ; preds = %85, %4
   %38 = load i64, ptr %11, align 8
   %39 = icmp sgt i64 %38, 0
-  br i1 %39, label %40, label %90
+  br i1 %39, label %40, label %93
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr %7, align 8
   %42 = load i32, ptr %8, align 4
-  %43 = call i64 @riemann_get_guint64(ptr noundef %41, i32 noundef %42, ptr noundef %14)
+  %43 = call i64 @riemann_get_uint64(ptr noundef %41, i32 noundef %42, ptr noundef %14)
   store i64 %43, ptr %9, align 8
   %44 = load i64, ptr %9, align 8
   %45 = lshr i64 %44, 3
@@ -896,7 +990,7 @@ define internal i32 @riemann_dissect_query(ptr noundef %0, ptr noundef %1, ptr n
   %55 = sub i64 %54, %53
   store i64 %55, ptr %11, align 8
   %56 = load i64, ptr %10, align 8
-  switch i64 %56, label %74 [
+  switch i64 %56, label %77 [
     i64 1, label %57
   ]
 
@@ -908,65 +1002,76 @@ define internal i32 @riemann_dissect_query(ptr noundef %0, ptr noundef %1, ptr n
   %62 = load ptr, ptr %15, align 8
   call void @riemann_verify_wire_format(i64 noundef %58, ptr noundef @.str.76, i32 noundef 2, i32 noundef %60, ptr noundef %61, ptr noundef %62)
   %63 = load ptr, ptr %5, align 8
-  %64 = getelementptr inbounds %struct._packet_info, ptr %63, i32 0, i32 1
+  %64 = getelementptr inbounds nuw %struct._packet_info, ptr %63, i32 0, i32 1
   %65 = load ptr, ptr %64, align 8
-  %66 = load ptr, ptr %7, align 8
-  %67 = load i32, ptr %8, align 4
-  %68 = call ptr @riemann_get_string(ptr noundef %66, i32 noundef %67)
-  call void @col_append_str(ptr noundef %65, i32 noundef 25, ptr noundef %68)
-  %69 = load ptr, ptr %16, align 8
-  %70 = load ptr, ptr %7, align 8
-  %71 = load i32, ptr %8, align 4
-  %72 = load i32, ptr @hf_riemann_query_string, align 4
-  %73 = call i32 @riemann_dissect_string(ptr noundef %69, ptr noundef %70, i32 noundef %71, i32 noundef %72)
-  store i32 %73, ptr %14, align 4
-  br label %82
+  %66 = load ptr, ptr %5, align 8
+  %67 = getelementptr inbounds nuw %struct._packet_info, ptr %66, i32 0, i32 51
+  %68 = load ptr, ptr %67, align 8
+  %69 = load ptr, ptr %7, align 8
+  %70 = load i32, ptr %8, align 4
+  %71 = call ptr @riemann_get_string(ptr noundef %68, ptr noundef %69, i32 noundef %70)
+  call void @col_append_str(ptr noundef %65, i32 noundef 25, ptr noundef %71)
+  %72 = load ptr, ptr %16, align 8
+  %73 = load ptr, ptr %7, align 8
+  %74 = load i32, ptr %8, align 4
+  %75 = load i32, ptr @hf_riemann_query_string, align 4
+  %76 = call i32 @riemann_dissect_string(ptr noundef %72, ptr noundef %73, i32 noundef %74, i32 noundef %75)
+  store i32 %76, ptr %14, align 4
+  br label %85
 
-74:                                               ; preds = %40
+77:                                               ; preds = %40
   store i32 0, ptr %14, align 4
-  %75 = load ptr, ptr %5, align 8
-  %76 = load ptr, ptr %15, align 8
-  %77 = load i64, ptr %10, align 8
-  %78 = trunc i64 %77 to i32
-  %79 = load i8, ptr %12, align 1
-  %80 = zext i8 %79 to i32
-  %81 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %75, ptr noundef %76, ptr noundef @ei_error_unknown_field_number, ptr noundef @.str.77, i32 noundef %78, i32 noundef %80)
-  br label %82
+  %78 = load ptr, ptr %5, align 8
+  %79 = load ptr, ptr %15, align 8
+  %80 = load i64, ptr %10, align 8
+  %81 = trunc i64 %80 to i32
+  %82 = load i8, ptr %12, align 1
+  %83 = zext i8 %82 to i32
+  %84 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %78, ptr noundef %79, ptr noundef @ei_error_unknown_field_number, ptr noundef @.str.77, i32 noundef %81, i32 noundef %83)
+  br label %85
 
-82:                                               ; preds = %74, %57
-  %83 = load i32, ptr %14, align 4
-  %84 = load i32, ptr %8, align 4
-  %85 = add i32 %84, %83
-  store i32 %85, ptr %8, align 4
+85:                                               ; preds = %77, %57
   %86 = load i32, ptr %14, align 4
-  %87 = zext i32 %86 to i64
-  %88 = load i64, ptr %11, align 8
-  %89 = sub i64 %88, %87
-  store i64 %89, ptr %11, align 8
-  br label %37, !llvm.loop !6
-
-90:                                               ; preds = %37
+  %87 = load i32, ptr %8, align 4
+  %88 = add i32 %87, %86
+  store i32 %88, ptr %8, align 4
+  %89 = load i32, ptr %14, align 4
+  %90 = zext i32 %89 to i64
   %91 = load i64, ptr %11, align 8
-  %92 = icmp slt i64 %91, 0
-  br i1 %92, label %93, label %100
+  %92 = sub i64 %91, %90
+  store i64 %92, ptr %11, align 8
+  br label %37, !llvm.loop !10
 
-93:                                               ; preds = %90
-  %94 = load ptr, ptr %5, align 8
-  %95 = load ptr, ptr %15, align 8
-  %96 = load i64, ptr %11, align 8
-  %97 = trunc i64 %96 to i32
-  %98 = mul i32 %97, -1
-  %99 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %94, ptr noundef %95, ptr noundef @ei_error_insufficient_data, ptr noundef @.str.78, i32 noundef %98)
-  br label %100
+93:                                               ; preds = %37
+  %94 = load i64, ptr %11, align 8
+  %95 = icmp slt i64 %94, 0
+  br i1 %95, label %96, label %103
 
-100:                                              ; preds = %93, %90
-  %101 = load i32, ptr %8, align 4
-  %102 = load i32, ptr %13, align 4
-  %103 = sub i32 %101, %102
-  ret i32 %103
+96:                                               ; preds = %93
+  %97 = load ptr, ptr %5, align 8
+  %98 = load ptr, ptr %15, align 8
+  %99 = load i64, ptr %11, align 8
+  %100 = trunc i64 %99 to i32
+  %101 = mul i32 %100, -1
+  %102 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %97, ptr noundef %98, ptr noundef @ei_error_insufficient_data, ptr noundef @.str.78, i32 noundef %101)
+  br label %103
+
+103:                                              ; preds = %96, %93
+  %104 = load i32, ptr %8, align 4
+  %105 = load i32, ptr %13, align 4
+  %106 = sub i32 %104, %105
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  ret i32 %106
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @riemann_dissect_event(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -980,19 +1085,28 @@ define internal i32 @riemann_dissect_event(ptr noundef %0, ptr noundef %1, ptr n
   %14 = alloca i8, align 1
   %15 = alloca ptr, align 8
   %16 = alloca ptr, align 8
-  %17 = alloca i32, align 4
+  %17 = alloca i8, align 1
   %18 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   %19 = load i32, ptr %8, align 4
   store i32 %19, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
   store i32 0, ptr %10, align 4
-  store i32 0, ptr %17, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %17) #3
+  store i8 0, ptr %17, align 1
   %20 = load ptr, ptr %7, align 8
   %21 = load i32, ptr %8, align 4
-  %22 = call i64 @riemann_get_guint64(ptr noundef %20, i32 noundef %21, ptr noundef %10)
+  %22 = call i64 @riemann_get_uint64(ptr noundef %20, i32 noundef %21, ptr noundef %10)
   store i64 %22, ptr %13, align 8
   %23 = load ptr, ptr %6, align 8
   %24 = load i32, ptr @hf_riemann_event, align 4
@@ -1015,19 +1129,20 @@ define internal i32 @riemann_dissect_event(ptr noundef %0, ptr noundef %1, ptr n
   store i32 %38, ptr %8, align 4
   br label %39
 
-39:                                               ; preds = %216, %4
+39:                                               ; preds = %222, %4
   %40 = load i64, ptr %13, align 8
   %41 = icmp sgt i64 %40, 0
-  br i1 %41, label %42, label %224
+  br i1 %41, label %42, label %230
 
 42:                                               ; preds = %39
-  %43 = load i32, ptr %17, align 4
-  %44 = icmp ne i32 %43, 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #3
+  %43 = load i8, ptr %17, align 1, !range !6, !noundef !7
+  %44 = trunc i8 %43 to i1
   %45 = select i1 %44, ptr @.str.79, ptr @.str.80
   store ptr %45, ptr %18, align 8
   %46 = load ptr, ptr %7, align 8
   %47 = load i32, ptr %8, align 4
-  %48 = call i64 @riemann_get_guint64(ptr noundef %46, i32 noundef %47, ptr noundef %10)
+  %48 = call i64 @riemann_get_uint64(ptr noundef %46, i32 noundef %47, ptr noundef %10)
   store i64 %48, ptr %11, align 8
   %49 = load i64, ptr %11, align 8
   %50 = lshr i64 %49, 3
@@ -1046,19 +1161,19 @@ define internal i32 @riemann_dissect_event(ptr noundef %0, ptr noundef %1, ptr n
   %60 = sub i64 %59, %58
   store i64 %60, ptr %13, align 8
   %61 = load i64, ptr %12, align 8
-  switch i64 %61, label %208 [
+  switch i64 %61, label %214 [
     i64 1, label %62
     i64 2, label %73
     i64 3, label %84
-    i64 4, label %102
-    i64 5, label %120
-    i64 7, label %131
-    i64 8, label %142
-    i64 9, label %153
-    i64 10, label %164
-    i64 13, label %175
-    i64 14, label %186
-    i64 15, label %197
+    i64 4, label %105
+    i64 5, label %126
+    i64 7, label %137
+    i64 8, label %148
+    i64 9, label %159
+    i64 10, label %170
+    i64 13, label %181
+    i64 14, label %192
+    i64 15, label %203
   ]
 
 62:                                               ; preds = %42
@@ -1074,7 +1189,7 @@ define internal i32 @riemann_dissect_event(ptr noundef %0, ptr noundef %1, ptr n
   %71 = load i32, ptr @hf_riemann_event_time, align 4
   %72 = call i32 @riemann_dissect_int64(ptr noundef %68, ptr noundef %69, i32 noundef %70, i32 noundef %71)
   store i32 %72, ptr %10, align 4
-  br label %216
+  br label %222
 
 73:                                               ; preds = %42
   %74 = load i64, ptr %12, align 8
@@ -1089,7 +1204,7 @@ define internal i32 @riemann_dissect_event(ptr noundef %0, ptr noundef %1, ptr n
   %82 = load i32, ptr @hf_riemann_event_state, align 4
   %83 = call i32 @riemann_dissect_string(ptr noundef %79, ptr noundef %80, i32 noundef %81, i32 noundef %82)
   store i32 %83, ptr %10, align 4
-  br label %216
+  br label %222
 
 84:                                               ; preds = %42
   %85 = load i64, ptr %12, align 8
@@ -1099,215 +1214,231 @@ define internal i32 @riemann_dissect_event(ptr noundef %0, ptr noundef %1, ptr n
   %89 = load ptr, ptr %15, align 8
   call void @riemann_verify_wire_format(i64 noundef %85, ptr noundef @.str.83, i32 noundef 2, i32 noundef %87, ptr noundef %88, ptr noundef %89)
   %90 = load ptr, ptr %5, align 8
-  %91 = getelementptr inbounds %struct._packet_info, ptr %90, i32 0, i32 1
+  %91 = getelementptr inbounds nuw %struct._packet_info, ptr %90, i32 0, i32 1
   %92 = load ptr, ptr %91, align 8
   %93 = load ptr, ptr %18, align 8
-  %94 = load ptr, ptr %7, align 8
-  %95 = load i32, ptr %8, align 4
-  %96 = call ptr @riemann_get_string(ptr noundef %94, i32 noundef %95)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %92, i32 noundef 25, ptr noundef @.str.84, ptr noundef %93, ptr noundef %96)
-  %97 = load ptr, ptr %16, align 8
-  %98 = load ptr, ptr %7, align 8
-  %99 = load i32, ptr %8, align 4
-  %100 = load i32, ptr @hf_riemann_event_service, align 4
-  %101 = call i32 @riemann_dissect_string(ptr noundef %97, ptr noundef %98, i32 noundef %99, i32 noundef %100)
-  store i32 %101, ptr %10, align 4
-  store i32 1, ptr %17, align 4
-  br label %216
+  %94 = load ptr, ptr %5, align 8
+  %95 = getelementptr inbounds nuw %struct._packet_info, ptr %94, i32 0, i32 51
+  %96 = load ptr, ptr %95, align 8
+  %97 = load ptr, ptr %7, align 8
+  %98 = load i32, ptr %8, align 4
+  %99 = call ptr @riemann_get_string(ptr noundef %96, ptr noundef %97, i32 noundef %98)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %92, i32 noundef 25, ptr noundef @.str.84, ptr noundef %93, ptr noundef %99)
+  %100 = load ptr, ptr %16, align 8
+  %101 = load ptr, ptr %7, align 8
+  %102 = load i32, ptr %8, align 4
+  %103 = load i32, ptr @hf_riemann_event_service, align 4
+  %104 = call i32 @riemann_dissect_string(ptr noundef %100, ptr noundef %101, i32 noundef %102, i32 noundef %103)
+  store i32 %104, ptr %10, align 4
+  store i8 1, ptr %17, align 1
+  br label %222
 
-102:                                              ; preds = %42
-  %103 = load i64, ptr %12, align 8
-  %104 = load i8, ptr %14, align 1
-  %105 = zext i8 %104 to i32
-  %106 = load ptr, ptr %5, align 8
-  %107 = load ptr, ptr %15, align 8
-  call void @riemann_verify_wire_format(i64 noundef %103, ptr noundef @.str.85, i32 noundef 2, i32 noundef %105, ptr noundef %106, ptr noundef %107)
-  %108 = load ptr, ptr %5, align 8
-  %109 = getelementptr inbounds %struct._packet_info, ptr %108, i32 0, i32 1
-  %110 = load ptr, ptr %109, align 8
-  %111 = load ptr, ptr %18, align 8
-  %112 = load ptr, ptr %7, align 8
-  %113 = load i32, ptr %8, align 4
-  %114 = call ptr @riemann_get_string(ptr noundef %112, i32 noundef %113)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %110, i32 noundef 25, ptr noundef @.str.84, ptr noundef %111, ptr noundef %114)
-  %115 = load ptr, ptr %16, align 8
-  %116 = load ptr, ptr %7, align 8
-  %117 = load i32, ptr %8, align 4
-  %118 = load i32, ptr @hf_riemann_event_host, align 4
-  %119 = call i32 @riemann_dissect_string(ptr noundef %115, ptr noundef %116, i32 noundef %117, i32 noundef %118)
-  store i32 %119, ptr %10, align 4
-  store i32 1, ptr %17, align 4
-  br label %216
+105:                                              ; preds = %42
+  %106 = load i64, ptr %12, align 8
+  %107 = load i8, ptr %14, align 1
+  %108 = zext i8 %107 to i32
+  %109 = load ptr, ptr %5, align 8
+  %110 = load ptr, ptr %15, align 8
+  call void @riemann_verify_wire_format(i64 noundef %106, ptr noundef @.str.85, i32 noundef 2, i32 noundef %108, ptr noundef %109, ptr noundef %110)
+  %111 = load ptr, ptr %5, align 8
+  %112 = getelementptr inbounds nuw %struct._packet_info, ptr %111, i32 0, i32 1
+  %113 = load ptr, ptr %112, align 8
+  %114 = load ptr, ptr %18, align 8
+  %115 = load ptr, ptr %5, align 8
+  %116 = getelementptr inbounds nuw %struct._packet_info, ptr %115, i32 0, i32 51
+  %117 = load ptr, ptr %116, align 8
+  %118 = load ptr, ptr %7, align 8
+  %119 = load i32, ptr %8, align 4
+  %120 = call ptr @riemann_get_string(ptr noundef %117, ptr noundef %118, i32 noundef %119)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %113, i32 noundef 25, ptr noundef @.str.84, ptr noundef %114, ptr noundef %120)
+  %121 = load ptr, ptr %16, align 8
+  %122 = load ptr, ptr %7, align 8
+  %123 = load i32, ptr %8, align 4
+  %124 = load i32, ptr @hf_riemann_event_host, align 4
+  %125 = call i32 @riemann_dissect_string(ptr noundef %121, ptr noundef %122, i32 noundef %123, i32 noundef %124)
+  store i32 %125, ptr %10, align 4
+  store i8 1, ptr %17, align 1
+  br label %222
 
-120:                                              ; preds = %42
-  %121 = load i64, ptr %12, align 8
-  %122 = load i8, ptr %14, align 1
-  %123 = zext i8 %122 to i32
-  %124 = load ptr, ptr %5, align 8
-  %125 = load ptr, ptr %15, align 8
-  call void @riemann_verify_wire_format(i64 noundef %121, ptr noundef @.str.86, i32 noundef 2, i32 noundef %123, ptr noundef %124, ptr noundef %125)
-  %126 = load ptr, ptr %16, align 8
-  %127 = load ptr, ptr %7, align 8
-  %128 = load i32, ptr %8, align 4
-  %129 = load i32, ptr @hf_riemann_event_description, align 4
-  %130 = call i32 @riemann_dissect_string(ptr noundef %126, ptr noundef %127, i32 noundef %128, i32 noundef %129)
-  store i32 %130, ptr %10, align 4
-  br label %216
+126:                                              ; preds = %42
+  %127 = load i64, ptr %12, align 8
+  %128 = load i8, ptr %14, align 1
+  %129 = zext i8 %128 to i32
+  %130 = load ptr, ptr %5, align 8
+  %131 = load ptr, ptr %15, align 8
+  call void @riemann_verify_wire_format(i64 noundef %127, ptr noundef @.str.86, i32 noundef 2, i32 noundef %129, ptr noundef %130, ptr noundef %131)
+  %132 = load ptr, ptr %16, align 8
+  %133 = load ptr, ptr %7, align 8
+  %134 = load i32, ptr %8, align 4
+  %135 = load i32, ptr @hf_riemann_event_description, align 4
+  %136 = call i32 @riemann_dissect_string(ptr noundef %132, ptr noundef %133, i32 noundef %134, i32 noundef %135)
+  store i32 %136, ptr %10, align 4
+  br label %222
 
-131:                                              ; preds = %42
-  %132 = load i64, ptr %12, align 8
-  %133 = load i8, ptr %14, align 1
-  %134 = zext i8 %133 to i32
-  %135 = load ptr, ptr %5, align 8
-  %136 = load ptr, ptr %15, align 8
-  call void @riemann_verify_wire_format(i64 noundef %132, ptr noundef @.str.87, i32 noundef 2, i32 noundef %134, ptr noundef %135, ptr noundef %136)
-  %137 = load ptr, ptr %16, align 8
-  %138 = load ptr, ptr %7, align 8
-  %139 = load i32, ptr %8, align 4
-  %140 = load i32, ptr @hf_riemann_event_tag, align 4
-  %141 = call i32 @riemann_dissect_string(ptr noundef %137, ptr noundef %138, i32 noundef %139, i32 noundef %140)
-  store i32 %141, ptr %10, align 4
-  br label %216
+137:                                              ; preds = %42
+  %138 = load i64, ptr %12, align 8
+  %139 = load i8, ptr %14, align 1
+  %140 = zext i8 %139 to i32
+  %141 = load ptr, ptr %5, align 8
+  %142 = load ptr, ptr %15, align 8
+  call void @riemann_verify_wire_format(i64 noundef %138, ptr noundef @.str.87, i32 noundef 2, i32 noundef %140, ptr noundef %141, ptr noundef %142)
+  %143 = load ptr, ptr %16, align 8
+  %144 = load ptr, ptr %7, align 8
+  %145 = load i32, ptr %8, align 4
+  %146 = load i32, ptr @hf_riemann_event_tag, align 4
+  %147 = call i32 @riemann_dissect_string(ptr noundef %143, ptr noundef %144, i32 noundef %145, i32 noundef %146)
+  store i32 %147, ptr %10, align 4
+  br label %222
 
-142:                                              ; preds = %42
-  %143 = load i64, ptr %12, align 8
-  %144 = load i8, ptr %14, align 1
-  %145 = zext i8 %144 to i32
-  %146 = load ptr, ptr %5, align 8
-  %147 = load ptr, ptr %15, align 8
-  call void @riemann_verify_wire_format(i64 noundef %143, ptr noundef @.str.88, i32 noundef 5, i32 noundef %145, ptr noundef %146, ptr noundef %147)
-  %148 = load ptr, ptr %16, align 8
-  %149 = load i32, ptr @hf_riemann_event_ttl, align 4
-  %150 = load ptr, ptr %7, align 8
-  %151 = load i32, ptr %8, align 4
-  %152 = call ptr @proto_tree_add_item(ptr noundef %148, i32 noundef %149, ptr noundef %150, i32 noundef %151, i32 noundef 4, i32 noundef -2147483648)
+148:                                              ; preds = %42
+  %149 = load i64, ptr %12, align 8
+  %150 = load i8, ptr %14, align 1
+  %151 = zext i8 %150 to i32
+  %152 = load ptr, ptr %5, align 8
+  %153 = load ptr, ptr %15, align 8
+  call void @riemann_verify_wire_format(i64 noundef %149, ptr noundef @.str.88, i32 noundef 5, i32 noundef %151, ptr noundef %152, ptr noundef %153)
+  %154 = load ptr, ptr %16, align 8
+  %155 = load i32, ptr @hf_riemann_event_ttl, align 4
+  %156 = load ptr, ptr %7, align 8
+  %157 = load i32, ptr %8, align 4
+  %158 = call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %155, ptr noundef %156, i32 noundef %157, i32 noundef 4, i32 noundef -2147483648)
   store i32 4, ptr %10, align 4
-  br label %216
+  br label %222
 
-153:                                              ; preds = %42
-  %154 = load i64, ptr %12, align 8
-  %155 = load i8, ptr %14, align 1
-  %156 = zext i8 %155 to i32
-  %157 = load ptr, ptr %5, align 8
-  %158 = load ptr, ptr %15, align 8
-  call void @riemann_verify_wire_format(i64 noundef %154, ptr noundef @.str.89, i32 noundef 2, i32 noundef %156, ptr noundef %157, ptr noundef %158)
-  %159 = load ptr, ptr %5, align 8
-  %160 = load ptr, ptr %16, align 8
-  %161 = load ptr, ptr %7, align 8
-  %162 = load i32, ptr %8, align 4
-  %163 = call i32 @riemann_dissect_attribute(ptr noundef %159, ptr noundef %160, ptr noundef %161, i32 noundef %162)
-  store i32 %163, ptr %10, align 4
-  br label %216
+159:                                              ; preds = %42
+  %160 = load i64, ptr %12, align 8
+  %161 = load i8, ptr %14, align 1
+  %162 = zext i8 %161 to i32
+  %163 = load ptr, ptr %5, align 8
+  %164 = load ptr, ptr %15, align 8
+  call void @riemann_verify_wire_format(i64 noundef %160, ptr noundef @.str.89, i32 noundef 2, i32 noundef %162, ptr noundef %163, ptr noundef %164)
+  %165 = load ptr, ptr %5, align 8
+  %166 = load ptr, ptr %16, align 8
+  %167 = load ptr, ptr %7, align 8
+  %168 = load i32, ptr %8, align 4
+  %169 = call i32 @riemann_dissect_attribute(ptr noundef %165, ptr noundef %166, ptr noundef %167, i32 noundef %168)
+  store i32 %169, ptr %10, align 4
+  br label %222
 
-164:                                              ; preds = %42
-  %165 = load i64, ptr %12, align 8
-  %166 = load i8, ptr %14, align 1
-  %167 = zext i8 %166 to i32
-  %168 = load ptr, ptr %5, align 8
-  %169 = load ptr, ptr %15, align 8
-  call void @riemann_verify_wire_format(i64 noundef %165, ptr noundef @.str.90, i32 noundef 0, i32 noundef %167, ptr noundef %168, ptr noundef %169)
-  %170 = load ptr, ptr %16, align 8
-  %171 = load ptr, ptr %7, align 8
-  %172 = load i32, ptr %8, align 4
-  %173 = load i32, ptr @hf_riemann_event_time_micros, align 4
-  %174 = call i32 @riemann_dissect_int64(ptr noundef %170, ptr noundef %171, i32 noundef %172, i32 noundef %173)
-  store i32 %174, ptr %10, align 4
-  br label %216
+170:                                              ; preds = %42
+  %171 = load i64, ptr %12, align 8
+  %172 = load i8, ptr %14, align 1
+  %173 = zext i8 %172 to i32
+  %174 = load ptr, ptr %5, align 8
+  %175 = load ptr, ptr %15, align 8
+  call void @riemann_verify_wire_format(i64 noundef %171, ptr noundef @.str.90, i32 noundef 0, i32 noundef %173, ptr noundef %174, ptr noundef %175)
+  %176 = load ptr, ptr %16, align 8
+  %177 = load ptr, ptr %7, align 8
+  %178 = load i32, ptr %8, align 4
+  %179 = load i32, ptr @hf_riemann_event_time_micros, align 4
+  %180 = call i32 @riemann_dissect_int64(ptr noundef %176, ptr noundef %177, i32 noundef %178, i32 noundef %179)
+  store i32 %180, ptr %10, align 4
+  br label %222
 
-175:                                              ; preds = %42
-  %176 = load i64, ptr %12, align 8
-  %177 = load i8, ptr %14, align 1
-  %178 = zext i8 %177 to i32
-  %179 = load ptr, ptr %5, align 8
-  %180 = load ptr, ptr %15, align 8
-  call void @riemann_verify_wire_format(i64 noundef %176, ptr noundef @.str.91, i32 noundef 0, i32 noundef %178, ptr noundef %179, ptr noundef %180)
-  %181 = load ptr, ptr %16, align 8
-  %182 = load ptr, ptr %7, align 8
-  %183 = load i32, ptr %8, align 4
-  %184 = load i32, ptr @hf_riemann_event_metric_sint64, align 4
-  %185 = call i32 @riemann_dissect_sint64(ptr noundef %181, ptr noundef %182, i32 noundef %183, i32 noundef %184)
-  store i32 %185, ptr %10, align 4
-  br label %216
+181:                                              ; preds = %42
+  %182 = load i64, ptr %12, align 8
+  %183 = load i8, ptr %14, align 1
+  %184 = zext i8 %183 to i32
+  %185 = load ptr, ptr %5, align 8
+  %186 = load ptr, ptr %15, align 8
+  call void @riemann_verify_wire_format(i64 noundef %182, ptr noundef @.str.91, i32 noundef 0, i32 noundef %184, ptr noundef %185, ptr noundef %186)
+  %187 = load ptr, ptr %16, align 8
+  %188 = load ptr, ptr %7, align 8
+  %189 = load i32, ptr %8, align 4
+  %190 = load i32, ptr @hf_riemann_event_metric_sint64, align 4
+  %191 = call i32 @riemann_dissect_sint64(ptr noundef %187, ptr noundef %188, i32 noundef %189, i32 noundef %190)
+  store i32 %191, ptr %10, align 4
+  br label %222
 
-186:                                              ; preds = %42
-  %187 = load i64, ptr %12, align 8
-  %188 = load i8, ptr %14, align 1
-  %189 = zext i8 %188 to i32
-  %190 = load ptr, ptr %5, align 8
-  %191 = load ptr, ptr %15, align 8
-  call void @riemann_verify_wire_format(i64 noundef %187, ptr noundef @.str.92, i32 noundef 1, i32 noundef %189, ptr noundef %190, ptr noundef %191)
-  %192 = load ptr, ptr %16, align 8
-  %193 = load i32, ptr @hf_riemann_event_metric_d, align 4
-  %194 = load ptr, ptr %7, align 8
-  %195 = load i32, ptr %8, align 4
-  %196 = call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %193, ptr noundef %194, i32 noundef %195, i32 noundef 8, i32 noundef -2147483648)
+192:                                              ; preds = %42
+  %193 = load i64, ptr %12, align 8
+  %194 = load i8, ptr %14, align 1
+  %195 = zext i8 %194 to i32
+  %196 = load ptr, ptr %5, align 8
+  %197 = load ptr, ptr %15, align 8
+  call void @riemann_verify_wire_format(i64 noundef %193, ptr noundef @.str.92, i32 noundef 1, i32 noundef %195, ptr noundef %196, ptr noundef %197)
+  %198 = load ptr, ptr %16, align 8
+  %199 = load i32, ptr @hf_riemann_event_metric_d, align 4
+  %200 = load ptr, ptr %7, align 8
+  %201 = load i32, ptr %8, align 4
+  %202 = call ptr @proto_tree_add_item(ptr noundef %198, i32 noundef %199, ptr noundef %200, i32 noundef %201, i32 noundef 8, i32 noundef -2147483648)
   store i32 8, ptr %10, align 4
-  br label %216
+  br label %222
 
-197:                                              ; preds = %42
-  %198 = load i64, ptr %12, align 8
-  %199 = load i8, ptr %14, align 1
-  %200 = zext i8 %199 to i32
-  %201 = load ptr, ptr %5, align 8
-  %202 = load ptr, ptr %15, align 8
-  call void @riemann_verify_wire_format(i64 noundef %198, ptr noundef @.str.93, i32 noundef 5, i32 noundef %200, ptr noundef %201, ptr noundef %202)
-  %203 = load ptr, ptr %16, align 8
-  %204 = load i32, ptr @hf_riemann_event_metric_f, align 4
-  %205 = load ptr, ptr %7, align 8
-  %206 = load i32, ptr %8, align 4
-  %207 = call ptr @proto_tree_add_item(ptr noundef %203, i32 noundef %204, ptr noundef %205, i32 noundef %206, i32 noundef 4, i32 noundef -2147483648)
+203:                                              ; preds = %42
+  %204 = load i64, ptr %12, align 8
+  %205 = load i8, ptr %14, align 1
+  %206 = zext i8 %205 to i32
+  %207 = load ptr, ptr %5, align 8
+  %208 = load ptr, ptr %15, align 8
+  call void @riemann_verify_wire_format(i64 noundef %204, ptr noundef @.str.93, i32 noundef 5, i32 noundef %206, ptr noundef %207, ptr noundef %208)
+  %209 = load ptr, ptr %16, align 8
+  %210 = load i32, ptr @hf_riemann_event_metric_f, align 4
+  %211 = load ptr, ptr %7, align 8
+  %212 = load i32, ptr %8, align 4
+  %213 = call ptr @proto_tree_add_item(ptr noundef %209, i32 noundef %210, ptr noundef %211, i32 noundef %212, i32 noundef 4, i32 noundef -2147483648)
   store i32 4, ptr %10, align 4
-  br label %216
+  br label %222
 
-208:                                              ; preds = %42
+214:                                              ; preds = %42
   store i32 0, ptr %10, align 4
-  %209 = load ptr, ptr %5, align 8
-  %210 = load ptr, ptr %15, align 8
-  %211 = load i64, ptr %12, align 8
-  %212 = trunc i64 %211 to i32
-  %213 = load i8, ptr %14, align 1
-  %214 = zext i8 %213 to i32
-  %215 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %209, ptr noundef %210, ptr noundef @ei_error_unknown_field_number, ptr noundef @.str.94, i32 noundef %212, i32 noundef %214)
-  br label %216
+  %215 = load ptr, ptr %5, align 8
+  %216 = load ptr, ptr %15, align 8
+  %217 = load i64, ptr %12, align 8
+  %218 = trunc i64 %217 to i32
+  %219 = load i8, ptr %14, align 1
+  %220 = zext i8 %219 to i32
+  %221 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %215, ptr noundef %216, ptr noundef @ei_error_unknown_field_number, ptr noundef @.str.94, i32 noundef %218, i32 noundef %220)
+  br label %222
 
-216:                                              ; preds = %208, %197, %186, %175, %164, %153, %142, %131, %120, %102, %84, %73, %62
-  %217 = load i32, ptr %10, align 4
-  %218 = load i32, ptr %8, align 4
-  %219 = add i32 %218, %217
-  store i32 %219, ptr %8, align 4
-  %220 = load i32, ptr %10, align 4
-  %221 = zext i32 %220 to i64
-  %222 = load i64, ptr %13, align 8
-  %223 = sub i64 %222, %221
-  store i64 %223, ptr %13, align 8
-  br label %39, !llvm.loop !7
-
-224:                                              ; preds = %39
-  %225 = load ptr, ptr %5, align 8
-  %226 = getelementptr inbounds %struct._packet_info, ptr %225, i32 0, i32 1
-  %227 = load ptr, ptr %226, align 8
-  call void @col_append_str(ptr noundef %227, i32 noundef 25, ptr noundef @.str.95)
+222:                                              ; preds = %214, %203, %192, %181, %170, %159, %148, %137, %126, %105, %84, %73, %62
+  %223 = load i32, ptr %10, align 4
+  %224 = load i32, ptr %8, align 4
+  %225 = add i32 %224, %223
+  store i32 %225, ptr %8, align 4
+  %226 = load i32, ptr %10, align 4
+  %227 = zext i32 %226 to i64
   %228 = load i64, ptr %13, align 8
-  %229 = icmp slt i64 %228, 0
-  br i1 %229, label %230, label %237
+  %229 = sub i64 %228, %227
+  store i64 %229, ptr %13, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #3
+  br label %39, !llvm.loop !11
 
-230:                                              ; preds = %224
+230:                                              ; preds = %39
   %231 = load ptr, ptr %5, align 8
-  %232 = load ptr, ptr %15, align 8
-  %233 = load i64, ptr %13, align 8
-  %234 = trunc i64 %233 to i32
-  %235 = mul i32 %234, -1
-  %236 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %231, ptr noundef %232, ptr noundef @ei_error_insufficient_data, ptr noundef @.str.96, i32 noundef %235)
-  br label %237
+  %232 = getelementptr inbounds nuw %struct._packet_info, ptr %231, i32 0, i32 1
+  %233 = load ptr, ptr %232, align 8
+  call void @col_append_str(ptr noundef %233, i32 noundef 25, ptr noundef @.str.95)
+  %234 = load i64, ptr %13, align 8
+  %235 = icmp slt i64 %234, 0
+  br i1 %235, label %236, label %243
 
-237:                                              ; preds = %230, %224
-  %238 = load i32, ptr %8, align 4
-  %239 = load i32, ptr %9, align 4
-  %240 = sub i32 %238, %239
-  ret i32 %240
+236:                                              ; preds = %230
+  %237 = load ptr, ptr %5, align 8
+  %238 = load ptr, ptr %15, align 8
+  %239 = load i64, ptr %13, align 8
+  %240 = trunc i64 %239 to i32
+  %241 = mul i32 %240, -1
+  %242 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %237, ptr noundef %238, ptr noundef @ei_error_insufficient_data, ptr noundef @.str.96, i32 noundef %241)
+  br label %243
+
+243:                                              ; preds = %236, %230
+  %244 = load i32, ptr %8, align 4
+  %245 = load i32, ptr %9, align 4
+  %246 = sub i32 %244, %245
+  call void @llvm.lifetime.end.p0(i64 1, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  ret i32 %246
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @riemann_dissect_state(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1321,19 +1452,28 @@ define internal i32 @riemann_dissect_state(ptr noundef %0, ptr noundef %1, ptr n
   %14 = alloca i8, align 1
   %15 = alloca ptr, align 8
   %16 = alloca ptr, align 8
-  %17 = alloca i32, align 4
+  %17 = alloca i8, align 1
   %18 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   %19 = load i32, ptr %8, align 4
   store i32 %19, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
   store i32 0, ptr %10, align 4
-  store i32 0, ptr %17, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %17) #3
+  store i8 0, ptr %17, align 1
   %20 = load ptr, ptr %7, align 8
   %21 = load i32, ptr %8, align 4
-  %22 = call i64 @riemann_get_guint64(ptr noundef %20, i32 noundef %21, ptr noundef %10)
+  %22 = call i64 @riemann_get_uint64(ptr noundef %20, i32 noundef %21, ptr noundef %10)
   store i64 %22, ptr %13, align 8
   %23 = load ptr, ptr %6, align 8
   %24 = load i32, ptr @hf_riemann_state, align 4
@@ -1356,19 +1496,20 @@ define internal i32 @riemann_dissect_state(ptr noundef %0, ptr noundef %1, ptr n
   store i32 %38, ptr %8, align 4
   br label %39
 
-39:                                               ; preds = %172, %4
+39:                                               ; preds = %178, %4
   %40 = load i64, ptr %13, align 8
   %41 = icmp sgt i64 %40, 0
-  br i1 %41, label %42, label %180
+  br i1 %41, label %42, label %186
 
 42:                                               ; preds = %39
-  %43 = load i32, ptr %17, align 4
-  %44 = icmp ne i32 %43, 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #3
+  %43 = load i8, ptr %17, align 1, !range !6, !noundef !7
+  %44 = trunc i8 %43 to i1
   %45 = select i1 %44, ptr @.str.79, ptr @.str.80
   store ptr %45, ptr %18, align 8
   %46 = load ptr, ptr %7, align 8
   %47 = load i32, ptr %8, align 4
-  %48 = call i64 @riemann_get_guint64(ptr noundef %46, i32 noundef %47, ptr noundef %10)
+  %48 = call i64 @riemann_get_uint64(ptr noundef %46, i32 noundef %47, ptr noundef %10)
   store i64 %48, ptr %11, align 8
   %49 = load i64, ptr %11, align 8
   %50 = lshr i64 %49, 3
@@ -1387,15 +1528,15 @@ define internal i32 @riemann_dissect_state(ptr noundef %0, ptr noundef %1, ptr n
   %60 = sub i64 %59, %58
   store i64 %60, ptr %13, align 8
   %61 = load i64, ptr %12, align 8
-  switch i64 %61, label %164 [
+  switch i64 %61, label %170 [
     i64 1, label %62
     i64 3, label %73
-    i64 4, label %91
-    i64 5, label %109
-    i64 7, label %120
-    i64 8, label %131
-    i64 2, label %142
-    i64 6, label %153
+    i64 4, label %94
+    i64 5, label %115
+    i64 7, label %126
+    i64 8, label %137
+    i64 2, label %148
+    i64 6, label %159
   ]
 
 62:                                               ; preds = %42
@@ -1411,7 +1552,7 @@ define internal i32 @riemann_dissect_state(ptr noundef %0, ptr noundef %1, ptr n
   %71 = load i32, ptr @hf_riemann_state_time, align 4
   %72 = call i32 @riemann_dissect_int64(ptr noundef %68, ptr noundef %69, i32 noundef %70, i32 noundef %71)
   store i32 %72, ptr %10, align 4
-  br label %172
+  br label %178
 
 73:                                               ; preds = %42
   %74 = load i64, ptr %12, align 8
@@ -1421,204 +1562,227 @@ define internal i32 @riemann_dissect_state(ptr noundef %0, ptr noundef %1, ptr n
   %78 = load ptr, ptr %15, align 8
   call void @riemann_verify_wire_format(i64 noundef %74, ptr noundef @.str.102, i32 noundef 2, i32 noundef %76, ptr noundef %77, ptr noundef %78)
   %79 = load ptr, ptr %5, align 8
-  %80 = getelementptr inbounds %struct._packet_info, ptr %79, i32 0, i32 1
+  %80 = getelementptr inbounds nuw %struct._packet_info, ptr %79, i32 0, i32 1
   %81 = load ptr, ptr %80, align 8
   %82 = load ptr, ptr %18, align 8
-  %83 = load ptr, ptr %7, align 8
-  %84 = load i32, ptr %8, align 4
-  %85 = call ptr @riemann_get_string(ptr noundef %83, i32 noundef %84)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %81, i32 noundef 25, ptr noundef @.str.84, ptr noundef %82, ptr noundef %85)
-  %86 = load ptr, ptr %16, align 8
-  %87 = load ptr, ptr %7, align 8
-  %88 = load i32, ptr %8, align 4
-  %89 = load i32, ptr @hf_riemann_state_service, align 4
-  %90 = call i32 @riemann_dissect_string(ptr noundef %86, ptr noundef %87, i32 noundef %88, i32 noundef %89)
-  store i32 %90, ptr %10, align 4
-  store i32 1, ptr %17, align 4
-  br label %172
+  %83 = load ptr, ptr %5, align 8
+  %84 = getelementptr inbounds nuw %struct._packet_info, ptr %83, i32 0, i32 51
+  %85 = load ptr, ptr %84, align 8
+  %86 = load ptr, ptr %7, align 8
+  %87 = load i32, ptr %8, align 4
+  %88 = call ptr @riemann_get_string(ptr noundef %85, ptr noundef %86, i32 noundef %87)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %81, i32 noundef 25, ptr noundef @.str.84, ptr noundef %82, ptr noundef %88)
+  %89 = load ptr, ptr %16, align 8
+  %90 = load ptr, ptr %7, align 8
+  %91 = load i32, ptr %8, align 4
+  %92 = load i32, ptr @hf_riemann_state_service, align 4
+  %93 = call i32 @riemann_dissect_string(ptr noundef %89, ptr noundef %90, i32 noundef %91, i32 noundef %92)
+  store i32 %93, ptr %10, align 4
+  store i8 1, ptr %17, align 1
+  br label %178
 
-91:                                               ; preds = %42
-  %92 = load i64, ptr %12, align 8
-  %93 = load i8, ptr %14, align 1
-  %94 = zext i8 %93 to i32
-  %95 = load ptr, ptr %5, align 8
-  %96 = load ptr, ptr %15, align 8
-  call void @riemann_verify_wire_format(i64 noundef %92, ptr noundef @.str.103, i32 noundef 2, i32 noundef %94, ptr noundef %95, ptr noundef %96)
-  %97 = load ptr, ptr %5, align 8
-  %98 = getelementptr inbounds %struct._packet_info, ptr %97, i32 0, i32 1
-  %99 = load ptr, ptr %98, align 8
-  %100 = load ptr, ptr %18, align 8
-  %101 = load ptr, ptr %7, align 8
-  %102 = load i32, ptr %8, align 4
-  %103 = call ptr @riemann_get_string(ptr noundef %101, i32 noundef %102)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %99, i32 noundef 25, ptr noundef @.str.84, ptr noundef %100, ptr noundef %103)
-  %104 = load ptr, ptr %16, align 8
-  %105 = load ptr, ptr %7, align 8
-  %106 = load i32, ptr %8, align 4
-  %107 = load i32, ptr @hf_riemann_state_host, align 4
-  %108 = call i32 @riemann_dissect_string(ptr noundef %104, ptr noundef %105, i32 noundef %106, i32 noundef %107)
-  store i32 %108, ptr %10, align 4
-  store i32 1, ptr %17, align 4
-  br label %172
+94:                                               ; preds = %42
+  %95 = load i64, ptr %12, align 8
+  %96 = load i8, ptr %14, align 1
+  %97 = zext i8 %96 to i32
+  %98 = load ptr, ptr %5, align 8
+  %99 = load ptr, ptr %15, align 8
+  call void @riemann_verify_wire_format(i64 noundef %95, ptr noundef @.str.103, i32 noundef 2, i32 noundef %97, ptr noundef %98, ptr noundef %99)
+  %100 = load ptr, ptr %5, align 8
+  %101 = getelementptr inbounds nuw %struct._packet_info, ptr %100, i32 0, i32 1
+  %102 = load ptr, ptr %101, align 8
+  %103 = load ptr, ptr %18, align 8
+  %104 = load ptr, ptr %5, align 8
+  %105 = getelementptr inbounds nuw %struct._packet_info, ptr %104, i32 0, i32 51
+  %106 = load ptr, ptr %105, align 8
+  %107 = load ptr, ptr %7, align 8
+  %108 = load i32, ptr %8, align 4
+  %109 = call ptr @riemann_get_string(ptr noundef %106, ptr noundef %107, i32 noundef %108)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %102, i32 noundef 25, ptr noundef @.str.84, ptr noundef %103, ptr noundef %109)
+  %110 = load ptr, ptr %16, align 8
+  %111 = load ptr, ptr %7, align 8
+  %112 = load i32, ptr %8, align 4
+  %113 = load i32, ptr @hf_riemann_state_host, align 4
+  %114 = call i32 @riemann_dissect_string(ptr noundef %110, ptr noundef %111, i32 noundef %112, i32 noundef %113)
+  store i32 %114, ptr %10, align 4
+  store i8 1, ptr %17, align 1
+  br label %178
 
-109:                                              ; preds = %42
-  %110 = load i64, ptr %12, align 8
-  %111 = load i8, ptr %14, align 1
-  %112 = zext i8 %111 to i32
-  %113 = load ptr, ptr %5, align 8
-  %114 = load ptr, ptr %15, align 8
-  call void @riemann_verify_wire_format(i64 noundef %110, ptr noundef @.str.104, i32 noundef 2, i32 noundef %112, ptr noundef %113, ptr noundef %114)
-  %115 = load ptr, ptr %16, align 8
-  %116 = load ptr, ptr %7, align 8
-  %117 = load i32, ptr %8, align 4
-  %118 = load i32, ptr @hf_riemann_state_description, align 4
-  %119 = call i32 @riemann_dissect_string(ptr noundef %115, ptr noundef %116, i32 noundef %117, i32 noundef %118)
-  store i32 %119, ptr %10, align 4
-  br label %172
+115:                                              ; preds = %42
+  %116 = load i64, ptr %12, align 8
+  %117 = load i8, ptr %14, align 1
+  %118 = zext i8 %117 to i32
+  %119 = load ptr, ptr %5, align 8
+  %120 = load ptr, ptr %15, align 8
+  call void @riemann_verify_wire_format(i64 noundef %116, ptr noundef @.str.104, i32 noundef 2, i32 noundef %118, ptr noundef %119, ptr noundef %120)
+  %121 = load ptr, ptr %16, align 8
+  %122 = load ptr, ptr %7, align 8
+  %123 = load i32, ptr %8, align 4
+  %124 = load i32, ptr @hf_riemann_state_description, align 4
+  %125 = call i32 @riemann_dissect_string(ptr noundef %121, ptr noundef %122, i32 noundef %123, i32 noundef %124)
+  store i32 %125, ptr %10, align 4
+  br label %178
 
-120:                                              ; preds = %42
-  %121 = load i64, ptr %12, align 8
-  %122 = load i8, ptr %14, align 1
-  %123 = zext i8 %122 to i32
-  %124 = load ptr, ptr %5, align 8
-  %125 = load ptr, ptr %15, align 8
-  call void @riemann_verify_wire_format(i64 noundef %121, ptr noundef @.str.105, i32 noundef 2, i32 noundef %123, ptr noundef %124, ptr noundef %125)
-  %126 = load ptr, ptr %16, align 8
-  %127 = load ptr, ptr %7, align 8
-  %128 = load i32, ptr %8, align 4
-  %129 = load i32, ptr @hf_riemann_state_tag, align 4
-  %130 = call i32 @riemann_dissect_string(ptr noundef %126, ptr noundef %127, i32 noundef %128, i32 noundef %129)
-  store i32 %130, ptr %10, align 4
-  br label %172
+126:                                              ; preds = %42
+  %127 = load i64, ptr %12, align 8
+  %128 = load i8, ptr %14, align 1
+  %129 = zext i8 %128 to i32
+  %130 = load ptr, ptr %5, align 8
+  %131 = load ptr, ptr %15, align 8
+  call void @riemann_verify_wire_format(i64 noundef %127, ptr noundef @.str.105, i32 noundef 2, i32 noundef %129, ptr noundef %130, ptr noundef %131)
+  %132 = load ptr, ptr %16, align 8
+  %133 = load ptr, ptr %7, align 8
+  %134 = load i32, ptr %8, align 4
+  %135 = load i32, ptr @hf_riemann_state_tag, align 4
+  %136 = call i32 @riemann_dissect_string(ptr noundef %132, ptr noundef %133, i32 noundef %134, i32 noundef %135)
+  store i32 %136, ptr %10, align 4
+  br label %178
 
-131:                                              ; preds = %42
-  %132 = load i64, ptr %12, align 8
-  %133 = load i8, ptr %14, align 1
-  %134 = zext i8 %133 to i32
-  %135 = load ptr, ptr %5, align 8
-  %136 = load ptr, ptr %15, align 8
-  call void @riemann_verify_wire_format(i64 noundef %132, ptr noundef @.str.106, i32 noundef 5, i32 noundef %134, ptr noundef %135, ptr noundef %136)
-  %137 = load ptr, ptr %16, align 8
-  %138 = load i32, ptr @hf_riemann_state_ttl, align 4
-  %139 = load ptr, ptr %7, align 8
-  %140 = load i32, ptr %8, align 4
-  %141 = call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %138, ptr noundef %139, i32 noundef %140, i32 noundef 4, i32 noundef -2147483648)
+137:                                              ; preds = %42
+  %138 = load i64, ptr %12, align 8
+  %139 = load i8, ptr %14, align 1
+  %140 = zext i8 %139 to i32
+  %141 = load ptr, ptr %5, align 8
+  %142 = load ptr, ptr %15, align 8
+  call void @riemann_verify_wire_format(i64 noundef %138, ptr noundef @.str.106, i32 noundef 5, i32 noundef %140, ptr noundef %141, ptr noundef %142)
+  %143 = load ptr, ptr %16, align 8
+  %144 = load i32, ptr @hf_riemann_state_ttl, align 4
+  %145 = load ptr, ptr %7, align 8
+  %146 = load i32, ptr %8, align 4
+  %147 = call ptr @proto_tree_add_item(ptr noundef %143, i32 noundef %144, ptr noundef %145, i32 noundef %146, i32 noundef 4, i32 noundef -2147483648)
   store i32 4, ptr %10, align 4
-  br label %172
+  br label %178
 
-142:                                              ; preds = %42
-  %143 = load i64, ptr %12, align 8
-  %144 = load i8, ptr %14, align 1
-  %145 = zext i8 %144 to i32
-  %146 = load ptr, ptr %5, align 8
-  %147 = load ptr, ptr %15, align 8
-  call void @riemann_verify_wire_format(i64 noundef %143, ptr noundef @.str.107, i32 noundef 2, i32 noundef %145, ptr noundef %146, ptr noundef %147)
-  %148 = load ptr, ptr %16, align 8
-  %149 = load ptr, ptr %7, align 8
-  %150 = load i32, ptr %8, align 4
-  %151 = load i32, ptr @hf_riemann_state_state, align 4
-  %152 = call i32 @riemann_dissect_string(ptr noundef %148, ptr noundef %149, i32 noundef %150, i32 noundef %151)
-  store i32 %152, ptr %10, align 4
-  br label %172
+148:                                              ; preds = %42
+  %149 = load i64, ptr %12, align 8
+  %150 = load i8, ptr %14, align 1
+  %151 = zext i8 %150 to i32
+  %152 = load ptr, ptr %5, align 8
+  %153 = load ptr, ptr %15, align 8
+  call void @riemann_verify_wire_format(i64 noundef %149, ptr noundef @.str.107, i32 noundef 2, i32 noundef %151, ptr noundef %152, ptr noundef %153)
+  %154 = load ptr, ptr %16, align 8
+  %155 = load ptr, ptr %7, align 8
+  %156 = load i32, ptr %8, align 4
+  %157 = load i32, ptr @hf_riemann_state_state, align 4
+  %158 = call i32 @riemann_dissect_string(ptr noundef %154, ptr noundef %155, i32 noundef %156, i32 noundef %157)
+  store i32 %158, ptr %10, align 4
+  br label %178
 
-153:                                              ; preds = %42
-  %154 = load i64, ptr %12, align 8
-  %155 = load i8, ptr %14, align 1
-  %156 = zext i8 %155 to i32
-  %157 = load ptr, ptr %5, align 8
-  %158 = load ptr, ptr %15, align 8
-  call void @riemann_verify_wire_format(i64 noundef %154, ptr noundef @.str.108, i32 noundef 0, i32 noundef %156, ptr noundef %157, ptr noundef %158)
-  %159 = load ptr, ptr %16, align 8
-  %160 = load i32, ptr @hf_riemann_state_once, align 4
-  %161 = load ptr, ptr %7, align 8
-  %162 = load i32, ptr %8, align 4
-  %163 = call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %160, ptr noundef %161, i32 noundef %162, i32 noundef 1, i32 noundef 0)
+159:                                              ; preds = %42
+  %160 = load i64, ptr %12, align 8
+  %161 = load i8, ptr %14, align 1
+  %162 = zext i8 %161 to i32
+  %163 = load ptr, ptr %5, align 8
+  %164 = load ptr, ptr %15, align 8
+  call void @riemann_verify_wire_format(i64 noundef %160, ptr noundef @.str.108, i32 noundef 0, i32 noundef %162, ptr noundef %163, ptr noundef %164)
+  %165 = load ptr, ptr %16, align 8
+  %166 = load i32, ptr @hf_riemann_state_once, align 4
+  %167 = load ptr, ptr %7, align 8
+  %168 = load i32, ptr %8, align 4
+  %169 = call ptr @proto_tree_add_item(ptr noundef %165, i32 noundef %166, ptr noundef %167, i32 noundef %168, i32 noundef 1, i32 noundef 0)
   store i32 1, ptr %10, align 4
-  br label %172
+  br label %178
 
-164:                                              ; preds = %42
+170:                                              ; preds = %42
   store i32 0, ptr %10, align 4
-  %165 = load ptr, ptr %5, align 8
-  %166 = load ptr, ptr %15, align 8
-  %167 = load i64, ptr %12, align 8
-  %168 = trunc i64 %167 to i32
-  %169 = load i8, ptr %14, align 1
-  %170 = zext i8 %169 to i32
-  %171 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %165, ptr noundef %166, ptr noundef @ei_error_unknown_field_number, ptr noundef @.str.109, i32 noundef %168, i32 noundef %170)
-  br label %172
+  %171 = load ptr, ptr %5, align 8
+  %172 = load ptr, ptr %15, align 8
+  %173 = load i64, ptr %12, align 8
+  %174 = trunc i64 %173 to i32
+  %175 = load i8, ptr %14, align 1
+  %176 = zext i8 %175 to i32
+  %177 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %171, ptr noundef %172, ptr noundef @ei_error_unknown_field_number, ptr noundef @.str.109, i32 noundef %174, i32 noundef %176)
+  br label %178
 
-172:                                              ; preds = %164, %153, %142, %131, %120, %109, %91, %73, %62
-  %173 = load i32, ptr %10, align 4
-  %174 = load i32, ptr %8, align 4
-  %175 = add i32 %174, %173
-  store i32 %175, ptr %8, align 4
-  %176 = load i32, ptr %10, align 4
-  %177 = zext i32 %176 to i64
-  %178 = load i64, ptr %13, align 8
-  %179 = sub i64 %178, %177
-  store i64 %179, ptr %13, align 8
-  br label %39, !llvm.loop !8
-
-180:                                              ; preds = %39
-  %181 = load ptr, ptr %5, align 8
-  %182 = getelementptr inbounds %struct._packet_info, ptr %181, i32 0, i32 1
-  %183 = load ptr, ptr %182, align 8
-  call void @col_append_str(ptr noundef %183, i32 noundef 25, ptr noundef @.str.95)
+178:                                              ; preds = %170, %159, %148, %137, %126, %115, %94, %73, %62
+  %179 = load i32, ptr %10, align 4
+  %180 = load i32, ptr %8, align 4
+  %181 = add i32 %180, %179
+  store i32 %181, ptr %8, align 4
+  %182 = load i32, ptr %10, align 4
+  %183 = zext i32 %182 to i64
   %184 = load i64, ptr %13, align 8
-  %185 = icmp slt i64 %184, 0
-  br i1 %185, label %186, label %193
+  %185 = sub i64 %184, %183
+  store i64 %185, ptr %13, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #3
+  br label %39, !llvm.loop !12
 
-186:                                              ; preds = %180
+186:                                              ; preds = %39
   %187 = load ptr, ptr %5, align 8
-  %188 = load ptr, ptr %15, align 8
-  %189 = load i64, ptr %13, align 8
-  %190 = trunc i64 %189 to i32
-  %191 = mul i32 %190, -1
-  %192 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %187, ptr noundef %188, ptr noundef @ei_error_insufficient_data, ptr noundef @.str.110, i32 noundef %191)
-  br label %193
+  %188 = getelementptr inbounds nuw %struct._packet_info, ptr %187, i32 0, i32 1
+  %189 = load ptr, ptr %188, align 8
+  call void @col_append_str(ptr noundef %189, i32 noundef 25, ptr noundef @.str.95)
+  %190 = load i64, ptr %13, align 8
+  %191 = icmp slt i64 %190, 0
+  br i1 %191, label %192, label %199
 
-193:                                              ; preds = %186, %180
-  %194 = load i32, ptr %8, align 4
-  %195 = load i32, ptr %9, align 4
-  %196 = sub i32 %194, %195
-  ret i32 %196
+192:                                              ; preds = %186
+  %193 = load ptr, ptr %5, align 8
+  %194 = load ptr, ptr %15, align 8
+  %195 = load i64, ptr %13, align 8
+  %196 = trunc i64 %195 to i32
+  %197 = mul i32 %196, -1
+  %198 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %193, ptr noundef %194, ptr noundef @ei_error_insufficient_data, ptr noundef @.str.110, i32 noundef %197)
+  br label %199
+
+199:                                              ; preds = %192, %186
+  %200 = load i32, ptr %8, align 4
+  %201 = load i32, ptr %9, align 4
+  %202 = sub i32 %200, %201
+  call void @llvm.lifetime.end.p0(i64 1, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  ret i32 %202
 }
 
-declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) #2
 
-declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal ptr @riemann_get_string(ptr noundef %0, i32 noundef %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca i32, align 4
-  %5 = alloca i64, align 8
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal ptr @riemann_get_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  store i32 0, ptr %6, align 4
-  %7 = load ptr, ptr %3, align 8
-  %8 = load i32, ptr %4, align 4
-  %9 = call i64 @riemann_get_guint64(ptr noundef %7, i32 noundef %8, ptr noundef %6)
-  store i64 %9, ptr %5, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  store i32 0, ptr %8, align 4
+  %9 = load ptr, ptr %5, align 8
   %10 = load i32, ptr %6, align 4
-  %11 = load i32, ptr %4, align 4
-  %12 = add i32 %11, %10
-  store i32 %12, ptr %4, align 4
-  %13 = call ptr @wmem_packet_scope()
-  %14 = load ptr, ptr %3, align 8
-  %15 = load i32, ptr %4, align 4
-  %16 = load i64, ptr %5, align 8
-  %17 = trunc i64 %16 to i32
-  %18 = call ptr @tvb_get_string_enc(ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef %17, i32 noundef 0)
-  ret ptr %18
+  %11 = call i64 @riemann_get_uint64(ptr noundef %9, i32 noundef %10, ptr noundef %8)
+  store i64 %11, ptr %7, align 8
+  %12 = load i32, ptr %8, align 4
+  %13 = load i32, ptr %6, align 4
+  %14 = add i32 %13, %12
+  store i32 %14, ptr %6, align 4
+  %15 = load ptr, ptr %4, align 8
+  %16 = load ptr, ptr %5, align 8
+  %17 = load i32, ptr %6, align 4
+  %18 = load i64, ptr %7, align 8
+  %19 = trunc i64 %18 to i32
+  %20 = call ptr @tvb_get_string_enc(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef %19, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  ret ptr %20
 }
 
-declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @wmem_packet_scope() #1
-
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @riemann_dissect_int64(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1630,10 +1794,12 @@ define internal i32 @riemann_dissect_int64(ptr noundef %0, ptr noundef %1, i32 n
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %6, align 8
   %12 = load i32, ptr %7, align 4
-  %13 = call i64 @riemann_get_guint64(ptr noundef %11, i32 noundef %12, ptr noundef %10)
+  %13 = call i64 @riemann_get_uint64(ptr noundef %11, i32 noundef %12, ptr noundef %10)
   store i64 %13, ptr %9, align 8
   %14 = load ptr, ptr %5, align 8
   %15 = load i32, ptr %8, align 4
@@ -1643,12 +1809,15 @@ define internal i32 @riemann_dissect_int64(ptr noundef %0, ptr noundef %1, i32 n
   %19 = load i64, ptr %9, align 8
   %20 = call ptr @proto_tree_add_int64(ptr noundef %14, i32 noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef %18, i64 noundef %19)
   %21 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret i32 %21
 }
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @riemann_dissect_attribute(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1666,12 +1835,20 @@ define internal i32 @riemann_dissect_attribute(ptr noundef %0, ptr noundef %1, p
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
   store i32 0, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
   %17 = load i32, ptr %8, align 4
   store i32 %17, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
   %18 = load ptr, ptr %7, align 8
   %19 = load i32, ptr %8, align 4
-  %20 = call i64 @riemann_get_guint64(ptr noundef %18, i32 noundef %19, ptr noundef %13)
+  %20 = call i64 @riemann_get_uint64(ptr noundef %18, i32 noundef %19, ptr noundef %13)
   store i64 %20, ptr %11, align 8
   %21 = load ptr, ptr %6, align 8
   %22 = load i32, ptr @hf_riemann_attribute, align 4
@@ -1702,7 +1879,7 @@ define internal i32 @riemann_dissect_attribute(ptr noundef %0, ptr noundef %1, p
 40:                                               ; preds = %37
   %41 = load ptr, ptr %7, align 8
   %42 = load i32, ptr %8, align 4
-  %43 = call i64 @riemann_get_guint64(ptr noundef %41, i32 noundef %42, ptr noundef %13)
+  %43 = call i64 @riemann_get_uint64(ptr noundef %41, i32 noundef %42, ptr noundef %13)
   store i64 %43, ptr %9, align 8
   %44 = load i64, ptr %9, align 8
   %45 = lshr i64 %44, 3
@@ -1777,7 +1954,7 @@ define internal i32 @riemann_dissect_attribute(ptr noundef %0, ptr noundef %1, p
   %93 = load i64, ptr %11, align 8
   %94 = sub i64 %93, %92
   store i64 %94, ptr %11, align 8
-  br label %37, !llvm.loop !9
+  br label %37, !llvm.loop !13
 
 95:                                               ; preds = %37
   %96 = load i64, ptr %11, align 8
@@ -1797,10 +1974,18 @@ define internal i32 @riemann_dissect_attribute(ptr noundef %0, ptr noundef %1, p
   %106 = load i32, ptr %8, align 4
   %107 = load i32, ptr %14, align 4
   %108 = sub i32 %106, %107
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret i32 %108
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @riemann_dissect_sint64(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1813,10 +1998,13 @@ define internal i32 @riemann_dissect_sint64(ptr noundef %0, ptr noundef %1, i32 
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
   store i32 0, ptr %11, align 4
   %12 = load ptr, ptr %6, align 8
   %13 = load i32, ptr %7, align 4
-  %14 = call i64 @riemann_get_guint64(ptr noundef %12, i32 noundef %13, ptr noundef %11)
+  %14 = call i64 @riemann_get_uint64(ptr noundef %12, i32 noundef %13, ptr noundef %11)
   store i64 %14, ptr %9, align 8
   %15 = load i64, ptr %9, align 8
   %16 = and i64 %15, 1
@@ -1846,14 +2034,19 @@ define internal i32 @riemann_dissect_sint64(ptr noundef %0, ptr noundef %1, i32 
   %32 = load i64, ptr %10, align 8
   %33 = call ptr @proto_tree_add_int64(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef %30, i32 noundef %31, i64 noundef %32)
   %34 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret i32 %34
 }
 
-declare ptr @proto_tree_add_int64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_int64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) #2
 
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @get_riemann_tcp_pdu_len(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1870,7 +2063,7 @@ define internal i32 @get_riemann_tcp_pdu_len(ptr noundef %0, ptr noundef %1, i32
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_riemann_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1887,22 +2080,30 @@ define internal i32 @dissect_riemann_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr
   ret i32 %12
 }
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #2
 
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}

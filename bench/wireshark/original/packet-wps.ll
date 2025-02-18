@@ -2,13 +2,10 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.expert_field = type { i32, i32 }
-%struct._value_string = type { i32, ptr }
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -81,7 +78,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_eapwps_tlv_manufacturer = internal global i32 0, align 4
 @hf_eapwps_tlv_message_type = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [5 x i8] c", %s\00", align 1
-@eapwps_tlv_message_type_vals = internal constant [16 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.342 }, %struct._value_string { i32 2, ptr @.str.343 }, %struct._value_string { i32 3, ptr @.str.344 }, %struct._value_string { i32 4, ptr @.str.345 }, %struct._value_string { i32 5, ptr @.str.346 }, %struct._value_string { i32 6, ptr @.str.347 }, %struct._value_string { i32 7, ptr @.str.348 }, %struct._value_string { i32 8, ptr @.str.349 }, %struct._value_string { i32 9, ptr @.str.350 }, %struct._value_string { i32 10, ptr @.str.351 }, %struct._value_string { i32 11, ptr @.str.352 }, %struct._value_string { i32 12, ptr @.str.353 }, %struct._value_string { i32 13, ptr @.str.354 }, %struct._value_string { i32 14, ptr @.str.355 }, %struct._value_string { i32 15, ptr @.str.356 }, %struct._value_string zeroinitializer], align 16
 @.str.5 = private unnamed_addr constant [17 x i8] c"Unknown (0x%02x)\00", align 1
 @hf_eapwps_tlv_model_name = internal global i32 0, align 4
 @hf_eapwps_tlv_model_number = internal global i32 0, align 4
@@ -169,7 +165,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_eapwps_tlv_weptransmitkey = internal global i32 0, align 4
 @hf_eapwps_tlv_requested_dev_type = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
-@eapwps_tlv_types = internal constant [88 x %struct._value_string] [%struct._value_string { i32 4097, ptr @.str.31 }, %struct._value_string { i32 4098, ptr @.str.33 }, %struct._value_string { i32 4099, ptr @.str.35 }, %struct._value_string { i32 4100, ptr @.str.37 }, %struct._value_string { i32 4101, ptr @.str.51 }, %struct._value_string { i32 4104, ptr @.str.357 }, %struct._value_string { i32 4105, ptr @.str.81 }, %struct._value_string { i32 4106, ptr @.str.83 }, %struct._value_string { i32 4107, ptr @.str.85 }, %struct._value_string { i32 4108, ptr @.str.87 }, %struct._value_string { i32 4109, ptr @.str.358 }, %struct._value_string { i32 4110, ptr @.str.95 }, %struct._value_string { i32 4113, ptr @.str.97 }, %struct._value_string { i32 4114, ptr @.str.99 }, %struct._value_string { i32 4116, ptr @.str.359 }, %struct._value_string { i32 4117, ptr @.str.360 }, %struct._value_string { i32 4118, ptr @.str.361 }, %struct._value_string { i32 4119, ptr @.str.362 }, %struct._value_string { i32 4120, ptr @.str.109 }, %struct._value_string { i32 4111, ptr @.str.111 }, %struct._value_string { i32 4112, ptr @.str.113 }, %struct._value_string { i32 4122, ptr @.str.123 }, %struct._value_string { i32 4123, ptr @.str.363 }, %struct._value_string { i32 4124, ptr @.str.127 }, %struct._value_string { i32 4125, ptr @.str.129 }, %struct._value_string { i32 4126, ptr @.str.131 }, %struct._value_string { i32 4127, ptr @.str.133 }, %struct._value_string { i32 4128, ptr @.str.364 }, %struct._value_string { i32 4129, ptr @.str.137 }, %struct._value_string { i32 4130, ptr @.str.139 }, %struct._value_string { i32 4131, ptr @.str.141 }, %struct._value_string { i32 4132, ptr @.str.143 }, %struct._value_string { i32 4134, ptr @.str.145 }, %struct._value_string { i32 4135, ptr @.str.147 }, %struct._value_string { i32 4136, ptr @.str.149 }, %struct._value_string { i32 4137, ptr @.str.151 }, %struct._value_string { i32 4138, ptr @.str.153 }, %struct._value_string { i32 4140, ptr @.str.155 }, %struct._value_string { i32 4141, ptr @.str.157 }, %struct._value_string { i32 4143, ptr @.str.159 }, %struct._value_string { i32 4144, ptr @.str.161 }, %struct._value_string { i32 4145, ptr @.str.163 }, %struct._value_string { i32 4146, ptr @.str.165 }, %struct._value_string { i32 4147, ptr @.str.167 }, %struct._value_string { i32 4148, ptr @.str.169 }, %struct._value_string { i32 4149, ptr @.str.365 }, %struct._value_string { i32 4150, ptr @.str.366 }, %struct._value_string { i32 4151, ptr @.str.367 }, %struct._value_string { i32 4152, ptr @.str.368 }, %struct._value_string { i32 4153, ptr @.str.179 }, %struct._value_string { i32 4154, ptr @.str.181 }, %struct._value_string { i32 4155, ptr @.str.183 }, %struct._value_string { i32 4156, ptr @.str.185 }, %struct._value_string { i32 4157, ptr @.str.369 }, %struct._value_string { i32 4158, ptr @.str.370 }, %struct._value_string { i32 4159, ptr @.str.371 }, %struct._value_string { i32 4160, ptr @.str.372 }, %struct._value_string { i32 4161, ptr @.str.195 }, %struct._value_string { i32 4162, ptr @.str.197 }, %struct._value_string { i32 4164, ptr @.str.199 }, %struct._value_string { i32 4165, ptr @.str.201 }, %struct._value_string { i32 4166, ptr @.str.203 }, %struct._value_string { i32 4167, ptr @.str.373 }, %struct._value_string { i32 4168, ptr @.str.374 }, %struct._value_string { i32 4169, ptr @.str.209 }, %struct._value_string { i32 4170, ptr @.str.211 }, %struct._value_string { i32 4171, ptr @.str.213 }, %struct._value_string { i32 4172, ptr @.str.215 }, %struct._value_string { i32 4173, ptr @.str.217 }, %struct._value_string { i32 4174, ptr @.str.219 }, %struct._value_string { i32 4175, ptr @.str.221 }, %struct._value_string { i32 4176, ptr @.str.223 }, %struct._value_string { i32 4177, ptr @.str.225 }, %struct._value_string { i32 4178, ptr @.str.375 }, %struct._value_string { i32 4179, ptr @.str.242 }, %struct._value_string { i32 4180, ptr @.str.257 }, %struct._value_string { i32 4181, ptr @.str.273 }, %struct._value_string { i32 4182, ptr @.str.275 }, %struct._value_string { i32 4183, ptr @.str.376 }, %struct._value_string { i32 4184, ptr @.str.279 }, %struct._value_string { i32 4185, ptr @.str.281 }, %struct._value_string { i32 4192, ptr @.str.283 }, %struct._value_string { i32 4193, ptr @.str.285 }, %struct._value_string { i32 4194, ptr @.str.287 }, %struct._value_string { i32 4195, ptr @.str.289 }, %struct._value_string { i32 4196, ptr @.str.377 }, %struct._value_string { i32 4202, ptr @.str.293 }, %struct._value_string zeroinitializer], align 16
 @.str.7 = private unnamed_addr constant [17 x i8] c"Unknown (0x%04x)\00", align 1
 @.str.8 = private unnamed_addr constant [14 x i8] c": %s (0x%02x)\00", align 1
 @.str.9 = private unnamed_addr constant [9 x i8] c": 0x%02x\00", align 1
@@ -183,7 +178,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_eapwps_opcode = internal global i32 0, align 4
 @.str.16 = private unnamed_addr constant [7 x i8] c"Opcode\00", align 1
 @.str.17 = private unnamed_addr constant [13 x i8] c"eap.wps.code\00", align 1
-@eapwps_opcode_vals = internal constant [7 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.383 }, %struct._value_string { i32 2, ptr @.str.384 }, %struct._value_string { i32 3, ptr @.str.385 }, %struct._value_string { i32 4, ptr @.str.386 }, %struct._value_string { i32 5, ptr @.str.387 }, %struct._value_string { i32 6, ptr @.str.388 }, %struct._value_string zeroinitializer], align 16
 @.str.18 = private unnamed_addr constant [17 x i8] c"WSC Message Type\00", align 1
 @hf_eapwps_flags = internal global i32 0, align 4
 @.str.19 = private unnamed_addr constant [6 x i8] c"Flags\00", align 1
@@ -205,10 +199,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.32 = private unnamed_addr constant [15 x i8] c"wps.ap_channel\00", align 1
 @.str.33 = private unnamed_addr constant [18 x i8] c"Association State\00", align 1
 @.str.34 = private unnamed_addr constant [22 x i8] c"wps.association_state\00", align 1
-@eapwps_tlv_association_state_vals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.389 }, %struct._value_string { i32 1, ptr @.str.390 }, %struct._value_string { i32 2, ptr @.str.391 }, %struct._value_string { i32 3, ptr @.str.392 }, %struct._value_string { i32 4, ptr @.str.393 }, %struct._value_string zeroinitializer], align 16
 @.str.35 = private unnamed_addr constant [20 x i8] c"Authentication Type\00", align 1
 @.str.36 = private unnamed_addr constant [24 x i8] c"wps.authentication_type\00", align 1
-@eapwps_tlv_authentication_type_vals = internal constant [7 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.39 }, %struct._value_string { i32 2, ptr @.str.41 }, %struct._value_string { i32 4, ptr @.str.43 }, %struct._value_string { i32 8, ptr @.str.45 }, %struct._value_string { i32 16, ptr @.str.47 }, %struct._value_string { i32 32, ptr @.str.394 }, %struct._value_string zeroinitializer], align 16
 @.str.37 = private unnamed_addr constant [26 x i8] c"Authentication Type Flags\00", align 1
 @.str.38 = private unnamed_addr constant [30 x i8] c"wps.authentication_type_flags\00", align 1
 @.str.39 = private unnamed_addr constant [5 x i8] c"Open\00", align 1
@@ -255,7 +247,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.80 = private unnamed_addr constant [26 x i8] c"wps.config_methods.keypad\00", align 1
 @.str.81 = private unnamed_addr constant [20 x i8] c"Configuration Error\00", align 1
 @.str.82 = private unnamed_addr constant [24 x i8] c"wps.configuration_error\00", align 1
-@eapwps_tlv_configuration_error_vals = internal constant [20 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.395 }, %struct._value_string { i32 1, ptr @.str.396 }, %struct._value_string { i32 2, ptr @.str.397 }, %struct._value_string { i32 3, ptr @.str.398 }, %struct._value_string { i32 4, ptr @.str.399 }, %struct._value_string { i32 5, ptr @.str.400 }, %struct._value_string { i32 6, ptr @.str.401 }, %struct._value_string { i32 7, ptr @.str.402 }, %struct._value_string { i32 8, ptr @.str.403 }, %struct._value_string { i32 9, ptr @.str.404 }, %struct._value_string { i32 10, ptr @.str.405 }, %struct._value_string { i32 11, ptr @.str.406 }, %struct._value_string { i32 12, ptr @.str.407 }, %struct._value_string { i32 13, ptr @.str.408 }, %struct._value_string { i32 14, ptr @.str.409 }, %struct._value_string { i32 15, ptr @.str.410 }, %struct._value_string { i32 16, ptr @.str.411 }, %struct._value_string { i32 17, ptr @.str.412 }, %struct._value_string { i32 18, ptr @.str.413 }, %struct._value_string zeroinitializer], align 16
 @.str.83 = private unnamed_addr constant [18 x i8] c"Confirmation URL4\00", align 1
 @.str.84 = private unnamed_addr constant [22 x i8] c"wps.confirmation_url4\00", align 1
 @.str.85 = private unnamed_addr constant [18 x i8] c"Confirmation URL6\00", align 1
@@ -264,7 +255,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.88 = private unnamed_addr constant [20 x i8] c"wps.connection_type\00", align 1
 @.str.89 = private unnamed_addr constant [17 x i8] c"Connection Types\00", align 1
 @.str.90 = private unnamed_addr constant [26 x i8] c"wps.connection_type_flags\00", align 1
-@eapwps_tlv_connection_type_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.91 }, %struct._value_string { i32 2, ptr @.str.93 }, %struct._value_string zeroinitializer], align 16
 @.str.91 = private unnamed_addr constant [4 x i8] c"ESS\00", align 1
 @.str.92 = private unnamed_addr constant [30 x i8] c"wps.connection_type_flags.ess\00", align 1
 @.str.93 = private unnamed_addr constant [5 x i8] c"IBSS\00", align 1
@@ -275,7 +265,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.98 = private unnamed_addr constant [16 x i8] c"wps.device_name\00", align 1
 @.str.99 = private unnamed_addr constant [19 x i8] c"Device Password ID\00", align 1
 @.str.100 = private unnamed_addr constant [23 x i8] c"wps.device_password_id\00", align 1
-@eapwps_tlv_device_password_id_vals = internal constant [7 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.414 }, %struct._value_string { i32 1, ptr @.str.415 }, %struct._value_string { i32 2, ptr @.str.416 }, %struct._value_string { i32 3, ptr @.str.417 }, %struct._value_string { i32 4, ptr @.str.418 }, %struct._value_string { i32 5, ptr @.str.419 }, %struct._value_string zeroinitializer], align 16
 @.str.101 = private unnamed_addr constant [16 x i8] c"Enrollee Hash 1\00", align 1
 @.str.102 = private unnamed_addr constant [12 x i8] c"wps.e_hash1\00", align 1
 @.str.103 = private unnamed_addr constant [16 x i8] c"Enrollee Hash 2\00", align 1
@@ -288,7 +277,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.110 = private unnamed_addr constant [23 x i8] c"wps.encrypted_settings\00", align 1
 @.str.111 = private unnamed_addr constant [16 x i8] c"Encryption Type\00", align 1
 @.str.112 = private unnamed_addr constant [20 x i8] c"wps.encryption_type\00", align 1
-@eapwps_tlv_encryption_type_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.420 }, %struct._value_string { i32 2, ptr @.str.117 }, %struct._value_string { i32 4, ptr @.str.119 }, %struct._value_string { i32 8, ptr @.str.121 }, %struct._value_string zeroinitializer], align 16
 @.str.113 = private unnamed_addr constant [22 x i8] c"Encryption Type Flags\00", align 1
 @.str.114 = private unnamed_addr constant [26 x i8] c"wps.encryption_type_flags\00", align 1
 @.str.115 = private unnamed_addr constant [5 x i8] c"None\00", align 1
@@ -359,13 +347,10 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.180 = private unnamed_addr constant [20 x i8] c"wps.registrar_nonce\00", align 1
 @.str.181 = private unnamed_addr constant [13 x i8] c"Request Type\00", align 1
 @.str.182 = private unnamed_addr constant [17 x i8] c"wps.request_type\00", align 1
-@eapwps_tlv_request_type_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.421 }, %struct._value_string { i32 1, ptr @.str.422 }, %struct._value_string { i32 2, ptr @.str.423 }, %struct._value_string { i32 3, ptr @.str.424 }, %struct._value_string zeroinitializer], align 16
 @.str.183 = private unnamed_addr constant [14 x i8] c"Response Type\00", align 1
 @.str.184 = private unnamed_addr constant [18 x i8] c"wps.response_type\00", align 1
-@eapwps_tlv_response_type_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.421 }, %struct._value_string { i32 1, ptr @.str.422 }, %struct._value_string { i32 2, ptr @.str.423 }, %struct._value_string { i32 3, ptr @.str.425 }, %struct._value_string zeroinitializer], align 16
 @.str.185 = private unnamed_addr constant [9 x i8] c"RF Bands\00", align 1
 @.str.186 = private unnamed_addr constant [13 x i8] c"wps.rf_bands\00", align 1
-@eapwps_tlv_rf_bands_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.426 }, %struct._value_string { i32 2, ptr @.str.427 }, %struct._value_string { i32 3, ptr @.str.428 }, %struct._value_string zeroinitializer], align 16
 @.str.187 = private unnamed_addr constant [17 x i8] c"Registrar Hash 1\00", align 1
 @.str.188 = private unnamed_addr constant [12 x i8] c"wps.r_hash1\00", align 1
 @.str.189 = private unnamed_addr constant [17 x i8] c"Registrar Hash 2\00", align 1
@@ -380,7 +365,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.198 = private unnamed_addr constant [18 x i8] c"wps.serial_number\00", align 1
 @.str.199 = private unnamed_addr constant [27 x i8] c"Wifi Protected Setup State\00", align 1
 @.str.200 = private unnamed_addr constant [31 x i8] c"wps.wifi_protected_setup_state\00", align 1
-@eapwps_tlv_wifi_protected_setup_state = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.323 }, %struct._value_string { i32 1, ptr @.str.429 }, %struct._value_string { i32 2, ptr @.str.430 }, %struct._value_string zeroinitializer], align 16
 @.str.201 = private unnamed_addr constant [5 x i8] c"SSID\00", align 1
 @.str.202 = private unnamed_addr constant [9 x i8] c"wps.ssid\00", align 1
 @.str.203 = private unnamed_addr constant [15 x i8] c"Total Networks\00", align 1
@@ -441,30 +425,18 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.258 = private unnamed_addr constant [24 x i8] c"wps.primary_device_type\00", align 1
 @.str.259 = private unnamed_addr constant [9 x i8] c"Category\00", align 1
 @.str.260 = private unnamed_addr constant [33 x i8] c"wps.primary_device_type.category\00", align 1
-@eapwps_tlv_primary_device_type_category = internal constant [12 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.431 }, %struct._value_string { i32 2, ptr @.str.432 }, %struct._value_string { i32 3, ptr @.str.433 }, %struct._value_string { i32 4, ptr @.str.434 }, %struct._value_string { i32 5, ptr @.str.435 }, %struct._value_string { i32 6, ptr @.str.436 }, %struct._value_string { i32 7, ptr @.str.437 }, %struct._value_string { i32 8, ptr @.str.438 }, %struct._value_string { i32 9, ptr @.str.439 }, %struct._value_string { i32 10, ptr @.str.440 }, %struct._value_string { i32 11, ptr @.str.441 }, %struct._value_string zeroinitializer], align 16
 @.str.261 = private unnamed_addr constant [12 x i8] c"Subcategory\00", align 1
 @.str.262 = private unnamed_addr constant [45 x i8] c"wps.primary_device_type.subcategory_computer\00", align 1
-@eapwps_tlv_computer_subcategory = internal constant [9 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.442 }, %struct._value_string { i32 2, ptr @.str.443 }, %struct._value_string { i32 3, ptr @.str.444 }, %struct._value_string { i32 4, ptr @.str.445 }, %struct._value_string { i32 5, ptr @.str.446 }, %struct._value_string { i32 6, ptr @.str.447 }, %struct._value_string { i32 7, ptr @.str.448 }, %struct._value_string { i32 8, ptr @.str.449 }, %struct._value_string zeroinitializer], align 16
 @.str.263 = private unnamed_addr constant [49 x i8] c"wps.primary_device_type.subcategory_input_device\00", align 1
-@eapwps_tlv_input_device_subcategory = internal constant [10 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.450 }, %struct._value_string { i32 2, ptr @.str.451 }, %struct._value_string { i32 3, ptr @.str.452 }, %struct._value_string { i32 4, ptr @.str.453 }, %struct._value_string { i32 5, ptr @.str.454 }, %struct._value_string { i32 6, ptr @.str.455 }, %struct._value_string { i32 7, ptr @.str.456 }, %struct._value_string { i32 8, ptr @.str.457 }, %struct._value_string { i32 9, ptr @.str.458 }, %struct._value_string zeroinitializer], align 16
 @.str.264 = private unnamed_addr constant [68 x i8] c"wps.primary_device_type.subcategory_printers_scanners_faxes_copiers\00", align 1
-@eapwps_tlv_printers_scanners_faxes_copiers_subcategory = internal constant [6 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.459 }, %struct._value_string { i32 2, ptr @.str.460 }, %struct._value_string { i32 3, ptr @.str.461 }, %struct._value_string { i32 4, ptr @.str.462 }, %struct._value_string { i32 5, ptr @.str.463 }, %struct._value_string zeroinitializer], align 16
 @.str.265 = private unnamed_addr constant [43 x i8] c"wps.primary_device_type.subcategory_camera\00", align 1
-@eapwps_tlv_camera_subcategory = internal constant [5 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.464 }, %struct._value_string { i32 2, ptr @.str.465 }, %struct._value_string { i32 3, ptr @.str.466 }, %struct._value_string { i32 4, ptr @.str.467 }, %struct._value_string zeroinitializer], align 16
 @.str.266 = private unnamed_addr constant [44 x i8] c"wps.primary_device_type.subcategory_storage\00", align 1
-@eapwps_tlv_storage_subcategory = internal constant [2 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.468 }, %struct._value_string zeroinitializer], align 16
 @.str.267 = private unnamed_addr constant [59 x i8] c"wps.primary_device_type.subcategory_network_infrastructure\00", align 1
-@eapwps_tlv_network_infrastructure_subcategory = internal constant [6 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.425 }, %struct._value_string { i32 2, ptr @.str.469 }, %struct._value_string { i32 3, ptr @.str.470 }, %struct._value_string { i32 4, ptr @.str.471 }, %struct._value_string { i32 5, ptr @.str.472 }, %struct._value_string zeroinitializer], align 16
 @.str.268 = private unnamed_addr constant [45 x i8] c"wps.primary_device_type.subcategory_displays\00", align 1
-@eapwps_tlv_displays_subcategory = internal constant [5 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.473 }, %struct._value_string { i32 2, ptr @.str.474 }, %struct._value_string { i32 3, ptr @.str.475 }, %struct._value_string { i32 4, ptr @.str.476 }, %struct._value_string zeroinitializer], align 16
 @.str.269 = private unnamed_addr constant [55 x i8] c"wps.primary_device_type.subcategory_multimedia_devices\00", align 1
-@eapwps_tlv_multimedia_devices_subcategory = internal constant [7 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.477 }, %struct._value_string { i32 2, ptr @.str.478 }, %struct._value_string { i32 3, ptr @.str.479 }, %struct._value_string { i32 4, ptr @.str.480 }, %struct._value_string { i32 5, ptr @.str.481 }, %struct._value_string { i32 6, ptr @.str.482 }, %struct._value_string zeroinitializer], align 16
 @.str.270 = private unnamed_addr constant [51 x i8] c"wps.primary_device_type.subcategory_gaming_devices\00", align 1
-@eapwps_tlv_gaming_devices_subcategory = internal constant [6 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.483 }, %struct._value_string { i32 2, ptr @.str.484 }, %struct._value_string { i32 3, ptr @.str.485 }, %struct._value_string { i32 4, ptr @.str.486 }, %struct._value_string { i32 5, ptr @.str.487 }, %struct._value_string zeroinitializer], align 16
 @.str.271 = private unnamed_addr constant [46 x i8] c"wps.primary_device_type.subcategory_telephone\00", align 1
-@eapwps_tlv_telephone_subcategory = internal constant [6 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.488 }, %struct._value_string { i32 2, ptr @.str.489 }, %struct._value_string { i32 3, ptr @.str.490 }, %struct._value_string { i32 4, ptr @.str.491 }, %struct._value_string { i32 5, ptr @.str.492 }, %struct._value_string zeroinitializer], align 16
 @.str.272 = private unnamed_addr constant [50 x i8] c"wps.primary_device_type.subcategory_audio_devices\00", align 1
-@eapwps_tlv_audio_devices_subcategory = internal constant [8 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.493 }, %struct._value_string { i32 2, ptr @.str.494 }, %struct._value_string { i32 3, ptr @.str.495 }, %struct._value_string { i32 4, ptr @.str.496 }, %struct._value_string { i32 5, ptr @.str.497 }, %struct._value_string { i32 6, ptr @.str.498 }, %struct._value_string { i32 7, ptr @.str.499 }, %struct._value_string zeroinitializer], align 16
 @.str.273 = private unnamed_addr constant [27 x i8] c"Secondary Device Type List\00", align 1
 @.str.274 = private unnamed_addr constant [31 x i8] c"wps.secondary_device_type_list\00", align 1
 @.str.275 = private unnamed_addr constant [16 x i8] c"Portable Device\00", align 1
@@ -493,7 +465,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_eapwps_wfa_ext_id = internal global i32 0, align 4
 @.str.297 = private unnamed_addr constant [28 x i8] c"WFA Extension Subelement ID\00", align 1
 @.str.298 = private unnamed_addr constant [11 x i8] c"wps.ext.id\00", align 1
-@eapwps_wfa_ext_types = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.301 }, %struct._value_string { i32 1, ptr @.str.303 }, %struct._value_string { i32 2, ptr @.str.305 }, %struct._value_string { i32 3, ptr @.str.307 }, %struct._value_string { i32 4, ptr @.str.309 }, %struct._value_string { i32 6, ptr @.str.500 }, %struct._value_string { i32 7, ptr @.str.327 }, %struct._value_string { i32 8, ptr @.str.501 }, %struct._value_string zeroinitializer], align 16
 @hf_eapwps_wfa_ext_len = internal global i32 0, align 4
 @.str.299 = private unnamed_addr constant [32 x i8] c"WFA Extension Subelement Length\00", align 1
 @.str.300 = private unnamed_addr constant [12 x i8] c"wps.ext.len\00", align 1
@@ -541,7 +512,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_multi_ap_profiles = internal global i32 0, align 4
 @.str.327 = private unnamed_addr constant [17 x i8] c"Multi-AP Profile\00", align 1
 @.str.328 = private unnamed_addr constant [25 x i8] c"wps.ext.multi_ap_profile\00", align 1
-@wps_wfa_ext_multi_ap_profiles_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.502 }, %struct._value_string { i32 2, ptr @.str.503 }, %struct._value_string { i32 3, ptr @.str.504 }, %struct._value_string zeroinitializer], align 16
 @hf_multi_ap_8021q = internal global i32 0, align 4
 @.str.329 = private unnamed_addr constant [16 x i8] c"Primary VLAN ID\00", align 1
 @.str.330 = private unnamed_addr constant [24 x i8] c"wps.ext.primary_vlan_id\00", align 1
@@ -636,7 +606,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_eap_wps_weptransmitkey = internal global i32 0, align 4
 @ett_wps_wfa_ext = internal global i32 0, align 4
 @ett_multi_ap_flags = internal global i32 0, align 4
-@proto_register_wps.ei = internal global [3 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_eapwps_packet_too_short, %struct.expert_field_info { ptr @.str.331, i32 117440512, i32 8388608, ptr @.str.332, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_eapwps_fmt_warn_too_long, %struct.expert_field_info { ptr @.str.333, i32 117440512, i32 8388608, ptr @.str.334, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_eapwps_fmt_length_warn, %struct.expert_field_info { ptr @.str.335, i32 117440512, i32 8388608, ptr @.str.336, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_wps.ei = internal global [3 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_eapwps_packet_too_short, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.331, i32 117440512, i32 8388608, ptr @.str.332, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_eapwps_fmt_warn_too_long, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.333, i32 117440512, i32 8388608, ptr @.str.334, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_eapwps_fmt_length_warn, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.335, i32 117440512, i32 8388608, ptr @.str.336, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @.str.331 = private unnamed_addr constant [21 x i8] c"wps.packet_too_short\00", align 1
 @.str.332 = private unnamed_addr constant [17 x i8] c"Packet too short\00", align 1
 @.str.333 = private unnamed_addr constant [26 x i8] c"wps.length.value_too_long\00", align 1
@@ -665,159 +635,187 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.354 = private unnamed_addr constant [8 x i8] c"WSC_ACK\00", align 1
 @.str.355 = private unnamed_addr constant [9 x i8] c"WSC_NACK\00", align 1
 @.str.356 = private unnamed_addr constant [9 x i8] c"WSC_DONE\00", align 1
-@.str.357 = private unnamed_addr constant [15 x i8] c"Config Methods\00", align 1
-@.str.358 = private unnamed_addr constant [22 x i8] c"Connection Type Flags\00", align 1
-@.str.359 = private unnamed_addr constant [8 x i8] c"E Hash1\00", align 1
-@.str.360 = private unnamed_addr constant [8 x i8] c"E Hash2\00", align 1
-@.str.361 = private unnamed_addr constant [10 x i8] c"E SNonce1\00", align 1
-@.str.362 = private unnamed_addr constant [10 x i8] c"E SNonce2\00", align 1
-@.str.363 = private unnamed_addr constant [11 x i8] c"Feature Id\00", align 1
-@.str.364 = private unnamed_addr constant [12 x i8] c"MAC Address\00", align 1
-@.str.365 = private unnamed_addr constant [18 x i8] c"Registrar Current\00", align 1
-@.str.366 = private unnamed_addr constant [22 x i8] c"Registrar Established\00", align 1
-@.str.367 = private unnamed_addr constant [15 x i8] c"Registrar List\00", align 1
-@.str.368 = private unnamed_addr constant [14 x i8] c"registrar_max\00", align 1
-@.str.369 = private unnamed_addr constant [8 x i8] c"R Hash1\00", align 1
-@.str.370 = private unnamed_addr constant [8 x i8] c"R Hash2\00", align 1
-@.str.371 = private unnamed_addr constant [10 x i8] c"R Snonce1\00", align 1
-@.str.372 = private unnamed_addr constant [10 x i8] c"R Snonce2\00", align 1
-@.str.373 = private unnamed_addr constant [7 x i8] c"UUID E\00", align 1
-@.str.374 = private unnamed_addr constant [7 x i8] c"UUID R\00", align 1
-@.str.375 = private unnamed_addr constant [25 x i8] c"Permitted Config Methods\00", align 1
-@.str.376 = private unnamed_addr constant [16 x i8] c"Ap Setup Locked\00", align 1
-@.str.377 = private unnamed_addr constant [15 x i8] c"WEPTransmitKey\00", align 1
+@eapwps_tlv_message_type_vals = internal constant [16 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.342 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.343 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.344 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.345 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.346 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.347 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.348 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.349 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.350 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.351 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.352 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.353 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.354 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.355 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.356 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.358 = private unnamed_addr constant [15 x i8] c"Config Methods\00", align 1
+@.str.359 = private unnamed_addr constant [22 x i8] c"Connection Type Flags\00", align 1
+@.str.360 = private unnamed_addr constant [8 x i8] c"E Hash1\00", align 1
+@.str.361 = private unnamed_addr constant [8 x i8] c"E Hash2\00", align 1
+@.str.362 = private unnamed_addr constant [10 x i8] c"E SNonce1\00", align 1
+@.str.363 = private unnamed_addr constant [10 x i8] c"E SNonce2\00", align 1
+@.str.364 = private unnamed_addr constant [11 x i8] c"Feature Id\00", align 1
+@.str.365 = private unnamed_addr constant [12 x i8] c"MAC Address\00", align 1
+@.str.366 = private unnamed_addr constant [18 x i8] c"Registrar Current\00", align 1
+@.str.367 = private unnamed_addr constant [22 x i8] c"Registrar Established\00", align 1
+@.str.368 = private unnamed_addr constant [15 x i8] c"Registrar List\00", align 1
+@.str.369 = private unnamed_addr constant [14 x i8] c"registrar_max\00", align 1
+@.str.370 = private unnamed_addr constant [8 x i8] c"R Hash1\00", align 1
+@.str.371 = private unnamed_addr constant [8 x i8] c"R Hash2\00", align 1
+@.str.372 = private unnamed_addr constant [10 x i8] c"R Snonce1\00", align 1
+@.str.373 = private unnamed_addr constant [10 x i8] c"R Snonce2\00", align 1
+@.str.374 = private unnamed_addr constant [7 x i8] c"UUID E\00", align 1
+@.str.375 = private unnamed_addr constant [7 x i8] c"UUID R\00", align 1
+@.str.376 = private unnamed_addr constant [25 x i8] c"Permitted Config Methods\00", align 1
+@.str.377 = private unnamed_addr constant [16 x i8] c"Ap Setup Locked\00", align 1
+@.str.378 = private unnamed_addr constant [15 x i8] c"WEPTransmitKey\00", align 1
+@eapwps_tlv_types = internal constant [88 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 4097, [4 x i8] zeroinitializer, ptr @.str.31 }, { i32, [4 x i8], ptr } { i32 4098, [4 x i8] zeroinitializer, ptr @.str.33 }, { i32, [4 x i8], ptr } { i32 4099, [4 x i8] zeroinitializer, ptr @.str.35 }, { i32, [4 x i8], ptr } { i32 4100, [4 x i8] zeroinitializer, ptr @.str.37 }, { i32, [4 x i8], ptr } { i32 4101, [4 x i8] zeroinitializer, ptr @.str.51 }, { i32, [4 x i8], ptr } { i32 4104, [4 x i8] zeroinitializer, ptr @.str.358 }, { i32, [4 x i8], ptr } { i32 4105, [4 x i8] zeroinitializer, ptr @.str.81 }, { i32, [4 x i8], ptr } { i32 4106, [4 x i8] zeroinitializer, ptr @.str.83 }, { i32, [4 x i8], ptr } { i32 4107, [4 x i8] zeroinitializer, ptr @.str.85 }, { i32, [4 x i8], ptr } { i32 4108, [4 x i8] zeroinitializer, ptr @.str.87 }, { i32, [4 x i8], ptr } { i32 4109, [4 x i8] zeroinitializer, ptr @.str.359 }, { i32, [4 x i8], ptr } { i32 4110, [4 x i8] zeroinitializer, ptr @.str.95 }, { i32, [4 x i8], ptr } { i32 4113, [4 x i8] zeroinitializer, ptr @.str.97 }, { i32, [4 x i8], ptr } { i32 4114, [4 x i8] zeroinitializer, ptr @.str.99 }, { i32, [4 x i8], ptr } { i32 4116, [4 x i8] zeroinitializer, ptr @.str.360 }, { i32, [4 x i8], ptr } { i32 4117, [4 x i8] zeroinitializer, ptr @.str.361 }, { i32, [4 x i8], ptr } { i32 4118, [4 x i8] zeroinitializer, ptr @.str.362 }, { i32, [4 x i8], ptr } { i32 4119, [4 x i8] zeroinitializer, ptr @.str.363 }, { i32, [4 x i8], ptr } { i32 4120, [4 x i8] zeroinitializer, ptr @.str.109 }, { i32, [4 x i8], ptr } { i32 4111, [4 x i8] zeroinitializer, ptr @.str.111 }, { i32, [4 x i8], ptr } { i32 4112, [4 x i8] zeroinitializer, ptr @.str.113 }, { i32, [4 x i8], ptr } { i32 4122, [4 x i8] zeroinitializer, ptr @.str.123 }, { i32, [4 x i8], ptr } { i32 4123, [4 x i8] zeroinitializer, ptr @.str.364 }, { i32, [4 x i8], ptr } { i32 4124, [4 x i8] zeroinitializer, ptr @.str.127 }, { i32, [4 x i8], ptr } { i32 4125, [4 x i8] zeroinitializer, ptr @.str.129 }, { i32, [4 x i8], ptr } { i32 4126, [4 x i8] zeroinitializer, ptr @.str.131 }, { i32, [4 x i8], ptr } { i32 4127, [4 x i8] zeroinitializer, ptr @.str.133 }, { i32, [4 x i8], ptr } { i32 4128, [4 x i8] zeroinitializer, ptr @.str.365 }, { i32, [4 x i8], ptr } { i32 4129, [4 x i8] zeroinitializer, ptr @.str.137 }, { i32, [4 x i8], ptr } { i32 4130, [4 x i8] zeroinitializer, ptr @.str.139 }, { i32, [4 x i8], ptr } { i32 4131, [4 x i8] zeroinitializer, ptr @.str.141 }, { i32, [4 x i8], ptr } { i32 4132, [4 x i8] zeroinitializer, ptr @.str.143 }, { i32, [4 x i8], ptr } { i32 4134, [4 x i8] zeroinitializer, ptr @.str.145 }, { i32, [4 x i8], ptr } { i32 4135, [4 x i8] zeroinitializer, ptr @.str.147 }, { i32, [4 x i8], ptr } { i32 4136, [4 x i8] zeroinitializer, ptr @.str.149 }, { i32, [4 x i8], ptr } { i32 4137, [4 x i8] zeroinitializer, ptr @.str.151 }, { i32, [4 x i8], ptr } { i32 4138, [4 x i8] zeroinitializer, ptr @.str.153 }, { i32, [4 x i8], ptr } { i32 4140, [4 x i8] zeroinitializer, ptr @.str.155 }, { i32, [4 x i8], ptr } { i32 4141, [4 x i8] zeroinitializer, ptr @.str.157 }, { i32, [4 x i8], ptr } { i32 4143, [4 x i8] zeroinitializer, ptr @.str.159 }, { i32, [4 x i8], ptr } { i32 4144, [4 x i8] zeroinitializer, ptr @.str.161 }, { i32, [4 x i8], ptr } { i32 4145, [4 x i8] zeroinitializer, ptr @.str.163 }, { i32, [4 x i8], ptr } { i32 4146, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 4147, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 4148, [4 x i8] zeroinitializer, ptr @.str.169 }, { i32, [4 x i8], ptr } { i32 4149, [4 x i8] zeroinitializer, ptr @.str.366 }, { i32, [4 x i8], ptr } { i32 4150, [4 x i8] zeroinitializer, ptr @.str.367 }, { i32, [4 x i8], ptr } { i32 4151, [4 x i8] zeroinitializer, ptr @.str.368 }, { i32, [4 x i8], ptr } { i32 4152, [4 x i8] zeroinitializer, ptr @.str.369 }, { i32, [4 x i8], ptr } { i32 4153, [4 x i8] zeroinitializer, ptr @.str.179 }, { i32, [4 x i8], ptr } { i32 4154, [4 x i8] zeroinitializer, ptr @.str.181 }, { i32, [4 x i8], ptr } { i32 4155, [4 x i8] zeroinitializer, ptr @.str.183 }, { i32, [4 x i8], ptr } { i32 4156, [4 x i8] zeroinitializer, ptr @.str.185 }, { i32, [4 x i8], ptr } { i32 4157, [4 x i8] zeroinitializer, ptr @.str.370 }, { i32, [4 x i8], ptr } { i32 4158, [4 x i8] zeroinitializer, ptr @.str.371 }, { i32, [4 x i8], ptr } { i32 4159, [4 x i8] zeroinitializer, ptr @.str.372 }, { i32, [4 x i8], ptr } { i32 4160, [4 x i8] zeroinitializer, ptr @.str.373 }, { i32, [4 x i8], ptr } { i32 4161, [4 x i8] zeroinitializer, ptr @.str.195 }, { i32, [4 x i8], ptr } { i32 4162, [4 x i8] zeroinitializer, ptr @.str.197 }, { i32, [4 x i8], ptr } { i32 4164, [4 x i8] zeroinitializer, ptr @.str.199 }, { i32, [4 x i8], ptr } { i32 4165, [4 x i8] zeroinitializer, ptr @.str.201 }, { i32, [4 x i8], ptr } { i32 4166, [4 x i8] zeroinitializer, ptr @.str.203 }, { i32, [4 x i8], ptr } { i32 4167, [4 x i8] zeroinitializer, ptr @.str.374 }, { i32, [4 x i8], ptr } { i32 4168, [4 x i8] zeroinitializer, ptr @.str.375 }, { i32, [4 x i8], ptr } { i32 4169, [4 x i8] zeroinitializer, ptr @.str.209 }, { i32, [4 x i8], ptr } { i32 4170, [4 x i8] zeroinitializer, ptr @.str.211 }, { i32, [4 x i8], ptr } { i32 4171, [4 x i8] zeroinitializer, ptr @.str.213 }, { i32, [4 x i8], ptr } { i32 4172, [4 x i8] zeroinitializer, ptr @.str.215 }, { i32, [4 x i8], ptr } { i32 4173, [4 x i8] zeroinitializer, ptr @.str.217 }, { i32, [4 x i8], ptr } { i32 4174, [4 x i8] zeroinitializer, ptr @.str.219 }, { i32, [4 x i8], ptr } { i32 4175, [4 x i8] zeroinitializer, ptr @.str.221 }, { i32, [4 x i8], ptr } { i32 4176, [4 x i8] zeroinitializer, ptr @.str.223 }, { i32, [4 x i8], ptr } { i32 4177, [4 x i8] zeroinitializer, ptr @.str.225 }, { i32, [4 x i8], ptr } { i32 4178, [4 x i8] zeroinitializer, ptr @.str.376 }, { i32, [4 x i8], ptr } { i32 4179, [4 x i8] zeroinitializer, ptr @.str.242 }, { i32, [4 x i8], ptr } { i32 4180, [4 x i8] zeroinitializer, ptr @.str.257 }, { i32, [4 x i8], ptr } { i32 4181, [4 x i8] zeroinitializer, ptr @.str.273 }, { i32, [4 x i8], ptr } { i32 4182, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 4183, [4 x i8] zeroinitializer, ptr @.str.377 }, { i32, [4 x i8], ptr } { i32 4184, [4 x i8] zeroinitializer, ptr @.str.279 }, { i32, [4 x i8], ptr } { i32 4185, [4 x i8] zeroinitializer, ptr @.str.281 }, { i32, [4 x i8], ptr } { i32 4192, [4 x i8] zeroinitializer, ptr @.str.283 }, { i32, [4 x i8], ptr } { i32 4193, [4 x i8] zeroinitializer, ptr @.str.285 }, { i32, [4 x i8], ptr } { i32 4194, [4 x i8] zeroinitializer, ptr @.str.287 }, { i32, [4 x i8], ptr } { i32 4195, [4 x i8] zeroinitializer, ptr @.str.289 }, { i32, [4 x i8], ptr } { i32 4196, [4 x i8] zeroinitializer, ptr @.str.378 }, { i32, [4 x i8], ptr } { i32 4202, [4 x i8] zeroinitializer, ptr @.str.293 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @add_wps_wfa_ext.flags = internal constant [8 x ptr] [ptr @hf_multi_ap_backhaul_sta, ptr @hf_multi_ap_backhaul_bss, ptr @hf_multi_ap_fronthaul_bss, ptr @hf_multi_ap_teardown_bsses, ptr @hf_multi_ap_profile1_backhaul_sta_assoc_disallowed, ptr @hf_multi_ap_profile2_backhaul_sta_assoc_disallowed, ptr @hf_multi_ap_reserved, ptr null], align 16
-@.str.378 = private unnamed_addr constant [13 x i8] c"Unknown (%u)\00", align 1
-@.str.379 = private unnamed_addr constant [8 x i8] c": %d.%d\00", align 1
-@.str.380 = private unnamed_addr constant [5 x i8] c"TRUE\00", align 1
-@.str.381 = private unnamed_addr constant [6 x i8] c"FALSE\00", align 1
-@.str.382 = private unnamed_addr constant [15 x i8] c": %d second(s)\00", align 1
-@.str.383 = private unnamed_addr constant [10 x i8] c"WSC Start\00", align 1
-@.str.384 = private unnamed_addr constant [8 x i8] c"WSC Ack\00", align 1
-@.str.385 = private unnamed_addr constant [9 x i8] c"WSC Nack\00", align 1
-@.str.386 = private unnamed_addr constant [8 x i8] c"WSC Msg\00", align 1
-@.str.387 = private unnamed_addr constant [9 x i8] c"WSC Done\00", align 1
-@.str.388 = private unnamed_addr constant [13 x i8] c"WSC Frag Ack\00", align 1
-@.str.389 = private unnamed_addr constant [15 x i8] c"Not associated\00", align 1
-@.str.390 = private unnamed_addr constant [19 x i8] c"Connection success\00", align 1
-@.str.391 = private unnamed_addr constant [22 x i8] c"Configuration Failure\00", align 1
-@.str.392 = private unnamed_addr constant [20 x i8] c"Association Failure\00", align 1
-@.str.393 = private unnamed_addr constant [11 x i8] c"IP Failure\00", align 1
-@.str.394 = private unnamed_addr constant [9 x i8] c"WPA2 PSK\00", align 1
-@.str.395 = private unnamed_addr constant [9 x i8] c"No Error\00", align 1
-@.str.396 = private unnamed_addr constant [25 x i8] c"OOB Interface Read Error\00", align 1
-@.str.397 = private unnamed_addr constant [23 x i8] c"Decryption CRC Failure\00", align 1
-@.str.398 = private unnamed_addr constant [26 x i8] c"2.4 channel not supported\00", align 1
-@.str.399 = private unnamed_addr constant [26 x i8] c"5.0 channel not supported\00", align 1
-@.str.400 = private unnamed_addr constant [16 x i8] c"Signal too weak\00", align 1
-@.str.401 = private unnamed_addr constant [21 x i8] c"Network auth failure\00", align 1
-@.str.402 = private unnamed_addr constant [28 x i8] c"Network association failure\00", align 1
-@.str.403 = private unnamed_addr constant [17 x i8] c"No DHCP response\00", align 1
-@.str.404 = private unnamed_addr constant [19 x i8] c"Failed DHCP config\00", align 1
-@.str.405 = private unnamed_addr constant [20 x i8] c"IP address conflict\00", align 1
-@.str.406 = private unnamed_addr constant [30 x i8] c"Couldn't connect to Registrar\00", align 1
-@.str.407 = private unnamed_addr constant [31 x i8] c"Multiple PBC sessions detected\00", align 1
-@.str.408 = private unnamed_addr constant [25 x i8] c"Rogue activity suspected\00", align 1
-@.str.409 = private unnamed_addr constant [12 x i8] c"Device busy\00", align 1
-@.str.410 = private unnamed_addr constant [13 x i8] c"Setup locked\00", align 1
-@.str.411 = private unnamed_addr constant [16 x i8] c"Message Timeout\00", align 1
-@.str.412 = private unnamed_addr constant [29 x i8] c"Registration Session Timeout\00", align 1
-@.str.413 = private unnamed_addr constant [29 x i8] c"Device Password Auth Failure\00", align 1
-@.str.414 = private unnamed_addr constant [14 x i8] c"PIN (default)\00", align 1
-@.str.415 = private unnamed_addr constant [15 x i8] c"User specified\00", align 1
-@.str.416 = private unnamed_addr constant [18 x i8] c"Machine specified\00", align 1
-@.str.417 = private unnamed_addr constant [6 x i8] c"Rekey\00", align 1
-@.str.418 = private unnamed_addr constant [11 x i8] c"PushButton\00", align 1
-@.str.419 = private unnamed_addr constant [20 x i8] c"Registrar specified\00", align 1
-@.str.420 = private unnamed_addr constant [5 x i8] c"none\00", align 1
-@.str.421 = private unnamed_addr constant [20 x i8] c"Enrollee, Info only\00", align 1
-@.str.422 = private unnamed_addr constant [22 x i8] c"Enrollee, open 802.1X\00", align 1
-@.str.423 = private unnamed_addr constant [10 x i8] c"Registrar\00", align 1
-@.str.424 = private unnamed_addr constant [23 x i8] c"WLAN Manager Registrar\00", align 1
-@.str.425 = private unnamed_addr constant [3 x i8] c"AP\00", align 1
-@.str.426 = private unnamed_addr constant [8 x i8] c"2.4 GHz\00", align 1
-@.str.427 = private unnamed_addr constant [6 x i8] c"5 GHz\00", align 1
-@.str.428 = private unnamed_addr constant [14 x i8] c"2.4 and 5 GHz\00", align 1
-@.str.429 = private unnamed_addr constant [15 x i8] c"Not configured\00", align 1
-@.str.430 = private unnamed_addr constant [11 x i8] c"Configured\00", align 1
-@.str.431 = private unnamed_addr constant [9 x i8] c"Computer\00", align 1
-@.str.432 = private unnamed_addr constant [13 x i8] c"Input Device\00", align 1
-@.str.433 = private unnamed_addr constant [38 x i8] c"Printers, Scanners, Faxes and Copiers\00", align 1
-@.str.434 = private unnamed_addr constant [7 x i8] c"Camera\00", align 1
-@.str.435 = private unnamed_addr constant [8 x i8] c"Storage\00", align 1
-@.str.436 = private unnamed_addr constant [23 x i8] c"Network Infrastructure\00", align 1
-@.str.437 = private unnamed_addr constant [9 x i8] c"Displays\00", align 1
-@.str.438 = private unnamed_addr constant [19 x i8] c"Multimedia Devices\00", align 1
-@.str.439 = private unnamed_addr constant [15 x i8] c"Gaming Devices\00", align 1
-@.str.440 = private unnamed_addr constant [10 x i8] c"Telephone\00", align 1
-@.str.441 = private unnamed_addr constant [14 x i8] c"Audio Devices\00", align 1
-@.str.442 = private unnamed_addr constant [3 x i8] c"PC\00", align 1
-@.str.443 = private unnamed_addr constant [7 x i8] c"Server\00", align 1
-@.str.444 = private unnamed_addr constant [13 x i8] c"Media Center\00", align 1
-@.str.445 = private unnamed_addr constant [16 x i8] c"Ultra-mobile PC\00", align 1
-@.str.446 = private unnamed_addr constant [9 x i8] c"Notebook\00", align 1
-@.str.447 = private unnamed_addr constant [8 x i8] c"Desktop\00", align 1
-@.str.448 = private unnamed_addr constant [29 x i8] c"MID (Mobile Internet Device)\00", align 1
-@.str.449 = private unnamed_addr constant [8 x i8] c"Netbook\00", align 1
-@.str.450 = private unnamed_addr constant [9 x i8] c"Keyboard\00", align 1
-@.str.451 = private unnamed_addr constant [6 x i8] c"Mouse\00", align 1
-@.str.452 = private unnamed_addr constant [9 x i8] c"Joystick\00", align 1
-@.str.453 = private unnamed_addr constant [10 x i8] c"Trackball\00", align 1
-@.str.454 = private unnamed_addr constant [18 x i8] c"Gaming controller\00", align 1
-@.str.455 = private unnamed_addr constant [7 x i8] c"Remote\00", align 1
-@.str.456 = private unnamed_addr constant [12 x i8] c"Touchscreen\00", align 1
-@.str.457 = private unnamed_addr constant [17 x i8] c"Biometric reader\00", align 1
-@.str.458 = private unnamed_addr constant [15 x i8] c"Barcode reader\00", align 1
-@.str.459 = private unnamed_addr constant [24 x i8] c"Printer or Print Server\00", align 1
-@.str.460 = private unnamed_addr constant [8 x i8] c"Scanner\00", align 1
-@.str.461 = private unnamed_addr constant [4 x i8] c"Fax\00", align 1
-@.str.462 = private unnamed_addr constant [7 x i8] c"Copier\00", align 1
-@.str.463 = private unnamed_addr constant [43 x i8] c"All-in-one (Printer, Scanner, Fax, Copier)\00", align 1
-@.str.464 = private unnamed_addr constant [21 x i8] c"Digital Still Camera\00", align 1
-@.str.465 = private unnamed_addr constant [13 x i8] c"Video Camera\00", align 1
-@.str.466 = private unnamed_addr constant [11 x i8] c"Web Camera\00", align 1
-@.str.467 = private unnamed_addr constant [16 x i8] c"Security Camera\00", align 1
-@.str.468 = private unnamed_addr constant [4 x i8] c"NAS\00", align 1
-@.str.469 = private unnamed_addr constant [7 x i8] c"Router\00", align 1
-@.str.470 = private unnamed_addr constant [7 x i8] c"Switch\00", align 1
-@.str.471 = private unnamed_addr constant [8 x i8] c"Gateway\00", align 1
-@.str.472 = private unnamed_addr constant [7 x i8] c"Bridge\00", align 1
-@.str.473 = private unnamed_addr constant [11 x i8] c"Television\00", align 1
-@.str.474 = private unnamed_addr constant [25 x i8] c"Electronic Picture Frame\00", align 1
-@.str.475 = private unnamed_addr constant [10 x i8] c"Projector\00", align 1
-@.str.476 = private unnamed_addr constant [8 x i8] c"Monitor\00", align 1
-@.str.477 = private unnamed_addr constant [4 x i8] c"DAR\00", align 1
-@.str.478 = private unnamed_addr constant [4 x i8] c"PVR\00", align 1
-@.str.479 = private unnamed_addr constant [4 x i8] c"MCX\00", align 1
-@.str.480 = private unnamed_addr constant [12 x i8] c"Set-top box\00", align 1
-@.str.481 = private unnamed_addr constant [42 x i8] c"Media Server/Media Adapter/Media Extender\00", align 1
-@.str.482 = private unnamed_addr constant [22 x i8] c"Portable Video Player\00", align 1
-@.str.483 = private unnamed_addr constant [5 x i8] c"Xbox\00", align 1
-@.str.484 = private unnamed_addr constant [8 x i8] c"Xbox360\00", align 1
-@.str.485 = private unnamed_addr constant [12 x i8] c"Playstation\00", align 1
-@.str.486 = private unnamed_addr constant [34 x i8] c"Game Console/Game Console Adapter\00", align 1
-@.str.487 = private unnamed_addr constant [23 x i8] c"Portable Gaming Device\00", align 1
-@.str.488 = private unnamed_addr constant [15 x i8] c"Windows Mobile\00", align 1
-@.str.489 = private unnamed_addr constant [20 x i8] c"Phone - single mode\00", align 1
-@.str.490 = private unnamed_addr constant [18 x i8] c"Phone - dual mode\00", align 1
-@.str.491 = private unnamed_addr constant [25 x i8] c"Smartphone - single mode\00", align 1
-@.str.492 = private unnamed_addr constant [23 x i8] c"Smartphone - dual mode\00", align 1
-@.str.493 = private unnamed_addr constant [21 x i8] c"Audio tuner/receiver\00", align 1
-@.str.494 = private unnamed_addr constant [9 x i8] c"Speakers\00", align 1
-@.str.495 = private unnamed_addr constant [28 x i8] c"Portable Music Player (PMP)\00", align 1
-@.str.496 = private unnamed_addr constant [34 x i8] c"Headset (headphones + microphone)\00", align 1
-@.str.497 = private unnamed_addr constant [11 x i8] c"Headphones\00", align 1
-@.str.498 = private unnamed_addr constant [11 x i8] c"Microphone\00", align 1
-@.str.499 = private unnamed_addr constant [21 x i8] c"Home Theater Systems\00", align 1
-@.str.500 = private unnamed_addr constant [19 x i8] c"Multi-AP Extension\00", align 1
-@.str.501 = private unnamed_addr constant [32 x i8] c"Multi-AP Profile 8021Q Settings\00", align 1
-@.str.502 = private unnamed_addr constant [19 x i8] c"Multi-AP Profile-1\00", align 1
-@.str.503 = private unnamed_addr constant [19 x i8] c"Multi-AP Profile-2\00", align 1
-@.str.504 = private unnamed_addr constant [19 x i8] c"Multi-AP Profile-3\00", align 1
-@.str.505 = private unnamed_addr constant [37 x i8] c" (Wifi Alliance, WifiProtectedSetup)\00", align 1
-@.str.506 = private unnamed_addr constant [6 x i8] c", WPS\00", align 1
+@.str.380 = private unnamed_addr constant [13 x i8] c"Unknown (%u)\00", align 1
+@.str.381 = private unnamed_addr constant [8 x i8] c": %d.%d\00", align 1
+@.str.382 = private unnamed_addr constant [5 x i8] c"TRUE\00", align 1
+@.str.383 = private unnamed_addr constant [6 x i8] c"FALSE\00", align 1
+@.str.384 = private unnamed_addr constant [15 x i8] c": %d second(s)\00", align 1
+@.str.385 = private unnamed_addr constant [10 x i8] c"WSC Start\00", align 1
+@.str.386 = private unnamed_addr constant [8 x i8] c"WSC Ack\00", align 1
+@.str.387 = private unnamed_addr constant [9 x i8] c"WSC Nack\00", align 1
+@.str.388 = private unnamed_addr constant [8 x i8] c"WSC Msg\00", align 1
+@.str.389 = private unnamed_addr constant [9 x i8] c"WSC Done\00", align 1
+@.str.390 = private unnamed_addr constant [13 x i8] c"WSC Frag Ack\00", align 1
+@eapwps_opcode_vals = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.385 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.386 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.387 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.388 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.389 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.390 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.392 = private unnamed_addr constant [15 x i8] c"Not associated\00", align 1
+@.str.393 = private unnamed_addr constant [19 x i8] c"Connection success\00", align 1
+@.str.394 = private unnamed_addr constant [22 x i8] c"Configuration Failure\00", align 1
+@.str.395 = private unnamed_addr constant [20 x i8] c"Association Failure\00", align 1
+@.str.396 = private unnamed_addr constant [11 x i8] c"IP Failure\00", align 1
+@eapwps_tlv_association_state_vals = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.392 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.393 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.394 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.395 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.396 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.398 = private unnamed_addr constant [9 x i8] c"WPA2 PSK\00", align 1
+@eapwps_tlv_authentication_type_vals = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.39 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.41 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.43 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.45 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.398 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.400 = private unnamed_addr constant [9 x i8] c"No Error\00", align 1
+@.str.401 = private unnamed_addr constant [25 x i8] c"OOB Interface Read Error\00", align 1
+@.str.402 = private unnamed_addr constant [23 x i8] c"Decryption CRC Failure\00", align 1
+@.str.403 = private unnamed_addr constant [26 x i8] c"2.4 channel not supported\00", align 1
+@.str.404 = private unnamed_addr constant [26 x i8] c"5.0 channel not supported\00", align 1
+@.str.405 = private unnamed_addr constant [16 x i8] c"Signal too weak\00", align 1
+@.str.406 = private unnamed_addr constant [21 x i8] c"Network auth failure\00", align 1
+@.str.407 = private unnamed_addr constant [28 x i8] c"Network association failure\00", align 1
+@.str.408 = private unnamed_addr constant [17 x i8] c"No DHCP response\00", align 1
+@.str.409 = private unnamed_addr constant [19 x i8] c"Failed DHCP config\00", align 1
+@.str.410 = private unnamed_addr constant [20 x i8] c"IP address conflict\00", align 1
+@.str.411 = private unnamed_addr constant [30 x i8] c"Couldn't connect to Registrar\00", align 1
+@.str.412 = private unnamed_addr constant [31 x i8] c"Multiple PBC sessions detected\00", align 1
+@.str.413 = private unnamed_addr constant [25 x i8] c"Rogue activity suspected\00", align 1
+@.str.414 = private unnamed_addr constant [12 x i8] c"Device busy\00", align 1
+@.str.415 = private unnamed_addr constant [13 x i8] c"Setup locked\00", align 1
+@.str.416 = private unnamed_addr constant [16 x i8] c"Message Timeout\00", align 1
+@.str.417 = private unnamed_addr constant [29 x i8] c"Registration Session Timeout\00", align 1
+@.str.418 = private unnamed_addr constant [29 x i8] c"Device Password Auth Failure\00", align 1
+@eapwps_tlv_configuration_error_vals = internal constant [20 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.400 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.401 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.402 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.403 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.404 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.405 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.406 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.407 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.408 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.409 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.410 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.411 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.412 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.413 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.414 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.415 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.416 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.417 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.418 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@eapwps_tlv_connection_type_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.91 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.93 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.421 = private unnamed_addr constant [14 x i8] c"PIN (default)\00", align 1
+@.str.422 = private unnamed_addr constant [15 x i8] c"User specified\00", align 1
+@.str.423 = private unnamed_addr constant [18 x i8] c"Machine specified\00", align 1
+@.str.424 = private unnamed_addr constant [6 x i8] c"Rekey\00", align 1
+@.str.425 = private unnamed_addr constant [11 x i8] c"PushButton\00", align 1
+@.str.426 = private unnamed_addr constant [20 x i8] c"Registrar specified\00", align 1
+@eapwps_tlv_device_password_id_vals = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.421 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.422 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.423 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.424 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.425 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.426 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.428 = private unnamed_addr constant [5 x i8] c"none\00", align 1
+@eapwps_tlv_encryption_type_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.428 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.117 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.119 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.430 = private unnamed_addr constant [20 x i8] c"Enrollee, Info only\00", align 1
+@.str.431 = private unnamed_addr constant [22 x i8] c"Enrollee, open 802.1X\00", align 1
+@.str.432 = private unnamed_addr constant [10 x i8] c"Registrar\00", align 1
+@.str.433 = private unnamed_addr constant [23 x i8] c"WLAN Manager Registrar\00", align 1
+@eapwps_tlv_request_type_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.430 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.431 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.432 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.433 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.435 = private unnamed_addr constant [3 x i8] c"AP\00", align 1
+@eapwps_tlv_response_type_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.430 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.431 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.432 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.435 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.437 = private unnamed_addr constant [8 x i8] c"2.4 GHz\00", align 1
+@.str.438 = private unnamed_addr constant [6 x i8] c"5 GHz\00", align 1
+@.str.439 = private unnamed_addr constant [14 x i8] c"2.4 and 5 GHz\00", align 1
+@eapwps_tlv_rf_bands_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.437 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.438 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.439 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.441 = private unnamed_addr constant [15 x i8] c"Not configured\00", align 1
+@.str.442 = private unnamed_addr constant [11 x i8] c"Configured\00", align 1
+@eapwps_tlv_wifi_protected_setup_state = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.323 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.441 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.442 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.444 = private unnamed_addr constant [9 x i8] c"Computer\00", align 1
+@.str.445 = private unnamed_addr constant [13 x i8] c"Input Device\00", align 1
+@.str.446 = private unnamed_addr constant [38 x i8] c"Printers, Scanners, Faxes and Copiers\00", align 1
+@.str.447 = private unnamed_addr constant [7 x i8] c"Camera\00", align 1
+@.str.448 = private unnamed_addr constant [8 x i8] c"Storage\00", align 1
+@.str.449 = private unnamed_addr constant [23 x i8] c"Network Infrastructure\00", align 1
+@.str.450 = private unnamed_addr constant [9 x i8] c"Displays\00", align 1
+@.str.451 = private unnamed_addr constant [19 x i8] c"Multimedia Devices\00", align 1
+@.str.452 = private unnamed_addr constant [15 x i8] c"Gaming Devices\00", align 1
+@.str.453 = private unnamed_addr constant [10 x i8] c"Telephone\00", align 1
+@.str.454 = private unnamed_addr constant [14 x i8] c"Audio Devices\00", align 1
+@eapwps_tlv_primary_device_type_category = internal constant [12 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.444 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.445 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.446 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.447 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.448 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.449 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.450 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.451 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.452 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.453 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.454 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.456 = private unnamed_addr constant [3 x i8] c"PC\00", align 1
+@.str.457 = private unnamed_addr constant [7 x i8] c"Server\00", align 1
+@.str.458 = private unnamed_addr constant [13 x i8] c"Media Center\00", align 1
+@.str.459 = private unnamed_addr constant [16 x i8] c"Ultra-mobile PC\00", align 1
+@.str.460 = private unnamed_addr constant [9 x i8] c"Notebook\00", align 1
+@.str.461 = private unnamed_addr constant [8 x i8] c"Desktop\00", align 1
+@.str.462 = private unnamed_addr constant [29 x i8] c"MID (Mobile Internet Device)\00", align 1
+@.str.463 = private unnamed_addr constant [8 x i8] c"Netbook\00", align 1
+@eapwps_tlv_computer_subcategory = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.456 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.457 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.458 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.459 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.460 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.461 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.462 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.463 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.465 = private unnamed_addr constant [9 x i8] c"Keyboard\00", align 1
+@.str.466 = private unnamed_addr constant [6 x i8] c"Mouse\00", align 1
+@.str.467 = private unnamed_addr constant [9 x i8] c"Joystick\00", align 1
+@.str.468 = private unnamed_addr constant [10 x i8] c"Trackball\00", align 1
+@.str.469 = private unnamed_addr constant [18 x i8] c"Gaming controller\00", align 1
+@.str.470 = private unnamed_addr constant [7 x i8] c"Remote\00", align 1
+@.str.471 = private unnamed_addr constant [12 x i8] c"Touchscreen\00", align 1
+@.str.472 = private unnamed_addr constant [17 x i8] c"Biometric reader\00", align 1
+@.str.473 = private unnamed_addr constant [15 x i8] c"Barcode reader\00", align 1
+@eapwps_tlv_input_device_subcategory = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.465 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.466 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.467 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.468 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.469 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.470 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.471 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.472 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.473 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.475 = private unnamed_addr constant [24 x i8] c"Printer or Print Server\00", align 1
+@.str.476 = private unnamed_addr constant [8 x i8] c"Scanner\00", align 1
+@.str.477 = private unnamed_addr constant [4 x i8] c"Fax\00", align 1
+@.str.478 = private unnamed_addr constant [7 x i8] c"Copier\00", align 1
+@.str.479 = private unnamed_addr constant [43 x i8] c"All-in-one (Printer, Scanner, Fax, Copier)\00", align 1
+@eapwps_tlv_printers_scanners_faxes_copiers_subcategory = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.475 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.476 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.477 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.478 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.479 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.481 = private unnamed_addr constant [21 x i8] c"Digital Still Camera\00", align 1
+@.str.482 = private unnamed_addr constant [13 x i8] c"Video Camera\00", align 1
+@.str.483 = private unnamed_addr constant [11 x i8] c"Web Camera\00", align 1
+@.str.484 = private unnamed_addr constant [16 x i8] c"Security Camera\00", align 1
+@eapwps_tlv_camera_subcategory = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.481 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.482 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.483 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.484 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.486 = private unnamed_addr constant [4 x i8] c"NAS\00", align 1
+@eapwps_tlv_storage_subcategory = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.486 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.488 = private unnamed_addr constant [7 x i8] c"Router\00", align 1
+@.str.489 = private unnamed_addr constant [7 x i8] c"Switch\00", align 1
+@.str.490 = private unnamed_addr constant [8 x i8] c"Gateway\00", align 1
+@.str.491 = private unnamed_addr constant [7 x i8] c"Bridge\00", align 1
+@eapwps_tlv_network_infrastructure_subcategory = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.435 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.488 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.489 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.490 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.491 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.493 = private unnamed_addr constant [11 x i8] c"Television\00", align 1
+@.str.494 = private unnamed_addr constant [25 x i8] c"Electronic Picture Frame\00", align 1
+@.str.495 = private unnamed_addr constant [10 x i8] c"Projector\00", align 1
+@.str.496 = private unnamed_addr constant [8 x i8] c"Monitor\00", align 1
+@eapwps_tlv_displays_subcategory = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.493 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.494 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.495 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.496 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.498 = private unnamed_addr constant [4 x i8] c"DAR\00", align 1
+@.str.499 = private unnamed_addr constant [4 x i8] c"PVR\00", align 1
+@.str.500 = private unnamed_addr constant [4 x i8] c"MCX\00", align 1
+@.str.501 = private unnamed_addr constant [12 x i8] c"Set-top box\00", align 1
+@.str.502 = private unnamed_addr constant [42 x i8] c"Media Server/Media Adapter/Media Extender\00", align 1
+@.str.503 = private unnamed_addr constant [22 x i8] c"Portable Video Player\00", align 1
+@eapwps_tlv_multimedia_devices_subcategory = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.498 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.499 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.500 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.501 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.502 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.503 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.505 = private unnamed_addr constant [5 x i8] c"Xbox\00", align 1
+@.str.506 = private unnamed_addr constant [8 x i8] c"Xbox360\00", align 1
+@.str.507 = private unnamed_addr constant [12 x i8] c"Playstation\00", align 1
+@.str.508 = private unnamed_addr constant [34 x i8] c"Game Console/Game Console Adapter\00", align 1
+@.str.509 = private unnamed_addr constant [23 x i8] c"Portable Gaming Device\00", align 1
+@eapwps_tlv_gaming_devices_subcategory = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.505 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.506 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.507 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.508 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.509 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.511 = private unnamed_addr constant [15 x i8] c"Windows Mobile\00", align 1
+@.str.512 = private unnamed_addr constant [20 x i8] c"Phone - single mode\00", align 1
+@.str.513 = private unnamed_addr constant [18 x i8] c"Phone - dual mode\00", align 1
+@.str.514 = private unnamed_addr constant [25 x i8] c"Smartphone - single mode\00", align 1
+@.str.515 = private unnamed_addr constant [23 x i8] c"Smartphone - dual mode\00", align 1
+@eapwps_tlv_telephone_subcategory = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.511 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.512 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.513 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.514 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.515 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.517 = private unnamed_addr constant [21 x i8] c"Audio tuner/receiver\00", align 1
+@.str.518 = private unnamed_addr constant [9 x i8] c"Speakers\00", align 1
+@.str.519 = private unnamed_addr constant [28 x i8] c"Portable Music Player (PMP)\00", align 1
+@.str.520 = private unnamed_addr constant [34 x i8] c"Headset (headphones + microphone)\00", align 1
+@.str.521 = private unnamed_addr constant [11 x i8] c"Headphones\00", align 1
+@.str.522 = private unnamed_addr constant [11 x i8] c"Microphone\00", align 1
+@.str.523 = private unnamed_addr constant [21 x i8] c"Home Theater Systems\00", align 1
+@eapwps_tlv_audio_devices_subcategory = internal constant [8 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.517 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.518 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.519 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.520 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.521 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.522 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.523 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.525 = private unnamed_addr constant [31 x i8] c"Register configuration methods\00", align 1
+@.str.526 = private unnamed_addr constant [19 x i8] c"Multi-AP Extension\00", align 1
+@.str.527 = private unnamed_addr constant [32 x i8] c"Multi-AP Profile 8021Q Settings\00", align 1
+@eapwps_wfa_ext_types = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.301 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.303 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.305 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.307 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.309 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.525 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.526 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.327 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.527 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.529 = private unnamed_addr constant [19 x i8] c"Multi-AP Profile-1\00", align 1
+@.str.530 = private unnamed_addr constant [19 x i8] c"Multi-AP Profile-2\00", align 1
+@.str.531 = private unnamed_addr constant [19 x i8] c"Multi-AP Profile-3\00", align 1
+@wps_wfa_ext_multi_ap_profiles_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.529 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.530 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.531 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.533 = private unnamed_addr constant [37 x i8] c" (Wifi Alliance, WifiProtectedSetup)\00", align 1
+@.str.534 = private unnamed_addr constant [6 x i8] c", WPS\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -840,9 +838,15 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
   store i32 %2, ptr %8, align 4
   store i32 %3, ptr %9, align 4
   store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
   store ptr null, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
   store ptr null, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
   store ptr null, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
   store i32 -1, ptr %16, align 4
   br label %22
 
@@ -1689,12 +1693,12 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 580:                                              ; preds = %570
   %581 = load ptr, ptr %10, align 8
-  %582 = getelementptr inbounds %struct._packet_info, ptr %581, i32 0, i32 1
+  %582 = getelementptr inbounds nuw %struct._packet_info, ptr %581, i32 0, i32 1
   %583 = load ptr, ptr %582, align 8
   %584 = load ptr, ptr %7, align 8
   %585 = load i32, ptr %8, align 4
   %586 = add i32 %585, 4
-  %587 = call zeroext i8 @tvb_get_guint8(ptr noundef %584, i32 noundef %586)
+  %587 = call zeroext i8 @tvb_get_uint8(ptr noundef %584, i32 noundef %586)
   %588 = zext i8 %587 to i32
   %589 = call ptr @val_to_str(i32 noundef %588, ptr noundef @eapwps_tlv_message_type_vals, ptr noundef @.str.5)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %583, i32 noundef 25, ptr noundef @.str.4, ptr noundef %589)
@@ -2647,6 +2651,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %1277, label %1278, label %1309
 
 1278:                                             ; preds = %1265
+  call void @llvm.lifetime.start.p0(i64 2, ptr %17) #3
   %1279 = load ptr, ptr %7, align 8
   %1280 = load i32, ptr %8, align 4
   %1281 = add i32 %1280, 4
@@ -2684,6 +2689,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %1308
 
 1308:                                             ; preds = %1290, %1286, %1278
+  call void @llvm.lifetime.end.p0(i64 2, ptr %17) #3
   br label %1309
 
 1309:                                             ; preds = %1308, %1265
@@ -2913,9 +2919,13 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %1456, label %1457, label %1546
 
 1457:                                             ; preds = %1454
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #3
   store i32 -1, ptr %18, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #3
   store ptr null, ptr %19, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #3
   store ptr null, ptr %20, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #3
   store ptr null, ptr %21, align 8
   %1458 = load ptr, ptr %13, align 8
   %1459 = load i16, ptr %12, align 2
@@ -2931,7 +2941,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 1466:                                             ; preds = %1457
   %1467 = load ptr, ptr %20, align 8
-  %1468 = getelementptr inbounds %struct._header_field_info, ptr %1467, i32 0, i32 2
+  %1468 = getelementptr inbounds nuw %struct._header_field_info, ptr %1467, i32 0, i32 2
   %1469 = load i32, ptr %1468, align 8
   switch i32 %1469, label %1509 [
     i32 4, label %1470
@@ -2942,7 +2952,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 1470:                                             ; preds = %1466
   %1471 = load ptr, ptr %20, align 8
-  %1472 = getelementptr inbounds %struct._header_field_info, ptr %1471, i32 0, i32 4
+  %1472 = getelementptr inbounds nuw %struct._header_field_info, ptr %1471, i32 0, i32 4
   %1473 = load ptr, ptr %1472, align 8
   %1474 = icmp ne ptr %1473, null
   %1475 = select i1 %1474, ptr @.str.8, ptr @.str.9
@@ -2950,14 +2960,14 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
   %1476 = load ptr, ptr %7, align 8
   %1477 = load i32, ptr %8, align 4
   %1478 = add i32 %1477, 4
-  %1479 = call zeroext i8 @tvb_get_guint8(ptr noundef %1476, i32 noundef %1478)
+  %1479 = call zeroext i8 @tvb_get_uint8(ptr noundef %1476, i32 noundef %1478)
   %1480 = zext i8 %1479 to i32
   store i32 %1480, ptr %18, align 4
   br label %1510
 
 1481:                                             ; preds = %1466
   %1482 = load ptr, ptr %20, align 8
-  %1483 = getelementptr inbounds %struct._header_field_info, ptr %1482, i32 0, i32 4
+  %1483 = getelementptr inbounds nuw %struct._header_field_info, ptr %1482, i32 0, i32 4
   %1484 = load ptr, ptr %1483, align 8
   %1485 = icmp ne ptr %1484, null
   %1486 = select i1 %1485, ptr @.str.10, ptr @.str.11
@@ -2972,7 +2982,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 1492:                                             ; preds = %1466
   %1493 = load ptr, ptr %20, align 8
-  %1494 = getelementptr inbounds %struct._header_field_info, ptr %1493, i32 0, i32 4
+  %1494 = getelementptr inbounds nuw %struct._header_field_info, ptr %1493, i32 0, i32 4
   %1495 = load ptr, ptr %1494, align 8
   %1496 = icmp ne ptr %1495, null
   %1497 = select i1 %1496, ptr @.str.12, ptr @.str.13
@@ -3008,7 +3018,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 1514:                                             ; preds = %1511
   %1515 = load ptr, ptr %20, align 8
-  %1516 = getelementptr inbounds %struct._header_field_info, ptr %1515, i32 0, i32 4
+  %1516 = getelementptr inbounds nuw %struct._header_field_info, ptr %1515, i32 0, i32 4
   %1517 = load ptr, ptr %1516, align 8
   %1518 = icmp ne ptr %1517, null
   br i1 %1518, label %1519, label %1528
@@ -3018,7 +3028,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
   %1521 = load ptr, ptr %21, align 8
   %1522 = load i32, ptr %18, align 4
   %1523 = load ptr, ptr %20, align 8
-  %1524 = getelementptr inbounds %struct._header_field_info, ptr %1523, i32 0, i32 4
+  %1524 = getelementptr inbounds nuw %struct._header_field_info, ptr %1523, i32 0, i32 4
   %1525 = load ptr, ptr %1524, align 8
   %1526 = call ptr @val_to_str(i32 noundef %1522, ptr noundef %1525, ptr noundef @.str.15)
   %1527 = load i32, ptr %18, align 4
@@ -3059,6 +3069,10 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %1545
 
 1545:                                             ; preds = %1544, %1519
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #3
   br label %1546
 
 1546:                                             ; preds = %1545, %1454, %1451
@@ -3089,89 +3103,134 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
   %1565 = load i32, ptr %9, align 4
   %1566 = sub i32 %1565, %1564
   store i32 %1566, ptr %9, align 4
-  br label %22, !llvm.loop !4
+  br label %22, !llvm.loop !6
 
 1567:                                             ; preds = %38, %22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
   ret void
 }
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #2
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) #2
 
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_registrar_get_nth(i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) #2
 
-declare ptr @wmem_packet_scope() #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_registrar_get_nth(i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_packet_scope() #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_wps_vendor_ext(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i32 %3, ptr %8, align 4
-  %10 = load i32, ptr %8, align 4
-  %11 = icmp slt i32 %10, 3
-  br i1 %11, label %12, label %13
-
-12:                                               ; preds = %4
-  br label %31
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  %11 = load i32, ptr %8, align 4
+  %12 = icmp slt i32 %11, 3
+  br i1 %12, label %13, label %14
 
 13:                                               ; preds = %4
-  %14 = load ptr, ptr %6, align 8
-  %15 = load i32, ptr %7, align 4
-  %16 = call i32 @tvb_get_ntoh24(ptr noundef %14, i32 noundef %15)
-  store i32 %16, ptr %9, align 4
-  %17 = load ptr, ptr %5, align 8
-  %18 = load i32, ptr @hf_eapwps_vendor_id, align 4
-  %19 = load ptr, ptr %6, align 8
-  %20 = load i32, ptr %7, align 4
-  %21 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef 3, i32 noundef 0)
-  %22 = load i32, ptr %9, align 4
-  %23 = icmp eq i32 %22, 14122
-  br i1 %23, label %24, label %31
+  store i32 1, ptr %10, align 4
+  br label %33
 
-24:                                               ; preds = %13
-  %25 = load ptr, ptr %5, align 8
-  %26 = load ptr, ptr %6, align 8
-  %27 = load i32, ptr %7, align 4
-  %28 = add i32 %27, 3
-  %29 = load i32, ptr %8, align 4
-  %30 = sub i32 %29, 3
-  call void @dissect_wps_wfa_ext(ptr noundef %25, ptr noundef %26, i32 noundef %28, i32 noundef %30)
-  br label %31
+14:                                               ; preds = %4
+  %15 = load ptr, ptr %6, align 8
+  %16 = load i32, ptr %7, align 4
+  %17 = call i32 @tvb_get_ntoh24(ptr noundef %15, i32 noundef %16)
+  store i32 %17, ptr %9, align 4
+  %18 = load ptr, ptr %5, align 8
+  %19 = load i32, ptr @hf_eapwps_vendor_id, align 4
+  %20 = load ptr, ptr %6, align 8
+  %21 = load i32, ptr %7, align 4
+  %22 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef 3, i32 noundef 0)
+  %23 = load i32, ptr %9, align 4
+  %24 = icmp eq i32 %23, 14122
+  br i1 %24, label %25, label %32
 
-31:                                               ; preds = %24, %13, %12
+25:                                               ; preds = %14
+  %26 = load ptr, ptr %5, align 8
+  %27 = load ptr, ptr %6, align 8
+  %28 = load i32, ptr %7, align 4
+  %29 = add i32 %28, 3
+  %30 = load i32, ptr %8, align 4
+  %31 = sub i32 %30, 3
+  call void @dissect_wps_wfa_ext(ptr noundef %26, ptr noundef %27, i32 noundef %29, i32 noundef %31)
+  br label %32
+
+32:                                               ; preds = %25, %14
+  store i32 0, ptr %10, align 4
+  br label %33
+
+33:                                               ; preds = %32, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  %34 = load i32, ptr %10, align 4
+  switch i32 %34, label %36 [
+    i32 0, label %35
+    i32 1, label %35
+  ]
+
+35:                                               ; preds = %33, %33
   ret void
+
+36:                                               ; preds = %33
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_wps() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #3
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.337, ptr noundef @.str.338, ptr noundef @.str.339)
   store i32 %2, ptr @proto_wps, align 4
   %3 = load i32, ptr @proto_wps, align 4
@@ -3185,22 +3244,29 @@ define hidden void @proto_register_wps() #0 {
   %7 = load i32, ptr @proto_wps, align 4
   %8 = call ptr @register_dissector(ptr noundef @.str.339, ptr noundef @dissect_wps, i32 noundef %7)
   store ptr %8, ptr @wps_handle, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #3
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wps(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3215,6 +3281,11 @@ define internal i32 @dissect_wps(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
   store i32 0, ptr %12, align 4
   %14 = load ptr, ptr %5, align 8
   %15 = call i32 @tvb_captured_length(ptr noundef %14)
@@ -3240,7 +3311,7 @@ define internal i32 @dissect_wps(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 29:                                               ; preds = %4
   %30 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef @.str.505)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef @.str.533)
   br label %31
 
 31:                                               ; preds = %29, %4
@@ -3250,15 +3321,15 @@ define internal i32 @dissect_wps(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 34:                                               ; preds = %31
   %35 = load ptr, ptr %6, align 8
-  %36 = getelementptr inbounds %struct._packet_info, ptr %35, i32 0, i32 1
+  %36 = getelementptr inbounds nuw %struct._packet_info, ptr %35, i32 0, i32 1
   %37 = load ptr, ptr %36, align 8
-  call void @col_append_str(ptr noundef %37, i32 noundef 25, ptr noundef @.str.506)
+  call void @col_append_str(ptr noundef %37, i32 noundef 25, ptr noundef @.str.534)
   br label %38
 
 38:                                               ; preds = %34, %31
   %39 = load ptr, ptr %5, align 8
   %40 = load i32, ptr %12, align 4
-  %41 = call zeroext i8 @tvb_get_guint8(ptr noundef %39, i32 noundef %40)
+  %41 = call zeroext i8 @tvb_get_uint8(ptr noundef %39, i32 noundef %40)
   store i8 %41, ptr %11, align 1
   %42 = load ptr, ptr %7, align 8
   %43 = load i32, ptr @hf_eapwps_flags, align 4
@@ -3314,10 +3385,15 @@ define internal i32 @dissect_wps(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %83 = load ptr, ptr %6, align 8
   call void @dissect_wps_tlvs(ptr noundef %79, ptr noundef %80, i32 noundef %81, i32 noundef %82, ptr noundef %83)
   %84 = load i32, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret i32 %84
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_wps() #0 {
   %1 = load i32, ptr @proto_wps, align 4
   %2 = call ptr @create_dissector_handle(ptr noundef @dissect_wps_wfa_ext_via_dt, i32 noundef %1)
@@ -3327,11 +3403,13 @@ define hidden void @proto_reg_handoff_wps() #0 {
   ret void
 }
 
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @create_dissector_handle(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @create_dissector_handle(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wps_wfa_ext_via_dt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3342,6 +3420,7 @@ define internal i32 @dissect_wps_wfa_ext_via_dt(ptr noundef %0, ptr noundef %1, 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   %10 = load ptr, ptr %5, align 8
   %11 = call i32 @tvb_reported_length(ptr noundef %10)
   store i32 %11, ptr %9, align 4
@@ -3350,12 +3429,14 @@ define internal i32 @dissect_wps_wfa_ext_via_dt(ptr noundef %0, ptr noundef %1, 
   %14 = load i32, ptr %9, align 4
   call void @dissect_wps_wfa_ext(ptr noundef %12, ptr noundef %13, i32 noundef 0, i32 noundef %14)
   %15 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %15
 }
 
-declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_wps_wfa_ext(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3369,12 +3450,16 @@ define internal void @dissect_wps_wfa_ext(ptr noundef %0, ptr noundef %1, i32 no
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   %13 = load i32, ptr %7, align 4
   store i32 %13, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
   %14 = load i32, ptr %7, align 4
   %15 = load i32, ptr %8, align 4
   %16 = add i32 %14, %15
   store i32 %16, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #3
   br label %17
 
 17:                                               ; preds = %38, %4
@@ -3387,12 +3472,12 @@ define internal void @dissect_wps_wfa_ext(ptr noundef %0, ptr noundef %1, i32 no
 22:                                               ; preds = %17
   %23 = load ptr, ptr %6, align 8
   %24 = load i32, ptr %9, align 4
-  %25 = call zeroext i8 @tvb_get_guint8(ptr noundef %23, i32 noundef %24)
+  %25 = call zeroext i8 @tvb_get_uint8(ptr noundef %23, i32 noundef %24)
   store i8 %25, ptr %11, align 1
   %26 = load ptr, ptr %6, align 8
   %27 = load i32, ptr %9, align 4
   %28 = add i32 %27, 1
-  %29 = call zeroext i8 @tvb_get_guint8(ptr noundef %26, i32 noundef %28)
+  %29 = call zeroext i8 @tvb_get_uint8(ptr noundef %26, i32 noundef %28)
   store i8 %29, ptr %12, align 1
   %30 = load i32, ptr %9, align 4
   %31 = add i32 %30, 2
@@ -3422,13 +3507,17 @@ define internal void @dissect_wps_wfa_ext(ptr noundef %0, ptr noundef %1, i32 no
   %49 = load i32, ptr %9, align 4
   %50 = add i32 %49, %48
   store i32 %50, ptr %9, align 4
-  br label %17, !llvm.loop !6
+  br label %17, !llvm.loop !8
 
 51:                                               ; preds = %37, %17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @add_wps_wfa_ext(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca i8, align 1
   %7 = alloca ptr, align 8
@@ -3443,6 +3532,9 @@ define internal void @add_wps_wfa_ext(i8 noundef zeroext %0, ptr noundef %1, ptr
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #3
   %14 = load ptr, ptr %7, align 8
   %15 = load ptr, ptr %8, align 8
   %16 = load i32, ptr %9, align 4
@@ -3452,7 +3544,7 @@ define internal void @add_wps_wfa_ext(i8 noundef zeroext %0, ptr noundef %1, ptr
   %20 = load i32, ptr @ett_wps_wfa_ext, align 4
   %21 = load i8, ptr %6, align 1
   %22 = zext i8 %21 to i32
-  %23 = call ptr @val_to_str(i32 noundef %22, ptr noundef @eapwps_wfa_ext_types, ptr noundef @.str.378)
+  %23 = call ptr @val_to_str(i32 noundef %22, ptr noundef @eapwps_wfa_ext_types, ptr noundef @.str.380)
   %24 = call ptr @proto_tree_add_subtree(ptr noundef %14, ptr noundef %15, i32 noundef %17, i32 noundef %19, i32 noundef %20, ptr noundef %11, ptr noundef %23)
   store ptr %24, ptr %12, align 8
   %25 = load ptr, ptr %12, align 8
@@ -3483,7 +3575,7 @@ define internal void @add_wps_wfa_ext(i8 noundef zeroext %0, ptr noundef %1, ptr
 39:                                               ; preds = %5
   %40 = load ptr, ptr %8, align 8
   %41 = load i32, ptr %9, align 4
-  %42 = call zeroext i8 @tvb_get_guint8(ptr noundef %40, i32 noundef %41)
+  %42 = call zeroext i8 @tvb_get_uint8(ptr noundef %40, i32 noundef %41)
   store i8 %42, ptr %13, align 1
   %43 = load ptr, ptr %11, align 8
   %44 = load i8, ptr %13, align 1
@@ -3492,7 +3584,7 @@ define internal void @add_wps_wfa_ext(i8 noundef zeroext %0, ptr noundef %1, ptr
   %47 = load i8, ptr %13, align 1
   %48 = zext i8 %47 to i32
   %49 = and i32 %48, 15
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %43, ptr noundef @.str.379, i32 noundef %46, i32 noundef %49)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %43, ptr noundef @.str.381, i32 noundef %46, i32 noundef %49)
   %50 = load ptr, ptr %12, align 8
   %51 = load i32, ptr @hf_eapwps_wfa_ext_version2, align 4
   %52 = load ptr, ptr %8, align 8
@@ -3512,13 +3604,13 @@ define internal void @add_wps_wfa_ext(i8 noundef zeroext %0, ptr noundef %1, ptr
 62:                                               ; preds = %5
   %63 = load ptr, ptr %8, align 8
   %64 = load i32, ptr %9, align 4
-  %65 = call zeroext i8 @tvb_get_guint8(ptr noundef %63, i32 noundef %64)
+  %65 = call zeroext i8 @tvb_get_uint8(ptr noundef %63, i32 noundef %64)
   store i8 %65, ptr %13, align 1
   %66 = load ptr, ptr %11, align 8
   %67 = load i8, ptr %13, align 1
   %68 = zext i8 %67 to i32
   %69 = icmp ne i32 %68, 0
-  %70 = select i1 %69, ptr @.str.380, ptr @.str.381
+  %70 = select i1 %69, ptr @.str.382, ptr @.str.383
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %66, ptr noundef @.str.14, ptr noundef %70)
   %71 = load ptr, ptr %12, align 8
   %72 = load i32, ptr @hf_eapwps_wfa_ext_network_key_shareable, align 4
@@ -3530,13 +3622,13 @@ define internal void @add_wps_wfa_ext(i8 noundef zeroext %0, ptr noundef %1, ptr
 76:                                               ; preds = %5
   %77 = load ptr, ptr %8, align 8
   %78 = load i32, ptr %9, align 4
-  %79 = call zeroext i8 @tvb_get_guint8(ptr noundef %77, i32 noundef %78)
+  %79 = call zeroext i8 @tvb_get_uint8(ptr noundef %77, i32 noundef %78)
   store i8 %79, ptr %13, align 1
   %80 = load ptr, ptr %11, align 8
   %81 = load i8, ptr %13, align 1
   %82 = zext i8 %81 to i32
   %83 = icmp ne i32 %82, 0
-  %84 = select i1 %83, ptr @.str.380, ptr @.str.381
+  %84 = select i1 %83, ptr @.str.382, ptr @.str.383
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %80, ptr noundef @.str.14, ptr noundef %84)
   %85 = load ptr, ptr %12, align 8
   %86 = load i32, ptr @hf_eapwps_wfa_ext_request_to_enroll, align 4
@@ -3548,12 +3640,12 @@ define internal void @add_wps_wfa_ext(i8 noundef zeroext %0, ptr noundef %1, ptr
 90:                                               ; preds = %5
   %91 = load ptr, ptr %8, align 8
   %92 = load i32, ptr %9, align 4
-  %93 = call zeroext i8 @tvb_get_guint8(ptr noundef %91, i32 noundef %92)
+  %93 = call zeroext i8 @tvb_get_uint8(ptr noundef %91, i32 noundef %92)
   store i8 %93, ptr %13, align 1
   %94 = load ptr, ptr %11, align 8
   %95 = load i8, ptr %13, align 1
   %96 = zext i8 %95 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %94, ptr noundef @.str.382, i32 noundef %96)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %94, ptr noundef @.str.384, i32 noundef %96)
   %97 = load ptr, ptr %12, align 8
   %98 = load i32, ptr @hf_eapwps_wfa_ext_settings_delay_time, align 4
   %99 = load ptr, ptr %8, align 8
@@ -3593,32 +3685,46 @@ define internal void @add_wps_wfa_ext(i8 noundef zeroext %0, ptr noundef %1, ptr
   br label %124
 
 124:                                              ; preds = %123, %117, %111, %102, %90, %76, %62, %55, %39
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
   ret void
 }
 
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #2
 
-declare ptr @proto_item_get_parent(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_get_parent(ptr noundef) #2
 
-declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare i32 @tvb_reported_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

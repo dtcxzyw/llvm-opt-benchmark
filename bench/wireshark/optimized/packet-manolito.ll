@@ -5,11 +5,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
-%struct._value_string = type { i32, ptr }
 
 @proto_register_manolito.hf = internal global [8 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_manolito_checksum, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 7, i32 2, ptr null, i64 0, ptr @.str.2, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_manolito_seqno, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 7, i32 2, ptr null, i64 0, ptr @.str.5, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_manolito_src, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 32, i32 0, ptr null, i64 0, ptr @.str.8, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_manolito_dest, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 32, i32 0, ptr null, i64 0, ptr @.str.11, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_manolito_options_short, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 6, i32 2, ptr null, i64 0, ptr @.str.14, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_manolito_options, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 7, i32 2, ptr null, i64 0, ptr @.str.14, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_manolito_string, %struct._header_field_info { ptr @.str.15, ptr @.str.16, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_manolito_integer, %struct._header_field_info { ptr @.str.17, ptr @.str.18, i32 8, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_manolito_checksum = internal global i32 0, align 4
@@ -41,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [17 x i8] c"manolito.integer\00", align 1
 @proto_register_manolito.ett = internal global [1 x ptr] [ptr @ett_manolito], align 8
 @ett_manolito = internal global i32 0, align 4
-@proto_register_manolito.ei = internal global [1 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_manolito_type, %struct.expert_field_info { ptr @.str.19, i32 150994944, i32 6291456, ptr @.str.20, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_manolito.ei = internal global [1 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_manolito_type, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.19, i32 150994944, i32 6291456, ptr @.str.20, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_manolito_type = internal global %struct.expert_field zeroinitializer, align 4
 @.str.19 = private unnamed_addr constant [22 x i8] c"manolito.type.unknown\00", align 1
 @.str.20 = private unnamed_addr constant [13 x i8] c"Unknown type\00", align 1
@@ -65,7 +62,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.35 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
 @.str.36 = private unnamed_addr constant [13 x i8] c"%s (%s): %lu\00", align 1
 @.str.37 = private unnamed_addr constant [16 x i8] c"Unknown type %d\00", align 1
-@field_longname = internal constant [21 x %struct._value_string] [%struct._value_string { i32 16708, ptr @.str.39 }, %struct._value_string { i32 16978, ptr @.str.40 }, %struct._value_string { i32 17227, ptr @.str }, %struct._value_string { i32 17230, ptr @.str.41 }, %struct._value_string { i32 17238, ptr @.str.42 }, %struct._value_string { i32 17987, ptr @.str.43 }, %struct._value_string { i32 17996, ptr @.str.44 }, %struct._value_string { i32 17998, ptr @.str.45 }, %struct._value_string { i32 18510, ptr @.str.39 }, %struct._value_string { i32 18756, ptr @.str.46 }, %struct._value_string { i32 19781, ptr @.str.47 }, %struct._value_string { i32 20035, ptr @.str.48 }, %struct._value_string { i32 20041, ptr @.str.49 }, %struct._value_string { i32 20046, ptr @.str.50 }, %struct._value_string { i32 20564, ptr @.str.51 }, %struct._value_string { i32 21318, ptr @.str.52 }, %struct._value_string { i32 21323, ptr @.str.53 }, %struct._value_string { i32 21324, ptr @.str.54 }, %struct._value_string { i32 21332, ptr @.str.39 }, %struct._value_string { i32 22092, ptr @.str.55 }, %struct._value_string zeroinitializer], align 16
 @.str.38 = private unnamed_addr constant [15 x i8] c"field_longname\00", align 1
 @.str.39 = private unnamed_addr constant [4 x i8] c"???\00", align 1
 @.str.40 = private unnamed_addr constant [9 x i8] c"Bit Rate\00", align 1
@@ -84,64 +80,71 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.53 = private unnamed_addr constant [17 x i8] c"Shared Kilobytes\00", align 1
 @.str.54 = private unnamed_addr constant [16 x i8] c"Song Length (s)\00", align 1
 @.str.55 = private unnamed_addr constant [9 x i8] c"Velocity\00", align 1
+@field_longname = internal constant [21 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 16708, [4 x i8] zeroinitializer, ptr @.str.39 }, { i32, [4 x i8], ptr } { i32 16978, [4 x i8] zeroinitializer, ptr @.str.40 }, { i32, [4 x i8], ptr } { i32 17227, [4 x i8] zeroinitializer, ptr @.str }, { i32, [4 x i8], ptr } { i32 17230, [4 x i8] zeroinitializer, ptr @.str.41 }, { i32, [4 x i8], ptr } { i32 17238, [4 x i8] zeroinitializer, ptr @.str.42 }, { i32, [4 x i8], ptr } { i32 17987, [4 x i8] zeroinitializer, ptr @.str.43 }, { i32, [4 x i8], ptr } { i32 17996, [4 x i8] zeroinitializer, ptr @.str.44 }, { i32, [4 x i8], ptr } { i32 17998, [4 x i8] zeroinitializer, ptr @.str.45 }, { i32, [4 x i8], ptr } { i32 18510, [4 x i8] zeroinitializer, ptr @.str.39 }, { i32, [4 x i8], ptr } { i32 18756, [4 x i8] zeroinitializer, ptr @.str.46 }, { i32, [4 x i8], ptr } { i32 19781, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 20035, [4 x i8] zeroinitializer, ptr @.str.48 }, { i32, [4 x i8], ptr } { i32 20041, [4 x i8] zeroinitializer, ptr @.str.49 }, { i32, [4 x i8], ptr } { i32 20046, [4 x i8] zeroinitializer, ptr @.str.50 }, { i32, [4 x i8], ptr } { i32 20564, [4 x i8] zeroinitializer, ptr @.str.51 }, { i32, [4 x i8], ptr } { i32 21318, [4 x i8] zeroinitializer, ptr @.str.52 }, { i32, [4 x i8], ptr } { i32 21323, [4 x i8] zeroinitializer, ptr @.str.53 }, { i32, [4 x i8], ptr } { i32 21324, [4 x i8] zeroinitializer, ptr @.str.54 }, { i32, [4 x i8], ptr } { i32 21332, [4 x i8] zeroinitializer, ptr @.str.39 }, { i32, [4 x i8], ptr } { i32 22092, [4 x i8] zeroinitializer, ptr @.str.55 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_manolito() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23) #2
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23)
   store i32 %1, ptr @proto_manolito, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_manolito.hf, i32 noundef 8) #2
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_manolito.ett, i32 noundef 1) #2
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_manolito.hf, i32 noundef 8)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_manolito.ett, i32 noundef 1)
   %2 = load i32, ptr @proto_manolito, align 4
-  %3 = tail call ptr @expert_register_protocol(i32 noundef %2) #2
-  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_manolito.ei, i32 noundef 1) #2
+  %3 = tail call ptr @expert_register_protocol(i32 noundef %2)
+  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_manolito.ei, i32 noundef 1)
   %4 = load i32, ptr @proto_manolito, align 4
-  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.23, ptr noundef nonnull @dissect_manolito, i32 noundef %4) #2
+  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.23, ptr noundef nonnull @dissect_manolito, i32 noundef %4)
   store ptr %5, ptr @manolito_handle, align 8
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_manolito(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.25) #2
+  tail call void @col_set_str(ptr noundef %6, i32 noundef 35, ptr noundef nonnull @.str.25)
   %7 = load i32, ptr @proto_manolito, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %9 = load i32, ptr @ett_manolito, align 4
-  %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9) #2
+  %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9)
   %11 = load i32, ptr @hf_manolito_checksum, align 4
-  %12 = tail call ptr @proto_tree_add_checksum(ptr noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef %11, i32 noundef -1, ptr noundef null, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #2
+  %12 = tail call ptr @proto_tree_add_checksum(ptr noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef %11, i32 noundef -1, ptr noundef null, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %13 = load i32, ptr @hf_manolito_seqno, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %13, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %13, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0)
   %15 = load i32, ptr @hf_manolito_src, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %15, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #2
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %15, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0)
   %17 = load i32, ptr @hf_manolito_dest, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %17, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #2
-  %19 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 16) #2
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %17, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0)
+  %19 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 16)
   %20 = icmp eq i32 %19, 3
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %4
   %22 = load i32, ptr @hf_manolito_options_short, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %22, ptr noundef %0, i32 noundef 16, i32 noundef 3, i32 noundef 0) #2
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %22, ptr noundef %0, i32 noundef 16, i32 noundef 3, i32 noundef 0)
   br label %.sink.split
 
 24:                                               ; preds = %4
   %25 = load i32, ptr @hf_manolito_options, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %25, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #2
-  %27 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 20) #2
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %25, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0)
+  %27 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 20)
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %.sink.split, label %.preheader
 
@@ -152,9 +155,9 @@ define internal noundef i32 @dissect_manolito(ptr noundef %0, ptr noundef %1, pt
 30:                                               ; preds = %.preheader, %84
   %.0111 = phi ptr [ %.1112, %84 ], [ null, %.preheader ]
   %.0110 = phi i32 [ %.1, %84 ], [ 20, %.preheader ]
-  %31 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0110) #2
+  %31 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0110)
   %32 = load ptr, ptr %29, align 8
-  %33 = tail call ptr @tvb_get_string_enc(ptr noundef %32, ptr noundef %0, i32 noundef %.0110, i32 noundef 2, i32 noundef 0) #2
+  %33 = tail call ptr @tvb_get_string_enc(ptr noundef %32, ptr noundef %0, i32 noundef %.0110, i32 noundef 2, i32 noundef 0)
   %.not = icmp eq ptr %.0111, null
   br i1 %.not, label %34, label %41
 
@@ -170,15 +173,15 @@ define internal noundef i32 @dissect_manolito(ptr noundef %0, ptr noundef %1, pt
   %39 = icmp eq i16 %31, 20564
   %.6 = select i1 %39, ptr @.str.32, ptr %.5
   %40 = icmp eq i16 %31, 19781
-  %spec.select117 = select i1 %40, ptr @.str.33, ptr %.6
+  %spec.select116 = select i1 %40, ptr @.str.33, ptr %.6
   br label %41
 
 41:                                               ; preds = %34, %30
-  %.1112 = phi ptr [ %.0111, %30 ], [ %spec.select117, %34 ]
+  %.1112 = phi ptr [ %.0111, %30 ], [ %spec.select116, %34 ]
   %42 = add i32 %.0110, 2
-  %43 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %42) #2
+  %43 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %42)
   %44 = add i32 %.0110, 3
-  %45 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %44) #2
+  %45 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %44)
   %46 = add i32 %.0110, 4
   switch i8 %43, label %81 [
     i8 1, label %47
@@ -188,12 +191,12 @@ define internal noundef i32 @dissect_manolito(ptr noundef %0, ptr noundef %1, pt
 47:                                               ; preds = %41
   %48 = load ptr, ptr %29, align 8
   %49 = zext i8 %45 to i32
-  %50 = tail call ptr @tvb_get_string_enc(ptr noundef %48, ptr noundef %0, i32 noundef %46, i32 noundef %49, i32 noundef 0) #2
+  %50 = tail call ptr @tvb_get_string_enc(ptr noundef %48, ptr noundef %0, i32 noundef %46, i32 noundef %49, i32 noundef 0)
   %51 = load i32, ptr @hf_manolito_string, align 4
   %52 = add nuw nsw i32 %49, 4
   %53 = zext i16 %31 to i32
-  %54 = tail call ptr @val_to_str_ext_const(i32 noundef %53, ptr noundef nonnull @field_longname_ext, ptr noundef nonnull @.str.35) #2
-  %55 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %10, i32 noundef %51, ptr noundef %0, i32 noundef %.0110, i32 noundef %52, ptr noundef %50, ptr noundef nonnull @.str.34, ptr noundef %33, ptr noundef %54, ptr noundef %50) #2
+  %54 = tail call ptr @val_to_str_ext_const(i32 noundef %53, ptr noundef nonnull @field_longname_ext, ptr noundef nonnull @.str.35)
+  %55 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %10, i32 noundef %51, ptr noundef %0, i32 noundef %.0110, i32 noundef %52, ptr noundef %50, ptr noundef nonnull @.str.34, ptr noundef %33, ptr noundef %54, ptr noundef %50)
   %56 = add i32 %46, %49
   br label %84
 
@@ -208,26 +211,26 @@ define internal noundef i32 @dissect_manolito(ptr noundef %0, ptr noundef %1, pt
   ]
 
 59:                                               ; preds = %57
-  %60 = tail call i64 @tvb_get_ntoh40(ptr noundef %0, i32 noundef %46) #2
+  %60 = tail call i64 @tvb_get_ntoh40(ptr noundef %0, i32 noundef %46)
   br label %73
 
 61:                                               ; preds = %57
-  %62 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %46) #2
+  %62 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %46)
   %63 = zext i32 %62 to i64
   br label %73
 
 64:                                               ; preds = %57
-  %65 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %46) #2
+  %65 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %46)
   %66 = zext i32 %65 to i64
   br label %73
 
 67:                                               ; preds = %57
-  %68 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %46) #2
+  %68 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %46)
   %69 = zext i16 %68 to i64
   br label %73
 
 70:                                               ; preds = %57
-  %71 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %46) #2
+  %71 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %46)
   %72 = zext i8 %71 to i64
   br label %73
 
@@ -236,8 +239,8 @@ define internal noundef i32 @dissect_manolito(ptr noundef %0, ptr noundef %1, pt
   %74 = load i32, ptr @hf_manolito_integer, align 4
   %75 = add nuw nsw i32 %58, 4
   %76 = zext i16 %31 to i32
-  %77 = tail call ptr @val_to_str_ext_const(i32 noundef %76, ptr noundef nonnull @field_longname_ext, ptr noundef nonnull @.str.35) #2
-  %78 = tail call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format(ptr noundef %10, i32 noundef %74, ptr noundef %0, i32 noundef %.0110, i32 noundef %75, i64 noundef %.0.ph, ptr noundef nonnull @.str.36, ptr noundef %33, ptr noundef %77, i64 noundef %.0.ph) #2
+  %77 = tail call ptr @val_to_str_ext_const(i32 noundef %76, ptr noundef nonnull @field_longname_ext, ptr noundef nonnull @.str.35)
+  %78 = tail call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format(ptr noundef %10, i32 noundef %74, ptr noundef %0, i32 noundef %.0110, i32 noundef %75, i64 noundef %.0.ph, ptr noundef nonnull @.str.36, ptr noundef %33, ptr noundef %77, i64 noundef %.0.ph)
   br label %79
 
 79:                                               ; preds = %57, %73
@@ -246,24 +249,24 @@ define internal noundef i32 @dissect_manolito(ptr noundef %0, ptr noundef %1, pt
 
 81:                                               ; preds = %41
   %82 = zext i8 %43 to i32
-  %83 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %10, ptr noundef nonnull %1, ptr noundef nonnull @ei_manolito_type, ptr noundef %0, i32 noundef %.0110, i32 noundef 4, ptr noundef nonnull @.str.37, i32 noundef %82) #2
+  %83 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %10, ptr noundef %1, ptr noundef nonnull @ei_manolito_type, ptr noundef %0, i32 noundef %.0110, i32 noundef 4, ptr noundef nonnull @.str.37, i32 noundef %82)
   br label %84
 
-84:                                               ; preds = %47, %81, %79
+84:                                               ; preds = %79, %81, %47
   %.1 = phi i32 [ %56, %47 ], [ %80, %79 ], [ %46, %81 ]
-  %85 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #2
-  %.not115 = icmp eq i32 %85, 0
-  br i1 %.not115, label %86, label %30, !llvm.loop !4
+  %85 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1)
+  %.not114 = icmp eq i32 %85, 0
+  br i1 %.not114, label %86, label %30, !llvm.loop !6
 
 86:                                               ; preds = %84
-  %.not116 = icmp eq ptr %.1112, null
-  br i1 %.not116, label %88, label %.sink.split
+  %.not115 = icmp eq ptr %.1112, null
+  br i1 %.not115, label %88, label %.sink.split
 
 .sink.split:                                      ; preds = %86, %24, %21
   %.1112.lcssa.sink = phi ptr [ @.str.26, %21 ], [ @.str.27, %24 ], [ %.1112, %86 ]
   %.0109.ph = phi i32 [ 19, %21 ], [ 20, %24 ], [ %.1, %86 ]
   %87 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %87, i32 noundef 25, ptr noundef nonnull %.1112.lcssa.sink) #2
+  tail call void @col_set_str(ptr noundef %87, i32 noundef 25, ptr noundef nonnull %.1112.lcssa.sink)
   br label %88
 
 88:                                               ; preds = %.sink.split, %86
@@ -271,56 +274,74 @@ define internal noundef i32 @dissect_manolito(ptr noundef %0, ptr noundef %1, pt
   ret i32 %.0109
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_manolito() local_unnamed_addr #0 {
   %1 = load ptr, ptr @manolito_handle, align 8
-  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.24, i32 noundef 41170, ptr noundef %1) #2
+  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.24, i32 noundef 41170, ptr noundef %1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i64 @tvb_get_ntoh40(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint64_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

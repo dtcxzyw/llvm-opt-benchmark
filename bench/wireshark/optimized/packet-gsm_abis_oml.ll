@@ -5,25 +5,19 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.unit_name_string = type { ptr, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
 %struct.tlv_definition = type { [256 x %struct.tlv_def] }
 %struct.tlv_def = type { i32, i8 }
-%struct.enum_val_t = type { ptr, ptr, i32 }
 
 @proto_register_abis_oml.hf = internal global [111 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_oml_msg_disc, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 4, i32 2, ptr @oml_msg_disc_vals, i64 0, ptr @.str.2, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_oml_placement, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 4, i32 2, ptr @oml_placement_vals, i64 0, ptr @.str.5, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_oml_sequence, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 2, ptr null, i64 0, ptr @.str.8, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_oml_length, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 4, i32 1, ptr null, i64 0, ptr @.str.11, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_oml_manuf_id_len, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_oml_manuf_id_val, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_oml_fom_msgtype, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 4, i32 6, ptr @format_custom_msgtype, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_oml_fom_objclass, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 4, i32 2, ptr @oml_fom_objclass_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_oml_fom_inst_bts, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_oml_fom_inst_trx, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_oml_fom_inst_ts, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_oml_fom_attr_tag, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 4, i32 6, ptr @format_custom_attr, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_oml_fom_attr_len, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_oml_fom_attr_val, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_adm_state, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 4, i32 2, ptr @oml_adm_state_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_arfcn, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_oper_state, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 4, i32 2, ptr @oml_oper_state_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_avail_state, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 4, i32 2, ptr @oml_avail_state_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_event_type, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 4, i32 2, ptr @oml_event_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_severity, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 4, i32 2, ptr @oml_severity_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_nack_causes, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 4, i32 2, ptr @oml_nack_causes, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_bcch_arfcn, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 5, i32 1, ptr null, i64 0, ptr @.str.48, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_bsic, %struct._header_field_info { ptr @.str.49, ptr @.str.50, i32 5, i32 2, ptr null, i64 0, ptr @.str.51, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_test_no, %struct._header_field_info { ptr @.str.52, ptr @.str.53, i32 4, i32 2, ptr @oml_test_no_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_tsc, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 4, i32 2, ptr null, i64 0, ptr @.str.56, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_tei, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ach_btsp, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ach_tslot, %struct._header_field_info { ptr @.str.61, ptr @.str.62, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ach_sslot, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_gsm_time, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_chan_comb, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 4, i32 2, ptr @oml_chan_comb_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_hsn, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 4, i32 1, ptr null, i64 0, ptr @.str.71, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_maio, %struct._header_field_info { ptr @.str.72, ptr @.str.73, i32 4, i32 1, ptr null, i64 0, ptr @.str.74, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_list_req_attr, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 4, i32 1, ptr @oml_fom_attr_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ari_not_reported_cnt, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ari_not_reported_attr, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 4, i32 1, ptr @oml_fom_attr_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_rf_max_pwr_red, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 4, i32 4097, ptr @units_decibels, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_interf_bound0, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 4, i32 6, ptr @format_interf_bound, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_interf_bound1, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 4, i32 6, ptr @format_interf_bound, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_interf_bound2, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 4, i32 6, ptr @format_interf_bound, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_interf_bound3, %struct._header_field_info { ptr @.str.89, ptr @.str.90, i32 4, i32 6, ptr @format_interf_bound, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_interf_bound4, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 4, i32 6, ptr @format_interf_bound, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_interf_bound5, %struct._header_field_info { ptr @.str.93, ptr @.str.94, i32 4, i32 6, ptr @format_interf_bound, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_oml_ipa_tres_attr_tag, %struct._header_field_info { ptr @.str.95, ptr @.str.96, i32 4, i32 2, ptr @ipacc_testres_ie_vals, i64 0, ptr @.str.97, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_oml_ipa_tres_attr_len, %struct._header_field_info { ptr @.str.98, ptr @.str.99, i32 5, i32 1, ptr null, i64 0, ptr @.str.100, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_test_res, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 4, i32 1, ptr @ipacc_test_res_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_tr_rxlev, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 5, i32 1, ptr null, i64 64512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_tr_b_rxlev, %struct._header_field_info { ptr @.str.103, ptr @.str.105, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_tr_arfcn, %struct._header_field_info { ptr @.str.34, ptr @.str.106, i32 5, i32 1, ptr null, i64 1023, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_tr_f_qual, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 5, i32 1, ptr null, i64 252, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_tr_f_err, %struct._header_field_info { ptr @.str.109, ptr @.str.110, i32 13, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_tr_rxqual, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 4, i32 1, ptr null, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_tr_frame_offs, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_tr_framenr_offs, %struct._header_field_info { ptr @.str.115, ptr @.str.116, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_tr_bsic, %struct._header_field_info { ptr @.str.49, ptr @.str.117, i32 4, i32 1, ptr null, i64 63, ptr @.str.118, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_tr_cell_id, %struct._header_field_info { ptr @.str.119, ptr @.str.120, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_rsl_ip, %struct._header_field_info { ptr @.str.121, ptr @.str.122, i32 32, i32 0, ptr null, i64 0, ptr @.str.123, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_rsl_port, %struct._header_field_info { ptr @.str.124, ptr @.str.125, i32 5, i32 1, ptr null, i64 0, ptr @.str.126, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_prim_oml_ip, %struct._header_field_info { ptr @.str.127, ptr @.str.128, i32 32, i32 0, ptr null, i64 0, ptr @.str.129, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_prim_oml_port, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 5, i32 1, ptr null, i64 0, ptr @.str.132, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_location_name, %struct._header_field_info { ptr @.str.133, ptr @.str.134, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_unit_name, %struct._header_field_info { ptr @.str.135, ptr @.str.136, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_unit_id, %struct._header_field_info { ptr @.str.137, ptr @.str.138, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_nv_flags, %struct._header_field_info { ptr @.str.139, ptr @.str.140, i32 5, i32 2, ptr null, i64 65535, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_nv_mask, %struct._header_field_info { ptr @.str.141, ptr @.str.142, i32 5, i32 2, ptr null, i64 65535, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_tr_si2, %struct._header_field_info { ptr @.str.143, ptr @.str.144, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_tr_si2bis, %struct._header_field_info { ptr @.str.145, ptr @.str.146, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_tr_si2ter, %struct._header_field_info { ptr @.str.147, ptr @.str.148, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_tr_chan_desc, %struct._header_field_info { ptr @.str.149, ptr @.str.150, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_nsl_sport, %struct._header_field_info { ptr @.str.151, ptr @.str.152, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_nsl_daddr, %struct._header_field_info { ptr @.str.153, ptr @.str.154, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_nsl_dport, %struct._header_field_info { ptr @.str.155, ptr @.str.156, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_nsei, %struct._header_field_info { ptr @.str.157, ptr @.str.158, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_nsvci, %struct._header_field_info { ptr @.str.159, ptr @.str.160, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_bvci, %struct._header_field_info { ptr @.str.161, ptr @.str.162, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_rac, %struct._header_field_info { ptr @.str.163, ptr @.str.164, i32 4, i32 2, ptr null, i64 0, ptr @.str.165, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_ns_cfg_unblock_timer, %struct._header_field_info { ptr @.str.166, ptr @.str.167, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_ns_cfg_unblock_retries, %struct._header_field_info { ptr @.str.168, ptr @.str.169, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_ns_cfg_reset_timer, %struct._header_field_info { ptr @.str.170, ptr @.str.171, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_ns_cfg_reset_retries, %struct._header_field_info { ptr @.str.172, ptr @.str.173, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_ns_cfg_test_timer, %struct._header_field_info { ptr @.str.174, ptr @.str.175, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_ns_cfg_alive_timer, %struct._header_field_info { ptr @.str.176, ptr @.str.177, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_ns_cfg_alive_retries, %struct._header_field_info { ptr @.str.178, ptr @.str.179, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_gprs_paging_rep_time, %struct._header_field_info { ptr @.str.180, ptr @.str.181, i32 4, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_gprs_paging_rep_count, %struct._header_field_info { ptr @.str.182, ptr @.str.183, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_rlc_cfg_t3142, %struct._header_field_info { ptr @.str.184, ptr @.str.185, i32 4, i32 4097, ptr @units_seconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_rlc_cfg_t3169, %struct._header_field_info { ptr @.str.186, ptr @.str.187, i32 4, i32 4097, ptr @units_seconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_rlc_cfg_t3191, %struct._header_field_info { ptr @.str.188, ptr @.str.189, i32 4, i32 4097, ptr @units_seconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_rlc_cfg_t3193, %struct._header_field_info { ptr @.str.190, ptr @.str.191, i32 4, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_rlc_cfg_t3195, %struct._header_field_info { ptr @.str.192, ptr @.str.193, i32 4, i32 4097, ptr @units_seconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_rlc_cfg_t3101, %struct._header_field_info { ptr @.str.194, ptr @.str.195, i32 4, i32 4097, ptr @units_seconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_rlc_cfg_t3103, %struct._header_field_info { ptr @.str.196, ptr @.str.197, i32 4, i32 4097, ptr @units_seconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_rlc_cfg_t3105, %struct._header_field_info { ptr @.str.198, ptr @.str.199, i32 4, i32 4097, ptr @units_seconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_rlc_cfg_countdown, %struct._header_field_info { ptr @.str.200, ptr @.str.201, i32 4, i32 4097, ptr @units_seconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_rlc_cfg2_t_dl_tbf_ext, %struct._header_field_info { ptr @.str.202, ptr @.str.203, i32 5, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_rlc_cfg2_t_ul_tbf_ext, %struct._header_field_info { ptr @.str.204, ptr @.str.205, i32 5, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_rlc_cfg2_init_cs, %struct._header_field_info { ptr @.str.206, ptr @.str.207, i32 4, i32 1, ptr @rlc_cfg2_init_cs_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_rlc_cfg2_init_mcs, %struct._header_field_info { ptr @.str.208, ptr @.str.209, i32 4, i32 1, ptr @rlc_cfg2_init_mcs_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_cs, %struct._header_field_info { ptr @.str.210, ptr @.str.211, i32 5, i32 1, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_attr_ipa_cs, i64 4), %struct._header_field_info { ptr @.str.212, ptr @.str.213, i32 5, i32 1, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_attr_ipa_cs, i64 8), %struct._header_field_info { ptr @.str.214, ptr @.str.215, i32 5, i32 1, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_attr_ipa_cs, i64 12), %struct._header_field_info { ptr @.str.216, ptr @.str.217, i32 5, i32 1, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_attr_ipa_mcs, %struct._header_field_info { ptr @.str.218, ptr @.str.219, i32 5, i32 1, ptr null, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_attr_ipa_mcs, i64 4), %struct._header_field_info { ptr @.str.220, ptr @.str.221, i32 5, i32 1, ptr null, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_attr_ipa_mcs, i64 8), %struct._header_field_info { ptr @.str.222, ptr @.str.223, i32 5, i32 1, ptr null, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_attr_ipa_mcs, i64 12), %struct._header_field_info { ptr @.str.224, ptr @.str.225, i32 5, i32 1, ptr null, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_attr_ipa_mcs, i64 16), %struct._header_field_info { ptr @.str.226, ptr @.str.227, i32 5, i32 1, ptr null, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_attr_ipa_mcs, i64 20), %struct._header_field_info { ptr @.str.228, ptr @.str.229, i32 5, i32 1, ptr null, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_attr_ipa_mcs, i64 24), %struct._header_field_info { ptr @.str.230, ptr @.str.231, i32 5, i32 1, ptr null, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_attr_ipa_mcs, i64 28), %struct._header_field_info { ptr @.str.232, ptr @.str.233, i32 5, i32 1, ptr null, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_attr_ipa_mcs, i64 32), %struct._header_field_info { ptr @.str.234, ptr @.str.235, i32 5, i32 1, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_oml_msg_disc = internal global i32 0, align 4
 @.str = private unnamed_addr constant [22 x i8] c"Message Discriminator\00", align 1
 @.str.1 = private unnamed_addr constant [21 x i8] c"gsm_abis_oml.msg_dsc\00", align 1
-@oml_msg_disc_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 128, ptr @.str.250 }, %struct._value_string { i32 64, ptr @.str.251 }, %struct._value_string { i32 32, ptr @.str.252 }, %struct._value_string { i32 16, ptr @.str.253 }, %struct._value_string zeroinitializer], align 16
 @.str.2 = private unnamed_addr constant [32 x i8] c"GSM 12.21 Message Discriminator\00", align 1
 @hf_oml_placement = internal global i32 0, align 4
 @.str.3 = private unnamed_addr constant [20 x i8] c"Placement Indicator\00", align 1
 @.str.4 = private unnamed_addr constant [23 x i8] c"gsm_abis_oml.placement\00", align 1
-@oml_placement_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 128, ptr @.str.254 }, %struct._value_string { i32 64, ptr @.str.255 }, %struct._value_string { i32 32, ptr @.str.256 }, %struct._value_string { i32 16, ptr @.str.257 }, %struct._value_string zeroinitializer], align 16
 @.str.5 = private unnamed_addr constant [30 x i8] c"GSM 12.21 Placement Indicator\00", align 1
 @hf_oml_sequence = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [16 x i8] c"Sequence Number\00", align 1
@@ -45,7 +39,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_oml_fom_objclass = internal global i32 0, align 4
 @.str.18 = private unnamed_addr constant [17 x i8] c"FOM Object Class\00", align 1
 @.str.19 = private unnamed_addr constant [27 x i8] c"gsm_abis_oml.fom.obj_class\00", align 1
-@oml_fom_objclass_vals = internal constant [19 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.418 }, %struct._value_string { i32 1, ptr @.str.419 }, %struct._value_string { i32 2, ptr @.str.420 }, %struct._value_string { i32 3, ptr @.str.421 }, %struct._value_string { i32 4, ptr @.str.422 }, %struct._value_string { i32 160, ptr @.str.423 }, %struct._value_string { i32 161, ptr @.str.424 }, %struct._value_string { i32 162, ptr @.str.425 }, %struct._value_string { i32 163, ptr @.str.426 }, %struct._value_string { i32 164, ptr @.str.427 }, %struct._value_string { i32 165, ptr @.str.428 }, %struct._value_string { i32 166, ptr @.str.429 }, %struct._value_string { i32 168, ptr @.str.430 }, %struct._value_string { i32 169, ptr @.str.431 }, %struct._value_string { i32 240, ptr @.str.432 }, %struct._value_string { i32 241, ptr @.str.433 }, %struct._value_string { i32 242, ptr @.str.434 }, %struct._value_string { i32 255, ptr @.str.435 }, %struct._value_string zeroinitializer], align 16
 @hf_oml_fom_inst_bts = internal global i32 0, align 4
 @.str.20 = private unnamed_addr constant [24 x i8] c"FOM Object Instance BTS\00", align 1
 @.str.21 = private unnamed_addr constant [30 x i8] c"gsm_abis_oml.fom.obj_inst.bts\00", align 1
@@ -67,30 +60,24 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_attr_adm_state = internal global i32 0, align 4
 @.str.32 = private unnamed_addr constant [21 x i8] c"Administrative State\00", align 1
 @.str.33 = private unnamed_addr constant [32 x i8] c"gsm_abis_oml.fom.attr.adm_state\00", align 1
-@oml_adm_state_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.542 }, %struct._value_string { i32 2, ptr @.str.543 }, %struct._value_string { i32 3, ptr @.str.544 }, %struct._value_string { i32 255, ptr @.str.545 }, %struct._value_string zeroinitializer], align 16
 @hf_attr_arfcn = internal global i32 0, align 4
 @.str.34 = private unnamed_addr constant [6 x i8] c"ARFCN\00", align 1
 @.str.35 = private unnamed_addr constant [28 x i8] c"gsm_abis_oml.fom.attr.arfcn\00", align 1
 @hf_attr_oper_state = internal global i32 0, align 4
 @.str.36 = private unnamed_addr constant [18 x i8] c"Operational State\00", align 1
 @.str.37 = private unnamed_addr constant [33 x i8] c"gsm_abis_oml.fom.attr.oper_state\00", align 1
-@oml_oper_state_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.546 }, %struct._value_string { i32 2, ptr @.str.547 }, %struct._value_string { i32 255, ptr @.str.435 }, %struct._value_string zeroinitializer], align 16
 @hf_attr_avail_state = internal global i32 0, align 4
 @.str.38 = private unnamed_addr constant [20 x i8] c"Availability Status\00", align 1
 @.str.39 = private unnamed_addr constant [34 x i8] c"gsm_abis_oml.fom.attr.avail_state\00", align 1
-@oml_avail_state_vals = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.548 }, %struct._value_string { i32 1, ptr @.str.549 }, %struct._value_string { i32 2, ptr @.str.550 }, %struct._value_string { i32 3, ptr @.str.551 }, %struct._value_string { i32 5, ptr @.str.552 }, %struct._value_string { i32 6, ptr @.str.553 }, %struct._value_string { i32 7, ptr @.str.554 }, %struct._value_string { i32 255, ptr @.str.555 }, %struct._value_string zeroinitializer], align 16
 @hf_attr_event_type = internal global i32 0, align 4
 @.str.40 = private unnamed_addr constant [11 x i8] c"Event Type\00", align 1
 @.str.41 = private unnamed_addr constant [33 x i8] c"gsm_abis_oml.fom.attr.event_type\00", align 1
-@oml_event_type_vals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.556 }, %struct._value_string { i32 1, ptr @.str.557 }, %struct._value_string { i32 2, ptr @.str.558 }, %struct._value_string { i32 3, ptr @.str.559 }, %struct._value_string { i32 4, ptr @.str.560 }, %struct._value_string zeroinitializer], align 16
 @hf_attr_severity = internal global i32 0, align 4
 @.str.42 = private unnamed_addr constant [9 x i8] c"Severity\00", align 1
 @.str.43 = private unnamed_addr constant [31 x i8] c"gsm_abis_oml.fom.attr.severity\00", align 1
-@oml_severity_vals = internal constant [7 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.561 }, %struct._value_string { i32 1, ptr @.str.562 }, %struct._value_string { i32 2, ptr @.str.563 }, %struct._value_string { i32 3, ptr @.str.564 }, %struct._value_string { i32 4, ptr @.str.565 }, %struct._value_string { i32 5, ptr @.str.566 }, %struct._value_string zeroinitializer], align 16
 @hf_attr_nack_causes = internal global i32 0, align 4
 @.str.44 = private unnamed_addr constant [12 x i8] c"NACK Causes\00", align 1
 @.str.45 = private unnamed_addr constant [34 x i8] c"gsm_abis_oml.fom.attr.nack_causes\00", align 1
-@oml_nack_causes = internal constant [34 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.567 }, %struct._value_string { i32 2, ptr @.str.568 }, %struct._value_string { i32 5, ptr @.str.569 }, %struct._value_string { i32 6, ptr @.str.570 }, %struct._value_string { i32 7, ptr @.str.571 }, %struct._value_string { i32 8, ptr @.str.572 }, %struct._value_string { i32 9, ptr @.str.573 }, %struct._value_string { i32 12, ptr @.str.574 }, %struct._value_string { i32 13, ptr @.str.575 }, %struct._value_string { i32 14, ptr @.str.576 }, %struct._value_string { i32 15, ptr @.str.577 }, %struct._value_string { i32 16, ptr @.str.578 }, %struct._value_string { i32 17, ptr @.str.579 }, %struct._value_string { i32 25, ptr @.str.580 }, %struct._value_string { i32 26, ptr @.str.581 }, %struct._value_string { i32 27, ptr @.str.582 }, %struct._value_string { i32 28, ptr @.str.583 }, %struct._value_string { i32 29, ptr @.str.584 }, %struct._value_string { i32 30, ptr @.str.585 }, %struct._value_string { i32 31, ptr @.str.586 }, %struct._value_string { i32 32, ptr @.str.587 }, %struct._value_string { i32 33, ptr @.str.588 }, %struct._value_string { i32 34, ptr @.str.589 }, %struct._value_string { i32 35, ptr @.str.590 }, %struct._value_string { i32 37, ptr @.str.591 }, %struct._value_string { i32 38, ptr @.str.592 }, %struct._value_string { i32 39, ptr @.str.593 }, %struct._value_string { i32 40, ptr @.str.594 }, %struct._value_string { i32 41, ptr @.str.595 }, %struct._value_string { i32 42, ptr @.str.596 }, %struct._value_string { i32 43, ptr @.str.597 }, %struct._value_string { i32 44, ptr @.str.598 }, %struct._value_string { i32 255, ptr @.str.435 }, %struct._value_string zeroinitializer], align 16
 @hf_attr_bcch_arfcn = internal global i32 0, align 4
 @.str.46 = private unnamed_addr constant [11 x i8] c"BCCH ARFCN\00", align 1
 @.str.47 = private unnamed_addr constant [33 x i8] c"gsm_abis_oml.fom.attr.bcch_arfcn\00", align 1
@@ -102,7 +89,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_attr_test_no = internal global i32 0, align 4
 @.str.52 = private unnamed_addr constant [12 x i8] c"Test Number\00", align 1
 @.str.53 = private unnamed_addr constant [30 x i8] c"gsm_abis_oml.fom.attr.test_no\00", align 1
-@oml_test_no_vals = internal constant [11 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.599 }, %struct._value_string { i32 2, ptr @.str.600 }, %struct._value_string { i32 3, ptr @.str.601 }, %struct._value_string { i32 64, ptr @.str.602 }, %struct._value_string { i32 65, ptr @.str.603 }, %struct._value_string { i32 66, ptr @.str.604 }, %struct._value_string { i32 67, ptr @.str.605 }, %struct._value_string { i32 68, ptr @.str.606 }, %struct._value_string { i32 69, ptr @.str.607 }, %struct._value_string { i32 70, ptr @.str.608 }, %struct._value_string zeroinitializer], align 16
 @hf_attr_tsc = internal global i32 0, align 4
 @.str.54 = private unnamed_addr constant [4 x i8] c"TSC\00", align 1
 @.str.55 = private unnamed_addr constant [26 x i8] c"gsm_abis_oml.fom.attr.tsc\00", align 1
@@ -125,7 +111,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_attr_chan_comb = internal global i32 0, align 4
 @.str.67 = private unnamed_addr constant [20 x i8] c"Channel Combination\00", align 1
 @.str.68 = private unnamed_addr constant [32 x i8] c"gsm_abis_oml.fom.attr.chan_comb\00", align 1
-@oml_chan_comb_vals = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.609 }, %struct._value_string { i32 1, ptr @.str.610 }, %struct._value_string { i32 2, ptr @.str.611 }, %struct._value_string { i32 3, ptr @.str.612 }, %struct._value_string { i32 4, ptr @.str.613 }, %struct._value_string { i32 5, ptr @.str.614 }, %struct._value_string { i32 6, ptr @.str.615 }, %struct._value_string { i32 7, ptr @.str.616 }, %struct._value_string { i32 8, ptr @.str.617 }, %struct._value_string zeroinitializer], align 16
 @hf_attr_hsn = internal global i32 0, align 4
 @.str.69 = private unnamed_addr constant [4 x i8] c"HSN\00", align 1
 @.str.70 = private unnamed_addr constant [26 x i8] c"gsm_abis_oml.fom.attr.hsn\00", align 1
@@ -137,7 +122,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_attr_list_req_attr = internal global i32 0, align 4
 @.str.75 = private unnamed_addr constant [28 x i8] c"List of required Attributes\00", align 1
 @.str.76 = private unnamed_addr constant [36 x i8] c"gsm_abis_oml.fom.attr.list_req_attr\00", align 1
-@oml_fom_attr_vals = internal constant [70 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.618 }, %struct._value_string { i32 2, ptr @.str.619 }, %struct._value_string { i32 3, ptr @.str.620 }, %struct._value_string { i32 4, ptr @.str.32 }, %struct._value_string { i32 5, ptr @.str.621 }, %struct._value_string { i32 6, ptr @.str.622 }, %struct._value_string { i32 7, ptr @.str.38 }, %struct._value_string { i32 8, ptr @.str.46 }, %struct._value_string { i32 9, ptr @.str.49 }, %struct._value_string { i32 10, ptr @.str.623 }, %struct._value_string { i32 11, ptr @.str.624 }, %struct._value_string { i32 12, ptr @.str.625 }, %struct._value_string { i32 13, ptr @.str.67 }, %struct._value_string { i32 14, ptr @.str.626 }, %struct._value_string { i32 15, ptr @.str.627 }, %struct._value_string { i32 17, ptr @.str.40 }, %struct._value_string { i32 18, ptr @.str.628 }, %struct._value_string { i32 19, ptr @.str.629 }, %struct._value_string { i32 20, ptr @.str.65 }, %struct._value_string { i32 21, ptr @.str.69 }, %struct._value_string { i32 22, ptr @.str.630 }, %struct._value_string { i32 23, ptr @.str.631 }, %struct._value_string { i32 24, ptr @.str.632 }, %struct._value_string { i32 25, ptr @.str.633 }, %struct._value_string { i32 26, ptr @.str.75 }, %struct._value_string { i32 27, ptr @.str.72 }, %struct._value_string { i32 28, ptr @.str.634 }, %struct._value_string { i32 29, ptr @.str.635 }, %struct._value_string { i32 30, ptr @.str.636 }, %struct._value_string { i32 31, ptr @.str.637 }, %struct._value_string { i32 32, ptr @.str.638 }, %struct._value_string { i32 33, ptr @.str.639 }, %struct._value_string { i32 34, ptr @.str.44 }, %struct._value_string { i32 35, ptr @.str.640 }, %struct._value_string { i32 36, ptr @.str.36 }, %struct._value_string { i32 37, ptr @.str.641 }, %struct._value_string { i32 38, ptr @.str.642 }, %struct._value_string { i32 39, ptr @.str.643 }, %struct._value_string { i32 40, ptr @.str.644 }, %struct._value_string { i32 41, ptr @.str.645 }, %struct._value_string { i32 42, ptr @.str.646 }, %struct._value_string { i32 43, ptr @.str.647 }, %struct._value_string { i32 44, ptr @.str.648 }, %struct._value_string { i32 45, ptr @.str.649 }, %struct._value_string { i32 46, ptr @.str.650 }, %struct._value_string { i32 47, ptr @.str.651 }, %struct._value_string { i32 48, ptr @.str.652 }, %struct._value_string { i32 49, ptr @.str.653 }, %struct._value_string { i32 50, ptr @.str.654 }, %struct._value_string { i32 51, ptr @.str.655 }, %struct._value_string { i32 52, ptr @.str.57 }, %struct._value_string { i32 53, ptr @.str.656 }, %struct._value_string { i32 54, ptr @.str.657 }, %struct._value_string { i32 55, ptr @.str.658 }, %struct._value_string { i32 56, ptr @.str.659 }, %struct._value_string { i32 57, ptr @.str.660 }, %struct._value_string { i32 61, ptr @.str.661 }, %struct._value_string { i32 62, ptr @.str.662 }, %struct._value_string { i32 63, ptr @.str.663 }, %struct._value_string { i32 64, ptr @.str.56 }, %struct._value_string { i32 65, ptr @.str.664 }, %struct._value_string { i32 66, ptr @.str.665 }, %struct._value_string { i32 67, ptr @.str.666 }, %struct._value_string { i32 68, ptr @.str.667 }, %struct._value_string { i32 69, ptr @.str.668 }, %struct._value_string { i32 70, ptr @.str.669 }, %struct._value_string { i32 71, ptr @.str.670 }, %struct._value_string { i32 72, ptr @.str.671 }, %struct._value_string { i32 73, ptr @.str.672 }, %struct._value_string zeroinitializer], align 16
 @hf_attr_ari_not_reported_cnt = internal global i32 0, align 4
 @.str.77 = private unnamed_addr constant [33 x i8] c"Count of not-reported attributes\00", align 1
 @.str.78 = private unnamed_addr constant [43 x i8] c"gsm_abis_oml.fom.attr.ari.not_reported_cnt\00", align 1
@@ -169,7 +153,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_oml_ipa_tres_attr_tag = internal global i32 0, align 4
 @.str.95 = private unnamed_addr constant [28 x i8] c"IPA Test Result Embedded IE\00", align 1
 @.str.96 = private unnamed_addr constant [33 x i8] c"gsm_abis_oml.fom.testrep.ipa_tag\00", align 1
-@ipacc_testres_ie_vals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 3, ptr @.str.674 }, %struct._value_string { i32 4, ptr @.str.602 }, %struct._value_string { i32 6, ptr @.str.605 }, %struct._value_string { i32 8, ptr @.str.675 }, %struct._value_string { i32 18, ptr @.str.109 }, %struct._value_string zeroinitializer], align 16
 @.str.97 = private unnamed_addr constant [67 x i8] c"Information Element embedded into the Test Result of ip.access BTS\00", align 1
 @hf_oml_ipa_tres_attr_len = internal global i32 0, align 4
 @.str.98 = private unnamed_addr constant [35 x i8] c"IPA Test Result Embedded IE Length\00", align 1
@@ -178,7 +161,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_attr_ipa_test_res = internal global i32 0, align 4
 @.str.101 = private unnamed_addr constant [16 x i8] c"IPA Test Result\00", align 1
 @.str.102 = private unnamed_addr constant [32 x i8] c"gsm_abis_oml.fom.testrep.result\00", align 1
-@ipacc_test_res_vals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.676 }, %struct._value_string { i32 1, ptr @.str.677 }, %struct._value_string { i32 2, ptr @.str.678 }, %struct._value_string { i32 3, ptr @.str.679 }, %struct._value_string { i32 4, ptr @.str.680 }, %struct._value_string zeroinitializer], align 16
 @hf_attr_ipa_tr_rxlev = internal global i32 0, align 4
 @.str.103 = private unnamed_addr constant [9 x i8] c"Rx Level\00", align 1
 @.str.104 = private unnamed_addr constant [35 x i8] c"gsm_abis_oml.fom.testrep.ipa_rxlev\00", align 1
@@ -337,11 +319,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_attr_ipa_rlc_cfg2_init_cs = internal global i32 0, align 4
 @.str.206 = private unnamed_addr constant [27 x i8] c"Initial GPRS Coding Scheme\00", align 1
 @.str.207 = private unnamed_addr constant [43 x i8] c"gsm_abis_oml.fom.attr.ipa.rlc_cfg2_init_cs\00", align 1
-@rlc_cfg2_init_cs_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.210 }, %struct._value_string { i32 2, ptr @.str.212 }, %struct._value_string { i32 3, ptr @.str.214 }, %struct._value_string { i32 4, ptr @.str.216 }, %struct._value_string zeroinitializer], align 16
 @hf_attr_ipa_rlc_cfg2_init_mcs = internal global i32 0, align 4
 @.str.208 = private unnamed_addr constant [28 x i8] c"Initial EGPRS Coding Scheme\00", align 1
 @.str.209 = private unnamed_addr constant [44 x i8] c"gsm_abis_oml.fom.attr.ipa.rlc_cfg2_init_mcs\00", align 1
-@rlc_cfg2_init_mcs_vals = internal constant [10 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.218 }, %struct._value_string { i32 2, ptr @.str.220 }, %struct._value_string { i32 3, ptr @.str.222 }, %struct._value_string { i32 4, ptr @.str.224 }, %struct._value_string { i32 5, ptr @.str.226 }, %struct._value_string { i32 6, ptr @.str.228 }, %struct._value_string { i32 7, ptr @.str.230 }, %struct._value_string { i32 8, ptr @.str.232 }, %struct._value_string { i32 9, ptr @.str.234 }, %struct._value_string zeroinitializer], align 16
 @hf_attr_ipa_cs = internal global [4 x i32] zeroinitializer, align 16
 @.str.210 = private unnamed_addr constant [4 x i8] c"CS1\00", align 1
 @.str.211 = private unnamed_addr constant [30 x i8] c"gsm_abis_oml.fom.attr.ipa.cs1\00", align 1
@@ -374,7 +354,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_oml = internal global i32 0, align 4
 @ett_oml_fom = internal global i32 0, align 4
 @ett_oml_fom_att = internal global i32 0, align 4
-@proto_register_abis_oml.ei = internal global [3 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_unknown_type, %struct.expert_field_info { ptr @.str.236, i32 150994944, i32 4194304, ptr @.str.237, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_unknown_manuf, %struct.expert_field_info { ptr @.str.238, i32 150994944, i32 6291456, ptr @.str.239, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_length_mismatch, %struct.expert_field_info { ptr @.str.240, i32 150994944, i32 6291456, ptr @.str.241, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_abis_oml.ei = internal global [3 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_unknown_type, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.236, i32 150994944, i32 4194304, ptr @.str.237, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_unknown_manuf, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.238, i32 150994944, i32 6291456, ptr @.str.239, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_length_mismatch, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.240, i32 150994944, i32 6291456, ptr @.str.241, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_unknown_type = internal global %struct.expert_field zeroinitializer, align 4
 @.str.236 = private unnamed_addr constant [33 x i8] c"gsm_abis_oml.expert.unknown_type\00", align 1
 @.str.237 = private unnamed_addr constant [17 x i8] c"Unknown TLV type\00", align 1
@@ -395,7 +375,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.246 = private unnamed_addr constant [29 x i8] c"A-bis OML dialect to be used\00", align 1
 @.str.247 = private unnamed_addr constant [50 x i8] c"Use ipaccess nanoBTS specific definitions for OML\00", align 1
 @global_oml_dialect = internal global i32 0, align 4
-@oml_dialect_enumvals = internal constant [5 x %struct.enum_val_t] [%struct.enum_val_t { ptr @.str.687, ptr @.str.688, i32 0 }, %struct.enum_val_t { ptr @.str.689, ptr @.str.690, i32 1 }, %struct.enum_val_t { ptr @.str.691, ptr @.str.692, i32 2 }, %struct.enum_val_t { ptr @.str.693, ptr @.str.694, i32 3 }, %struct.enum_val_t zeroinitializer], align 16
 @.str.248 = private unnamed_addr constant [14 x i8] c"lapd.gsm.sapi\00", align 1
 @.str.249 = private unnamed_addr constant [16 x i8] c"gsm_abis_om2000\00", align 1
 @sub_om2000 = internal unnamed_addr global ptr null, align 8
@@ -403,457 +382,474 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.251 = private unnamed_addr constant [13 x i8] c"MMI Transfer\00", align 1
 @.str.252 = private unnamed_addr constant [9 x i8] c"TRAU O&M\00", align 1
 @.str.253 = private unnamed_addr constant [22 x i8] c"Manufacturer specific\00", align 1
-@.str.254 = private unnamed_addr constant [5 x i8] c"Only\00", align 1
-@.str.255 = private unnamed_addr constant [6 x i8] c"First\00", align 1
-@.str.256 = private unnamed_addr constant [7 x i8] c"Middle\00", align 1
-@.str.257 = private unnamed_addr constant [5 x i8] c"Last\00", align 1
-@oml_fom_msgtype_vals_bs11 = internal constant [29 x %struct._value_string] [%struct._value_string { i32 116, ptr @.str.260 }, %struct._value_string { i32 163, ptr @.str.261 }, %struct._value_string { i32 164, ptr @.str.262 }, %struct._value_string { i32 165, ptr @.str.263 }, %struct._value_string { i32 166, ptr @.str.264 }, %struct._value_string { i32 167, ptr @.str.265 }, %struct._value_string { i32 168, ptr @.str.266 }, %struct._value_string { i32 169, ptr @.str.267 }, %struct._value_string { i32 170, ptr @.str.268 }, %struct._value_string { i32 171, ptr @.str.269 }, %struct._value_string { i32 172, ptr @.str.270 }, %struct._value_string { i32 173, ptr @.str.271 }, %struct._value_string { i32 174, ptr @.str.272 }, %struct._value_string { i32 208, ptr @.str.273 }, %struct._value_string { i32 209, ptr @.str.274 }, %struct._value_string { i32 210, ptr @.str.275 }, %struct._value_string { i32 227, ptr @.str.276 }, %struct._value_string { i32 228, ptr @.str.277 }, %struct._value_string { i32 229, ptr @.str.278 }, %struct._value_string { i32 230, ptr @.str.279 }, %struct._value_string { i32 231, ptr @.str.280 }, %struct._value_string { i32 232, ptr @.str.281 }, %struct._value_string { i32 233, ptr @.str.282 }, %struct._value_string { i32 234, ptr @.str.283 }, %struct._value_string { i32 236, ptr @.str.284 }, %struct._value_string { i32 237, ptr @.str.285 }, %struct._value_string { i32 241, ptr @.str.286 }, %struct._value_string { i32 242, ptr @.str.287 }, %struct._value_string zeroinitializer], align 16
-@oml_fom_msgtype_vals_ipa = internal constant [34 x %struct._value_string] [%struct._value_string { i32 135, ptr @.str.288 }, %struct._value_string { i32 136, ptr @.str.289 }, %struct._value_string { i32 224, ptr @.str.290 }, %struct._value_string { i32 225, ptr @.str.291 }, %struct._value_string { i32 226, ptr @.str.292 }, %struct._value_string { i32 227, ptr @.str.293 }, %struct._value_string { i32 228, ptr @.str.294 }, %struct._value_string { i32 229, ptr @.str.295 }, %struct._value_string { i32 230, ptr @.str.296 }, %struct._value_string { i32 231, ptr @.str.297 }, %struct._value_string { i32 232, ptr @.str.298 }, %struct._value_string { i32 233, ptr @.str.299 }, %struct._value_string { i32 234, ptr @.str.300 }, %struct._value_string { i32 235, ptr @.str.301 }, %struct._value_string { i32 236, ptr @.str.302 }, %struct._value_string { i32 237, ptr @.str.303 }, %struct._value_string { i32 238, ptr @.str.304 }, %struct._value_string { i32 239, ptr @.str.305 }, %struct._value_string { i32 240, ptr @.str.306 }, %struct._value_string { i32 241, ptr @.str.307 }, %struct._value_string { i32 242, ptr @.str.308 }, %struct._value_string { i32 243, ptr @.str.309 }, %struct._value_string { i32 244, ptr @.str.310 }, %struct._value_string { i32 245, ptr @.str.311 }, %struct._value_string { i32 246, ptr @.str.312 }, %struct._value_string { i32 247, ptr @.str.313 }, %struct._value_string { i32 248, ptr @.str.314 }, %struct._value_string { i32 249, ptr @.str.315 }, %struct._value_string { i32 250, ptr @.str.316 }, %struct._value_string { i32 251, ptr @.str.317 }, %struct._value_string { i32 252, ptr @.str.318 }, %struct._value_string { i32 253, ptr @.str.319 }, %struct._value_string { i32 254, ptr @.str.320 }, %struct._value_string zeroinitializer], align 16
-@.str.258 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
-@oml_fom_msgtype_vals = internal constant [98 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.321 }, %struct._value_string { i32 2, ptr @.str.322 }, %struct._value_string { i32 3, ptr @.str.323 }, %struct._value_string { i32 4, ptr @.str.324 }, %struct._value_string { i32 5, ptr @.str.325 }, %struct._value_string { i32 7, ptr @.str.326 }, %struct._value_string { i32 8, ptr @.str.327 }, %struct._value_string { i32 9, ptr @.str.328 }, %struct._value_string { i32 10, ptr @.str.329 }, %struct._value_string { i32 11, ptr @.str.330 }, %struct._value_string { i32 12, ptr @.str.331 }, %struct._value_string { i32 13, ptr @.str.332 }, %struct._value_string { i32 14, ptr @.str.333 }, %struct._value_string { i32 15, ptr @.str.334 }, %struct._value_string { i32 16, ptr @.str.335 }, %struct._value_string { i32 33, ptr @.str.336 }, %struct._value_string { i32 34, ptr @.str.337 }, %struct._value_string { i32 35, ptr @.str.338 }, %struct._value_string { i32 36, ptr @.str.339 }, %struct._value_string { i32 37, ptr @.str.340 }, %struct._value_string { i32 38, ptr @.str.341 }, %struct._value_string { i32 39, ptr @.str.342 }, %struct._value_string { i32 40, ptr @.str.343 }, %struct._value_string { i32 41, ptr @.str.344 }, %struct._value_string { i32 42, ptr @.str.345 }, %struct._value_string { i32 43, ptr @.str.346 }, %struct._value_string { i32 44, ptr @.str.347 }, %struct._value_string { i32 45, ptr @.str.348 }, %struct._value_string { i32 46, ptr @.str.349 }, %struct._value_string { i32 47, ptr @.str.350 }, %struct._value_string { i32 49, ptr @.str.351 }, %struct._value_string { i32 50, ptr @.str.352 }, %struct._value_string { i32 51, ptr @.str.353 }, %struct._value_string { i32 52, ptr @.str.354 }, %struct._value_string { i32 53, ptr @.str.355 }, %struct._value_string { i32 54, ptr @.str.356 }, %struct._value_string { i32 65, ptr @.str.357 }, %struct._value_string { i32 66, ptr @.str.358 }, %struct._value_string { i32 67, ptr @.str.359 }, %struct._value_string { i32 68, ptr @.str.360 }, %struct._value_string { i32 69, ptr @.str.361 }, %struct._value_string { i32 70, ptr @.str.362 }, %struct._value_string { i32 71, ptr @.str.363 }, %struct._value_string { i32 72, ptr @.str.364 }, %struct._value_string { i32 73, ptr @.str.365 }, %struct._value_string { i32 81, ptr @.str.366 }, %struct._value_string { i32 82, ptr @.str.367 }, %struct._value_string { i32 83, ptr @.str.368 }, %struct._value_string { i32 84, ptr @.str.369 }, %struct._value_string { i32 85, ptr @.str.370 }, %struct._value_string { i32 86, ptr @.str.371 }, %struct._value_string { i32 87, ptr @.str.372 }, %struct._value_string { i32 88, ptr @.str.373 }, %struct._value_string { i32 89, ptr @.str.374 }, %struct._value_string { i32 90, ptr @.str.375 }, %struct._value_string { i32 97, ptr @.str.376 }, %struct._value_string { i32 98, ptr @.str.377 }, %struct._value_string { i32 99, ptr @.str.378 }, %struct._value_string { i32 100, ptr @.str.379 }, %struct._value_string { i32 101, ptr @.str.380 }, %struct._value_string { i32 102, ptr @.str.381 }, %struct._value_string { i32 103, ptr @.str.382 }, %struct._value_string { i32 104, ptr @.str.383 }, %struct._value_string { i32 105, ptr @.str.384 }, %struct._value_string { i32 106, ptr @.str.385 }, %struct._value_string { i32 107, ptr @.str.386 }, %struct._value_string { i32 108, ptr @.str.387 }, %struct._value_string { i32 109, ptr @.str.388 }, %struct._value_string { i32 110, ptr @.str.389 }, %struct._value_string { i32 147, ptr @.str.390 }, %struct._value_string { i32 148, ptr @.str.391 }, %struct._value_string { i32 149, ptr @.str.392 }, %struct._value_string { i32 113, ptr @.str.393 }, %struct._value_string { i32 114, ptr @.str.394 }, %struct._value_string { i32 115, ptr @.str.395 }, %struct._value_string { i32 116, ptr @.str.396 }, %struct._value_string { i32 117, ptr @.str.397 }, %struct._value_string { i32 118, ptr @.str.398 }, %struct._value_string { i32 119, ptr @.str.399 }, %struct._value_string { i32 120, ptr @.str.400 }, %struct._value_string { i32 121, ptr @.str.401 }, %struct._value_string { i32 122, ptr @.str.402 }, %struct._value_string { i32 123, ptr @.str.403 }, %struct._value_string { i32 124, ptr @.str.404 }, %struct._value_string { i32 144, ptr @.str.405 }, %struct._value_string { i32 145, ptr @.str.406 }, %struct._value_string { i32 146, ptr @.str.407 }, %struct._value_string { i32 138, ptr @.str.408 }, %struct._value_string { i32 139, ptr @.str.409 }, %struct._value_string { i32 140, ptr @.str.410 }, %struct._value_string { i32 141, ptr @.str.411 }, %struct._value_string { i32 129, ptr @.str.412 }, %struct._value_string { i32 130, ptr @.str.413 }, %struct._value_string { i32 131, ptr @.str.414 }, %struct._value_string { i32 132, ptr @.str.415 }, %struct._value_string { i32 133, ptr @.str.416 }, %struct._value_string { i32 134, ptr @.str.417 }, %struct._value_string zeroinitializer], align 16
-@.str.259 = private unnamed_addr constant [15 x i8] c"Unknown 0x%02x\00", align 1
-@.str.260 = private unnamed_addr constant [19 x i8] c"SIE Reset Resource\00", align 1
-@.str.261 = private unnamed_addr constant [32 x i8] c"SIE Begin Database Transmission\00", align 1
-@.str.262 = private unnamed_addr constant [36 x i8] c"SIE Begin Database Transmission ACK\00", align 1
-@.str.263 = private unnamed_addr constant [37 x i8] c"SIE Begin Database Transmission NACK\00", align 1
-@.str.264 = private unnamed_addr constant [30 x i8] c"SIE End Database Transmission\00", align 1
-@.str.265 = private unnamed_addr constant [34 x i8] c"SIE End Database Transmission ACK\00", align 1
-@.str.266 = private unnamed_addr constant [35 x i8] c"SIE End Database Transmission NACK\00", align 1
-@.str.267 = private unnamed_addr constant [18 x i8] c"SIE Create Object\00", align 1
-@.str.268 = private unnamed_addr constant [22 x i8] c"SIE Create Object ACK\00", align 1
-@.str.269 = private unnamed_addr constant [23 x i8] c"SIE Create Object NACK\00", align 1
-@.str.270 = private unnamed_addr constant [18 x i8] c"SIE Delete Object\00", align 1
-@.str.271 = private unnamed_addr constant [22 x i8] c"SIE Delete Object ACK\00", align 1
-@.str.272 = private unnamed_addr constant [23 x i8] c"SIE Delete Object NACK\00", align 1
-@.str.273 = private unnamed_addr constant [18 x i8] c"SIE Set Attribute\00", align 1
-@.str.274 = private unnamed_addr constant [22 x i8] c"SIE Set Attribute ACK\00", align 1
-@.str.275 = private unnamed_addr constant [23 x i8] c"SIE Set Attribute NACK\00", align 1
-@.str.276 = private unnamed_addr constant [14 x i8] c"SIE Get State\00", align 1
-@.str.277 = private unnamed_addr constant [18 x i8] c"SIE Get State ACK\00", align 1
-@.str.278 = private unnamed_addr constant [14 x i8] c"SIE LMT Logon\00", align 1
-@.str.279 = private unnamed_addr constant [18 x i8] c"SIE LMT Logon ACK\00", align 1
-@.str.280 = private unnamed_addr constant [12 x i8] c"SIE Restart\00", align 1
-@.str.281 = private unnamed_addr constant [16 x i8] c"SIE Restart ACK\00", align 1
-@.str.282 = private unnamed_addr constant [19 x i8] c"SIE Disconnect BTS\00", align 1
-@.str.283 = private unnamed_addr constant [23 x i8] c"SIE Disconnect BTS ACK\00", align 1
-@.str.284 = private unnamed_addr constant [15 x i8] c"SIE LMT Logoff\00", align 1
-@.str.285 = private unnamed_addr constant [19 x i8] c"SIE LMT Logoff ACK\00", align 1
-@.str.286 = private unnamed_addr constant [18 x i8] c"SIE Reconnect BTS\00", align 1
-@.str.287 = private unnamed_addr constant [22 x i8] c"SIE Reconnect BTS ACK\00", align 1
-@.str.288 = private unnamed_addr constant [12 x i8] c"IPA Restart\00", align 1
-@.str.289 = private unnamed_addr constant [16 x i8] c"IPA Restart ACK\00", align 1
-@.str.290 = private unnamed_addr constant [16 x i8] c"IPA RSL Connect\00", align 1
-@.str.291 = private unnamed_addr constant [20 x i8] c"IPA RSL Connect ACK\00", align 1
-@.str.292 = private unnamed_addr constant [21 x i8] c"IPA RSL Connect NACK\00", align 1
-@.str.293 = private unnamed_addr constant [19 x i8] c"IPA RSL Disconnect\00", align 1
-@.str.294 = private unnamed_addr constant [23 x i8] c"IPA RSL Disconnect ACK\00", align 1
-@.str.295 = private unnamed_addr constant [24 x i8] c"IPA RSL Disconnect NACK\00", align 1
-@.str.296 = private unnamed_addr constant [20 x i8] c"IPA Connect Traffic\00", align 1
-@.str.297 = private unnamed_addr constant [24 x i8] c"IPA Connect Traffic ACK\00", align 1
-@.str.298 = private unnamed_addr constant [25 x i8] c"IPA Connect Traffic NACK\00", align 1
-@.str.299 = private unnamed_addr constant [23 x i8] c"IPA Disconnect Traffic\00", align 1
-@.str.300 = private unnamed_addr constant [27 x i8] c"IPA Disconnect Traffic ACK\00", align 1
-@.str.301 = private unnamed_addr constant [28 x i8] c"IPA Disconnect Traffic NACK\00", align 1
-@.str.302 = private unnamed_addr constant [26 x i8] c"IPA Default Boot Software\00", align 1
-@.str.303 = private unnamed_addr constant [30 x i8] c"IPA Default Boot Software ACK\00", align 1
-@.str.304 = private unnamed_addr constant [31 x i8] c"IPA Default Boot Software NACK\00", align 1
-@.str.305 = private unnamed_addr constant [25 x i8] c"IPA Set NVRAM Attributes\00", align 1
-@.str.306 = private unnamed_addr constant [29 x i8] c"IPA Set NVRAM Attributes ACK\00", align 1
-@.str.307 = private unnamed_addr constant [30 x i8] c"IPA Set NVRAM Attributes NACK\00", align 1
-@.str.308 = private unnamed_addr constant [25 x i8] c"IPA Get NVRAM Attributes\00", align 1
-@.str.309 = private unnamed_addr constant [29 x i8] c"IPA Get NVRAM Attributes ACK\00", align 1
-@.str.310 = private unnamed_addr constant [30 x i8] c"IPA Get NVRAM Attributes NACK\00", align 1
-@.str.311 = private unnamed_addr constant [19 x i8] c"IPA Set Attributes\00", align 1
-@.str.312 = private unnamed_addr constant [23 x i8] c"IPA Set Attributes ACK\00", align 1
-@.str.313 = private unnamed_addr constant [24 x i8] c"IPA Set Attributes NACK\00", align 1
-@.str.314 = private unnamed_addr constant [27 x i8] c"IPA Attribute Change Event\00", align 1
-@.str.315 = private unnamed_addr constant [24 x i8] c"IPA Software Deactivate\00", align 1
-@.str.316 = private unnamed_addr constant [28 x i8] c"IPA Software Deactivate ACK\00", align 1
-@.str.317 = private unnamed_addr constant [29 x i8] c"IPA Software Deactivate NACK\00", align 1
-@.str.318 = private unnamed_addr constant [36 x i8] c"IPA Measurement Result Request NACK\00", align 1
-@.str.319 = private unnamed_addr constant [27 x i8] c"IPA Start Measurement NACK\00", align 1
-@.str.320 = private unnamed_addr constant [26 x i8] c"IPA Stop Measurement NACK\00", align 1
-@.str.321 = private unnamed_addr constant [19 x i8] c"Software Load Init\00", align 1
-@.str.322 = private unnamed_addr constant [23 x i8] c"Software Load Init ACK\00", align 1
-@.str.323 = private unnamed_addr constant [24 x i8] c"Software Load Init NACK\00", align 1
-@.str.324 = private unnamed_addr constant [22 x i8] c"Software Load Segment\00", align 1
-@.str.325 = private unnamed_addr constant [26 x i8] c"Software Load Segment ACK\00", align 1
-@.str.326 = private unnamed_addr constant [18 x i8] c"Software Load End\00", align 1
-@.str.327 = private unnamed_addr constant [22 x i8] c"Software Load End ACK\00", align 1
-@.str.328 = private unnamed_addr constant [23 x i8] c"Software Load End NACK\00", align 1
-@.str.329 = private unnamed_addr constant [26 x i8] c"Software Activate Request\00", align 1
-@.str.330 = private unnamed_addr constant [30 x i8] c"Software Activate Request ACK\00", align 1
-@.str.331 = private unnamed_addr constant [31 x i8] c"Software Activate Request NACK\00", align 1
-@.str.332 = private unnamed_addr constant [18 x i8] c"Activate Software\00", align 1
-@.str.333 = private unnamed_addr constant [22 x i8] c"Activate Software ACK\00", align 1
-@.str.334 = private unnamed_addr constant [23 x i8] c"Activate Software NACK\00", align 1
-@.str.335 = private unnamed_addr constant [26 x i8] c"Software Activated Report\00", align 1
-@.str.336 = private unnamed_addr constant [14 x i8] c"Establish TEI\00", align 1
-@.str.337 = private unnamed_addr constant [18 x i8] c"Establish TEI ACK\00", align 1
-@.str.338 = private unnamed_addr constant [19 x i8] c"Establish TEI NACK\00", align 1
-@.str.339 = private unnamed_addr constant [31 x i8] c"Connect Terrestrial Signalling\00", align 1
-@.str.340 = private unnamed_addr constant [35 x i8] c"Connect Terrestrial Signalling ACK\00", align 1
-@.str.341 = private unnamed_addr constant [36 x i8] c"Connect Terrestrial Signalling NACK\00", align 1
-@.str.342 = private unnamed_addr constant [34 x i8] c"Disconnect Terrestrial Signalling\00", align 1
-@.str.343 = private unnamed_addr constant [38 x i8] c"Disconnect Terrestrial Signalling ACK\00", align 1
-@.str.344 = private unnamed_addr constant [39 x i8] c"Disconnect Terrestrial Signalling NACK\00", align 1
-@.str.345 = private unnamed_addr constant [28 x i8] c"Connect Terrestrial Traffic\00", align 1
-@.str.346 = private unnamed_addr constant [32 x i8] c"Connect Terrestrial Traffic ACK\00", align 1
-@.str.347 = private unnamed_addr constant [33 x i8] c"Connect Terrestrial Traffic NACK\00", align 1
-@.str.348 = private unnamed_addr constant [31 x i8] c"Disconnect Terrestrial Traffic\00", align 1
-@.str.349 = private unnamed_addr constant [35 x i8] c"Disconnect Terrestrial Traffic ACK\00", align 1
-@.str.350 = private unnamed_addr constant [36 x i8] c"Disconnect Terrestrial Traffic NACK\00", align 1
-@.str.351 = private unnamed_addr constant [24 x i8] c"Connect Multi-Drop Link\00", align 1
-@.str.352 = private unnamed_addr constant [28 x i8] c"Connect Multi-Drop Link ACK\00", align 1
-@.str.353 = private unnamed_addr constant [29 x i8] c"Connect Multi-Drop Link NACK\00", align 1
-@.str.354 = private unnamed_addr constant [27 x i8] c"Disconnect Multi-Drop Link\00", align 1
-@.str.355 = private unnamed_addr constant [31 x i8] c"Disconnect Multi-Drop Link ACK\00", align 1
-@.str.356 = private unnamed_addr constant [32 x i8] c"Disconnect Multi-Drop Link NACK\00", align 1
-@.str.357 = private unnamed_addr constant [19 x i8] c"Set BTS Attributes\00", align 1
-@.str.358 = private unnamed_addr constant [23 x i8] c"Set BTS Attributes ACK\00", align 1
-@.str.359 = private unnamed_addr constant [24 x i8] c"Set BTS Attributes NACK\00", align 1
-@.str.360 = private unnamed_addr constant [29 x i8] c"Set Radio Carrier Attributes\00", align 1
-@.str.361 = private unnamed_addr constant [33 x i8] c"Set Radio Carrier Attributes ACK\00", align 1
-@.str.362 = private unnamed_addr constant [34 x i8] c"Set Radio Carrier Attributes NACK\00", align 1
-@.str.363 = private unnamed_addr constant [23 x i8] c"Set Channel Attributes\00", align 1
-@.str.364 = private unnamed_addr constant [27 x i8] c"Set Channel Attributes ACK\00", align 1
-@.str.365 = private unnamed_addr constant [28 x i8] c"Set Channel Attributes NACK\00", align 1
-@.str.366 = private unnamed_addr constant [13 x i8] c"Perform Test\00", align 1
-@.str.367 = private unnamed_addr constant [17 x i8] c"Perform Test ACK\00", align 1
-@.str.368 = private unnamed_addr constant [18 x i8] c"Perform Test NACK\00", align 1
-@.str.369 = private unnamed_addr constant [12 x i8] c"Test Report\00", align 1
-@.str.370 = private unnamed_addr constant [17 x i8] c"Send Test Report\00", align 1
-@.str.371 = private unnamed_addr constant [21 x i8] c"Send Test Report ACK\00", align 1
-@.str.372 = private unnamed_addr constant [22 x i8] c"Send Test Report NACK\00", align 1
-@.str.373 = private unnamed_addr constant [10 x i8] c"Stop Test\00", align 1
-@.str.374 = private unnamed_addr constant [14 x i8] c"Stop Test ACK\00", align 1
-@.str.375 = private unnamed_addr constant [15 x i8] c"Stop Test NACK\00", align 1
-@.str.376 = private unnamed_addr constant [27 x i8] c"State Changed Event Report\00", align 1
-@.str.377 = private unnamed_addr constant [21 x i8] c"Failure Event Report\00", align 1
-@.str.378 = private unnamed_addr constant [27 x i8] c"Stop Sending Event Reports\00", align 1
-@.str.379 = private unnamed_addr constant [31 x i8] c"Stop Sending Event Reports ACK\00", align 1
-@.str.380 = private unnamed_addr constant [32 x i8] c"Stop Sending Event Reports NACK\00", align 1
-@.str.381 = private unnamed_addr constant [30 x i8] c"Restart Sending Event Reports\00", align 1
-@.str.382 = private unnamed_addr constant [34 x i8] c"Restart Sending Event Reports ACK\00", align 1
-@.str.383 = private unnamed_addr constant [35 x i8] c"Restart Sending Event Reports NACK\00", align 1
-@.str.384 = private unnamed_addr constant [28 x i8] c"Change Administrative State\00", align 1
-@.str.385 = private unnamed_addr constant [32 x i8] c"Change Administrative State ACK\00", align 1
-@.str.386 = private unnamed_addr constant [33 x i8] c"Change Administrative State NACK\00", align 1
-@.str.387 = private unnamed_addr constant [36 x i8] c"Change Administrative State Request\00", align 1
-@.str.388 = private unnamed_addr constant [40 x i8] c"Change Administrative State Request ACK\00", align 1
-@.str.389 = private unnamed_addr constant [41 x i8] c"Change Administrative State Request NACK\00", align 1
-@.str.390 = private unnamed_addr constant [26 x i8] c"Report Outstanding Alarms\00", align 1
-@.str.391 = private unnamed_addr constant [30 x i8] c"Report Outstanding Alarms ACK\00", align 1
-@.str.392 = private unnamed_addr constant [31 x i8] c"Report Outstanding Alarms NACK\00", align 1
-@.str.393 = private unnamed_addr constant [11 x i8] c"Changeover\00", align 1
-@.str.394 = private unnamed_addr constant [15 x i8] c"Changeover ACK\00", align 1
-@.str.395 = private unnamed_addr constant [16 x i8] c"Changeover NACK\00", align 1
-@.str.396 = private unnamed_addr constant [8 x i8] c"Opstart\00", align 1
-@.str.397 = private unnamed_addr constant [12 x i8] c"Opstart ACK\00", align 1
-@.str.398 = private unnamed_addr constant [13 x i8] c"Opstart NACK\00", align 1
-@.str.399 = private unnamed_addr constant [13 x i8] c"Reinitialize\00", align 1
-@.str.400 = private unnamed_addr constant [17 x i8] c"Reinitialize ACK\00", align 1
-@.str.401 = private unnamed_addr constant [18 x i8] c"Reinitialize NACK\00", align 1
-@.str.402 = private unnamed_addr constant [17 x i8] c"Set Site Outputs\00", align 1
-@.str.403 = private unnamed_addr constant [21 x i8] c"Set Site Outputs ACK\00", align 1
-@.str.404 = private unnamed_addr constant [22 x i8] c"Set Site Outputs NACK\00", align 1
-@.str.405 = private unnamed_addr constant [24 x i8] c"Change HW Configuration\00", align 1
-@.str.406 = private unnamed_addr constant [28 x i8] c"Change HW Configuration ACK\00", align 1
-@.str.407 = private unnamed_addr constant [29 x i8] c"Change HW Configuration NACK\00", align 1
-@.str.408 = private unnamed_addr constant [27 x i8] c"Measurement Result Request\00", align 1
-@.str.409 = private unnamed_addr constant [28 x i8] c"Measurement Result Response\00", align 1
-@.str.410 = private unnamed_addr constant [17 x i8] c"Stop Measurement\00", align 1
-@.str.411 = private unnamed_addr constant [18 x i8] c"Start Measurement\00", align 1
-@.str.412 = private unnamed_addr constant [15 x i8] c"Get Attributes\00", align 1
-@.str.413 = private unnamed_addr constant [24 x i8] c"Get Attributes Response\00", align 1
-@.str.414 = private unnamed_addr constant [20 x i8] c"Get Attributes NACK\00", align 1
-@.str.415 = private unnamed_addr constant [20 x i8] c"Set Alarm Threshold\00", align 1
-@.str.416 = private unnamed_addr constant [24 x i8] c"Set Alarm Threshold ACK\00", align 1
-@.str.417 = private unnamed_addr constant [25 x i8] c"Set Alarm Threshold NACK\00", align 1
-@.str.418 = private unnamed_addr constant [17 x i8] c"BTS Site Manager\00", align 1
-@.str.419 = private unnamed_addr constant [4 x i8] c"BTS\00", align 1
-@.str.420 = private unnamed_addr constant [14 x i8] c"Radio Carrier\00", align 1
-@.str.421 = private unnamed_addr constant [14 x i8] c"Radio Channel\00", align 1
-@.str.422 = private unnamed_addr constant [21 x i8] c"Baseband Transceiver\00", align 1
-@.str.423 = private unnamed_addr constant [21 x i8] c"SIE Adjacent Channel\00", align 1
-@.str.424 = private unnamed_addr constant [13 x i8] c"SIE Handover\00", align 1
-@.str.425 = private unnamed_addr constant [18 x i8] c"SIE Power Control\00", align 1
-@.str.426 = private unnamed_addr constant [9 x i8] c"SIE BTSE\00", align 1
-@.str.427 = private unnamed_addr constant [9 x i8] c"SIE Rack\00", align 1
-@.str.428 = private unnamed_addr constant [14 x i8] c"SIE SiemensHW\00", align 1
-@.str.429 = private unnamed_addr constant [9 x i8] c"SIE Test\00", align 1
-@.str.430 = private unnamed_addr constant [13 x i8] c"SIE EnvaBTSE\00", align 1
-@.str.431 = private unnamed_addr constant [10 x i8] c"SIE BPort\00", align 1
-@.str.432 = private unnamed_addr constant [9 x i8] c"GPRS NSE\00", align 1
-@.str.433 = private unnamed_addr constant [10 x i8] c"GPRS Cell\00", align 1
-@.str.434 = private unnamed_addr constant [10 x i8] c"GPRS NSVC\00", align 1
-@.str.435 = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
-@oml_fom_attr_vals_bs11 = internal constant [58 x %struct._value_string] [%struct._value_string { i32 2, ptr @.str.436 }, %struct._value_string { i32 143, ptr @.str.437 }, %struct._value_string { i32 144, ptr @.str.438 }, %struct._value_string { i32 145, ptr @.str.439 }, %struct._value_string { i32 146, ptr @.str.440 }, %struct._value_string { i32 147, ptr @.str.441 }, %struct._value_string { i32 148, ptr @.str.442 }, %struct._value_string { i32 149, ptr @.str.443 }, %struct._value_string { i32 155, ptr @.str.444 }, %struct._value_string { i32 159, ptr @.str.445 }, %struct._value_string { i32 215, ptr @.str.446 }, %struct._value_string { i32 160, ptr @.str.447 }, %struct._value_string { i32 161, ptr @.str.448 }, %struct._value_string { i32 163, ptr @.str.449 }, %struct._value_string { i32 164, ptr @.str.450 }, %struct._value_string { i32 170, ptr @.str.451 }, %struct._value_string { i32 171, ptr @.str.452 }, %struct._value_string { i32 172, ptr @.str.453 }, %struct._value_string { i32 173, ptr @.str.454 }, %struct._value_string { i32 174, ptr @.str.455 }, %struct._value_string { i32 176, ptr @.str.456 }, %struct._value_string { i32 187, ptr @.str.457 }, %struct._value_string { i32 188, ptr @.str.458 }, %struct._value_string { i32 189, ptr @.str.459 }, %struct._value_string { i32 193, ptr @.str.460 }, %struct._value_string { i32 197, ptr @.str.461 }, %struct._value_string { i32 198, ptr @.str.462 }, %struct._value_string { i32 199, ptr @.str.463 }, %struct._value_string { i32 200, ptr @.str.464 }, %struct._value_string { i32 201, ptr @.str.465 }, %struct._value_string { i32 216, ptr @.str.466 }, %struct._value_string { i32 220, ptr @.str.467 }, %struct._value_string { i32 221, ptr @.str.468 }, %struct._value_string { i32 232, ptr @.str.469 }, %struct._value_string { i32 240, ptr @.str.470 }, %struct._value_string { i32 241, ptr @.str.471 }, %struct._value_string { i32 242, ptr @.str.472 }, %struct._value_string { i32 243, ptr @.str.473 }, %struct._value_string { i32 244, ptr @.str.474 }, %struct._value_string { i32 252, ptr @.str.475 }, %struct._value_string { i32 253, ptr @.str.476 }, %struct._value_string { i32 76, ptr @.str.477 }, %struct._value_string { i32 79, ptr @.str.478 }, %struct._value_string { i32 85, ptr @.str.479 }, %struct._value_string { i32 88, ptr @.str.480 }, %struct._value_string { i32 96, ptr @.str.481 }, %struct._value_string { i32 97, ptr @.str.482 }, %struct._value_string { i32 98, ptr @.str.483 }, %struct._value_string { i32 99, ptr @.str.484 }, %struct._value_string { i32 102, ptr @.str.485 }, %struct._value_string { i32 103, ptr @.str.486 }, %struct._value_string { i32 104, ptr @.str.487 }, %struct._value_string { i32 105, ptr @.str.488 }, %struct._value_string { i32 106, ptr @.str.489 }, %struct._value_string { i32 108, ptr @.str.490 }, %struct._value_string { i32 109, ptr @.str.491 }, %struct._value_string { i32 110, ptr @.str.492 }, %struct._value_string zeroinitializer], align 16
-@oml_fom_attr_vals_ipa = internal constant [50 x %struct._value_string] [%struct._value_string { i32 128, ptr @.str.493 }, %struct._value_string { i32 129, ptr @.str.494 }, %struct._value_string { i32 130, ptr @.str.495 }, %struct._value_string { i32 131, ptr @.str.496 }, %struct._value_string { i32 132, ptr @.str.497 }, %struct._value_string { i32 133, ptr @.str.498 }, %struct._value_string { i32 134, ptr @.str.499 }, %struct._value_string { i32 135, ptr @.str.500 }, %struct._value_string { i32 136, ptr @.str.501 }, %struct._value_string { i32 137, ptr @.str.502 }, %struct._value_string { i32 138, ptr @.str.503 }, %struct._value_string { i32 139, ptr @.str.504 }, %struct._value_string { i32 140, ptr @.str.505 }, %struct._value_string { i32 141, ptr @.str.506 }, %struct._value_string { i32 142, ptr @.str.507 }, %struct._value_string { i32 143, ptr @.str.508 }, %struct._value_string { i32 144, ptr @.str.509 }, %struct._value_string { i32 145, ptr @.str.510 }, %struct._value_string { i32 146, ptr @.str.511 }, %struct._value_string { i32 147, ptr @.str.512 }, %struct._value_string { i32 148, ptr @.str.513 }, %struct._value_string { i32 149, ptr @.str.514 }, %struct._value_string { i32 150, ptr @.str.515 }, %struct._value_string { i32 151, ptr @.str.516 }, %struct._value_string { i32 152, ptr @.str.517 }, %struct._value_string { i32 153, ptr @.str.518 }, %struct._value_string { i32 154, ptr @.str.519 }, %struct._value_string { i32 155, ptr @.str.520 }, %struct._value_string { i32 156, ptr @.str.521 }, %struct._value_string { i32 157, ptr @.str.522 }, %struct._value_string { i32 158, ptr @.str.523 }, %struct._value_string { i32 159, ptr @.str.524 }, %struct._value_string { i32 160, ptr @.str.525 }, %struct._value_string { i32 161, ptr @.str.526 }, %struct._value_string { i32 162, ptr @.str.527 }, %struct._value_string { i32 163, ptr @.str.528 }, %struct._value_string { i32 164, ptr @.str.529 }, %struct._value_string { i32 165, ptr @.str.530 }, %struct._value_string { i32 166, ptr @.str.531 }, %struct._value_string { i32 167, ptr @.str.532 }, %struct._value_string { i32 168, ptr @.str.533 }, %struct._value_string { i32 169, ptr @.str.534 }, %struct._value_string { i32 170, ptr @.str.535 }, %struct._value_string { i32 171, ptr @.str.536 }, %struct._value_string { i32 172, ptr @.str.537 }, %struct._value_string { i32 173, ptr @.str.538 }, %struct._value_string { i32 174, ptr @.str.539 }, %struct._value_string { i32 175, ptr @.str.540 }, %struct._value_string { i32 176, ptr @.str.541 }, %struct._value_string zeroinitializer], align 16
-@.str.436 = private unnamed_addr constant [27 x i8] c"SIE OML LAPD Release Timer\00", align 1
-@.str.437 = private unnamed_addr constant [34 x i8] c"SIE RF Resource Indication Period\00", align 1
-@.str.438 = private unnamed_addr constant [21 x i8] c"SIE RxLevel Min Cell\00", align 1
-@.str.439 = private unnamed_addr constant [24 x i8] c"SIE A-bis external time\00", align 1
-@.str.440 = private unnamed_addr constant [27 x i8] c"SIE Timer Handover Request\00", align 1
-@.str.441 = private unnamed_addr constant [16 x i8] c"SIE Timer nCell\00", align 1
-@.str.442 = private unnamed_addr constant [16 x i8] c"SIE Timer Tsync\00", align 1
-@.str.443 = private unnamed_addr constant [16 x i8] c"SIE Timer Ttrau\00", align 1
-@.str.444 = private unnamed_addr constant [28 x i8] c"SIE Emergency Config Member\00", align 1
-@.str.445 = private unnamed_addr constant [13 x i8] c"SIE TRX Area\00", align 1
-@.str.446 = private unnamed_addr constant [25 x i8] c"SIE BCCH Reconfiguration\00", align 1
-@.str.447 = private unnamed_addr constant [24 x i8] c"SIE Bit Error Threshold\00", align 1
-@.str.448 = private unnamed_addr constant [26 x i8] c"SIE Boot Software Version\00", align 1
-@.str.449 = private unnamed_addr constant [18 x i8] c"SIE CCLK Accuracy\00", align 1
-@.str.450 = private unnamed_addr constant [14 x i8] c"SIE CCLK Type\00", align 1
-@.str.451 = private unnamed_addr constant [20 x i8] c"SIE Input Impedance\00", align 1
-@.str.452 = private unnamed_addr constant [21 x i8] c"SIE L1 Protocol Type\00", align 1
-@.str.453 = private unnamed_addr constant [23 x i8] c"SIE Line Configuration\00", align 1
-@.str.454 = private unnamed_addr constant [26 x i8] c"SIE Line Interface Port 1\00", align 1
-@.str.455 = private unnamed_addr constant [26 x i8] c"SIE Line Interface Port 2\00", align 1
-@.str.456 = private unnamed_addr constant [25 x i8] c"SIE L1 Remote Alarm Type\00", align 1
-@.str.457 = private unnamed_addr constant [27 x i8] c"SIE Software Load Intended\00", align 1
-@.str.458 = private unnamed_addr constant [25 x i8] c"SIE Software Load Safety\00", align 1
-@.str.459 = private unnamed_addr constant [25 x i8] c"SIE Software Load Stored\00", align 1
-@.str.460 = private unnamed_addr constant [16 x i8] c"SIE Vendor Name\00", align 1
-@.str.461 = private unnamed_addr constant [17 x i8] c"SIE Hopping Mode\00", align 1
-@.str.462 = private unnamed_addr constant [22 x i8] c"SIE LMT Logon Session\00", align 1
-@.str.463 = private unnamed_addr constant [19 x i8] c"SIE LMT Login Time\00", align 1
-@.str.464 = private unnamed_addr constant [27 x i8] c"SIE LMT User Account Level\00", align 1
-@.str.465 = private unnamed_addr constant [26 x i8] c"SIE LMT User Account Name\00", align 1
-@.str.466 = private unnamed_addr constant [18 x i8] c"SIE L1 Control TS\00", align 1
-@.str.467 = private unnamed_addr constant [34 x i8] c"SIE Radio Measurement Granularity\00", align 1
-@.str.468 = private unnamed_addr constant [29 x i8] c"SIE Radio Measurement Report\00", align 1
-@.str.469 = private unnamed_addr constant [24 x i8] c"SIE LAPD Internal Timer\00", align 1
-@.str.470 = private unnamed_addr constant [14 x i8] c"SIE BTS State\00", align 1
-@.str.471 = private unnamed_addr constant [13 x i8] c"SIE E1 State\00", align 1
-@.str.472 = private unnamed_addr constant [8 x i8] c"SIE PLL\00", align 1
-@.str.473 = private unnamed_addr constant [14 x i8] c"SIE Rx Offset\00", align 1
-@.str.474 = private unnamed_addr constant [17 x i8] c"SIE Antenna Type\00", align 1
-@.str.475 = private unnamed_addr constant [13 x i8] c"SIE PLL Mode\00", align 1
-@.str.476 = private unnamed_addr constant [13 x i8] c"SIE Password\00", align 1
-@.str.477 = private unnamed_addr constant [23 x i8] c"SIE ESN FW Code Number\00", align 1
-@.str.478 = private unnamed_addr constant [23 x i8] c"SIE ESN HW Code Number\00", align 1
-@.str.479 = private unnamed_addr constant [26 x i8] c"SIE ESN PCB Serial Number\00", align 1
-@.str.480 = private unnamed_addr constant [23 x i8] c"SIE Excessive Distance\00", align 1
-@.str.481 = private unnamed_addr constant [24 x i8] c"SIE All Test Categories\00", align 1
-@.str.482 = private unnamed_addr constant [19 x i8] c"SIE BTS LS Hopping\00", align 1
-@.str.483 = private unnamed_addr constant [27 x i8] c"SIE Cell Allocation Number\00", align 1
-@.str.484 = private unnamed_addr constant [19 x i8] c"SIE Cell Global ID\00", align 1
-@.str.485 = private unnamed_addr constant [30 x i8] c"SIE Enable Interference Class\00", align 1
-@.str.486 = private unnamed_addr constant [30 x i8] c"SIE Enable Int Intec Handover\00", align 1
-@.str.487 = private unnamed_addr constant [30 x i8] c"SIE Enable Int Intrc Handover\00", align 1
-@.str.488 = private unnamed_addr constant [28 x i8] c"SIE Enable MS Power Control\00", align 1
-@.str.489 = private unnamed_addr constant [27 x i8] c"SIE Enable Power Budget HO\00", align 1
-@.str.490 = private unnamed_addr constant [22 x i8] c"SIE Enable RxLevel HO\00", align 1
-@.str.491 = private unnamed_addr constant [21 x i8] c"SIE Enable RxQual HO\00", align 1
-@.str.492 = private unnamed_addr constant [18 x i8] c"SIE FACCH Quality\00", align 1
-@.str.493 = private unnamed_addr constant [27 x i8] c"IPA Destination IP Address\00", align 1
-@.str.494 = private unnamed_addr constant [24 x i8] c"IPA Destination IP Port\00", align 1
-@.str.495 = private unnamed_addr constant [13 x i8] c"IPA RTP SSRC\00", align 1
-@.str.496 = private unnamed_addr constant [21 x i8] c"IPA RTP Payload Type\00", align 1
-@.str.497 = private unnamed_addr constant [24 x i8] c"IPA Baseband Identifier\00", align 1
-@.str.498 = private unnamed_addr constant [22 x i8] c"IPA Stream Identifier\00", align 1
-@.str.499 = private unnamed_addr constant [16 x i8] c"IPA NVRAM Flags\00", align 1
-@.str.500 = private unnamed_addr constant [22 x i8] c"IPA Frequency Control\00", align 1
-@.str.501 = private unnamed_addr constant [23 x i8] c"IPA Primary OML Config\00", align 1
-@.str.502 = private unnamed_addr constant [25 x i8] c"IPA Secondary OML Config\00", align 1
-@.str.503 = private unnamed_addr constant [24 x i8] c"IPA IP Interface Config\00", align 1
-@.str.504 = private unnamed_addr constant [22 x i8] c"IPA IP Gateway Config\00", align 1
-@.str.505 = private unnamed_addr constant [20 x i8] c"IPA In Service Time\00", align 1
-@.str.506 = private unnamed_addr constant [23 x i8] c"IPA TRX BTS Assignment\00", align 1
-@.str.507 = private unnamed_addr constant [22 x i8] c"IPA BTS Location Name\00", align 1
-@.str.508 = private unnamed_addr constant [25 x i8] c"IPA Paging Configuration\00", align 1
-@.str.509 = private unnamed_addr constant [14 x i8] c"IPA File Data\00", align 1
-@.str.510 = private unnamed_addr constant [12 x i8] c"IPA Unit ID\00", align 1
-@.str.511 = private unnamed_addr constant [19 x i8] c"IPA Parent Unit ID\00", align 1
-@.str.512 = private unnamed_addr constant [14 x i8] c"IPA Unit Name\00", align 1
-@.str.513 = private unnamed_addr constant [16 x i8] c"IPA SNMP Config\00", align 1
-@.str.514 = private unnamed_addr constant [28 x i8] c"IPA Primary OML Config List\00", align 1
-@.str.515 = private unnamed_addr constant [33 x i8] c"IPA Primary OML Fallback Timeout\00", align 1
-@.str.516 = private unnamed_addr constant [28 x i8] c"IPA Current Software Config\00", align 1
-@.str.517 = private unnamed_addr constant [15 x i8] c"IPA Timing Bus\00", align 1
-@.str.518 = private unnamed_addr constant [8 x i8] c"IPA CGI\00", align 1
-@.str.519 = private unnamed_addr constant [8 x i8] c"IPA RAC\00", align 1
-@.str.520 = private unnamed_addr constant [19 x i8] c"IPA Object Version\00", align 1
-@.str.521 = private unnamed_addr constant [30 x i8] c"IPA GPRS Paging Configuration\00", align 1
-@.str.522 = private unnamed_addr constant [9 x i8] c"IPA NSEI\00", align 1
-@.str.523 = private unnamed_addr constant [9 x i8] c"IPA BVCI\00", align 1
-@.str.524 = private unnamed_addr constant [10 x i8] c"IPA NSVCI\00", align 1
-@.str.525 = private unnamed_addr constant [21 x i8] c"IPA NS Configuration\00", align 1
-@.str.526 = private unnamed_addr constant [24 x i8] c"IPA BSSGP Configuration\00", align 1
-@.str.527 = private unnamed_addr constant [26 x i8] c"IPA NS Link Configuration\00", align 1
-@.str.528 = private unnamed_addr constant [22 x i8] c"IPA RLC Configuration\00", align 1
-@.str.529 = private unnamed_addr constant [25 x i8] c"IPA Alarm Threshold List\00", align 1
-@.str.530 = private unnamed_addr constant [25 x i8] c"IPA Monitored Value List\00", align 1
-@.str.531 = private unnamed_addr constant [33 x i8] c"IPA Timing Interface Bus Control\00", align 1
-@.str.532 = private unnamed_addr constant [23 x i8] c"IPA Supported Features\00", align 1
-@.str.533 = private unnamed_addr constant [19 x i8] c"IPA Coding Schemes\00", align 1
-@.str.534 = private unnamed_addr constant [24 x i8] c"IPA RLC Configuration 2\00", align 1
-@.str.535 = private unnamed_addr constant [22 x i8] c"IPA Heartbeat Timeout\00", align 1
-@.str.536 = private unnamed_addr constant [11 x i8] c"IPA Uptime\00", align 1
-@.str.537 = private unnamed_addr constant [24 x i8] c"IPA RLC Configuration 3\00", align 1
-@.str.538 = private unnamed_addr constant [22 x i8] c"IPA SSL Configuration\00", align 1
-@.str.539 = private unnamed_addr constant [22 x i8] c"IPA Security Possible\00", align 1
-@.str.540 = private unnamed_addr constant [18 x i8] c"IPA IML SSL State\00", align 1
-@.str.541 = private unnamed_addr constant [20 x i8] c"IPA Revocation Date\00", align 1
-@.str.542 = private unnamed_addr constant [7 x i8] c"Locked\00", align 1
-@.str.543 = private unnamed_addr constant [9 x i8] c"Unlocked\00", align 1
-@.str.544 = private unnamed_addr constant [9 x i8] c"Shutdown\00", align 1
-@.str.545 = private unnamed_addr constant [5 x i8] c"Null\00", align 1
-@.str.546 = private unnamed_addr constant [9 x i8] c"Disabled\00", align 1
-@.str.547 = private unnamed_addr constant [8 x i8] c"Enabled\00", align 1
-@.str.548 = private unnamed_addr constant [8 x i8] c"In test\00", align 1
-@.str.549 = private unnamed_addr constant [7 x i8] c"Failed\00", align 1
-@.str.550 = private unnamed_addr constant [10 x i8] c"Power off\00", align 1
-@.str.551 = private unnamed_addr constant [9 x i8] c"Off line\00", align 1
-@.str.552 = private unnamed_addr constant [11 x i8] c"Dependency\00", align 1
-@.str.553 = private unnamed_addr constant [9 x i8] c"Degraded\00", align 1
-@.str.554 = private unnamed_addr constant [14 x i8] c"Not installed\00", align 1
-@.str.555 = private unnamed_addr constant [3 x i8] c"OK\00", align 1
-@.str.556 = private unnamed_addr constant [22 x i8] c"Communication Failure\00", align 1
-@.str.557 = private unnamed_addr constant [12 x i8] c"QoS Failure\00", align 1
-@.str.558 = private unnamed_addr constant [18 x i8] c"Processor Failure\00", align 1
-@.str.559 = private unnamed_addr constant [18 x i8] c"Equipment Failure\00", align 1
-@.str.560 = private unnamed_addr constant [20 x i8] c"Environment Failure\00", align 1
-@.str.561 = private unnamed_addr constant [7 x i8] c"Ceased\00", align 1
-@.str.562 = private unnamed_addr constant [9 x i8] c"Critical\00", align 1
-@.str.563 = private unnamed_addr constant [6 x i8] c"Major\00", align 1
-@.str.564 = private unnamed_addr constant [6 x i8] c"Minor\00", align 1
-@.str.565 = private unnamed_addr constant [8 x i8] c"Warning\00", align 1
-@.str.566 = private unnamed_addr constant [14 x i8] c"Indeterminate\00", align 1
-@.str.567 = private unnamed_addr constant [28 x i8] c"Incorrect message structure\00", align 1
-@.str.568 = private unnamed_addr constant [27 x i8] c"Invalid message type value\00", align 1
-@.str.569 = private unnamed_addr constant [27 x i8] c"Invalid Object class value\00", align 1
-@.str.570 = private unnamed_addr constant [27 x i8] c"Object Class not supported\00", align 1
-@.str.571 = private unnamed_addr constant [19 x i8] c"BTS Number unknown\00", align 1
-@.str.572 = private unnamed_addr constant [19 x i8] c"TRX Number unknown\00", align 1
-@.str.573 = private unnamed_addr constant [24 x i8] c"Object Instance unknown\00", align 1
-@.str.574 = private unnamed_addr constant [27 x i8] c"Invalid Attribute ID value\00", align 1
-@.str.575 = private unnamed_addr constant [27 x i8] c"Attribute ID not supported\00", align 1
-@.str.576 = private unnamed_addr constant [29 x i8] c"Parameter value out of range\00", align 1
-@.str.577 = private unnamed_addr constant [32 x i8] c"Inconsistency in Attribute list\00", align 1
-@.str.578 = private unnamed_addr constant [39 x i8] c"Specified Implementation not supported\00", align 1
-@.str.579 = private unnamed_addr constant [28 x i8] c"Message cannot be performed\00", align 1
-@.str.580 = private unnamed_addr constant [25 x i8] c"Resource not implemented\00", align 1
-@.str.581 = private unnamed_addr constant [23 x i8] c"Resource not available\00", align 1
-@.str.582 = private unnamed_addr constant [24 x i8] c"Frequency not available\00", align 1
-@.str.583 = private unnamed_addr constant [19 x i8] c"Test not supported\00", align 1
-@.str.584 = private unnamed_addr constant [22 x i8] c"Capacity restrictions\00", align 1
-@.str.585 = private unnamed_addr constant [32 x i8] c"Phys config cannot be performed\00", align 1
-@.str.586 = private unnamed_addr constant [19 x i8] c"Test not initiated\00", align 1
-@.str.587 = private unnamed_addr constant [31 x i8] c"Phys config cannot be restored\00", align 1
-@.str.588 = private unnamed_addr constant [13 x i8] c"No such Test\00", align 1
-@.str.589 = private unnamed_addr constant [23 x i8] c"Test cannot be stopped\00", align 1
-@.str.590 = private unnamed_addr constant [42 x i8] c"Message inconsistent with physical config\00", align 1
-@.str.591 = private unnamed_addr constant [27 x i8] c"Complete file not received\00", align 1
-@.str.592 = private unnamed_addr constant [34 x i8] c"File not available at destination\00", align 1
-@.str.593 = private unnamed_addr constant [25 x i8] c"File cannot be activated\00", align 1
-@.str.594 = private unnamed_addr constant [20 x i8] c"Request not granted\00", align 1
-@.str.595 = private unnamed_addr constant [5 x i8] c"Wait\00", align 1
-@.str.596 = private unnamed_addr constant [28 x i8] c"Nothing reportable existing\00", align 1
-@.str.597 = private unnamed_addr constant [26 x i8] c"Measurement not supported\00", align 1
-@.str.598 = private unnamed_addr constant [24 x i8] c"Measurement not started\00", align 1
-@.str.599 = private unnamed_addr constant [28 x i8] c"Radio Loop test via antenna\00", align 1
-@.str.600 = private unnamed_addr constant [32 x i8] c"Radio Loop test via transceiver\00", align 1
-@.str.601 = private unnamed_addr constant [32 x i8] c"BTS Functional object self test\00", align 1
-@.str.602 = private unnamed_addr constant [14 x i8] c"Channel Usage\00", align 1
-@.str.603 = private unnamed_addr constant [19 x i8] c"BCCH Channel Usage\00", align 1
-@.str.604 = private unnamed_addr constant [26 x i8] c"Frequency Synchronization\00", align 1
-@.str.605 = private unnamed_addr constant [17 x i8] c"BCCH Information\00", align 1
-@.str.606 = private unnamed_addr constant [16 x i8] c"Transmit Beacon\00", align 1
-@.str.607 = private unnamed_addr constant [16 x i8] c"SysInfo Monitor\00", align 1
-@.str.608 = private unnamed_addr constant [20 x i8] c"BCCH & CCCH Monitor\00", align 1
-@.str.609 = private unnamed_addr constant [6 x i8] c"TCH/F\00", align 1
-@.str.610 = private unnamed_addr constant [6 x i8] c"TCH/H\00", align 1
-@.str.611 = private unnamed_addr constant [8 x i8] c"TCH/H 2\00", align 1
-@.str.612 = private unnamed_addr constant [6 x i8] c"SDCCH\00", align 1
-@.str.613 = private unnamed_addr constant [10 x i8] c"Main BCCH\00", align 1
-@.str.614 = private unnamed_addr constant [14 x i8] c"Combined BCCH\00", align 1
-@.str.615 = private unnamed_addr constant [5 x i8] c"BCCH\00", align 1
-@.str.616 = private unnamed_addr constant [10 x i8] c"BCCH+CBCH\00", align 1
-@.str.617 = private unnamed_addr constant [11 x i8] c"SDCCH+CBCH\00", align 1
-@.str.618 = private unnamed_addr constant [14 x i8] c"A-bis Channel\00", align 1
-@.str.619 = private unnamed_addr constant [23 x i8] c"Additional Information\00", align 1
-@.str.620 = private unnamed_addr constant [16 x i8] c"Additional Text\00", align 1
-@.str.621 = private unnamed_addr constant [11 x i8] c"ARFCN List\00", align 1
-@.str.622 = private unnamed_addr constant [20 x i8] c"Autonomously Report\00", align 1
-@.str.623 = private unnamed_addr constant [14 x i8] c"BTS Air Timer\00", align 1
-@.str.624 = private unnamed_addr constant [28 x i8] c"CCCH Load Indication Period\00", align 1
-@.str.625 = private unnamed_addr constant [20 x i8] c"CCCH Load Threshold\00", align 1
-@.str.626 = private unnamed_addr constant [26 x i8] c"Connection Fail Criterion\00", align 1
-@.str.627 = private unnamed_addr constant [12 x i8] c"Destination\00", align 1
-@.str.628 = private unnamed_addr constant [8 x i8] c"File ID\00", align 1
-@.str.629 = private unnamed_addr constant [13 x i8] c"File Version\00", align 1
-@.str.630 = private unnamed_addr constant [17 x i8] c"HW Configuration\00", align 1
-@.str.631 = private unnamed_addr constant [15 x i8] c"HW Description\00", align 1
-@.str.632 = private unnamed_addr constant [17 x i8] c"Intave Parameter\00", align 1
-@.str.633 = private unnamed_addr constant [24 x i8] c"Interference Boundaries\00", align 1
-@.str.634 = private unnamed_addr constant [29 x i8] c"Manufacturer Dependent State\00", align 1
-@.str.635 = private unnamed_addr constant [34 x i8] c"Manufacturer Dependent Thresholds\00", align 1
-@.str.636 = private unnamed_addr constant [16 x i8] c"Manufacturer Id\00", align 1
-@.str.637 = private unnamed_addr constant [23 x i8] c"Maximum Timing Advance\00", align 1
-@.str.638 = private unnamed_addr constant [20 x i8] c"Multi-drop BSC Link\00", align 1
-@.str.639 = private unnamed_addr constant [25 x i8] c"Multi-drop next BTS Link\00", align 1
-@.str.640 = private unnamed_addr constant [4 x i8] c"Ny1\00", align 1
-@.str.641 = private unnamed_addr constant [16 x i8] c"Overload Period\00", align 1
-@.str.642 = private unnamed_addr constant [16 x i8] c"Physical Config\00", align 1
-@.str.643 = private unnamed_addr constant [12 x i8] c"Power Class\00", align 1
-@.str.644 = private unnamed_addr constant [24 x i8] c"Power Output Thresholds\00", align 1
-@.str.645 = private unnamed_addr constant [15 x i8] c"Probable Cause\00", align 1
-@.str.646 = private unnamed_addr constant [20 x i8] c"RACH Busy Threshold\00", align 1
-@.str.647 = private unnamed_addr constant [26 x i8] c"RACH Load Averaging Slots\00", align 1
-@.str.648 = private unnamed_addr constant [18 x i8] c"Radio Sub Channel\00", align 1
-@.str.649 = private unnamed_addr constant [23 x i8] c"RF Max Power Reduction\00", align 1
-@.str.650 = private unnamed_addr constant [12 x i8] c"Site Inputs\00", align 1
-@.str.651 = private unnamed_addr constant [13 x i8] c"Site Outputs\00", align 1
-@.str.652 = private unnamed_addr constant [7 x i8] c"Source\00", align 1
-@.str.653 = private unnamed_addr constant [18 x i8] c"Specific Problems\00", align 1
-@.str.654 = private unnamed_addr constant [14 x i8] c"Starting Time\00", align 1
-@.str.655 = private unnamed_addr constant [5 x i8] c"T200\00", align 1
-@.str.656 = private unnamed_addr constant [14 x i8] c"Test Duration\00", align 1
-@.str.657 = private unnamed_addr constant [8 x i8] c"Test No\00", align 1
-@.str.658 = private unnamed_addr constant [17 x i8] c"Test Report Info\00", align 1
-@.str.659 = private unnamed_addr constant [17 x i8] c"VSWR Thresholds \00", align 1
-@.str.660 = private unnamed_addr constant [12 x i8] c"Window Size\00", align 1
-@.str.661 = private unnamed_addr constant [16 x i8] c"SIE RSSI Offset\00", align 1
-@.str.662 = private unnamed_addr constant [13 x i8] c"SIE TX Power\00", align 1
-@.str.663 = private unnamed_addr constant [14 x i8] c"SIE Diversity\00", align 1
-@.str.664 = private unnamed_addr constant [17 x i8] c"SW Configuration\00", align 1
-@.str.665 = private unnamed_addr constant [15 x i8] c"SW Description\00", align 1
-@.str.666 = private unnamed_addr constant [19 x i8] c"Perceived Severity\00", align 1
-@.str.667 = private unnamed_addr constant [8 x i8] c"Get ARI\00", align 1
-@.str.668 = private unnamed_addr constant [24 x i8] c"HW Configuration Change\00", align 1
-@.str.669 = private unnamed_addr constant [18 x i8] c"Outstanding Alarm\00", align 1
-@.str.670 = private unnamed_addr constant [10 x i8] c"File Data\00", align 1
-@.str.671 = private unnamed_addr constant [19 x i8] c"Measurement Result\00", align 1
-@.str.672 = private unnamed_addr constant [17 x i8] c"Measurement Type\00", align 1
-@.str.673 = private unnamed_addr constant [6 x i8] c"-%u%s\00", align 1
+@oml_msg_disc_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 128, [4 x i8] zeroinitializer, ptr @.str.250 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.251 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.252 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.253 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.255 = private unnamed_addr constant [5 x i8] c"Only\00", align 1
+@.str.256 = private unnamed_addr constant [6 x i8] c"First\00", align 1
+@.str.257 = private unnamed_addr constant [7 x i8] c"Middle\00", align 1
+@.str.258 = private unnamed_addr constant [5 x i8] c"Last\00", align 1
+@oml_placement_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 128, [4 x i8] zeroinitializer, ptr @.str.255 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.256 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.257 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.258 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.260 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
+@.str.261 = private unnamed_addr constant [15 x i8] c"Unknown 0x%02x\00", align 1
+@.str.262 = private unnamed_addr constant [19 x i8] c"SIE Reset Resource\00", align 1
+@.str.263 = private unnamed_addr constant [32 x i8] c"SIE Begin Database Transmission\00", align 1
+@.str.264 = private unnamed_addr constant [36 x i8] c"SIE Begin Database Transmission ACK\00", align 1
+@.str.265 = private unnamed_addr constant [37 x i8] c"SIE Begin Database Transmission NACK\00", align 1
+@.str.266 = private unnamed_addr constant [30 x i8] c"SIE End Database Transmission\00", align 1
+@.str.267 = private unnamed_addr constant [34 x i8] c"SIE End Database Transmission ACK\00", align 1
+@.str.268 = private unnamed_addr constant [35 x i8] c"SIE End Database Transmission NACK\00", align 1
+@.str.269 = private unnamed_addr constant [18 x i8] c"SIE Create Object\00", align 1
+@.str.270 = private unnamed_addr constant [22 x i8] c"SIE Create Object ACK\00", align 1
+@.str.271 = private unnamed_addr constant [23 x i8] c"SIE Create Object NACK\00", align 1
+@.str.272 = private unnamed_addr constant [18 x i8] c"SIE Delete Object\00", align 1
+@.str.273 = private unnamed_addr constant [22 x i8] c"SIE Delete Object ACK\00", align 1
+@.str.274 = private unnamed_addr constant [23 x i8] c"SIE Delete Object NACK\00", align 1
+@.str.275 = private unnamed_addr constant [18 x i8] c"SIE Set Attribute\00", align 1
+@.str.276 = private unnamed_addr constant [22 x i8] c"SIE Set Attribute ACK\00", align 1
+@.str.277 = private unnamed_addr constant [23 x i8] c"SIE Set Attribute NACK\00", align 1
+@.str.278 = private unnamed_addr constant [14 x i8] c"SIE Get State\00", align 1
+@.str.279 = private unnamed_addr constant [18 x i8] c"SIE Get State ACK\00", align 1
+@.str.280 = private unnamed_addr constant [14 x i8] c"SIE LMT Logon\00", align 1
+@.str.281 = private unnamed_addr constant [18 x i8] c"SIE LMT Logon ACK\00", align 1
+@.str.282 = private unnamed_addr constant [12 x i8] c"SIE Restart\00", align 1
+@.str.283 = private unnamed_addr constant [16 x i8] c"SIE Restart ACK\00", align 1
+@.str.284 = private unnamed_addr constant [19 x i8] c"SIE Disconnect BTS\00", align 1
+@.str.285 = private unnamed_addr constant [23 x i8] c"SIE Disconnect BTS ACK\00", align 1
+@.str.286 = private unnamed_addr constant [15 x i8] c"SIE LMT Logoff\00", align 1
+@.str.287 = private unnamed_addr constant [19 x i8] c"SIE LMT Logoff ACK\00", align 1
+@.str.288 = private unnamed_addr constant [18 x i8] c"SIE Reconnect BTS\00", align 1
+@.str.289 = private unnamed_addr constant [22 x i8] c"SIE Reconnect BTS ACK\00", align 1
+@oml_fom_msgtype_vals_bs11 = internal constant [29 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 116, [4 x i8] zeroinitializer, ptr @.str.262 }, { i32, [4 x i8], ptr } { i32 163, [4 x i8] zeroinitializer, ptr @.str.263 }, { i32, [4 x i8], ptr } { i32 164, [4 x i8] zeroinitializer, ptr @.str.264 }, { i32, [4 x i8], ptr } { i32 165, [4 x i8] zeroinitializer, ptr @.str.265 }, { i32, [4 x i8], ptr } { i32 166, [4 x i8] zeroinitializer, ptr @.str.266 }, { i32, [4 x i8], ptr } { i32 167, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } { i32 168, [4 x i8] zeroinitializer, ptr @.str.268 }, { i32, [4 x i8], ptr } { i32 169, [4 x i8] zeroinitializer, ptr @.str.269 }, { i32, [4 x i8], ptr } { i32 170, [4 x i8] zeroinitializer, ptr @.str.270 }, { i32, [4 x i8], ptr } { i32 171, [4 x i8] zeroinitializer, ptr @.str.271 }, { i32, [4 x i8], ptr } { i32 172, [4 x i8] zeroinitializer, ptr @.str.272 }, { i32, [4 x i8], ptr } { i32 173, [4 x i8] zeroinitializer, ptr @.str.273 }, { i32, [4 x i8], ptr } { i32 174, [4 x i8] zeroinitializer, ptr @.str.274 }, { i32, [4 x i8], ptr } { i32 208, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 209, [4 x i8] zeroinitializer, ptr @.str.276 }, { i32, [4 x i8], ptr } { i32 210, [4 x i8] zeroinitializer, ptr @.str.277 }, { i32, [4 x i8], ptr } { i32 227, [4 x i8] zeroinitializer, ptr @.str.278 }, { i32, [4 x i8], ptr } { i32 228, [4 x i8] zeroinitializer, ptr @.str.279 }, { i32, [4 x i8], ptr } { i32 229, [4 x i8] zeroinitializer, ptr @.str.280 }, { i32, [4 x i8], ptr } { i32 230, [4 x i8] zeroinitializer, ptr @.str.281 }, { i32, [4 x i8], ptr } { i32 231, [4 x i8] zeroinitializer, ptr @.str.282 }, { i32, [4 x i8], ptr } { i32 232, [4 x i8] zeroinitializer, ptr @.str.283 }, { i32, [4 x i8], ptr } { i32 233, [4 x i8] zeroinitializer, ptr @.str.284 }, { i32, [4 x i8], ptr } { i32 234, [4 x i8] zeroinitializer, ptr @.str.285 }, { i32, [4 x i8], ptr } { i32 236, [4 x i8] zeroinitializer, ptr @.str.286 }, { i32, [4 x i8], ptr } { i32 237, [4 x i8] zeroinitializer, ptr @.str.287 }, { i32, [4 x i8], ptr } { i32 241, [4 x i8] zeroinitializer, ptr @.str.288 }, { i32, [4 x i8], ptr } { i32 242, [4 x i8] zeroinitializer, ptr @.str.289 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.291 = private unnamed_addr constant [12 x i8] c"IPA Restart\00", align 1
+@.str.292 = private unnamed_addr constant [16 x i8] c"IPA Restart ACK\00", align 1
+@.str.293 = private unnamed_addr constant [16 x i8] c"IPA RSL Connect\00", align 1
+@.str.294 = private unnamed_addr constant [20 x i8] c"IPA RSL Connect ACK\00", align 1
+@.str.295 = private unnamed_addr constant [21 x i8] c"IPA RSL Connect NACK\00", align 1
+@.str.296 = private unnamed_addr constant [19 x i8] c"IPA RSL Disconnect\00", align 1
+@.str.297 = private unnamed_addr constant [23 x i8] c"IPA RSL Disconnect ACK\00", align 1
+@.str.298 = private unnamed_addr constant [24 x i8] c"IPA RSL Disconnect NACK\00", align 1
+@.str.299 = private unnamed_addr constant [20 x i8] c"IPA Connect Traffic\00", align 1
+@.str.300 = private unnamed_addr constant [24 x i8] c"IPA Connect Traffic ACK\00", align 1
+@.str.301 = private unnamed_addr constant [25 x i8] c"IPA Connect Traffic NACK\00", align 1
+@.str.302 = private unnamed_addr constant [23 x i8] c"IPA Disconnect Traffic\00", align 1
+@.str.303 = private unnamed_addr constant [27 x i8] c"IPA Disconnect Traffic ACK\00", align 1
+@.str.304 = private unnamed_addr constant [28 x i8] c"IPA Disconnect Traffic NACK\00", align 1
+@.str.305 = private unnamed_addr constant [26 x i8] c"IPA Default Boot Software\00", align 1
+@.str.306 = private unnamed_addr constant [30 x i8] c"IPA Default Boot Software ACK\00", align 1
+@.str.307 = private unnamed_addr constant [31 x i8] c"IPA Default Boot Software NACK\00", align 1
+@.str.308 = private unnamed_addr constant [25 x i8] c"IPA Set NVRAM Attributes\00", align 1
+@.str.309 = private unnamed_addr constant [29 x i8] c"IPA Set NVRAM Attributes ACK\00", align 1
+@.str.310 = private unnamed_addr constant [30 x i8] c"IPA Set NVRAM Attributes NACK\00", align 1
+@.str.311 = private unnamed_addr constant [25 x i8] c"IPA Get NVRAM Attributes\00", align 1
+@.str.312 = private unnamed_addr constant [29 x i8] c"IPA Get NVRAM Attributes ACK\00", align 1
+@.str.313 = private unnamed_addr constant [30 x i8] c"IPA Get NVRAM Attributes NACK\00", align 1
+@.str.314 = private unnamed_addr constant [19 x i8] c"IPA Set Attributes\00", align 1
+@.str.315 = private unnamed_addr constant [23 x i8] c"IPA Set Attributes ACK\00", align 1
+@.str.316 = private unnamed_addr constant [24 x i8] c"IPA Set Attributes NACK\00", align 1
+@.str.317 = private unnamed_addr constant [27 x i8] c"IPA Attribute Change Event\00", align 1
+@.str.318 = private unnamed_addr constant [24 x i8] c"IPA Software Deactivate\00", align 1
+@.str.319 = private unnamed_addr constant [28 x i8] c"IPA Software Deactivate ACK\00", align 1
+@.str.320 = private unnamed_addr constant [29 x i8] c"IPA Software Deactivate NACK\00", align 1
+@.str.321 = private unnamed_addr constant [36 x i8] c"IPA Measurement Result Request NACK\00", align 1
+@.str.322 = private unnamed_addr constant [27 x i8] c"IPA Start Measurement NACK\00", align 1
+@.str.323 = private unnamed_addr constant [26 x i8] c"IPA Stop Measurement NACK\00", align 1
+@oml_fom_msgtype_vals_ipa = internal constant [34 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 135, [4 x i8] zeroinitializer, ptr @.str.291 }, { i32, [4 x i8], ptr } { i32 136, [4 x i8] zeroinitializer, ptr @.str.292 }, { i32, [4 x i8], ptr } { i32 224, [4 x i8] zeroinitializer, ptr @.str.293 }, { i32, [4 x i8], ptr } { i32 225, [4 x i8] zeroinitializer, ptr @.str.294 }, { i32, [4 x i8], ptr } { i32 226, [4 x i8] zeroinitializer, ptr @.str.295 }, { i32, [4 x i8], ptr } { i32 227, [4 x i8] zeroinitializer, ptr @.str.296 }, { i32, [4 x i8], ptr } { i32 228, [4 x i8] zeroinitializer, ptr @.str.297 }, { i32, [4 x i8], ptr } { i32 229, [4 x i8] zeroinitializer, ptr @.str.298 }, { i32, [4 x i8], ptr } { i32 230, [4 x i8] zeroinitializer, ptr @.str.299 }, { i32, [4 x i8], ptr } { i32 231, [4 x i8] zeroinitializer, ptr @.str.300 }, { i32, [4 x i8], ptr } { i32 232, [4 x i8] zeroinitializer, ptr @.str.301 }, { i32, [4 x i8], ptr } { i32 233, [4 x i8] zeroinitializer, ptr @.str.302 }, { i32, [4 x i8], ptr } { i32 234, [4 x i8] zeroinitializer, ptr @.str.303 }, { i32, [4 x i8], ptr } { i32 235, [4 x i8] zeroinitializer, ptr @.str.304 }, { i32, [4 x i8], ptr } { i32 236, [4 x i8] zeroinitializer, ptr @.str.305 }, { i32, [4 x i8], ptr } { i32 237, [4 x i8] zeroinitializer, ptr @.str.306 }, { i32, [4 x i8], ptr } { i32 238, [4 x i8] zeroinitializer, ptr @.str.307 }, { i32, [4 x i8], ptr } { i32 239, [4 x i8] zeroinitializer, ptr @.str.308 }, { i32, [4 x i8], ptr } { i32 240, [4 x i8] zeroinitializer, ptr @.str.309 }, { i32, [4 x i8], ptr } { i32 241, [4 x i8] zeroinitializer, ptr @.str.310 }, { i32, [4 x i8], ptr } { i32 242, [4 x i8] zeroinitializer, ptr @.str.311 }, { i32, [4 x i8], ptr } { i32 243, [4 x i8] zeroinitializer, ptr @.str.312 }, { i32, [4 x i8], ptr } { i32 244, [4 x i8] zeroinitializer, ptr @.str.313 }, { i32, [4 x i8], ptr } { i32 245, [4 x i8] zeroinitializer, ptr @.str.314 }, { i32, [4 x i8], ptr } { i32 246, [4 x i8] zeroinitializer, ptr @.str.315 }, { i32, [4 x i8], ptr } { i32 247, [4 x i8] zeroinitializer, ptr @.str.316 }, { i32, [4 x i8], ptr } { i32 248, [4 x i8] zeroinitializer, ptr @.str.317 }, { i32, [4 x i8], ptr } { i32 249, [4 x i8] zeroinitializer, ptr @.str.318 }, { i32, [4 x i8], ptr } { i32 250, [4 x i8] zeroinitializer, ptr @.str.319 }, { i32, [4 x i8], ptr } { i32 251, [4 x i8] zeroinitializer, ptr @.str.320 }, { i32, [4 x i8], ptr } { i32 252, [4 x i8] zeroinitializer, ptr @.str.321 }, { i32, [4 x i8], ptr } { i32 253, [4 x i8] zeroinitializer, ptr @.str.322 }, { i32, [4 x i8], ptr } { i32 254, [4 x i8] zeroinitializer, ptr @.str.323 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.325 = private unnamed_addr constant [19 x i8] c"Software Load Init\00", align 1
+@.str.326 = private unnamed_addr constant [23 x i8] c"Software Load Init ACK\00", align 1
+@.str.327 = private unnamed_addr constant [24 x i8] c"Software Load Init NACK\00", align 1
+@.str.328 = private unnamed_addr constant [22 x i8] c"Software Load Segment\00", align 1
+@.str.329 = private unnamed_addr constant [26 x i8] c"Software Load Segment ACK\00", align 1
+@.str.330 = private unnamed_addr constant [18 x i8] c"Software Load End\00", align 1
+@.str.331 = private unnamed_addr constant [22 x i8] c"Software Load End ACK\00", align 1
+@.str.332 = private unnamed_addr constant [23 x i8] c"Software Load End NACK\00", align 1
+@.str.333 = private unnamed_addr constant [26 x i8] c"Software Activate Request\00", align 1
+@.str.334 = private unnamed_addr constant [30 x i8] c"Software Activate Request ACK\00", align 1
+@.str.335 = private unnamed_addr constant [31 x i8] c"Software Activate Request NACK\00", align 1
+@.str.336 = private unnamed_addr constant [18 x i8] c"Activate Software\00", align 1
+@.str.337 = private unnamed_addr constant [22 x i8] c"Activate Software ACK\00", align 1
+@.str.338 = private unnamed_addr constant [23 x i8] c"Activate Software NACK\00", align 1
+@.str.339 = private unnamed_addr constant [26 x i8] c"Software Activated Report\00", align 1
+@.str.340 = private unnamed_addr constant [14 x i8] c"Establish TEI\00", align 1
+@.str.341 = private unnamed_addr constant [18 x i8] c"Establish TEI ACK\00", align 1
+@.str.342 = private unnamed_addr constant [19 x i8] c"Establish TEI NACK\00", align 1
+@.str.343 = private unnamed_addr constant [31 x i8] c"Connect Terrestrial Signalling\00", align 1
+@.str.344 = private unnamed_addr constant [35 x i8] c"Connect Terrestrial Signalling ACK\00", align 1
+@.str.345 = private unnamed_addr constant [36 x i8] c"Connect Terrestrial Signalling NACK\00", align 1
+@.str.346 = private unnamed_addr constant [34 x i8] c"Disconnect Terrestrial Signalling\00", align 1
+@.str.347 = private unnamed_addr constant [38 x i8] c"Disconnect Terrestrial Signalling ACK\00", align 1
+@.str.348 = private unnamed_addr constant [39 x i8] c"Disconnect Terrestrial Signalling NACK\00", align 1
+@.str.349 = private unnamed_addr constant [28 x i8] c"Connect Terrestrial Traffic\00", align 1
+@.str.350 = private unnamed_addr constant [32 x i8] c"Connect Terrestrial Traffic ACK\00", align 1
+@.str.351 = private unnamed_addr constant [33 x i8] c"Connect Terrestrial Traffic NACK\00", align 1
+@.str.352 = private unnamed_addr constant [31 x i8] c"Disconnect Terrestrial Traffic\00", align 1
+@.str.353 = private unnamed_addr constant [35 x i8] c"Disconnect Terrestrial Traffic ACK\00", align 1
+@.str.354 = private unnamed_addr constant [36 x i8] c"Disconnect Terrestrial Traffic NACK\00", align 1
+@.str.355 = private unnamed_addr constant [24 x i8] c"Connect Multi-Drop Link\00", align 1
+@.str.356 = private unnamed_addr constant [28 x i8] c"Connect Multi-Drop Link ACK\00", align 1
+@.str.357 = private unnamed_addr constant [29 x i8] c"Connect Multi-Drop Link NACK\00", align 1
+@.str.358 = private unnamed_addr constant [27 x i8] c"Disconnect Multi-Drop Link\00", align 1
+@.str.359 = private unnamed_addr constant [31 x i8] c"Disconnect Multi-Drop Link ACK\00", align 1
+@.str.360 = private unnamed_addr constant [32 x i8] c"Disconnect Multi-Drop Link NACK\00", align 1
+@.str.361 = private unnamed_addr constant [19 x i8] c"Set BTS Attributes\00", align 1
+@.str.362 = private unnamed_addr constant [23 x i8] c"Set BTS Attributes ACK\00", align 1
+@.str.363 = private unnamed_addr constant [24 x i8] c"Set BTS Attributes NACK\00", align 1
+@.str.364 = private unnamed_addr constant [29 x i8] c"Set Radio Carrier Attributes\00", align 1
+@.str.365 = private unnamed_addr constant [33 x i8] c"Set Radio Carrier Attributes ACK\00", align 1
+@.str.366 = private unnamed_addr constant [34 x i8] c"Set Radio Carrier Attributes NACK\00", align 1
+@.str.367 = private unnamed_addr constant [23 x i8] c"Set Channel Attributes\00", align 1
+@.str.368 = private unnamed_addr constant [27 x i8] c"Set Channel Attributes ACK\00", align 1
+@.str.369 = private unnamed_addr constant [28 x i8] c"Set Channel Attributes NACK\00", align 1
+@.str.370 = private unnamed_addr constant [13 x i8] c"Perform Test\00", align 1
+@.str.371 = private unnamed_addr constant [17 x i8] c"Perform Test ACK\00", align 1
+@.str.372 = private unnamed_addr constant [18 x i8] c"Perform Test NACK\00", align 1
+@.str.373 = private unnamed_addr constant [12 x i8] c"Test Report\00", align 1
+@.str.374 = private unnamed_addr constant [17 x i8] c"Send Test Report\00", align 1
+@.str.375 = private unnamed_addr constant [21 x i8] c"Send Test Report ACK\00", align 1
+@.str.376 = private unnamed_addr constant [22 x i8] c"Send Test Report NACK\00", align 1
+@.str.377 = private unnamed_addr constant [10 x i8] c"Stop Test\00", align 1
+@.str.378 = private unnamed_addr constant [14 x i8] c"Stop Test ACK\00", align 1
+@.str.379 = private unnamed_addr constant [15 x i8] c"Stop Test NACK\00", align 1
+@.str.380 = private unnamed_addr constant [27 x i8] c"State Changed Event Report\00", align 1
+@.str.381 = private unnamed_addr constant [21 x i8] c"Failure Event Report\00", align 1
+@.str.382 = private unnamed_addr constant [27 x i8] c"Stop Sending Event Reports\00", align 1
+@.str.383 = private unnamed_addr constant [31 x i8] c"Stop Sending Event Reports ACK\00", align 1
+@.str.384 = private unnamed_addr constant [32 x i8] c"Stop Sending Event Reports NACK\00", align 1
+@.str.385 = private unnamed_addr constant [30 x i8] c"Restart Sending Event Reports\00", align 1
+@.str.386 = private unnamed_addr constant [34 x i8] c"Restart Sending Event Reports ACK\00", align 1
+@.str.387 = private unnamed_addr constant [35 x i8] c"Restart Sending Event Reports NACK\00", align 1
+@.str.388 = private unnamed_addr constant [28 x i8] c"Change Administrative State\00", align 1
+@.str.389 = private unnamed_addr constant [32 x i8] c"Change Administrative State ACK\00", align 1
+@.str.390 = private unnamed_addr constant [33 x i8] c"Change Administrative State NACK\00", align 1
+@.str.391 = private unnamed_addr constant [36 x i8] c"Change Administrative State Request\00", align 1
+@.str.392 = private unnamed_addr constant [40 x i8] c"Change Administrative State Request ACK\00", align 1
+@.str.393 = private unnamed_addr constant [41 x i8] c"Change Administrative State Request NACK\00", align 1
+@.str.394 = private unnamed_addr constant [26 x i8] c"Report Outstanding Alarms\00", align 1
+@.str.395 = private unnamed_addr constant [30 x i8] c"Report Outstanding Alarms ACK\00", align 1
+@.str.396 = private unnamed_addr constant [31 x i8] c"Report Outstanding Alarms NACK\00", align 1
+@.str.397 = private unnamed_addr constant [11 x i8] c"Changeover\00", align 1
+@.str.398 = private unnamed_addr constant [15 x i8] c"Changeover ACK\00", align 1
+@.str.399 = private unnamed_addr constant [16 x i8] c"Changeover NACK\00", align 1
+@.str.400 = private unnamed_addr constant [8 x i8] c"Opstart\00", align 1
+@.str.401 = private unnamed_addr constant [12 x i8] c"Opstart ACK\00", align 1
+@.str.402 = private unnamed_addr constant [13 x i8] c"Opstart NACK\00", align 1
+@.str.403 = private unnamed_addr constant [13 x i8] c"Reinitialize\00", align 1
+@.str.404 = private unnamed_addr constant [17 x i8] c"Reinitialize ACK\00", align 1
+@.str.405 = private unnamed_addr constant [18 x i8] c"Reinitialize NACK\00", align 1
+@.str.406 = private unnamed_addr constant [17 x i8] c"Set Site Outputs\00", align 1
+@.str.407 = private unnamed_addr constant [21 x i8] c"Set Site Outputs ACK\00", align 1
+@.str.408 = private unnamed_addr constant [22 x i8] c"Set Site Outputs NACK\00", align 1
+@.str.409 = private unnamed_addr constant [24 x i8] c"Change HW Configuration\00", align 1
+@.str.410 = private unnamed_addr constant [28 x i8] c"Change HW Configuration ACK\00", align 1
+@.str.411 = private unnamed_addr constant [29 x i8] c"Change HW Configuration NACK\00", align 1
+@.str.412 = private unnamed_addr constant [27 x i8] c"Measurement Result Request\00", align 1
+@.str.413 = private unnamed_addr constant [28 x i8] c"Measurement Result Response\00", align 1
+@.str.414 = private unnamed_addr constant [17 x i8] c"Stop Measurement\00", align 1
+@.str.415 = private unnamed_addr constant [18 x i8] c"Start Measurement\00", align 1
+@.str.416 = private unnamed_addr constant [15 x i8] c"Get Attributes\00", align 1
+@.str.417 = private unnamed_addr constant [24 x i8] c"Get Attributes Response\00", align 1
+@.str.418 = private unnamed_addr constant [20 x i8] c"Get Attributes NACK\00", align 1
+@.str.419 = private unnamed_addr constant [20 x i8] c"Set Alarm Threshold\00", align 1
+@.str.420 = private unnamed_addr constant [24 x i8] c"Set Alarm Threshold ACK\00", align 1
+@.str.421 = private unnamed_addr constant [25 x i8] c"Set Alarm Threshold NACK\00", align 1
+@oml_fom_msgtype_vals = internal constant [98 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.325 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.326 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.327 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.328 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.329 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.330 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.331 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.332 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.333 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.334 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.335 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.336 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.337 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.338 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.339 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.340 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.341 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.342 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.343 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.344 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.345 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.346 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.347 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.348 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.349 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.350 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.351 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.352 }, { i32, [4 x i8], ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.353 }, { i32, [4 x i8], ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.354 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.355 }, { i32, [4 x i8], ptr } { i32 50, [4 x i8] zeroinitializer, ptr @.str.356 }, { i32, [4 x i8], ptr } { i32 51, [4 x i8] zeroinitializer, ptr @.str.357 }, { i32, [4 x i8], ptr } { i32 52, [4 x i8] zeroinitializer, ptr @.str.358 }, { i32, [4 x i8], ptr } { i32 53, [4 x i8] zeroinitializer, ptr @.str.359 }, { i32, [4 x i8], ptr } { i32 54, [4 x i8] zeroinitializer, ptr @.str.360 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.361 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.362 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.363 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.364 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.365 }, { i32, [4 x i8], ptr } { i32 70, [4 x i8] zeroinitializer, ptr @.str.366 }, { i32, [4 x i8], ptr } { i32 71, [4 x i8] zeroinitializer, ptr @.str.367 }, { i32, [4 x i8], ptr } { i32 72, [4 x i8] zeroinitializer, ptr @.str.368 }, { i32, [4 x i8], ptr } { i32 73, [4 x i8] zeroinitializer, ptr @.str.369 }, { i32, [4 x i8], ptr } { i32 81, [4 x i8] zeroinitializer, ptr @.str.370 }, { i32, [4 x i8], ptr } { i32 82, [4 x i8] zeroinitializer, ptr @.str.371 }, { i32, [4 x i8], ptr } { i32 83, [4 x i8] zeroinitializer, ptr @.str.372 }, { i32, [4 x i8], ptr } { i32 84, [4 x i8] zeroinitializer, ptr @.str.373 }, { i32, [4 x i8], ptr } { i32 85, [4 x i8] zeroinitializer, ptr @.str.374 }, { i32, [4 x i8], ptr } { i32 86, [4 x i8] zeroinitializer, ptr @.str.375 }, { i32, [4 x i8], ptr } { i32 87, [4 x i8] zeroinitializer, ptr @.str.376 }, { i32, [4 x i8], ptr } { i32 88, [4 x i8] zeroinitializer, ptr @.str.377 }, { i32, [4 x i8], ptr } { i32 89, [4 x i8] zeroinitializer, ptr @.str.378 }, { i32, [4 x i8], ptr } { i32 90, [4 x i8] zeroinitializer, ptr @.str.379 }, { i32, [4 x i8], ptr } { i32 97, [4 x i8] zeroinitializer, ptr @.str.380 }, { i32, [4 x i8], ptr } { i32 98, [4 x i8] zeroinitializer, ptr @.str.381 }, { i32, [4 x i8], ptr } { i32 99, [4 x i8] zeroinitializer, ptr @.str.382 }, { i32, [4 x i8], ptr } { i32 100, [4 x i8] zeroinitializer, ptr @.str.383 }, { i32, [4 x i8], ptr } { i32 101, [4 x i8] zeroinitializer, ptr @.str.384 }, { i32, [4 x i8], ptr } { i32 102, [4 x i8] zeroinitializer, ptr @.str.385 }, { i32, [4 x i8], ptr } { i32 103, [4 x i8] zeroinitializer, ptr @.str.386 }, { i32, [4 x i8], ptr } { i32 104, [4 x i8] zeroinitializer, ptr @.str.387 }, { i32, [4 x i8], ptr } { i32 105, [4 x i8] zeroinitializer, ptr @.str.388 }, { i32, [4 x i8], ptr } { i32 106, [4 x i8] zeroinitializer, ptr @.str.389 }, { i32, [4 x i8], ptr } { i32 107, [4 x i8] zeroinitializer, ptr @.str.390 }, { i32, [4 x i8], ptr } { i32 108, [4 x i8] zeroinitializer, ptr @.str.391 }, { i32, [4 x i8], ptr } { i32 109, [4 x i8] zeroinitializer, ptr @.str.392 }, { i32, [4 x i8], ptr } { i32 110, [4 x i8] zeroinitializer, ptr @.str.393 }, { i32, [4 x i8], ptr } { i32 147, [4 x i8] zeroinitializer, ptr @.str.394 }, { i32, [4 x i8], ptr } { i32 148, [4 x i8] zeroinitializer, ptr @.str.395 }, { i32, [4 x i8], ptr } { i32 149, [4 x i8] zeroinitializer, ptr @.str.396 }, { i32, [4 x i8], ptr } { i32 113, [4 x i8] zeroinitializer, ptr @.str.397 }, { i32, [4 x i8], ptr } { i32 114, [4 x i8] zeroinitializer, ptr @.str.398 }, { i32, [4 x i8], ptr } { i32 115, [4 x i8] zeroinitializer, ptr @.str.399 }, { i32, [4 x i8], ptr } { i32 116, [4 x i8] zeroinitializer, ptr @.str.400 }, { i32, [4 x i8], ptr } { i32 117, [4 x i8] zeroinitializer, ptr @.str.401 }, { i32, [4 x i8], ptr } { i32 118, [4 x i8] zeroinitializer, ptr @.str.402 }, { i32, [4 x i8], ptr } { i32 119, [4 x i8] zeroinitializer, ptr @.str.403 }, { i32, [4 x i8], ptr } { i32 120, [4 x i8] zeroinitializer, ptr @.str.404 }, { i32, [4 x i8], ptr } { i32 121, [4 x i8] zeroinitializer, ptr @.str.405 }, { i32, [4 x i8], ptr } { i32 122, [4 x i8] zeroinitializer, ptr @.str.406 }, { i32, [4 x i8], ptr } { i32 123, [4 x i8] zeroinitializer, ptr @.str.407 }, { i32, [4 x i8], ptr } { i32 124, [4 x i8] zeroinitializer, ptr @.str.408 }, { i32, [4 x i8], ptr } { i32 144, [4 x i8] zeroinitializer, ptr @.str.409 }, { i32, [4 x i8], ptr } { i32 145, [4 x i8] zeroinitializer, ptr @.str.410 }, { i32, [4 x i8], ptr } { i32 146, [4 x i8] zeroinitializer, ptr @.str.411 }, { i32, [4 x i8], ptr } { i32 138, [4 x i8] zeroinitializer, ptr @.str.412 }, { i32, [4 x i8], ptr } { i32 139, [4 x i8] zeroinitializer, ptr @.str.413 }, { i32, [4 x i8], ptr } { i32 140, [4 x i8] zeroinitializer, ptr @.str.414 }, { i32, [4 x i8], ptr } { i32 141, [4 x i8] zeroinitializer, ptr @.str.415 }, { i32, [4 x i8], ptr } { i32 129, [4 x i8] zeroinitializer, ptr @.str.416 }, { i32, [4 x i8], ptr } { i32 130, [4 x i8] zeroinitializer, ptr @.str.417 }, { i32, [4 x i8], ptr } { i32 131, [4 x i8] zeroinitializer, ptr @.str.418 }, { i32, [4 x i8], ptr } { i32 132, [4 x i8] zeroinitializer, ptr @.str.419 }, { i32, [4 x i8], ptr } { i32 133, [4 x i8] zeroinitializer, ptr @.str.420 }, { i32, [4 x i8], ptr } { i32 134, [4 x i8] zeroinitializer, ptr @.str.421 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.423 = private unnamed_addr constant [17 x i8] c"BTS Site Manager\00", align 1
+@.str.424 = private unnamed_addr constant [4 x i8] c"BTS\00", align 1
+@.str.425 = private unnamed_addr constant [14 x i8] c"Radio Carrier\00", align 1
+@.str.426 = private unnamed_addr constant [14 x i8] c"Radio Channel\00", align 1
+@.str.427 = private unnamed_addr constant [21 x i8] c"Baseband Transceiver\00", align 1
+@.str.428 = private unnamed_addr constant [21 x i8] c"SIE Adjacent Channel\00", align 1
+@.str.429 = private unnamed_addr constant [13 x i8] c"SIE Handover\00", align 1
+@.str.430 = private unnamed_addr constant [18 x i8] c"SIE Power Control\00", align 1
+@.str.431 = private unnamed_addr constant [9 x i8] c"SIE BTSE\00", align 1
+@.str.432 = private unnamed_addr constant [9 x i8] c"SIE Rack\00", align 1
+@.str.433 = private unnamed_addr constant [14 x i8] c"SIE SiemensHW\00", align 1
+@.str.434 = private unnamed_addr constant [9 x i8] c"SIE Test\00", align 1
+@.str.435 = private unnamed_addr constant [13 x i8] c"SIE EnvaBTSE\00", align 1
+@.str.436 = private unnamed_addr constant [10 x i8] c"SIE BPort\00", align 1
+@.str.437 = private unnamed_addr constant [9 x i8] c"GPRS NSE\00", align 1
+@.str.438 = private unnamed_addr constant [10 x i8] c"GPRS Cell\00", align 1
+@.str.439 = private unnamed_addr constant [10 x i8] c"GPRS NSVC\00", align 1
+@.str.440 = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
+@oml_fom_objclass_vals = internal constant [19 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.423 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.424 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.425 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.426 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.427 }, { i32, [4 x i8], ptr } { i32 160, [4 x i8] zeroinitializer, ptr @.str.428 }, { i32, [4 x i8], ptr } { i32 161, [4 x i8] zeroinitializer, ptr @.str.429 }, { i32, [4 x i8], ptr } { i32 162, [4 x i8] zeroinitializer, ptr @.str.430 }, { i32, [4 x i8], ptr } { i32 163, [4 x i8] zeroinitializer, ptr @.str.431 }, { i32, [4 x i8], ptr } { i32 164, [4 x i8] zeroinitializer, ptr @.str.432 }, { i32, [4 x i8], ptr } { i32 165, [4 x i8] zeroinitializer, ptr @.str.433 }, { i32, [4 x i8], ptr } { i32 166, [4 x i8] zeroinitializer, ptr @.str.434 }, { i32, [4 x i8], ptr } { i32 168, [4 x i8] zeroinitializer, ptr @.str.435 }, { i32, [4 x i8], ptr } { i32 169, [4 x i8] zeroinitializer, ptr @.str.436 }, { i32, [4 x i8], ptr } { i32 240, [4 x i8] zeroinitializer, ptr @.str.437 }, { i32, [4 x i8], ptr } { i32 241, [4 x i8] zeroinitializer, ptr @.str.438 }, { i32, [4 x i8], ptr } { i32 242, [4 x i8] zeroinitializer, ptr @.str.439 }, { i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.440 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.442 = private unnamed_addr constant [27 x i8] c"SIE OML LAPD Release Timer\00", align 1
+@.str.443 = private unnamed_addr constant [34 x i8] c"SIE RF Resource Indication Period\00", align 1
+@.str.444 = private unnamed_addr constant [21 x i8] c"SIE RxLevel Min Cell\00", align 1
+@.str.445 = private unnamed_addr constant [24 x i8] c"SIE A-bis external time\00", align 1
+@.str.446 = private unnamed_addr constant [27 x i8] c"SIE Timer Handover Request\00", align 1
+@.str.447 = private unnamed_addr constant [16 x i8] c"SIE Timer nCell\00", align 1
+@.str.448 = private unnamed_addr constant [16 x i8] c"SIE Timer Tsync\00", align 1
+@.str.449 = private unnamed_addr constant [16 x i8] c"SIE Timer Ttrau\00", align 1
+@.str.450 = private unnamed_addr constant [28 x i8] c"SIE Emergency Config Member\00", align 1
+@.str.451 = private unnamed_addr constant [13 x i8] c"SIE TRX Area\00", align 1
+@.str.452 = private unnamed_addr constant [25 x i8] c"SIE BCCH Reconfiguration\00", align 1
+@.str.453 = private unnamed_addr constant [24 x i8] c"SIE Bit Error Threshold\00", align 1
+@.str.454 = private unnamed_addr constant [26 x i8] c"SIE Boot Software Version\00", align 1
+@.str.455 = private unnamed_addr constant [18 x i8] c"SIE CCLK Accuracy\00", align 1
+@.str.456 = private unnamed_addr constant [14 x i8] c"SIE CCLK Type\00", align 1
+@.str.457 = private unnamed_addr constant [20 x i8] c"SIE Input Impedance\00", align 1
+@.str.458 = private unnamed_addr constant [21 x i8] c"SIE L1 Protocol Type\00", align 1
+@.str.459 = private unnamed_addr constant [23 x i8] c"SIE Line Configuration\00", align 1
+@.str.460 = private unnamed_addr constant [26 x i8] c"SIE Line Interface Port 1\00", align 1
+@.str.461 = private unnamed_addr constant [26 x i8] c"SIE Line Interface Port 2\00", align 1
+@.str.462 = private unnamed_addr constant [25 x i8] c"SIE L1 Remote Alarm Type\00", align 1
+@.str.463 = private unnamed_addr constant [27 x i8] c"SIE Software Load Intended\00", align 1
+@.str.464 = private unnamed_addr constant [25 x i8] c"SIE Software Load Safety\00", align 1
+@.str.465 = private unnamed_addr constant [25 x i8] c"SIE Software Load Stored\00", align 1
+@.str.466 = private unnamed_addr constant [16 x i8] c"SIE Vendor Name\00", align 1
+@.str.467 = private unnamed_addr constant [17 x i8] c"SIE Hopping Mode\00", align 1
+@.str.468 = private unnamed_addr constant [22 x i8] c"SIE LMT Logon Session\00", align 1
+@.str.469 = private unnamed_addr constant [19 x i8] c"SIE LMT Login Time\00", align 1
+@.str.470 = private unnamed_addr constant [27 x i8] c"SIE LMT User Account Level\00", align 1
+@.str.471 = private unnamed_addr constant [26 x i8] c"SIE LMT User Account Name\00", align 1
+@.str.472 = private unnamed_addr constant [18 x i8] c"SIE L1 Control TS\00", align 1
+@.str.473 = private unnamed_addr constant [34 x i8] c"SIE Radio Measurement Granularity\00", align 1
+@.str.474 = private unnamed_addr constant [29 x i8] c"SIE Radio Measurement Report\00", align 1
+@.str.475 = private unnamed_addr constant [24 x i8] c"SIE LAPD Internal Timer\00", align 1
+@.str.476 = private unnamed_addr constant [14 x i8] c"SIE BTS State\00", align 1
+@.str.477 = private unnamed_addr constant [13 x i8] c"SIE E1 State\00", align 1
+@.str.478 = private unnamed_addr constant [8 x i8] c"SIE PLL\00", align 1
+@.str.479 = private unnamed_addr constant [14 x i8] c"SIE Rx Offset\00", align 1
+@.str.480 = private unnamed_addr constant [17 x i8] c"SIE Antenna Type\00", align 1
+@.str.481 = private unnamed_addr constant [13 x i8] c"SIE PLL Mode\00", align 1
+@.str.482 = private unnamed_addr constant [13 x i8] c"SIE Password\00", align 1
+@.str.483 = private unnamed_addr constant [23 x i8] c"SIE ESN FW Code Number\00", align 1
+@.str.484 = private unnamed_addr constant [23 x i8] c"SIE ESN HW Code Number\00", align 1
+@.str.485 = private unnamed_addr constant [26 x i8] c"SIE ESN PCB Serial Number\00", align 1
+@.str.486 = private unnamed_addr constant [23 x i8] c"SIE Excessive Distance\00", align 1
+@.str.487 = private unnamed_addr constant [24 x i8] c"SIE All Test Categories\00", align 1
+@.str.488 = private unnamed_addr constant [19 x i8] c"SIE BTS LS Hopping\00", align 1
+@.str.489 = private unnamed_addr constant [27 x i8] c"SIE Cell Allocation Number\00", align 1
+@.str.490 = private unnamed_addr constant [19 x i8] c"SIE Cell Global ID\00", align 1
+@.str.491 = private unnamed_addr constant [30 x i8] c"SIE Enable Interference Class\00", align 1
+@.str.492 = private unnamed_addr constant [30 x i8] c"SIE Enable Int Intec Handover\00", align 1
+@.str.493 = private unnamed_addr constant [30 x i8] c"SIE Enable Int Intrc Handover\00", align 1
+@.str.494 = private unnamed_addr constant [28 x i8] c"SIE Enable MS Power Control\00", align 1
+@.str.495 = private unnamed_addr constant [27 x i8] c"SIE Enable Power Budget HO\00", align 1
+@.str.496 = private unnamed_addr constant [22 x i8] c"SIE Enable RxLevel HO\00", align 1
+@.str.497 = private unnamed_addr constant [21 x i8] c"SIE Enable RxQual HO\00", align 1
+@.str.498 = private unnamed_addr constant [18 x i8] c"SIE FACCH Quality\00", align 1
+@oml_fom_attr_vals_bs11 = internal constant [58 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.442 }, { i32, [4 x i8], ptr } { i32 143, [4 x i8] zeroinitializer, ptr @.str.443 }, { i32, [4 x i8], ptr } { i32 144, [4 x i8] zeroinitializer, ptr @.str.444 }, { i32, [4 x i8], ptr } { i32 145, [4 x i8] zeroinitializer, ptr @.str.445 }, { i32, [4 x i8], ptr } { i32 146, [4 x i8] zeroinitializer, ptr @.str.446 }, { i32, [4 x i8], ptr } { i32 147, [4 x i8] zeroinitializer, ptr @.str.447 }, { i32, [4 x i8], ptr } { i32 148, [4 x i8] zeroinitializer, ptr @.str.448 }, { i32, [4 x i8], ptr } { i32 149, [4 x i8] zeroinitializer, ptr @.str.449 }, { i32, [4 x i8], ptr } { i32 155, [4 x i8] zeroinitializer, ptr @.str.450 }, { i32, [4 x i8], ptr } { i32 159, [4 x i8] zeroinitializer, ptr @.str.451 }, { i32, [4 x i8], ptr } { i32 215, [4 x i8] zeroinitializer, ptr @.str.452 }, { i32, [4 x i8], ptr } { i32 160, [4 x i8] zeroinitializer, ptr @.str.453 }, { i32, [4 x i8], ptr } { i32 161, [4 x i8] zeroinitializer, ptr @.str.454 }, { i32, [4 x i8], ptr } { i32 163, [4 x i8] zeroinitializer, ptr @.str.455 }, { i32, [4 x i8], ptr } { i32 164, [4 x i8] zeroinitializer, ptr @.str.456 }, { i32, [4 x i8], ptr } { i32 170, [4 x i8] zeroinitializer, ptr @.str.457 }, { i32, [4 x i8], ptr } { i32 171, [4 x i8] zeroinitializer, ptr @.str.458 }, { i32, [4 x i8], ptr } { i32 172, [4 x i8] zeroinitializer, ptr @.str.459 }, { i32, [4 x i8], ptr } { i32 173, [4 x i8] zeroinitializer, ptr @.str.460 }, { i32, [4 x i8], ptr } { i32 174, [4 x i8] zeroinitializer, ptr @.str.461 }, { i32, [4 x i8], ptr } { i32 176, [4 x i8] zeroinitializer, ptr @.str.462 }, { i32, [4 x i8], ptr } { i32 187, [4 x i8] zeroinitializer, ptr @.str.463 }, { i32, [4 x i8], ptr } { i32 188, [4 x i8] zeroinitializer, ptr @.str.464 }, { i32, [4 x i8], ptr } { i32 189, [4 x i8] zeroinitializer, ptr @.str.465 }, { i32, [4 x i8], ptr } { i32 193, [4 x i8] zeroinitializer, ptr @.str.466 }, { i32, [4 x i8], ptr } { i32 197, [4 x i8] zeroinitializer, ptr @.str.467 }, { i32, [4 x i8], ptr } { i32 198, [4 x i8] zeroinitializer, ptr @.str.468 }, { i32, [4 x i8], ptr } { i32 199, [4 x i8] zeroinitializer, ptr @.str.469 }, { i32, [4 x i8], ptr } { i32 200, [4 x i8] zeroinitializer, ptr @.str.470 }, { i32, [4 x i8], ptr } { i32 201, [4 x i8] zeroinitializer, ptr @.str.471 }, { i32, [4 x i8], ptr } { i32 216, [4 x i8] zeroinitializer, ptr @.str.472 }, { i32, [4 x i8], ptr } { i32 220, [4 x i8] zeroinitializer, ptr @.str.473 }, { i32, [4 x i8], ptr } { i32 221, [4 x i8] zeroinitializer, ptr @.str.474 }, { i32, [4 x i8], ptr } { i32 232, [4 x i8] zeroinitializer, ptr @.str.475 }, { i32, [4 x i8], ptr } { i32 240, [4 x i8] zeroinitializer, ptr @.str.476 }, { i32, [4 x i8], ptr } { i32 241, [4 x i8] zeroinitializer, ptr @.str.477 }, { i32, [4 x i8], ptr } { i32 242, [4 x i8] zeroinitializer, ptr @.str.478 }, { i32, [4 x i8], ptr } { i32 243, [4 x i8] zeroinitializer, ptr @.str.479 }, { i32, [4 x i8], ptr } { i32 244, [4 x i8] zeroinitializer, ptr @.str.480 }, { i32, [4 x i8], ptr } { i32 252, [4 x i8] zeroinitializer, ptr @.str.481 }, { i32, [4 x i8], ptr } { i32 253, [4 x i8] zeroinitializer, ptr @.str.482 }, { i32, [4 x i8], ptr } { i32 76, [4 x i8] zeroinitializer, ptr @.str.483 }, { i32, [4 x i8], ptr } { i32 79, [4 x i8] zeroinitializer, ptr @.str.484 }, { i32, [4 x i8], ptr } { i32 85, [4 x i8] zeroinitializer, ptr @.str.485 }, { i32, [4 x i8], ptr } { i32 88, [4 x i8] zeroinitializer, ptr @.str.486 }, { i32, [4 x i8], ptr } { i32 96, [4 x i8] zeroinitializer, ptr @.str.487 }, { i32, [4 x i8], ptr } { i32 97, [4 x i8] zeroinitializer, ptr @.str.488 }, { i32, [4 x i8], ptr } { i32 98, [4 x i8] zeroinitializer, ptr @.str.489 }, { i32, [4 x i8], ptr } { i32 99, [4 x i8] zeroinitializer, ptr @.str.490 }, { i32, [4 x i8], ptr } { i32 102, [4 x i8] zeroinitializer, ptr @.str.491 }, { i32, [4 x i8], ptr } { i32 103, [4 x i8] zeroinitializer, ptr @.str.492 }, { i32, [4 x i8], ptr } { i32 104, [4 x i8] zeroinitializer, ptr @.str.493 }, { i32, [4 x i8], ptr } { i32 105, [4 x i8] zeroinitializer, ptr @.str.494 }, { i32, [4 x i8], ptr } { i32 106, [4 x i8] zeroinitializer, ptr @.str.495 }, { i32, [4 x i8], ptr } { i32 108, [4 x i8] zeroinitializer, ptr @.str.496 }, { i32, [4 x i8], ptr } { i32 109, [4 x i8] zeroinitializer, ptr @.str.497 }, { i32, [4 x i8], ptr } { i32 110, [4 x i8] zeroinitializer, ptr @.str.498 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.500 = private unnamed_addr constant [27 x i8] c"IPA Destination IP Address\00", align 1
+@.str.501 = private unnamed_addr constant [24 x i8] c"IPA Destination IP Port\00", align 1
+@.str.502 = private unnamed_addr constant [13 x i8] c"IPA RTP SSRC\00", align 1
+@.str.503 = private unnamed_addr constant [21 x i8] c"IPA RTP Payload Type\00", align 1
+@.str.504 = private unnamed_addr constant [24 x i8] c"IPA Baseband Identifier\00", align 1
+@.str.505 = private unnamed_addr constant [22 x i8] c"IPA Stream Identifier\00", align 1
+@.str.506 = private unnamed_addr constant [16 x i8] c"IPA NVRAM Flags\00", align 1
+@.str.507 = private unnamed_addr constant [22 x i8] c"IPA Frequency Control\00", align 1
+@.str.508 = private unnamed_addr constant [23 x i8] c"IPA Primary OML Config\00", align 1
+@.str.509 = private unnamed_addr constant [25 x i8] c"IPA Secondary OML Config\00", align 1
+@.str.510 = private unnamed_addr constant [24 x i8] c"IPA IP Interface Config\00", align 1
+@.str.511 = private unnamed_addr constant [22 x i8] c"IPA IP Gateway Config\00", align 1
+@.str.512 = private unnamed_addr constant [20 x i8] c"IPA In Service Time\00", align 1
+@.str.513 = private unnamed_addr constant [23 x i8] c"IPA TRX BTS Assignment\00", align 1
+@.str.514 = private unnamed_addr constant [22 x i8] c"IPA BTS Location Name\00", align 1
+@.str.515 = private unnamed_addr constant [25 x i8] c"IPA Paging Configuration\00", align 1
+@.str.516 = private unnamed_addr constant [14 x i8] c"IPA File Data\00", align 1
+@.str.517 = private unnamed_addr constant [12 x i8] c"IPA Unit ID\00", align 1
+@.str.518 = private unnamed_addr constant [19 x i8] c"IPA Parent Unit ID\00", align 1
+@.str.519 = private unnamed_addr constant [14 x i8] c"IPA Unit Name\00", align 1
+@.str.520 = private unnamed_addr constant [16 x i8] c"IPA SNMP Config\00", align 1
+@.str.521 = private unnamed_addr constant [28 x i8] c"IPA Primary OML Config List\00", align 1
+@.str.522 = private unnamed_addr constant [33 x i8] c"IPA Primary OML Fallback Timeout\00", align 1
+@.str.523 = private unnamed_addr constant [28 x i8] c"IPA Current Software Config\00", align 1
+@.str.524 = private unnamed_addr constant [15 x i8] c"IPA Timing Bus\00", align 1
+@.str.525 = private unnamed_addr constant [8 x i8] c"IPA CGI\00", align 1
+@.str.526 = private unnamed_addr constant [8 x i8] c"IPA RAC\00", align 1
+@.str.527 = private unnamed_addr constant [19 x i8] c"IPA Object Version\00", align 1
+@.str.528 = private unnamed_addr constant [30 x i8] c"IPA GPRS Paging Configuration\00", align 1
+@.str.529 = private unnamed_addr constant [9 x i8] c"IPA NSEI\00", align 1
+@.str.530 = private unnamed_addr constant [9 x i8] c"IPA BVCI\00", align 1
+@.str.531 = private unnamed_addr constant [10 x i8] c"IPA NSVCI\00", align 1
+@.str.532 = private unnamed_addr constant [21 x i8] c"IPA NS Configuration\00", align 1
+@.str.533 = private unnamed_addr constant [24 x i8] c"IPA BSSGP Configuration\00", align 1
+@.str.534 = private unnamed_addr constant [26 x i8] c"IPA NS Link Configuration\00", align 1
+@.str.535 = private unnamed_addr constant [22 x i8] c"IPA RLC Configuration\00", align 1
+@.str.536 = private unnamed_addr constant [25 x i8] c"IPA Alarm Threshold List\00", align 1
+@.str.537 = private unnamed_addr constant [25 x i8] c"IPA Monitored Value List\00", align 1
+@.str.538 = private unnamed_addr constant [33 x i8] c"IPA Timing Interface Bus Control\00", align 1
+@.str.539 = private unnamed_addr constant [23 x i8] c"IPA Supported Features\00", align 1
+@.str.540 = private unnamed_addr constant [19 x i8] c"IPA Coding Schemes\00", align 1
+@.str.541 = private unnamed_addr constant [24 x i8] c"IPA RLC Configuration 2\00", align 1
+@.str.542 = private unnamed_addr constant [22 x i8] c"IPA Heartbeat Timeout\00", align 1
+@.str.543 = private unnamed_addr constant [11 x i8] c"IPA Uptime\00", align 1
+@.str.544 = private unnamed_addr constant [24 x i8] c"IPA RLC Configuration 3\00", align 1
+@.str.545 = private unnamed_addr constant [22 x i8] c"IPA SSL Configuration\00", align 1
+@.str.546 = private unnamed_addr constant [22 x i8] c"IPA Security Possible\00", align 1
+@.str.547 = private unnamed_addr constant [18 x i8] c"IPA IML SSL State\00", align 1
+@.str.548 = private unnamed_addr constant [20 x i8] c"IPA Revocation Date\00", align 1
+@oml_fom_attr_vals_ipa = internal constant [50 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 128, [4 x i8] zeroinitializer, ptr @.str.500 }, { i32, [4 x i8], ptr } { i32 129, [4 x i8] zeroinitializer, ptr @.str.501 }, { i32, [4 x i8], ptr } { i32 130, [4 x i8] zeroinitializer, ptr @.str.502 }, { i32, [4 x i8], ptr } { i32 131, [4 x i8] zeroinitializer, ptr @.str.503 }, { i32, [4 x i8], ptr } { i32 132, [4 x i8] zeroinitializer, ptr @.str.504 }, { i32, [4 x i8], ptr } { i32 133, [4 x i8] zeroinitializer, ptr @.str.505 }, { i32, [4 x i8], ptr } { i32 134, [4 x i8] zeroinitializer, ptr @.str.506 }, { i32, [4 x i8], ptr } { i32 135, [4 x i8] zeroinitializer, ptr @.str.507 }, { i32, [4 x i8], ptr } { i32 136, [4 x i8] zeroinitializer, ptr @.str.508 }, { i32, [4 x i8], ptr } { i32 137, [4 x i8] zeroinitializer, ptr @.str.509 }, { i32, [4 x i8], ptr } { i32 138, [4 x i8] zeroinitializer, ptr @.str.510 }, { i32, [4 x i8], ptr } { i32 139, [4 x i8] zeroinitializer, ptr @.str.511 }, { i32, [4 x i8], ptr } { i32 140, [4 x i8] zeroinitializer, ptr @.str.512 }, { i32, [4 x i8], ptr } { i32 141, [4 x i8] zeroinitializer, ptr @.str.513 }, { i32, [4 x i8], ptr } { i32 142, [4 x i8] zeroinitializer, ptr @.str.514 }, { i32, [4 x i8], ptr } { i32 143, [4 x i8] zeroinitializer, ptr @.str.515 }, { i32, [4 x i8], ptr } { i32 144, [4 x i8] zeroinitializer, ptr @.str.516 }, { i32, [4 x i8], ptr } { i32 145, [4 x i8] zeroinitializer, ptr @.str.517 }, { i32, [4 x i8], ptr } { i32 146, [4 x i8] zeroinitializer, ptr @.str.518 }, { i32, [4 x i8], ptr } { i32 147, [4 x i8] zeroinitializer, ptr @.str.519 }, { i32, [4 x i8], ptr } { i32 148, [4 x i8] zeroinitializer, ptr @.str.520 }, { i32, [4 x i8], ptr } { i32 149, [4 x i8] zeroinitializer, ptr @.str.521 }, { i32, [4 x i8], ptr } { i32 150, [4 x i8] zeroinitializer, ptr @.str.522 }, { i32, [4 x i8], ptr } { i32 151, [4 x i8] zeroinitializer, ptr @.str.523 }, { i32, [4 x i8], ptr } { i32 152, [4 x i8] zeroinitializer, ptr @.str.524 }, { i32, [4 x i8], ptr } { i32 153, [4 x i8] zeroinitializer, ptr @.str.525 }, { i32, [4 x i8], ptr } { i32 154, [4 x i8] zeroinitializer, ptr @.str.526 }, { i32, [4 x i8], ptr } { i32 155, [4 x i8] zeroinitializer, ptr @.str.527 }, { i32, [4 x i8], ptr } { i32 156, [4 x i8] zeroinitializer, ptr @.str.528 }, { i32, [4 x i8], ptr } { i32 157, [4 x i8] zeroinitializer, ptr @.str.529 }, { i32, [4 x i8], ptr } { i32 158, [4 x i8] zeroinitializer, ptr @.str.530 }, { i32, [4 x i8], ptr } { i32 159, [4 x i8] zeroinitializer, ptr @.str.531 }, { i32, [4 x i8], ptr } { i32 160, [4 x i8] zeroinitializer, ptr @.str.532 }, { i32, [4 x i8], ptr } { i32 161, [4 x i8] zeroinitializer, ptr @.str.533 }, { i32, [4 x i8], ptr } { i32 162, [4 x i8] zeroinitializer, ptr @.str.534 }, { i32, [4 x i8], ptr } { i32 163, [4 x i8] zeroinitializer, ptr @.str.535 }, { i32, [4 x i8], ptr } { i32 164, [4 x i8] zeroinitializer, ptr @.str.536 }, { i32, [4 x i8], ptr } { i32 165, [4 x i8] zeroinitializer, ptr @.str.537 }, { i32, [4 x i8], ptr } { i32 166, [4 x i8] zeroinitializer, ptr @.str.538 }, { i32, [4 x i8], ptr } { i32 167, [4 x i8] zeroinitializer, ptr @.str.539 }, { i32, [4 x i8], ptr } { i32 168, [4 x i8] zeroinitializer, ptr @.str.540 }, { i32, [4 x i8], ptr } { i32 169, [4 x i8] zeroinitializer, ptr @.str.541 }, { i32, [4 x i8], ptr } { i32 170, [4 x i8] zeroinitializer, ptr @.str.542 }, { i32, [4 x i8], ptr } { i32 171, [4 x i8] zeroinitializer, ptr @.str.543 }, { i32, [4 x i8], ptr } { i32 172, [4 x i8] zeroinitializer, ptr @.str.544 }, { i32, [4 x i8], ptr } { i32 173, [4 x i8] zeroinitializer, ptr @.str.545 }, { i32, [4 x i8], ptr } { i32 174, [4 x i8] zeroinitializer, ptr @.str.546 }, { i32, [4 x i8], ptr } { i32 175, [4 x i8] zeroinitializer, ptr @.str.547 }, { i32, [4 x i8], ptr } { i32 176, [4 x i8] zeroinitializer, ptr @.str.548 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.550 = private unnamed_addr constant [7 x i8] c"Locked\00", align 1
+@.str.551 = private unnamed_addr constant [9 x i8] c"Unlocked\00", align 1
+@.str.552 = private unnamed_addr constant [9 x i8] c"Shutdown\00", align 1
+@.str.553 = private unnamed_addr constant [5 x i8] c"Null\00", align 1
+@oml_adm_state_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.550 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.551 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.552 }, { i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.553 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.555 = private unnamed_addr constant [9 x i8] c"Disabled\00", align 1
+@.str.556 = private unnamed_addr constant [8 x i8] c"Enabled\00", align 1
+@oml_oper_state_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.555 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.556 }, { i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.440 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.558 = private unnamed_addr constant [8 x i8] c"In test\00", align 1
+@.str.559 = private unnamed_addr constant [7 x i8] c"Failed\00", align 1
+@.str.560 = private unnamed_addr constant [10 x i8] c"Power off\00", align 1
+@.str.561 = private unnamed_addr constant [9 x i8] c"Off line\00", align 1
+@.str.562 = private unnamed_addr constant [11 x i8] c"Dependency\00", align 1
+@.str.563 = private unnamed_addr constant [9 x i8] c"Degraded\00", align 1
+@.str.564 = private unnamed_addr constant [14 x i8] c"Not installed\00", align 1
+@.str.565 = private unnamed_addr constant [3 x i8] c"OK\00", align 1
+@oml_avail_state_vals = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.558 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.559 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.560 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.561 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.562 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.563 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.564 }, { i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.565 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.567 = private unnamed_addr constant [22 x i8] c"Communication Failure\00", align 1
+@.str.568 = private unnamed_addr constant [12 x i8] c"QoS Failure\00", align 1
+@.str.569 = private unnamed_addr constant [18 x i8] c"Processor Failure\00", align 1
+@.str.570 = private unnamed_addr constant [18 x i8] c"Equipment Failure\00", align 1
+@.str.571 = private unnamed_addr constant [20 x i8] c"Environment Failure\00", align 1
+@oml_event_type_vals = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.567 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.568 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.569 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.570 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.571 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.573 = private unnamed_addr constant [7 x i8] c"Ceased\00", align 1
+@.str.574 = private unnamed_addr constant [9 x i8] c"Critical\00", align 1
+@.str.575 = private unnamed_addr constant [6 x i8] c"Major\00", align 1
+@.str.576 = private unnamed_addr constant [6 x i8] c"Minor\00", align 1
+@.str.577 = private unnamed_addr constant [8 x i8] c"Warning\00", align 1
+@.str.578 = private unnamed_addr constant [14 x i8] c"Indeterminate\00", align 1
+@oml_severity_vals = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.573 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.574 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.575 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.576 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.577 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.578 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.580 = private unnamed_addr constant [28 x i8] c"Incorrect message structure\00", align 1
+@.str.581 = private unnamed_addr constant [27 x i8] c"Invalid message type value\00", align 1
+@.str.582 = private unnamed_addr constant [27 x i8] c"Invalid Object class value\00", align 1
+@.str.583 = private unnamed_addr constant [27 x i8] c"Object Class not supported\00", align 1
+@.str.584 = private unnamed_addr constant [19 x i8] c"BTS Number unknown\00", align 1
+@.str.585 = private unnamed_addr constant [19 x i8] c"TRX Number unknown\00", align 1
+@.str.586 = private unnamed_addr constant [24 x i8] c"Object Instance unknown\00", align 1
+@.str.587 = private unnamed_addr constant [27 x i8] c"Invalid Attribute ID value\00", align 1
+@.str.588 = private unnamed_addr constant [27 x i8] c"Attribute ID not supported\00", align 1
+@.str.589 = private unnamed_addr constant [29 x i8] c"Parameter value out of range\00", align 1
+@.str.590 = private unnamed_addr constant [32 x i8] c"Inconsistency in Attribute list\00", align 1
+@.str.591 = private unnamed_addr constant [39 x i8] c"Specified Implementation not supported\00", align 1
+@.str.592 = private unnamed_addr constant [28 x i8] c"Message cannot be performed\00", align 1
+@.str.593 = private unnamed_addr constant [25 x i8] c"Resource not implemented\00", align 1
+@.str.594 = private unnamed_addr constant [23 x i8] c"Resource not available\00", align 1
+@.str.595 = private unnamed_addr constant [24 x i8] c"Frequency not available\00", align 1
+@.str.596 = private unnamed_addr constant [19 x i8] c"Test not supported\00", align 1
+@.str.597 = private unnamed_addr constant [22 x i8] c"Capacity restrictions\00", align 1
+@.str.598 = private unnamed_addr constant [32 x i8] c"Phys config cannot be performed\00", align 1
+@.str.599 = private unnamed_addr constant [19 x i8] c"Test not initiated\00", align 1
+@.str.600 = private unnamed_addr constant [31 x i8] c"Phys config cannot be restored\00", align 1
+@.str.601 = private unnamed_addr constant [13 x i8] c"No such Test\00", align 1
+@.str.602 = private unnamed_addr constant [23 x i8] c"Test cannot be stopped\00", align 1
+@.str.603 = private unnamed_addr constant [42 x i8] c"Message inconsistent with physical config\00", align 1
+@.str.604 = private unnamed_addr constant [27 x i8] c"Complete file not received\00", align 1
+@.str.605 = private unnamed_addr constant [34 x i8] c"File not available at destination\00", align 1
+@.str.606 = private unnamed_addr constant [25 x i8] c"File cannot be activated\00", align 1
+@.str.607 = private unnamed_addr constant [20 x i8] c"Request not granted\00", align 1
+@.str.608 = private unnamed_addr constant [5 x i8] c"Wait\00", align 1
+@.str.609 = private unnamed_addr constant [28 x i8] c"Nothing reportable existing\00", align 1
+@.str.610 = private unnamed_addr constant [26 x i8] c"Measurement not supported\00", align 1
+@.str.611 = private unnamed_addr constant [24 x i8] c"Measurement not started\00", align 1
+@oml_nack_causes = internal constant [34 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.580 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.581 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.582 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.583 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.584 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.585 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.586 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.587 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.588 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.589 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.590 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.591 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.592 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.593 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.594 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.595 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.596 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.597 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.598 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.599 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.600 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.601 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.602 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.603 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.604 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.605 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.606 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.607 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.608 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.609 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.610 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.611 }, { i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.440 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.613 = private unnamed_addr constant [28 x i8] c"Radio Loop test via antenna\00", align 1
+@.str.614 = private unnamed_addr constant [32 x i8] c"Radio Loop test via transceiver\00", align 1
+@.str.615 = private unnamed_addr constant [32 x i8] c"BTS Functional object self test\00", align 1
+@.str.616 = private unnamed_addr constant [14 x i8] c"Channel Usage\00", align 1
+@.str.617 = private unnamed_addr constant [19 x i8] c"BCCH Channel Usage\00", align 1
+@.str.618 = private unnamed_addr constant [26 x i8] c"Frequency Synchronization\00", align 1
+@.str.619 = private unnamed_addr constant [17 x i8] c"BCCH Information\00", align 1
+@.str.620 = private unnamed_addr constant [16 x i8] c"Transmit Beacon\00", align 1
+@.str.621 = private unnamed_addr constant [16 x i8] c"SysInfo Monitor\00", align 1
+@.str.622 = private unnamed_addr constant [20 x i8] c"BCCH & CCCH Monitor\00", align 1
+@oml_test_no_vals = internal constant [11 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.613 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.614 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.615 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.616 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.617 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.618 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.619 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.620 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.621 }, { i32, [4 x i8], ptr } { i32 70, [4 x i8] zeroinitializer, ptr @.str.622 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.624 = private unnamed_addr constant [6 x i8] c"TCH/F\00", align 1
+@.str.625 = private unnamed_addr constant [6 x i8] c"TCH/H\00", align 1
+@.str.626 = private unnamed_addr constant [8 x i8] c"TCH/H 2\00", align 1
+@.str.627 = private unnamed_addr constant [6 x i8] c"SDCCH\00", align 1
+@.str.628 = private unnamed_addr constant [10 x i8] c"Main BCCH\00", align 1
+@.str.629 = private unnamed_addr constant [14 x i8] c"Combined BCCH\00", align 1
+@.str.630 = private unnamed_addr constant [5 x i8] c"BCCH\00", align 1
+@.str.631 = private unnamed_addr constant [10 x i8] c"BCCH+CBCH\00", align 1
+@.str.632 = private unnamed_addr constant [11 x i8] c"SDCCH+CBCH\00", align 1
+@oml_chan_comb_vals = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.624 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.625 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.626 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.627 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.628 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.629 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.630 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.631 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.632 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.634 = private unnamed_addr constant [14 x i8] c"A-bis Channel\00", align 1
+@.str.635 = private unnamed_addr constant [23 x i8] c"Additional Information\00", align 1
+@.str.636 = private unnamed_addr constant [16 x i8] c"Additional Text\00", align 1
+@.str.637 = private unnamed_addr constant [11 x i8] c"ARFCN List\00", align 1
+@.str.638 = private unnamed_addr constant [20 x i8] c"Autonomously Report\00", align 1
+@.str.639 = private unnamed_addr constant [14 x i8] c"BTS Air Timer\00", align 1
+@.str.640 = private unnamed_addr constant [28 x i8] c"CCCH Load Indication Period\00", align 1
+@.str.641 = private unnamed_addr constant [20 x i8] c"CCCH Load Threshold\00", align 1
+@.str.642 = private unnamed_addr constant [26 x i8] c"Connection Fail Criterion\00", align 1
+@.str.643 = private unnamed_addr constant [12 x i8] c"Destination\00", align 1
+@.str.644 = private unnamed_addr constant [8 x i8] c"File ID\00", align 1
+@.str.645 = private unnamed_addr constant [13 x i8] c"File Version\00", align 1
+@.str.646 = private unnamed_addr constant [17 x i8] c"HW Configuration\00", align 1
+@.str.647 = private unnamed_addr constant [15 x i8] c"HW Description\00", align 1
+@.str.648 = private unnamed_addr constant [17 x i8] c"Intave Parameter\00", align 1
+@.str.649 = private unnamed_addr constant [24 x i8] c"Interference Boundaries\00", align 1
+@.str.650 = private unnamed_addr constant [29 x i8] c"Manufacturer Dependent State\00", align 1
+@.str.651 = private unnamed_addr constant [34 x i8] c"Manufacturer Dependent Thresholds\00", align 1
+@.str.652 = private unnamed_addr constant [16 x i8] c"Manufacturer Id\00", align 1
+@.str.653 = private unnamed_addr constant [23 x i8] c"Maximum Timing Advance\00", align 1
+@.str.654 = private unnamed_addr constant [20 x i8] c"Multi-drop BSC Link\00", align 1
+@.str.655 = private unnamed_addr constant [25 x i8] c"Multi-drop next BTS Link\00", align 1
+@.str.656 = private unnamed_addr constant [4 x i8] c"Ny1\00", align 1
+@.str.657 = private unnamed_addr constant [16 x i8] c"Overload Period\00", align 1
+@.str.658 = private unnamed_addr constant [16 x i8] c"Physical Config\00", align 1
+@.str.659 = private unnamed_addr constant [12 x i8] c"Power Class\00", align 1
+@.str.660 = private unnamed_addr constant [24 x i8] c"Power Output Thresholds\00", align 1
+@.str.661 = private unnamed_addr constant [15 x i8] c"Probable Cause\00", align 1
+@.str.662 = private unnamed_addr constant [20 x i8] c"RACH Busy Threshold\00", align 1
+@.str.663 = private unnamed_addr constant [26 x i8] c"RACH Load Averaging Slots\00", align 1
+@.str.664 = private unnamed_addr constant [18 x i8] c"Radio Sub Channel\00", align 1
+@.str.665 = private unnamed_addr constant [23 x i8] c"RF Max Power Reduction\00", align 1
+@.str.666 = private unnamed_addr constant [12 x i8] c"Site Inputs\00", align 1
+@.str.667 = private unnamed_addr constant [13 x i8] c"Site Outputs\00", align 1
+@.str.668 = private unnamed_addr constant [7 x i8] c"Source\00", align 1
+@.str.669 = private unnamed_addr constant [18 x i8] c"Specific Problems\00", align 1
+@.str.670 = private unnamed_addr constant [14 x i8] c"Starting Time\00", align 1
+@.str.671 = private unnamed_addr constant [5 x i8] c"T200\00", align 1
+@.str.672 = private unnamed_addr constant [14 x i8] c"Test Duration\00", align 1
+@.str.673 = private unnamed_addr constant [8 x i8] c"Test No\00", align 1
+@.str.674 = private unnamed_addr constant [17 x i8] c"Test Report Info\00", align 1
+@.str.675 = private unnamed_addr constant [17 x i8] c"VSWR Thresholds \00", align 1
+@.str.676 = private unnamed_addr constant [12 x i8] c"Window Size\00", align 1
+@.str.677 = private unnamed_addr constant [16 x i8] c"SIE RSSI Offset\00", align 1
+@.str.678 = private unnamed_addr constant [13 x i8] c"SIE TX Power\00", align 1
+@.str.679 = private unnamed_addr constant [14 x i8] c"SIE Diversity\00", align 1
+@.str.680 = private unnamed_addr constant [17 x i8] c"SW Configuration\00", align 1
+@.str.681 = private unnamed_addr constant [15 x i8] c"SW Description\00", align 1
+@.str.682 = private unnamed_addr constant [19 x i8] c"Perceived Severity\00", align 1
+@.str.683 = private unnamed_addr constant [8 x i8] c"Get ARI\00", align 1
+@.str.684 = private unnamed_addr constant [24 x i8] c"HW Configuration Change\00", align 1
+@.str.685 = private unnamed_addr constant [18 x i8] c"Outstanding Alarm\00", align 1
+@.str.686 = private unnamed_addr constant [10 x i8] c"File Data\00", align 1
+@.str.687 = private unnamed_addr constant [19 x i8] c"Measurement Result\00", align 1
+@.str.688 = private unnamed_addr constant [17 x i8] c"Measurement Type\00", align 1
+@oml_fom_attr_vals = internal constant [70 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.634 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.635 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.636 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.32 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.637 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.638 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.38 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.46 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.49 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.639 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.640 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.641 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.67 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.642 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.643 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.40 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.644 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.645 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.65 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.69 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.646 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.647 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.648 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.649 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.75 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.72 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.650 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.651 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.652 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.653 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.654 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.655 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.44 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.656 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.36 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.657 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.658 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.659 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.660 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.661 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.662 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.663 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.664 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.665 }, { i32, [4 x i8], ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.666 }, { i32, [4 x i8], ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.667 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.668 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.669 }, { i32, [4 x i8], ptr } { i32 50, [4 x i8] zeroinitializer, ptr @.str.670 }, { i32, [4 x i8], ptr } { i32 51, [4 x i8] zeroinitializer, ptr @.str.671 }, { i32, [4 x i8], ptr } { i32 52, [4 x i8] zeroinitializer, ptr @.str.57 }, { i32, [4 x i8], ptr } { i32 53, [4 x i8] zeroinitializer, ptr @.str.672 }, { i32, [4 x i8], ptr } { i32 54, [4 x i8] zeroinitializer, ptr @.str.673 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.674 }, { i32, [4 x i8], ptr } { i32 56, [4 x i8] zeroinitializer, ptr @.str.675 }, { i32, [4 x i8], ptr } { i32 57, [4 x i8] zeroinitializer, ptr @.str.676 }, { i32, [4 x i8], ptr } { i32 61, [4 x i8] zeroinitializer, ptr @.str.677 }, { i32, [4 x i8], ptr } { i32 62, [4 x i8] zeroinitializer, ptr @.str.678 }, { i32, [4 x i8], ptr } { i32 63, [4 x i8] zeroinitializer, ptr @.str.679 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.56 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.680 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.681 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.682 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.683 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.684 }, { i32, [4 x i8], ptr } { i32 70, [4 x i8] zeroinitializer, ptr @.str.685 }, { i32, [4 x i8], ptr } { i32 71, [4 x i8] zeroinitializer, ptr @.str.686 }, { i32, [4 x i8], ptr } { i32 72, [4 x i8] zeroinitializer, ptr @.str.687 }, { i32, [4 x i8], ptr } { i32 73, [4 x i8] zeroinitializer, ptr @.str.688 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.690 = private unnamed_addr constant [6 x i8] c"-%u%s\00", align 1
 @units_dbm = external constant %struct.unit_name_string, align 8
-@.str.674 = private unnamed_addr constant [21 x i8] c"Frequency Error List\00", align 1
-@.str.675 = private unnamed_addr constant [15 x i8] c"Result Details\00", align 1
-@.str.676 = private unnamed_addr constant [8 x i8] c"Success\00", align 1
-@.str.677 = private unnamed_addr constant [8 x i8] c"Timeout\00", align 1
-@.str.678 = private unnamed_addr constant [31 x i8] c"No suitable channels available\00", align 1
-@.str.679 = private unnamed_addr constant [8 x i8] c"Partial\00", align 1
-@.str.680 = private unnamed_addr constant [8 x i8] c"Stopped\00", align 1
-@.str.681 = private unnamed_addr constant [4 x i8] c"OML\00", align 1
+@.str.691 = private unnamed_addr constant [21 x i8] c"Frequency Error List\00", align 1
+@.str.692 = private unnamed_addr constant [15 x i8] c"Result Details\00", align 1
+@ipacc_testres_ie_vals = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.691 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.616 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.619 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.692 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.109 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.694 = private unnamed_addr constant [8 x i8] c"Success\00", align 1
+@.str.695 = private unnamed_addr constant [8 x i8] c"Timeout\00", align 1
+@.str.696 = private unnamed_addr constant [31 x i8] c"No suitable channels available\00", align 1
+@.str.697 = private unnamed_addr constant [8 x i8] c"Partial\00", align 1
+@.str.698 = private unnamed_addr constant [8 x i8] c"Stopped\00", align 1
+@ipacc_test_res_vals = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.694 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.695 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.696 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.697 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.698 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@rlc_cfg2_init_cs_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.210 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.212 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.214 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.216 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@rlc_cfg2_init_mcs_vals = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.218 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.220 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.222 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.224 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.226 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.228 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.230 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.232 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.234 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.702 = private unnamed_addr constant [4 x i8] c"OML\00", align 1
 @top_tree = internal unnamed_addr global ptr null, align 8
-@.str.682 = private unnamed_addr constant [53 x i8] c"Indicated length (%u) does not match the actual (%u)\00", align 1
-@.str.683 = private unnamed_addr constant [25 x i8] c", %s(%02x,%02x,%02x) %s \00", align 1
-@.str.684 = private unnamed_addr constant [5 x i8] c"%02x\00", align 1
-@.str.685 = private unnamed_addr constant [23 x i8] c"%s(%02x,%02x,%02x) %s \00", align 1
-@.str.686 = private unnamed_addr constant [4 x i8] c"%s \00", align 1
+@.str.703 = private unnamed_addr constant [53 x i8] c"Indicated length (%u) does not match the actual (%u)\00", align 1
+@.str.704 = private unnamed_addr constant [25 x i8] c", %s(%02x,%02x,%02x) %s \00", align 1
+@.str.705 = private unnamed_addr constant [5 x i8] c"%02x\00", align 1
+@.str.706 = private unnamed_addr constant [23 x i8] c"%s(%02x,%02x,%02x) %s \00", align 1
+@.str.707 = private unnamed_addr constant [4 x i8] c"%s \00", align 1
 @ipaccess_magic = internal constant [13 x i8] c"com.ipaccess\00", align 1
-@.str.687 = private unnamed_addr constant [5 x i8] c"etsi\00", align 1
-@.str.688 = private unnamed_addr constant [19 x i8] c"ETSI/3GPP TS 12.21\00", align 1
-@.str.689 = private unnamed_addr constant [8 x i8] c"siemens\00", align 1
-@.str.690 = private unnamed_addr constant [8 x i8] c"Siemens\00", align 1
-@.str.691 = private unnamed_addr constant [9 x i8] c"ipaccess\00", align 1
-@.str.692 = private unnamed_addr constant [10 x i8] c"ip.access\00", align 1
-@.str.693 = private unnamed_addr constant [7 x i8] c"om2000\00", align 1
-@.str.694 = private unnamed_addr constant [16 x i8] c"Ericsson OM2000\00", align 1
+@.str.708 = private unnamed_addr constant [5 x i8] c"etsi\00", align 1
+@.str.709 = private unnamed_addr constant [19 x i8] c"ETSI/3GPP TS 12.21\00", align 1
+@.str.710 = private unnamed_addr constant [8 x i8] c"siemens\00", align 1
+@.str.711 = private unnamed_addr constant [8 x i8] c"Siemens\00", align 1
+@.str.712 = private unnamed_addr constant [9 x i8] c"ipaccess\00", align 1
+@.str.713 = private unnamed_addr constant [10 x i8] c"ip.access\00", align 1
+@.str.714 = private unnamed_addr constant [7 x i8] c"om2000\00", align 1
+@.str.715 = private unnamed_addr constant [16 x i8] c"Ericsson OM2000\00", align 1
+@oml_dialect_enumvals = internal constant [5 x { ptr, ptr, i32, [4 x i8] }] [{ ptr, ptr, i32, [4 x i8] } { ptr @.str.708, ptr @.str.709, i32 0, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } { ptr @.str.710, ptr @.str.711, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } { ptr @.str.712, ptr @.str.713, i32 2, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } { ptr @.str.714, ptr @.str.715, i32 3, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } zeroinitializer], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_abis_oml() local_unnamed_addr #0 {
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @nm_att_tlvdef_base, i64 8), align 4
   store i8 3, ptr getelementptr inbounds nuw (i8, ptr @nm_att_tlvdef_base, i64 12), align 4
@@ -1141,23 +1137,23 @@ define hidden void @proto_register_abis_oml() local_unnamed_addr #0 {
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @nm_att_tlvdef_ipa, i64 1156), align 4
   store i32 5, ptr getelementptr inbounds nuw (i8, ptr @nm_att_tlvdef_ipa, i64 1224), align 4
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @nm_att_tlvdef_ipa, i64 1228), align 4
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.243, ptr noundef nonnull @.str.244) #5
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.243, ptr noundef nonnull @.str.244)
   store i32 %1, ptr @proto_abis_oml, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_abis_oml.hf, i32 noundef 111) #5
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_abis_oml.ett, i32 noundef 3) #5
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_abis_oml.hf, i32 noundef 111)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_abis_oml.ett, i32 noundef 3)
   %2 = load i32, ptr @proto_abis_oml, align 4
-  %3 = tail call ptr @expert_register_protocol(i32 noundef %2) #5
-  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_abis_oml.ei, i32 noundef 3) #5
+  %3 = tail call ptr @expert_register_protocol(i32 noundef %2)
+  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_abis_oml.ei, i32 noundef 3)
   %4 = load i32, ptr @proto_abis_oml, align 4
-  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.244, ptr noundef nonnull @dissect_abis_oml, i32 noundef %4) #5
+  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.244, ptr noundef nonnull @dissect_abis_oml, i32 noundef %4)
   %6 = load i32, ptr @proto_abis_oml, align 4
-  %7 = tail call ptr @prefs_register_protocol(i32 noundef %6, ptr noundef null) #5
-  tail call void @prefs_register_enum_preference(ptr noundef %7, ptr noundef nonnull @.str.245, ptr noundef nonnull @.str.246, ptr noundef nonnull @.str.247, ptr noundef nonnull @global_oml_dialect, ptr noundef nonnull @oml_dialect_enumvals, i32 noundef 1) #5
+  %7 = tail call ptr @prefs_register_protocol(i32 noundef %6, ptr noundef null)
+  tail call void @prefs_register_enum_preference(ptr noundef %7, ptr noundef nonnull @.str.245, ptr noundef nonnull @.str.246, ptr noundef nonnull @.str.247, ptr noundef nonnull @global_oml_dialect, ptr noundef nonnull @oml_dialect_enumvals, i1 noundef zeroext true)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @format_custom_msgtype(ptr noundef writeonly captures(none) %0, i32 noundef %1) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @format_custom_msgtype(ptr noundef %0, i32 noundef %1) #0 {
   %3 = load i32, ptr @global_oml_dialect, align 4
   switch i32 %3, label %.thread [
     i32 1, label %5
@@ -1169,26 +1165,26 @@ define internal void @format_custom_msgtype(ptr noundef writeonly captures(none)
 
 5:                                                ; preds = %2, %4
   %oml_fom_msgtype_vals_ipa.sink = phi ptr [ @oml_fom_msgtype_vals_ipa, %4 ], [ @oml_fom_msgtype_vals_bs11, %2 ]
-  %6 = tail call ptr @try_val_to_str(i32 noundef %1, ptr noundef nonnull %oml_fom_msgtype_vals_ipa.sink) #5
+  %6 = tail call ptr @try_val_to_str(i32 noundef %1, ptr noundef nonnull %oml_fom_msgtype_vals_ipa.sink)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.thread, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.258, ptr noundef nonnull %6) #5
+  %8 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.260, ptr noundef nonnull %6)
   br label %11
 
 .thread:                                          ; preds = %2, %5
-  %9 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %1, ptr noundef nonnull @oml_fom_msgtype_vals, ptr noundef nonnull @.str.259) #5
-  %10 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.258, ptr noundef %9) #5
-  tail call void @wmem_free(ptr noundef null, ptr noundef %9) #5
+  %9 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %1, ptr noundef nonnull @oml_fom_msgtype_vals, ptr noundef nonnull @.str.261)
+  %10 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.260, ptr noundef %9)
+  tail call void @wmem_free(ptr noundef null, ptr noundef %9)
   br label %11
 
 11:                                               ; preds = %.thread, %7
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @format_custom_attr(ptr noundef writeonly captures(none) %0, i32 noundef %1) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @format_custom_attr(ptr noundef %0, i32 noundef %1) #0 {
   %3 = load i32, ptr @global_oml_dialect, align 4
   switch i32 %3, label %.thread [
     i32 1, label %5
@@ -1200,83 +1196,92 @@ define internal void @format_custom_attr(ptr noundef writeonly captures(none) %0
 
 5:                                                ; preds = %2, %4
   %oml_fom_attr_vals_ipa.sink = phi ptr [ @oml_fom_attr_vals_ipa, %4 ], [ @oml_fom_attr_vals_bs11, %2 ]
-  %6 = tail call ptr @try_val_to_str(i32 noundef %1, ptr noundef nonnull %oml_fom_attr_vals_ipa.sink) #5
+  %6 = tail call ptr @try_val_to_str(i32 noundef %1, ptr noundef nonnull %oml_fom_attr_vals_ipa.sink)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.thread, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.258, ptr noundef nonnull %6) #5
+  %8 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.260, ptr noundef nonnull %6)
   br label %11
 
 .thread:                                          ; preds = %2, %5
-  %9 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %1, ptr noundef nonnull @oml_fom_attr_vals, ptr noundef nonnull @.str.259) #5
-  %10 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.258, ptr noundef %9) #5
-  tail call void @wmem_free(ptr noundef null, ptr noundef %9) #5
+  %9 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %1, ptr noundef nonnull @oml_fom_attr_vals, ptr noundef nonnull @.str.261)
+  %10 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.260, ptr noundef %9)
+  tail call void @wmem_free(ptr noundef null, ptr noundef %9)
   br label %11
 
 11:                                               ; preds = %.thread, %7
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @format_interf_bound(ptr noundef writeonly captures(none) %0, i32 noundef %1) #0 {
-  %3 = tail call ptr @unit_name_string_get_value(i32 noundef %1, ptr noundef nonnull @units_dbm) #5
-  %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.673, i32 noundef %1, ptr noundef %3) #5
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @format_interf_bound(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = tail call ptr @unit_name_string_get_value(i32 noundef %1, ptr noundef nonnull @units_dbm)
+  %4 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.690, i32 noundef %1, ptr noundef %3)
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_abis_oml(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
-  %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
-  %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #5
+  %6 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
+  %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
-  tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.681) #5
+  tail call void @col_set_str(ptr noundef %9, i32 noundef 35, ptr noundef nonnull @.str.702)
   store ptr %2, ptr @top_tree, align 8
   %10 = load i32, ptr @proto_abis_oml, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %12 = load i32, ptr @ett_oml, align 4
-  %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #5
+  %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12)
   %14 = load i32, ptr @hf_oml_msg_disc, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648)
   %16 = load i32, ptr @hf_oml_placement, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %16, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #5
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %16, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648)
   %18 = load i32, ptr @hf_oml_sequence, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %18, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #5
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %18, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
   %20 = load i32, ptr @hf_oml_length, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %20, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #5
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %20, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648)
   %22 = zext i8 %6 to i32
   %23 = icmp eq i8 %6, 16
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %4
-  %25 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #5
+  %25 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 4)
   %26 = zext i8 %25 to i32
   %27 = add nuw nsw i32 %26, 5
   br label %28
 
 28:                                               ; preds = %4, %24
   %.sink = phi i32 [ %27, %24 ], [ 4, %4 ]
-  %29 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.sink) #5
+  %29 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.sink)
   %30 = zext i8 %7 to i32
   %.not = icmp eq i32 %29, %30
   br i1 %.not, label %33, label %31
 
 31:                                               ; preds = %28
-  %32 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %11, ptr noundef nonnull @ei_length_mismatch, ptr noundef nonnull @.str.682, i32 noundef %30, i32 noundef %29) #5
+  %32 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %11, ptr noundef nonnull @ei_length_mismatch, ptr noundef nonnull @.str.703, i32 noundef %30, i32 noundef %29)
   br label %33
 
 33:                                               ; preds = %31, %28
@@ -1285,13 +1290,13 @@ define internal i32 @dissect_abis_oml(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %35, label %36, label %41
 
 36:                                               ; preds = %33
-  %37 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 4, i32 noundef %30) #5
+  %37 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 4, i32 noundef %30)
   %38 = load ptr, ptr @sub_om2000, align 8
   %.not54 = icmp eq ptr %38, null
   br i1 %.not54, label %62, label %39
 
 39:                                               ; preds = %36
-  %40 = tail call i32 @call_dissector(ptr noundef nonnull %38, ptr noundef %37, ptr noundef nonnull %1, ptr noundef %2) #5
+  %40 = tail call i32 @call_dissector(ptr noundef nonnull %38, ptr noundef %37, ptr noundef %1, ptr noundef %2)
   br label %62
 
 41:                                               ; preds = %33
@@ -1303,183 +1308,183 @@ define internal i32 @dissect_abis_oml(ptr noundef %0, ptr noundef %1, ptr nounde
   ]
 
 44:                                               ; preds = %41
-  %45 = tail call fastcc i32 @dissect_oml_fom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %13, i32 noundef 4, ptr noundef %11)
+  %45 = tail call fastcc i32 @dissect_oml_fom(ptr noundef %0, ptr noundef %1, ptr noundef %13, i32 noundef 4, ptr noundef %11)
   br label %62
 
 46:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
   %47 = load i32, ptr @hf_oml_manuf_id_len, align 4
-  %48 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %13, i32 noundef %47, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #5
+  %48 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %13, i32 noundef %47, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5)
   %49 = load i32, ptr @hf_oml_manuf_id_val, align 4
   %50 = load i32, ptr %5, align 4
-  %51 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %49, ptr noundef %0, i32 noundef 5, i32 noundef %50, i32 noundef 0) #5
+  %51 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %49, ptr noundef %0, i32 noundef 5, i32 noundef %50, i32 noundef 0)
   %52 = load i32, ptr %5, align 4
   %53 = add i32 %52, -13
   %or.cond.i = icmp ult i32 %53, 2
   br i1 %or.cond.i, label %54, label %60
 
 54:                                               ; preds = %46
-  %55 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef 5, ptr noundef nonnull @ipaccess_magic, i64 noundef 13) #5
+  %55 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef 5, ptr noundef nonnull @ipaccess_magic, i64 noundef 13)
   %.not.i = icmp eq i32 %55, 0
   br i1 %.not.i, label %56, label %60
 
 56:                                               ; preds = %54
   %57 = load i32, ptr %5, align 4
   %58 = add i32 %57, 5
-  %59 = call fastcc i32 @dissect_oml_fom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %13, i32 noundef %58, ptr noundef %11)
+  %59 = call fastcc i32 @dissect_oml_fom(ptr noundef %0, ptr noundef %1, ptr noundef %13, i32 noundef %58, ptr noundef %11)
   br label %dissect_oml_manuf.exit
 
 60:                                               ; preds = %54, %46
-  %61 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %11, ptr noundef nonnull @ei_unknown_manuf) #5
+  %61 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %11, ptr noundef nonnull @ei_unknown_manuf)
   br label %dissect_oml_manuf.exit
 
 dissect_oml_manuf.exit:                           ; preds = %56, %60
   %.0.i = phi i32 [ 4, %60 ], [ %59, %56 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
   br label %62
 
-62:                                               ; preds = %44, %dissect_oml_manuf.exit, %41, %36, %39
-  %.051 = phi i32 [ 4, %39 ], [ 4, %36 ], [ 4, %41 ], [ %.0.i, %dissect_oml_manuf.exit ], [ %45, %44 ]
+62:                                               ; preds = %36, %39, %44, %dissect_oml_manuf.exit, %41
+  %.051 = phi i32 [ 4, %41 ], [ %.0.i, %dissect_oml_manuf.exit ], [ %45, %44 ], [ 4, %39 ], [ 4, %36 ]
   ret i32 %.051
 }
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_abis_oml() local_unnamed_addr #0 {
   %1 = load i32, ptr @proto_abis_oml, align 4
-  %2 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_abis_oml, i32 noundef %1) #5
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.248, i32 noundef 62, ptr noundef %2) #5
+  %2 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_abis_oml, i32 noundef %1)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.248, i32 noundef 62, ptr noundef %2)
   %3 = load i32, ptr @proto_abis_oml, align 4
-  %4 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.249, i32 noundef %3) #5
+  %4 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.249, i32 noundef %3)
   store ptr %4, ptr @sub_om2000, align 8
   ret void
 }
 
-declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+; Function Attrs: nofree null_pointer_is_valid
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare ptr @val_to_str_wmem(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_wmem(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @unit_name_string_get_value(i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @unit_name_string_get_value(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_oml_fom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [240 x i8], align 16
-  %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #5
+  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %6) #5
+  %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %8 = add i32 %3, 1
-  %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %8) #5
+  %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %8)
   %10 = add i32 %3, 2
-  %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %10) #5
+  %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %10)
   %12 = add i32 %3, 3
-  %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %12) #5
+  %13 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %12)
   %14 = add i32 %3, 4
-  %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %14) #5
+  %15 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %14)
   %16 = zext i8 %7 to i32
-  %17 = load i32, ptr @global_oml_dialect, align 4
-  switch i32 %17, label %.thread.i [
-    i32 1, label %19
-    i32 2, label %18
-  ]
-
-18:                                               ; preds = %5
-  br label %19
-
-19:                                               ; preds = %18, %5
-  %oml_fom_msgtype_vals_ipa.sink.i = phi ptr [ @oml_fom_msgtype_vals_ipa, %18 ], [ @oml_fom_msgtype_vals_bs11, %5 ]
-  %20 = tail call ptr @try_val_to_str(i32 noundef %16, ptr noundef nonnull %oml_fom_msgtype_vals_ipa.sink.i) #5
-  %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %.thread.i, label %21
-
-21:                                               ; preds = %19
-  %22 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 240, ptr noundef nonnull @.str.258, ptr noundef nonnull %20) #5
-  br label %format_custom_msgtype.exit
-
-.thread.i:                                        ; preds = %19, %5
-  %23 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %16, ptr noundef nonnull @oml_fom_msgtype_vals, ptr noundef nonnull @.str.259) #5
-  %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 240, ptr noundef nonnull @.str.258, ptr noundef %23) #5
-  tail call void @wmem_free(ptr noundef null, ptr noundef %23) #5
-  br label %format_custom_msgtype.exit
-
-format_custom_msgtype.exit:                       ; preds = %21, %.thread.i
-  %25 = zext i8 %9 to i32
-  %26 = tail call ptr @val_to_str(i32 noundef %25, ptr noundef nonnull @oml_fom_objclass_vals, ptr noundef nonnull @.str.684) #5
-  %27 = zext i8 %11 to i32
-  %28 = zext i8 %13 to i32
-  %29 = zext i8 %15 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.683, ptr noundef %26, i32 noundef %27, i32 noundef %28, i32 noundef %29, ptr noundef nonnull %6) #5
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = call ptr @val_to_str(i32 noundef %25, ptr noundef nonnull @oml_fom_objclass_vals, ptr noundef nonnull @.str.684) #5
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %31, i32 noundef 25, ptr noundef nonnull @.str.685, ptr noundef %32, i32 noundef %27, i32 noundef %28, i32 noundef %29, ptr noundef nonnull %6) #5
-  %33 = load i32, ptr @hf_oml_fom_msgtype, align 4
-  %34 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
-  %35 = load i32, ptr @ett_oml_fom, align 4
-  %36 = call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %35) #5
-  %37 = load i32, ptr @hf_oml_fom_objclass, align 4
-  %38 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %37, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef 0) #5
-  %39 = load i32, ptr @hf_oml_fom_inst_bts, align 4
-  %40 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %39, ptr noundef %0, i32 noundef %10, i32 noundef 1, i32 noundef 0) #5
-  %41 = load i32, ptr @hf_oml_fom_inst_trx, align 4
-  %42 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %41, ptr noundef %0, i32 noundef %12, i32 noundef 1, i32 noundef 0) #5
-  %43 = load i32, ptr @hf_oml_fom_inst_ts, align 4
-  %44 = add i32 %3, 5
-  %45 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %43, ptr noundef %0, i32 noundef %14, i32 noundef 1, i32 noundef 0) #5
-  %46 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %44) #5
-  %47 = call fastcc i32 @dissect_oml_attrs(ptr noundef %0, i32 noundef %44, i32 noundef %46, ptr noundef %1, ptr noundef %36)
-  ret i32 %47
+  call void @format_custom_msgtype(ptr noundef nonnull %6, i32 noundef %16)
+  %17 = zext i8 %9 to i32
+  %18 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @oml_fom_objclass_vals, ptr noundef nonnull @.str.705)
+  %19 = zext i8 %11 to i32
+  %20 = zext i8 %13 to i32
+  %21 = zext i8 %15 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.704, ptr noundef %18, i32 noundef %19, i32 noundef %20, i32 noundef %21, ptr noundef nonnull %6)
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @oml_fom_objclass_vals, ptr noundef nonnull @.str.705)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.706, ptr noundef %24, i32 noundef %19, i32 noundef %20, i32 noundef %21, ptr noundef nonnull %6)
+  %25 = load i32, ptr @hf_oml_fom_msgtype, align 4
+  %26 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
+  %27 = load i32, ptr @ett_oml_fom, align 4
+  %28 = call ptr @proto_item_add_subtree(ptr noundef %26, i32 noundef %27)
+  %29 = load i32, ptr @hf_oml_fom_objclass, align 4
+  %30 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %29, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef 0)
+  %31 = load i32, ptr @hf_oml_fom_inst_bts, align 4
+  %32 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %31, ptr noundef %0, i32 noundef %10, i32 noundef 1, i32 noundef 0)
+  %33 = load i32, ptr @hf_oml_fom_inst_trx, align 4
+  %34 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %33, ptr noundef %0, i32 noundef %12, i32 noundef 1, i32 noundef 0)
+  %35 = load i32, ptr @hf_oml_fom_inst_ts, align 4
+  %36 = add i32 %3, 5
+  %37 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %35, ptr noundef %0, i32 noundef %14, i32 noundef 1, i32 noundef 0)
+  %38 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %36)
+  %39 = call fastcc i32 @dissect_oml_attrs(ptr noundef %0, i32 noundef %36, i32 noundef %38, ptr noundef %1, ptr noundef %28)
+  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6) #5
+  ret i32 %39
 }
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_oml_attrs(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = icmp sgt i32 %2, 0
-  br i1 %6, label %.lr.ph376, label %.loopexit362
+  br i1 %6, label %.lr.ph386, label %.loopexit372
 
-.lr.ph376:                                        ; preds = %5
+.lr.ph386:                                        ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %8
 
-8:                                                ; preds = %.lr.ph376, %.backedge
-  %.0349374 = phi i32 [ %1, %.lr.ph376 ], [ %.0349.be, %.backedge ]
-  %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0349374) #5
+8:                                                ; preds = %.lr.ph386, %408
+  %.0352384 = phi i32 [ %1, %.lr.ph386 ], [ %.1353, %408 ]
+  %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0352384)
   %10 = load i32, ptr @hf_oml_fom_attr_tag, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %10, ptr noundef %0, i32 noundef %.0349374, i32 noundef 1, i32 noundef 0) #5
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %10, ptr noundef %0, i32 noundef %.0352384, i32 noundef 1, i32 noundef 0)
   %12 = load i32, ptr @ett_oml_fom_att, align 4
-  %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #5
+  %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12)
   %14 = load i32, ptr @global_oml_dialect, align 4
   switch i32 %14, label %..thread.i_crit_edge [
     i32 2, label %16
@@ -1514,9 +1519,9 @@ define internal fastcc i32 @dissect_oml_attrs(ptr noundef %0, i32 noundef %1, i3
 find_tlv_tag.exit:                                ; preds = %19, %.thread.i
   %22 = phi i32 [ %20, %19 ], [ %.pr, %.thread.i ]
   %.06.i = phi ptr [ %18, %19 ], [ %21, %.thread.i ]
-  switch i32 %22, label %46 [
+  switch i32 %22, label %.thread [
     i32 1, label %23
-    i32 2, label %49
+    i32 2, label %48
     i32 3, label %27
     i32 4, label %28
     i32 5, label %32
@@ -1527,666 +1532,678 @@ find_tlv_tag.exit:                                ; preds = %19, %.thread.i
   %24 = getelementptr inbounds nuw i8, ptr %.06.i, i64 4
   %25 = load i8, ptr %24, align 4
   %26 = zext i8 %25 to i32
-  br label %49
+  br label %48
 
 27:                                               ; preds = %find_tlv_tag.exit
-  br label %49
+  br label %48
 
 28:                                               ; preds = %find_tlv_tag.exit
-  %29 = add i32 %.0349374, 1
-  %30 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %29) #5
+  %29 = add i32 %.0352384, 1
+  %30 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %29)
   %31 = zext i8 %30 to i32
-  br label %49
+  br label %48
 
 32:                                               ; preds = %find_tlv_tag.exit
-  %33 = add i32 %.0349374, 1
-  %34 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %33) #5
+  %33 = add i32 %.0352384, 1
+  %34 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %33)
   %35 = zext i8 %34 to i32
   %36 = shl nuw nsw i32 %35, 8
-  %37 = add i32 %.0349374, 2
-  %38 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %37) #5
+  %37 = add i32 %.0352384, 2
+  %38 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %37)
   %39 = zext i8 %38 to i32
   %40 = or disjoint i32 %36, %39
-  br label %49
+  br label %48
 
 41:                                               ; preds = %find_tlv_tag.exit
-  %42 = add i32 %.0349374, 1
-  %43 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %42) #5
+  %42 = add i32 %.0352384, 1
+  %43 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %42)
   %44 = zext i8 %43 to i32
   %45 = shl nuw nsw i32 %44, 1
-  br label %49
+  br label %48
 
-46:                                               ; preds = %find_tlv_tag.exit
-  %47 = tail call ptr @expert_add_info(ptr noundef %3, ptr noundef %11, ptr noundef nonnull @ei_unknown_type) #5
-  %48 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
-  br label %.loopexit362
+.thread:                                          ; preds = %find_tlv_tag.exit
+  %46 = tail call ptr @expert_add_info(ptr noundef %3, ptr noundef %11, ptr noundef nonnull @ei_unknown_type)
+  %47 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  br label %.loopexit372
 
-49:                                               ; preds = %find_tlv_tag.exit, %41, %32, %28, %27, %23
-  %.0355 = phi i32 [ 2, %41 ], [ 3, %32 ], [ 2, %28 ], [ 1, %27 ], [ 1, %23 ], [ 1, %find_tlv_tag.exit ]
-  %.0354 = phi i32 [ 1, %41 ], [ 2, %32 ], [ 1, %28 ], [ 0, %27 ], [ 0, %23 ], [ 0, %find_tlv_tag.exit ]
-  %.0353 = phi i32 [ %45, %41 ], [ %40, %32 ], [ %31, %28 ], [ 1, %27 ], [ %26, %23 ], [ 0, %find_tlv_tag.exit ]
-  %50 = load i32, ptr @hf_oml_fom_attr_len, align 4
-  %51 = add i32 %.0349374, 1
-  %52 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %50, ptr noundef %0, i32 noundef %51, i32 noundef %.0354, i32 noundef %.0353) #5
-  %53 = add i32 %.0355, %.0349374
-  %54 = icmp eq i32 %.0353, 0
-  br i1 %54, label %.backedge, label %55
+48:                                               ; preds = %find_tlv_tag.exit, %41, %32, %28, %27, %23
+  %.0362 = phi i32 [ 2, %41 ], [ 3, %32 ], [ 2, %28 ], [ 1, %27 ], [ 1, %23 ], [ 1, %find_tlv_tag.exit ]
+  %.0361 = phi i32 [ 1, %41 ], [ 2, %32 ], [ 1, %28 ], [ 0, %27 ], [ 0, %23 ], [ 0, %find_tlv_tag.exit ]
+  %.0360 = phi i32 [ %45, %41 ], [ %40, %32 ], [ %31, %28 ], [ 1, %27 ], [ %26, %23 ], [ 0, %find_tlv_tag.exit ]
+  %49 = load i32, ptr @hf_oml_fom_attr_len, align 4
+  %50 = add i32 %.0352384, 1
+  %51 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %49, ptr noundef %0, i32 noundef %50, i32 noundef %.0361, i32 noundef %.0360)
+  %52 = add i32 %.0362, %.0352384
+  %53 = icmp eq i32 %.0360, 0
+  br i1 %53, label %408, label %54, !llvm.loop !6
 
-55:                                               ; preds = %49
-  %56 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %53, i32 noundef %.0353) #5
-  switch i8 %9, label %255 [
-    i8 1, label %57
-    i8 4, label %66
-    i8 5, label %.lr.ph371
-    i8 45, label %78
-    i8 7, label %84
-    i8 8, label %91
-    i8 9, label %94
-    i8 13, label %97
-    i8 17, label %100
-    i8 20, label %103
-    i8 36, label %106
-    i8 52, label %113
-    i8 64, label %116
-    i8 67, label %119
-    i8 34, label %122
-    i8 55, label %125
-    i8 54, label %209
-    i8 21, label %216
-    i8 27, label %219
-    i8 26, label %.lr.ph369
-    i8 68, label %226
-    i8 25, label %237
+54:                                               ; preds = %48
+  %55 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %52, i32 noundef %.0360)
+  switch i8 %9, label %254 [
+    i8 1, label %56
+    i8 4, label %65
+    i8 5, label %.lr.ph381
+    i8 45, label %77
+    i8 7, label %83
+    i8 8, label %90
+    i8 9, label %93
+    i8 13, label %96
+    i8 17, label %99
+    i8 20, label %102
+    i8 36, label %105
+    i8 52, label %112
+    i8 64, label %115
+    i8 67, label %118
+    i8 34, label %121
+    i8 55, label %124
+    i8 54, label %208
+    i8 21, label %215
+    i8 27, label %218
+    i8 26, label %.lr.ph379
+    i8 68, label %225
+    i8 25, label %236
   ]
 
-57:                                               ; preds = %55
-  %58 = load i32, ptr @hf_attr_ach_btsp, align 4
-  %59 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %58, ptr noundef %0, i32 noundef %53, i32 noundef 1, i32 noundef -2147483648) #5
-  %60 = load i32, ptr @hf_attr_ach_tslot, align 4
-  %61 = add i32 %53, 1
-  %62 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %60, ptr noundef %0, i32 noundef %61, i32 noundef 1, i32 noundef -2147483648) #5
-  %63 = load i32, ptr @hf_attr_ach_sslot, align 4
-  %64 = add i32 %53, 2
-  %65 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %63, ptr noundef %0, i32 noundef %64, i32 noundef 1, i32 noundef -2147483648) #5
+56:                                               ; preds = %54
+  %57 = load i32, ptr @hf_attr_ach_btsp, align 4
+  %58 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %57, ptr noundef %0, i32 noundef %52, i32 noundef 1, i32 noundef -2147483648)
+  %59 = load i32, ptr @hf_attr_ach_tslot, align 4
+  %60 = add i32 %52, 1
+  %61 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %59, ptr noundef %0, i32 noundef %60, i32 noundef 1, i32 noundef -2147483648)
+  %62 = load i32, ptr @hf_attr_ach_sslot, align 4
+  %63 = add i32 %52, 2
+  %64 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %62, ptr noundef %0, i32 noundef %63, i32 noundef 1, i32 noundef -2147483648)
   br label %dissect_ipacc_test_rep.exit
 
-66:                                               ; preds = %55
-  %67 = load i32, ptr @hf_attr_adm_state, align 4
-  %68 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %67, ptr noundef %0, i32 noundef %53, i32 noundef %.0353, i32 noundef 0) #5
-  %69 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %53) #5
-  %70 = load ptr, ptr %7, align 8
-  %71 = zext i8 %69 to i32
-  %72 = tail call ptr @val_to_str(i32 noundef %71, ptr noundef nonnull @oml_adm_state_vals, ptr noundef nonnull @.str.684) #5
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %70, i32 noundef 25, ptr noundef nonnull @.str.686, ptr noundef %72) #5
+65:                                               ; preds = %54
+  %66 = load i32, ptr @hf_attr_adm_state, align 4
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %66, ptr noundef %0, i32 noundef %52, i32 noundef %.0360, i32 noundef 0)
+  %68 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %52)
+  %69 = load ptr, ptr %7, align 8
+  %70 = zext i8 %68 to i32
+  %71 = tail call ptr @val_to_str(i32 noundef %70, ptr noundef nonnull @oml_adm_state_vals, ptr noundef nonnull @.str.705)
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %69, i32 noundef 25, ptr noundef nonnull @.str.707, ptr noundef %71)
   br label %dissect_ipacc_test_rep.exit
 
-.lr.ph371:                                        ; preds = %55, %.lr.ph371
-  %.0351370 = phi i32 [ %76, %.lr.ph371 ], [ 0, %55 ]
-  %73 = load i32, ptr @hf_attr_arfcn, align 4
-  %74 = add i32 %.0351370, %53
-  %75 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %73, ptr noundef %0, i32 noundef %74, i32 noundef 2, i32 noundef 0) #5
-  %76 = add nuw nsw i32 %.0351370, 2
-  %77 = icmp ult i32 %76, %.0353
-  br i1 %77, label %.lr.ph371, label %dissect_ipacc_test_rep.exit, !llvm.loop !4
+.lr.ph381:                                        ; preds = %54, %.lr.ph381
+  %.0355380 = phi i32 [ %75, %.lr.ph381 ], [ 0, %54 ]
+  %72 = load i32, ptr @hf_attr_arfcn, align 4
+  %73 = add i32 %.0355380, %52
+  %74 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %72, ptr noundef %0, i32 noundef %73, i32 noundef 2, i32 noundef 0)
+  %75 = add nuw nsw i32 %.0355380, 2
+  %76 = icmp ult i32 %75, %.0360
+  br i1 %76, label %.lr.ph381, label %dissect_ipacc_test_rep.exit, !llvm.loop !8
 
-78:                                               ; preds = %55
-  %79 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %53) #5
-  %80 = load i32, ptr @hf_attr_rf_max_pwr_red, align 4
-  %81 = zext i8 %79 to i32
-  %82 = shl nuw nsw i32 %81, 1
-  %83 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %80, ptr noundef %0, i32 noundef %53, i32 noundef 1, i32 noundef %82) #5
+77:                                               ; preds = %54
+  %78 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %52)
+  %79 = load i32, ptr @hf_attr_rf_max_pwr_red, align 4
+  %80 = zext i8 %78 to i32
+  %81 = shl nuw nsw i32 %80, 1
+  %82 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %79, ptr noundef %0, i32 noundef %52, i32 noundef 1, i32 noundef %81)
   br label %dissect_ipacc_test_rep.exit
 
-84:                                               ; preds = %55
-  %85 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %53) #5
-  %86 = load i32, ptr @hf_attr_avail_state, align 4
-  %87 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %86, ptr noundef %0, i32 noundef %53, i32 noundef %.0353, i32 noundef 0) #5
-  %88 = load ptr, ptr %7, align 8
-  %89 = zext i8 %85 to i32
-  %90 = tail call ptr @val_to_str(i32 noundef %89, ptr noundef nonnull @oml_avail_state_vals, ptr noundef nonnull @.str.684) #5
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %88, i32 noundef 25, ptr noundef nonnull @.str.686, ptr noundef %90) #5
+83:                                               ; preds = %54
+  %84 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %52)
+  %85 = load i32, ptr @hf_attr_avail_state, align 4
+  %86 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %85, ptr noundef %0, i32 noundef %52, i32 noundef %.0360, i32 noundef 0)
+  %87 = load ptr, ptr %7, align 8
+  %88 = zext i8 %84 to i32
+  %89 = tail call ptr @val_to_str(i32 noundef %88, ptr noundef nonnull @oml_avail_state_vals, ptr noundef nonnull @.str.705)
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %87, i32 noundef 25, ptr noundef nonnull @.str.707, ptr noundef %89)
   br label %dissect_ipacc_test_rep.exit
 
-91:                                               ; preds = %55
-  %92 = load i32, ptr @hf_attr_bcch_arfcn, align 4
-  %93 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %92, ptr noundef %0, i32 noundef %53, i32 noundef %.0353, i32 noundef 0) #5
+90:                                               ; preds = %54
+  %91 = load i32, ptr @hf_attr_bcch_arfcn, align 4
+  %92 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %91, ptr noundef %0, i32 noundef %52, i32 noundef %.0360, i32 noundef 0)
   br label %dissect_ipacc_test_rep.exit
 
-94:                                               ; preds = %55
-  %95 = load i32, ptr @hf_attr_bsic, align 4
-  %96 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %95, ptr noundef %0, i32 noundef %53, i32 noundef %.0353, i32 noundef -2147483648) #5
+93:                                               ; preds = %54
+  %94 = load i32, ptr @hf_attr_bsic, align 4
+  %95 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %94, ptr noundef %0, i32 noundef %52, i32 noundef %.0360, i32 noundef -2147483648)
   br label %dissect_ipacc_test_rep.exit
 
-97:                                               ; preds = %55
-  %98 = load i32, ptr @hf_attr_chan_comb, align 4
-  %99 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %98, ptr noundef %0, i32 noundef %53, i32 noundef %.0353, i32 noundef -2147483648) #5
+96:                                               ; preds = %54
+  %97 = load i32, ptr @hf_attr_chan_comb, align 4
+  %98 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %97, ptr noundef %0, i32 noundef %52, i32 noundef %.0360, i32 noundef -2147483648)
   br label %dissect_ipacc_test_rep.exit
 
-100:                                              ; preds = %55
-  %101 = load i32, ptr @hf_attr_event_type, align 4
-  %102 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %101, ptr noundef %0, i32 noundef %53, i32 noundef %.0353, i32 noundef -2147483648) #5
+99:                                               ; preds = %54
+  %100 = load i32, ptr @hf_attr_event_type, align 4
+  %101 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %100, ptr noundef %0, i32 noundef %52, i32 noundef %.0360, i32 noundef -2147483648)
   br label %dissect_ipacc_test_rep.exit
 
-103:                                              ; preds = %55
-  %104 = load i32, ptr @hf_attr_gsm_time, align 4
-  %105 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %104, ptr noundef %0, i32 noundef %53, i32 noundef %.0353, i32 noundef -2147483648) #5
+102:                                              ; preds = %54
+  %103 = load i32, ptr @hf_attr_gsm_time, align 4
+  %104 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %103, ptr noundef %0, i32 noundef %52, i32 noundef %.0360, i32 noundef -2147483648)
   br label %dissect_ipacc_test_rep.exit
 
-106:                                              ; preds = %55
-  %107 = load i32, ptr @hf_attr_oper_state, align 4
-  %108 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %107, ptr noundef %0, i32 noundef %53, i32 noundef %.0353, i32 noundef 0) #5
-  %109 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %53) #5
-  %110 = load ptr, ptr %7, align 8
-  %111 = zext i8 %109 to i32
-  %112 = tail call ptr @val_to_str(i32 noundef %111, ptr noundef nonnull @oml_oper_state_vals, ptr noundef nonnull @.str.684) #5
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %110, i32 noundef 25, ptr noundef nonnull @.str.686, ptr noundef %112) #5
+105:                                              ; preds = %54
+  %106 = load i32, ptr @hf_attr_oper_state, align 4
+  %107 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %106, ptr noundef %0, i32 noundef %52, i32 noundef %.0360, i32 noundef 0)
+  %108 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %52)
+  %109 = load ptr, ptr %7, align 8
+  %110 = zext i8 %108 to i32
+  %111 = tail call ptr @val_to_str(i32 noundef %110, ptr noundef nonnull @oml_oper_state_vals, ptr noundef nonnull @.str.705)
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %109, i32 noundef 25, ptr noundef nonnull @.str.707, ptr noundef %111)
   br label %dissect_ipacc_test_rep.exit
 
-113:                                              ; preds = %55
-  %114 = load i32, ptr @hf_attr_tei, align 4
-  %115 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %114, ptr noundef %0, i32 noundef %53, i32 noundef %.0353, i32 noundef -2147483648) #5
+112:                                              ; preds = %54
+  %113 = load i32, ptr @hf_attr_tei, align 4
+  %114 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %113, ptr noundef %0, i32 noundef %52, i32 noundef %.0360, i32 noundef -2147483648)
   br label %dissect_ipacc_test_rep.exit
 
-116:                                              ; preds = %55
-  %117 = load i32, ptr @hf_attr_tsc, align 4
-  %118 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %117, ptr noundef %0, i32 noundef %53, i32 noundef %.0353, i32 noundef -2147483648) #5
+115:                                              ; preds = %54
+  %116 = load i32, ptr @hf_attr_tsc, align 4
+  %117 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %116, ptr noundef %0, i32 noundef %52, i32 noundef %.0360, i32 noundef -2147483648)
   br label %dissect_ipacc_test_rep.exit
 
-119:                                              ; preds = %55
-  %120 = load i32, ptr @hf_attr_severity, align 4
-  %121 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %120, ptr noundef %0, i32 noundef %53, i32 noundef %.0353, i32 noundef -2147483648) #5
+118:                                              ; preds = %54
+  %119 = load i32, ptr @hf_attr_severity, align 4
+  %120 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %119, ptr noundef %0, i32 noundef %52, i32 noundef %.0360, i32 noundef -2147483648)
   br label %dissect_ipacc_test_rep.exit
 
-122:                                              ; preds = %55
-  %123 = load i32, ptr @hf_attr_nack_causes, align 4
-  %124 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %123, ptr noundef %0, i32 noundef %53, i32 noundef %.0353, i32 noundef -2147483648) #5
+121:                                              ; preds = %54
+  %122 = load i32, ptr @hf_attr_nack_causes, align 4
+  %123 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %122, ptr noundef %0, i32 noundef %52, i32 noundef %.0360, i32 noundef -2147483648)
   br label %dissect_ipacc_test_rep.exit
 
-125:                                              ; preds = %55
-  %126 = load i32, ptr @hf_attr_ipa_test_res, align 4
-  %127 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %126, ptr noundef %56, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
-  %128 = tail call i32 @tvb_reported_length_remaining(ptr noundef %56, i32 noundef 1) #5
-  %129 = icmp sgt i32 %128, 0
-  br i1 %129, label %.lr.ph.i, label %dissect_ipacc_test_rep.exit
+124:                                              ; preds = %54
+  %125 = load i32, ptr @hf_attr_ipa_test_res, align 4
+  %126 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %125, ptr noundef %55, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %127 = tail call i32 @tvb_reported_length_remaining(ptr noundef %55, i32 noundef 1)
+  %128 = icmp sgt i32 %127, 0
+  br i1 %128, label %.lr.ph.i, label %dissect_ipacc_test_rep.exit
 
-.lr.ph.i:                                         ; preds = %125, %ipacc_tr_ie_chan_usage.exit.i
-  %.026.i = phi i32 [ %.1.i, %ipacc_tr_ie_chan_usage.exit.i ], [ 1, %125 ]
-  %130 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %56, i32 noundef %.026.i) #5
-  %131 = add i32 %.026.i, 1
-  %132 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %56, i32 noundef %131) #5
-  %133 = load i32, ptr @hf_oml_ipa_tres_attr_tag, align 4
-  %134 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %133, ptr noundef %56, i32 noundef %.026.i, i32 noundef 1, i32 noundef 0) #5
-  %135 = load i32, ptr @ett_oml_fom_att, align 4
-  %136 = tail call ptr @proto_item_add_subtree(ptr noundef %134, i32 noundef %135) #5
-  %137 = load i32, ptr @hf_oml_ipa_tres_attr_len, align 4
-  %138 = zext i16 %132 to i32
-  %139 = tail call ptr @proto_tree_add_uint(ptr noundef %136, i32 noundef %137, ptr noundef %56, i32 noundef %131, i32 noundef 2, i32 noundef %138) #5
-  %140 = add i32 %.026.i, 3
-  switch i8 %130, label %ipacc_tr_ie_chan_usage.exit.i [
-    i8 4, label %141
-    i8 6, label %153
+.lr.ph.i:                                         ; preds = %124, %ipacc_tr_ie_chan_usage.exit.i
+  %.026.i = phi i32 [ %.1.i, %ipacc_tr_ie_chan_usage.exit.i ], [ 1, %124 ]
+  %129 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %55, i32 noundef %.026.i)
+  %130 = add i32 %.026.i, 1
+  %131 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %55, i32 noundef %130)
+  %132 = load i32, ptr @hf_oml_ipa_tres_attr_tag, align 4
+  %133 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %132, ptr noundef %55, i32 noundef %.026.i, i32 noundef 1, i32 noundef 0)
+  %134 = load i32, ptr @ett_oml_fom_att, align 4
+  %135 = tail call ptr @proto_item_add_subtree(ptr noundef %133, i32 noundef %134)
+  %136 = load i32, ptr @hf_oml_ipa_tres_attr_len, align 4
+  %137 = zext i16 %131 to i32
+  %138 = tail call ptr @proto_tree_add_uint(ptr noundef %135, i32 noundef %136, ptr noundef %55, i32 noundef %130, i32 noundef 2, i32 noundef %137)
+  %139 = add i32 %.026.i, 3
+  switch i8 %129, label %ipacc_tr_ie_chan_usage.exit.i [
+    i8 4, label %140
+    i8 6, label %152
   ]
 
-141:                                              ; preds = %.lr.ph.i
-  %142 = tail call i32 @tvb_reported_length_remaining(ptr noundef %56, i32 noundef %140) #5
-  %143 = icmp sgt i32 %142, 0
-  br i1 %143, label %.lr.ph.i.i, label %ipacc_tr_ie_chan_usage.exit.i
+140:                                              ; preds = %.lr.ph.i
+  %141 = tail call i32 @tvb_reported_length_remaining(ptr noundef %55, i32 noundef %139)
+  %142 = icmp sgt i32 %141, 0
+  br i1 %142, label %.lr.ph.i.i, label %ipacc_tr_ie_chan_usage.exit.i
 
-.lr.ph.i.i:                                       ; preds = %141, %.lr.ph.i.i
-  %.013.i.i = phi i32 [ %150, %.lr.ph.i.i ], [ %140, %141 ]
-  %144 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %56, i32 noundef %.013.i.i) #5
-  %145 = load i32, ptr @hf_attr_ipa_tr_arfcn, align 4
-  %146 = zext i16 %144 to i32
-  %147 = tail call ptr @proto_tree_add_uint(ptr noundef %136, i32 noundef %145, ptr noundef %56, i32 noundef %.013.i.i, i32 noundef 2, i32 noundef %146) #5
-  %148 = load i32, ptr @hf_attr_ipa_tr_rxlev, align 4
-  %149 = tail call ptr @proto_tree_add_uint(ptr noundef %136, i32 noundef %148, ptr noundef %56, i32 noundef %.013.i.i, i32 noundef 2, i32 noundef %146) #5
-  %150 = add i32 %.013.i.i, 2
-  %151 = tail call i32 @tvb_reported_length_remaining(ptr noundef %56, i32 noundef %150) #5
-  %152 = icmp sgt i32 %151, 0
-  br i1 %152, label %.lr.ph.i.i, label %ipacc_tr_ie_chan_usage.exit.i, !llvm.loop !6
+.lr.ph.i.i:                                       ; preds = %140, %.lr.ph.i.i
+  %.013.i.i = phi i32 [ %149, %.lr.ph.i.i ], [ %139, %140 ]
+  %143 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %55, i32 noundef %.013.i.i)
+  %144 = load i32, ptr @hf_attr_ipa_tr_arfcn, align 4
+  %145 = zext i16 %143 to i32
+  %146 = tail call ptr @proto_tree_add_uint(ptr noundef %135, i32 noundef %144, ptr noundef %55, i32 noundef %.013.i.i, i32 noundef 2, i32 noundef %145)
+  %147 = load i32, ptr @hf_attr_ipa_tr_rxlev, align 4
+  %148 = tail call ptr @proto_tree_add_uint(ptr noundef %135, i32 noundef %147, ptr noundef %55, i32 noundef %.013.i.i, i32 noundef 2, i32 noundef %145)
+  %149 = add i32 %.013.i.i, 2
+  %150 = tail call i32 @tvb_reported_length_remaining(ptr noundef %55, i32 noundef %149)
+  %151 = icmp sgt i32 %150, 0
+  br i1 %151, label %.lr.ph.i.i, label %ipacc_tr_ie_chan_usage.exit.i, !llvm.loop !9
 
-153:                                              ; preds = %.lr.ph.i
-  %154 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %56, i32 noundef %140) #5
-  %155 = add i32 %.026.i, 5
-  %156 = load i32, ptr @hf_attr_ipa_tr_arfcn, align 4
-  %157 = tail call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %156, ptr noundef %56, i32 noundef %155, i32 noundef 2, i32 noundef -2147483648) #5
-  %158 = load i32, ptr @hf_attr_ipa_tr_f_qual, align 4
-  %159 = tail call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %158, ptr noundef %56, i32 noundef %155, i32 noundef 2, i32 noundef -2147483648) #5
-  %160 = add i32 %.026.i, 7
-  %161 = load i32, ptr @hf_attr_ipa_tr_b_rxlev, align 4
-  %162 = add i32 %.026.i, 8
-  %163 = tail call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %161, ptr noundef %56, i32 noundef %160, i32 noundef 1, i32 noundef -2147483648) #5
-  %164 = load i32, ptr @hf_attr_ipa_tr_rxqual, align 4
-  %165 = add i32 %.026.i, 9
-  %166 = tail call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %164, ptr noundef %56, i32 noundef %162, i32 noundef 1, i32 noundef -2147483648) #5
-  %167 = load i32, ptr @hf_attr_ipa_tr_f_err, align 4
-  %168 = tail call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %167, ptr noundef %56, i32 noundef %165, i32 noundef 2, i32 noundef -2147483648) #5
-  %169 = add i32 %.026.i, 11
-  %170 = load i32, ptr @hf_attr_ipa_tr_frame_offs, align 4
-  %171 = tail call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %170, ptr noundef %56, i32 noundef %169, i32 noundef 2, i32 noundef -2147483648) #5
-  %172 = add i32 %.026.i, 13
-  %173 = load i32, ptr @hf_attr_ipa_tr_framenr_offs, align 4
-  %174 = tail call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %173, ptr noundef %56, i32 noundef %172, i32 noundef 4, i32 noundef -2147483648) #5
-  %175 = add i32 %.026.i, 17
-  %176 = load i32, ptr @hf_attr_ipa_tr_bsic, align 4
-  %177 = add i32 %.026.i, 18
-  %178 = tail call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %176, ptr noundef %56, i32 noundef %175, i32 noundef 1, i32 noundef -2147483648) #5
-  %179 = tail call zeroext i16 @de_lai(ptr noundef %56, ptr noundef %136, ptr noundef %3, i32 noundef %177, i32 noundef 5, ptr noundef null, i32 noundef 0) #5
-  %180 = add i32 %.026.i, 23
-  %181 = load i32, ptr @hf_attr_ipa_tr_cell_id, align 4
-  %182 = tail call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %181, ptr noundef %56, i32 noundef %180, i32 noundef 2, i32 noundef -2147483648) #5
-  %183 = add i32 %.026.i, 25
-  %184 = zext i16 %154 to i32
-  %.not.i.i = icmp sgt i16 %154, -1
-  br i1 %.not.i.i, label %189, label %185
+152:                                              ; preds = %.lr.ph.i
+  %153 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %55, i32 noundef %139)
+  %154 = add i32 %.026.i, 5
+  %155 = load i32, ptr @hf_attr_ipa_tr_arfcn, align 4
+  %156 = tail call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %155, ptr noundef %55, i32 noundef %154, i32 noundef 2, i32 noundef -2147483648)
+  %157 = load i32, ptr @hf_attr_ipa_tr_f_qual, align 4
+  %158 = tail call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %157, ptr noundef %55, i32 noundef %154, i32 noundef 2, i32 noundef -2147483648)
+  %159 = add i32 %.026.i, 7
+  %160 = load i32, ptr @hf_attr_ipa_tr_b_rxlev, align 4
+  %161 = add i32 %.026.i, 8
+  %162 = tail call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %160, ptr noundef %55, i32 noundef %159, i32 noundef 1, i32 noundef -2147483648)
+  %163 = load i32, ptr @hf_attr_ipa_tr_rxqual, align 4
+  %164 = add i32 %.026.i, 9
+  %165 = tail call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %163, ptr noundef %55, i32 noundef %161, i32 noundef 1, i32 noundef -2147483648)
+  %166 = load i32, ptr @hf_attr_ipa_tr_f_err, align 4
+  %167 = tail call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %166, ptr noundef %55, i32 noundef %164, i32 noundef 2, i32 noundef -2147483648)
+  %168 = add i32 %.026.i, 11
+  %169 = load i32, ptr @hf_attr_ipa_tr_frame_offs, align 4
+  %170 = tail call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %169, ptr noundef %55, i32 noundef %168, i32 noundef 2, i32 noundef -2147483648)
+  %171 = add i32 %.026.i, 13
+  %172 = load i32, ptr @hf_attr_ipa_tr_framenr_offs, align 4
+  %173 = tail call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %172, ptr noundef %55, i32 noundef %171, i32 noundef 4, i32 noundef -2147483648)
+  %174 = add i32 %.026.i, 17
+  %175 = load i32, ptr @hf_attr_ipa_tr_bsic, align 4
+  %176 = add i32 %.026.i, 18
+  %177 = tail call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %175, ptr noundef %55, i32 noundef %174, i32 noundef 1, i32 noundef -2147483648)
+  %178 = tail call zeroext i16 @de_lai(ptr noundef %55, ptr noundef %135, ptr noundef %3, i32 noundef %176, i32 noundef 5, ptr noundef null, i32 noundef 0)
+  %179 = add i32 %.026.i, 23
+  %180 = load i32, ptr @hf_attr_ipa_tr_cell_id, align 4
+  %181 = tail call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %180, ptr noundef %55, i32 noundef %179, i32 noundef 2, i32 noundef -2147483648)
+  %182 = add i32 %.026.i, 25
+  %183 = zext i16 %153 to i32
+  %.not.i.i = icmp sgt i16 %153, -1
+  br i1 %.not.i.i, label %188, label %184
 
-185:                                              ; preds = %153
-  %186 = load i32, ptr @hf_attr_ipa_tr_si2, align 4
-  %187 = tail call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %186, ptr noundef %56, i32 noundef %183, i32 noundef 16, i32 noundef 0) #5
-  %188 = add i32 %.026.i, 41
-  br label %189
+184:                                              ; preds = %152
+  %185 = load i32, ptr @hf_attr_ipa_tr_si2, align 4
+  %186 = tail call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %185, ptr noundef %55, i32 noundef %182, i32 noundef 16, i32 noundef 0)
+  %187 = add i32 %.026.i, 41
+  br label %188
 
-189:                                              ; preds = %185, %153
-  %.0.i.i = phi i32 [ %188, %185 ], [ %183, %153 ]
-  %190 = and i32 %184, 1
-  %.not60.i.i = icmp eq i32 %190, 0
-  br i1 %.not60.i.i, label %195, label %191
+188:                                              ; preds = %184, %152
+  %.0.i.i = phi i32 [ %187, %184 ], [ %182, %152 ]
+  %189 = and i32 %183, 1
+  %.not60.i.i = icmp eq i32 %189, 0
+  br i1 %.not60.i.i, label %194, label %190
 
-191:                                              ; preds = %189
-  %192 = load i32, ptr @hf_attr_ipa_tr_si2bis, align 4
-  %193 = tail call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %192, ptr noundef %56, i32 noundef %.0.i.i, i32 noundef 16, i32 noundef 0) #5
-  %194 = add i32 %.0.i.i, 16
-  br label %195
+190:                                              ; preds = %188
+  %191 = load i32, ptr @hf_attr_ipa_tr_si2bis, align 4
+  %192 = tail call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %191, ptr noundef %55, i32 noundef %.0.i.i, i32 noundef 16, i32 noundef 0)
+  %193 = add i32 %.0.i.i, 16
+  br label %194
 
-195:                                              ; preds = %191, %189
-  %.1.i.i = phi i32 [ %194, %191 ], [ %.0.i.i, %189 ]
-  %196 = and i32 %184, 2
-  %.not61.i.i = icmp eq i32 %196, 0
-  br i1 %.not61.i.i, label %201, label %197
+194:                                              ; preds = %190, %188
+  %.1.i.i = phi i32 [ %193, %190 ], [ %.0.i.i, %188 ]
+  %195 = and i32 %183, 2
+  %.not61.i.i = icmp eq i32 %195, 0
+  br i1 %.not61.i.i, label %200, label %196
 
-197:                                              ; preds = %195
-  %198 = load i32, ptr @hf_attr_ipa_tr_si2ter, align 4
-  %199 = tail call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %198, ptr noundef %56, i32 noundef %.1.i.i, i32 noundef 16, i32 noundef 0) #5
-  %200 = add i32 %.1.i.i, 16
-  br label %201
+196:                                              ; preds = %194
+  %197 = load i32, ptr @hf_attr_ipa_tr_si2ter, align 4
+  %198 = tail call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %197, ptr noundef %55, i32 noundef %.1.i.i, i32 noundef 16, i32 noundef 0)
+  %199 = add i32 %.1.i.i, 16
+  br label %200
 
-201:                                              ; preds = %197, %195
-  %.2.i.i = phi i32 [ %200, %197 ], [ %.1.i.i, %195 ]
-  %202 = and i32 %184, 4
-  %.not62.i.i = icmp eq i32 %202, 0
-  br i1 %.not62.i.i, label %ipacc_tr_ie_chan_usage.exit.i, label %203
+200:                                              ; preds = %196, %194
+  %.2.i.i = phi i32 [ %199, %196 ], [ %.1.i.i, %194 ]
+  %201 = and i32 %183, 4
+  %.not62.i.i = icmp eq i32 %201, 0
+  br i1 %.not62.i.i, label %ipacc_tr_ie_chan_usage.exit.i, label %202
 
-203:                                              ; preds = %201
-  %204 = load i32, ptr @hf_attr_ipa_tr_chan_desc, align 4
-  %205 = tail call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %204, ptr noundef %56, i32 noundef %.2.i.i, i32 noundef 16, i32 noundef 0) #5
-  %206 = add i32 %.2.i.i, 16
+202:                                              ; preds = %200
+  %203 = load i32, ptr @hf_attr_ipa_tr_chan_desc, align 4
+  %204 = tail call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %203, ptr noundef %55, i32 noundef %.2.i.i, i32 noundef 16, i32 noundef 0)
+  %205 = add i32 %.2.i.i, 16
   br label %ipacc_tr_ie_chan_usage.exit.i
 
-ipacc_tr_ie_chan_usage.exit.i:                    ; preds = %.lr.ph.i.i, %203, %201, %141, %.lr.ph.i
-  %.1.i = phi i32 [ %140, %.lr.ph.i ], [ %140, %141 ], [ %206, %203 ], [ %.2.i.i, %201 ], [ %150, %.lr.ph.i.i ]
-  %207 = tail call i32 @tvb_reported_length_remaining(ptr noundef %56, i32 noundef %.1.i) #5
-  %208 = icmp sgt i32 %207, 0
-  br i1 %208, label %.lr.ph.i, label %dissect_ipacc_test_rep.exit, !llvm.loop !7
+ipacc_tr_ie_chan_usage.exit.i:                    ; preds = %.lr.ph.i.i, %202, %200, %140, %.lr.ph.i
+  %.1.i = phi i32 [ %139, %.lr.ph.i ], [ %139, %140 ], [ %205, %202 ], [ %.2.i.i, %200 ], [ %149, %.lr.ph.i.i ]
+  %206 = tail call i32 @tvb_reported_length_remaining(ptr noundef %55, i32 noundef %.1.i)
+  %207 = icmp sgt i32 %206, 0
+  br i1 %207, label %.lr.ph.i, label %dissect_ipacc_test_rep.exit, !llvm.loop !10
 
-209:                                              ; preds = %55
-  %210 = load i32, ptr @hf_attr_test_no, align 4
-  %211 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %210, ptr noundef %0, i32 noundef %53, i32 noundef %.0353, i32 noundef -2147483648) #5
-  %212 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %53) #5
-  %213 = load ptr, ptr %7, align 8
-  %214 = zext i8 %212 to i32
-  %215 = tail call ptr @val_to_str(i32 noundef %214, ptr noundef nonnull @oml_test_no_vals, ptr noundef nonnull @.str.684) #5
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %213, i32 noundef 25, ptr noundef nonnull @.str.686, ptr noundef %215) #5
+208:                                              ; preds = %54
+  %209 = load i32, ptr @hf_attr_test_no, align 4
+  %210 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %209, ptr noundef %0, i32 noundef %52, i32 noundef %.0360, i32 noundef -2147483648)
+  %211 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %52)
+  %212 = load ptr, ptr %7, align 8
+  %213 = zext i8 %211 to i32
+  %214 = tail call ptr @val_to_str(i32 noundef %213, ptr noundef nonnull @oml_test_no_vals, ptr noundef nonnull @.str.705)
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %212, i32 noundef 25, ptr noundef nonnull @.str.707, ptr noundef %214)
   br label %dissect_ipacc_test_rep.exit
 
-216:                                              ; preds = %55
-  %217 = load i32, ptr @hf_attr_hsn, align 4
-  %218 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %217, ptr noundef %0, i32 noundef %53, i32 noundef %.0353, i32 noundef -2147483648) #5
+215:                                              ; preds = %54
+  %216 = load i32, ptr @hf_attr_hsn, align 4
+  %217 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %216, ptr noundef %0, i32 noundef %52, i32 noundef %.0360, i32 noundef -2147483648)
   br label %dissect_ipacc_test_rep.exit
 
-219:                                              ; preds = %55
-  %220 = load i32, ptr @hf_attr_maio, align 4
-  %221 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %220, ptr noundef %0, i32 noundef %53, i32 noundef %.0353, i32 noundef -2147483648) #5
+218:                                              ; preds = %54
+  %219 = load i32, ptr @hf_attr_maio, align 4
+  %220 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %219, ptr noundef %0, i32 noundef %52, i32 noundef %.0360, i32 noundef -2147483648)
   br label %dissect_ipacc_test_rep.exit
 
-.lr.ph369:                                        ; preds = %55, %.lr.ph369
-  %.1368 = phi i32 [ %225, %.lr.ph369 ], [ 0, %55 ]
-  %222 = load i32, ptr @hf_attr_list_req_attr, align 4
-  %223 = add i32 %.1368, %53
-  %224 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %222, ptr noundef %0, i32 noundef %223, i32 noundef 1, i32 noundef -2147483648) #5
-  %225 = add nuw nsw i32 %.1368, 1
-  %exitcond383.not = icmp eq i32 %225, %.0353
-  br i1 %exitcond383.not, label %dissect_ipacc_test_rep.exit, label %.lr.ph369, !llvm.loop !8
+.lr.ph379:                                        ; preds = %54, %.lr.ph379
+  %.1356378 = phi i32 [ %224, %.lr.ph379 ], [ 0, %54 ]
+  %221 = load i32, ptr @hf_attr_list_req_attr, align 4
+  %222 = add i32 %.1356378, %52
+  %223 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %221, ptr noundef %0, i32 noundef %222, i32 noundef 1, i32 noundef -2147483648)
+  %224 = add nuw nsw i32 %.1356378, 1
+  %exitcond393.not = icmp eq i32 %224, %.0360
+  br i1 %exitcond393.not, label %dissect_ipacc_test_rep.exit, label %.lr.ph379, !llvm.loop !11
 
-226:                                              ; preds = %55
-  %227 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %53) #5
-  %228 = zext i8 %227 to i32
-  %229 = load i32, ptr @hf_attr_ari_not_reported_cnt, align 4
-  %230 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %229, ptr noundef %0, i32 noundef %53, i32 noundef 1, i32 noundef -2147483648) #5
-  %.0350365 = add i32 %53, 1
-  %.not = icmp eq i8 %227, 0
+225:                                              ; preds = %54
+  %226 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %52)
+  %227 = zext i8 %226 to i32
+  %228 = load i32, ptr @hf_attr_ari_not_reported_cnt, align 4
+  %229 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %228, ptr noundef %0, i32 noundef %52, i32 noundef 1, i32 noundef -2147483648)
+  %.0354375 = add i32 %52, 1
+  %.not = icmp eq i8 %226, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %226, %.lr.ph
-  %.0350367 = phi i32 [ %.0350, %.lr.ph ], [ %.0350365, %226 ]
-  %.2366 = phi i32 [ %233, %.lr.ph ], [ 0, %226 ]
-  %231 = load i32, ptr @hf_attr_ari_not_reported_attr, align 4
-  %232 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %231, ptr noundef %0, i32 noundef %.0350367, i32 noundef 1, i32 noundef -2147483648) #5
-  %233 = add nuw nsw i32 %.2366, 1
-  %.0350 = add i32 %.0350367, 1
-  %exitcond.not = icmp eq i32 %233, %228
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+.lr.ph:                                           ; preds = %225, %.lr.ph
+  %.0354377 = phi i32 [ %.0354, %.lr.ph ], [ %.0354375, %225 ]
+  %.2357376 = phi i32 [ %232, %.lr.ph ], [ 0, %225 ]
+  %230 = load i32, ptr @hf_attr_ari_not_reported_attr, align 4
+  %231 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %230, ptr noundef %0, i32 noundef %.0354377, i32 noundef 1, i32 noundef -2147483648)
+  %232 = add nuw nsw i32 %.2357376, 1
+  %.0354 = add i32 %.0354377, 1
+  %exitcond.not = icmp eq i32 %232, %227
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %.lr.ph, %226
-  %.0350.lcssa = phi i32 [ %.0350365, %226 ], [ %.0350, %.lr.ph ]
-  %234 = xor i32 %228, -1
-  %235 = add nsw i32 %.0353, %234
-  %236 = tail call fastcc i32 @dissect_oml_attrs(ptr noundef %0, i32 noundef %.0350.lcssa, i32 noundef %235, ptr noundef %3, ptr noundef %13)
+._crit_edge:                                      ; preds = %.lr.ph, %225
+  %.0354.lcssa = phi i32 [ %.0354375, %225 ], [ %.0354, %.lr.ph ]
+  tail call void @increment_dissection_depth(ptr noundef %3)
+  %233 = xor i32 %227, -1
+  %234 = add nsw i32 %.0360, %233
+  %235 = tail call fastcc i32 @dissect_oml_attrs(ptr noundef %0, i32 noundef %.0354.lcssa, i32 noundef %234, ptr noundef %3, ptr noundef %13)
+  tail call void @decrement_dissection_depth(ptr noundef %3)
   br label %dissect_ipacc_test_rep.exit
 
-237:                                              ; preds = %55
-  %238 = load i32, ptr @hf_attr_interf_bound0, align 4
-  %239 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %238, ptr noundef %0, i32 noundef %53, i32 noundef 1, i32 noundef 0) #5
-  %240 = load i32, ptr @hf_attr_interf_bound1, align 4
-  %241 = add i32 %53, 1
-  %242 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %240, ptr noundef %0, i32 noundef %241, i32 noundef 1, i32 noundef 0) #5
-  %243 = load i32, ptr @hf_attr_interf_bound2, align 4
-  %244 = add i32 %53, 2
-  %245 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %243, ptr noundef %0, i32 noundef %244, i32 noundef 1, i32 noundef 0) #5
-  %246 = load i32, ptr @hf_attr_interf_bound3, align 4
-  %247 = add i32 %53, 3
-  %248 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %246, ptr noundef %0, i32 noundef %247, i32 noundef 1, i32 noundef 0) #5
-  %249 = load i32, ptr @hf_attr_interf_bound4, align 4
-  %250 = add i32 %53, 4
-  %251 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %249, ptr noundef %0, i32 noundef %250, i32 noundef 1, i32 noundef 0) #5
-  %252 = load i32, ptr @hf_attr_interf_bound5, align 4
-  %253 = add i32 %53, 5
-  %254 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %252, ptr noundef %0, i32 noundef %253, i32 noundef 1, i32 noundef 0) #5
+236:                                              ; preds = %54
+  %237 = load i32, ptr @hf_attr_interf_bound0, align 4
+  %238 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %237, ptr noundef %0, i32 noundef %52, i32 noundef 1, i32 noundef 0)
+  %239 = load i32, ptr @hf_attr_interf_bound1, align 4
+  %240 = add i32 %52, 1
+  %241 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %239, ptr noundef %0, i32 noundef %240, i32 noundef 1, i32 noundef 0)
+  %242 = load i32, ptr @hf_attr_interf_bound2, align 4
+  %243 = add i32 %52, 2
+  %244 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %242, ptr noundef %0, i32 noundef %243, i32 noundef 1, i32 noundef 0)
+  %245 = load i32, ptr @hf_attr_interf_bound3, align 4
+  %246 = add i32 %52, 3
+  %247 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %245, ptr noundef %0, i32 noundef %246, i32 noundef 1, i32 noundef 0)
+  %248 = load i32, ptr @hf_attr_interf_bound4, align 4
+  %249 = add i32 %52, 4
+  %250 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %248, ptr noundef %0, i32 noundef %249, i32 noundef 1, i32 noundef 0)
+  %251 = load i32, ptr @hf_attr_interf_bound5, align 4
+  %252 = add i32 %52, 5
+  %253 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %251, ptr noundef %0, i32 noundef %252, i32 noundef 1, i32 noundef 0)
   br label %dissect_ipacc_test_rep.exit
 
-255:                                              ; preds = %55
-  %256 = load i32, ptr @hf_oml_fom_attr_val, align 4
-  %257 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %256, ptr noundef %0, i32 noundef %53, i32 noundef %.0353, i32 noundef 0) #5
+254:                                              ; preds = %54
+  %255 = load i32, ptr @hf_oml_fom_attr_val, align 4
+  %256 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %255, ptr noundef %0, i32 noundef %52, i32 noundef %.0360, i32 noundef 0)
   br label %dissect_ipacc_test_rep.exit
 
-dissect_ipacc_test_rep.exit:                      ; preds = %.lr.ph369, %ipacc_tr_ie_chan_usage.exit.i, %.lr.ph371, %125, %255, %237, %._crit_edge, %219, %216, %209, %122, %119, %116, %113, %106, %103, %100, %97, %94, %91, %84, %78, %66, %57
-  %258 = load i32, ptr @global_oml_dialect, align 4
-  %259 = icmp eq i32 %258, 2
-  br i1 %259, label %260, label %.loopexit
+dissect_ipacc_test_rep.exit:                      ; preds = %.lr.ph379, %ipacc_tr_ie_chan_usage.exit.i, %.lr.ph381, %124, %._crit_edge, %254, %236, %218, %215, %208, %121, %118, %115, %112, %105, %102, %99, %96, %93, %90, %83, %77, %65, %56
+  %257 = load i32, ptr @global_oml_dialect, align 4
+  %258 = icmp eq i32 %257, 2
+  br i1 %258, label %259, label %.loopexit
 
-260:                                              ; preds = %dissect_ipacc_test_rep.exit
+259:                                              ; preds = %dissect_ipacc_test_rep.exit
   switch i8 %9, label %.loopexit [
-    i8 -128, label %261
-    i8 -127, label %264
-    i8 -114, label %267
-    i8 -111, label %270
-    i8 -109, label %273
-    i8 -107, label %276
-    i8 -122, label %283
-    i8 -102, label %303
-    i8 -99, label %306
-    i8 -97, label %309
-    i8 -98, label %312
-    i8 -94, label %315
-    i8 -96, label %324
-    i8 -100, label %345
-    i8 -93, label %354
-    i8 -87, label %384
-    i8 -84, label %399
-    i8 -88, label %.preheader357
+    i8 -128, label %260
+    i8 -127, label %263
+    i8 -114, label %266
+    i8 -111, label %269
+    i8 -109, label %272
+    i8 -107, label %275
+    i8 -122, label %282
+    i8 -102, label %302
+    i8 -99, label %305
+    i8 -97, label %308
+    i8 -98, label %311
+    i8 -94, label %314
+    i8 -96, label %323
+    i8 -100, label %344
+    i8 -93, label %353
+    i8 -87, label %383
+    i8 -84, label %398
+    i8 -88, label %.preheader367
   ]
 
-261:                                              ; preds = %260
-  %262 = load i32, ptr @hf_attr_ipa_rsl_ip, align 4
-  %263 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %262, ptr noundef %0, i32 noundef %53, i32 noundef %.0353, i32 noundef 0) #5
+260:                                              ; preds = %259
+  %261 = load i32, ptr @hf_attr_ipa_rsl_ip, align 4
+  %262 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %261, ptr noundef %0, i32 noundef %52, i32 noundef %.0360, i32 noundef 0)
   br label %.loopexit
 
-264:                                              ; preds = %260
-  %265 = load i32, ptr @hf_attr_ipa_rsl_port, align 4
-  %266 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %265, ptr noundef %0, i32 noundef %53, i32 noundef %.0353, i32 noundef 0) #5
+263:                                              ; preds = %259
+  %264 = load i32, ptr @hf_attr_ipa_rsl_port, align 4
+  %265 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %264, ptr noundef %0, i32 noundef %52, i32 noundef %.0360, i32 noundef 0)
   br label %.loopexit
 
-267:                                              ; preds = %260
-  %268 = load i32, ptr @hf_attr_ipa_location_name, align 4
-  %269 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %268, ptr noundef %0, i32 noundef %53, i32 noundef %.0353, i32 noundef 0) #5
+266:                                              ; preds = %259
+  %267 = load i32, ptr @hf_attr_ipa_location_name, align 4
+  %268 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %267, ptr noundef %0, i32 noundef %52, i32 noundef %.0360, i32 noundef 0)
   br label %.loopexit
 
-270:                                              ; preds = %260
-  %271 = load i32, ptr @hf_attr_ipa_unit_id, align 4
-  %272 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %271, ptr noundef %0, i32 noundef %53, i32 noundef %.0353, i32 noundef 0) #5
+269:                                              ; preds = %259
+  %270 = load i32, ptr @hf_attr_ipa_unit_id, align 4
+  %271 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %270, ptr noundef %0, i32 noundef %52, i32 noundef %.0360, i32 noundef 0)
   br label %.loopexit
 
-273:                                              ; preds = %260
-  %274 = load i32, ptr @hf_attr_ipa_unit_name, align 4
-  %275 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %274, ptr noundef %0, i32 noundef %53, i32 noundef %.0353, i32 noundef 0) #5
+272:                                              ; preds = %259
+  %273 = load i32, ptr @hf_attr_ipa_unit_name, align 4
+  %274 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %273, ptr noundef %0, i32 noundef %52, i32 noundef %.0360, i32 noundef 0)
   br label %.loopexit
 
-276:                                              ; preds = %260
-  %277 = load i32, ptr @hf_attr_ipa_prim_oml_ip, align 4
-  %278 = add i32 %53, 1
-  %279 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %277, ptr noundef %0, i32 noundef %278, i32 noundef 4, i32 noundef 0) #5
-  %280 = load i32, ptr @hf_attr_ipa_prim_oml_port, align 4
-  %281 = add i32 %53, 5
-  %282 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %280, ptr noundef %0, i32 noundef %281, i32 noundef 2, i32 noundef -2147483648) #5
+275:                                              ; preds = %259
+  %276 = load i32, ptr @hf_attr_ipa_prim_oml_ip, align 4
+  %277 = add i32 %52, 1
+  %278 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %276, ptr noundef %0, i32 noundef %277, i32 noundef 4, i32 noundef 0)
+  %279 = load i32, ptr @hf_attr_ipa_prim_oml_port, align 4
+  %280 = add i32 %52, 5
+  %281 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %279, ptr noundef %0, i32 noundef %280, i32 noundef 2, i32 noundef -2147483648)
   br label %.loopexit
 
-283:                                              ; preds = %260
-  %284 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %53) #5
-  %285 = zext i8 %284 to i32
-  %286 = add i32 %53, 1
-  %287 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %286) #5
-  %288 = zext i8 %287 to i32
-  %289 = add i32 %53, 2
-  %290 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %289) #5
-  %291 = zext i8 %290 to i32
-  %292 = shl nuw nsw i32 %291, 8
-  %293 = or disjoint i32 %292, %285
-  %294 = add i32 %53, 3
-  %295 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %294) #5
-  %296 = zext i8 %295 to i32
-  %297 = shl nuw nsw i32 %296, 8
-  %298 = or disjoint i32 %297, %288
-  %299 = load i32, ptr @hf_attr_ipa_nv_flags, align 4
-  %300 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %299, ptr noundef %0, i32 noundef %53, i32 noundef 3, i32 noundef %293) #5
-  %301 = load i32, ptr @hf_attr_ipa_nv_mask, align 4
-  %302 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %301, ptr noundef %0, i32 noundef %286, i32 noundef 3, i32 noundef %298) #5
+282:                                              ; preds = %259
+  %283 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %52)
+  %284 = zext i8 %283 to i32
+  %285 = add i32 %52, 1
+  %286 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %285)
+  %287 = zext i8 %286 to i32
+  %288 = add i32 %52, 2
+  %289 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %288)
+  %290 = zext i8 %289 to i32
+  %291 = shl nuw nsw i32 %290, 8
+  %292 = or disjoint i32 %291, %284
+  %293 = add i32 %52, 3
+  %294 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %293)
+  %295 = zext i8 %294 to i32
+  %296 = shl nuw nsw i32 %295, 8
+  %297 = or disjoint i32 %296, %287
+  %298 = load i32, ptr @hf_attr_ipa_nv_flags, align 4
+  %299 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %298, ptr noundef %0, i32 noundef %52, i32 noundef 3, i32 noundef %292)
+  %300 = load i32, ptr @hf_attr_ipa_nv_mask, align 4
+  %301 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %300, ptr noundef %0, i32 noundef %285, i32 noundef 3, i32 noundef %297)
   br label %.loopexit
 
-303:                                              ; preds = %260
-  %304 = load i32, ptr @hf_attr_ipa_rac, align 4
-  %305 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %304, ptr noundef %0, i32 noundef %53, i32 noundef 1, i32 noundef -2147483648) #5
+302:                                              ; preds = %259
+  %303 = load i32, ptr @hf_attr_ipa_rac, align 4
+  %304 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %303, ptr noundef %0, i32 noundef %52, i32 noundef 1, i32 noundef -2147483648)
   br label %.loopexit
 
-306:                                              ; preds = %260
-  %307 = load i32, ptr @hf_attr_ipa_nsei, align 4
-  %308 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %307, ptr noundef %0, i32 noundef %53, i32 noundef 2, i32 noundef 0) #5
+305:                                              ; preds = %259
+  %306 = load i32, ptr @hf_attr_ipa_nsei, align 4
+  %307 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %306, ptr noundef %0, i32 noundef %52, i32 noundef 2, i32 noundef 0)
   br label %.loopexit
 
-309:                                              ; preds = %260
-  %310 = load i32, ptr @hf_attr_ipa_nsvci, align 4
-  %311 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %310, ptr noundef %0, i32 noundef %53, i32 noundef 2, i32 noundef 0) #5
+308:                                              ; preds = %259
+  %309 = load i32, ptr @hf_attr_ipa_nsvci, align 4
+  %310 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %309, ptr noundef %0, i32 noundef %52, i32 noundef 2, i32 noundef 0)
   br label %.loopexit
 
-312:                                              ; preds = %260
-  %313 = load i32, ptr @hf_attr_ipa_bvci, align 4
-  %314 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %313, ptr noundef %0, i32 noundef %53, i32 noundef 2, i32 noundef 0) #5
+311:                                              ; preds = %259
+  %312 = load i32, ptr @hf_attr_ipa_bvci, align 4
+  %313 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %312, ptr noundef %0, i32 noundef %52, i32 noundef 2, i32 noundef 0)
   br label %.loopexit
 
-315:                                              ; preds = %260
-  %316 = load i32, ptr @hf_attr_ipa_nsl_dport, align 4
-  %317 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %316, ptr noundef %0, i32 noundef %53, i32 noundef 2, i32 noundef 0) #5
-  %318 = load i32, ptr @hf_attr_ipa_nsl_daddr, align 4
-  %319 = add i32 %53, 2
-  %320 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %318, ptr noundef %0, i32 noundef %319, i32 noundef 4, i32 noundef 0) #5
-  %321 = load i32, ptr @hf_attr_ipa_nsl_sport, align 4
-  %322 = add i32 %53, 6
-  %323 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %321, ptr noundef %0, i32 noundef %322, i32 noundef 2, i32 noundef 0) #5
+314:                                              ; preds = %259
+  %315 = load i32, ptr @hf_attr_ipa_nsl_dport, align 4
+  %316 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %315, ptr noundef %0, i32 noundef %52, i32 noundef 2, i32 noundef 0)
+  %317 = load i32, ptr @hf_attr_ipa_nsl_daddr, align 4
+  %318 = add i32 %52, 2
+  %319 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %317, ptr noundef %0, i32 noundef %318, i32 noundef 4, i32 noundef 0)
+  %320 = load i32, ptr @hf_attr_ipa_nsl_sport, align 4
+  %321 = add i32 %52, 6
+  %322 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %320, ptr noundef %0, i32 noundef %321, i32 noundef 2, i32 noundef 0)
   br label %.loopexit
 
-324:                                              ; preds = %260
-  %325 = load i32, ptr @hf_attr_ipa_ns_cfg_unblock_timer, align 4
-  %326 = add i32 %53, 1
-  %327 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %325, ptr noundef %0, i32 noundef %53, i32 noundef 1, i32 noundef 0) #5
-  %328 = load i32, ptr @hf_attr_ipa_ns_cfg_unblock_retries, align 4
-  %329 = add i32 %53, 2
-  %330 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %328, ptr noundef %0, i32 noundef %326, i32 noundef 1, i32 noundef 0) #5
-  %331 = load i32, ptr @hf_attr_ipa_ns_cfg_reset_timer, align 4
-  %332 = add i32 %53, 3
-  %333 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %331, ptr noundef %0, i32 noundef %329, i32 noundef 1, i32 noundef 0) #5
-  %334 = load i32, ptr @hf_attr_ipa_ns_cfg_reset_retries, align 4
-  %335 = add i32 %53, 4
-  %336 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %334, ptr noundef %0, i32 noundef %332, i32 noundef 1, i32 noundef 0) #5
-  %337 = load i32, ptr @hf_attr_ipa_ns_cfg_test_timer, align 4
-  %338 = add i32 %53, 5
-  %339 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %337, ptr noundef %0, i32 noundef %335, i32 noundef 1, i32 noundef 0) #5
-  %340 = load i32, ptr @hf_attr_ipa_ns_cfg_alive_timer, align 4
-  %341 = add i32 %53, 6
-  %342 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %340, ptr noundef %0, i32 noundef %338, i32 noundef 1, i32 noundef 0) #5
-  %343 = load i32, ptr @hf_attr_ipa_ns_cfg_alive_retries, align 4
-  %344 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %343, ptr noundef %0, i32 noundef %341, i32 noundef 1, i32 noundef 0) #5
+323:                                              ; preds = %259
+  %324 = load i32, ptr @hf_attr_ipa_ns_cfg_unblock_timer, align 4
+  %325 = add i32 %52, 1
+  %326 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %324, ptr noundef %0, i32 noundef %52, i32 noundef 1, i32 noundef 0)
+  %327 = load i32, ptr @hf_attr_ipa_ns_cfg_unblock_retries, align 4
+  %328 = add i32 %52, 2
+  %329 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %327, ptr noundef %0, i32 noundef %325, i32 noundef 1, i32 noundef 0)
+  %330 = load i32, ptr @hf_attr_ipa_ns_cfg_reset_timer, align 4
+  %331 = add i32 %52, 3
+  %332 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %330, ptr noundef %0, i32 noundef %328, i32 noundef 1, i32 noundef 0)
+  %333 = load i32, ptr @hf_attr_ipa_ns_cfg_reset_retries, align 4
+  %334 = add i32 %52, 4
+  %335 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %333, ptr noundef %0, i32 noundef %331, i32 noundef 1, i32 noundef 0)
+  %336 = load i32, ptr @hf_attr_ipa_ns_cfg_test_timer, align 4
+  %337 = add i32 %52, 5
+  %338 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %336, ptr noundef %0, i32 noundef %334, i32 noundef 1, i32 noundef 0)
+  %339 = load i32, ptr @hf_attr_ipa_ns_cfg_alive_timer, align 4
+  %340 = add i32 %52, 6
+  %341 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %339, ptr noundef %0, i32 noundef %337, i32 noundef 1, i32 noundef 0)
+  %342 = load i32, ptr @hf_attr_ipa_ns_cfg_alive_retries, align 4
+  %343 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %342, ptr noundef %0, i32 noundef %340, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
-345:                                              ; preds = %260
-  %346 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %53) #5
-  %347 = load i32, ptr @hf_attr_ipa_gprs_paging_rep_time, align 4
-  %348 = add i32 %53, 1
-  %349 = zext i8 %346 to i32
-  %350 = mul nuw nsw i32 %349, 50
-  %351 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %347, ptr noundef %0, i32 noundef %53, i32 noundef 1, i32 noundef %350) #5
-  %352 = load i32, ptr @hf_attr_ipa_gprs_paging_rep_count, align 4
-  %353 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %352, ptr noundef %0, i32 noundef %348, i32 noundef 1, i32 noundef 0) #5
+344:                                              ; preds = %259
+  %345 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %52)
+  %346 = load i32, ptr @hf_attr_ipa_gprs_paging_rep_time, align 4
+  %347 = add i32 %52, 1
+  %348 = zext i8 %345 to i32
+  %349 = mul nuw nsw i32 %348, 50
+  %350 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %346, ptr noundef %0, i32 noundef %52, i32 noundef 1, i32 noundef %349)
+  %351 = load i32, ptr @hf_attr_ipa_gprs_paging_rep_count, align 4
+  %352 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %351, ptr noundef %0, i32 noundef %347, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
-354:                                              ; preds = %260
-  %355 = load i32, ptr @hf_attr_ipa_rlc_cfg_t3142, align 4
-  %356 = add i32 %53, 1
-  %357 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %355, ptr noundef %0, i32 noundef %53, i32 noundef 1, i32 noundef 0) #5
-  %358 = load i32, ptr @hf_attr_ipa_rlc_cfg_t3169, align 4
-  %359 = add i32 %53, 2
-  %360 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %358, ptr noundef %0, i32 noundef %356, i32 noundef 1, i32 noundef 0) #5
-  %361 = load i32, ptr @hf_attr_ipa_rlc_cfg_t3191, align 4
-  %362 = add i32 %53, 3
-  %363 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %361, ptr noundef %0, i32 noundef %359, i32 noundef 1, i32 noundef 0) #5
-  %364 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %362) #5
-  %365 = load i32, ptr @hf_attr_ipa_rlc_cfg_t3193, align 4
-  %366 = add i32 %53, 4
-  %367 = zext i8 %364 to i32
-  %368 = mul nuw nsw i32 %367, 10
-  %369 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %365, ptr noundef %0, i32 noundef %362, i32 noundef 1, i32 noundef %368) #5
-  %370 = load i32, ptr @hf_attr_ipa_rlc_cfg_t3195, align 4
-  %371 = add i32 %53, 5
-  %372 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %370, ptr noundef %0, i32 noundef %366, i32 noundef 1, i32 noundef 0) #5
-  %373 = load i32, ptr @hf_attr_ipa_rlc_cfg_t3101, align 4
-  %374 = add i32 %53, 6
-  %375 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %373, ptr noundef %0, i32 noundef %371, i32 noundef 1, i32 noundef 0) #5
-  %376 = load i32, ptr @hf_attr_ipa_rlc_cfg_t3103, align 4
-  %377 = add i32 %53, 7
-  %378 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %376, ptr noundef %0, i32 noundef %374, i32 noundef 1, i32 noundef 0) #5
-  %379 = load i32, ptr @hf_attr_ipa_rlc_cfg_t3105, align 4
-  %380 = add i32 %53, 8
-  %381 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %379, ptr noundef %0, i32 noundef %377, i32 noundef 1, i32 noundef 0) #5
-  %382 = load i32, ptr @hf_attr_ipa_rlc_cfg_countdown, align 4
-  %383 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %382, ptr noundef %0, i32 noundef %380, i32 noundef 1, i32 noundef 0) #5
+353:                                              ; preds = %259
+  %354 = load i32, ptr @hf_attr_ipa_rlc_cfg_t3142, align 4
+  %355 = add i32 %52, 1
+  %356 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %354, ptr noundef %0, i32 noundef %52, i32 noundef 1, i32 noundef 0)
+  %357 = load i32, ptr @hf_attr_ipa_rlc_cfg_t3169, align 4
+  %358 = add i32 %52, 2
+  %359 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %357, ptr noundef %0, i32 noundef %355, i32 noundef 1, i32 noundef 0)
+  %360 = load i32, ptr @hf_attr_ipa_rlc_cfg_t3191, align 4
+  %361 = add i32 %52, 3
+  %362 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %360, ptr noundef %0, i32 noundef %358, i32 noundef 1, i32 noundef 0)
+  %363 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %361)
+  %364 = load i32, ptr @hf_attr_ipa_rlc_cfg_t3193, align 4
+  %365 = add i32 %52, 4
+  %366 = zext i8 %363 to i32
+  %367 = mul nuw nsw i32 %366, 10
+  %368 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %364, ptr noundef %0, i32 noundef %361, i32 noundef 1, i32 noundef %367)
+  %369 = load i32, ptr @hf_attr_ipa_rlc_cfg_t3195, align 4
+  %370 = add i32 %52, 5
+  %371 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %369, ptr noundef %0, i32 noundef %365, i32 noundef 1, i32 noundef 0)
+  %372 = load i32, ptr @hf_attr_ipa_rlc_cfg_t3101, align 4
+  %373 = add i32 %52, 6
+  %374 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %372, ptr noundef %0, i32 noundef %370, i32 noundef 1, i32 noundef 0)
+  %375 = load i32, ptr @hf_attr_ipa_rlc_cfg_t3103, align 4
+  %376 = add i32 %52, 7
+  %377 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %375, ptr noundef %0, i32 noundef %373, i32 noundef 1, i32 noundef 0)
+  %378 = load i32, ptr @hf_attr_ipa_rlc_cfg_t3105, align 4
+  %379 = add i32 %52, 8
+  %380 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %378, ptr noundef %0, i32 noundef %376, i32 noundef 1, i32 noundef 0)
+  %381 = load i32, ptr @hf_attr_ipa_rlc_cfg_countdown, align 4
+  %382 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %381, ptr noundef %0, i32 noundef %379, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
-384:                                              ; preds = %260
-  %385 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %53, i32 noundef 0) #5
-  %386 = load i32, ptr @hf_attr_ipa_rlc_cfg2_t_dl_tbf_ext, align 4
-  %387 = zext i16 %385 to i32
-  %388 = mul nuw nsw i32 %387, 10
-  %389 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %386, ptr noundef %0, i32 noundef %53, i32 noundef 2, i32 noundef %388) #5
-  %390 = add i32 %53, 2
-  %391 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %390, i32 noundef 0) #5
-  %392 = load i32, ptr @hf_attr_ipa_rlc_cfg2_t_ul_tbf_ext, align 4
-  %393 = zext i16 %391 to i32
-  %394 = mul nuw nsw i32 %393, 10
-  %395 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %392, ptr noundef %0, i32 noundef %390, i32 noundef 2, i32 noundef %394) #5
-  %396 = add i32 %53, 4
-  %397 = load i32, ptr @hf_attr_ipa_rlc_cfg2_init_cs, align 4
-  %398 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %397, ptr noundef %0, i32 noundef %396, i32 noundef 1, i32 noundef 0) #5
+383:                                              ; preds = %259
+  %384 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %52, i32 noundef 0)
+  %385 = load i32, ptr @hf_attr_ipa_rlc_cfg2_t_dl_tbf_ext, align 4
+  %386 = zext i16 %384 to i32
+  %387 = mul nuw nsw i32 %386, 10
+  %388 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %385, ptr noundef %0, i32 noundef %52, i32 noundef 2, i32 noundef %387)
+  %389 = add i32 %52, 2
+  %390 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %389, i32 noundef 0)
+  %391 = load i32, ptr @hf_attr_ipa_rlc_cfg2_t_ul_tbf_ext, align 4
+  %392 = zext i16 %390 to i32
+  %393 = mul nuw nsw i32 %392, 10
+  %394 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %391, ptr noundef %0, i32 noundef %389, i32 noundef 2, i32 noundef %393)
+  %395 = add i32 %52, 4
+  %396 = load i32, ptr @hf_attr_ipa_rlc_cfg2_init_cs, align 4
+  %397 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %396, ptr noundef %0, i32 noundef %395, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
-399:                                              ; preds = %260
-  %400 = load i32, ptr @hf_attr_ipa_rlc_cfg2_init_mcs, align 4
-  %401 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %400, ptr noundef %0, i32 noundef %53, i32 noundef 1, i32 noundef 0) #5
+398:                                              ; preds = %259
+  %399 = load i32, ptr @hf_attr_ipa_rlc_cfg2_init_mcs, align 4
+  %400 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %399, ptr noundef %0, i32 noundef %52, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
-.preheader357:                                    ; preds = %260, %.preheader357
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader357 ], [ 0, %260 ]
-  %402 = getelementptr [4 x i32], ptr @hf_attr_ipa_cs, i64 0, i64 %indvars.iv
-  %403 = load i32, ptr %402, align 4
-  %404 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %403, ptr noundef %0, i32 noundef %53, i32 noundef 2, i32 noundef -2147483648) #5
+.preheader367:                                    ; preds = %259, %.preheader367
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader367 ], [ 0, %259 ]
+  %401 = getelementptr [4 x i32], ptr @hf_attr_ipa_cs, i64 0, i64 %indvars.iv
+  %402 = load i32, ptr %401, align 4
+  %403 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %402, ptr noundef %0, i32 noundef %52, i32 noundef 2, i32 noundef -2147483648)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond385.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond385.not, label %.preheader, label %.preheader357, !llvm.loop !10
+  %exitcond395.not = icmp eq i64 %indvars.iv.next, 4
+  br i1 %exitcond395.not, label %.preheader, label %.preheader367, !llvm.loop !13
 
-.preheader:                                       ; preds = %.preheader357, %.preheader
-  %indvars.iv386 = phi i64 [ %indvars.iv.next387, %.preheader ], [ 0, %.preheader357 ]
-  %405 = getelementptr [9 x i32], ptr @hf_attr_ipa_mcs, i64 0, i64 %indvars.iv386
-  %406 = load i32, ptr %405, align 4
-  %407 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %406, ptr noundef %0, i32 noundef %53, i32 noundef 2, i32 noundef -2147483648) #5
-  %indvars.iv.next387 = add nuw nsw i64 %indvars.iv386, 1
-  %exitcond389.not = icmp eq i64 %indvars.iv.next387, 9
-  br i1 %exitcond389.not, label %.loopexit, label %.preheader, !llvm.loop !11
+.preheader:                                       ; preds = %.preheader367, %.preheader
+  %indvars.iv396 = phi i64 [ %indvars.iv.next397, %.preheader ], [ 0, %.preheader367 ]
+  %404 = getelementptr [9 x i32], ptr @hf_attr_ipa_mcs, i64 0, i64 %indvars.iv396
+  %405 = load i32, ptr %404, align 4
+  %406 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %405, ptr noundef %0, i32 noundef %52, i32 noundef 2, i32 noundef -2147483648)
+  %indvars.iv.next397 = add nuw nsw i64 %indvars.iv396, 1
+  %exitcond399.not = icmp eq i64 %indvars.iv.next397, 9
+  br i1 %exitcond399.not, label %.loopexit, label %.preheader, !llvm.loop !14
 
-.loopexit:                                        ; preds = %.preheader, %260, %261, %264, %267, %270, %273, %276, %283, %303, %306, %309, %312, %315, %324, %345, %354, %384, %399, %dissect_ipacc_test_rep.exit
-  %408 = add i32 %.0353, %53
-  br label %.backedge
+.loopexit:                                        ; preds = %.preheader, %259, %260, %263, %266, %269, %272, %275, %282, %302, %305, %308, %311, %314, %323, %344, %353, %383, %398, %dissect_ipacc_test_rep.exit
+  %407 = add i32 %.0360, %52
+  br label %408
 
-.backedge:                                        ; preds = %.loopexit, %49
-  %.0349.be = phi i32 [ %53, %49 ], [ %408, %.loopexit ]
-  %409 = sub i32 %.0349.be, %1
+408:                                              ; preds = %48, %.loopexit
+  %.1353 = phi i32 [ %407, %.loopexit ], [ %52, %48 ]
+  %409 = sub i32 %.1353, %1
   %410 = icmp slt i32 %409, %2
-  br i1 %410, label %8, label %.loopexit362, !llvm.loop !12
+  br i1 %410, label %8, label %.loopexit372
 
-.loopexit362:                                     ; preds = %.backedge, %5, %46
-  %.0 = phi i32 [ %48, %46 ], [ %1, %5 ], [ %.0349.be, %.backedge ]
-  ret i32 %.0
+.loopexit372:                                     ; preds = %408, %5, %.thread
+  %.2 = phi i32 [ %47, %.thread ], [ %1, %5 ], [ %.1353, %408 ]
+  ret i32 %.2
 }
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i16 @de_lai(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_uint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @de_lai(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #3
+declare i32 @llvm.fshl.i32(i32, i32, i32) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

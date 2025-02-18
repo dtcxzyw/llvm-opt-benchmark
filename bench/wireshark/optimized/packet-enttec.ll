@@ -5,14 +5,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct.enum_val_t = type { ptr, ptr, i32 }
 
 @proto_register_enttec.hf = internal global [17 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_enttec_head, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 7, i32 2, ptr @enttec_head_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enttec_poll_reply_mac, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enttec_poll_reply_node_type, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enttec_poll_reply_version, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enttec_poll_reply_switch, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enttec_poll_reply_name, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enttec_poll_reply_option, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enttec_poll_reply_tos, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enttec_poll_reply_ttl, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enttec_dmx_data_universe, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enttec_dmx_data_start_code, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enttec_dmx_data_type, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 4, i32 2, ptr @enttec_data_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enttec_dmx_data_size, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enttec_dmx_data_data, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enttec_dmx_data_data_filter, %struct._header_field_info { ptr @.str.26, ptr @.str.28, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enttec_dmx_data_dmx_data, %struct._header_field_info { ptr @.str.26, ptr @.str.29, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enttec_poll_type, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_enttec_head = internal global i32 0, align 4
 @.str = private unnamed_addr constant [5 x i8] c"Head\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"enttec.head\00", align 1
-@enttec_head_vals = internal constant [7 x %struct._value_string] [%struct._value_string { i32 1163087954, ptr @.str.58 }, %struct._value_string { i32 1163087952, ptr @.str.59 }, %struct._value_string { i32 1163084112, ptr @.str.60 }, %struct._value_string { i32 1163084868, ptr @.str.26 }, %struct._value_string { i32 1163087427, ptr @.str.61 }, %struct._value_string { i32 1163090522, ptr @.str.62 }, %struct._value_string zeroinitializer], align 16
 @hf_enttec_poll_reply_mac = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [4 x i8] c"MAC\00", align 1
 @.str.3 = private unnamed_addr constant [22 x i8] c"enttec.poll_reply.mac\00", align 1
@@ -46,7 +43,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_enttec_dmx_data_type = internal global i32 0, align 4
 @.str.22 = private unnamed_addr constant [10 x i8] c"Data Type\00", align 1
 @.str.23 = private unnamed_addr constant [21 x i8] c"enttec.dmx_data.type\00", align 1
-@enttec_data_type_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.63 }, %struct._value_string { i32 2, ptr @.str.64 }, %struct._value_string { i32 4, ptr @.str.65 }, %struct._value_string zeroinitializer], align 16
 @hf_enttec_dmx_data_size = internal global i32 0, align 4
 @.str.24 = private unnamed_addr constant [10 x i8] c"Data Size\00", align 1
 @.str.25 = private unnamed_addr constant [21 x i8] c"enttec.dmx_data.size\00", align 1
@@ -62,15 +58,15 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.31 = private unnamed_addr constant [23 x i8] c"enttec.poll.reply_type\00", align 1
 @proto_register_enttec.ett = internal global [1 x ptr] [ptr @ett_enttec], align 8
 @ett_enttec = internal global i32 0, align 4
-@proto_register_enttec.disp_chan_val_types = internal constant [4 x %struct.enum_val_t] [%struct.enum_val_t { ptr @.str.32, ptr @.str.33, i32 0 }, %struct.enum_val_t { ptr @.str.34, ptr @.str.35, i32 1 }, %struct.enum_val_t { ptr @.str.36, ptr @.str.37, i32 2 }, %struct.enum_val_t zeroinitializer], align 16
+@proto_register_enttec.disp_chan_val_types = internal constant [4 x { ptr, ptr, i32, [4 x i8] }] [{ ptr, ptr, i32, [4 x i8] } { ptr @.str.32, ptr @.str.33, i32 0, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } { ptr @.str.34, ptr @.str.35, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } { ptr @.str.36, ptr @.str.37, i32 2, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } zeroinitializer], align 16
 @.str.32 = private unnamed_addr constant [4 x i8] c"pro\00", align 1
 @.str.33 = private unnamed_addr constant [8 x i8] c"Percent\00", align 1
 @.str.34 = private unnamed_addr constant [4 x i8] c"hex\00", align 1
 @.str.35 = private unnamed_addr constant [12 x i8] c"Hexadecimal\00", align 1
 @.str.36 = private unnamed_addr constant [4 x i8] c"dec\00", align 1
 @.str.37 = private unnamed_addr constant [8 x i8] c"Decimal\00", align 1
-@proto_register_enttec.disp_chan_nr_types = internal constant [3 x %struct.enum_val_t] [%struct.enum_val_t { ptr @.str.34, ptr @.str.35, i32 0 }, %struct.enum_val_t { ptr @.str.36, ptr @.str.37, i32 1 }, %struct.enum_val_t zeroinitializer], align 16
-@proto_register_enttec.col_count = internal constant [6 x %struct.enum_val_t] [%struct.enum_val_t { ptr @.str.38, ptr @.str.38, i32 6 }, %struct.enum_val_t { ptr @.str.39, ptr @.str.39, i32 10 }, %struct.enum_val_t { ptr @.str.40, ptr @.str.40, i32 12 }, %struct.enum_val_t { ptr @.str.41, ptr @.str.41, i32 16 }, %struct.enum_val_t { ptr @.str.42, ptr @.str.42, i32 24 }, %struct.enum_val_t zeroinitializer], align 16
+@proto_register_enttec.disp_chan_nr_types = internal constant [3 x { ptr, ptr, i32, [4 x i8] }] [{ ptr, ptr, i32, [4 x i8] } { ptr @.str.34, ptr @.str.35, i32 0, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } { ptr @.str.36, ptr @.str.37, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } zeroinitializer], align 16
+@proto_register_enttec.col_count = internal constant [6 x { ptr, ptr, i32, [4 x i8] }] [{ ptr, ptr, i32, [4 x i8] } { ptr @.str.38, ptr @.str.38, i32 6, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } { ptr @.str.39, ptr @.str.39, i32 10, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } { ptr @.str.40, ptr @.str.40, i32 12, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } { ptr @.str.41, ptr @.str.41, i32 16, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } { ptr @.str.42, ptr @.str.42, i32 24, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } zeroinitializer], align 16
 @.str.38 = private unnamed_addr constant [2 x i8] c"6\00", align 1
 @.str.39 = private unnamed_addr constant [3 x i8] c"10\00", align 1
 @.str.40 = private unnamed_addr constant [3 x i8] c"12\00", align 1
@@ -102,57 +98,61 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.60 = private unnamed_addr constant [9 x i8] c"Ack/nAck\00", align 1
 @.str.61 = private unnamed_addr constant [7 x i8] c"Config\00", align 1
 @.str.62 = private unnamed_addr constant [6 x i8] c"Reset\00", align 1
-@.str.63 = private unnamed_addr constant [17 x i8] c"Uncompressed DMX\00", align 1
-@.str.64 = private unnamed_addr constant [14 x i8] c"Channel+Value\00", align 1
-@.str.65 = private unnamed_addr constant [19 x i8] c"RLE Compressed DMX\00", align 1
-@.str.66 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
-@.str.67 = private unnamed_addr constant [17 x i8] c"Unknown (0x%08x)\00", align 1
-@dissect_enttec_dmx_data.chan_format = internal unnamed_addr constant [3 x ptr] [ptr @.str.68, ptr @.str.69, ptr @.str.70], align 16
-@.str.68 = private unnamed_addr constant [5 x i8] c"%2u \00", align 1
-@.str.69 = private unnamed_addr constant [6 x i8] c"%02x \00", align 1
-@.str.70 = private unnamed_addr constant [5 x i8] c"%3u \00", align 1
-@dissect_enttec_dmx_data.string_format = internal unnamed_addr constant [2 x ptr] [ptr @.str.71, ptr @.str.72], align 16
-@.str.71 = private unnamed_addr constant [9 x i8] c"%03x: %s\00", align 1
-@.str.72 = private unnamed_addr constant [8 x i8] c"%3u: %s\00", align 1
-@.str.73 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.74 = private unnamed_addr constant [4 x i8] c"FL \00", align 1
+@enttec_head_vals = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1163087954, [4 x i8] zeroinitializer, ptr @.str.58 }, { i32, [4 x i8], ptr } { i32 1163087952, [4 x i8] zeroinitializer, ptr @.str.59 }, { i32, [4 x i8], ptr } { i32 1163084112, [4 x i8] zeroinitializer, ptr @.str.60 }, { i32, [4 x i8], ptr } { i32 1163084868, [4 x i8] zeroinitializer, ptr @.str.26 }, { i32, [4 x i8], ptr } { i32 1163087427, [4 x i8] zeroinitializer, ptr @.str.61 }, { i32, [4 x i8], ptr } { i32 1163090522, [4 x i8] zeroinitializer, ptr @.str.62 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.64 = private unnamed_addr constant [17 x i8] c"Uncompressed DMX\00", align 1
+@.str.65 = private unnamed_addr constant [14 x i8] c"Channel+Value\00", align 1
+@.str.66 = private unnamed_addr constant [19 x i8] c"RLE Compressed DMX\00", align 1
+@enttec_data_type_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.64 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.65 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.66 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.68 = private unnamed_addr constant [17 x i8] c"Unknown (0x%08x)\00", align 1
+@dissect_enttec_dmx_data.chan_format = internal unnamed_addr constant [3 x ptr] [ptr @.str.69, ptr @.str.70, ptr @.str.71], align 16
+@.str.69 = private unnamed_addr constant [5 x i8] c"%2u \00", align 1
+@.str.70 = private unnamed_addr constant [6 x i8] c"%02x \00", align 1
+@.str.71 = private unnamed_addr constant [5 x i8] c"%3u \00", align 1
+@dissect_enttec_dmx_data.string_format = internal unnamed_addr constant [2 x ptr] [ptr @.str.72, ptr @.str.73], align 16
+@.str.72 = private unnamed_addr constant [9 x i8] c"%03x: %s\00", align 1
+@.str.73 = private unnamed_addr constant [8 x i8] c"%3u: %s\00", align 1
+@.str.74 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.75 = private unnamed_addr constant [4 x i8] c"FL \00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_enttec() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44) #4
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44)
   store i32 %1, ptr @proto_enttec, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_enttec.hf, i32 noundef 17) #4
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_enttec.ett, i32 noundef 1) #4
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_enttec.hf, i32 noundef 17)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_enttec.ett, i32 noundef 1)
   %2 = load i32, ptr @proto_enttec, align 4
-  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.45, ptr noundef nonnull @dissect_enttec_udp, i32 noundef %2) #4
+  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.45, ptr noundef nonnull @dissect_enttec_udp, i32 noundef %2)
   store ptr %3, ptr @enttec_udp_handle, align 8
   %4 = load i32, ptr @proto_enttec, align 4
-  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.46, ptr noundef nonnull @dissect_enttec_tcp, i32 noundef %4) #4
+  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.46, ptr noundef nonnull @dissect_enttec_tcp, i32 noundef %4)
   store ptr %5, ptr @enttec_tcp_handle, align 8
   %6 = load i32, ptr @proto_enttec, align 4
-  %7 = tail call ptr @prefs_register_protocol(i32 noundef %6, ptr noundef null) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %7, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, ptr noundef nonnull @global_disp_chan_val_type, ptr noundef nonnull @proto_register_enttec.disp_chan_val_types, i32 noundef 0) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %7, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, ptr noundef nonnull @global_disp_chan_nr_type, ptr noundef nonnull @proto_register_enttec.disp_chan_nr_types, i32 noundef 0) #4
-  tail call void @prefs_register_enum_preference(ptr noundef %7, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, ptr noundef nonnull @global_disp_col_count, ptr noundef nonnull @proto_register_enttec.col_count, i32 noundef 0) #4
+  %7 = tail call ptr @prefs_register_protocol(i32 noundef %6, ptr noundef null)
+  tail call void @prefs_register_enum_preference(ptr noundef %7, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, ptr noundef nonnull @global_disp_chan_val_type, ptr noundef nonnull @proto_register_enttec.disp_chan_val_types, i1 noundef zeroext false)
+  tail call void @prefs_register_enum_preference(ptr noundef %7, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, ptr noundef nonnull @global_disp_chan_nr_type, ptr noundef nonnull @proto_register_enttec.disp_chan_nr_types, i1 noundef zeroext false)
+  tail call void @prefs_register_enum_preference(ptr noundef %7, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, ptr noundef nonnull @global_disp_col_count, ptr noundef nonnull @proto_register_enttec.col_count, i1 noundef zeroext false)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
-  %5 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 4) #4
-  %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %194, label %6
+  %5 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 4)
+  br i1 %5, label %6, label %194
 
 6:                                                ; preds = %4
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #4
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
   switch i32 %7, label %194 [
     i32 1163087954, label %8
     i32 1163087952, label %8
@@ -164,16 +164,16 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
 8:                                                ; preds = %6, %6, %6, %6, %6
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
-  tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.43) #4
+  tail call void @col_set_str(ptr noundef %10, i32 noundef 35, ptr noundef nonnull @.str.43)
   %11 = load ptr, ptr %9, align 8
-  %12 = tail call ptr @val_to_str(i32 noundef %7, ptr noundef nonnull @enttec_head_vals, ptr noundef nonnull @.str.67) #4
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %11, i32 noundef 25, ptr noundef nonnull @.str.66, ptr noundef %12) #4
+  %12 = tail call ptr @val_to_str(i32 noundef %7, ptr noundef nonnull @enttec_head_vals, ptr noundef nonnull @.str.68)
+  tail call void @col_add_str(ptr noundef %11, i32 noundef 25, ptr noundef %12)
   %13 = load i32, ptr @proto_enttec, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %15 = load i32, ptr @ett_enttec, align 4
-  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #4
+  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15)
   %17 = load i32, ptr @hf_enttec_head, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #4
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0)
   switch i32 %7, label %194 [
     i32 1163087954, label %19
     i32 1163087952, label %36
@@ -182,44 +182,44 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
 
 19:                                               ; preds = %8
   %20 = load i32, ptr @hf_enttec_poll_reply_mac, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %20, ptr noundef %0, i32 noundef 4, i32 noundef 6, i32 noundef 0) #4
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %20, ptr noundef %0, i32 noundef 4, i32 noundef 6, i32 noundef 0)
   %22 = load i32, ptr @hf_enttec_poll_reply_node_type, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %22, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef 0) #4
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %22, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef 0)
   %24 = load i32, ptr @hf_enttec_poll_reply_version, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %24, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0) #4
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %24, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0)
   %26 = load i32, ptr @hf_enttec_poll_reply_switch, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %26, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef 0) #4
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %26, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef 0)
   %28 = load i32, ptr @hf_enttec_poll_reply_name, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %28, ptr noundef %0, i32 noundef 14, i32 noundef 10, i32 noundef 0) #4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %28, ptr noundef %0, i32 noundef 14, i32 noundef 10, i32 noundef 0)
   %30 = load i32, ptr @hf_enttec_poll_reply_option, align 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %30, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0) #4
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %30, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0)
   %32 = load i32, ptr @hf_enttec_poll_reply_tos, align 4
-  %33 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %32, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0) #4
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %32, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0)
   %34 = load i32, ptr @hf_enttec_poll_reply_ttl, align 4
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %34, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0) #4
+  %35 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %34, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0)
   br label %194
 
 36:                                               ; preds = %8
   %37 = load i32, ptr @hf_enttec_poll_type, align 4
-  %38 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %37, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #4
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %37, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   br label %194
 
 39:                                               ; preds = %8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %41 = load ptr, ptr %40, align 8
-  %42 = tail call noalias ptr @wmem_alloc(ptr noundef %41, i64 noundef 512) #4
+  %42 = tail call noalias dereferenceable_or_null(512) ptr @wmem_alloc(ptr noundef %41, i64 noundef 512) #5
   %43 = load ptr, ptr %40, align 8
-  %44 = tail call noalias ptr @wmem_alloc(ptr noundef %43, i64 noundef 1026) #4
+  %44 = tail call noalias dereferenceable_or_null(1026) ptr @wmem_alloc(ptr noundef %43, i64 noundef 1026) #5
   %45 = load i32, ptr @hf_enttec_dmx_data_universe, align 4
-  %46 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %45, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #4
+  %46 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %45, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %47 = load i32, ptr @hf_enttec_dmx_data_start_code, align 4
-  %48 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %47, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #4
-  %49 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #4
+  %48 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %47, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
+  %49 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 6)
   %50 = load i32, ptr @hf_enttec_dmx_data_type, align 4
-  %51 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %50, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #4
-  %52 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 7) #4
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %50, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0)
+  %52 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 7)
   %53 = load i32, ptr @hf_enttec_dmx_data_size, align 4
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %53, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0) #4
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %53, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0)
   %spec.store.select.i = tail call i16 @llvm.umin.i16(i16 %52, i16 512)
   %55 = icmp eq i8 %49, 4
   %.not189.i = icmp eq i16 %52, 0
@@ -240,7 +240,7 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   %.0152174.i = phi i16 [ %.1153.i, %.loopexit.i ], [ 0, %.preheader165.i ]
   %56 = zext i16 %.0152174.i to i32
   %57 = add nuw nsw i32 %56, 9
-  %58 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %57) #4
+  %58 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %57)
   switch i8 %58, label %87 [
     i8 -2, label %59
     i8 -3, label %78
@@ -248,11 +248,11 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
 
 59:                                               ; preds = %.lr.ph176.i
   %60 = add nuw nsw i32 %56, 10
-  %61 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %60) #4
+  %61 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %60)
   %62 = add i16 %.0152174.i, 2
   %63 = zext i16 %62 to i32
   %64 = add nuw nsw i32 %63, 9
-  %65 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %64) #4
+  %65 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %64)
   %66 = add i16 %.0152174.i, 3
   %67 = zext i8 %61 to i16
   %.not.i = icmp eq i8 %61, 0
@@ -266,7 +266,7 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   %71 = tail call i16 @llvm.umin.i16(i16 %69, i16 %70)
   %narrow.i = add nuw nsw i16 %71, 1
   %72 = zext nneg i16 %narrow.i to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 %65, i64 %72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 1 %scevgep.i, i8 %65, i64 %72, i1 false)
   br label %.lr.ph172.i
 
 .lr.ph172.i:                                      ; preds = %.lr.ph172.i, %.lr.ph172.preheader.i
@@ -279,12 +279,12 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   %75 = icmp samesign ult i16 %74, %67
   %76 = icmp samesign ult i64 %indvars.iv194.i, 511
   %77 = and i1 %76, %75
-  br i1 %77, label %.lr.ph172.i, label %.loopexit.loopexit.i, !llvm.loop !4
+  br i1 %77, label %.lr.ph172.i, label %.loopexit.loopexit.i, !llvm.loop !6
 
 78:                                               ; preds = %.lr.ph176.i
   %79 = add nuw i16 %.0152174.i, 1
   %80 = add nuw nsw i32 %56, 10
-  %81 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %80) #4
+  %81 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %80)
   %82 = zext nneg i16 %.0151175.i to i64
   %83 = getelementptr i8, ptr %42, i64 %82
   store i8 %81, ptr %83, align 1
@@ -314,13 +314,13 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   %94 = icmp ult i16 %.1153.i, %spec.store.select.i
   %95 = icmp ult i16 %.2.i, 512
   %96 = select i1 %94, i1 %95, i1 false
-  br i1 %96, label %.lr.ph176.i, label %._crit_edge177.i, !llvm.loop !6
+  br i1 %96, label %.lr.ph176.i, label %._crit_edge177.i, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %97 = trunc nuw nsw i64 %indvars.iv.i to i32
   %98 = add nuw nsw i32 %97, 9
-  %99 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %98) #4
+  %99 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %98)
   %100 = getelementptr i8, ptr %42, i64 %indvars.iv.i
   store i8 %99, ptr %100, align 1
   %101 = getelementptr i16, ptr %44, i64 %indvars.iv.i
@@ -328,7 +328,7 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   store i16 %102, ptr %101, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge177.i, label %.lr.ph.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %._crit_edge177.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge177.i:                                 ; preds = %.lr.ph.i, %.loopexit.i, %.preheader165.i, %.preheader166.i
   %.4.lcssa.sink205.i = phi i16 [ 0, %.preheader165.i ], [ 0, %.preheader166.i ], [ %.2.i, %.loopexit.i ], [ %spec.store.select.i, %.lr.ph.i ]
@@ -346,9 +346,9 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
 
 109:                                              ; preds = %._crit_edge177.i
   %110 = load i32, ptr @hf_enttec_dmx_data_data, align 4
-  %111 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %110, ptr noundef %0, i32 noundef 9, i32 noundef %108, i32 noundef 0) #4
+  %111 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %110, ptr noundef %0, i32 noundef 9, i32 noundef %108, i32 noundef 0)
   %112 = load i32, ptr @ett_enttec, align 4
-  %113 = tail call ptr @proto_item_add_subtree(ptr noundef %111, i32 noundef %112) #4
+  %113 = tail call ptr @proto_item_add_subtree(ptr noundef %111, i32 noundef %112)
   %114 = zext i16 %.4.lcssa.sink205.i to i32
   %115 = load i32, ptr @global_disp_col_count, align 4
   %116 = sdiv i32 %114, %115
@@ -357,7 +357,7 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   %119 = zext i1 %118 to i32
   %120 = add nsw i32 %116, %119
   %121 = load ptr, ptr %40, align 8
-  %122 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %121, ptr noundef nonnull @.str.73) #4
+  %122 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %121, ptr noundef nonnull @.str.74)
   %123 = and i32 %120, 65535
   %.not190.i = icmp eq i32 %123, 0
   br i1 %.not190.i, label %._crit_edge188.i, label %.preheader.i
@@ -388,7 +388,7 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   br i1 %136, label %137, label %138
 
 137:                                              ; preds = %133
-  tail call void @wmem_strbuf_append_c(ptr noundef %122, i8 noundef signext 32) #4
+  tail call void @wmem_strbuf_append_c(ptr noundef %122, i8 noundef signext 32)
   %.pre.i = load i32, ptr @global_disp_col_count, align 4
   %.pre201.i = mul i32 %.pre.i, %indvars.iv197.i
   %.pre202.i = add i32 %.pre201.i, %127
@@ -411,13 +411,13 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   br i1 %147, label %148, label %149
 
 148:                                              ; preds = %144
-  tail call void @wmem_strbuf_append(ptr noundef %122, ptr noundef nonnull @.str.74) #4
+  tail call void @wmem_strbuf_append(ptr noundef %122, ptr noundef nonnull @.str.75)
   br label %157
 
 149:                                              ; preds = %144
   %150 = udiv i16 %146, 255
   %151 = zext nneg i16 %150 to i32
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %122, ptr noundef nonnull @.str.68, i32 noundef %151) #4
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %122, ptr noundef nonnull @.str.69, i32 noundef %151)
   br label %157
 
 152:                                              ; preds = %138
@@ -425,7 +425,7 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   %154 = getelementptr [3 x ptr], ptr @dissect_enttec_dmx_data.chan_format, i64 0, i64 %153
   %155 = load ptr, ptr %154, align 8
   %156 = zext i8 %141 to i32
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %122, ptr noundef %155, i32 noundef %156) #4
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %122, ptr noundef %155, i32 noundef %156)
   br label %157
 
 157:                                              ; preds = %152, %149, %148
@@ -433,7 +433,7 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   %159 = zext i16 %158 to i32
   %160 = load i32, ptr @global_disp_col_count, align 4
   %161 = icmp sgt i32 %160, %159
-  br i1 %161, label %.lr.ph181.i, label %.critedge.i, !llvm.loop !8
+  br i1 %161, label %.lr.ph181.i, label %.critedge.i, !llvm.loop !10
 
 .critedge.i:                                      ; preds = %157, %.lr.ph181.i, %.preheader.i
   %.lcssa167.i = phi i32 [ 0, %.preheader.i ], [ %127, %.lr.ph181.i ], [ %159, %157 ]
@@ -456,21 +456,21 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   %177 = getelementptr [2 x ptr], ptr @dissect_enttec_dmx_data.string_format, i64 0, i64 %176
   %178 = load ptr, ptr %177, align 8
   %179 = add i32 %162, 1
-  %180 = tail call ptr @wmem_strbuf_get_str(ptr noundef %122) #4
-  %181 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %113, i32 noundef %170, ptr noundef %0, i32 noundef %172, i32 noundef %174, ptr noundef %178, i32 noundef %179, ptr noundef %180) #4
-  tail call void @wmem_strbuf_truncate(ptr noundef %122, i64 noundef 0) #4
+  %180 = tail call ptr @wmem_strbuf_get_str(ptr noundef %122)
+  %181 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %113, i32 noundef %170, ptr noundef %0, i32 noundef %172, i32 noundef %174, ptr noundef %178, i32 noundef %179, ptr noundef %180)
+  tail call void @wmem_strbuf_truncate(ptr noundef %122, i64 noundef 0)
   %indvars.iv.next198.i = add nuw nsw i32 %indvars.iv197.i, 1
   %exitcond200.not.i = icmp eq i32 %indvars.iv.next198.i, %123
-  br i1 %exitcond200.not.i, label %._crit_edge188.i, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond200.not.i, label %._crit_edge188.i, label %.preheader.i, !llvm.loop !11
 
 ._crit_edge188.i:                                 ; preds = %.critedge.i, %109
   %182 = load i32, ptr @hf_enttec_dmx_data_data_filter, align 4
-  %183 = tail call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %182, ptr noundef %0, i32 noundef 9, i32 noundef %108, i32 noundef 0) #4
+  %183 = tail call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %182, ptr noundef %0, i32 noundef 9, i32 noundef %108, i32 noundef 0)
   %.not.i.i = icmp eq ptr %183, null
   br i1 %.not.i.i, label %dissect_enttec_dmx_data.exit, label %184
 
 184:                                              ; preds = %._crit_edge188.i
-  %185 = getelementptr inbounds nuw i8, ptr %183, i64 32
+  %185 = getelementptr inbounds nuw i8, ptr %183, i64 40
   %186 = load ptr, ptr %185, align 8
   %.not5.i.i = icmp eq ptr %186, null
   br i1 %.not5.i.i, label %dissect_enttec_dmx_data.exit, label %187
@@ -484,7 +484,7 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
 
 191:                                              ; preds = %._crit_edge177.i
   %192 = load i32, ptr @hf_enttec_dmx_data_data_filter, align 4
-  %193 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %192, ptr noundef %0, i32 noundef 9, i32 noundef %108, i32 noundef 0) #4
+  %193 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %192, ptr noundef %0, i32 noundef 9, i32 noundef %108, i32 noundef 0)
   br label %dissect_enttec_dmx_data.exit
 
 dissect_enttec_dmx_data.exit:                     ; preds = %._crit_edge188.i, %184, %187, %191
@@ -496,31 +496,30 @@ dissect_enttec_dmx_data.exit:                     ; preds = %._crit_edge188.i, %
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_enttec_tcp(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
-  %5 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 4) #4
-  %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %20, label %6
+  %5 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 4)
+  br i1 %5, label %6, label %20
 
 6:                                                ; preds = %4
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #4
-  %.not17 = icmp eq i32 %7, 1163087427
-  br i1 %.not17, label %8, label %20
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %.not = icmp eq i32 %7, 1163087427
+  br i1 %.not, label %8, label %20
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
-  tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.43) #4
+  tail call void @col_set_str(ptr noundef %10, i32 noundef 35, ptr noundef nonnull @.str.43)
   %11 = load ptr, ptr %9, align 8
-  %12 = tail call ptr @val_to_str(i32 noundef 1163087427, ptr noundef nonnull @enttec_head_vals, ptr noundef nonnull @.str.67) #4
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %11, i32 noundef 25, ptr noundef nonnull @.str.66, ptr noundef %12) #4
+  %12 = tail call ptr @val_to_str(i32 noundef 1163087427, ptr noundef nonnull @enttec_head_vals, ptr noundef nonnull @.str.68)
+  tail call void @col_add_str(ptr noundef %11, i32 noundef 25, ptr noundef %12)
   %13 = load i32, ptr @proto_enttec, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %15 = load i32, ptr @ett_enttec, align 4
-  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #4
+  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15)
   %17 = load i32, ptr @hf_enttec_head, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #4
-  %19 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0)
+  %19 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %20
 
 20:                                               ; preds = %6, %4, %8
@@ -528,78 +527,102 @@ define internal i32 @dissect_enttec_tcp(ptr noundef %0, ptr noundef readonly cap
   ret i32 %.0
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_enttec() local_unnamed_addr #0 {
   %1 = load ptr, ptr @enttec_tcp_handle, align 8
-  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.56, i32 noundef 3333, ptr noundef %1) #4
+  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.56, i32 noundef 3333, ptr noundef %1)
   %2 = load ptr, ptr @enttec_udp_handle, align 8
-  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.57, i32 noundef 3333, ptr noundef %2) #4
+  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.57, i32 noundef 3333, ptr noundef %2)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare noalias ptr @wmem_strbuf_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @wmem_strbuf_append_c(ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @wmem_strbuf_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @wmem_strbuf_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_strbuf_get_str(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @wmem_strbuf_truncate(ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #2
+declare i16 @llvm.umin.i16(i16, i16) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

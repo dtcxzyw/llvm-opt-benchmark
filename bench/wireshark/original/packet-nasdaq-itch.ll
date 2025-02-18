@@ -3,12 +3,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
-%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr }
+%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.field_info = type { ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32 }
 
 @proto_register_nasdaq_itch.hf = internal global [25 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_nasdaq_itch_version, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nasdaq_itch_message_type, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 3, i32 2, ptr @message_types_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nasdaq_itch_second, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nasdaq_itch_millisecond, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nasdaq_itch_system_event, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 3, i32 2, ptr @system_event_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nasdaq_itch_market_category, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 3, i32 2, ptr @market_category_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nasdaq_itch_financial_status, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 3, i32 2, ptr @financial_status_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nasdaq_itch_stock, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nasdaq_itch_round_lot_size, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nasdaq_itch_round_lots_only, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 3, i32 2, ptr @round_lots_only_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nasdaq_itch_trading_state, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nasdaq_itch_reserved, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nasdaq_itch_reason, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nasdaq_itch_order_reference, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 7, i32 1, ptr null, i64 0, ptr @.str.28, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nasdaq_itch_buy_sell, %struct._header_field_info { ptr @.str.29, ptr @.str.30, i32 26, i32 0, ptr null, i64 0, ptr @.str.31, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nasdaq_itch_shares, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 7, i32 1, ptr null, i64 0, ptr @.str.34, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nasdaq_itch_price, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 23, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nasdaq_itch_attribution, %struct._header_field_info { ptr @.str.37, ptr @.str.38, i32 26, i32 0, ptr null, i64 0, ptr @.str.39, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nasdaq_itch_executed, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 7, i32 1, ptr null, i64 0, ptr @.str.42, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nasdaq_itch_match, %struct._header_field_info { ptr @.str.43, ptr @.str.44, i32 26, i32 0, ptr null, i64 0, ptr @.str.45, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nasdaq_itch_printable, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nasdaq_itch_execution_price, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 23, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nasdaq_itch_canceled, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 7, i32 1, ptr null, i64 0, ptr @.str.52, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nasdaq_itch_cross, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 26, i32 0, ptr null, i64 0, ptr @.str.55, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nasdaq_itch_message, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
@@ -18,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_nasdaq_itch_message_type = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [13 x i8] c"Message Type\00", align 1
 @.str.3 = private unnamed_addr constant [25 x i8] c"nasdaq-itch.message_type\00", align 1
-@message_types_val = internal constant [20 x %struct._value_string] [%struct._value_string { i32 65, ptr @.str.67 }, %struct._value_string { i32 88, ptr @.str.68 }, %struct._value_string { i32 77, ptr @.str.69 }, %struct._value_string { i32 69, ptr @.str.70 }, %struct._value_string { i32 84, ptr @.str.71 }, %struct._value_string { i32 80, ptr @.str.72 }, %struct._value_string { i32 67, ptr @.str.73 }, %struct._value_string { i32 68, ptr @.str.74 }, %struct._value_string { i32 81, ptr @.str.75 }, %struct._value_string { i32 83, ptr @.str.76 }, %struct._value_string { i32 82, ptr @.str.77 }, %struct._value_string { i32 72, ptr @.str.78 }, %struct._value_string { i32 70, ptr @.str.79 }, %struct._value_string { i32 73, ptr @.str.80 }, %struct._value_string { i32 66, ptr @.str.81 }, %struct._value_string { i32 97, ptr @.str.82 }, %struct._value_string { i32 112, ptr @.str.83 }, %struct._value_string { i32 101, ptr @.str.84 }, %struct._value_string { i32 120, ptr @.str.85 }, %struct._value_string zeroinitializer], align 16
 @hf_nasdaq_itch_second = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [7 x i8] c"Second\00", align 1
 @.str.5 = private unnamed_addr constant [19 x i8] c"nasdaq-itch.second\00", align 1
@@ -28,15 +26,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_nasdaq_itch_system_event = internal global i32 0, align 4
 @.str.8 = private unnamed_addr constant [13 x i8] c"System Event\00", align 1
 @.str.9 = private unnamed_addr constant [25 x i8] c"nasdaq-itch.system_event\00", align 1
-@system_event_val = internal constant [7 x %struct._value_string] [%struct._value_string { i32 79, ptr @.str.86 }, %struct._value_string { i32 83, ptr @.str.87 }, %struct._value_string { i32 81, ptr @.str.88 }, %struct._value_string { i32 77, ptr @.str.89 }, %struct._value_string { i32 69, ptr @.str.90 }, %struct._value_string { i32 67, ptr @.str.91 }, %struct._value_string zeroinitializer], align 16
 @hf_nasdaq_itch_market_category = internal global i32 0, align 4
 @.str.10 = private unnamed_addr constant [16 x i8] c"Market Category\00", align 1
 @.str.11 = private unnamed_addr constant [28 x i8] c"nasdaq-itch.market_category\00", align 1
-@market_category_val = internal constant [6 x %struct._value_string] [%struct._value_string { i32 84, ptr @.str.92 }, %struct._value_string { i32 81, ptr @.str.93 }, %struct._value_string { i32 71, ptr @.str.94 }, %struct._value_string { i32 83, ptr @.str.95 }, %struct._value_string { i32 32, ptr @.str.96 }, %struct._value_string zeroinitializer], align 16
 @hf_nasdaq_itch_financial_status = internal global i32 0, align 4
 @.str.12 = private unnamed_addr constant [27 x i8] c"Financial Status Indicator\00", align 1
 @.str.13 = private unnamed_addr constant [29 x i8] c"nasdaq-itch.financial_status\00", align 1
-@financial_status_val = internal constant [10 x %struct._value_string] [%struct._value_string { i32 68, ptr @.str.97 }, %struct._value_string { i32 69, ptr @.str.98 }, %struct._value_string { i32 81, ptr @.str.99 }, %struct._value_string { i32 83, ptr @.str.100 }, %struct._value_string { i32 71, ptr @.str.101 }, %struct._value_string { i32 72, ptr @.str.102 }, %struct._value_string { i32 74, ptr @.str.103 }, %struct._value_string { i32 75, ptr @.str.104 }, %struct._value_string { i32 32, ptr @.str.105 }, %struct._value_string zeroinitializer], align 16
 @hf_nasdaq_itch_stock = internal global i32 0, align 4
 @.str.14 = private unnamed_addr constant [6 x i8] c"Stock\00", align 1
 @.str.15 = private unnamed_addr constant [18 x i8] c"nasdaq-itch.stock\00", align 1
@@ -46,7 +41,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_nasdaq_itch_round_lots_only = internal global i32 0, align 4
 @.str.18 = private unnamed_addr constant [16 x i8] c"Round Lots Only\00", align 1
 @.str.19 = private unnamed_addr constant [28 x i8] c"nasdaq-itch.round_lots_only\00", align 1
-@round_lots_only_val = internal constant [3 x %struct._value_string] [%struct._value_string { i32 89, ptr @.str.106 }, %struct._value_string { i32 78, ptr @.str.107 }, %struct._value_string zeroinitializer], align 16
 @hf_nasdaq_itch_trading_state = internal global i32 0, align 4
 @.str.20 = private unnamed_addr constant [14 x i8] c"Trading State\00", align 1
 @.str.21 = private unnamed_addr constant [26 x i8] c"nasdaq-itch.trading_state\00", align 1
@@ -109,7 +103,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.61 = private unnamed_addr constant [6 x i8] c"chi_x\00", align 1
 @.str.62 = private unnamed_addr constant [24 x i8] c"Decode Chi X extensions\00", align 1
 @.str.63 = private unnamed_addr constant [66 x i8] c"Whether the Nasdaq ITCH dissector should decode Chi X extensions.\00", align 1
-@nasdaq_itch_chi_x = internal global i32 1, align 4
+@nasdaq_itch_chi_x = internal global i8 1, align 1
 @.str.64 = private unnamed_addr constant [12 x i8] c"nasdaq-itch\00", align 1
 @nasdaq_itch_handle = internal global ptr null, align 8
 @.str.65 = private unnamed_addr constant [18 x i8] c"moldudp64.payload\00", align 1
@@ -133,47 +127,53 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.83 = private unnamed_addr constant [31 x i8] c"Trade Message Identifier (big)\00", align 1
 @.str.84 = private unnamed_addr constant [21 x i8] c"Order Executed (big)\00", align 1
 @.str.85 = private unnamed_addr constant [19 x i8] c"Order Cancel (big)\00", align 1
-@.str.86 = private unnamed_addr constant [18 x i8] c"Start of Messages\00", align 1
-@.str.87 = private unnamed_addr constant [22 x i8] c"Start of System hours\00", align 1
-@.str.88 = private unnamed_addr constant [22 x i8] c"Start of Market hours\00", align 1
-@.str.89 = private unnamed_addr constant [20 x i8] c"End of Market hours\00", align 1
-@.str.90 = private unnamed_addr constant [20 x i8] c"End of System hours\00", align 1
-@.str.91 = private unnamed_addr constant [16 x i8] c"End of Messages\00", align 1
-@.str.92 = private unnamed_addr constant [38 x i8] c"CQS (NYSE, Amex or regional exchange)\00", align 1
-@.str.93 = private unnamed_addr constant [30 x i8] c"NASDAQ Global Select MarketSM\00", align 1
-@.str.94 = private unnamed_addr constant [23 x i8] c"NASDAQ Global MarketSM\00", align 1
-@.str.95 = private unnamed_addr constant [22 x i8] c"NASDAQ Capital Market\00", align 1
-@.str.96 = private unnamed_addr constant [14 x i8] c"Not available\00", align 1
-@.str.97 = private unnamed_addr constant [10 x i8] c"Deficient\00", align 1
-@.str.98 = private unnamed_addr constant [11 x i8] c"Delinquent\00", align 1
-@.str.99 = private unnamed_addr constant [9 x i8] c"Bankrupt\00", align 1
-@.str.100 = private unnamed_addr constant [10 x i8] c"Suspended\00", align 1
-@.str.101 = private unnamed_addr constant [23 x i8] c"Deficient and Bankrupt\00", align 1
-@.str.102 = private unnamed_addr constant [25 x i8] c"Deficient and Delinquent\00", align 1
-@.str.103 = private unnamed_addr constant [24 x i8] c"Delinquent and Bankrupt\00", align 1
-@.str.104 = private unnamed_addr constant [35 x i8] c"Deficient, Delinquent and Bankrupt\00", align 1
-@.str.105 = private unnamed_addr constant [25 x i8] c"Company is in compliance\00", align 1
-@.str.106 = private unnamed_addr constant [43 x i8] c"only round lots are accepted in this stock\00", align 1
-@.str.107 = private unnamed_addr constant [27 x i8] c"odd/mixed lots are allowed\00", align 1
-@.str.108 = private unnamed_addr constant [12 x i8] c"Nasdaq-ITCH\00", align 1
+@message_types_val = internal constant [20 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.67 }, { i32, [4 x i8], ptr } { i32 88, [4 x i8] zeroinitializer, ptr @.str.68 }, { i32, [4 x i8], ptr } { i32 77, [4 x i8] zeroinitializer, ptr @.str.69 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.70 }, { i32, [4 x i8], ptr } { i32 84, [4 x i8] zeroinitializer, ptr @.str.71 }, { i32, [4 x i8], ptr } { i32 80, [4 x i8] zeroinitializer, ptr @.str.72 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.73 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.74 }, { i32, [4 x i8], ptr } { i32 81, [4 x i8] zeroinitializer, ptr @.str.75 }, { i32, [4 x i8], ptr } { i32 83, [4 x i8] zeroinitializer, ptr @.str.76 }, { i32, [4 x i8], ptr } { i32 82, [4 x i8] zeroinitializer, ptr @.str.77 }, { i32, [4 x i8], ptr } { i32 72, [4 x i8] zeroinitializer, ptr @.str.78 }, { i32, [4 x i8], ptr } { i32 70, [4 x i8] zeroinitializer, ptr @.str.79 }, { i32, [4 x i8], ptr } { i32 73, [4 x i8] zeroinitializer, ptr @.str.80 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.81 }, { i32, [4 x i8], ptr } { i32 97, [4 x i8] zeroinitializer, ptr @.str.82 }, { i32, [4 x i8], ptr } { i32 112, [4 x i8] zeroinitializer, ptr @.str.83 }, { i32, [4 x i8], ptr } { i32 101, [4 x i8] zeroinitializer, ptr @.str.84 }, { i32, [4 x i8], ptr } { i32 120, [4 x i8] zeroinitializer, ptr @.str.85 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.87 = private unnamed_addr constant [18 x i8] c"Start of Messages\00", align 1
+@.str.88 = private unnamed_addr constant [22 x i8] c"Start of System hours\00", align 1
+@.str.89 = private unnamed_addr constant [22 x i8] c"Start of Market hours\00", align 1
+@.str.90 = private unnamed_addr constant [20 x i8] c"End of Market hours\00", align 1
+@.str.91 = private unnamed_addr constant [20 x i8] c"End of System hours\00", align 1
+@.str.92 = private unnamed_addr constant [16 x i8] c"End of Messages\00", align 1
+@system_event_val = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 79, [4 x i8] zeroinitializer, ptr @.str.87 }, { i32, [4 x i8], ptr } { i32 83, [4 x i8] zeroinitializer, ptr @.str.88 }, { i32, [4 x i8], ptr } { i32 81, [4 x i8] zeroinitializer, ptr @.str.89 }, { i32, [4 x i8], ptr } { i32 77, [4 x i8] zeroinitializer, ptr @.str.90 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.91 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.92 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.94 = private unnamed_addr constant [38 x i8] c"CQS (NYSE, Amex or regional exchange)\00", align 1
+@.str.95 = private unnamed_addr constant [30 x i8] c"NASDAQ Global Select MarketSM\00", align 1
+@.str.96 = private unnamed_addr constant [23 x i8] c"NASDAQ Global MarketSM\00", align 1
+@.str.97 = private unnamed_addr constant [22 x i8] c"NASDAQ Capital Market\00", align 1
+@.str.98 = private unnamed_addr constant [14 x i8] c"Not available\00", align 1
+@market_category_val = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 84, [4 x i8] zeroinitializer, ptr @.str.94 }, { i32, [4 x i8], ptr } { i32 81, [4 x i8] zeroinitializer, ptr @.str.95 }, { i32, [4 x i8], ptr } { i32 71, [4 x i8] zeroinitializer, ptr @.str.96 }, { i32, [4 x i8], ptr } { i32 83, [4 x i8] zeroinitializer, ptr @.str.97 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.98 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.100 = private unnamed_addr constant [10 x i8] c"Deficient\00", align 1
+@.str.101 = private unnamed_addr constant [11 x i8] c"Delinquent\00", align 1
+@.str.102 = private unnamed_addr constant [9 x i8] c"Bankrupt\00", align 1
+@.str.103 = private unnamed_addr constant [10 x i8] c"Suspended\00", align 1
+@.str.104 = private unnamed_addr constant [23 x i8] c"Deficient and Bankrupt\00", align 1
+@.str.105 = private unnamed_addr constant [25 x i8] c"Deficient and Delinquent\00", align 1
+@.str.106 = private unnamed_addr constant [24 x i8] c"Delinquent and Bankrupt\00", align 1
+@.str.107 = private unnamed_addr constant [35 x i8] c"Deficient, Delinquent and Bankrupt\00", align 1
+@.str.108 = private unnamed_addr constant [25 x i8] c"Company is in compliance\00", align 1
+@financial_status_val = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.100 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.101 }, { i32, [4 x i8], ptr } { i32 81, [4 x i8] zeroinitializer, ptr @.str.102 }, { i32, [4 x i8], ptr } { i32 83, [4 x i8] zeroinitializer, ptr @.str.103 }, { i32, [4 x i8], ptr } { i32 71, [4 x i8] zeroinitializer, ptr @.str.104 }, { i32, [4 x i8], ptr } { i32 72, [4 x i8] zeroinitializer, ptr @.str.105 }, { i32, [4 x i8], ptr } { i32 74, [4 x i8] zeroinitializer, ptr @.str.106 }, { i32, [4 x i8], ptr } { i32 75, [4 x i8] zeroinitializer, ptr @.str.107 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.108 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.110 = private unnamed_addr constant [43 x i8] c"only round lots are accepted in this stock\00", align 1
+@.str.111 = private unnamed_addr constant [27 x i8] c"odd/mixed lots are allowed\00", align 1
+@round_lots_only_val = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 89, [4 x i8] zeroinitializer, ptr @.str.110 }, { i32, [4 x i8], ptr } { i32 78, [4 x i8] zeroinitializer, ptr @.str.111 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.113 = private unnamed_addr constant [12 x i8] c"Nasdaq-ITCH\00", align 1
 @chix_msg = internal constant [5 x i8] c"apex\00", align 1
-@.str.109 = private unnamed_addr constant [30 x i8] c"Unknown packet type (0x%02x) \00", align 1
-@.str.110 = private unnamed_addr constant [29 x i8] c"Nasdaq TotalView-ITCH %s, %s\00", align 1
-@.str.111 = private unnamed_addr constant [4 x i8] c"2.0\00", align 1
-@.str.112 = private unnamed_addr constant [4 x i8] c"3.0\00", align 1
-@.str.113 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.114 = private unnamed_addr constant [6 x i8] c" %03u\00", align 1
-@.str.115 = private unnamed_addr constant [26 x i8] c" %u (%02u:%02u:%02u.%03u)\00", align 1
-@.str.116 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
-@.str.117 = private unnamed_addr constant [6 x i8] c"<%s> \00", align 1
-@.str.118 = private unnamed_addr constant [4 x i8] c"%c \00", align 1
-@.str.119 = private unnamed_addr constant [10 x i8] c"price %g \00", align 1
-@.str.120 = private unnamed_addr constant [4 x i8] c"%u \00", align 1
-@.str.121 = private unnamed_addr constant [8 x i8] c"qty %u \00", align 1
+@.str.114 = private unnamed_addr constant [30 x i8] c"Unknown packet type (0x%02x) \00", align 1
+@.str.115 = private unnamed_addr constant [29 x i8] c"Nasdaq TotalView-ITCH %s, %s\00", align 1
+@.str.116 = private unnamed_addr constant [4 x i8] c"2.0\00", align 1
+@.str.117 = private unnamed_addr constant [4 x i8] c"3.0\00", align 1
+@.str.118 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.119 = private unnamed_addr constant [6 x i8] c" %03u\00", align 1
+@.str.120 = private unnamed_addr constant [26 x i8] c" %u (%02u:%02u:%02u.%03u)\00", align 1
+@.str.121 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
+@.str.122 = private unnamed_addr constant [6 x i8] c"<%s> \00", align 1
+@.str.123 = private unnamed_addr constant [4 x i8] c"%c \00", align 1
+@.str.124 = private unnamed_addr constant [10 x i8] c"price %g \00", align 1
+@.str.125 = private unnamed_addr constant [4 x i8] c"%u \00", align 1
+@.str.126 = private unnamed_addr constant [8 x i8] c"qty %u \00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_nasdaq_itch() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #6
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.58, ptr noundef @.str.59, ptr noundef @.str.60)
   store i32 %2, ptr @proto_nasdaq_itch, align 4
   %3 = load i32, ptr @proto_nasdaq_itch, align 4
@@ -187,22 +187,32 @@ define hidden void @proto_register_nasdaq_itch() #0 {
   %7 = load i32, ptr @proto_nasdaq_itch, align 4
   %8 = call ptr @register_dissector(ptr noundef @.str.64, ptr noundef @dissect_nasdaq_itch, i32 noundef %7)
   store ptr %8, ptr @nasdaq_itch_handle, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #6
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_nasdaq_itch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -217,468 +227,494 @@ define internal i32 @dissect_nasdaq_itch(ptr noundef %0, ptr noundef %1, ptr nou
   %15 = alloca i32, align 4
   %16 = alloca ptr, align 8
   %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
   store ptr null, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
   store i32 0, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
   store i32 3, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
   store i32 0, ptr %15, align 4
-  %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr inbounds %struct._packet_info, ptr %18, i32 0, i32 1
-  %20 = load ptr, ptr %19, align 8
-  call void @col_set_str(ptr noundef %20, i32 noundef 34, ptr noundef @.str.108)
-  %21 = load ptr, ptr %6, align 8
-  %22 = load i32, ptr %13, align 4
-  %23 = call zeroext i8 @tvb_get_guint8(ptr noundef %21, i32 noundef %22)
-  store i8 %23, ptr %12, align 1
-  %24 = load i8, ptr %12, align 1
-  %25 = zext i8 %24 to i32
-  %26 = icmp sge i32 %25, 48
-  br i1 %26, label %27, label %36
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds nuw %struct._packet_info, ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  call void @col_set_str(ptr noundef %21, i32 noundef 35, ptr noundef @.str.113)
+  %22 = load ptr, ptr %6, align 8
+  %23 = load i32, ptr %13, align 4
+  %24 = call zeroext i8 @tvb_get_uint8(ptr noundef %22, i32 noundef %23)
+  store i8 %24, ptr %12, align 1
+  %25 = load i8, ptr %12, align 1
+  %26 = zext i8 %25 to i32
+  %27 = icmp sge i32 %26, 48
+  br i1 %27, label %28, label %37
 
-27:                                               ; preds = %4
-  %28 = load i8, ptr %12, align 1
-  %29 = zext i8 %28 to i32
-  %30 = icmp sle i32 %29, 57
-  br i1 %30, label %31, label %36
+28:                                               ; preds = %4
+  %29 = load i8, ptr %12, align 1
+  %30 = zext i8 %29 to i32
+  %31 = icmp sle i32 %30, 57
+  br i1 %31, label %32, label %37
 
-31:                                               ; preds = %27
+32:                                               ; preds = %28
   store i32 2, ptr %14, align 4
-  %32 = load ptr, ptr %6, align 8
-  %33 = load i32, ptr %13, align 4
-  %34 = add i32 %33, 8
-  %35 = call zeroext i8 @tvb_get_guint8(ptr noundef %32, i32 noundef %34)
-  store i8 %35, ptr %12, align 1
-  br label %36
+  %33 = load ptr, ptr %6, align 8
+  %34 = load i32, ptr %13, align 4
+  %35 = add i32 %34, 8
+  %36 = call zeroext i8 @tvb_get_uint8(ptr noundef %33, i32 noundef %35)
+  store i8 %36, ptr %12, align 1
+  br label %37
 
-36:                                               ; preds = %31, %27, %4
-  %37 = load i32, ptr @nasdaq_itch_chi_x, align 4
-  %38 = icmp ne i32 %37, 0
-  br i1 %38, label %39, label %42
+37:                                               ; preds = %32, %28, %4
+  %38 = load i8, ptr @nasdaq_itch_chi_x, align 1, !range !6, !noundef !7
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %43
 
-39:                                               ; preds = %36
-  %40 = load i32, ptr %14, align 4
-  %41 = icmp eq i32 %40, 3
-  br i1 %41, label %42, label %48
+40:                                               ; preds = %37
+  %41 = load i32, ptr %14, align 4
+  %42 = icmp eq i32 %41, 3
+  br i1 %42, label %43, label %49
 
-42:                                               ; preds = %39, %36
-  %43 = load i8, ptr %12, align 1
-  %44 = zext i8 %43 to i32
-  %45 = call ptr @strchr(ptr noundef @chix_msg, i32 noundef %44) #4
-  %46 = icmp ne ptr %45, null
-  br i1 %46, label %47, label %48
+43:                                               ; preds = %40, %37
+  %44 = load i8, ptr %12, align 1
+  %45 = zext i8 %44 to i32
+  %46 = call ptr @strchr(ptr noundef @chix_msg, i32 noundef %45) #7
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %48, label %49
 
-47:                                               ; preds = %42
+48:                                               ; preds = %43
   store i8 0, ptr %12, align 1
-  br label %48
+  br label %49
 
-48:                                               ; preds = %47, %42, %39
-  %49 = load i8, ptr %12, align 1
-  %50 = zext i8 %49 to i32
-  %51 = call ptr @val_to_str(i32 noundef %50, ptr noundef @message_types_val, ptr noundef @.str.109)
-  store ptr %51, ptr %16, align 8
-  %52 = load ptr, ptr %7, align 8
-  %53 = getelementptr inbounds %struct._packet_info, ptr %52, i32 0, i32 1
-  %54 = load ptr, ptr %53, align 8
-  %55 = load ptr, ptr %16, align 8
-  call void @col_add_str(ptr noundef %54, i32 noundef 25, ptr noundef %55)
-  %56 = load ptr, ptr %8, align 8
-  %57 = icmp ne ptr %56, null
-  br i1 %57, label %58, label %77
+49:                                               ; preds = %48, %43, %40
+  %50 = load i8, ptr %12, align 1
+  %51 = zext i8 %50 to i32
+  %52 = call ptr @val_to_str(i32 noundef %51, ptr noundef @message_types_val, ptr noundef @.str.114)
+  store ptr %52, ptr %16, align 8
+  %53 = load ptr, ptr %7, align 8
+  %54 = getelementptr inbounds nuw %struct._packet_info, ptr %53, i32 0, i32 1
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %16, align 8
+  call void @col_add_str(ptr noundef %55, i32 noundef 25, ptr noundef %56)
+  %57 = load ptr, ptr %8, align 8
+  %58 = icmp ne ptr %57, null
+  br i1 %58, label %59, label %78
 
-58:                                               ; preds = %48
-  %59 = load ptr, ptr %8, align 8
-  %60 = load i32, ptr @proto_nasdaq_itch, align 4
-  %61 = load ptr, ptr %6, align 8
-  %62 = load i32, ptr %13, align 4
-  %63 = load i32, ptr %14, align 4
-  %64 = icmp eq i32 %63, 2
-  %65 = select i1 %64, ptr @.str.111, ptr @.str.112
-  %66 = load ptr, ptr %16, align 8
-  %67 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %59, i32 noundef %60, ptr noundef %61, i32 noundef %62, i32 noundef -1, ptr noundef @.str.110, ptr noundef %65, ptr noundef %66)
-  store ptr %67, ptr %10, align 8
-  %68 = load ptr, ptr %10, align 8
-  %69 = load i32, ptr @ett_nasdaq_itch, align 4
-  %70 = call ptr @proto_item_add_subtree(ptr noundef %68, i32 noundef %69)
-  store ptr %70, ptr %11, align 8
-  %71 = load ptr, ptr %11, align 8
-  %72 = load i32, ptr @hf_nasdaq_itch_version, align 4
-  %73 = load ptr, ptr %6, align 8
-  %74 = load i32, ptr %14, align 4
-  %75 = call ptr @proto_tree_add_uint(ptr noundef %71, i32 noundef %72, ptr noundef %73, i32 noundef 0, i32 noundef 0, i32 noundef %74)
-  store ptr %75, ptr %17, align 8
-  %76 = load ptr, ptr %17, align 8
-  call void @proto_item_set_generated(ptr noundef %76)
-  br label %77
+59:                                               ; preds = %49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
+  %60 = load ptr, ptr %8, align 8
+  %61 = load i32, ptr @proto_nasdaq_itch, align 4
+  %62 = load ptr, ptr %6, align 8
+  %63 = load i32, ptr %13, align 4
+  %64 = load i32, ptr %14, align 4
+  %65 = icmp eq i32 %64, 2
+  %66 = select i1 %65, ptr @.str.116, ptr @.str.117
+  %67 = load ptr, ptr %16, align 8
+  %68 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %60, i32 noundef %61, ptr noundef %62, i32 noundef %63, i32 noundef -1, ptr noundef @.str.115, ptr noundef %66, ptr noundef %67)
+  store ptr %68, ptr %10, align 8
+  %69 = load ptr, ptr %10, align 8
+  %70 = load i32, ptr @ett_nasdaq_itch, align 4
+  %71 = call ptr @proto_item_add_subtree(ptr noundef %69, i32 noundef %70)
+  store ptr %71, ptr %11, align 8
+  %72 = load ptr, ptr %11, align 8
+  %73 = load i32, ptr @hf_nasdaq_itch_version, align 4
+  %74 = load ptr, ptr %6, align 8
+  %75 = load i32, ptr %14, align 4
+  %76 = call ptr @proto_tree_add_uint(ptr noundef %72, i32 noundef %73, ptr noundef %74, i32 noundef 0, i32 noundef 0, i32 noundef %75)
+  store ptr %76, ptr %17, align 8
+  %77 = load ptr, ptr %17, align 8
+  call void @proto_item_set_generated(ptr noundef %77)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  br label %78
 
-77:                                               ; preds = %58, %48
-  %78 = load i32, ptr %14, align 4
-  %79 = icmp eq i32 %78, 2
-  br i1 %79, label %80, label %86
+78:                                               ; preds = %59, %49
+  %79 = load i32, ptr %14, align 4
+  %80 = icmp eq i32 %79, 2
+  br i1 %80, label %81, label %88
 
-80:                                               ; preds = %77
-  %81 = load ptr, ptr %6, align 8
-  %82 = load ptr, ptr %11, align 8
-  %83 = load i32, ptr @hf_nasdaq_itch_millisecond, align 4
-  %84 = load i32, ptr %13, align 4
-  %85 = call i32 @time_stamp(ptr noundef %81, ptr noundef %82, i32 noundef %83, i32 noundef %84, i32 noundef 8)
-  store i32 %85, ptr %13, align 4
-  br label %86
+81:                                               ; preds = %78
+  %82 = load ptr, ptr %6, align 8
+  %83 = load ptr, ptr %7, align 8
+  %84 = load ptr, ptr %11, align 8
+  %85 = load i32, ptr @hf_nasdaq_itch_millisecond, align 4
+  %86 = load i32, ptr %13, align 4
+  %87 = call i32 @time_stamp(ptr noundef %82, ptr noundef %83, ptr noundef %84, i32 noundef %85, i32 noundef %86, i32 noundef 8)
+  store i32 %87, ptr %13, align 4
+  br label %88
 
-86:                                               ; preds = %80, %77
-  %87 = load ptr, ptr %11, align 8
-  %88 = load i32, ptr @hf_nasdaq_itch_message_type, align 4
-  %89 = load ptr, ptr %6, align 8
-  %90 = load i32, ptr %13, align 4
-  %91 = call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %88, ptr noundef %89, i32 noundef %90, i32 noundef 1, i32 noundef 0)
+88:                                               ; preds = %81, %78
+  %89 = load ptr, ptr %11, align 8
+  %90 = load i32, ptr @hf_nasdaq_itch_message_type, align 4
+  %91 = load ptr, ptr %6, align 8
   %92 = load i32, ptr %13, align 4
-  %93 = add i32 %92, 1
-  store i32 %93, ptr %13, align 4
-  %94 = load i32, ptr %14, align 4
-  %95 = icmp eq i32 %94, 3
-  br i1 %95, label %96, label %116
+  %93 = call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %90, ptr noundef %91, i32 noundef %92, i32 noundef 1, i32 noundef 0)
+  %94 = load i32, ptr %13, align 4
+  %95 = add i32 %94, 1
+  store i32 %95, ptr %13, align 4
+  %96 = load i32, ptr %14, align 4
+  %97 = icmp eq i32 %96, 3
+  br i1 %97, label %98, label %120
 
-96:                                               ; preds = %86
-  %97 = load i8, ptr %12, align 1
-  %98 = zext i8 %97 to i32
-  switch i32 %98, label %115 [
-    i32 84, label %99
-    i32 77, label %107
+98:                                               ; preds = %88
+  %99 = load i8, ptr %12, align 1
+  %100 = zext i8 %99 to i32
+  switch i32 %100, label %119 [
+    i32 84, label %101
+    i32 77, label %110
   ]
 
-99:                                               ; preds = %96
-  %100 = load ptr, ptr %6, align 8
-  %101 = load ptr, ptr %11, align 8
-  %102 = load i32, ptr @hf_nasdaq_itch_second, align 4
-  %103 = load i32, ptr %13, align 4
-  %104 = call i32 @time_stamp(ptr noundef %100, ptr noundef %101, i32 noundef %102, i32 noundef %103, i32 noundef 5)
-  %105 = load ptr, ptr %6, align 8
-  %106 = call i32 @tvb_captured_length(ptr noundef %105)
-  store i32 %106, ptr %5, align 4
-  br label %331
-
-107:                                              ; preds = %96
+101:                                              ; preds = %98
+  %102 = load ptr, ptr %6, align 8
+  %103 = load ptr, ptr %7, align 8
+  %104 = load ptr, ptr %11, align 8
+  %105 = load i32, ptr @hf_nasdaq_itch_second, align 4
+  %106 = load i32, ptr %13, align 4
+  %107 = call i32 @time_stamp(ptr noundef %102, ptr noundef %103, ptr noundef %104, i32 noundef %105, i32 noundef %106, i32 noundef 5)
   %108 = load ptr, ptr %6, align 8
-  %109 = load ptr, ptr %11, align 8
-  %110 = load i32, ptr @hf_nasdaq_itch_millisecond, align 4
-  %111 = load i32, ptr %13, align 4
-  %112 = call i32 @time_stamp(ptr noundef %108, ptr noundef %109, i32 noundef %110, i32 noundef %111, i32 noundef 3)
-  %113 = load ptr, ptr %6, align 8
-  %114 = call i32 @tvb_captured_length(ptr noundef %113)
-  store i32 %114, ptr %5, align 4
-  br label %331
+  %109 = call i32 @tvb_captured_length(ptr noundef %108)
+  store i32 %109, ptr %5, align 4
+  store i32 1, ptr %18, align 4
+  br label %335
 
-115:                                              ; preds = %96
-  br label %116
+110:                                              ; preds = %98
+  %111 = load ptr, ptr %6, align 8
+  %112 = load ptr, ptr %7, align 8
+  %113 = load ptr, ptr %11, align 8
+  %114 = load i32, ptr @hf_nasdaq_itch_millisecond, align 4
+  %115 = load i32, ptr %13, align 4
+  %116 = call i32 @time_stamp(ptr noundef %111, ptr noundef %112, ptr noundef %113, i32 noundef %114, i32 noundef %115, i32 noundef 3)
+  %117 = load ptr, ptr %6, align 8
+  %118 = call i32 @tvb_captured_length(ptr noundef %117)
+  store i32 %118, ptr %5, align 4
+  store i32 1, ptr %18, align 4
+  br label %335
 
-116:                                              ; preds = %115, %86
-  %117 = load i8, ptr %12, align 1
-  %118 = zext i8 %117 to i32
-  switch i32 %118, label %322 [
-    i32 83, label %119
-    i32 82, label %125
-    i32 72, label %157
-    i32 97, label %182
-    i32 65, label %183
-    i32 70, label %199
-    i32 101, label %211
-    i32 69, label %212
-    i32 67, label %219
-    i32 120, label %240
-    i32 88, label %241
-    i32 68, label %254
-    i32 112, label %260
-    i32 80, label %261
-    i32 81, label %273
-    i32 66, label %305
-    i32 73, label %311
+119:                                              ; preds = %98
+  br label %120
+
+120:                                              ; preds = %119, %88
+  %121 = load i8, ptr %12, align 1
+  %122 = zext i8 %121 to i32
+  switch i32 %122, label %326 [
+    i32 83, label %123
+    i32 82, label %129
+    i32 72, label %161
+    i32 97, label %186
+    i32 65, label %187
+    i32 70, label %203
+    i32 101, label %215
+    i32 69, label %216
+    i32 67, label %223
+    i32 120, label %244
+    i32 88, label %245
+    i32 68, label %258
+    i32 112, label %264
+    i32 80, label %265
+    i32 81, label %277
+    i32 66, label %309
+    i32 73, label %315
   ]
 
-119:                                              ; preds = %116
-  %120 = load ptr, ptr %11, align 8
-  %121 = load i32, ptr @hf_nasdaq_itch_system_event, align 4
-  %122 = load ptr, ptr %6, align 8
-  %123 = load i32, ptr %13, align 4
-  %124 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %121, ptr noundef %122, i32 noundef %123, i32 noundef 1, i32 noundef 0)
-  br label %328
-
-125:                                              ; preds = %116
+123:                                              ; preds = %120
+  %124 = load ptr, ptr %11, align 8
+  %125 = load i32, ptr @hf_nasdaq_itch_system_event, align 4
   %126 = load ptr, ptr %6, align 8
-  %127 = load ptr, ptr %7, align 8
-  %128 = load ptr, ptr %11, align 8
-  %129 = load i32, ptr %13, align 4
-  %130 = call i32 @stock(ptr noundef %126, ptr noundef %127, ptr noundef %128, i32 noundef %129)
-  store i32 %130, ptr %13, align 4
-  %131 = load ptr, ptr %11, align 8
-  %132 = load i32, ptr @hf_nasdaq_itch_market_category, align 4
-  %133 = load ptr, ptr %6, align 8
-  %134 = load i32, ptr %13, align 4
-  %135 = call ptr @proto_tree_add_item(ptr noundef %131, i32 noundef %132, ptr noundef %133, i32 noundef %134, i32 noundef 1, i32 noundef 0)
-  %136 = load i32, ptr %13, align 4
-  %137 = add i32 %136, 1
-  store i32 %137, ptr %13, align 4
-  %138 = load ptr, ptr %11, align 8
-  %139 = load i32, ptr @hf_nasdaq_itch_financial_status, align 4
-  %140 = load ptr, ptr %6, align 8
-  %141 = load i32, ptr %13, align 4
-  %142 = call ptr @proto_tree_add_item(ptr noundef %138, i32 noundef %139, ptr noundef %140, i32 noundef %141, i32 noundef 1, i32 noundef 0)
-  %143 = load i32, ptr %13, align 4
-  %144 = add i32 %143, 1
-  store i32 %144, ptr %13, align 4
-  %145 = load ptr, ptr %11, align 8
-  %146 = load i32, ptr @hf_nasdaq_itch_round_lot_size, align 4
-  %147 = load ptr, ptr %6, align 8
-  %148 = load i32, ptr %13, align 4
-  %149 = call ptr @proto_tree_add_item(ptr noundef %145, i32 noundef %146, ptr noundef %147, i32 noundef %148, i32 noundef 6, i32 noundef 0)
-  %150 = load i32, ptr %13, align 4
-  %151 = add i32 %150, 6
-  store i32 %151, ptr %13, align 4
-  %152 = load ptr, ptr %11, align 8
-  %153 = load i32, ptr @hf_nasdaq_itch_round_lots_only, align 4
-  %154 = load ptr, ptr %6, align 8
-  %155 = load i32, ptr %13, align 4
-  %156 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %153, ptr noundef %154, i32 noundef %155, i32 noundef 1, i32 noundef 0)
-  br label %328
+  %127 = load i32, ptr %13, align 4
+  %128 = call ptr @proto_tree_add_item(ptr noundef %124, i32 noundef %125, ptr noundef %126, i32 noundef %127, i32 noundef 1, i32 noundef 0)
+  br label %332
 
-157:                                              ; preds = %116
+129:                                              ; preds = %120
+  %130 = load ptr, ptr %6, align 8
+  %131 = load ptr, ptr %7, align 8
+  %132 = load ptr, ptr %11, align 8
+  %133 = load i32, ptr %13, align 4
+  %134 = call i32 @stock(ptr noundef %130, ptr noundef %131, ptr noundef %132, i32 noundef %133)
+  store i32 %134, ptr %13, align 4
+  %135 = load ptr, ptr %11, align 8
+  %136 = load i32, ptr @hf_nasdaq_itch_market_category, align 4
+  %137 = load ptr, ptr %6, align 8
+  %138 = load i32, ptr %13, align 4
+  %139 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %136, ptr noundef %137, i32 noundef %138, i32 noundef 1, i32 noundef 0)
+  %140 = load i32, ptr %13, align 4
+  %141 = add i32 %140, 1
+  store i32 %141, ptr %13, align 4
+  %142 = load ptr, ptr %11, align 8
+  %143 = load i32, ptr @hf_nasdaq_itch_financial_status, align 4
+  %144 = load ptr, ptr %6, align 8
+  %145 = load i32, ptr %13, align 4
+  %146 = call ptr @proto_tree_add_item(ptr noundef %142, i32 noundef %143, ptr noundef %144, i32 noundef %145, i32 noundef 1, i32 noundef 0)
+  %147 = load i32, ptr %13, align 4
+  %148 = add i32 %147, 1
+  store i32 %148, ptr %13, align 4
+  %149 = load ptr, ptr %11, align 8
+  %150 = load i32, ptr @hf_nasdaq_itch_round_lot_size, align 4
+  %151 = load ptr, ptr %6, align 8
+  %152 = load i32, ptr %13, align 4
+  %153 = call ptr @proto_tree_add_item(ptr noundef %149, i32 noundef %150, ptr noundef %151, i32 noundef %152, i32 noundef 6, i32 noundef 0)
+  %154 = load i32, ptr %13, align 4
+  %155 = add i32 %154, 6
+  store i32 %155, ptr %13, align 4
+  %156 = load ptr, ptr %11, align 8
+  %157 = load i32, ptr @hf_nasdaq_itch_round_lots_only, align 4
   %158 = load ptr, ptr %6, align 8
-  %159 = load ptr, ptr %7, align 8
-  %160 = load ptr, ptr %11, align 8
-  %161 = load i32, ptr %13, align 4
-  %162 = call i32 @stock(ptr noundef %158, ptr noundef %159, ptr noundef %160, i32 noundef %161)
-  store i32 %162, ptr %13, align 4
-  %163 = load ptr, ptr %11, align 8
-  %164 = load i32, ptr @hf_nasdaq_itch_trading_state, align 4
-  %165 = load ptr, ptr %6, align 8
-  %166 = load i32, ptr %13, align 4
-  %167 = call ptr @proto_tree_add_item(ptr noundef %163, i32 noundef %164, ptr noundef %165, i32 noundef %166, i32 noundef 1, i32 noundef 0)
-  %168 = load i32, ptr %13, align 4
-  %169 = add i32 %168, 1
-  store i32 %169, ptr %13, align 4
-  %170 = load ptr, ptr %11, align 8
-  %171 = load i32, ptr @hf_nasdaq_itch_reserved, align 4
-  %172 = load ptr, ptr %6, align 8
-  %173 = load i32, ptr %13, align 4
-  %174 = call ptr @proto_tree_add_item(ptr noundef %170, i32 noundef %171, ptr noundef %172, i32 noundef %173, i32 noundef 1, i32 noundef 0)
-  %175 = load i32, ptr %13, align 4
-  %176 = add i32 %175, 1
-  store i32 %176, ptr %13, align 4
-  %177 = load ptr, ptr %11, align 8
-  %178 = load i32, ptr @hf_nasdaq_itch_reason, align 4
-  %179 = load ptr, ptr %6, align 8
-  %180 = load i32, ptr %13, align 4
-  %181 = call ptr @proto_tree_add_item(ptr noundef %177, i32 noundef %178, ptr noundef %179, i32 noundef %180, i32 noundef 4, i32 noundef 0)
-  br label %328
+  %159 = load i32, ptr %13, align 4
+  %160 = call ptr @proto_tree_add_item(ptr noundef %156, i32 noundef %157, ptr noundef %158, i32 noundef %159, i32 noundef 1, i32 noundef 0)
+  br label %332
 
-182:                                              ; preds = %116
+161:                                              ; preds = %120
+  %162 = load ptr, ptr %6, align 8
+  %163 = load ptr, ptr %7, align 8
+  %164 = load ptr, ptr %11, align 8
+  %165 = load i32, ptr %13, align 4
+  %166 = call i32 @stock(ptr noundef %162, ptr noundef %163, ptr noundef %164, i32 noundef %165)
+  store i32 %166, ptr %13, align 4
+  %167 = load ptr, ptr %11, align 8
+  %168 = load i32, ptr @hf_nasdaq_itch_trading_state, align 4
+  %169 = load ptr, ptr %6, align 8
+  %170 = load i32, ptr %13, align 4
+  %171 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %168, ptr noundef %169, i32 noundef %170, i32 noundef 1, i32 noundef 0)
+  %172 = load i32, ptr %13, align 4
+  %173 = add i32 %172, 1
+  store i32 %173, ptr %13, align 4
+  %174 = load ptr, ptr %11, align 8
+  %175 = load i32, ptr @hf_nasdaq_itch_reserved, align 4
+  %176 = load ptr, ptr %6, align 8
+  %177 = load i32, ptr %13, align 4
+  %178 = call ptr @proto_tree_add_item(ptr noundef %174, i32 noundef %175, ptr noundef %176, i32 noundef %177, i32 noundef 1, i32 noundef 0)
+  %179 = load i32, ptr %13, align 4
+  %180 = add i32 %179, 1
+  store i32 %180, ptr %13, align 4
+  %181 = load ptr, ptr %11, align 8
+  %182 = load i32, ptr @hf_nasdaq_itch_reason, align 4
+  %183 = load ptr, ptr %6, align 8
+  %184 = load i32, ptr %13, align 4
+  %185 = call ptr @proto_tree_add_item(ptr noundef %181, i32 noundef %182, ptr noundef %183, i32 noundef %184, i32 noundef 4, i32 noundef 0)
+  br label %332
+
+186:                                              ; preds = %120
   store i32 1, ptr %15, align 4
-  br label %183
+  br label %187
 
-183:                                              ; preds = %182, %116
-  %184 = load ptr, ptr %6, align 8
-  %185 = load ptr, ptr %7, align 8
-  %186 = load ptr, ptr %11, align 8
-  %187 = load i32, ptr %13, align 4
-  %188 = load i32, ptr %15, align 4
-  %189 = call i32 @order(ptr noundef %184, ptr noundef %185, ptr noundef %186, i32 noundef %187, i32 noundef %188)
-  store i32 %189, ptr %13, align 4
-  %190 = load i32, ptr %14, align 4
-  %191 = icmp eq i32 %190, 2
-  br i1 %191, label %192, label %198
+187:                                              ; preds = %120, %186
+  %188 = load ptr, ptr %6, align 8
+  %189 = load ptr, ptr %7, align 8
+  %190 = load ptr, ptr %11, align 8
+  %191 = load i32, ptr %13, align 4
+  %192 = load i32, ptr %15, align 4
+  %193 = call i32 @order(ptr noundef %188, ptr noundef %189, ptr noundef %190, i32 noundef %191, i32 noundef %192)
+  store i32 %193, ptr %13, align 4
+  %194 = load i32, ptr %14, align 4
+  %195 = icmp eq i32 %194, 2
+  br i1 %195, label %196, label %202
 
-192:                                              ; preds = %183
-  %193 = load ptr, ptr %11, align 8
-  %194 = load i32, ptr @hf_nasdaq_itch_printable, align 4
-  %195 = load ptr, ptr %6, align 8
-  %196 = load i32, ptr %13, align 4
-  %197 = call ptr @proto_tree_add_item(ptr noundef %193, i32 noundef %194, ptr noundef %195, i32 noundef %196, i32 noundef 1, i32 noundef 0)
-  br label %198
+196:                                              ; preds = %187
+  %197 = load ptr, ptr %11, align 8
+  %198 = load i32, ptr @hf_nasdaq_itch_printable, align 4
+  %199 = load ptr, ptr %6, align 8
+  %200 = load i32, ptr %13, align 4
+  %201 = call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %198, ptr noundef %199, i32 noundef %200, i32 noundef 1, i32 noundef 0)
+  br label %202
 
-198:                                              ; preds = %192, %183
-  br label %328
+202:                                              ; preds = %196, %187
+  br label %332
 
-199:                                              ; preds = %116
-  %200 = load ptr, ptr %6, align 8
-  %201 = load ptr, ptr %7, align 8
-  %202 = load ptr, ptr %11, align 8
-  %203 = load i32, ptr %13, align 4
-  %204 = load i32, ptr %15, align 4
-  %205 = call i32 @order(ptr noundef %200, ptr noundef %201, ptr noundef %202, i32 noundef %203, i32 noundef %204)
-  store i32 %205, ptr %13, align 4
+203:                                              ; preds = %120
+  %204 = load ptr, ptr %6, align 8
+  %205 = load ptr, ptr %7, align 8
   %206 = load ptr, ptr %11, align 8
-  %207 = load i32, ptr @hf_nasdaq_itch_attribution, align 4
-  %208 = load ptr, ptr %6, align 8
-  %209 = load i32, ptr %13, align 4
-  %210 = call ptr @proto_tree_add_item(ptr noundef %206, i32 noundef %207, ptr noundef %208, i32 noundef %209, i32 noundef 4, i32 noundef 0)
-  br label %328
+  %207 = load i32, ptr %13, align 4
+  %208 = load i32, ptr %15, align 4
+  %209 = call i32 @order(ptr noundef %204, ptr noundef %205, ptr noundef %206, i32 noundef %207, i32 noundef %208)
+  store i32 %209, ptr %13, align 4
+  %210 = load ptr, ptr %11, align 8
+  %211 = load i32, ptr @hf_nasdaq_itch_attribution, align 4
+  %212 = load ptr, ptr %6, align 8
+  %213 = load i32, ptr %13, align 4
+  %214 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %211, ptr noundef %212, i32 noundef %213, i32 noundef 4, i32 noundef 0)
+  br label %332
 
-211:                                              ; preds = %116
+215:                                              ; preds = %120
   store i32 1, ptr %15, align 4
-  br label %212
+  br label %216
 
-212:                                              ; preds = %211, %116
-  %213 = load ptr, ptr %6, align 8
-  %214 = load ptr, ptr %7, align 8
-  %215 = load ptr, ptr %11, align 8
-  %216 = load i32, ptr %13, align 4
-  %217 = load i32, ptr %15, align 4
-  %218 = call i32 @executed(ptr noundef %213, ptr noundef %214, ptr noundef %215, i32 noundef %216, i32 noundef %217)
-  br label %328
+216:                                              ; preds = %120, %215
+  %217 = load ptr, ptr %6, align 8
+  %218 = load ptr, ptr %7, align 8
+  %219 = load ptr, ptr %11, align 8
+  %220 = load i32, ptr %13, align 4
+  %221 = load i32, ptr %15, align 4
+  %222 = call i32 @executed(ptr noundef %217, ptr noundef %218, ptr noundef %219, i32 noundef %220, i32 noundef %221)
+  br label %332
 
-219:                                              ; preds = %116
-  %220 = load ptr, ptr %6, align 8
-  %221 = load ptr, ptr %7, align 8
-  %222 = load ptr, ptr %11, align 8
-  %223 = load i32, ptr %13, align 4
-  %224 = load i32, ptr %15, align 4
-  %225 = call i32 @executed(ptr noundef %220, ptr noundef %221, ptr noundef %222, i32 noundef %223, i32 noundef %224)
-  store i32 %225, ptr %13, align 4
+223:                                              ; preds = %120
+  %224 = load ptr, ptr %6, align 8
+  %225 = load ptr, ptr %7, align 8
   %226 = load ptr, ptr %11, align 8
-  %227 = load i32, ptr @hf_nasdaq_itch_printable, align 4
-  %228 = load ptr, ptr %6, align 8
-  %229 = load i32, ptr %13, align 4
-  %230 = call ptr @proto_tree_add_item(ptr noundef %226, i32 noundef %227, ptr noundef %228, i32 noundef %229, i32 noundef 1, i32 noundef 0)
-  %231 = load i32, ptr %13, align 4
-  %232 = add i32 %231, 1
-  store i32 %232, ptr %13, align 4
-  %233 = load ptr, ptr %6, align 8
-  %234 = load ptr, ptr %7, align 8
-  %235 = load ptr, ptr %11, align 8
-  %236 = load i32, ptr @hf_nasdaq_itch_execution_price, align 4
-  %237 = load i32, ptr %13, align 4
-  %238 = load i32, ptr %15, align 4
-  %239 = call i32 @price(ptr noundef %233, ptr noundef %234, ptr noundef %235, i32 noundef %236, i32 noundef %237, i32 noundef %238)
-  br label %328
+  %227 = load i32, ptr %13, align 4
+  %228 = load i32, ptr %15, align 4
+  %229 = call i32 @executed(ptr noundef %224, ptr noundef %225, ptr noundef %226, i32 noundef %227, i32 noundef %228)
+  store i32 %229, ptr %13, align 4
+  %230 = load ptr, ptr %11, align 8
+  %231 = load i32, ptr @hf_nasdaq_itch_printable, align 4
+  %232 = load ptr, ptr %6, align 8
+  %233 = load i32, ptr %13, align 4
+  %234 = call ptr @proto_tree_add_item(ptr noundef %230, i32 noundef %231, ptr noundef %232, i32 noundef %233, i32 noundef 1, i32 noundef 0)
+  %235 = load i32, ptr %13, align 4
+  %236 = add i32 %235, 1
+  store i32 %236, ptr %13, align 4
+  %237 = load ptr, ptr %6, align 8
+  %238 = load ptr, ptr %7, align 8
+  %239 = load ptr, ptr %11, align 8
+  %240 = load i32, ptr @hf_nasdaq_itch_execution_price, align 4
+  %241 = load i32, ptr %13, align 4
+  %242 = load i32, ptr %15, align 4
+  %243 = call i32 @price(ptr noundef %237, ptr noundef %238, ptr noundef %239, i32 noundef %240, i32 noundef %241, i32 noundef %242)
+  br label %332
 
-240:                                              ; preds = %116
+244:                                              ; preds = %120
   store i32 1, ptr %15, align 4
-  br label %241
+  br label %245
 
-241:                                              ; preds = %240, %116
-  %242 = load ptr, ptr %6, align 8
-  %243 = load ptr, ptr %7, align 8
-  %244 = load ptr, ptr %11, align 8
-  %245 = load i32, ptr %13, align 4
-  %246 = call i32 @order_ref_number(ptr noundef %242, ptr noundef %243, ptr noundef %244, i32 noundef %245)
-  store i32 %246, ptr %13, align 4
-  %247 = load ptr, ptr %6, align 8
-  %248 = load ptr, ptr %7, align 8
-  %249 = load ptr, ptr %11, align 8
-  %250 = load i32, ptr @hf_nasdaq_itch_canceled, align 4
-  %251 = load i32, ptr %13, align 4
-  %252 = load i32, ptr %15, align 4
-  %253 = call i32 @number_of_shares(ptr noundef %247, ptr noundef %248, ptr noundef %249, i32 noundef %250, i32 noundef %251, i32 noundef %252)
-  br label %328
+245:                                              ; preds = %120, %244
+  %246 = load ptr, ptr %6, align 8
+  %247 = load ptr, ptr %7, align 8
+  %248 = load ptr, ptr %11, align 8
+  %249 = load i32, ptr %13, align 4
+  %250 = call i32 @order_ref_number(ptr noundef %246, ptr noundef %247, ptr noundef %248, i32 noundef %249)
+  store i32 %250, ptr %13, align 4
+  %251 = load ptr, ptr %6, align 8
+  %252 = load ptr, ptr %7, align 8
+  %253 = load ptr, ptr %11, align 8
+  %254 = load i32, ptr @hf_nasdaq_itch_canceled, align 4
+  %255 = load i32, ptr %13, align 4
+  %256 = load i32, ptr %15, align 4
+  %257 = call i32 @number_of_shares(ptr noundef %251, ptr noundef %252, ptr noundef %253, i32 noundef %254, i32 noundef %255, i32 noundef %256)
+  br label %332
 
-254:                                              ; preds = %116
-  %255 = load ptr, ptr %6, align 8
-  %256 = load ptr, ptr %7, align 8
-  %257 = load ptr, ptr %11, align 8
-  %258 = load i32, ptr %13, align 4
-  %259 = call i32 @order_ref_number(ptr noundef %255, ptr noundef %256, ptr noundef %257, i32 noundef %258)
-  br label %328
+258:                                              ; preds = %120
+  %259 = load ptr, ptr %6, align 8
+  %260 = load ptr, ptr %7, align 8
+  %261 = load ptr, ptr %11, align 8
+  %262 = load i32, ptr %13, align 4
+  %263 = call i32 @order_ref_number(ptr noundef %259, ptr noundef %260, ptr noundef %261, i32 noundef %262)
+  br label %332
 
-260:                                              ; preds = %116
+264:                                              ; preds = %120
   store i32 1, ptr %15, align 4
-  br label %261
+  br label %265
 
-261:                                              ; preds = %260, %116
-  %262 = load ptr, ptr %6, align 8
-  %263 = load ptr, ptr %7, align 8
-  %264 = load ptr, ptr %11, align 8
-  %265 = load i32, ptr %13, align 4
-  %266 = load i32, ptr %15, align 4
-  %267 = call i32 @order(ptr noundef %262, ptr noundef %263, ptr noundef %264, i32 noundef %265, i32 noundef %266)
-  store i32 %267, ptr %13, align 4
+265:                                              ; preds = %120, %264
+  %266 = load ptr, ptr %6, align 8
+  %267 = load ptr, ptr %7, align 8
   %268 = load ptr, ptr %11, align 8
-  %269 = load i32, ptr @hf_nasdaq_itch_match, align 4
-  %270 = load ptr, ptr %6, align 8
-  %271 = load i32, ptr %13, align 4
-  %272 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %269, ptr noundef %270, i32 noundef %271, i32 noundef 9, i32 noundef 0)
-  br label %328
-
-273:                                              ; preds = %116
+  %269 = load i32, ptr %13, align 4
+  %270 = load i32, ptr %15, align 4
+  %271 = call i32 @order(ptr noundef %266, ptr noundef %267, ptr noundef %268, i32 noundef %269, i32 noundef %270)
+  store i32 %271, ptr %13, align 4
+  %272 = load ptr, ptr %11, align 8
+  %273 = load i32, ptr @hf_nasdaq_itch_match, align 4
   %274 = load ptr, ptr %6, align 8
-  %275 = load ptr, ptr %7, align 8
-  %276 = load ptr, ptr %11, align 8
-  %277 = load i32, ptr @hf_nasdaq_itch_shares, align 4
-  %278 = load i32, ptr %13, align 4
-  %279 = load i32, ptr %15, align 4
-  %280 = call i32 @number_of_shares(ptr noundef %274, ptr noundef %275, ptr noundef %276, i32 noundef %277, i32 noundef %278, i32 noundef %279)
-  store i32 %280, ptr %13, align 4
-  %281 = load ptr, ptr %6, align 8
-  %282 = load ptr, ptr %7, align 8
-  %283 = load ptr, ptr %11, align 8
-  %284 = load i32, ptr %13, align 4
-  %285 = call i32 @stock(ptr noundef %281, ptr noundef %282, ptr noundef %283, i32 noundef %284)
-  store i32 %285, ptr %13, align 4
-  %286 = load ptr, ptr %6, align 8
-  %287 = load ptr, ptr %7, align 8
-  %288 = load ptr, ptr %11, align 8
-  %289 = load i32, ptr @hf_nasdaq_itch_price, align 4
-  %290 = load i32, ptr %13, align 4
-  %291 = load i32, ptr %15, align 4
-  %292 = call i32 @price(ptr noundef %286, ptr noundef %287, ptr noundef %288, i32 noundef %289, i32 noundef %290, i32 noundef %291)
-  store i32 %292, ptr %13, align 4
-  %293 = load ptr, ptr %11, align 8
-  %294 = load i32, ptr @hf_nasdaq_itch_match, align 4
-  %295 = load ptr, ptr %6, align 8
-  %296 = load i32, ptr %13, align 4
-  %297 = call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %294, ptr noundef %295, i32 noundef %296, i32 noundef 9, i32 noundef 0)
-  %298 = load i32, ptr %13, align 4
-  %299 = add i32 %298, 9
-  store i32 %299, ptr %13, align 4
-  %300 = load ptr, ptr %11, align 8
-  %301 = load i32, ptr @hf_nasdaq_itch_cross, align 4
-  %302 = load ptr, ptr %6, align 8
-  %303 = load i32, ptr %13, align 4
-  %304 = call ptr @proto_tree_add_item(ptr noundef %300, i32 noundef %301, ptr noundef %302, i32 noundef %303, i32 noundef 1, i32 noundef 0)
-  br label %328
+  %275 = load i32, ptr %13, align 4
+  %276 = call ptr @proto_tree_add_item(ptr noundef %272, i32 noundef %273, ptr noundef %274, i32 noundef %275, i32 noundef 9, i32 noundef 0)
+  br label %332
 
-305:                                              ; preds = %116
-  %306 = load ptr, ptr %11, align 8
-  %307 = load i32, ptr @hf_nasdaq_itch_match, align 4
-  %308 = load ptr, ptr %6, align 8
-  %309 = load i32, ptr %13, align 4
-  %310 = call ptr @proto_tree_add_item(ptr noundef %306, i32 noundef %307, ptr noundef %308, i32 noundef %309, i32 noundef 9, i32 noundef 0)
-  br label %328
+277:                                              ; preds = %120
+  %278 = load ptr, ptr %6, align 8
+  %279 = load ptr, ptr %7, align 8
+  %280 = load ptr, ptr %11, align 8
+  %281 = load i32, ptr @hf_nasdaq_itch_shares, align 4
+  %282 = load i32, ptr %13, align 4
+  %283 = load i32, ptr %15, align 4
+  %284 = call i32 @number_of_shares(ptr noundef %278, ptr noundef %279, ptr noundef %280, i32 noundef %281, i32 noundef %282, i32 noundef %283)
+  store i32 %284, ptr %13, align 4
+  %285 = load ptr, ptr %6, align 8
+  %286 = load ptr, ptr %7, align 8
+  %287 = load ptr, ptr %11, align 8
+  %288 = load i32, ptr %13, align 4
+  %289 = call i32 @stock(ptr noundef %285, ptr noundef %286, ptr noundef %287, i32 noundef %288)
+  store i32 %289, ptr %13, align 4
+  %290 = load ptr, ptr %6, align 8
+  %291 = load ptr, ptr %7, align 8
+  %292 = load ptr, ptr %11, align 8
+  %293 = load i32, ptr @hf_nasdaq_itch_price, align 4
+  %294 = load i32, ptr %13, align 4
+  %295 = load i32, ptr %15, align 4
+  %296 = call i32 @price(ptr noundef %290, ptr noundef %291, ptr noundef %292, i32 noundef %293, i32 noundef %294, i32 noundef %295)
+  store i32 %296, ptr %13, align 4
+  %297 = load ptr, ptr %11, align 8
+  %298 = load i32, ptr @hf_nasdaq_itch_match, align 4
+  %299 = load ptr, ptr %6, align 8
+  %300 = load i32, ptr %13, align 4
+  %301 = call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %298, ptr noundef %299, i32 noundef %300, i32 noundef 9, i32 noundef 0)
+  %302 = load i32, ptr %13, align 4
+  %303 = add i32 %302, 9
+  store i32 %303, ptr %13, align 4
+  %304 = load ptr, ptr %11, align 8
+  %305 = load i32, ptr @hf_nasdaq_itch_cross, align 4
+  %306 = load ptr, ptr %6, align 8
+  %307 = load i32, ptr %13, align 4
+  %308 = call ptr @proto_tree_add_item(ptr noundef %304, i32 noundef %305, ptr noundef %306, i32 noundef %307, i32 noundef 1, i32 noundef 0)
+  br label %332
 
-311:                                              ; preds = %116
+309:                                              ; preds = %120
+  %310 = load ptr, ptr %11, align 8
+  %311 = load i32, ptr @hf_nasdaq_itch_match, align 4
   %312 = load ptr, ptr %6, align 8
-  %313 = load ptr, ptr %7, align 8
-  %314 = load ptr, ptr %11, align 8
-  %315 = load i32, ptr %13, align 4
-  %316 = call i32 @stock(ptr noundef %312, ptr noundef %313, ptr noundef %314, i32 noundef %315)
-  store i32 %316, ptr %13, align 4
-  %317 = load ptr, ptr %11, align 8
-  %318 = load i32, ptr @hf_nasdaq_itch_cross, align 4
-  %319 = load ptr, ptr %6, align 8
-  %320 = load i32, ptr %13, align 4
-  %321 = call ptr @proto_tree_add_item(ptr noundef %317, i32 noundef %318, ptr noundef %319, i32 noundef %320, i32 noundef 1, i32 noundef 0)
-  br label %328
+  %313 = load i32, ptr %13, align 4
+  %314 = call ptr @proto_tree_add_item(ptr noundef %310, i32 noundef %311, ptr noundef %312, i32 noundef %313, i32 noundef 9, i32 noundef 0)
+  br label %332
 
-322:                                              ; preds = %116
-  %323 = load ptr, ptr %11, align 8
-  %324 = load i32, ptr @hf_nasdaq_itch_message, align 4
-  %325 = load ptr, ptr %6, align 8
-  %326 = load i32, ptr %13, align 4
-  %327 = call ptr @proto_tree_add_item(ptr noundef %323, i32 noundef %324, ptr noundef %325, i32 noundef %326, i32 noundef -1, i32 noundef 0)
-  br label %328
+315:                                              ; preds = %120
+  %316 = load ptr, ptr %6, align 8
+  %317 = load ptr, ptr %7, align 8
+  %318 = load ptr, ptr %11, align 8
+  %319 = load i32, ptr %13, align 4
+  %320 = call i32 @stock(ptr noundef %316, ptr noundef %317, ptr noundef %318, i32 noundef %319)
+  store i32 %320, ptr %13, align 4
+  %321 = load ptr, ptr %11, align 8
+  %322 = load i32, ptr @hf_nasdaq_itch_cross, align 4
+  %323 = load ptr, ptr %6, align 8
+  %324 = load i32, ptr %13, align 4
+  %325 = call ptr @proto_tree_add_item(ptr noundef %321, i32 noundef %322, ptr noundef %323, i32 noundef %324, i32 noundef 1, i32 noundef 0)
+  br label %332
 
-328:                                              ; preds = %322, %311, %305, %273, %261, %254, %241, %219, %212, %199, %198, %157, %125, %119
+326:                                              ; preds = %120
+  %327 = load ptr, ptr %11, align 8
+  %328 = load i32, ptr @hf_nasdaq_itch_message, align 4
   %329 = load ptr, ptr %6, align 8
-  %330 = call i32 @tvb_captured_length(ptr noundef %329)
-  store i32 %330, ptr %5, align 4
-  br label %331
+  %330 = load i32, ptr %13, align 4
+  %331 = call ptr @proto_tree_add_item(ptr noundef %327, i32 noundef %328, ptr noundef %329, i32 noundef %330, i32 noundef -1, i32 noundef 0)
+  br label %332
 
-331:                                              ; preds = %328, %107, %99
-  %332 = load i32, ptr %5, align 4
-  ret i32 %332
+332:                                              ; preds = %326, %315, %309, %277, %265, %258, %245, %223, %216, %203, %202, %161, %129, %123
+  %333 = load ptr, ptr %6, align 8
+  %334 = call i32 @tvb_captured_length(ptr noundef %333)
+  store i32 %334, ptr %5, align 4
+  store i32 1, ptr %18, align 4
+  br label %335
+
+335:                                              ; preds = %332, %110, %101
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  %336 = load i32, ptr %5, align 4
+  ret i32 %336
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_nasdaq_itch() #0 {
   %1 = load ptr, ptr @nasdaq_itch_handle, align 8
   call void @dissector_add_for_decode_as(ptr noundef @.str.65, ptr noundef %1)
@@ -687,27 +723,35 @@ define hidden void @proto_reg_handoff_nasdaq_itch() #0 {
   ret void
 }
 
-declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strchr(ptr noundef, i32 noundef) #2
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare ptr @strchr(ptr noundef, i32 noundef) #3
 
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #2
 
-declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @proto_item_set_generated(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @proto_item_set_generated(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -719,22 +763,22 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._proto_node, ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct._proto_node, ptr %7, i32 0, i32 5
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct._proto_node, ptr %12, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct._proto_node, ptr %12, i32 0, i32 5
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.field_info, ptr %14, i32 0, i32 6
+  %15 = getelementptr inbounds nuw %struct.field_info, ptr %14, i32 0, i32 6
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 2
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct._proto_node, ptr %18, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct._proto_node, ptr %18, i32 0, i32 5
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.field_info, ptr %20, i32 0, i32 6
+  %21 = getelementptr inbounds nuw %struct.field_info, ptr %20, i32 0, i32 6
   store i32 %17, ptr %21, align 4
   br label %22
 
@@ -748,99 +792,117 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @time_stamp(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = alloca ptr, align 8
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @time_stamp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = alloca i32, align 4
-  %9 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  %13 = alloca ptr, align 8
-  %14 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i32 %2, ptr %8, align 4
-  store i32 %3, ptr %9, align 4
-  store i32 %4, ptr %10, align 4
-  %15 = load ptr, ptr %7, align 8
-  %16 = icmp ne ptr %15, null
-  br i1 %16, label %17, label %57
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i32 %3, ptr %10, align 4
+  store i32 %4, ptr %11, align 4
+  store i32 %5, ptr %12, align 4
+  %17 = load ptr, ptr %9, align 8
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %65
 
-17:                                               ; preds = %5
-  store ptr @.str.113, ptr %13, align 8
-  %18 = call ptr @wmem_packet_scope()
-  %19 = load ptr, ptr %6, align 8
-  %20 = load i32, ptr %9, align 4
-  %21 = load i32, ptr %10, align 4
-  %22 = call ptr @tvb_get_string_enc(ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21, i32 noundef 0)
-  store ptr %22, ptr %14, align 8
-  %23 = load ptr, ptr %14, align 8
-  %24 = call i64 @strtoul(ptr noundef %23, ptr noundef null, i32 noundef 10) #5
-  %25 = trunc i64 %24 to i32
-  store i32 %25, ptr %12, align 4
-  store i32 %25, ptr %11, align 4
-  %26 = load i32, ptr %10, align 4
-  switch i32 %26, label %48 [
-    i32 3, label %27
-    i32 5, label %31
-    i32 8, label %34
+19:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  store ptr @.str.118, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
+  %20 = load ptr, ptr %8, align 8
+  %21 = getelementptr inbounds nuw %struct._packet_info, ptr %20, i32 0, i32 51
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = load i32, ptr %11, align 4
+  %25 = load i32, ptr %12, align 4
+  %26 = call ptr @tvb_get_string_enc(ptr noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef %25, i32 noundef 0)
+  store ptr %26, ptr %16, align 8
+  %27 = load ptr, ptr %16, align 8
+  %28 = call i64 @strtoul(ptr noundef %27, ptr noundef null, i32 noundef 10) #6
+  %29 = trunc i64 %28 to i32
+  store i32 %29, ptr %14, align 4
+  store i32 %29, ptr %13, align 4
+  %30 = load i32, ptr %12, align 4
+  switch i32 %30, label %56 [
+    i32 3, label %31
+    i32 5, label %37
+    i32 8, label %40
   ]
 
-27:                                               ; preds = %17
-  %28 = call ptr @wmem_packet_scope()
-  %29 = load i32, ptr %12, align 4
-  %30 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %28, ptr noundef @.str.114, i32 noundef %29)
-  store ptr %30, ptr %13, align 8
-  br label %48
+31:                                               ; preds = %19
+  %32 = load ptr, ptr %8, align 8
+  %33 = getelementptr inbounds nuw %struct._packet_info, ptr %32, i32 0, i32 51
+  %34 = load ptr, ptr %33, align 8
+  %35 = load i32, ptr %14, align 4
+  %36 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %34, ptr noundef @.str.119, i32 noundef %35)
+  store ptr %36, ptr %15, align 8
+  br label %56
 
-31:                                               ; preds = %17
-  %32 = load i32, ptr %12, align 4
-  %33 = mul i32 %32, 1000
-  store i32 %33, ptr %11, align 4
-  br label %34
+37:                                               ; preds = %19
+  %38 = load i32, ptr %14, align 4
+  %39 = mul i32 %38, 1000
+  store i32 %39, ptr %13, align 4
+  br label %40
 
-34:                                               ; preds = %31, %17
-  %35 = call ptr @wmem_packet_scope()
-  %36 = load i32, ptr %12, align 4
-  %37 = load i32, ptr %11, align 4
-  %38 = udiv i32 %37, 3600000
-  %39 = load i32, ptr %11, align 4
-  %40 = urem i32 %39, 3600000
-  %41 = udiv i32 %40, 60000
-  %42 = load i32, ptr %11, align 4
-  %43 = urem i32 %42, 60000
-  %44 = udiv i32 %43, 1000
-  %45 = load i32, ptr %11, align 4
-  %46 = urem i32 %45, 1000
-  %47 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %35, ptr noundef @.str.115, i32 noundef %36, i32 noundef %38, i32 noundef %41, i32 noundef %44, i32 noundef %46)
-  store ptr %47, ptr %13, align 8
-  br label %48
+40:                                               ; preds = %19, %37
+  %41 = load ptr, ptr %8, align 8
+  %42 = getelementptr inbounds nuw %struct._packet_info, ptr %41, i32 0, i32 51
+  %43 = load ptr, ptr %42, align 8
+  %44 = load i32, ptr %14, align 4
+  %45 = load i32, ptr %13, align 4
+  %46 = udiv i32 %45, 3600000
+  %47 = load i32, ptr %13, align 4
+  %48 = urem i32 %47, 3600000
+  %49 = udiv i32 %48, 60000
+  %50 = load i32, ptr %13, align 4
+  %51 = urem i32 %50, 60000
+  %52 = udiv i32 %51, 1000
+  %53 = load i32, ptr %13, align 4
+  %54 = urem i32 %53, 1000
+  %55 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %43, ptr noundef @.str.120, i32 noundef %44, i32 noundef %46, i32 noundef %49, i32 noundef %52, i32 noundef %54)
+  store ptr %55, ptr %15, align 8
+  br label %56
 
-48:                                               ; preds = %34, %27, %17
-  %49 = load ptr, ptr %7, align 8
-  %50 = load i32, ptr %8, align 4
-  %51 = load ptr, ptr %6, align 8
-  %52 = load i32, ptr %9, align 4
-  %53 = load i32, ptr %10, align 4
-  %54 = load i32, ptr %12, align 4
-  %55 = load ptr, ptr %13, align 8
-  %56 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %49, i32 noundef %50, ptr noundef %51, i32 noundef %52, i32 noundef %53, i32 noundef %54, ptr noundef @.str.116, ptr noundef %55)
-  br label %57
+56:                                               ; preds = %19, %40, %31
+  %57 = load ptr, ptr %9, align 8
+  %58 = load i32, ptr %10, align 4
+  %59 = load ptr, ptr %7, align 8
+  %60 = load i32, ptr %11, align 4
+  %61 = load i32, ptr %12, align 4
+  %62 = load i32, ptr %14, align 4
+  %63 = load ptr, ptr %15, align 8
+  %64 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %57, i32 noundef %58, ptr noundef %59, i32 noundef %60, i32 noundef %61, i32 noundef %62, ptr noundef @.str.121, ptr noundef %63)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  br label %65
 
-57:                                               ; preds = %48, %5
-  %58 = load i32, ptr %9, align 4
-  %59 = load i32, ptr %10, align 4
-  %60 = add i32 %58, %59
-  ret i32 %60
+65:                                               ; preds = %56, %6
+  %66 = load i32, ptr %11, align 4
+  %67 = load i32, ptr %12, align 4
+  %68 = add i32 %66, %67
+  ret i32 %68
 }
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @stock(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -851,27 +913,31 @@ define internal i32 @stock(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
-  %10 = call ptr @wmem_packet_scope()
-  %11 = load ptr, ptr %5, align 8
-  %12 = load i32, ptr %8, align 4
-  %13 = call ptr @tvb_get_string_enc(ptr noundef %10, ptr noundef %11, i32 noundef %12, i32 noundef 6, i32 noundef 0)
-  store ptr %13, ptr %9, align 8
-  %14 = load ptr, ptr %7, align 8
-  %15 = load i32, ptr @hf_nasdaq_itch_stock, align 4
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %8, align 4
-  %18 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef 6, i32 noundef 0)
-  %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct._packet_info, ptr %19, i32 0, i32 1
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %9, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %21, i32 noundef 25, ptr noundef @.str.117, ptr noundef %22)
-  %23 = load i32, ptr %8, align 4
-  %24 = add i32 %23, 6
-  ret i32 %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %10 = load ptr, ptr %6, align 8
+  %11 = getelementptr inbounds nuw %struct._packet_info, ptr %10, i32 0, i32 51
+  %12 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %5, align 8
+  %14 = load i32, ptr %8, align 4
+  %15 = call ptr @tvb_get_string_enc(ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef 6, i32 noundef 0)
+  store ptr %15, ptr %9, align 8
+  %16 = load ptr, ptr %7, align 8
+  %17 = load i32, ptr @hf_nasdaq_itch_stock, align 4
+  %18 = load ptr, ptr %5, align 8
+  %19 = load i32, ptr %8, align 4
+  %20 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef 6, i32 noundef 0)
+  %21 = load ptr, ptr %6, align 8
+  %22 = getelementptr inbounds nuw %struct._packet_info, ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %9, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef @.str.122, ptr noundef %24)
+  %25 = load i32, ptr %8, align 4
+  %26 = add i32 %25, 6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @order(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -884,6 +950,7 @@ define internal i32 @order(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #6
   %12 = load ptr, ptr %6, align 8
   %13 = load ptr, ptr %7, align 8
   %14 = load ptr, ptr %8, align 8
@@ -892,14 +959,14 @@ define internal i32 @order(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   store i32 %16, ptr %9, align 4
   %17 = load ptr, ptr %6, align 8
   %18 = load i32, ptr %9, align 4
-  %19 = call zeroext i8 @tvb_get_guint8(ptr noundef %17, i32 noundef %18)
+  %19 = call zeroext i8 @tvb_get_uint8(ptr noundef %17, i32 noundef %18)
   store i8 %19, ptr %11, align 1
   %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds %struct._packet_info, ptr %20, i32 0, i32 1
+  %21 = getelementptr inbounds nuw %struct._packet_info, ptr %20, i32 0, i32 1
   %22 = load ptr, ptr %21, align 8
   %23 = load i8, ptr %11, align 1
   %24 = zext i8 %23 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef @.str.118, i32 noundef %24)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef @.str.123, i32 noundef %24)
   %25 = load ptr, ptr %8, align 8
   %26 = load i32, ptr @hf_nasdaq_itch_buy_sell, align 4
   %27 = load ptr, ptr %6, align 8
@@ -931,10 +998,11 @@ define internal i32 @order(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %50 = call i32 @price(ptr noundef %44, ptr noundef %45, ptr noundef %46, i32 noundef %47, i32 noundef %48, i32 noundef %49)
   store i32 %50, ptr %9, align 4
   %51 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #6
   ret i32 %51
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @executed(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -972,7 +1040,7 @@ define internal i32 @executed(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   ret i32 %30
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @price(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -989,43 +1057,51 @@ define internal i32 @price(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   store i32 %3, ptr %10, align 4
   store i32 %4, ptr %11, align 4
   store i32 %5, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
   %16 = load i32, ptr %12, align 4
   %17 = icmp ne i32 %16, 0
   %18 = select i1 %17, i32 19, i32 10
   store i32 %18, ptr %13, align 4
-  %19 = call ptr @wmem_packet_scope()
-  %20 = load ptr, ptr %7, align 8
-  %21 = load i32, ptr %11, align 4
-  %22 = load i32, ptr %13, align 4
-  %23 = call ptr @tvb_get_string_enc(ptr noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef %22, i32 noundef 0)
-  store ptr %23, ptr %14, align 8
-  %24 = load ptr, ptr %14, align 8
-  %25 = call i64 @g_ascii_strtoull(ptr noundef %24, ptr noundef null, i32 noundef 10)
-  %26 = uitofp i64 %25 to double
-  %27 = load i32, ptr %12, align 4
-  %28 = icmp ne i32 %27, 0
-  %29 = select i1 %28, double 1.000000e+06, double 1.000000e+04
-  %30 = fdiv double %26, %29
-  store double %30, ptr %15, align 8
-  %31 = load ptr, ptr %9, align 8
-  %32 = load i32, ptr %10, align 4
-  %33 = load ptr, ptr %7, align 8
-  %34 = load i32, ptr %11, align 4
-  %35 = load i32, ptr %13, align 4
-  %36 = load double, ptr %15, align 8
-  %37 = call ptr @proto_tree_add_double(ptr noundef %31, i32 noundef %32, ptr noundef %33, i32 noundef %34, i32 noundef %35, double noundef %36)
-  %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds %struct._packet_info, ptr %38, i32 0, i32 1
-  %40 = load ptr, ptr %39, align 8
-  %41 = load double, ptr %15, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %40, i32 noundef 25, ptr noundef @.str.119, double noundef %41)
-  %42 = load i32, ptr %11, align 4
-  %43 = load i32, ptr %13, align 4
-  %44 = add i32 %42, %43
-  ret i32 %44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  %19 = load ptr, ptr %8, align 8
+  %20 = getelementptr inbounds nuw %struct._packet_info, ptr %19, i32 0, i32 51
+  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr %7, align 8
+  %23 = load i32, ptr %11, align 4
+  %24 = load i32, ptr %13, align 4
+  %25 = call ptr @tvb_get_string_enc(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %24, i32 noundef 0)
+  store ptr %25, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  %26 = load ptr, ptr %14, align 8
+  %27 = call i64 @g_ascii_strtoull(ptr noundef %26, ptr noundef null, i32 noundef 10)
+  %28 = uitofp i64 %27 to double
+  %29 = load i32, ptr %12, align 4
+  %30 = icmp ne i32 %29, 0
+  %31 = select i1 %30, double 1.000000e+06, double 1.000000e+04
+  %32 = fdiv double %28, %31
+  store double %32, ptr %15, align 8
+  %33 = load ptr, ptr %9, align 8
+  %34 = load i32, ptr %10, align 4
+  %35 = load ptr, ptr %7, align 8
+  %36 = load i32, ptr %11, align 4
+  %37 = load i32, ptr %13, align 4
+  %38 = load double, ptr %15, align 8
+  %39 = call ptr @proto_tree_add_double(ptr noundef %33, i32 noundef %34, ptr noundef %35, i32 noundef %36, i32 noundef %37, double noundef %38)
+  %40 = load ptr, ptr %8, align 8
+  %41 = getelementptr inbounds nuw %struct._packet_info, ptr %40, i32 0, i32 1
+  %42 = load ptr, ptr %41, align 8
+  %43 = load double, ptr %15, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef @.str.124, double noundef %43)
+  %44 = load i32, ptr %11, align 4
+  %45 = load i32, ptr %13, align 4
+  %46 = add i32 %44, %45
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  ret i32 %46
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @order_ref_number(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1037,32 +1113,38 @@ define internal i32 @order_ref_number(ptr noundef %0, ptr noundef %1, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
-  %11 = call ptr @wmem_packet_scope()
-  %12 = load ptr, ptr %5, align 8
-  %13 = load i32, ptr %8, align 4
-  %14 = call ptr @tvb_get_string_enc(ptr noundef %11, ptr noundef %12, i32 noundef %13, i32 noundef 9, i32 noundef 0)
-  store ptr %14, ptr %9, align 8
-  %15 = load ptr, ptr %9, align 8
-  %16 = call i64 @strtoul(ptr noundef %15, ptr noundef null, i32 noundef 10) #5
-  %17 = trunc i64 %16 to i32
-  store i32 %17, ptr %10, align 4
-  %18 = load ptr, ptr %7, align 8
-  %19 = load i32, ptr @hf_nasdaq_itch_order_reference, align 4
-  %20 = load ptr, ptr %5, align 8
-  %21 = load i32, ptr %8, align 4
-  %22 = load i32, ptr %10, align 4
-  %23 = call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef 9, i32 noundef %22)
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct._packet_info, ptr %24, i32 0, i32 1
-  %26 = load ptr, ptr %25, align 8
-  %27 = load i32, ptr %10, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef @.str.120, i32 noundef %27)
-  %28 = load i32, ptr %8, align 4
-  %29 = add i32 %28, 9
-  ret i32 %29
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %11 = load ptr, ptr %6, align 8
+  %12 = getelementptr inbounds nuw %struct._packet_info, ptr %11, i32 0, i32 51
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i32, ptr %8, align 4
+  %16 = call ptr @tvb_get_string_enc(ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 9, i32 noundef 0)
+  store ptr %16, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  %17 = load ptr, ptr %9, align 8
+  %18 = call i64 @strtoul(ptr noundef %17, ptr noundef null, i32 noundef 10) #6
+  %19 = trunc i64 %18 to i32
+  store i32 %19, ptr %10, align 4
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr @hf_nasdaq_itch_order_reference, align 4
+  %22 = load ptr, ptr %5, align 8
+  %23 = load i32, ptr %8, align 4
+  %24 = load i32, ptr %10, align 4
+  %25 = call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef 9, i32 noundef %24)
+  %26 = load ptr, ptr %6, align 8
+  %27 = getelementptr inbounds nuw %struct._packet_info, ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8
+  %29 = load i32, ptr %10, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %28, i32 noundef 25, ptr noundef @.str.125, i32 noundef %29)
+  %30 = load i32, ptr %8, align 4
+  %31 = add i32 %30, 9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  ret i32 %31
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @number_of_shares(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1079,65 +1161,83 @@ define internal i32 @number_of_shares(ptr noundef %0, ptr noundef %1, ptr nounde
   store i32 %3, ptr %10, align 4
   store i32 %4, ptr %11, align 4
   store i32 %5, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
   %16 = load i32, ptr %12, align 4
   %17 = icmp ne i32 %16, 0
   %18 = select i1 %17, i32 10, i32 6
   store i32 %18, ptr %13, align 4
-  %19 = call ptr @wmem_packet_scope()
-  %20 = load ptr, ptr %7, align 8
-  %21 = load i32, ptr %11, align 4
-  %22 = load i32, ptr %13, align 4
-  %23 = call ptr @tvb_get_string_enc(ptr noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef %22, i32 noundef 0)
-  store ptr %23, ptr %14, align 8
-  %24 = load ptr, ptr %14, align 8
-  %25 = call i64 @strtoul(ptr noundef %24, ptr noundef null, i32 noundef 10) #5
-  %26 = trunc i64 %25 to i32
-  store i32 %26, ptr %15, align 4
-  %27 = load ptr, ptr %9, align 8
-  %28 = load i32, ptr %10, align 4
-  %29 = load ptr, ptr %7, align 8
-  %30 = load i32, ptr %11, align 4
-  %31 = load i32, ptr %13, align 4
-  %32 = load i32, ptr %15, align 4
-  %33 = call ptr @proto_tree_add_uint(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef %30, i32 noundef %31, i32 noundef %32)
-  %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds %struct._packet_info, ptr %34, i32 0, i32 1
-  %36 = load ptr, ptr %35, align 8
-  %37 = load i32, ptr %15, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %36, i32 noundef 25, ptr noundef @.str.121, i32 noundef %37)
-  %38 = load i32, ptr %11, align 4
-  %39 = load i32, ptr %13, align 4
-  %40 = add i32 %38, %39
-  ret i32 %40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  %19 = load ptr, ptr %8, align 8
+  %20 = getelementptr inbounds nuw %struct._packet_info, ptr %19, i32 0, i32 51
+  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr %7, align 8
+  %23 = load i32, ptr %11, align 4
+  %24 = load i32, ptr %13, align 4
+  %25 = call ptr @tvb_get_string_enc(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %24, i32 noundef 0)
+  store ptr %25, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  %26 = load ptr, ptr %14, align 8
+  %27 = call i64 @strtoul(ptr noundef %26, ptr noundef null, i32 noundef 10) #6
+  %28 = trunc i64 %27 to i32
+  store i32 %28, ptr %15, align 4
+  %29 = load ptr, ptr %9, align 8
+  %30 = load i32, ptr %10, align 4
+  %31 = load ptr, ptr %7, align 8
+  %32 = load i32, ptr %11, align 4
+  %33 = load i32, ptr %13, align 4
+  %34 = load i32, ptr %15, align 4
+  %35 = call ptr @proto_tree_add_uint(ptr noundef %29, i32 noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef %33, i32 noundef %34)
+  %36 = load ptr, ptr %8, align 8
+  %37 = getelementptr inbounds nuw %struct._packet_info, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8
+  %39 = load i32, ptr %15, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %38, i32 noundef 25, ptr noundef @.str.126, i32 noundef %39)
+  %40 = load i32, ptr %11, align 4
+  %41 = load i32, ptr %13, align 4
+  %42 = add i32 %40, %41
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  ret i32 %42
 }
 
-declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @wmem_packet_scope() #1
+; Function Attrs: nounwind null_pointer_is_valid
+declare i64 @strtoul(ptr noundef, ptr noundef, i32 noundef) #5
 
-; Function Attrs: nounwind
-declare i64 @strtoul(ptr noundef, ptr noundef, i32 noundef) #3
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) #2
 
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @g_ascii_strtoull(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare i64 @g_ascii_strtoull(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_double(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, double noundef) #2
 
-declare ptr @proto_tree_add_double(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, double noundef) #1
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) }
-attributes #5 = { nounwind }
-
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}

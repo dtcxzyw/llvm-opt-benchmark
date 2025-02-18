@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [18 x i8] c"No packets found.\00", align 1
 @.str.21 = private unnamed_addr constant [38 x i8] c"Mktime went wrong. Is the time valid?\00", align 1
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong uwtable
 define hidden noundef ptr @time_string_parse(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = icmp ne ptr %0, null
   %10 = icmp ne ptr %5, null
@@ -53,7 +53,7 @@ define hidden noundef ptr @time_string_parse(ptr noundef readonly captures(addre
   %19 = and i16 %18, 256
   %.not = icmp eq i16 %19, 0
   %20 = getelementptr i8, ptr %.0, i64 1
-  br i1 %.not, label %21, label %14, !llvm.loop !4
+  br i1 %.not, label %21, label %14, !llvm.loop !6
 
 21:                                               ; preds = %14
   %22 = icmp ne ptr %1, null
@@ -68,7 +68,7 @@ define hidden noundef ptr @time_string_parse(ptr noundef readonly captures(addre
   br i1 %26, label %97, label %27
 
 27:                                               ; preds = %25
-  %28 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0, ptr noundef nonnull @.str.2, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
+  %28 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.0, ptr noundef nonnull @.str.2, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
   %29 = icmp eq i32 %28, 6
   br i1 %29, label %30, label %47
 
@@ -107,7 +107,7 @@ define hidden noundef ptr @time_string_parse(ptr noundef readonly captures(addre
   br i1 %or.cond103, label %97, label %96
 
 47:                                               ; preds = %27
-  %48 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0, ptr noundef nonnull @.str.9, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
+  %48 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.0, ptr noundef nonnull @.str.9, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
   %49 = icmp eq i32 %48, 3
   br i1 %49, label %50, label %97
 
@@ -136,13 +136,13 @@ define hidden noundef ptr @time_string_parse(ptr noundef readonly captures(addre
   br i1 %.not98, label %97, label %60
 
 60:                                               ; preds = %59
-  store i32 0, ptr %4, align 4
+  store i8 0, ptr %4, align 1
   %61 = load i8, ptr %.0, align 1
   %62 = icmp eq i8 %61, 45
   br i1 %62, label %63, label %64
 
 63:                                               ; preds = %60
-  store i32 1, ptr %4, align 4
+  store i8 1, ptr %4, align 1
   %.pr = load i8, ptr %20, align 1
   br label %64
 
@@ -153,7 +153,7 @@ define hidden noundef ptr @time_string_parse(ptr noundef readonly captures(addre
   br i1 %66, label %97, label %67
 
 67:                                               ; preds = %64
-  %68 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.1, ptr noundef nonnull @.str.9, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
+  %68 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.1, ptr noundef nonnull @.str.9, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
   %69 = icmp eq i32 %68, 3
   br i1 %69, label %70, label %79
 
@@ -175,7 +175,7 @@ define hidden noundef ptr @time_string_parse(ptr noundef readonly captures(addre
   br i1 %or.cond107, label %97, label %96
 
 79:                                               ; preds = %67
-  %80 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.1, ptr noundef nonnull @.str.12, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
+  %80 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.1, ptr noundef nonnull @.str.12, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
   %81 = icmp eq i32 %80, 2
   br i1 %81, label %82, label %88
 
@@ -192,7 +192,7 @@ define hidden noundef ptr @time_string_parse(ptr noundef readonly captures(addre
   br i1 %or.cond109, label %97, label %.sink.split
 
 88:                                               ; preds = %79
-  %89 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.1, ptr noundef nonnull @.str.13, ptr noundef nonnull %7) #9
+  %89 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.1, ptr noundef nonnull @.str.13, ptr noundef nonnull %7) #11
   %90 = icmp eq i32 %89, 1
   br i1 %90, label %91, label %97
 
@@ -219,25 +219,36 @@ define hidden noundef ptr @time_string_parse(ptr noundef readonly captures(addre
   ret ptr %.080
 }
 
-; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: nounwind uwtable
-define hidden noundef ptr @time_shift_all(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 {
+; Function Attrs: nofree nounwind null_pointer_is_valid
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden noundef ptr @time_shift_all(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #3 {
   %3 = alloca %struct.nstime_t, align 8
-  %4 = alloca i32, align 4
+  %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca x86_fp80, align 16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
   %8 = icmp ne ptr %0, null
   %9 = icmp ne ptr %1, null
   %or.cond = and i1 %8, %9
-  br i1 %or.cond, label %10, label %47
+  br i1 %or.cond, label %10, label %48
 
 10:                                               ; preds = %2
   %11 = call ptr @time_string_parse(ptr noundef nonnull %1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %12, label %47
+  br i1 %.not, label %12, label %48
 
 12:                                               ; preds = %10
   %13 = load i32, ptr %5, align 4
@@ -249,10 +260,10 @@ define hidden noundef ptr @time_shift_all(ptr noundef captures(address_is_null) 
   %19 = load x86_fp80, ptr %7, align 16
   %20 = fadd x86_fp80 %19, %18
   %21 = fcmp oeq x86_fp80 %20, 0xK00000000000000000000
-  br i1 %21, label %47, label %22
+  br i1 %21, label %48, label %22
 
 22:                                               ; preds = %12
-  call void @nstime_set_zero(ptr noundef nonnull %3) #9
+  call void @nstime_set_zero(ptr noundef nonnull %3)
   %23 = call x86_fp80 @llvm.floor.f80(x86_fp80 %20)
   %24 = fptosi x86_fp80 %23 to i64
   store i64 %24, ptr %3, align 8
@@ -262,73 +273,84 @@ define hidden noundef ptr @time_shift_all(ptr noundef captures(address_is_null) 
   %28 = fptosi x86_fp80 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %28, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %31 = load ptr, ptr %30, align 8
-  %32 = call ptr @frame_data_sequence_find(ptr noundef %31, i32 noundef 1) #9
+  %32 = call ptr @frame_data_sequence_find(ptr noundef %31, i32 noundef 1)
   %.not23 = icmp eq ptr %32, null
-  br i1 %.not23, label %47, label %.preheader
+  br i1 %.not23, label %48, label %.preheader
 
 .preheader:                                       ; preds = %22
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %34 = load i32, ptr %33, align 8
-  %.not2426 = icmp eq i32 %34, 0
-  br i1 %.not2426, label %._crit_edge, label %.lr.ph
+  %.not2425 = icmp eq i32 %34, 0
+  br i1 %.not2425, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %modify_time_perform.exit
-  %.01727 = phi i32 [ %44, %modify_time_perform.exit ], [ 1, %.preheader ]
+  %.01726 = phi i32 [ %45, %modify_time_perform.exit ], [ 1, %.preheader ]
   %35 = load ptr, ptr %30, align 8
-  %36 = call ptr @frame_data_sequence_find(ptr noundef %35, i32 noundef %.01727) #9
+  %36 = call ptr @frame_data_sequence_find(ptr noundef %35, i32 noundef %.01726)
   %37 = icmp eq ptr %36, null
   br i1 %37, label %modify_time_perform.exit, label %38
 
 38:                                               ; preds = %.lr.ph
-  %39 = load i32, ptr %4, align 4
-  %.not25.not = icmp eq i32 %39, 0
-  %40 = getelementptr inbounds nuw i8, ptr %36, i64 56
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 72
-  br i1 %.not25.not, label %42, label %43
-
-42:                                               ; preds = %38
-  call void @nstime_sum(ptr noundef nonnull %40, ptr noundef nonnull %40, ptr noundef nonnull %3) #9
-  call void @nstime_sum(ptr noundef nonnull %41, ptr noundef nonnull %41, ptr noundef nonnull %3) #9
-  br label %modify_time_perform.exit
+  %39 = load i8, ptr %4, align 1, !range !8, !noundef !9
+  %40 = icmp eq i8 %39, 0
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 80
+  br i1 %40, label %43, label %44
 
 43:                                               ; preds = %38
-  call void @nstime_delta(ptr noundef nonnull %40, ptr noundef nonnull %40, ptr noundef nonnull %3) #9
-  call void @nstime_delta(ptr noundef nonnull %41, ptr noundef nonnull %41, ptr noundef nonnull %3) #9
+  call void @nstime_sum(ptr noundef nonnull %41, ptr noundef nonnull %41, ptr noundef nonnull %3)
+  call void @nstime_sum(ptr noundef nonnull %42, ptr noundef nonnull %42, ptr noundef nonnull %3)
   br label %modify_time_perform.exit
 
-modify_time_perform.exit:                         ; preds = %43, %42, %.lr.ph
-  %44 = add i32 %.01727, 1
-  %45 = load i32, ptr %33, align 8
-  %.not24 = icmp ugt i32 %44, %45
-  br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+44:                                               ; preds = %38
+  call void @nstime_delta(ptr noundef nonnull %41, ptr noundef nonnull %41, ptr noundef nonnull %3)
+  call void @nstime_delta(ptr noundef nonnull %42, ptr noundef nonnull %42, ptr noundef nonnull %3)
+  br label %modify_time_perform.exit
+
+modify_time_perform.exit:                         ; preds = %44, %43, %.lr.ph
+  %45 = add i32 %.01726, 1
+  %46 = load i32, ptr %33, align 8
+  %.not24 = icmp ugt i32 %45, %46
+  br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %modify_time_perform.exit, %.preheader
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 1, ptr %46, align 4
-  call void @packet_list_queue_draw() #9
-  br label %47
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 33
+  store i8 1, ptr %47, align 1
+  call void @packet_list_queue_draw()
+  br label %48
 
-47:                                               ; preds = %22, %12, %10, %2, %._crit_edge
+48:                                               ; preds = %22, %12, %10, %2, %._crit_edge
   %.0 = phi ptr [ null, %._crit_edge ], [ @.str.15, %2 ], [ %11, %10 ], [ @.str.16, %12 ], [ @.str.17, %22 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
   ret ptr %.0
 }
 
-declare void @nstime_set_zero(ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare void @nstime_set_zero(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare x86_fp80 @llvm.floor.f80(x86_fp80) #4
+declare x86_fp80 @llvm.floor.f80(x86_fp80) #5
 
-declare ptr @frame_data_sequence_find(ptr noundef, i32 noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare ptr @frame_data_sequence_find(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @packet_list_queue_draw() local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare void @packet_list_queue_draw() local_unnamed_addr #4
 
-; Function Attrs: nounwind uwtable
-define hidden noundef ptr @time_shift_settime(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #2 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden noundef ptr @time_shift_settime(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca %struct.nstime_t, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
   %7 = icmp ne ptr %0, null
   %8 = icmp ne ptr %2, null
   %or.cond = and i1 %7, %8
@@ -339,30 +361,30 @@ define hidden noundef ptr @time_shift_settime(ptr noundef captures(address_is_nu
   br i1 %10, label %38, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load i32, ptr %12, align 8
   %14 = icmp ugt i32 %1, %13
   br i1 %14, label %38, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call ptr @frame_data_sequence_find(ptr noundef %17, i32 noundef %1) #9
+  %18 = tail call ptr @frame_data_sequence_find(ptr noundef %17, i32 noundef %1)
   %19 = icmp eq ptr %18, null
   br i1 %19, label %38, label %20
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  %22 = getelementptr inbounds nuw i8, ptr %18, i64 72
-  call void @nstime_delta(ptr noundef nonnull %6, ptr noundef nonnull %21, ptr noundef nonnull %22) #9
-  %23 = call fastcc ptr @time_string_to_nstime(ptr noundef %2, ptr noundef %6, ptr noundef %4)
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 80
+  call void @nstime_delta(ptr noundef nonnull %6, ptr noundef nonnull %21, ptr noundef nonnull %22)
+  %23 = call fastcc ptr @time_string_to_nstime(ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %4)
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %24, label %38
 
 24:                                               ; preds = %20
-  call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6) #9
+  call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6)
   %25 = load ptr, ptr %16, align 8
-  %26 = call ptr @frame_data_sequence_find(ptr noundef %25, i32 noundef 1) #9
+  %26 = call ptr @frame_data_sequence_find(ptr noundef %25, i32 noundef 1)
   %.not27 = icmp eq ptr %26, null
   br i1 %.not27, label %38, label %.preheader
 
@@ -374,40 +396,44 @@ define hidden noundef ptr @time_shift_settime(ptr noundef captures(address_is_nu
 .lr.ph:                                           ; preds = %.preheader, %34
   %.02030 = phi i32 [ %35, %34 ], [ 1, %.preheader ]
   %28 = load ptr, ptr %16, align 8
-  %29 = call ptr @frame_data_sequence_find(ptr noundef %28, i32 noundef %.02030) #9
+  %29 = call ptr @frame_data_sequence_find(ptr noundef %28, i32 noundef %.02030)
   %30 = icmp eq ptr %29, null
   br i1 %30, label %34, label %31
 
 31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 56
-  %33 = getelementptr inbounds nuw i8, ptr %29, i64 72
-  call void @nstime_delta(ptr noundef nonnull %32, ptr noundef nonnull %32, ptr noundef nonnull %33) #9
-  call void @nstime_set_zero(ptr noundef nonnull %33) #9
-  call void @nstime_sum(ptr noundef nonnull %32, ptr noundef nonnull %32, ptr noundef nonnull %5) #9
-  call void @nstime_sum(ptr noundef nonnull %33, ptr noundef nonnull %33, ptr noundef nonnull %5) #9
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 80
+  call void @nstime_delta(ptr noundef nonnull %32, ptr noundef nonnull %32, ptr noundef nonnull %33)
+  call void @nstime_set_zero(ptr noundef nonnull %33)
+  call void @nstime_sum(ptr noundef nonnull %32, ptr noundef nonnull %32, ptr noundef nonnull %5)
+  call void @nstime_sum(ptr noundef nonnull %33, ptr noundef nonnull %33, ptr noundef nonnull %5)
   br label %34
 
 34:                                               ; preds = %.lr.ph, %31
   %35 = add i32 %.02030, 1
   %36 = load i32, ptr %12, align 8
   %.not28 = icmp ugt i32 %35, %36
-  br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %34, %.preheader
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 1, ptr %37, align 4
-  call void @packet_list_queue_draw() #9
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 33
+  store i8 1, ptr %37, align 1
+  call void @packet_list_queue_draw()
   br label %38
 
 38:                                               ; preds = %24, %20, %15, %9, %11, %3, %._crit_edge
   %.0 = phi ptr [ null, %._crit_edge ], [ @.str.15, %3 ], [ @.str.18, %11 ], [ @.str.18, %9 ], [ @.str.19, %15 ], [ %23, %20 ], [ @.str.17, %24 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
   ret ptr %.0
 }
 
-declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @time_string_to_nstime(ptr noundef nonnull captures(address_is_null) %0, ptr noundef nonnull %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #2 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal fastcc noundef ptr @time_string_to_nstime(ptr noundef nonnull captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #6 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -415,12 +441,19 @@ define internal fastcc noundef ptr @time_string_to_nstime(ptr noundef nonnull ca
   %8 = alloca i32, align 4
   %9 = alloca x86_fp80, align 16
   %10 = alloca %struct.tm, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10) #11
   %11 = call ptr @time_string_parse(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %9)
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %12, label %46
 
 12:                                               ; preds = %3
-  %13 = call ptr @localtime(ptr noundef nonnull %1) #9
+  %13 = call ptr @localtime(ptr noundef %1) #11
   %.not13 = icmp eq ptr %13, null
   br i1 %.not13, label %15, label %14
 
@@ -430,7 +463,7 @@ define internal fastcc noundef ptr @time_string_to_nstime(ptr noundef nonnull ca
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 noundef 0, i64 noundef 48, i1 noundef false) #11
   br label %17
 
 17:                                               ; preds = %15, %14
@@ -464,7 +497,7 @@ define internal fastcc noundef ptr @time_string_to_nstime(ptr noundef nonnull ca
   store i32 %34, ptr %10, align 8
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 -1, ptr %35, align 8
-  %36 = call i64 @mktime(ptr noundef nonnull %10) #9
+  %36 = call i64 @mktime(ptr noundef nonnull %10) #11
   %37 = icmp eq i64 %36, -1
   br i1 %37, label %46, label %38
 
@@ -482,11 +515,18 @@ define internal fastcc noundef ptr @time_string_to_nstime(ptr noundef nonnull ca
 
 46:                                               ; preds = %27, %3, %38
   %.0 = phi ptr [ null, %38 ], [ %11, %3 ], [ @.str.21, %27 ]
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
   ret ptr %.0
 }
 
-; Function Attrs: nounwind uwtable
-define hidden noundef ptr @time_shift_adjtime(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #2 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden noundef ptr @time_shift_adjtime(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #3 {
   %6 = alloca %struct.nstime_t, align 8
   %7 = alloca %struct.nstime_t, align 8
   %8 = alloca %struct.nstime_t, align 8
@@ -495,6 +535,14 @@ define hidden noundef ptr @time_shift_adjtime(ptr noundef captures(address_is_nu
   %11 = alloca %struct.nstime_t, align 8
   %12 = alloca %struct.nstime_t, align 8
   %13 = alloca %struct.nstime_t, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #11
   %14 = icmp ne ptr %0, null
   %15 = icmp ne ptr %2, null
   %or.cond = and i1 %14, %15
@@ -507,7 +555,7 @@ define hidden noundef ptr @time_shift_adjtime(ptr noundef captures(address_is_nu
   br i1 %18, label %88, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load i32, ptr %20, align 8
   %22 = icmp ugt i32 %1, %21
   %23 = add i32 %3, -1
@@ -516,43 +564,43 @@ define hidden noundef ptr @time_shift_adjtime(ptr noundef captures(address_is_nu
   br i1 %or.cond55, label %88, label %25
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call ptr @frame_data_sequence_find(ptr noundef %27, i32 noundef %1) #9
+  %28 = tail call ptr @frame_data_sequence_find(ptr noundef %27, i32 noundef %1)
   %29 = icmp eq ptr %28, null
   br i1 %29, label %88, label %30
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 56
-  call void @nstime_copy(ptr noundef nonnull %8, ptr noundef nonnull %31) #9
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 72
-  call void @nstime_delta(ptr noundef nonnull %8, ptr noundef nonnull %8, ptr noundef nonnull %32) #9
-  %33 = call fastcc ptr @time_string_to_nstime(ptr noundef %2, ptr noundef %8, ptr noundef %6)
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 64
+  call void @nstime_copy(ptr noundef nonnull %8, ptr noundef nonnull %31)
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 80
+  call void @nstime_delta(ptr noundef nonnull %8, ptr noundef nonnull %8, ptr noundef nonnull %32)
+  %33 = call fastcc ptr @time_string_to_nstime(ptr noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %6)
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %34, label %88
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %26, align 8
-  %36 = call ptr @frame_data_sequence_find(ptr noundef %35, i32 noundef %3) #9
+  %36 = call ptr @frame_data_sequence_find(ptr noundef %35, i32 noundef %3)
   %37 = icmp eq ptr %36, null
   br i1 %37, label %88, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 56
-  call void @nstime_copy(ptr noundef nonnull %9, ptr noundef nonnull %39) #9
-  %40 = getelementptr inbounds nuw i8, ptr %36, i64 72
-  call void @nstime_delta(ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %40) #9
-  %41 = call fastcc ptr @time_string_to_nstime(ptr noundef %4, ptr noundef %9, ptr noundef %7)
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  call void @nstime_copy(ptr noundef nonnull %9, ptr noundef nonnull %39)
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 80
+  call void @nstime_delta(ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %40)
+  %41 = call fastcc ptr @time_string_to_nstime(ptr noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %7)
   %.not52 = icmp eq ptr %41, null
   br i1 %.not52, label %42, label %88
 
 42:                                               ; preds = %38
-  call void @nstime_copy(ptr noundef nonnull %12, ptr noundef nonnull %9) #9
-  call void @nstime_delta(ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %8) #9
-  call void @nstime_copy(ptr noundef nonnull %11, ptr noundef nonnull %7) #9
-  call void @nstime_delta(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %6) #9
+  call void @nstime_copy(ptr noundef nonnull %12, ptr noundef nonnull %9)
+  call void @nstime_delta(ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %8)
+  call void @nstime_copy(ptr noundef nonnull %11, ptr noundef nonnull %7)
+  call void @nstime_delta(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef nonnull %6)
   %43 = load ptr, ptr %26, align 8
-  %44 = call ptr @frame_data_sequence_find(ptr noundef %43, i32 noundef 1) #9
+  %44 = call ptr @frame_data_sequence_find(ptr noundef %43, i32 noundef 1)
   %.not53 = icmp eq ptr %44, null
   br i1 %.not53, label %88, label %.preheader
 
@@ -570,15 +618,15 @@ define hidden noundef ptr @time_shift_adjtime(ptr noundef captures(address_is_nu
 49:                                               ; preds = %.lr.ph, %84
   %.063 = phi i32 [ 1, %.lr.ph ], [ %85, %84 ]
   %50 = load ptr, ptr %26, align 8
-  %51 = call ptr @frame_data_sequence_find(ptr noundef %50, i32 noundef %.063) #9
+  %51 = call ptr @frame_data_sequence_find(ptr noundef %50, i32 noundef %.063)
   %52 = icmp eq ptr %51, null
   br i1 %52, label %84, label %53
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 56
-  %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
-  call void @nstime_delta(ptr noundef nonnull %54, ptr noundef nonnull %54, ptr noundef nonnull %55) #9
-  call void @nstime_set_zero(ptr noundef nonnull %55) #9
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 80
+  call void @nstime_delta(ptr noundef nonnull %54, ptr noundef nonnull %54, ptr noundef nonnull %55)
+  call void @nstime_set_zero(ptr noundef nonnull %55)
   %.val = load i64, ptr %12, align 8
   %.val56 = load i32, ptr %46, align 8
   %.val57 = load i64, ptr %11, align 8
@@ -592,8 +640,8 @@ define hidden noundef ptr @time_shift_adjtime(ptr noundef captures(address_is_nu
   %62 = fdiv x86_fp80 %61, 0xK401CEE6B280000000000
   %63 = fadd x86_fp80 %62, %60
   %64 = fdiv x86_fp80 %59, %63
-  call void @nstime_copy(ptr noundef nonnull %10, ptr noundef nonnull %54) #9
-  call void @nstime_delta(ptr noundef nonnull %10, ptr noundef nonnull %10, ptr noundef nonnull %8) #9
+  call void @nstime_copy(ptr noundef nonnull %10, ptr noundef nonnull %54)
+  call void @nstime_delta(ptr noundef nonnull %10, ptr noundef nonnull %10, ptr noundef nonnull %8)
   %65 = load i64, ptr %10, align 8
   %66 = sitofp i64 %65 to x86_fp80
   %67 = fmul x86_fp80 %64, %66
@@ -607,65 +655,75 @@ define hidden noundef ptr @time_shift_adjtime(ptr noundef captures(address_is_nu
   br i1 %74, label %.lr.ph.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %53
-  %.031.lcssa.i = phi x86_fp80 [ %67, %53 ], [ %76, %.lr.ph.i ]
+  %.032.lcssa.i = phi x86_fp80 [ %67, %53 ], [ %76, %.lr.ph.i ]
   %.0.lcssa.i = phi x86_fp80 [ %73, %53 ], [ %77, %.lr.ph.i ]
   %75 = fcmp olt x86_fp80 %.0.lcssa.i, 0xK00000000000000000000
   br i1 %75, label %.lr.ph10.i, label %calcNT3.exit
 
 .lr.ph.i:                                         ; preds = %53, %.lr.ph.i
   %.06.i = phi x86_fp80 [ %77, %.lr.ph.i ], [ %73, %53 ]
-  %.0315.i = phi x86_fp80 [ %76, %.lr.ph.i ], [ %67, %53 ]
-  %76 = fadd x86_fp80 %.0315.i, 0xK3FFF8000000000000000
+  %.0325.i = phi x86_fp80 [ %76, %.lr.ph.i ], [ %67, %53 ]
+  %76 = fadd x86_fp80 %.0325.i, 0xK3FFF8000000000000000
   %77 = fadd x86_fp80 %.06.i, 0xKC01CEE6B280000000000
   %78 = fcmp ogt x86_fp80 %77, 0xK401CEE6B280000000000
-  br i1 %78, label %.lr.ph.i, label %.preheader.i, !llvm.loop !8
+  br i1 %78, label %.lr.ph.i, label %.preheader.i, !llvm.loop !12
 
 .lr.ph10.i:                                       ; preds = %.preheader.i, %.lr.ph10.i
   %.19.i = phi x86_fp80 [ %80, %.lr.ph10.i ], [ %.0.lcssa.i, %.preheader.i ]
-  %.1328.i = phi x86_fp80 [ %79, %.lr.ph10.i ], [ %.031.lcssa.i, %.preheader.i ]
-  %79 = fadd x86_fp80 %.1328.i, 0xKBFFF8000000000000000
+  %.1338.i = phi x86_fp80 [ %79, %.lr.ph10.i ], [ %.032.lcssa.i, %.preheader.i ]
+  %79 = fadd x86_fp80 %.1338.i, 0xKBFFF8000000000000000
   %80 = fadd x86_fp80 %.19.i, 0xK401CEE6B280000000000
   %81 = fcmp olt x86_fp80 %80, 0xK00000000000000000000
-  br i1 %81, label %.lr.ph10.i, label %calcNT3.exit, !llvm.loop !9
+  br i1 %81, label %.lr.ph10.i, label %calcNT3.exit, !llvm.loop !13
 
 calcNT3.exit:                                     ; preds = %.lr.ph10.i, %.preheader.i
-  %.132.lcssa.i = phi x86_fp80 [ %.031.lcssa.i, %.preheader.i ], [ %79, %.lr.ph10.i ]
+  %.133.lcssa.i = phi x86_fp80 [ %.032.lcssa.i, %.preheader.i ], [ %79, %.lr.ph10.i ]
   %.1.lcssa.i = phi x86_fp80 [ %.0.lcssa.i, %.preheader.i ], [ %80, %.lr.ph10.i ]
-  %82 = fptosi x86_fp80 %.132.lcssa.i to i64
+  %82 = fptosi x86_fp80 %.133.lcssa.i to i64
   store i64 %82, ptr %10, align 8
   %83 = fptosi x86_fp80 %.1.lcssa.i to i32
   store i32 %83, ptr %48, align 8
-  call void @nstime_sum(ptr noundef nonnull %10, ptr noundef nonnull %10, ptr noundef nonnull %6) #9
-  call void @nstime_copy(ptr noundef nonnull %13, ptr noundef nonnull %10) #9
-  call void @nstime_delta(ptr noundef nonnull %13, ptr noundef nonnull %13, ptr noundef nonnull %54) #9
-  call void @nstime_delta(ptr noundef nonnull %54, ptr noundef nonnull %54, ptr noundef nonnull %55) #9
-  call void @nstime_set_zero(ptr noundef nonnull %55) #9
-  call void @nstime_sum(ptr noundef nonnull %54, ptr noundef nonnull %54, ptr noundef nonnull %13) #9
-  call void @nstime_sum(ptr noundef nonnull %55, ptr noundef nonnull %55, ptr noundef nonnull %13) #9
+  call void @nstime_sum(ptr noundef nonnull %10, ptr noundef nonnull %10, ptr noundef nonnull %6)
+  call void @nstime_copy(ptr noundef nonnull %13, ptr noundef nonnull %10)
+  call void @nstime_delta(ptr noundef nonnull %13, ptr noundef nonnull %13, ptr noundef nonnull %54)
+  call void @nstime_delta(ptr noundef nonnull %54, ptr noundef nonnull %54, ptr noundef nonnull %55)
+  call void @nstime_set_zero(ptr noundef nonnull %55)
+  call void @nstime_sum(ptr noundef nonnull %54, ptr noundef nonnull %54, ptr noundef nonnull %13)
+  call void @nstime_sum(ptr noundef nonnull %55, ptr noundef nonnull %55, ptr noundef nonnull %13)
   br label %84
 
 84:                                               ; preds = %49, %calcNT3.exit
   %85 = add i32 %.063, 1
   %86 = load i32, ptr %20, align 8
   %.not54 = icmp ugt i32 %85, %86
-  br i1 %.not54, label %._crit_edge, label %49, !llvm.loop !10
+  br i1 %.not54, label %._crit_edge, label %49, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %84, %.preheader
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 1, ptr %87, align 4
-  call void @packet_list_queue_draw() #9
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 33
+  store i8 1, ptr %87, align 1
+  call void @packet_list_queue_draw()
   br label %88
 
 88:                                               ; preds = %42, %38, %34, %30, %25, %17, %19, %5, %._crit_edge
   %.040 = phi ptr [ null, %._crit_edge ], [ @.str.15, %5 ], [ @.str.18, %19 ], [ @.str.18, %17 ], [ @.str.17, %25 ], [ %33, %30 ], [ @.str.17, %34 ], [ %41, %38 ], [ @.str.17, %42 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
   ret ptr %.040
 }
 
-declare void @nstime_copy(ptr noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare void @nstime_copy(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: nounwind uwtable
-define hidden noundef ptr @time_shift_undo(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden noundef ptr @time_shift_undo(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.nstime_t, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %3
 
@@ -673,14 +731,14 @@ define hidden noundef ptr @time_shift_undo(ptr noundef readonly captures(address
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %4, align 8
   store i64 0, ptr %2, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call ptr @frame_data_sequence_find(ptr noundef %6, i32 noundef 1) #9
+  %7 = tail call ptr @frame_data_sequence_find(ptr noundef %6, i32 noundef 1)
   %.not11 = icmp eq ptr %7, null
   br i1 %.not11, label %19, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load i32, ptr %8, align 8
   %.not1213 = icmp eq i32 %9, 0
   br i1 %.not1213, label %._crit_edge, label %.lr.ph
@@ -688,73 +746,81 @@ define hidden noundef ptr @time_shift_undo(ptr noundef readonly captures(address
 .lr.ph:                                           ; preds = %.preheader, %16
   %.0814 = phi i32 [ %17, %16 ], [ 1, %.preheader ]
   %10 = load ptr, ptr %5, align 8
-  %11 = call ptr @frame_data_sequence_find(ptr noundef %10, i32 noundef %.0814) #9
+  %11 = call ptr @frame_data_sequence_find(ptr noundef %10, i32 noundef %.0814)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  call void @nstime_delta(ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef nonnull %15) #9
-  call void @nstime_set_zero(ptr noundef nonnull %15) #9
-  call void @nstime_delta(ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef nonnull %2) #9
-  call void @nstime_delta(ptr noundef nonnull %15, ptr noundef nonnull %15, ptr noundef nonnull %2) #9
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 80
+  call void @nstime_delta(ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef nonnull %15)
+  call void @nstime_set_zero(ptr noundef nonnull %15)
+  call void @nstime_delta(ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef nonnull %2)
+  call void @nstime_delta(ptr noundef nonnull %15, ptr noundef nonnull %15, ptr noundef nonnull %2)
   br label %16
 
 16:                                               ; preds = %.lr.ph, %13
   %17 = add i32 %.0814, 1
   %18 = load i32, ptr %8, align 8
   %.not12 = icmp ugt i32 %17, %18
-  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %16, %.preheader
-  call void @packet_list_queue_draw() #9
+  call void @packet_list_queue_draw()
   br label %19
 
 19:                                               ; preds = %3, %1, %._crit_edge
   %.0 = phi ptr [ null, %._crit_edge ], [ @.str.15, %1 ], [ @.str.17, %3 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
   ret ptr %.0
 }
 
-declare void @nstime_sum(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare void @nstime_sum(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: nounwind
-declare ptr @localtime(ptr noundef) local_unnamed_addr #5
+; Function Attrs: nounwind null_pointer_is_valid
+declare ptr @localtime(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
-
-; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #8
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare x86_fp80 @llvm.fmuladd.f80(x86_fp80, x86_fp80, x86_fp80) #4
+declare x86_fp80 @llvm.fmuladd.f80(x86_fp80, x86_fp80, x86_fp80) #5
 
-attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind }
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { nofree nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nofree nounwind null_pointer_is_valid willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

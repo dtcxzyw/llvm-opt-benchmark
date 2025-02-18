@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
 
 @proto_register_banana.hf = internal global [8 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_banana_list, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 7, i32 1, ptr null, i64 0, ptr @.str.2, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_banana_int, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 7, i32 1, ptr null, i64 0, ptr @.str.5, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_banana_string, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 26, i32 0, ptr null, i64 0, ptr @.str.8, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_banana_neg_int, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 15, i32 1, ptr null, i64 0, ptr @.str.11, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_banana_float, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 23, i32 0, ptr null, i64 0, ptr @.str.14, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_banana_lg_int, %struct._header_field_info { ptr @.str.12, ptr @.str.15, i32 30, i32 0, ptr null, i64 0, ptr @.str.16, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_banana_lg_neg_int, %struct._header_field_info { ptr @.str.12, ptr @.str.17, i32 30, i32 0, ptr null, i64 0, ptr @.str.18, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_banana_pb, %struct._header_field_info { ptr @.str.19, ptr @.str.20, i32 4, i32 2, ptr @pb_vals, i64 0, ptr @.str.21, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
@@ -40,12 +37,11 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_banana_pb = internal global i32 0, align 4
 @.str.19 = private unnamed_addr constant [17 x i8] c"pb Profile Value\00", align 1
 @.str.20 = private unnamed_addr constant [10 x i8] c"banana.pb\00", align 1
-@pb_vals = internal constant [32 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.37 }, %struct._value_string { i32 2, ptr @.str.38 }, %struct._value_string { i32 3, ptr @.str.39 }, %struct._value_string { i32 4, ptr @.str.40 }, %struct._value_string { i32 5, ptr @.str.41 }, %struct._value_string { i32 6, ptr @.str.42 }, %struct._value_string { i32 7, ptr @.str.43 }, %struct._value_string { i32 8, ptr @.str.44 }, %struct._value_string { i32 9, ptr @.str.45 }, %struct._value_string { i32 10, ptr @.str.46 }, %struct._value_string { i32 11, ptr @.str.47 }, %struct._value_string { i32 12, ptr @.str.48 }, %struct._value_string { i32 13, ptr @.str.49 }, %struct._value_string { i32 14, ptr @.str.50 }, %struct._value_string { i32 15, ptr @.str.51 }, %struct._value_string { i32 16, ptr @.str.52 }, %struct._value_string { i32 17, ptr @.str.53 }, %struct._value_string { i32 18, ptr @.str.54 }, %struct._value_string { i32 19, ptr @.str.55 }, %struct._value_string { i32 20, ptr @.str.56 }, %struct._value_string { i32 21, ptr @.str.57 }, %struct._value_string { i32 22, ptr @.str.58 }, %struct._value_string { i32 23, ptr @.str.59 }, %struct._value_string { i32 24, ptr @.str.60 }, %struct._value_string { i32 25, ptr @.str.61 }, %struct._value_string { i32 26, ptr @.str.62 }, %struct._value_string { i32 27, ptr @.str.63 }, %struct._value_string { i32 28, ptr @.str.64 }, %struct._value_string { i32 29, ptr @.str.65 }, %struct._value_string { i32 30, ptr @.str.66 }, %struct._value_string { i32 31, ptr @.str.67 }, %struct._value_string zeroinitializer], align 16
 @.str.21 = private unnamed_addr constant [40 x i8] c"Banana Perspective Broker Profile Value\00", align 1
 @proto_register_banana.ett = internal global [2 x ptr] [ptr @ett_banana, ptr @ett_list], align 16
 @ett_banana = internal global i32 0, align 4
 @ett_list = internal global i32 0, align 4
-@proto_register_banana.ei = internal global [5 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_banana_unknown_type, %struct.expert_field_info { ptr @.str.22, i32 83886080, i32 8388608, ptr @.str.23, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_banana_too_many_value_bytes, %struct.expert_field_info { ptr @.str.24, i32 83886080, i32 8388608, ptr @.str.25, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_banana_length_too_long, %struct.expert_field_info { ptr @.str.26, i32 83886080, i32 8388608, ptr @.str.27, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_banana_value_too_large, %struct.expert_field_info { ptr @.str.28, i32 117440512, i32 8388608, ptr @.str.29, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_banana_pb_error, %struct.expert_field_info { ptr @.str.30, i32 117440512, i32 8388608, ptr @.str.31, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_banana.ei = internal global [5 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_banana_unknown_type, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.22, i32 83886080, i32 8388608, ptr @.str.23, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_banana_too_many_value_bytes, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.24, i32 83886080, i32 8388608, ptr @.str.25, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_banana_length_too_long, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.26, i32 83886080, i32 8388608, ptr @.str.27, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_banana_value_too_large, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.28, i32 117440512, i32 8388608, ptr @.str.29, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_banana_pb_error, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.30, i32 117440512, i32 8388608, ptr @.str.31, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_banana_unknown_type = internal global %struct.expert_field zeroinitializer, align 4
 @.str.22 = private unnamed_addr constant [20 x i8] c"banana.unknown_type\00", align 1
 @.str.23 = private unnamed_addr constant [13 x i8] c"Unknown type\00", align 1
@@ -99,72 +95,79 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.65 = private unnamed_addr constant [7 x i8] c"decref\00", align 1
 @.str.66 = private unnamed_addr constant [8 x i8] c"decache\00", align 1
 @.str.67 = private unnamed_addr constant [8 x i8] c"uncache\00", align 1
-@.str.68 = private unnamed_addr constant [18 x i8] c"First element: %s\00", align 1
-@type_vals = internal constant [9 x %struct._value_string] [%struct._value_string { i32 128, ptr @.str.70 }, %struct._value_string { i32 129, ptr @.str.3 }, %struct._value_string { i32 130, ptr @.str.6 }, %struct._value_string { i32 131, ptr @.str.9 }, %struct._value_string { i32 132, ptr @.str.12 }, %struct._value_string { i32 133, ptr @.str.71 }, %struct._value_string { i32 134, ptr @.str.72 }, %struct._value_string { i32 135, ptr @.str.73 }, %struct._value_string zeroinitializer], align 16
-@.str.69 = private unnamed_addr constant [17 x i8] c"Unknown type: %u\00", align 1
-@.str.70 = private unnamed_addr constant [5 x i8] c"List\00", align 1
-@.str.71 = private unnamed_addr constant [14 x i8] c"Large Integer\00", align 1
-@.str.72 = private unnamed_addr constant [23 x i8] c"Large Negative Integer\00", align 1
-@.str.73 = private unnamed_addr constant [11 x i8] c"pb Profile\00", align 1
-@.str.74 = private unnamed_addr constant [16 x i8] c"Unknown type %u\00", align 1
-@.str.75 = private unnamed_addr constant [42 x i8] c"List length %ld longer than we can handle\00", align 1
-@.str.76 = private unnamed_addr constant [11 x i8] c"(%d items)\00", align 1
-@.str.77 = private unnamed_addr constant [28 x i8] c"Integer value %ld too large\00", align 1
-@.str.78 = private unnamed_addr constant [44 x i8] c"String length %ld longer than we can handle\00", align 1
-@.str.79 = private unnamed_addr constant [29 x i8] c"Integer value -%ld too large\00", align 1
+@pb_vals = internal constant [32 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.37 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.38 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.39 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.40 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.41 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.42 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.43 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.44 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.45 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.46 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.48 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.49 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.50 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.51 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.52 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.53 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.54 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.55 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.56 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.57 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.58 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.59 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.60 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.61 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.62 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.63 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.64 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.65 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.66 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.67 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.69 = private unnamed_addr constant [18 x i8] c"First element: %s\00", align 1
+@.str.70 = private unnamed_addr constant [17 x i8] c"Unknown type: %u\00", align 1
+@.str.71 = private unnamed_addr constant [5 x i8] c"List\00", align 1
+@.str.72 = private unnamed_addr constant [14 x i8] c"Large Integer\00", align 1
+@.str.73 = private unnamed_addr constant [23 x i8] c"Large Negative Integer\00", align 1
+@.str.74 = private unnamed_addr constant [11 x i8] c"pb Profile\00", align 1
+@type_vals = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 128, [4 x i8] zeroinitializer, ptr @.str.71 }, { i32, [4 x i8], ptr } { i32 129, [4 x i8] zeroinitializer, ptr @.str.3 }, { i32, [4 x i8], ptr } { i32 130, [4 x i8] zeroinitializer, ptr @.str.6 }, { i32, [4 x i8], ptr } { i32 131, [4 x i8] zeroinitializer, ptr @.str.9 }, { i32, [4 x i8], ptr } { i32 132, [4 x i8] zeroinitializer, ptr @.str.12 }, { i32, [4 x i8], ptr } { i32 133, [4 x i8] zeroinitializer, ptr @.str.72 }, { i32, [4 x i8], ptr } { i32 134, [4 x i8] zeroinitializer, ptr @.str.73 }, { i32, [4 x i8], ptr } { i32 135, [4 x i8] zeroinitializer, ptr @.str.74 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.76 = private unnamed_addr constant [16 x i8] c"Unknown type %u\00", align 1
+@.str.77 = private unnamed_addr constant [42 x i8] c"List length %ld longer than we can handle\00", align 1
+@.str.78 = private unnamed_addr constant [11 x i8] c"(%d items)\00", align 1
+@.str.79 = private unnamed_addr constant [28 x i8] c"Integer value %ld too large\00", align 1
+@.str.80 = private unnamed_addr constant [44 x i8] c"String length %ld longer than we can handle\00", align 1
+@.str.81 = private unnamed_addr constant [29 x i8] c"Integer value -%ld too large\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_banana() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34) #2
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34)
   store i32 %1, ptr @proto_banana, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_banana.hf, i32 noundef 8) #2
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_banana.ett, i32 noundef 2) #2
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_banana.hf, i32 noundef 8)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_banana.ett, i32 noundef 2)
   %2 = load i32, ptr @proto_banana, align 4
-  %3 = tail call ptr @expert_register_protocol(i32 noundef %2) #2
-  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_banana.ei, i32 noundef 5) #2
+  %3 = tail call ptr @expert_register_protocol(i32 noundef %2)
+  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_banana.ei, i32 noundef 5)
   %4 = load i32, ptr @proto_banana, align 4
-  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.34, ptr noundef nonnull @dissect_banana, i32 noundef %4) #2
+  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.34, ptr noundef nonnull @dissect_banana, i32 noundef %4)
   store ptr %5, ptr @banana_handle, align 8
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_banana(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
-  %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
+  %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %6 = icmp ult i32 %5, 2
   br i1 %6, label %32, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
-  tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.33) #2
-  %10 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #2
+  tail call void @col_set_str(ptr noundef %9, i32 noundef 35, ptr noundef nonnull @.str.33)
+  %10 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 12:                                               ; preds = %.lr.ph
   %13 = add nuw nsw i32 %.02830, 1
-  %14 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %13) #2
+  %14 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %13)
   %15 = icmp sgt i32 %14, 0
   %16 = icmp samesign ult i32 %.02830, 7
   %17 = select i1 %15, i1 %16, i1 false
-  br i1 %17, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !4
+  br i1 %17, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %7, %12
   %.02830 = phi i32 [ %13, %12 ], [ 0, %7 ]
-  %18 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02830) #2
+  %18 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02830)
   %or.cond = icmp slt i8 %18, -120
   br i1 %or.cond, label %._crit_edge.loopexit, label %12
 
@@ -175,12 +178,12 @@ define internal i32 @dissect_banana(ptr noundef %0, ptr noundef %1, ptr noundef 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %7
   %.1 = phi i32 [ 0, %7 ], [ %19, %._crit_edge.loopexit ]
   %20 = load ptr, ptr %8, align 8
-  %21 = tail call ptr @val_to_str(i32 noundef %.1, ptr noundef nonnull @type_vals, ptr noundef nonnull @.str.69) #2
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.68, ptr noundef %21) #2
+  %21 = tail call ptr @val_to_str(i32 noundef %.1, ptr noundef nonnull @type_vals, ptr noundef nonnull @.str.70)
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.69, ptr noundef %21)
   %22 = load i32, ptr @proto_banana, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %24 = load i32, ptr @ett_banana, align 4
-  %25 = tail call ptr @proto_item_add_subtree(ptr noundef %23, i32 noundef %24) #2
+  %25 = tail call ptr @proto_item_add_subtree(ptr noundef %23, i32 noundef %24)
   br label %26
 
 26:                                               ; preds = %._crit_edge, %26
@@ -188,10 +191,10 @@ define internal i32 @dissect_banana(ptr noundef %0, ptr noundef %1, ptr noundef 
   %27 = tail call fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %1, ptr noundef %25, i32 noundef %.12933)
   %28 = add i32 %27, %.12933
   %29 = icmp sgt i32 %28, %.12933
-  br i1 %29, label %26, label %30, !llvm.loop !6
+  br i1 %29, label %26, label %30, !llvm.loop !8
 
 30:                                               ; preds = %26
-  %31 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
+  %31 = tail call i32 @tvb_reported_length(ptr noundef %0)
   br label %32
 
 32:                                               ; preds = %4, %30
@@ -199,34 +202,43 @@ define internal i32 @dissect_banana(ptr noundef %0, ptr noundef %1, ptr noundef 
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_banana() local_unnamed_addr #0 {
   %1 = load ptr, ptr @banana_handle, align 8
-  tail call void @dissector_add_uint_range_with_preference(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36, ptr noundef %1) #2
+  tail call void @dissector_add_uint_range_with_preference(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36, ptr noundef %1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #2
+  %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3)
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge.thread
 
@@ -234,7 +246,7 @@ define internal fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %
   %.095108 = phi i32 [ %8, %23 ], [ %3, %4 ]
   %.096107 = phi i32 [ %.197, %23 ], [ 0, %4 ]
   %.098106 = phi i64 [ %.199, %23 ], [ 0, %4 ]
-  %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.095108) #2
+  %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.095108)
   %8 = add i32 %.095108, 1
   %9 = zext i8 %7 to i32
   %.not = icmp sgt i8 %7, -1
@@ -245,7 +257,7 @@ define internal fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %
   br i1 %11, label %._crit_edge, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_banana_unknown_type, ptr noundef nonnull @.str.74, i32 noundef %9) #2
+  %13 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_banana_unknown_type, ptr noundef nonnull @.str.76, i32 noundef %9)
   br label %23
 
 14:                                               ; preds = %.lr.ph
@@ -254,7 +266,7 @@ define internal fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %14
-  %18 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_banana_too_many_value_bytes) #2
+  %18 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_banana_too_many_value_bytes)
   br label %19
 
 19:                                               ; preds = %17, %14
@@ -266,9 +278,9 @@ define internal fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %
 23:                                               ; preds = %19, %12
   %.199 = phi i64 [ %.098106, %12 ], [ %22, %19 ]
   %.197 = phi i32 [ %.096107, %12 ], [ %15, %19 ]
-  %24 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %8) #2
+  %24 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %8)
   %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %23, %10
   %.098.lcssa.ph = phi i64 [ %.199, %23 ], [ %.098106, %10 ]
@@ -289,16 +301,16 @@ define internal fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %26
-  %29 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_banana_length_too_long, ptr noundef nonnull @.str.75, i64 noundef %.098.lcssa.ph) #2
+  %29 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_banana_length_too_long, ptr noundef nonnull @.str.77, i64 noundef %.098.lcssa.ph)
   br label %30
 
 30:                                               ; preds = %28, %26
   %31 = load i32, ptr @hf_banana_list, align 4
   %32 = sub i32 %.095108, %3
   %33 = trunc i64 %.098.lcssa.ph to i32
-  %34 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef %3, i32 noundef %32, i32 noundef %33, ptr noundef nonnull @.str.76, i32 noundef %33) #2
+  %34 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef %3, i32 noundef %32, i32 noundef %33, ptr noundef nonnull @.str.78, i32 noundef %33)
   %35 = load i32, ptr @ett_list, align 4
-  %36 = tail call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %35) #2
+  %36 = tail call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %35)
   %37 = icmp sgt i64 %.098.lcssa.ph, 0
   br i1 %37, label %.lr.ph120, label %.loopexit
 
@@ -306,15 +318,15 @@ define internal fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %
   %39 = add i32 %.0118, 1
   %40 = sext i32 %39 to i64
   %41 = icmp sgt i64 %.098.lcssa.ph, %40
-  br i1 %41, label %.lr.ph120, label %.loopexit, !llvm.loop !8
+  br i1 %41, label %.lr.ph120, label %.loopexit, !llvm.loop !10
 
 .lr.ph120:                                        ; preds = %30, %38
   %.0118 = phi i32 [ %39, %38 ], [ 0, %30 ]
   %.2117 = phi i32 [ %43, %38 ], [ %8, %30 ]
-  tail call void @increment_dissection_depth(ptr noundef %1) #2
+  tail call void @increment_dissection_depth(ptr noundef %1)
   %42 = tail call fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %1, ptr noundef %36, i32 noundef %.2117)
   %43 = add i32 %42, %.2117
-  tail call void @decrement_dissection_depth(ptr noundef %1) #2
+  tail call void @decrement_dissection_depth(ptr noundef %1)
   %.not104 = icmp sgt i32 %43, %.2117
   br i1 %.not104, label %38, label %44
 
@@ -327,14 +339,14 @@ define internal fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %46
-  %49 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_banana_value_too_large, ptr noundef nonnull @.str.77, i64 noundef %.098.lcssa.ph) #2
+  %49 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_banana_value_too_large, ptr noundef nonnull @.str.79, i64 noundef %.098.lcssa.ph)
   br label %50
 
 50:                                               ; preds = %48, %46
   %51 = load i32, ptr @hf_banana_int, align 4
   %52 = sub i32 %8, %3
   %53 = trunc i64 %.098.lcssa.ph to i32
-  %54 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %51, ptr noundef %0, i32 noundef %3, i32 noundef %52, i32 noundef %53) #2
+  %54 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %51, ptr noundef %0, i32 noundef %3, i32 noundef %52, i32 noundef %53)
   br label %.loopexit
 
 55:                                               ; preds = %._crit_edge
@@ -342,13 +354,13 @@ define internal fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %55
-  %58 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_banana_length_too_long, ptr noundef nonnull @.str.78, i64 noundef %.098.lcssa.ph) #2
+  %58 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_banana_length_too_long, ptr noundef nonnull @.str.80, i64 noundef %.098.lcssa.ph)
   br label %59
 
 59:                                               ; preds = %57, %55
   %60 = load i32, ptr @hf_banana_string, align 4
   %61 = trunc i64 %.098.lcssa.ph to i32
-  %62 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %60, ptr noundef %0, i32 noundef %8, i32 noundef %61, i32 noundef 0) #2
+  %62 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %60, ptr noundef %0, i32 noundef %8, i32 noundef %61, i32 noundef 0)
   %63 = add i32 %8, %61
   br label %.loopexit
 
@@ -357,7 +369,7 @@ define internal fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %64
-  %67 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_banana_value_too_large, ptr noundef nonnull @.str.79, i64 noundef %.098.lcssa.ph) #2
+  %67 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_banana_value_too_large, ptr noundef nonnull @.str.81, i64 noundef %.098.lcssa.ph)
   br label %68
 
 68:                                               ; preds = %66, %64
@@ -365,25 +377,25 @@ define internal fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %
   %70 = sub i32 %8, %3
   %71 = trunc i64 %.098.lcssa.ph to i32
   %72 = sub i32 0, %71
-  %73 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %69, ptr noundef %0, i32 noundef %3, i32 noundef %70, i32 noundef %72) #2
+  %73 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %69, ptr noundef %0, i32 noundef %3, i32 noundef %70, i32 noundef %72)
   br label %.loopexit
 
 74:                                               ; preds = %._crit_edge
   %75 = load i32, ptr @hf_banana_float, align 4
-  %76 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %75, ptr noundef %0, i32 noundef %8, i32 noundef 8, i32 noundef 0) #2
+  %76 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %75, ptr noundef %0, i32 noundef %8, i32 noundef 8, i32 noundef 0)
   %77 = add i32 %.095108, 9
   br label %.loopexit
 
 78:                                               ; preds = %._crit_edge
   %79 = load i32, ptr @hf_banana_lg_int, align 4
   %80 = sub i32 %8, %3
-  %81 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %79, ptr noundef %0, i32 noundef %3, i32 noundef %80, i32 noundef 0) #2
+  %81 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %79, ptr noundef %0, i32 noundef %3, i32 noundef %80, i32 noundef 0)
   br label %.loopexit
 
 82:                                               ; preds = %._crit_edge
   %83 = load i32, ptr @hf_banana_lg_neg_int, align 4
   %84 = sub i32 %8, %3
-  %85 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %83, ptr noundef %0, i32 noundef %3, i32 noundef %84, i32 noundef 0) #2
+  %85 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %83, ptr noundef %0, i32 noundef %3, i32 noundef %84, i32 noundef 0)
   br label %.loopexit
 
 86:                                               ; preds = %._crit_edge
@@ -391,13 +403,13 @@ define internal fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %86
-  %89 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_banana_pb_error) #2
+  %89 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_banana_pb_error)
   br label %90
 
 90:                                               ; preds = %88, %86
   %91 = load i32, ptr @hf_banana_pb, align 4
   %92 = add i32 %.095108, -1
-  %93 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %91, ptr noundef %0, i32 noundef %92, i32 noundef 1, i32 noundef 0) #2
+  %93 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %91, ptr noundef %0, i32 noundef %92, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %38, %30, %90, %82, %78, %74, %68, %59, %50
@@ -410,32 +422,40 @@ define internal fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %
   ret i32 %.094
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

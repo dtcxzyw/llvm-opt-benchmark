@@ -3,12 +3,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct._range_string = type { i64, i64, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -17,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_kink_type = internal global i32 0, align 4
 @.str = private unnamed_addr constant [5 x i8] c"Type\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"kink.type\00", align 1
-@kink_type_vals = internal constant [8 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.52 }, %struct._value_string { i32 1, ptr @.str.53 }, %struct._value_string { i32 2, ptr @.str.54 }, %struct._value_string { i32 3, ptr @.str.55 }, %struct._value_string { i32 4, ptr @.str.56 }, %struct._value_string { i32 5, ptr @.str.57 }, %struct._value_string { i32 6, ptr @.str.58 }, %struct._value_string zeroinitializer], align 16
 @hf_kink_length = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [7 x i8] c"Length\00", align 1
 @.str.3 = private unnamed_addr constant [12 x i8] c"kink.length\00", align 1
@@ -30,7 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_kink_A = internal global i32 0, align 4
 @.str.8 = private unnamed_addr constant [2 x i8] c"A\00", align 1
 @.str.9 = private unnamed_addr constant [7 x i8] c"kink.A\00", align 1
-@kink_A_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.59 }, %struct._value_string { i32 1, ptr @.str.60 }, %struct._value_string zeroinitializer], align 16
 @hf_kink_version = internal global i32 0, align 4
 @.str.10 = private unnamed_addr constant [8 x i8] c"Version\00", align 1
 @.str.11 = private unnamed_addr constant [13 x i8] c"kink.version\00", align 1
@@ -43,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_kink_error_code = internal global i32 0, align 4
 @.str.16 = private unnamed_addr constant [10 x i8] c"ErrorCode\00", align 1
 @.str.17 = private unnamed_addr constant [16 x i8] c"kink.error_code\00", align 1
-@kink_error_rvals = internal constant [11 x %struct._range_string] [%struct._range_string { i64 0, i64 0, ptr @.str.62 }, %struct._range_string { i64 1, i64 1, ptr @.str.63 }, %struct._range_string { i64 2, i64 2, ptr @.str.64 }, %struct._range_string { i64 3, i64 3, ptr @.str.65 }, %struct._range_string { i64 4, i64 4, ptr @.str.66 }, %struct._range_string { i64 5, i64 5, ptr @.str.67 }, %struct._range_string { i64 6, i64 6, ptr @.str.68 }, %struct._range_string { i64 7, i64 8191, ptr @.str.52 }, %struct._range_string { i64 8192, i64 16383, ptr @.str.69 }, %struct._range_string { i64 16384, i64 4294967295, ptr @.str.70 }, %struct._range_string zeroinitializer], align 16
+@kink_error_rvals = internal constant [11 x %struct._range_string] [%struct._range_string { i64 0, i64 0, ptr @.str.64 }, %struct._range_string { i64 1, i64 1, ptr @.str.65 }, %struct._range_string { i64 2, i64 2, ptr @.str.66 }, %struct._range_string { i64 3, i64 3, ptr @.str.67 }, %struct._range_string { i64 4, i64 4, ptr @.str.68 }, %struct._range_string { i64 5, i64 5, ptr @.str.69 }, %struct._range_string { i64 6, i64 6, ptr @.str.70 }, %struct._range_string { i64 7, i64 8191, ptr @.str.52 }, %struct._range_string { i64 8192, i64 16383, ptr @.str.71 }, %struct._range_string { i64 16384, i64 4294967295, ptr @.str.72 }, %struct._range_string zeroinitializer], align 16
 @hf_kink_reserved8 = internal global i32 0, align 4
 @.str.18 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
 @.str.19 = private unnamed_addr constant [14 x i8] c"kink.reserved\00", align 1
@@ -56,7 +51,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_kink_next_payload = internal global i32 0, align 4
 @.str.22 = private unnamed_addr constant [13 x i8] c"Next Payload\00", align 1
 @.str.23 = private unnamed_addr constant [17 x i8] c"kink.nextPayload\00", align 1
-@kink_next_payload = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.71 }, %struct._value_string { i32 14, ptr @.str.72 }, %struct._value_string { i32 15, ptr @.str.73 }, %struct._value_string { i32 16, ptr @.str.74 }, %struct._value_string { i32 17, ptr @.str.75 }, %struct._value_string { i32 18, ptr @.str.76 }, %struct._value_string { i32 19, ptr @.str.77 }, %struct._value_string { i32 20, ptr @.str.78 }, %struct._value_string { i32 21, ptr @.str.79 }, %struct._value_string zeroinitializer], align 16
 @hf_kink_payload_length = internal global i32 0, align 4
 @.str.24 = private unnamed_addr constant [15 x i8] c"Payload Length\00", align 1
 @.str.25 = private unnamed_addr constant [19 x i8] c"kink.payloadLength\00", align 1
@@ -100,7 +94,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_payload_kink_error = internal global i32 0, align 4
 @ett_payload_not_defined = internal global i32 0, align 4
 @ett_decrypt_kink_encrypt = internal global i32 0, align 4
-@proto_register_kink.ei = internal global [2 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_kink_payload_length_small, %struct.expert_field_info { ptr @.str.44, i32 150994944, i32 6291456, ptr @.str.45, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_kink_payload_length_mismatch, %struct.expert_field_info { ptr @.str.46, i32 150994944, i32 6291456, ptr @.str.47, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_kink.ei = internal global [2 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_kink_payload_length_small, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.44, i32 150994944, i32 6291456, ptr @.str.45, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_kink_payload_length_mismatch, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.46, i32 150994944, i32 6291456, ptr @.str.47, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_kink_payload_length_small = internal global %struct.expert_field zeroinitializer, align 4
 @.str.44 = private unnamed_addr constant [26 x i8] c"kink.payload_length_small\00", align 1
 @.str.45 = private unnamed_addr constant [33 x i8] c"This Payload Length is too small\00", align 1
@@ -120,38 +114,42 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.56 = private unnamed_addr constant [7 x i8] c"GETTGT\00", align 1
 @.str.57 = private unnamed_addr constant [4 x i8] c"ACK\00", align 1
 @.str.58 = private unnamed_addr constant [7 x i8] c"STATUS\00", align 1
-@.str.59 = private unnamed_addr constant [16 x i8] c"Not Request ACK\00", align 1
-@.str.60 = private unnamed_addr constant [12 x i8] c"Request ACK\00", align 1
-@.str.61 = private unnamed_addr constant [8 x i8] c"%d.%02d\00", align 1
-@.str.62 = private unnamed_addr constant [8 x i8] c"KINK_OK\00", align 1
-@.str.63 = private unnamed_addr constant [14 x i8] c"KINK_PROTOERR\00", align 1
-@.str.64 = private unnamed_addr constant [12 x i8] c"KINK_INVDOI\00", align 1
-@.str.65 = private unnamed_addr constant [12 x i8] c"KINK_INVMAJ\00", align 1
-@.str.66 = private unnamed_addr constant [12 x i8] c"KINK_INVMIN\00", align 1
-@.str.67 = private unnamed_addr constant [12 x i8] c"KINK_INTERR\00", align 1
-@.str.68 = private unnamed_addr constant [15 x i8] c"KINK_BADQMVERS\00", align 1
-@.str.69 = private unnamed_addr constant [12 x i8] c"PRIVATE USE\00", align 1
-@.str.70 = private unnamed_addr constant [32 x i8] c"This Error Code is not Defined.\00", align 1
-@.str.71 = private unnamed_addr constant [10 x i8] c"KINK_DONE\00", align 1
-@.str.72 = private unnamed_addr constant [12 x i8] c"KINK_AP_REQ\00", align 1
-@.str.73 = private unnamed_addr constant [12 x i8] c"KINK_AP_REP\00", align 1
-@.str.74 = private unnamed_addr constant [15 x i8] c"KINK_KRB_ERROR\00", align 1
-@.str.75 = private unnamed_addr constant [13 x i8] c"KINK_TGT_REQ\00", align 1
-@.str.76 = private unnamed_addr constant [13 x i8] c"KINK_TGT_REP\00", align 1
-@.str.77 = private unnamed_addr constant [12 x i8] c"KINK_ISAKMP\00", align 1
-@.str.78 = private unnamed_addr constant [13 x i8] c"KINK_ENCRYPT\00", align 1
-@.str.79 = private unnamed_addr constant [11 x i8] c"KINK_ERROR\00", align 1
-@.str.80 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
-@.str.81 = private unnamed_addr constant [11 x i8] c"IPsec (%u)\00", align 1
-@.str.82 = private unnamed_addr constant [15 x i8] c"Not IPsec (%u)\00", align 1
+@kink_type_vals = internal constant [8 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.52 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.53 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.54 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.55 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.56 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.57 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.58 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.60 = private unnamed_addr constant [16 x i8] c"Not Request ACK\00", align 1
+@.str.61 = private unnamed_addr constant [12 x i8] c"Request ACK\00", align 1
+@kink_A_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.60 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.61 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.63 = private unnamed_addr constant [8 x i8] c"%d.%02d\00", align 1
+@.str.64 = private unnamed_addr constant [8 x i8] c"KINK_OK\00", align 1
+@.str.65 = private unnamed_addr constant [14 x i8] c"KINK_PROTOERR\00", align 1
+@.str.66 = private unnamed_addr constant [12 x i8] c"KINK_INVDOI\00", align 1
+@.str.67 = private unnamed_addr constant [12 x i8] c"KINK_INVMAJ\00", align 1
+@.str.68 = private unnamed_addr constant [12 x i8] c"KINK_INVMIN\00", align 1
+@.str.69 = private unnamed_addr constant [12 x i8] c"KINK_INTERR\00", align 1
+@.str.70 = private unnamed_addr constant [15 x i8] c"KINK_BADQMVERS\00", align 1
+@.str.71 = private unnamed_addr constant [12 x i8] c"PRIVATE USE\00", align 1
+@.str.72 = private unnamed_addr constant [32 x i8] c"This Error Code is not Defined.\00", align 1
+@.str.73 = private unnamed_addr constant [10 x i8] c"KINK_DONE\00", align 1
+@.str.74 = private unnamed_addr constant [12 x i8] c"KINK_AP_REQ\00", align 1
+@.str.75 = private unnamed_addr constant [12 x i8] c"KINK_AP_REP\00", align 1
+@.str.76 = private unnamed_addr constant [15 x i8] c"KINK_KRB_ERROR\00", align 1
+@.str.77 = private unnamed_addr constant [13 x i8] c"KINK_TGT_REQ\00", align 1
+@.str.78 = private unnamed_addr constant [13 x i8] c"KINK_TGT_REP\00", align 1
+@.str.79 = private unnamed_addr constant [12 x i8] c"KINK_ISAKMP\00", align 1
+@.str.80 = private unnamed_addr constant [13 x i8] c"KINK_ENCRYPT\00", align 1
+@.str.81 = private unnamed_addr constant [11 x i8] c"KINK_ERROR\00", align 1
+@kink_next_payload = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.73 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.74 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.75 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.76 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.77 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.78 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.79 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.80 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.81 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.83 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
+@.str.84 = private unnamed_addr constant [11 x i8] c"IPsec (%u)\00", align 1
+@.str.85 = private unnamed_addr constant [15 x i8] c"Not IPsec (%u)\00", align 1
 @keytype = internal global i32 0, align 4
-@.str.83 = private unnamed_addr constant [23 x i8] c"decrypted kink encrypt\00", align 1
-@.str.84 = private unnamed_addr constant [15 x i8] c"decrypted data\00", align 1
-@.str.85 = private unnamed_addr constant [16 x i8] c"UNKNOWN PAYLOAD\00", align 1
+@.str.86 = private unnamed_addr constant [23 x i8] c"decrypted kink encrypt\00", align 1
+@.str.87 = private unnamed_addr constant [15 x i8] c"decrypted data\00", align 1
+@.str.88 = private unnamed_addr constant [16 x i8] c"UNKNOWN PAYLOAD\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_kink() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #4
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.48, ptr noundef @.str.49, ptr noundef @.str.50)
   store i32 %2, ptr @proto_kink, align 4
   %3 = load i32, ptr @proto_kink, align 4
@@ -165,10 +163,11 @@ define hidden void @proto_register_kink() #0 {
   %7 = load i32, ptr @proto_kink, align 4
   %8 = call ptr @register_dissector(ptr noundef @.str.50, ptr noundef @dissect_kink, i32 noundef %7)
   store ptr %8, ptr @kink_handle, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @kink_fmt_version(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -176,6 +175,8 @@ define internal void @kink_fmt_version(ptr noundef %0, i32 noundef %1) #0 {
   %6 = alloca i8, align 1
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #4
   %7 = load i32, ptr %4, align 4
   %8 = and i32 %7, 240
   %9 = lshr i32 %8, 4
@@ -186,27 +187,40 @@ define internal void @kink_fmt_version(ptr noundef %0, i32 noundef %1) #0 {
   %13 = trunc i32 %12 to i8
   store i8 %13, ptr %6, align 1
   %14 = load ptr, ptr %3, align 8
-  %15 = load i8, ptr %5, align 1
-  %16 = zext i8 %15 to i32
-  %17 = load i8, ptr %6, align 1
+  %15 = load ptr, ptr %3, align 8
+  %16 = call i64 @llvm.objectsize.i64.p0(ptr %15, i1 false, i1 true, i1 true)
+  %17 = load i8, ptr %5, align 1
   %18 = zext i8 %17 to i32
-  %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %14, i64 noundef 240, ptr noundef @.str.61, i32 noundef %16, i32 noundef %18) #3
+  %19 = load i8, ptr %6, align 1
+  %20 = zext i8 %19 to i32
+  %21 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %14, i64 noundef 240, i32 noundef 2, i64 noundef %16, ptr noundef @.str.63, i32 noundef %18, i32 noundef %20)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #4
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kink(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -225,23 +239,32 @@ define internal i32 @dissect_kink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
   store ptr null, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
   store ptr null, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
   store i32 0, ptr %17, align 4
   %18 = load ptr, ptr %5, align 8
   %19 = load i32, ptr %17, align 4
-  %20 = call zeroext i8 @tvb_get_guint8(ptr noundef %18, i32 noundef %19)
+  %20 = call zeroext i8 @tvb_get_uint8(ptr noundef %18, i32 noundef %19)
   store i8 %20, ptr %11, align 1
   %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct._packet_info, ptr %21, i32 0, i32 1
+  %22 = getelementptr inbounds nuw %struct._packet_info, ptr %21, i32 0, i32 1
   %23 = load ptr, ptr %22, align 8
-  call void @col_set_str(ptr noundef %23, i32 noundef 34, ptr noundef @.str.49)
+  call void @col_set_str(ptr noundef %23, i32 noundef 35, ptr noundef @.str.49)
   %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct._packet_info, ptr %24, i32 0, i32 1
+  %25 = getelementptr inbounds nuw %struct._packet_info, ptr %24, i32 0, i32 1
   %26 = load ptr, ptr %25, align 8
   %27 = load i8, ptr %11, align 1
   %28 = zext i8 %27 to i32
-  %29 = call ptr @val_to_str_const(i32 noundef %28, ptr noundef @kink_type_vals, ptr noundef @.str.80)
+  %29 = call ptr @val_to_str_const(i32 noundef %28, ptr noundef @kink_type_vals, ptr noundef @.str.83)
   call void @col_set_str(ptr noundef %26, i32 noundef 25, ptr noundef %29)
   %30 = load ptr, ptr %7, align 8
   %31 = load i32, ptr @proto_kink, align 4
@@ -294,7 +317,7 @@ define internal i32 @dissect_kink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %70 = load i32, ptr %17, align 4
   %71 = load i32, ptr %12, align 4
   %72 = load i32, ptr %12, align 4
-  %73 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %67, i32 noundef %68, ptr noundef %69, i32 noundef %70, i32 noundef 4, i32 noundef %71, ptr noundef @.str.81, i32 noundef %72)
+  %73 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %67, i32 noundef %68, ptr noundef %69, i32 noundef %70, i32 noundef 4, i32 noundef %71, ptr noundef @.str.84, i32 noundef %72)
   br label %82
 
 74:                                               ; preds = %4
@@ -304,7 +327,7 @@ define internal i32 @dissect_kink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %78 = load i32, ptr %17, align 4
   %79 = load i32, ptr %12, align 4
   %80 = load i32, ptr %12, align 4
-  %81 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %75, i32 noundef %76, ptr noundef %77, i32 noundef %78, i32 noundef 4, i32 noundef %79, ptr noundef @.str.82, i32 noundef %80)
+  %81 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %75, i32 noundef %76, ptr noundef %77, i32 noundef %78, i32 noundef 4, i32 noundef %79, ptr noundef @.str.85, i32 noundef %80)
   br label %82
 
 82:                                               ; preds = %74, %66
@@ -321,7 +344,7 @@ define internal i32 @dissect_kink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store i32 %91, ptr %17, align 4
   %92 = load ptr, ptr %5, align 8
   %93 = load i32, ptr %17, align 4
-  %94 = call zeroext i8 @tvb_get_guint8(ptr noundef %92, i32 noundef %93)
+  %94 = call zeroext i8 @tvb_get_uint8(ptr noundef %92, i32 noundef %93)
   %95 = zext i8 %94 to i32
   store i32 %95, ptr %13, align 4
   %96 = load ptr, ptr %10, align 8
@@ -334,7 +357,7 @@ define internal i32 @dissect_kink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store i32 %102, ptr %17, align 4
   %103 = load ptr, ptr %5, align 8
   %104 = load i32, ptr %17, align 4
-  %105 = call zeroext i8 @tvb_get_guint8(ptr noundef %103, i32 noundef %104)
+  %105 = call zeroext i8 @tvb_get_uint8(ptr noundef %103, i32 noundef %104)
   store i8 %105, ptr %14, align 1
   %106 = load ptr, ptr %10, align 8
   %107 = load i32, ptr @hf_kink_next_payload, align 4
@@ -348,7 +371,7 @@ define internal i32 @dissect_kink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store i32 %114, ptr %17, align 4
   %115 = load ptr, ptr %5, align 8
   %116 = load i32, ptr %17, align 4
-  %117 = call zeroext i8 @tvb_get_guint8(ptr noundef %115, i32 noundef %116)
+  %117 = call zeroext i8 @tvb_get_uint8(ptr noundef %115, i32 noundef %116)
   store i8 %117, ptr %15, align 1
   %118 = load i8, ptr %15, align 1
   %119 = zext i8 %118 to i32
@@ -411,38 +434,62 @@ define internal i32 @dissect_kink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   call void @control_payload(ptr noundef %160, ptr noundef %161, i32 noundef %162, i8 noundef zeroext %163, ptr noundef %164)
   %165 = load ptr, ptr %5, align 8
   %166 = call i32 @tvb_captured_length(ptr noundef %165)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret i32 %166
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_kink() #0 {
   %1 = load ptr, ptr @kink_handle, align 8
   call void @dissector_add_uint_with_preference(ptr noundef @.str.51, i32 noundef 910, ptr noundef %1)
   ret void
 }
 
-declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind
-declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.objectsize.i64.p0(ptr, i1 immarg, i1 immarg, i1 immarg) #3
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @control_payload(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -456,100 +503,98 @@ define internal void @control_payload(ptr noundef %0, ptr noundef %1, i32 nounde
   store ptr %4, ptr %10, align 8
   %11 = load i8, ptr %9, align 1
   %12 = zext i8 %11 to i32
-  switch i32 %12, label %54 [
-    i32 0, label %13
-    i32 14, label %14
-    i32 15, label %19
-    i32 16, label %24
-    i32 17, label %29
-    i32 18, label %34
-    i32 19, label %39
-    i32 20, label %44
-    i32 21, label %49
+  switch i32 %12, label %53 [
+    i32 0, label %58
+    i32 14, label %13
+    i32 15, label %18
+    i32 16, label %23
+    i32 17, label %28
+    i32 18, label %33
+    i32 19, label %38
+    i32 20, label %43
+    i32 21, label %48
   ]
 
 13:                                               ; preds = %5
-  br label %59
+  %14 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load i32, ptr %8, align 4
+  %17 = load ptr, ptr %10, align 8
+  call void @dissect_payload_kink_ap_req(ptr noundef %14, ptr noundef %15, i32 noundef %16, ptr noundef %17)
+  br label %58
 
-14:                                               ; preds = %5
-  %15 = load ptr, ptr %6, align 8
-  %16 = load ptr, ptr %7, align 8
-  %17 = load i32, ptr %8, align 4
-  %18 = load ptr, ptr %10, align 8
-  call void @dissect_payload_kink_ap_req(ptr noundef %15, ptr noundef %16, i32 noundef %17, ptr noundef %18)
-  br label %59
+18:                                               ; preds = %5
+  %19 = load ptr, ptr %6, align 8
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %8, align 4
+  %22 = load ptr, ptr %10, align 8
+  call void @dissect_payload_kink_ap_rep(ptr noundef %19, ptr noundef %20, i32 noundef %21, ptr noundef %22)
+  br label %58
 
-19:                                               ; preds = %5
-  %20 = load ptr, ptr %6, align 8
-  %21 = load ptr, ptr %7, align 8
-  %22 = load i32, ptr %8, align 4
-  %23 = load ptr, ptr %10, align 8
-  call void @dissect_payload_kink_ap_rep(ptr noundef %20, ptr noundef %21, i32 noundef %22, ptr noundef %23)
-  br label %59
+23:                                               ; preds = %5
+  %24 = load ptr, ptr %6, align 8
+  %25 = load ptr, ptr %7, align 8
+  %26 = load i32, ptr %8, align 4
+  %27 = load ptr, ptr %10, align 8
+  call void @dissect_payload_kink_krb_error(ptr noundef %24, ptr noundef %25, i32 noundef %26, ptr noundef %27)
+  br label %58
 
-24:                                               ; preds = %5
-  %25 = load ptr, ptr %6, align 8
-  %26 = load ptr, ptr %7, align 8
-  %27 = load i32, ptr %8, align 4
-  %28 = load ptr, ptr %10, align 8
-  call void @dissect_payload_kink_krb_error(ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef %28)
-  br label %59
+28:                                               ; preds = %5
+  %29 = load ptr, ptr %6, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = load i32, ptr %8, align 4
+  %32 = load ptr, ptr %10, align 8
+  call void @dissect_payload_kink_tgt_req(ptr noundef %29, ptr noundef %30, i32 noundef %31, ptr noundef %32)
+  br label %58
 
-29:                                               ; preds = %5
-  %30 = load ptr, ptr %6, align 8
-  %31 = load ptr, ptr %7, align 8
-  %32 = load i32, ptr %8, align 4
-  %33 = load ptr, ptr %10, align 8
-  call void @dissect_payload_kink_tgt_req(ptr noundef %30, ptr noundef %31, i32 noundef %32, ptr noundef %33)
-  br label %59
+33:                                               ; preds = %5
+  %34 = load ptr, ptr %6, align 8
+  %35 = load ptr, ptr %7, align 8
+  %36 = load i32, ptr %8, align 4
+  %37 = load ptr, ptr %10, align 8
+  call void @dissect_payload_kink_tgt_rep(ptr noundef %34, ptr noundef %35, i32 noundef %36, ptr noundef %37)
+  br label %58
 
-34:                                               ; preds = %5
-  %35 = load ptr, ptr %6, align 8
-  %36 = load ptr, ptr %7, align 8
-  %37 = load i32, ptr %8, align 4
-  %38 = load ptr, ptr %10, align 8
-  call void @dissect_payload_kink_tgt_rep(ptr noundef %35, ptr noundef %36, i32 noundef %37, ptr noundef %38)
-  br label %59
+38:                                               ; preds = %5
+  %39 = load ptr, ptr %6, align 8
+  %40 = load ptr, ptr %7, align 8
+  %41 = load i32, ptr %8, align 4
+  %42 = load ptr, ptr %10, align 8
+  call void @dissect_payload_kink_isakmp(ptr noundef %39, ptr noundef %40, i32 noundef %41, ptr noundef %42)
+  br label %58
 
-39:                                               ; preds = %5
-  %40 = load ptr, ptr %6, align 8
-  %41 = load ptr, ptr %7, align 8
-  %42 = load i32, ptr %8, align 4
-  %43 = load ptr, ptr %10, align 8
-  call void @dissect_payload_kink_isakmp(ptr noundef %40, ptr noundef %41, i32 noundef %42, ptr noundef %43)
-  br label %59
+43:                                               ; preds = %5
+  %44 = load ptr, ptr %6, align 8
+  %45 = load ptr, ptr %7, align 8
+  %46 = load i32, ptr %8, align 4
+  %47 = load ptr, ptr %10, align 8
+  call void @dissect_payload_kink_encrypt(ptr noundef %44, ptr noundef %45, i32 noundef %46, ptr noundef %47)
+  br label %58
 
-44:                                               ; preds = %5
-  %45 = load ptr, ptr %6, align 8
-  %46 = load ptr, ptr %7, align 8
-  %47 = load i32, ptr %8, align 4
-  %48 = load ptr, ptr %10, align 8
-  call void @dissect_payload_kink_encrypt(ptr noundef %45, ptr noundef %46, i32 noundef %47, ptr noundef %48)
-  br label %59
+48:                                               ; preds = %5
+  %49 = load ptr, ptr %6, align 8
+  %50 = load ptr, ptr %7, align 8
+  %51 = load i32, ptr %8, align 4
+  %52 = load ptr, ptr %10, align 8
+  call void @dissect_payload_kink_error(ptr noundef %49, ptr noundef %50, i32 noundef %51, ptr noundef %52)
+  br label %58
 
-49:                                               ; preds = %5
-  %50 = load ptr, ptr %6, align 8
-  %51 = load ptr, ptr %7, align 8
-  %52 = load i32, ptr %8, align 4
-  %53 = load ptr, ptr %10, align 8
-  call void @dissect_payload_kink_error(ptr noundef %50, ptr noundef %51, i32 noundef %52, ptr noundef %53)
-  br label %59
+53:                                               ; preds = %5
+  %54 = load ptr, ptr %6, align 8
+  %55 = load ptr, ptr %7, align 8
+  %56 = load i32, ptr %8, align 4
+  %57 = load ptr, ptr %10, align 8
+  call void @dissect_payload_kink_not_defined(ptr noundef %54, ptr noundef %55, i32 noundef %56, ptr noundef %57)
+  br label %58
 
-54:                                               ; preds = %5
-  %55 = load ptr, ptr %6, align 8
-  %56 = load ptr, ptr %7, align 8
-  %57 = load i32, ptr %8, align 4
-  %58 = load ptr, ptr %10, align 8
-  call void @dissect_payload_kink_not_defined(ptr noundef %55, ptr noundef %56, i32 noundef %57, ptr noundef %58)
-  br label %59
-
-59:                                               ; preds = %54, %49, %44, %39, %34, %29, %24, %19, %14, %13
+58:                                               ; preds = %53, %48, %43, %38, %33, %28, %23, %18, %13, %5
   ret void
 }
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_payload_kink_ap_req(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -566,6 +611,12 @@ define internal void @dissect_payload_kink_ap_req(ptr noundef %0, ptr noundef %1
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
   store i32 0, ptr %14, align 4
   %16 = load i32, ptr %7, align 4
   store i32 %16, ptr %14, align 4
@@ -580,11 +631,11 @@ define internal void @dissect_payload_kink_ap_req(ptr noundef %0, ptr noundef %1
   %24 = load i32, ptr %7, align 4
   %25 = load i32, ptr %12, align 4
   %26 = load i32, ptr @ett_payload_kink_ap_req, align 4
-  %27 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef %25, i32 noundef %26, ptr noundef null, ptr noundef @.str.72)
+  %27 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef %25, i32 noundef %26, ptr noundef null, ptr noundef @.str.74)
   store ptr %27, ptr %9, align 8
   %28 = load ptr, ptr %6, align 8
   %29 = load i32, ptr %7, align 4
-  %30 = call zeroext i8 @tvb_get_guint8(ptr noundef %28, i32 noundef %29)
+  %30 = call zeroext i8 @tvb_get_uint8(ptr noundef %28, i32 noundef %29)
   store i8 %30, ptr %11, align 1
   %31 = load ptr, ptr %9, align 8
   %32 = load i32, ptr @hf_kink_next_payload, align 4
@@ -638,6 +689,7 @@ define internal void @dissect_payload_kink_ap_req(ptr noundef %0, ptr noundef %1
   br i1 %70, label %71, label %100
 
 71:                                               ; preds = %59
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
   %72 = load i32, ptr %12, align 4
   %73 = sub i32 %72, 8
   %74 = trunc i32 %73 to i16
@@ -674,7 +726,8 @@ define internal void @dissect_payload_kink_ap_req(ptr noundef %0, ptr noundef %1
   %96 = load ptr, ptr %15, align 8
   %97 = load ptr, ptr %5, align 8
   %98 = load ptr, ptr %9, align 8
-  %99 = call i32 @dissect_kerberos_main(ptr noundef %96, ptr noundef %97, ptr noundef %98, i32 noundef 0, ptr noundef null)
+  %99 = call i32 @dissect_kerberos_main(ptr noundef %96, ptr noundef %97, ptr noundef %98, i1 noundef zeroext false, ptr noundef null)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
   br label %100
 
 100:                                              ; preds = %90, %59
@@ -711,10 +764,16 @@ define internal void @dissect_payload_kink_ap_req(ptr noundef %0, ptr noundef %1
   br label %122
 
 122:                                              ; preds = %116, %110
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_payload_kink_ap_rep(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -731,6 +790,12 @@ define internal void @dissect_payload_kink_ap_rep(ptr noundef %0, ptr noundef %1
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
   store i32 0, ptr %14, align 4
   %16 = load ptr, ptr %6, align 8
   %17 = load i32, ptr %7, align 4
@@ -745,11 +810,11 @@ define internal void @dissect_payload_kink_ap_rep(ptr noundef %0, ptr noundef %1
   %24 = load i32, ptr %7, align 4
   %25 = load i32, ptr %12, align 4
   %26 = load i32, ptr @ett_payload_kink_ap_rep, align 4
-  %27 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef %25, i32 noundef %26, ptr noundef null, ptr noundef @.str.73)
+  %27 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef %25, i32 noundef %26, ptr noundef null, ptr noundef @.str.75)
   store ptr %27, ptr %9, align 8
   %28 = load ptr, ptr %6, align 8
   %29 = load i32, ptr %7, align 4
-  %30 = call zeroext i8 @tvb_get_guint8(ptr noundef %28, i32 noundef %29)
+  %30 = call zeroext i8 @tvb_get_uint8(ptr noundef %28, i32 noundef %29)
   store i8 %30, ptr %11, align 1
   %31 = load ptr, ptr %9, align 8
   %32 = load i32, ptr @hf_kink_next_payload, align 4
@@ -803,6 +868,7 @@ define internal void @dissect_payload_kink_ap_rep(ptr noundef %0, ptr noundef %1
   br i1 %70, label %71, label %100
 
 71:                                               ; preds = %59
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
   %72 = load i32, ptr %12, align 4
   %73 = sub i32 %72, 8
   %74 = trunc i32 %73 to i16
@@ -839,7 +905,8 @@ define internal void @dissect_payload_kink_ap_rep(ptr noundef %0, ptr noundef %1
   %96 = load ptr, ptr %15, align 8
   %97 = load ptr, ptr %5, align 8
   %98 = load ptr, ptr %9, align 8
-  %99 = call i32 @dissect_kerberos_main(ptr noundef %96, ptr noundef %97, ptr noundef %98, i32 noundef 0, ptr noundef null)
+  %99 = call i32 @dissect_kerberos_main(ptr noundef %96, ptr noundef %97, ptr noundef %98, i1 noundef zeroext false, ptr noundef null)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
   br label %100
 
 100:                                              ; preds = %90, %59
@@ -876,10 +943,16 @@ define internal void @dissect_payload_kink_ap_rep(ptr noundef %0, ptr noundef %1
   br label %122
 
 122:                                              ; preds = %116, %110
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_payload_kink_krb_error(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -896,6 +969,12 @@ define internal void @dissect_payload_kink_krb_error(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
   store i32 0, ptr %14, align 4
   %16 = load ptr, ptr %6, align 8
   %17 = load i32, ptr %7, align 4
@@ -910,11 +989,11 @@ define internal void @dissect_payload_kink_krb_error(ptr noundef %0, ptr noundef
   %24 = load i32, ptr %7, align 4
   %25 = load i32, ptr %12, align 4
   %26 = load i32, ptr @ett_payload_kink_krb_error, align 4
-  %27 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef %25, i32 noundef %26, ptr noundef null, ptr noundef @.str.74)
+  %27 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef %25, i32 noundef %26, ptr noundef null, ptr noundef @.str.76)
   store ptr %27, ptr %9, align 8
   %28 = load ptr, ptr %6, align 8
   %29 = load i32, ptr %7, align 4
-  %30 = call zeroext i8 @tvb_get_guint8(ptr noundef %28, i32 noundef %29)
+  %30 = call zeroext i8 @tvb_get_uint8(ptr noundef %28, i32 noundef %29)
   store i8 %30, ptr %11, align 1
   %31 = load ptr, ptr %9, align 8
   %32 = load i32, ptr @hf_kink_next_payload, align 4
@@ -963,6 +1042,7 @@ define internal void @dissect_payload_kink_krb_error(ptr noundef %0, ptr noundef
   br i1 %64, label %65, label %93
 
 65:                                               ; preds = %62
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
   %66 = load i32, ptr %12, align 4
   %67 = sub i32 %66, 4
   %68 = trunc i32 %67 to i16
@@ -997,7 +1077,8 @@ define internal void @dissect_payload_kink_krb_error(ptr noundef %0, ptr noundef
   %89 = load ptr, ptr %15, align 8
   %90 = load ptr, ptr %5, align 8
   %91 = load ptr, ptr %9, align 8
-  %92 = call i32 @dissect_kerberos_main(ptr noundef %89, ptr noundef %90, ptr noundef %91, i32 noundef 0, ptr noundef null)
+  %92 = call i32 @dissect_kerberos_main(ptr noundef %89, ptr noundef %90, ptr noundef %91, i1 noundef zeroext false, ptr noundef null)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
   br label %93
 
 93:                                               ; preds = %84, %62
@@ -1034,10 +1115,16 @@ define internal void @dissect_payload_kink_krb_error(ptr noundef %0, ptr noundef
   br label %115
 
 115:                                              ; preds = %109, %103
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_payload_kink_tgt_req(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1052,6 +1139,11 @@ define internal void @dissect_payload_kink_tgt_req(ptr noundef %0, ptr noundef %
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %6, align 8
   %15 = load i32, ptr %7, align 4
@@ -1071,11 +1163,11 @@ define internal void @dissect_payload_kink_tgt_req(ptr noundef %0, ptr noundef %
   %26 = load i32, ptr %7, align 4
   %27 = load i32, ptr %11, align 4
   %28 = load i32, ptr @ett_payload_kink_tgt_req, align 4
-  %29 = call ptr @proto_tree_add_subtree(ptr noundef %24, ptr noundef %25, i32 noundef %26, i32 noundef %27, i32 noundef %28, ptr noundef null, ptr noundef @.str.75)
+  %29 = call ptr @proto_tree_add_subtree(ptr noundef %24, ptr noundef %25, i32 noundef %26, i32 noundef %27, i32 noundef %28, ptr noundef null, ptr noundef @.str.77)
   store ptr %29, ptr %9, align 8
   %30 = load ptr, ptr %6, align 8
   %31 = load i32, ptr %7, align 4
-  %32 = call zeroext i8 @tvb_get_guint8(ptr noundef %30, i32 noundef %31)
+  %32 = call zeroext i8 @tvb_get_uint8(ptr noundef %30, i32 noundef %31)
   store i8 %32, ptr %10, align 1
   %33 = load ptr, ptr %9, align 8
   %34 = load i32, ptr @hf_kink_next_payload, align 4
@@ -1154,10 +1246,15 @@ define internal void @dissect_payload_kink_tgt_req(ptr noundef %0, ptr noundef %
   br label %94
 
 94:                                               ; preds = %88, %82
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_payload_kink_tgt_rep(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1173,6 +1270,12 @@ define internal void @dissect_payload_kink_tgt_rep(ptr noundef %0, ptr noundef %
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
   store i32 0, ptr %14, align 4
   %15 = load ptr, ptr %6, align 8
   %16 = load i32, ptr %7, align 4
@@ -1187,11 +1290,11 @@ define internal void @dissect_payload_kink_tgt_rep(ptr noundef %0, ptr noundef %
   %23 = load i32, ptr %7, align 4
   %24 = load i32, ptr %11, align 4
   %25 = load i32, ptr @ett_payload_kink_tgt_rep, align 4
-  %26 = call ptr @proto_tree_add_subtree(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %24, i32 noundef %25, ptr noundef null, ptr noundef @.str.76)
+  %26 = call ptr @proto_tree_add_subtree(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %24, i32 noundef %25, ptr noundef null, ptr noundef @.str.78)
   store ptr %26, ptr %9, align 8
   %27 = load ptr, ptr %6, align 8
   %28 = load i32, ptr %7, align 4
-  %29 = call zeroext i8 @tvb_get_guint8(ptr noundef %27, i32 noundef %28)
+  %29 = call zeroext i8 @tvb_get_uint8(ptr noundef %27, i32 noundef %28)
   store i8 %29, ptr %10, align 1
   %30 = load ptr, ptr %9, align 8
   %31 = load i32, ptr @hf_kink_next_payload, align 4
@@ -1320,10 +1423,16 @@ define internal void @dissect_payload_kink_tgt_rep(ptr noundef %0, ptr noundef %
   br label %130
 
 130:                                              ; preds = %124, %118
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_payload_kink_isakmp(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1343,7 +1452,17 @@ define internal void @dissect_payload_kink_isakmp(ptr noundef %0, ptr noundef %1
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
   store i32 0, ptr %17, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   %19 = load ptr, ptr %6, align 8
   %20 = load i32, ptr %7, align 4
   %21 = add i32 %20, 2
@@ -1357,11 +1476,11 @@ define internal void @dissect_payload_kink_isakmp(ptr noundef %0, ptr noundef %1
   %27 = load i32, ptr %7, align 4
   %28 = load i32, ptr %12, align 4
   %29 = load i32, ptr @ett_payload_kink_isakmp, align 4
-  %30 = call ptr @proto_tree_add_subtree(ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef %28, i32 noundef %29, ptr noundef null, ptr noundef @.str.77)
+  %30 = call ptr @proto_tree_add_subtree(ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef %28, i32 noundef %29, ptr noundef null, ptr noundef @.str.79)
   store ptr %30, ptr %9, align 8
   %31 = load ptr, ptr %6, align 8
   %32 = load i32, ptr %7, align 4
-  %33 = call zeroext i8 @tvb_get_guint8(ptr noundef %31, i32 noundef %32)
+  %33 = call zeroext i8 @tvb_get_uint8(ptr noundef %31, i32 noundef %32)
   store i8 %33, ptr %11, align 1
   %34 = load ptr, ptr %9, align 8
   %35 = load i32, ptr @hf_kink_next_payload, align 4
@@ -1404,7 +1523,7 @@ define internal void @dissect_payload_kink_isakmp(ptr noundef %0, ptr noundef %1
   store i32 %64, ptr %7, align 4
   %65 = load ptr, ptr %6, align 8
   %66 = load i32, ptr %7, align 4
-  %67 = call zeroext i8 @tvb_get_guint8(ptr noundef %65, i32 noundef %66)
+  %67 = call zeroext i8 @tvb_get_uint8(ptr noundef %65, i32 noundef %66)
   store i8 %67, ptr %16, align 1
   %68 = load ptr, ptr %9, align 8
   %69 = load i32, ptr @hf_kink_inner_next_pload, align 4
@@ -1518,10 +1637,20 @@ define internal void @dissect_payload_kink_isakmp(ptr noundef %0, ptr noundef %1
   br label %146
 
 146:                                              ; preds = %140, %134
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_payload_kink_encrypt(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1541,6 +1670,14 @@ define internal void @dissect_payload_kink_encrypt(ptr noundef %0, ptr noundef %
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
   store i32 0, ptr %16, align 4
   %19 = load ptr, ptr %6, align 8
   %20 = load i32, ptr %7, align 4
@@ -1558,11 +1695,11 @@ define internal void @dissect_payload_kink_encrypt(ptr noundef %0, ptr noundef %
   %29 = load i32, ptr %7, align 4
   %30 = load i32, ptr %12, align 4
   %31 = load i32, ptr @ett_payload_kink_encrypt, align 4
-  %32 = call ptr @proto_tree_add_subtree(ptr noundef %27, ptr noundef %28, i32 noundef %29, i32 noundef %30, i32 noundef %31, ptr noundef null, ptr noundef @.str.78)
+  %32 = call ptr @proto_tree_add_subtree(ptr noundef %27, ptr noundef %28, i32 noundef %29, i32 noundef %30, i32 noundef %31, ptr noundef null, ptr noundef @.str.80)
   store ptr %32, ptr %9, align 8
   %33 = load ptr, ptr %6, align 8
   %34 = load i32, ptr %7, align 4
-  %35 = call zeroext i8 @tvb_get_guint8(ptr noundef %33, i32 noundef %34)
+  %35 = call zeroext i8 @tvb_get_uint8(ptr noundef %33, i32 noundef %34)
   store i8 %35, ptr %11, align 1
   %36 = load ptr, ptr %9, align 8
   %37 = load i32, ptr @hf_kink_next_payload, align 4
@@ -1608,6 +1745,8 @@ define internal void @dissect_payload_kink_encrypt(ptr noundef %0, ptr noundef %
   br i1 %68, label %69, label %107
 
 69:                                               ; preds = %64
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
   %70 = load ptr, ptr %6, align 8
   %71 = load i32, ptr %7, align 4
@@ -1652,7 +1791,7 @@ define internal void @dissect_payload_kink_encrypt(ptr noundef %0, ptr noundef %
   store ptr %99, ptr %17, align 8
   %100 = load ptr, ptr %5, align 8
   %101 = load ptr, ptr %17, align 8
-  call void @add_new_data_source(ptr noundef %100, ptr noundef %101, ptr noundef @.str.83)
+  call void @add_new_data_source(ptr noundef %100, ptr noundef %101, ptr noundef @.str.86)
   %102 = load ptr, ptr %5, align 8
   %103 = load ptr, ptr %17, align 8
   %104 = load ptr, ptr %8, align 8
@@ -1661,12 +1800,14 @@ define internal void @dissect_payload_kink_encrypt(ptr noundef %0, ptr noundef %
   br label %106
 
 106:                                              ; preds = %94, %83
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   br label %141
 
 107:                                              ; preds = %64
   %108 = load ptr, ptr %6, align 8
   %109 = load i32, ptr %7, align 4
-  %110 = call zeroext i8 @tvb_get_guint8(ptr noundef %108, i32 noundef %109)
+  %110 = call zeroext i8 @tvb_get_uint8(ptr noundef %108, i32 noundef %109)
   store i8 %110, ptr %14, align 1
   %111 = load ptr, ptr %9, align 8
   %112 = load i32, ptr @hf_kink_inner_next_pload, align 4
@@ -1741,10 +1882,18 @@ define internal void @dissect_payload_kink_encrypt(ptr noundef %0, ptr noundef %
   br label %163
 
 163:                                              ; preds = %157, %151
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_payload_kink_error(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1759,6 +1908,11 @@ define internal void @dissect_payload_kink_error(ptr noundef %0, ptr noundef %1,
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %6, align 8
   %15 = load i32, ptr %7, align 4
@@ -1773,11 +1927,11 @@ define internal void @dissect_payload_kink_error(ptr noundef %0, ptr noundef %1,
   %22 = load i16, ptr %12, align 2
   %23 = zext i16 %22 to i32
   %24 = load i32, ptr @ett_payload_kink_error, align 4
-  %25 = call ptr @proto_tree_add_subtree(ptr noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef %23, i32 noundef %24, ptr noundef null, ptr noundef @.str.79)
+  %25 = call ptr @proto_tree_add_subtree(ptr noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef %23, i32 noundef %24, ptr noundef null, ptr noundef @.str.81)
   store ptr %25, ptr %9, align 8
   %26 = load ptr, ptr %6, align 8
   %27 = load i32, ptr %7, align 4
-  %28 = call zeroext i8 @tvb_get_guint8(ptr noundef %26, i32 noundef %27)
+  %28 = call zeroext i8 @tvb_get_uint8(ptr noundef %26, i32 noundef %27)
   store i8 %28, ptr %11, align 1
   %29 = load ptr, ptr %9, align 8
   %30 = load i32, ptr @hf_kink_next_payload, align 4
@@ -1834,10 +1988,15 @@ define internal void @dissect_payload_kink_error(ptr noundef %0, ptr noundef %1,
   %72 = load i8, ptr %11, align 1
   %73 = load ptr, ptr %8, align 8
   call void @control_payload(ptr noundef %69, ptr noundef %70, i32 noundef %71, i8 noundef zeroext %72, ptr noundef %73)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_payload_kink_not_defined(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1851,6 +2010,10 @@ define internal void @dissect_payload_kink_not_defined(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
   store i32 0, ptr %12, align 4
   %13 = load i32, ptr %7, align 4
   store i32 %13, ptr %12, align 4
@@ -1865,11 +2028,11 @@ define internal void @dissect_payload_kink_not_defined(ptr noundef %0, ptr nound
   %21 = load i32, ptr %7, align 4
   %22 = load i32, ptr %11, align 4
   %23 = load i32, ptr @ett_payload_not_defined, align 4
-  %24 = call ptr @proto_tree_add_subtree(ptr noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef %22, i32 noundef %23, ptr noundef null, ptr noundef @.str.85)
+  %24 = call ptr @proto_tree_add_subtree(ptr noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef %22, i32 noundef %23, ptr noundef null, ptr noundef @.str.88)
   store ptr %24, ptr %9, align 8
   %25 = load ptr, ptr %6, align 8
   %26 = load i32, ptr %7, align 4
-  %27 = call zeroext i8 @tvb_get_guint8(ptr noundef %25, i32 noundef %26)
+  %27 = call zeroext i8 @tvb_get_uint8(ptr noundef %25, i32 noundef %26)
   store i8 %27, ptr %10, align 1
   %28 = load ptr, ptr %9, align 8
   %29 = load i32, ptr @hf_kink_next_payload, align 4
@@ -1928,34 +2091,50 @@ define internal void @dissect_payload_kink_not_defined(ptr noundef %0, ptr nound
   br label %71
 
 71:                                               ; preds = %65, %59
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret void
 }
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #2
 
-declare i32 @kerberos_output_keytype() #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @kerberos_output_keytype() #2
 
-declare i32 @dissect_kerberos_main(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_kerberos_main(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) #2
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #2
 
-declare void @isakmp_dissect_payloads(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @isakmp_dissect_payloads(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @decrypt_krb5_data(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @decrypt_krb5_data(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_decrypt_kink_encrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1968,17 +2147,20 @@ define internal void @dissect_decrypt_kink_encrypt(ptr noundef %0, ptr noundef %
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #4
   %12 = load ptr, ptr %7, align 8
   %13 = load ptr, ptr %6, align 8
   %14 = load i32, ptr %10, align 4
   %15 = load i32, ptr %8, align 4
   %16 = load i32, ptr @ett_decrypt_kink_encrypt, align 4
-  %17 = call ptr @proto_tree_add_subtree(ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, ptr noundef null, ptr noundef @.str.84)
+  %17 = call ptr @proto_tree_add_subtree(ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, ptr noundef null, ptr noundef @.str.87)
   store ptr %17, ptr %9, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = load i32, ptr %10, align 4
-  %20 = call zeroext i8 @tvb_get_guint8(ptr noundef %18, i32 noundef %19)
+  %20 = call zeroext i8 @tvb_get_uint8(ptr noundef %18, i32 noundef %19)
   store i8 %20, ptr %11, align 1
   %21 = load ptr, ptr %9, align 8
   %22 = load i32, ptr @hf_kink_next_payload, align 4
@@ -2004,17 +2186,23 @@ define internal void @dissect_decrypt_kink_encrypt(ptr noundef %0, ptr noundef %
   %40 = load i8, ptr %11, align 1
   %41 = load ptr, ptr %9, align 8
   call void @control_payload(ptr noundef %37, ptr noundef %38, i32 noundef %39, i8 noundef zeroext %40, ptr noundef %41)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}

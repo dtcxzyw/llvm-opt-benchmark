@@ -3,7 +3,6 @@ source_filename = "bench/wireshark/original/capsa.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.file_type_subtype_info = type { ptr, ptr, ptr, ptr, i32, i64, ptr, ptr, ptr, ptr }
 %struct.supported_block_type = type { i32, i32, i64, ptr }
 %struct.capsarec_hdr = type { i32, i32, i32, i32, i16, i16, i16, i16, i8, i8, i16, i32 }
 %struct.pbrec_hdr = type { i16, i16, i16, i16, i16, i16, i32, i32, i32, i32, i32 }
@@ -12,8 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 @capsa_file_type_subtype = internal unnamed_addr global i32 -1, align 4
 @packet_builder_file_type_subtype = internal unnamed_addr global i32 -1, align 4
 @.str = private unnamed_addr constant [39 x i8] c"capsa: format indicator %u unsupported\00", align 1
-@capsa_info = internal constant %struct.file_type_subtype_info { ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr null, i32 0, i64 1, ptr @capsa_blocks_supported, ptr null, ptr null, ptr null }, align 8
-@packet_builder_info = internal constant %struct.file_type_subtype_info { ptr @.str.12, ptr @.str.13, ptr @.str.11, ptr null, i32 0, i64 1, ptr @packet_builder_blocks_supported, ptr null, ptr null, ptr null }, align 8
 @.str.1 = private unnamed_addr constant [15 x i8] c"COLASOFT_CAPSA\00", align 1
 @.str.2 = private unnamed_addr constant [24 x i8] c"COLASOFT_PACKET_BUILDER\00", align 1
 @.str.3 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -25,36 +22,39 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [6 x i8] c"capsa\00", align 1
 @.str.11 = private unnamed_addr constant [7 x i8] c"cscpkt\00", align 1
 @capsa_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
-@.str.12 = private unnamed_addr constant [31 x i8] c"Colasoft Packet Builder format\00", align 1
-@.str.13 = private unnamed_addr constant [12 x i8] c"colasoft-pb\00", align 1
+@capsa_info = internal constant { ptr, ptr, ptr, ptr, i8, [7 x i8], i64, ptr, ptr, ptr, ptr } { ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr null, i8 0, [7 x i8] zeroinitializer, i64 1, ptr @capsa_blocks_supported, ptr null, ptr null, ptr null }, align 8
+@.str.13 = private unnamed_addr constant [31 x i8] c"Colasoft Packet Builder format\00", align 1
+@.str.14 = private unnamed_addr constant [12 x i8] c"colasoft-pb\00", align 1
 @packet_builder_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
+@packet_builder_info = internal constant { ptr, ptr, ptr, ptr, i8, [7 x i8], i64, ptr, ptr, ptr, ptr } { ptr @.str.13, ptr @.str.14, ptr @.str.11, ptr null, i8 0, [7 x i8] zeroinitializer, i64 1, ptr @packet_builder_blocks_supported, ptr null, ptr null, ptr null }, align 8
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden range(i32 -1, 2) i32 @capsa_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4 x i8], align 1
   %5 = alloca i16, align 2
   %6 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
   %7 = load ptr, ptr %0, align 8
-  %8 = call i32 @wtap_read_bytes(ptr noundef %7, ptr noundef nonnull %4, i32 noundef 4, ptr noundef %1, ptr noundef %2) #5
-  %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %11
+  %8 = call zeroext i1 @wtap_read_bytes(ptr noundef %7, ptr noundef nonnull %4, i32 noundef 4, ptr noundef %1, ptr noundef %2)
+  br i1 %8, label %11, label %9
 
 9:                                                ; preds = %3
   %10 = load i32, ptr %1, align 4
-  %.not40 = icmp ne i32 %10, -12
-  %. = sext i1 %.not40 to i32
+  %.not = icmp ne i32 %10, -12
+  %. = sext i1 %.not to i32
   br label %52
 
 11:                                               ; preds = %3
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %4, ptr noundef nonnull dereferenceable(4) @capsa_magic, i64 4)
-  %.not41 = icmp eq i32 %bcmp, 0
-  br i1 %.not41, label %12, label %52
+  %.not53 = icmp eq i32 %bcmp, 0
+  br i1 %.not53, label %12, label %52
 
 12:                                               ; preds = %11
   %13 = load ptr, ptr %0, align 8
-  %14 = call i32 @wtap_read_bytes(ptr noundef %13, ptr noundef nonnull %5, i32 noundef 2, ptr noundef %1, ptr noundef %2) #5
-  %.not42 = icmp eq i32 %14, 0
-  br i1 %.not42, label %52, label %15
+  %14 = call zeroext i1 @wtap_read_bytes(ptr noundef %13, ptr noundef nonnull %5, i32 noundef 2, ptr noundef %1, ptr noundef %2)
+  br i1 %14, label %15, label %52
 
 15:                                               ; preds = %12
   %16 = load i16, ptr %5, align 2
@@ -69,52 +69,47 @@ define hidden range(i32 -1, 2) i32 @capsa_open(ptr noundef %0, ptr noundef %1, p
 18:                                               ; preds = %15
   store i32 -4, ptr %1, align 4
   %19 = zext i16 %16 to i32
-  %20 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str, i32 noundef %19) #5
+  %20 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str, i32 noundef %19)
   store ptr %20, ptr %2, align 8
   br label %52
 
 21:                                               ; preds = %15, %17
-  %.039.in = phi ptr [ @packet_builder_file_type_subtype, %17 ], [ @capsa_file_type_subtype, %15 ]
-  %.039 = load i32, ptr %.039.in, align 4
+  %.052.in = phi ptr [ @packet_builder_file_type_subtype, %17 ], [ @capsa_file_type_subtype, %15 ]
+  %.052 = load i32, ptr %.052.in, align 4
   %22 = load ptr, ptr %0, align 8
-  %23 = call i32 @wtap_read_bytes(ptr noundef %22, ptr noundef null, i32 noundef 2, ptr noundef %1, ptr noundef %2) #5
-  %.not43 = icmp eq i32 %23, 0
-  br i1 %.not43, label %52, label %24
+  %23 = call zeroext i1 @wtap_read_bytes(ptr noundef %22, ptr noundef null, i32 noundef 2, ptr noundef %1, ptr noundef %2)
+  br i1 %23, label %24, label %52
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr %0, align 8
-  %26 = call i32 @wtap_read_bytes(ptr noundef %25, ptr noundef null, i32 noundef 4, ptr noundef %1, ptr noundef %2) #5
-  %.not44 = icmp eq i32 %26, 0
-  br i1 %.not44, label %52, label %27
+  %26 = call zeroext i1 @wtap_read_bytes(ptr noundef %25, ptr noundef null, i32 noundef 4, ptr noundef %1, ptr noundef %2)
+  br i1 %26, label %27, label %52
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %0, align 8
-  %29 = call i32 @wtap_read_bytes(ptr noundef %28, ptr noundef null, i32 noundef 4, ptr noundef %1, ptr noundef %2) #5
-  %.not45 = icmp eq i32 %29, 0
-  br i1 %.not45, label %52, label %30
+  %29 = call zeroext i1 @wtap_read_bytes(ptr noundef %28, ptr noundef null, i32 noundef 4, ptr noundef %1, ptr noundef %2)
+  br i1 %29, label %30, label %52
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr %0, align 8
-  %32 = call i32 @wtap_read_bytes(ptr noundef %31, ptr noundef null, i32 noundef 4, ptr noundef %1, ptr noundef %2) #5
-  %.not46 = icmp eq i32 %32, 0
-  br i1 %.not46, label %52, label %33
+  %32 = call zeroext i1 @wtap_read_bytes(ptr noundef %31, ptr noundef null, i32 noundef 4, ptr noundef %1, ptr noundef %2)
+  br i1 %32, label %33, label %52
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr %0, align 8
-  %35 = call i32 @wtap_read_bytes(ptr noundef %34, ptr noundef nonnull %6, i32 noundef 4, ptr noundef %1, ptr noundef %2) #5
-  %.not47 = icmp eq i32 %35, 0
-  br i1 %.not47, label %52, label %36
+  %35 = call zeroext i1 @wtap_read_bytes(ptr noundef %34, ptr noundef nonnull %6, i32 noundef 4, ptr noundef %1, ptr noundef %2)
+  br i1 %35, label %36, label %52
 
 36:                                               ; preds = %33
   %37 = load ptr, ptr %0, align 8
-  %38 = call i64 @file_seek(ptr noundef %37, i64 noundef 17647, i32 noundef 0, ptr noundef %1) #5
-  %.not48 = icmp eq i64 %38, 0
-  br i1 %.not48, label %52, label %39
+  %38 = call i64 @file_seek(ptr noundef %37, i64 noundef 17647, i32 noundef 0, ptr noundef %1)
+  %.not54 = icmp eq i64 %38, 0
+  br i1 %.not54, label %52, label %39
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.039, ptr %40, align 4
-  %41 = call noalias dereferenceable_or_null(824) ptr @g_malloc_n(i64 noundef 1, i64 noundef 824) #6
+  store i32 %.052, ptr %40, align 4
+  %41 = call noalias dereferenceable_or_null(824) ptr @g_malloc(i64 noundef 824) #7
   %42 = load i16, ptr %5, align 2
   store i16 %42, ptr %41, align 8
   %43 = load i32, ptr %6, align 4
@@ -134,302 +129,321 @@ define hidden range(i32 -1, 2) i32 @capsa_open(ptr noundef %0, ptr noundef %1, p
   store i32 0, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 6, ptr %51, align 4
-  call void @wtap_add_generated_idb(ptr noundef nonnull %0) #5
+  call void @wtap_add_generated_idb(ptr noundef %0)
   br label %52
 
 52:                                               ; preds = %36, %33, %30, %27, %24, %21, %12, %11, %9, %39, %18
   %.0 = phi i32 [ -1, %18 ], [ 1, %39 ], [ %., %9 ], [ 0, %11 ], [ -1, %12 ], [ -1, %21 ], [ -1, %24 ], [ -1, %27 ], [ -1, %30 ], [ -1, %33 ], [ -1, %36 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
   ret i32 %.0
 }
 
-declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @capsa_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) %5) #0 {
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %12 = load i32, ptr %11, align 4
-  %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %15
+; Function Attrs: null_pointer_is_valid allocsize(0)
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #3
 
-14:                                               ; preds = %6
-  store i32 0, ptr %3, align 4
-  br label %51
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-15:                                               ; preds = %6
-  %16 = urem i32 %10, 200
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %31
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal noundef zeroext i1 @capsa_read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) #0 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = load i32, ptr %8, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp eq i32 %9, %11
+  br i1 %12, label %13, label %14
 
-18:                                               ; preds = %15
-  %19 = load ptr, ptr %0, align 8
-  %20 = tail call i64 @file_tell(ptr noundef %19) #5
-  %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 %20, ptr %21, align 8
-  %22 = load ptr, ptr %0, align 8
-  %23 = tail call i32 @wtap_read_bytes(ptr noundef %22, ptr noundef null, i32 noundef 1, ptr noundef %3, ptr noundef %4) #5
-  %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %51, label %24
+13:                                               ; preds = %5
+  store i32 0, ptr %2, align 4
+  br label %50
 
-24:                                               ; preds = %18
-  %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %27 = tail call i32 @wtap_read_bytes(ptr noundef %25, ptr noundef nonnull %26, i32 noundef 800, ptr noundef %3, ptr noundef %4) #5
-  %.not40 = icmp eq i32 %27, 0
-  br i1 %.not40, label %51, label %28
+14:                                               ; preds = %5
+  %15 = urem i32 %9, 200
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %30
 
-28:                                               ; preds = %24
-  %29 = load ptr, ptr %0, align 8
-  %30 = tail call i32 @wtap_read_bytes(ptr noundef %29, ptr noundef null, i32 noundef 4, ptr noundef %3, ptr noundef %4) #5
-  %.not41 = icmp eq i32 %30, 0
-  br i1 %.not41, label %51, label %31
+17:                                               ; preds = %14
+  %18 = load ptr, ptr %0, align 8
+  %19 = tail call i64 @file_tell(ptr noundef %18)
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i64 %19, ptr %20, align 8
+  %21 = load ptr, ptr %0, align 8
+  %22 = tail call zeroext i1 @wtap_read_bytes(ptr noundef %21, ptr noundef null, i32 noundef 1, ptr noundef %2, ptr noundef %3)
+  br i1 %22, label %23, label %50
 
-31:                                               ; preds = %28, %15
-  %32 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %35 = zext nneg i32 %16 to i64
-  %36 = getelementptr [200 x i32], ptr %34, i64 0, i64 %35
-  %37 = load i32, ptr %36, align 4
-  %38 = zext i32 %37 to i64
-  %39 = add i64 %33, %38
-  store i64 %39, ptr %5, align 8
-  %40 = load ptr, ptr %0, align 8
-  %41 = tail call i64 @file_seek(ptr noundef %40, i64 noundef %39, i32 noundef 0, ptr noundef %3) #5
-  %.not42 = icmp eq i64 %41, 0
-  br i1 %.not42, label %51, label %42
+23:                                               ; preds = %17
+  %24 = load ptr, ptr %0, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %26 = tail call zeroext i1 @wtap_read_bytes(ptr noundef %24, ptr noundef nonnull %25, i32 noundef 800, ptr noundef %2, ptr noundef %3)
+  br i1 %26, label %27, label %50
 
-42:                                               ; preds = %31
-  %43 = load ptr, ptr %0, align 8
-  %.val = load ptr, ptr %7, align 8
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %0, align 8
+  %29 = tail call zeroext i1 @wtap_read_bytes(ptr noundef %28, ptr noundef null, i32 noundef 4, ptr noundef %2, ptr noundef %3)
+  br i1 %29, label %30, label %50
+
+30:                                               ; preds = %27, %14
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %34 = zext nneg i32 %15 to i64
+  %35 = getelementptr [200 x i32], ptr %33, i64 0, i64 %34
+  %36 = load i32, ptr %35, align 4
+  %37 = zext i32 %36 to i64
+  %38 = add i64 %32, %37
+  store i64 %38, ptr %4, align 8
+  %39 = load ptr, ptr %0, align 8
+  %40 = tail call i64 @file_seek(ptr noundef %39, i64 noundef %38, i32 noundef 0, ptr noundef %2)
+  %.not = icmp eq i64 %40, 0
+  br i1 %.not, label %50, label %41
+
+41:                                               ; preds = %30
+  %42 = load ptr, ptr %0, align 8
+  %.val = load ptr, ptr %6, align 8
   %.val.val = load i16, ptr %.val, align 8
-  %44 = tail call fastcc i32 @capsa_read_packet(i16 %.val.val, ptr noundef %43, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  switch i32 %44, label %45 [
-    i32 -1, label %51
-    i32 0, label %48
+  %43 = tail call fastcc i32 @capsa_read_packet(i16 %.val.val, ptr noundef %42, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  switch i32 %43, label %44 [
+    i32 -1, label %50
+    i32 0, label %47
   ]
 
-45:                                               ; preds = %42
-  %46 = load ptr, ptr %0, align 8
-  %47 = tail call i32 @wtap_read_bytes(ptr noundef %46, ptr noundef null, i32 noundef %44, ptr noundef %3, ptr noundef %4) #5
-  %.not44 = icmp eq i32 %47, 0
-  br i1 %.not44, label %51, label %48
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %0, align 8
+  %46 = tail call zeroext i1 @wtap_read_bytes(ptr noundef %45, ptr noundef null, i32 noundef %43, ptr noundef %2, ptr noundef %3)
+  br i1 %46, label %47, label %50
 
-48:                                               ; preds = %42, %45
-  %49 = load i32, ptr %9, align 8
-  %50 = add i32 %49, 1
-  store i32 %50, ptr %9, align 8
-  br label %51
+47:                                               ; preds = %41, %44
+  %48 = load i32, ptr %8, align 8
+  %49 = add i32 %48, 1
+  store i32 %49, ptr %8, align 8
+  br label %50
 
-51:                                               ; preds = %45, %42, %31, %28, %24, %18, %48, %14
-  %.0 = phi i32 [ 0, %14 ], [ 1, %48 ], [ 0, %18 ], [ 0, %24 ], [ 0, %28 ], [ 0, %31 ], [ 0, %42 ], [ 0, %45 ]
-  ret i32 %.0
+50:                                               ; preds = %44, %41, %30, %27, %23, %17, %47, %13
+  %.0 = phi i1 [ false, %13 ], [ true, %47 ], [ false, %17 ], [ false, %23 ], [ false, %27 ], [ false, %30 ], [ false, %41 ], [ false, %44 ]
+  ret i1 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @capsa_seek_read(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #5
-  %10 = icmp eq i64 %9, -1
-  br i1 %10, label %20, label %11
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal noundef zeroext i1 @capsa_seek_read(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call i64 @file_seek(ptr noundef %7, i64 noundef %1, i32 noundef 0, ptr noundef %3)
+  %9 = icmp eq i64 %8, -1
+  br i1 %9, label %19, label %10
 
-11:                                               ; preds = %6
-  %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr i8, ptr %0, i64 96
-  %.val = load ptr, ptr %13, align 8
+10:                                               ; preds = %5
+  %11 = load ptr, ptr %6, align 8
+  %12 = getelementptr i8, ptr %0, i64 96
+  %.val = load ptr, ptr %12, align 8
   %.val.val = load i16, ptr %.val, align 8
-  %14 = tail call fastcc i32 @capsa_read_packet(i16 %.val.val, ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  %15 = icmp eq i32 %14, -1
-  br i1 %15, label %16, label %20
+  %13 = tail call fastcc i32 @capsa_read_packet(i16 %.val.val, ptr noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %14 = icmp eq i32 %13, -1
+  br i1 %14, label %15, label %19
 
-16:                                               ; preds = %11
-  %17 = load i32, ptr %4, align 4
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %20
+15:                                               ; preds = %10
+  %16 = load i32, ptr %3, align 4
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %19
 
-19:                                               ; preds = %16
-  store i32 -12, ptr %4, align 4
-  br label %20
+18:                                               ; preds = %15
+  store i32 -12, ptr %3, align 4
+  br label %19
 
-20:                                               ; preds = %11, %16, %19, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %19 ], [ 0, %16 ], [ 1, %11 ]
-  ret i32 %.0
+19:                                               ; preds = %10, %15, %18, %5
+  %.0 = phi i1 [ false, %5 ], [ false, %18 ], [ false, %15 ], [ true, %10 ]
+  ret i1 %.0
 }
 
-declare void @wtap_add_generated_idb(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @wtap_add_generated_idb(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @register_capsa() local_unnamed_addr #0 {
-  %1 = tail call i32 @wtap_register_file_type_subtype(ptr noundef nonnull @capsa_info) #5
+  %1 = tail call i32 @wtap_register_file_type_subtype(ptr noundef nonnull @capsa_info)
   store i32 %1, ptr @capsa_file_type_subtype, align 4
-  %2 = tail call i32 @wtap_register_file_type_subtype(ptr noundef nonnull @packet_builder_info) #5
+  %2 = tail call i32 @wtap_register_file_type_subtype(ptr noundef nonnull @packet_builder_info)
   store i32 %2, ptr @packet_builder_file_type_subtype, align 4
   %3 = load i32, ptr @capsa_file_type_subtype, align 4
-  tail call void @wtap_register_backwards_compatibility_lua_name(ptr noundef nonnull @.str.1, i32 noundef %3) #5
+  tail call void @wtap_register_backwards_compatibility_lua_name(ptr noundef nonnull @.str.1, i32 noundef %3)
   %4 = load i32, ptr @packet_builder_file_type_subtype, align 4
-  tail call void @wtap_register_backwards_compatibility_lua_name(ptr noundef nonnull @.str.2, i32 noundef %4) #5
+  tail call void @wtap_register_backwards_compatibility_lua_name(ptr noundef nonnull @.str.2, i32 noundef %4)
   ret void
 }
 
-declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #2
 
-declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @file_tell(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 65504) i32 @capsa_read_packet(i16 %.96.val.0.val, ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
-  %6 = alloca %struct.capsarec_hdr, align 4
-  %7 = alloca %struct.pbrec_hdr, align 4
-  switch i16 %.96.val.0.val, label %46 [
-    i16 1, label %8
-    i16 2, label %36
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal fastcc range(i32 -1, 65504) i32 @capsa_read_packet(i16 %.96.val.0.val, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+  %5 = alloca %struct.capsarec_hdr, align 4
+  %6 = alloca %struct.pbrec_hdr, align 4
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  switch i16 %.96.val.0.val, label %45 [
+    i16 1, label %7
+    i16 2, label %35
   ]
 
-8:                                                ; preds = %5
-  %9 = call i32 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 32, ptr noundef %3, ptr noundef %4) #5
-  %.not57 = icmp eq i32 %9, 0
-  br i1 %.not57, label %69, label %10
+7:                                                ; preds = %4
+  %8 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 32, ptr noundef %2, ptr noundef %3)
+  br i1 %8, label %9, label %69
 
-10:                                               ; preds = %8
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %12 = load i16, ptr %11, align 4
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %14 = load i16, ptr %13, align 4
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 18
-  %16 = load i16, ptr %15, align 2
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %18 = load i64, ptr %17, align 4
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %20 = load i8, ptr %19, align 4
-  %21 = zext i8 %20 to i32
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 25
-  %23 = load i8, ptr %22, align 1
-  %24 = zext i8 %23 to i32
-  %25 = add nuw nsw i32 %24, %21
-  %26 = shl nuw nsw i32 %25, 2
-  %27 = call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef null, i32 noundef %26, ptr noundef %3, ptr noundef %4) #5
-  %.not58 = icmp eq i32 %27, 0
-  br i1 %.not58, label %69, label %28
+9:                                                ; preds = %7
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %11 = load i16, ptr %10, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %13 = load i16, ptr %12, align 4
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 18
+  %15 = load i16, ptr %14, align 2
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %17 = load i64, ptr %16, align 4
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %19 = load i8, ptr %18, align 4
+  %20 = zext i8 %19 to i32
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 25
+  %22 = load i8, ptr %21, align 1
+  %23 = zext i8 %22 to i32
+  %24 = add nuw nsw i32 %23, %20
+  %25 = shl nuw nsw i32 %24, 2
+  %26 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef null, i32 noundef %25, ptr noundef %2, ptr noundef %3)
+  br i1 %26, label %27, label %69
 
-28:                                               ; preds = %10
-  %29 = load i8, ptr %19, align 4
-  %30 = zext i8 %29 to i32
-  %31 = load i8, ptr %22, align 1
-  %32 = zext i8 %31 to i32
-  %33 = add nuw nsw i32 %32, %30
-  %34 = shl nuw nsw i32 %33, 2
-  %35 = add nuw nsw i32 %34, 32
-  br label %47
+27:                                               ; preds = %9
+  %28 = load i8, ptr %18, align 4
+  %29 = zext i8 %28 to i32
+  %30 = load i8, ptr %21, align 1
+  %31 = zext i8 %30 to i32
+  %32 = add nuw nsw i32 %31, %29
+  %33 = shl nuw nsw i32 %32, 2
+  %34 = add nuw nsw i32 %33, 32
+  br label %46
 
-36:                                               ; preds = %5
-  %37 = call i32 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 32, ptr noundef %3, ptr noundef %4) #5
-  %.not = icmp eq i32 %37, 0
-  br i1 %.not, label %69, label %38
+35:                                               ; preds = %4
+  %36 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 32, ptr noundef %2, ptr noundef %3)
+  br i1 %36, label %37, label %69
 
-38:                                               ; preds = %36
-  %39 = load i16, ptr %7, align 4
-  %40 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %41 = load i16, ptr %40, align 4
-  %42 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  %43 = load i16, ptr %42, align 2
-  %44 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %45 = load i64, ptr %44, align 4
-  br label %47
+37:                                               ; preds = %35
+  %38 = load i16, ptr %6, align 4
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %40 = load i16, ptr %39, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %42 = load i16, ptr %41, align 2
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %44 = load i64, ptr %43, align 4
+  br label %46
 
-46:                                               ; preds = %5
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.3, i32 noundef 7, ptr noundef nonnull @.str.4, i64 noundef 371, ptr noundef nonnull @__func__.capsa_read_packet, ptr noundef nonnull @.str.5) #7
+45:                                               ; preds = %4
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.3, i32 noundef 7, ptr noundef nonnull @.str.4, i64 noundef 372, ptr noundef nonnull @__func__.capsa_read_packet, ptr noundef nonnull @.str.5) #8
   unreachable
 
-47:                                               ; preds = %38, %28
-  %.054.in = phi i16 [ %39, %38 ], [ %12, %28 ]
-  %.053.in = phi i16 [ %43, %38 ], [ %16, %28 ]
-  %.052.in = phi i16 [ %41, %38 ], [ %14, %28 ]
-  %.051 = phi i32 [ 32, %38 ], [ %35, %28 ]
-  %.0 = phi i64 [ %45, %38 ], [ %18, %28 ]
+46:                                               ; preds = %37, %27
+  %.054.in = phi i16 [ %38, %37 ], [ %11, %27 ]
+  %.053.in = phi i16 [ %42, %37 ], [ %15, %27 ]
+  %.052.in = phi i16 [ %40, %37 ], [ %13, %27 ]
+  %.051 = phi i32 [ 32, %37 ], [ %34, %27 ]
+  %.0 = phi i64 [ %44, %37 ], [ %17, %27 ]
   %.053 = zext i16 %.053.in to i32
   %.054 = zext i16 %.054.in to i32
-  %48 = add nuw nsw i32 %.051, %.053
-  %49 = icmp samesign ugt i32 %48, %.054
-  br i1 %49, label %50, label %52
+  %47 = add nuw nsw i32 %.051, %.053
+  %48 = icmp samesign ugt i32 %47, %.054
+  br i1 %48, label %49, label %51
 
-50:                                               ; preds = %47
-  store i32 -13, ptr %3, align 4
-  %51 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef %.053, i32 noundef %.051, i32 noundef %.054) #5
-  store ptr %51, ptr %4, align 8
+49:                                               ; preds = %46
+  store i32 -13, ptr %2, align 4
+  %50 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef %.053, i32 noundef %.051, i32 noundef %.054)
+  store ptr %50, ptr %3, align 8
   br label %69
 
-52:                                               ; preds = %47
+51:                                               ; preds = %46
   %.052 = zext i16 %.052.in to i32
-  %53 = add nuw nsw i32 %.053, 4
-  %54 = icmp eq i32 %53, %.052
-  %spec.select = select i1 %54, i32 %.053, i32 %.052
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store i32 0, ptr %56, align 8
+  %52 = add nuw nsw i32 %.053, 4
+  %53 = icmp eq i32 %52, %.052
+  %spec.select = select i1 %53, i32 %.053, i32 %.052
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  store i32 0, ptr %55, align 8
   store i32 0, ptr %1, align 8
-  %57 = call ptr @wtap_block_create(i32 noundef 5) #5
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  store ptr %57, ptr %58, align 8
-  store i32 %.053, ptr %55, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  store i32 %spec.select, ptr %59, align 4
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 3, ptr %60, align 4
-  %61 = udiv i64 %.0, 1000000
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %61, ptr %62, align 8
-  %63 = urem i64 %.0, 1000000
-  %64 = trunc nuw nsw i64 %63 to i32
-  %65 = mul nuw nsw i32 %64, 1000
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 %65, ptr %66, align 8
-  %67 = call i32 @wtap_read_packet_bytes(ptr noundef %0, ptr noundef %2, i32 noundef %.053, ptr noundef %3, ptr noundef %4) #5
-  %.not59 = icmp eq i32 %67, 0
-  %68 = sub nuw nsw i32 %.054, %48
-  %spec.select60 = select i1 %.not59, i32 -1, i32 %68
+  %56 = call ptr @wtap_block_create(i32 noundef 5)
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  store ptr %56, ptr %57, align 8
+  store i32 %.053, ptr %54, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  store i32 %spec.select, ptr %58, align 4
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 3, ptr %59, align 4
+  %60 = udiv i64 %.0, 1000000
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i64 %60, ptr %61, align 8
+  %62 = urem i64 %.0, 1000000
+  %63 = trunc nuw nsw i64 %62 to i32
+  %64 = mul nuw nsw i32 %63, 1000
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 %64, ptr %65, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %67 = call zeroext i1 @wtap_read_bytes_buffer(ptr noundef %0, ptr noundef nonnull %66, i32 noundef %.053, ptr noundef %2, ptr noundef %3)
+  %68 = sub nuw nsw i32 %.054, %47
+  %spec.select57 = select i1 %67, i32 %68, i32 -1
   br label %69
 
-69:                                               ; preds = %52, %36, %10, %8, %50
-  %.055 = phi i32 [ -1, %50 ], [ -1, %8 ], [ -1, %10 ], [ -1, %36 ], [ %spec.select60, %52 ]
+69:                                               ; preds = %51, %35, %9, %7, %49
+  %.055 = phi i32 [ -1, %49 ], [ -1, %7 ], [ -1, %9 ], [ -1, %35 ], [ %spec.select57, %51 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
   ret i32 %.055
 }
 
-declare i32 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: noreturn
-declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+; Function Attrs: noreturn null_pointer_is_valid
+declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
-declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #2
 
-declare i32 @wtap_read_packet_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @wtap_read_bytes_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind allocsize(0,1) }
-attributes #7 = { noreturn nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #6 = { nounwind }
+attributes #7 = { allocsize(0) }
+attributes #8 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}

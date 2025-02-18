@@ -3,25 +3,22 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
 %struct._wmem_tree_key_t = type { i32, ptr }
 %struct.nstime_t = type { i64, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
 %struct._xmcp_conv_info_t = type { ptr }
-%struct._xmcp_transaction_t = type { i32, i32, %struct.nstime_t, i32 }
-%struct._frame_data = type { i32, i32, i32, i32, i64, ptr, ptr, ptr, i16, i16, %struct.nstime_t, %struct.nstime_t, i32, i32, i8 }
-%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr }
+%struct._xmcp_transaction_t = type { i32, i32, %struct.nstime_t, i8 }
+%struct._frame_data = type <{ i32, i32, i32, i32, i32, [4 x i8], i64, ptr, ptr, ptr, i8, i16, [5 x i8], %struct.nstime_t, %struct.nstime_t, i32, i32 }>
+%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.field_info = type { ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32 }
 %struct._e_guid_t = type { i32, i16, i16, [8 x i8] }
 
-@proto_register_xmcp.hf = internal global [55 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_xmcp_type, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_type_reserved, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 5, i32 2, ptr null, i64 49152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_type_class, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 5, i32 2, ptr @classes, i64 272, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_type_method, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 5, i32 2, ptr @methods, i64 16111, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_msg_is_keepalive, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_length, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_cookie, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_id, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_response_in, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 35, i32 0, ptr null, i64 0, ptr @.str.18, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_response_to, %struct._header_field_info { ptr @.str.19, ptr @.str.20, i32 35, i32 0, ptr null, i64 0, ptr @.str.21, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_time, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 25, i32 0, ptr null, i64 0, ptr @.str.24, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attributes, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_type, %struct._header_field_info { ptr @.str.29, ptr @.str.30, i32 5, i32 2, ptr @attributes, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_length, %struct._header_field_info { ptr @.str.31, ptr @.str.32, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_value, %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_padding, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_reserved, %struct._header_field_info { ptr @.str.2, ptr @.str.37, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_username, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_message_integrity, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_error_reserved, %struct._header_field_info { ptr @.str.2, ptr @.str.42, i32 6, i32 2, ptr null, i64 16777208, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_error_class, %struct._header_field_info { ptr @.str.43, ptr @.str.44, i32 6, i32 1, ptr null, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_error_number, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_error_code, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 5, i32 1, ptr @error_codes, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_error_reason, %struct._header_field_info { ptr @.str.49, ptr @.str.50, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_realm, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_nonce, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_client_name, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_client_handle, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_version_major, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_version_minor, %struct._header_field_info { ptr @.str.61, ptr @.str.62, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_page_size, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_client_label, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_keepalive, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_serv_service, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_serv_subservice, %struct._header_field_info { ptr @.str.71, ptr @.str.72, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_serv_instance, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_servtrans_family, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 4, i32 2, ptr @address_families, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_servtrans_port, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_servtrans_ipv4, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_servtrans_ipv6, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_service_protocol, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 4, i32 513, ptr @ipproto_val_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_flag, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_flag_type, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 5, i32 2, ptr @flag_types, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_flag_value, %struct._header_field_info { ptr @.str.89, ptr @.str.90, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_flag_removal_reason_network_withdraw, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 2, i32 16, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_flag_removal_reason_reserved, %struct._header_field_info { ptr @.str.2, ptr @.str.93, i32 5, i32 2, ptr null, i64 65534, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_flag_trust, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 5, i32 2, ptr @flag_trust_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_flag_visibility_unauthenticated, %struct._header_field_info { ptr @.str.96, ptr @.str.97, i32 2, i32 16, ptr @tfs_yes_no, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_flag_visibility_reserved, %struct._header_field_info { ptr @.str.2, ptr @.str.98, i32 5, i32 2, ptr null, i64 65534, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_service_version, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_service_data, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_subscription_id, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_service_removed_reason, %struct._header_field_info { ptr @.str.105, ptr @.str.106, i32 7, i32 1, ptr @service_removed_reasons, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_domain, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@proto_register_xmcp.hf = internal global [55 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_xmcp_type, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_type_reserved, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 5, i32 2, ptr null, i64 49152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_type_class, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 5, i32 2, ptr @classes, i64 272, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_type_method, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 5, i32 2, ptr @methods, i64 16111, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_msg_is_keepalive, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_length, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_cookie, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_id, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_response_in, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 35, i32 0, ptr inttoptr (i64 2 to ptr), i64 0, ptr @.str.18, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_response_to, %struct._header_field_info { ptr @.str.19, ptr @.str.20, i32 35, i32 0, ptr inttoptr (i64 1 to ptr), i64 0, ptr @.str.21, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_time, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 25, i32 0, ptr null, i64 0, ptr @.str.24, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attributes, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_type, %struct._header_field_info { ptr @.str.29, ptr @.str.30, i32 5, i32 2, ptr @attributes, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_length, %struct._header_field_info { ptr @.str.31, ptr @.str.32, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_value, %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_padding, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_reserved, %struct._header_field_info { ptr @.str.2, ptr @.str.37, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_username, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_message_integrity, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_error_reserved, %struct._header_field_info { ptr @.str.2, ptr @.str.42, i32 6, i32 2, ptr null, i64 16777208, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_error_class, %struct._header_field_info { ptr @.str.43, ptr @.str.44, i32 6, i32 1, ptr null, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_error_number, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_error_code, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 5, i32 1, ptr @error_codes, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_error_reason, %struct._header_field_info { ptr @.str.49, ptr @.str.50, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_realm, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_nonce, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_client_name, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_client_handle, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_version_major, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_version_minor, %struct._header_field_info { ptr @.str.61, ptr @.str.62, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_page_size, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_client_label, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_keepalive, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_serv_service, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_serv_subservice, %struct._header_field_info { ptr @.str.71, ptr @.str.72, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_serv_instance, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_servtrans_family, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 4, i32 2, ptr @address_families, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_servtrans_port, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_servtrans_ipv4, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_servtrans_ipv6, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_service_protocol, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 4, i32 513, ptr @ipproto_val_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_flag, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_flag_type, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 5, i32 2, ptr @flag_types, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_flag_value, %struct._header_field_info { ptr @.str.89, ptr @.str.90, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_flag_removal_reason_network_withdraw, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 2, i32 16, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_flag_removal_reason_reserved, %struct._header_field_info { ptr @.str.2, ptr @.str.93, i32 5, i32 2, ptr null, i64 65534, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_flag_trust, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 5, i32 2, ptr @flag_trust_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_flag_visibility_unauthenticated, %struct._header_field_info { ptr @.str.96, ptr @.str.97, i32 2, i32 16, ptr @tfs_yes_no, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_flag_visibility_reserved, %struct._header_field_info { ptr @.str.2, ptr @.str.98, i32 5, i32 2, ptr null, i64 65534, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_service_version, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_service_data, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_subscription_id, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_service_removed_reason, %struct._header_field_info { ptr @.str.105, ptr @.str.106, i32 7, i32 1, ptr @service_removed_reasons, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmcp_attr_domain, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_xmcp_type = internal global i32 0, align 4
 @.str = private unnamed_addr constant [13 x i8] c"Message Type\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"xmcp.type\00", align 1
@@ -31,11 +28,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_xmcp_type_class = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [6 x i8] c"Class\00", align 1
 @.str.5 = private unnamed_addr constant [16 x i8] c"xmcp.type.class\00", align 1
-@classes = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.149 }, %struct._value_string { i32 1, ptr @.str.150 }, %struct._value_string { i32 16, ptr @.str.151 }, %struct._value_string { i32 17, ptr @.str.128 }, %struct._value_string zeroinitializer], align 16
 @hf_xmcp_type_method = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [7 x i8] c"Method\00", align 1
 @.str.7 = private unnamed_addr constant [17 x i8] c"xmcp.type.method\00", align 1
-@methods = internal constant [13 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.152 }, %struct._value_string { i32 1, ptr @.str.153 }, %struct._value_string { i32 2, ptr @.str.154 }, %struct._value_string { i32 3, ptr @.str.155 }, %struct._value_string { i32 4, ptr @.str.156 }, %struct._value_string { i32 5, ptr @.str.157 }, %struct._value_string { i32 6, ptr @.str.158 }, %struct._value_string { i32 7, ptr @.str.159 }, %struct._value_string { i32 8, ptr @.str.160 }, %struct._value_string { i32 9, ptr @.str.161 }, %struct._value_string { i32 10, ptr @.str.162 }, %struct._value_string { i32 11, ptr @.str.67 }, %struct._value_string zeroinitializer], align 16
 @hf_xmcp_msg_is_keepalive = internal global i32 0, align 4
 @.str.8 = private unnamed_addr constant [21 x i8] c"Message is Keepalive\00", align 1
 @.str.9 = private unnamed_addr constant [24 x i8] c"xmcp.analysis.keepalive\00", align 1
@@ -69,7 +64,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_xmcp_attr_type = internal global i32 0, align 4
 @.str.29 = private unnamed_addr constant [15 x i8] c"Attribute Type\00", align 1
 @.str.30 = private unnamed_addr constant [15 x i8] c"xmcp.attr.type\00", align 1
-@attributes = internal constant [21 x %struct._value_string] [%struct._value_string { i32 6, ptr @.str.38 }, %struct._value_string { i32 8, ptr @.str.40 }, %struct._value_string { i32 9, ptr @.str.163 }, %struct._value_string { i32 20, ptr @.str.51 }, %struct._value_string { i32 21, ptr @.str.53 }, %struct._value_string { i32 4097, ptr @.str.55 }, %struct._value_string { i32 4098, ptr @.str.57 }, %struct._value_string { i32 4099, ptr @.str.164 }, %struct._value_string { i32 4100, ptr @.str.165 }, %struct._value_string { i32 4101, ptr @.str.166 }, %struct._value_string { i32 4102, ptr @.str.67 }, %struct._value_string { i32 4103, ptr @.str.167 }, %struct._value_string { i32 4104, ptr @.str.168 }, %struct._value_string { i32 4105, ptr @.str.169 }, %struct._value_string { i32 4106, ptr @.str.170 }, %struct._value_string { i32 4107, ptr @.str.171 }, %struct._value_string { i32 4108, ptr @.str.172 }, %struct._value_string { i32 4110, ptr @.str.173 }, %struct._value_string { i32 4111, ptr @.str.174 }, %struct._value_string { i32 4113, ptr @.str.107 }, %struct._value_string zeroinitializer], align 16
 @hf_xmcp_attr_length = internal global i32 0, align 4
 @.str.31 = private unnamed_addr constant [17 x i8] c"Attribute Length\00", align 1
 @.str.32 = private unnamed_addr constant [17 x i8] c"xmcp.attr.length\00", align 1
@@ -98,7 +92,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_xmcp_attr_error_code = internal global i32 0, align 4
 @.str.47 = private unnamed_addr constant [11 x i8] c"Error Code\00", align 1
 @.str.48 = private unnamed_addr constant [16 x i8] c"xmcp.attr.error\00", align 1
-@error_codes = internal constant [20 x %struct._value_string] [%struct._value_string { i32 400, ptr @.str.175 }, %struct._value_string { i32 401, ptr @.str.176 }, %struct._value_string { i32 413, ptr @.str.177 }, %struct._value_string { i32 431, ptr @.str.178 }, %struct._value_string { i32 435, ptr @.str.179 }, %struct._value_string { i32 436, ptr @.str.180 }, %struct._value_string { i32 438, ptr @.str.181 }, %struct._value_string { i32 471, ptr @.str.182 }, %struct._value_string { i32 472, ptr @.str.183 }, %struct._value_string { i32 473, ptr @.str.184 }, %struct._value_string { i32 474, ptr @.str.185 }, %struct._value_string { i32 475, ptr @.str.186 }, %struct._value_string { i32 476, ptr @.str.187 }, %struct._value_string { i32 477, ptr @.str.188 }, %struct._value_string { i32 478, ptr @.str.189 }, %struct._value_string { i32 479, ptr @.str.190 }, %struct._value_string { i32 499, ptr @.str.191 }, %struct._value_string { i32 500, ptr @.str.192 }, %struct._value_string { i32 501, ptr @.str.193 }, %struct._value_string zeroinitializer], align 16
 @hf_xmcp_attr_error_reason = internal global i32 0, align 4
 @.str.49 = private unnamed_addr constant [20 x i8] c"Error Reason Phrase\00", align 1
 @.str.50 = private unnamed_addr constant [23 x i8] c"xmcp.attr.error.reason\00", align 1
@@ -141,7 +134,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_xmcp_attr_servtrans_family = internal global i32 0, align 4
 @.str.75 = private unnamed_addr constant [7 x i8] c"Family\00", align 1
 @.str.76 = private unnamed_addr constant [35 x i8] c"xmcp.attr.service.transport.family\00", align 1
-@address_families = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.194 }, %struct._value_string { i32 2, ptr @.str.195 }, %struct._value_string zeroinitializer], align 16
 @hf_xmcp_attr_servtrans_port = internal global i32 0, align 4
 @.str.77 = private unnamed_addr constant [5 x i8] c"Port\00", align 1
 @.str.78 = private unnamed_addr constant [33 x i8] c"xmcp.attr.service.transport.port\00", align 1
@@ -161,7 +153,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_xmcp_attr_flag_type = internal global i32 0, align 4
 @.str.87 = private unnamed_addr constant [10 x i8] c"Flag Type\00", align 1
 @.str.88 = private unnamed_addr constant [20 x i8] c"xmcp.attr.flag.type\00", align 1
-@flag_types = internal constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.196 }, %struct._value_string { i32 2, ptr @.str.94 }, %struct._value_string { i32 3, ptr @.str.197 }, %struct._value_string zeroinitializer], align 16
 @hf_xmcp_attr_flag_value = internal global i32 0, align 4
 @.str.89 = private unnamed_addr constant [11 x i8] c"Flag Value\00", align 1
 @.str.90 = private unnamed_addr constant [21 x i8] c"xmcp.attr.flag.value\00", align 1
@@ -173,7 +164,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_xmcp_attr_flag_trust = internal global i32 0, align 4
 @.str.94 = private unnamed_addr constant [6 x i8] c"Trust\00", align 1
 @.str.95 = private unnamed_addr constant [21 x i8] c"xmcp.attr.flag.trust\00", align 1
-@flag_trust_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.198 }, %struct._value_string { i32 1, ptr @.str.199 }, %struct._value_string zeroinitializer], align 16
 @hf_xmcp_attr_flag_visibility_unauthenticated = internal global i32 0, align 4
 @.str.96 = private unnamed_addr constant [35 x i8] c"Visible to Unauthenticated Clients\00", align 1
 @.str.97 = private unnamed_addr constant [50 x i8] c"xmcp.attr.flag.service-visibility.unauthenticated\00", align 1
@@ -192,7 +182,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_xmcp_attr_service_removed_reason = internal global i32 0, align 4
 @.str.105 = private unnamed_addr constant [23 x i8] c"Service Removed Reason\00", align 1
 @.str.106 = private unnamed_addr constant [33 x i8] c"xmcp.attr.service-removed-reason\00", align 1
-@service_removed_reasons = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.200 }, %struct._value_string { i32 1, ptr @.str.201 }, %struct._value_string zeroinitializer], align 16
 @hf_xmcp_attr_domain = internal global i32 0, align 4
 @.str.107 = private unnamed_addr constant [7 x i8] c"Domain\00", align 1
 @.str.108 = private unnamed_addr constant [17 x i8] c"xmcp.attr.domain\00", align 1
@@ -202,7 +191,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_xmcp_attr_all = internal global i32 0, align 4
 @ett_xmcp_attr = internal global i32 0, align 4
 @ett_xmcp_attr_flag = internal global i32 0, align 4
-@proto_register_xmcp.ei = internal global [16 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_xmcp_data_following_message_integrity, %struct.expert_field_info { ptr @.str.109, i32 150994944, i32 6291456, ptr @.str.110, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_xmcp_attr_error_number_out_of_range, %struct.expert_field_info { ptr @.str.111, i32 150994944, i32 6291456, ptr @.str.112, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_xmcp_attr_error_code_unusual, %struct.expert_field_info { ptr @.str.113, i32 50331648, i32 6291456, ptr @.str.114, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_xmcp_attr_realm_incorrect, %struct.expert_field_info { ptr @.str.115, i32 150994944, i32 6291456, ptr @.str.116, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_xmcp_attr_length_bad, %struct.expert_field_info { ptr @.str.117, i32 150994944, i32 6291456, ptr @.str.118, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_xmcp_xmcp_attr_servtrans_unknown, %struct.expert_field_info { ptr @.str.119, i32 150994944, i32 6291456, ptr @.str.120, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_xmcp_attr_type_unknown, %struct.expert_field_info { ptr @.str.121, i32 150994944, i32 4194304, ptr @.str.122, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_xmcp_type_reserved_not_zero, %struct.expert_field_info { ptr @.str.123, i32 150994944, i32 6291456, ptr @.str.124, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_xmcp_message_class_reserved, %struct.expert_field_info { ptr @.str.125, i32 150994944, i32 6291456, ptr @.str.126, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_xmcp_error_response, %struct.expert_field_info { ptr @.str.127, i32 50331648, i32 4194304, ptr @.str.128, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_xmcp_msg_type_method_reserved, %struct.expert_field_info { ptr @.str.129, i32 150994944, i32 6291456, ptr @.str.130, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_xmcp_length_bad, %struct.expert_field_info { ptr @.str.131, i32 150994944, i32 8388608, ptr @.str.132, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_xmcp_magic_cookie_incorrect, %struct.expert_field_info { ptr @.str.133, i32 150994944, i32 6291456, ptr @.str.134, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_xmcp_response_without_request, %struct.expert_field_info { ptr @.str.135, i32 33554432, i32 4194304, ptr @.str.136, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_xmcp_new_session, %struct.expert_field_info { ptr @.str.137, i32 33554432, i32 2097152, ptr @.str.138, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_xmcp_session_termination, %struct.expert_field_info { ptr @.str.139, i32 33554432, i32 2097152, ptr @.str.140, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_xmcp.ei = internal global [16 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmcp_data_following_message_integrity, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.109, i32 150994944, i32 6291456, ptr @.str.110, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmcp_attr_error_number_out_of_range, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.111, i32 150994944, i32 6291456, ptr @.str.112, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmcp_attr_error_code_unusual, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.113, i32 50331648, i32 6291456, ptr @.str.114, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmcp_attr_realm_incorrect, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.115, i32 150994944, i32 6291456, ptr @.str.116, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmcp_attr_length_bad, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.117, i32 150994944, i32 6291456, ptr @.str.118, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmcp_xmcp_attr_servtrans_unknown, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.119, i32 150994944, i32 6291456, ptr @.str.120, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmcp_attr_type_unknown, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.121, i32 150994944, i32 4194304, ptr @.str.122, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmcp_type_reserved_not_zero, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.123, i32 150994944, i32 6291456, ptr @.str.124, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmcp_message_class_reserved, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.125, i32 150994944, i32 6291456, ptr @.str.126, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmcp_error_response, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.127, i32 50331648, i32 4194304, ptr @.str.128, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmcp_msg_type_method_reserved, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.129, i32 150994944, i32 6291456, ptr @.str.130, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmcp_length_bad, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.131, i32 150994944, i32 8388608, ptr @.str.132, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmcp_magic_cookie_incorrect, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.133, i32 150994944, i32 6291456, ptr @.str.134, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmcp_response_without_request, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.135, i32 33554432, i32 4194304, ptr @.str.136, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmcp_new_session, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.137, i32 33554432, i32 2097152, ptr @.str.138, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmcp_session_termination, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.139, i32 33554432, i32 2097152, ptr @.str.140, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_xmcp_data_following_message_integrity = internal global %struct.expert_field zeroinitializer, align 4
 @.str.109 = private unnamed_addr constant [38 x i8] c"xmcp.data_following_message_integrity\00", align 1
 @.str.110 = private unnamed_addr constant [33 x i8] c"Data following message-integrity\00", align 1
@@ -265,114 +254,123 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.149 = private unnamed_addr constant [8 x i8] c"Request\00", align 1
 @.str.150 = private unnamed_addr constant [15 x i8] c"RESERVED-CLASS\00", align 1
 @.str.151 = private unnamed_addr constant [17 x i8] c"Success Response\00", align 1
-@.str.152 = private unnamed_addr constant [8 x i8] c"Illegal\00", align 1
-@.str.153 = private unnamed_addr constant [9 x i8] c"Register\00", align 1
-@.str.154 = private unnamed_addr constant [11 x i8] c"Unregister\00", align 1
-@.str.155 = private unnamed_addr constant [15 x i8] c"RegisterRevoke\00", align 1
-@.str.156 = private unnamed_addr constant [8 x i8] c"Publish\00", align 1
-@.str.157 = private unnamed_addr constant [10 x i8] c"Unpublish\00", align 1
-@.str.158 = private unnamed_addr constant [14 x i8] c"PublishRevoke\00", align 1
-@.str.159 = private unnamed_addr constant [10 x i8] c"Subscribe\00", align 1
-@.str.160 = private unnamed_addr constant [12 x i8] c"Unsubscribe\00", align 1
-@.str.161 = private unnamed_addr constant [9 x i8] c"Withdraw\00", align 1
-@.str.162 = private unnamed_addr constant [7 x i8] c"Notify\00", align 1
-@.str.163 = private unnamed_addr constant [11 x i8] c"Error-Code\00", align 1
-@.str.164 = private unnamed_addr constant [17 x i8] c"Protocol-Version\00", align 1
-@.str.165 = private unnamed_addr constant [9 x i8] c"PageSize\00", align 1
-@.str.166 = private unnamed_addr constant [12 x i8] c"ClientLabel\00", align 1
-@.str.167 = private unnamed_addr constant [16 x i8] c"ServiceIdentity\00", align 1
-@.str.168 = private unnamed_addr constant [21 x i8] c"ServiceTransportAddr\00", align 1
-@.str.169 = private unnamed_addr constant [16 x i8] c"ServiceProtocol\00", align 1
-@.str.170 = private unnamed_addr constant [6 x i8] c"Flags\00", align 1
-@.str.171 = private unnamed_addr constant [15 x i8] c"ServiceVersion\00", align 1
-@.str.172 = private unnamed_addr constant [12 x i8] c"ServiceData\00", align 1
-@.str.173 = private unnamed_addr constant [15 x i8] c"SubscriptionID\00", align 1
-@.str.174 = private unnamed_addr constant [21 x i8] c"ServiceRemovedReason\00", align 1
-@.str.175 = private unnamed_addr constant [12 x i8] c"Bad Request\00", align 1
-@.str.176 = private unnamed_addr constant [13 x i8] c"Unauthorized\00", align 1
-@.str.177 = private unnamed_addr constant [18 x i8] c"Request Too Large\00", align 1
-@.str.178 = private unnamed_addr constant [24 x i8] c"Integrity Check Failure\00", align 1
-@.str.179 = private unnamed_addr constant [15 x i8] c"Nonce Required\00", align 1
-@.str.180 = private unnamed_addr constant [17 x i8] c"Unknown Username\00", align 1
-@.str.181 = private unnamed_addr constant [12 x i8] c"Stale Nonce\00", align 1
-@.str.182 = private unnamed_addr constant [18 x i8] c"Bad Client Handle\00", align 1
-@.str.183 = private unnamed_addr constant [23 x i8] c"Version Number Too Low\00", align 1
-@.str.184 = private unnamed_addr constant [16 x i8] c"Unknown Service\00", align 1
-@.str.185 = private unnamed_addr constant [13 x i8] c"Unregistered\00", align 1
-@.str.186 = private unnamed_addr constant [24 x i8] c"Invalid ServiceIdentity\00", align 1
-@.str.187 = private unnamed_addr constant [21 x i8] c"Unknown Subscription\00", align 1
-@.str.188 = private unnamed_addr constant [19 x i8] c"Already Registered\00", align 1
-@.str.189 = private unnamed_addr constant [29 x i8] c"Unsupported Protocol Version\00", align 1
-@.str.190 = private unnamed_addr constant [28 x i8] c"Unknown or Forbidden Domain\00", align 1
-@.str.191 = private unnamed_addr constant [28 x i8] c"Miscellaneous Request Error\00", align 1
-@.str.192 = private unnamed_addr constant [16 x i8] c"Responder Error\00", align 1
-@.str.193 = private unnamed_addr constant [16 x i8] c"Not Implemented\00", align 1
-@.str.194 = private unnamed_addr constant [5 x i8] c"IPv4\00", align 1
-@.str.195 = private unnamed_addr constant [5 x i8] c"IPv6\00", align 1
-@.str.196 = private unnamed_addr constant [15 x i8] c"Removal Reason\00", align 1
-@.str.197 = private unnamed_addr constant [19 x i8] c"Service Visibility\00", align 1
-@.str.198 = private unnamed_addr constant [6 x i8] c"Local\00", align 1
-@.str.199 = private unnamed_addr constant [8 x i8] c"Learned\00", align 1
-@.str.200 = private unnamed_addr constant [17 x i8] c"Network withdraw\00", align 1
-@.str.201 = private unnamed_addr constant [16 x i8] c"Source withdraw\00", align 1
+@classes = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.149 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.150 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.151 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.128 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.153 = private unnamed_addr constant [8 x i8] c"Illegal\00", align 1
+@.str.154 = private unnamed_addr constant [9 x i8] c"Register\00", align 1
+@.str.155 = private unnamed_addr constant [11 x i8] c"Unregister\00", align 1
+@.str.156 = private unnamed_addr constant [15 x i8] c"RegisterRevoke\00", align 1
+@.str.157 = private unnamed_addr constant [8 x i8] c"Publish\00", align 1
+@.str.158 = private unnamed_addr constant [10 x i8] c"Unpublish\00", align 1
+@.str.159 = private unnamed_addr constant [14 x i8] c"PublishRevoke\00", align 1
+@.str.160 = private unnamed_addr constant [10 x i8] c"Subscribe\00", align 1
+@.str.161 = private unnamed_addr constant [12 x i8] c"Unsubscribe\00", align 1
+@.str.162 = private unnamed_addr constant [9 x i8] c"Withdraw\00", align 1
+@.str.163 = private unnamed_addr constant [7 x i8] c"Notify\00", align 1
+@methods = internal constant [13 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.153 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.154 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.155 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.156 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.157 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.158 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.159 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.160 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.161 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.162 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.163 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.67 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.165 = private unnamed_addr constant [11 x i8] c"Error-Code\00", align 1
+@.str.166 = private unnamed_addr constant [17 x i8] c"Protocol-Version\00", align 1
+@.str.167 = private unnamed_addr constant [9 x i8] c"PageSize\00", align 1
+@.str.168 = private unnamed_addr constant [12 x i8] c"ClientLabel\00", align 1
+@.str.169 = private unnamed_addr constant [16 x i8] c"ServiceIdentity\00", align 1
+@.str.170 = private unnamed_addr constant [21 x i8] c"ServiceTransportAddr\00", align 1
+@.str.171 = private unnamed_addr constant [16 x i8] c"ServiceProtocol\00", align 1
+@.str.172 = private unnamed_addr constant [6 x i8] c"Flags\00", align 1
+@.str.173 = private unnamed_addr constant [15 x i8] c"ServiceVersion\00", align 1
+@.str.174 = private unnamed_addr constant [12 x i8] c"ServiceData\00", align 1
+@.str.175 = private unnamed_addr constant [15 x i8] c"SubscriptionID\00", align 1
+@.str.176 = private unnamed_addr constant [21 x i8] c"ServiceRemovedReason\00", align 1
+@attributes = internal constant [21 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.38 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.40 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.51 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.53 }, { i32, [4 x i8], ptr } { i32 4097, [4 x i8] zeroinitializer, ptr @.str.55 }, { i32, [4 x i8], ptr } { i32 4098, [4 x i8] zeroinitializer, ptr @.str.57 }, { i32, [4 x i8], ptr } { i32 4099, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } { i32 4100, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 4101, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 4102, [4 x i8] zeroinitializer, ptr @.str.67 }, { i32, [4 x i8], ptr } { i32 4103, [4 x i8] zeroinitializer, ptr @.str.169 }, { i32, [4 x i8], ptr } { i32 4104, [4 x i8] zeroinitializer, ptr @.str.170 }, { i32, [4 x i8], ptr } { i32 4105, [4 x i8] zeroinitializer, ptr @.str.171 }, { i32, [4 x i8], ptr } { i32 4106, [4 x i8] zeroinitializer, ptr @.str.172 }, { i32, [4 x i8], ptr } { i32 4107, [4 x i8] zeroinitializer, ptr @.str.173 }, { i32, [4 x i8], ptr } { i32 4108, [4 x i8] zeroinitializer, ptr @.str.174 }, { i32, [4 x i8], ptr } { i32 4110, [4 x i8] zeroinitializer, ptr @.str.175 }, { i32, [4 x i8], ptr } { i32 4111, [4 x i8] zeroinitializer, ptr @.str.176 }, { i32, [4 x i8], ptr } { i32 4113, [4 x i8] zeroinitializer, ptr @.str.107 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.178 = private unnamed_addr constant [12 x i8] c"Bad Request\00", align 1
+@.str.179 = private unnamed_addr constant [13 x i8] c"Unauthorized\00", align 1
+@.str.180 = private unnamed_addr constant [18 x i8] c"Request Too Large\00", align 1
+@.str.181 = private unnamed_addr constant [24 x i8] c"Integrity Check Failure\00", align 1
+@.str.182 = private unnamed_addr constant [15 x i8] c"Nonce Required\00", align 1
+@.str.183 = private unnamed_addr constant [17 x i8] c"Unknown Username\00", align 1
+@.str.184 = private unnamed_addr constant [12 x i8] c"Stale Nonce\00", align 1
+@.str.185 = private unnamed_addr constant [18 x i8] c"Bad Client Handle\00", align 1
+@.str.186 = private unnamed_addr constant [23 x i8] c"Version Number Too Low\00", align 1
+@.str.187 = private unnamed_addr constant [16 x i8] c"Unknown Service\00", align 1
+@.str.188 = private unnamed_addr constant [13 x i8] c"Unregistered\00", align 1
+@.str.189 = private unnamed_addr constant [24 x i8] c"Invalid ServiceIdentity\00", align 1
+@.str.190 = private unnamed_addr constant [21 x i8] c"Unknown Subscription\00", align 1
+@.str.191 = private unnamed_addr constant [19 x i8] c"Already Registered\00", align 1
+@.str.192 = private unnamed_addr constant [29 x i8] c"Unsupported Protocol Version\00", align 1
+@.str.193 = private unnamed_addr constant [28 x i8] c"Unknown or Forbidden Domain\00", align 1
+@.str.194 = private unnamed_addr constant [28 x i8] c"Miscellaneous Request Error\00", align 1
+@.str.195 = private unnamed_addr constant [16 x i8] c"Responder Error\00", align 1
+@.str.196 = private unnamed_addr constant [16 x i8] c"Not Implemented\00", align 1
+@error_codes = internal constant [20 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 400, [4 x i8] zeroinitializer, ptr @.str.178 }, { i32, [4 x i8], ptr } { i32 401, [4 x i8] zeroinitializer, ptr @.str.179 }, { i32, [4 x i8], ptr } { i32 413, [4 x i8] zeroinitializer, ptr @.str.180 }, { i32, [4 x i8], ptr } { i32 431, [4 x i8] zeroinitializer, ptr @.str.181 }, { i32, [4 x i8], ptr } { i32 435, [4 x i8] zeroinitializer, ptr @.str.182 }, { i32, [4 x i8], ptr } { i32 436, [4 x i8] zeroinitializer, ptr @.str.183 }, { i32, [4 x i8], ptr } { i32 438, [4 x i8] zeroinitializer, ptr @.str.184 }, { i32, [4 x i8], ptr } { i32 471, [4 x i8] zeroinitializer, ptr @.str.185 }, { i32, [4 x i8], ptr } { i32 472, [4 x i8] zeroinitializer, ptr @.str.186 }, { i32, [4 x i8], ptr } { i32 473, [4 x i8] zeroinitializer, ptr @.str.187 }, { i32, [4 x i8], ptr } { i32 474, [4 x i8] zeroinitializer, ptr @.str.188 }, { i32, [4 x i8], ptr } { i32 475, [4 x i8] zeroinitializer, ptr @.str.189 }, { i32, [4 x i8], ptr } { i32 476, [4 x i8] zeroinitializer, ptr @.str.190 }, { i32, [4 x i8], ptr } { i32 477, [4 x i8] zeroinitializer, ptr @.str.191 }, { i32, [4 x i8], ptr } { i32 478, [4 x i8] zeroinitializer, ptr @.str.192 }, { i32, [4 x i8], ptr } { i32 479, [4 x i8] zeroinitializer, ptr @.str.193 }, { i32, [4 x i8], ptr } { i32 499, [4 x i8] zeroinitializer, ptr @.str.194 }, { i32, [4 x i8], ptr } { i32 500, [4 x i8] zeroinitializer, ptr @.str.195 }, { i32, [4 x i8], ptr } { i32 501, [4 x i8] zeroinitializer, ptr @.str.196 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.198 = private unnamed_addr constant [5 x i8] c"IPv4\00", align 1
+@.str.199 = private unnamed_addr constant [5 x i8] c"IPv6\00", align 1
+@address_families = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.198 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.199 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.201 = private unnamed_addr constant [15 x i8] c"Removal Reason\00", align 1
+@.str.202 = private unnamed_addr constant [19 x i8] c"Service Visibility\00", align 1
+@flag_types = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.201 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.94 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.202 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.204 = private unnamed_addr constant [6 x i8] c"Local\00", align 1
+@.str.205 = private unnamed_addr constant [8 x i8] c"Learned\00", align 1
+@flag_trust_values = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.204 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.205 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.207 = private unnamed_addr constant [17 x i8] c"Network withdraw\00", align 1
+@.str.208 = private unnamed_addr constant [16 x i8] c"Source withdraw\00", align 1
+@service_removed_reasons = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.207 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.208 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @xmcp_msg_type_class = internal global i16 1, align 2
 @xmcp_msg_type_method = internal global i16 0, align 2
-@.str.202 = private unnamed_addr constant [6 x i8] c"%s %s\00", align 1
-@.str.203 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
+@.str.210 = private unnamed_addr constant [6 x i8] c"%s %s\00", align 1
+@.str.211 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
 @xmcp_type_fields = internal constant [4 x ptr] [ptr @hf_xmcp_type_reserved, ptr @hf_xmcp_type_method, ptr @hf_xmcp_type_class, ptr null], align 16
-@xmcp_msg_is_keepalive = internal global i32 0, align 4
-@.str.204 = private unnamed_addr constant [69 x i8] c"XMCP message length (%u-byte header + %u) exceeds packet length (%u)\00", align 1
+@xmcp_msg_is_keepalive = internal global i8 0, align 1
+@.str.212 = private unnamed_addr constant [69 x i8] c"XMCP message length (%u-byte header + %u) exceeds packet length (%u)\00", align 1
 @xmcp_service_protocol = internal global i16 -1, align 2
 @xmcp_service_port = internal global i32 -1, align 4
 @xmcp_it_service_port = internal global ptr null, align 8
-@.str.205 = private unnamed_addr constant [14 x i8] c"%s, length %u\00", align 1
-@.str.206 = private unnamed_addr constant [33 x i8] c" (bogus, exceeds message length)\00", align 1
-@.str.207 = private unnamed_addr constant [40 x i8] c"Attribute length exceeds message length\00", align 1
-@.str.208 = private unnamed_addr constant [28 x i8] c"This is a Keepalive message\00", align 1
-@.str.209 = private unnamed_addr constant [13 x i8] c"[Keepalive] \00", align 1
-@.str.210 = private unnamed_addr constant [26 x i8] c"New session - Register %s\00", align 1
-@.str.211 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.212 = private unnamed_addr constant [28 x i8] c"Session termination - %s %s\00", align 1
-@.str.213 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
-@.str.214 = private unnamed_addr constant [12 x i8] c", user \22%s\22\00", align 1
-@.str.215 = private unnamed_addr constant [5 x i8] c": %d\00", align 1
-@.str.216 = private unnamed_addr constant [16 x i8] c", error %d (%s)\00", align 1
-@.str.217 = private unnamed_addr constant [28 x i8] c"Unusual error code (%u, %s)\00", align 1
-@.str.218 = private unnamed_addr constant [6 x i8] c" (%s)\00", align 1
-@.str.219 = private unnamed_addr constant [6 x i8] c"\22SAF\22\00", align 1
-@.str.220 = private unnamed_addr constant [12 x i8] c", name \22%s\22\00", align 1
-@.str.221 = private unnamed_addr constant [5 x i8] c": %u\00", align 1
-@.str.222 = private unnamed_addr constant [12 x i8] c", handle %u\00", align 1
-@.str.223 = private unnamed_addr constant [8 x i8] c": %u.%u\00", align 1
-@.str.224 = private unnamed_addr constant [13 x i8] c", label \22%s\22\00", align 1
-@.str.225 = private unnamed_addr constant [11 x i8] c": %u:%u:%s\00", align 1
-@.str.226 = private unnamed_addr constant [19 x i8] c", service %u:%u:%s\00", align 1
-@.str.227 = private unnamed_addr constant [8 x i8] c": %s:%u\00", align 1
-@.str.228 = private unnamed_addr constant [23 x i8] c"Malformed IPv6 address\00", align 1
-@.str.229 = private unnamed_addr constant [10 x i8] c": [%s]:%u\00", align 1
-@.str.230 = private unnamed_addr constant [10 x i8] c": %u (%s)\00", align 1
-@.str.231 = private unnamed_addr constant [44 x i8] c"Malformed Flags - length not divisible by 4\00", align 1
-@.str.232 = private unnamed_addr constant [10 x i8] c"Flag: %s:\00", align 1
-@.str.233 = private unnamed_addr constant [20 x i8] c" (network withdraw)\00", align 1
-@.str.234 = private unnamed_addr constant [19 x i8] c" (source withdraw)\00", align 1
-@.str.235 = private unnamed_addr constant [4 x i8] c" %s\00", align 1
-@.str.236 = private unnamed_addr constant [38 x i8] c" (visible to unauthenticated clients)\00", align 1
-@.str.237 = private unnamed_addr constant [11 x i8] c" (default)\00", align 1
-@.str.238 = private unnamed_addr constant [8 x i8] c" 0x%04x\00", align 1
-@.str.239 = private unnamed_addr constant [5 x i8] c" \09\0D\0A\00", align 1
-@.str.240 = private unnamed_addr constant [16 x i8] c"application/xml\00", align 1
-@.str.241 = private unnamed_addr constant [11 x i8] c"text/plain\00", align 1
-@.str.242 = private unnamed_addr constant [18 x i8] c", subscription %u\00", align 1
-@.str.243 = private unnamed_addr constant [49 x i8] c"Length less than minimum for this attribute type\00", align 1
-@.str.244 = private unnamed_addr constant [47 x i8] c"Length exceeds maximum for this attribute type\00", align 1
-@.str.245 = private unnamed_addr constant [11 x i8] c" (TCP: %s)\00", align 1
-@.str.246 = private unnamed_addr constant [11 x i8] c" (UDP: %s)\00", align 1
-@.str.247 = private unnamed_addr constant [12 x i8] c" (DCCP: %s)\00", align 1
-@.str.248 = private unnamed_addr constant [12 x i8] c" (SCTP: %s)\00", align 1
+@.str.213 = private unnamed_addr constant [14 x i8] c"%s, length %u\00", align 1
+@.str.214 = private unnamed_addr constant [33 x i8] c" (bogus, exceeds message length)\00", align 1
+@.str.215 = private unnamed_addr constant [40 x i8] c"Attribute length exceeds message length\00", align 1
+@.str.216 = private unnamed_addr constant [28 x i8] c"This is a Keepalive message\00", align 1
+@.str.217 = private unnamed_addr constant [13 x i8] c"[Keepalive] \00", align 1
+@.str.218 = private unnamed_addr constant [26 x i8] c"New session - Register %s\00", align 1
+@.str.219 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.220 = private unnamed_addr constant [28 x i8] c"Session termination - %s %s\00", align 1
+@.str.221 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
+@.str.222 = private unnamed_addr constant [12 x i8] c", user \22%s\22\00", align 1
+@.str.223 = private unnamed_addr constant [5 x i8] c": %d\00", align 1
+@.str.224 = private unnamed_addr constant [16 x i8] c", error %d (%s)\00", align 1
+@.str.225 = private unnamed_addr constant [28 x i8] c"Unusual error code (%u, %s)\00", align 1
+@.str.226 = private unnamed_addr constant [6 x i8] c" (%s)\00", align 1
+@.str.227 = private unnamed_addr constant [6 x i8] c"\22SAF\22\00", align 1
+@.str.228 = private unnamed_addr constant [12 x i8] c", name \22%s\22\00", align 1
+@.str.229 = private unnamed_addr constant [5 x i8] c": %u\00", align 1
+@.str.230 = private unnamed_addr constant [12 x i8] c", handle %u\00", align 1
+@.str.231 = private unnamed_addr constant [8 x i8] c": %u.%u\00", align 1
+@.str.232 = private unnamed_addr constant [13 x i8] c", label \22%s\22\00", align 1
+@.str.233 = private unnamed_addr constant [11 x i8] c": %u:%u:%s\00", align 1
+@.str.234 = private unnamed_addr constant [19 x i8] c", service %u:%u:%s\00", align 1
+@.str.235 = private unnamed_addr constant [8 x i8] c": %s:%u\00", align 1
+@.str.236 = private unnamed_addr constant [23 x i8] c"Malformed IPv6 address\00", align 1
+@.str.237 = private unnamed_addr constant [10 x i8] c": [%s]:%u\00", align 1
+@.str.238 = private unnamed_addr constant [10 x i8] c": %u (%s)\00", align 1
+@.str.239 = private unnamed_addr constant [44 x i8] c"Malformed Flags - length not divisible by 4\00", align 1
+@.str.240 = private unnamed_addr constant [10 x i8] c"Flag: %s:\00", align 1
+@.str.241 = private unnamed_addr constant [20 x i8] c" (network withdraw)\00", align 1
+@.str.242 = private unnamed_addr constant [19 x i8] c" (source withdraw)\00", align 1
+@.str.243 = private unnamed_addr constant [4 x i8] c" %s\00", align 1
+@.str.244 = private unnamed_addr constant [38 x i8] c" (visible to unauthenticated clients)\00", align 1
+@.str.245 = private unnamed_addr constant [11 x i8] c" (default)\00", align 1
+@.str.246 = private unnamed_addr constant [8 x i8] c" 0x%04x\00", align 1
+@.str.247 = private unnamed_addr constant [5 x i8] c" \09\0D\0A\00", align 1
+@.str.248 = private unnamed_addr constant [16 x i8] c"application/xml\00", align 1
+@.str.249 = private unnamed_addr constant [11 x i8] c"text/plain\00", align 1
+@.str.250 = private unnamed_addr constant [18 x i8] c", subscription %u\00", align 1
+@.str.251 = private unnamed_addr constant [49 x i8] c"Length less than minimum for this attribute type\00", align 1
+@.str.252 = private unnamed_addr constant [47 x i8] c"Length exceeds maximum for this attribute type\00", align 1
+@.str.253 = private unnamed_addr constant [11 x i8] c" (TCP: %s)\00", align 1
+@.str.254 = private unnamed_addr constant [11 x i8] c" (UDP: %s)\00", align 1
+@.str.255 = private unnamed_addr constant [12 x i8] c" (DCCP: %s)\00", align 1
+@.str.256 = private unnamed_addr constant [12 x i8] c" (SCTP: %s)\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_xmcp() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #9
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.141, ptr noundef @.str.142, ptr noundef @.str.143)
   store i32 %2, ptr @proto_xmcp, align 4
   %3 = load i32, ptr @proto_xmcp, align 4
@@ -386,22 +384,32 @@ define hidden void @proto_register_xmcp() #0 {
   %7 = load i32, ptr @proto_xmcp, align 4
   %8 = call ptr @register_dissector(ptr noundef @.str.143, ptr noundef @dissect_xmcp_tcp, i32 noundef %7)
   store ptr %8, ptr @xmcp_tcp_handle, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #9
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_xmcp_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -415,13 +423,16 @@ define internal i32 @dissect_xmcp_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = load ptr, ptr %8, align 8
-  call void @tcp_dissect_pdus(ptr noundef %9, ptr noundef %10, ptr noundef %11, i32 noundef 1, i32 noundef 20, ptr noundef @get_xmcp_message_len, ptr noundef @dissect_xmcp_message, ptr noundef %12)
+  call void @tcp_dissect_pdus(ptr noundef %9, ptr noundef %10, ptr noundef %11, i1 noundef zeroext true, i32 noundef 20, ptr noundef @get_xmcp_message_len, ptr noundef @dissect_xmcp_message, ptr noundef %12)
   %13 = load ptr, ptr %5, align 8
   %14 = call i32 @tvb_captured_length(ptr noundef %13)
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_xmcp() #0 {
   %1 = load i32, ptr @proto_xmcp, align 4
   call void @heur_dissector_add(ptr noundef @.str.144, ptr noundef @dissect_xmcp_heur, ptr noundef @.str.145, ptr noundef @.str.146, i32 noundef %1, i32 noundef 1)
@@ -432,11 +443,12 @@ define hidden void @proto_reg_handoff_xmcp() #0 {
   ret void
 }
 
-declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_xmcp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @dissect_xmcp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i1, align 1
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -451,7 +463,7 @@ define internal i32 @dissect_xmcp_heur(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
+  store i1 false, ptr %5, align 1
   br label %31
 
 14:                                               ; preds = %4
@@ -463,7 +475,7 @@ define internal i32 @dissect_xmcp_heur(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %14
-  store i32 0, ptr %5, align 4
+  store i1 false, ptr %5, align 1
   br label %31
 
 21:                                               ; preds = %14
@@ -473,7 +485,7 @@ define internal i32 @dissect_xmcp_heur(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %21
-  store i32 0, ptr %5, align 4
+  store i1 false, ptr %5, align 1
   br label %31
 
 26:                                               ; preds = %21
@@ -481,22 +493,25 @@ define internal i32 @dissect_xmcp_heur(ptr noundef %0, ptr noundef %1, ptr nound
   %28 = load ptr, ptr %7, align 8
   %29 = load ptr, ptr %8, align 8
   %30 = load ptr, ptr %9, align 8
-  call void @tcp_dissect_pdus(ptr noundef %27, ptr noundef %28, ptr noundef %29, i32 noundef 1, i32 noundef 20, ptr noundef @get_xmcp_message_len, ptr noundef @dissect_xmcp_message, ptr noundef %30)
-  store i32 1, ptr %5, align 4
+  call void @tcp_dissect_pdus(ptr noundef %27, ptr noundef %28, ptr noundef %29, i1 noundef zeroext true, i32 noundef 20, ptr noundef @get_xmcp_message_len, ptr noundef @dissect_xmcp_message, ptr noundef %30)
+  store i1 true, ptr %5, align 1
   br label %31
 
 31:                                               ; preds = %26, %25, %20, %13
-  %32 = load i32, ptr %5, align 4
-  ret i32 %32
+  %32 = load i1, ptr %5, align 1
+  ret i1 %32
 }
 
-declare ptr @find_dissector_table(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_dissector_table(ptr noundef) #2
 
-declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @get_xmcp_message_len(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -515,7 +530,7 @@ define internal i32 @get_xmcp_message_len(ptr noundef %0, ptr noundef %1, i32 no
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_xmcp_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -536,744 +551,802 @@ define internal i32 @dissect_xmcp_message(ptr noundef %0, ptr noundef %1, ptr no
   %21 = alloca ptr, align 8
   %22 = alloca ptr, align 8
   %23 = alloca ptr, align 8
-  %24 = alloca %struct.nstime_t, align 8
+  %24 = alloca i32, align 4
+  %25 = alloca %struct.nstime_t, align 8
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %10) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #9
   store ptr null, ptr %12, align 8
-  %25 = load ptr, ptr %6, align 8
-  %26 = call i32 @tvb_reported_length(ptr noundef %25)
-  %27 = icmp ult i32 %26, 20
-  br i1 %27, label %28, label %29
-
-28:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %493
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr %16) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr %17) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr %18) #9
+  call void @llvm.lifetime.start.p0(i64 12, ptr %19) #9
+  call void @llvm.lifetime.start.p0(i64 32, ptr %20) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #9
+  %26 = load ptr, ptr %6, align 8
+  %27 = call i32 @tvb_reported_length(ptr noundef %26)
+  %28 = icmp ult i32 %27, 20
+  br i1 %28, label %29, label %30
 
 29:                                               ; preds = %4
-  %30 = load ptr, ptr %6, align 8
-  %31 = call zeroext i16 @tvb_get_ntohs(ptr noundef %30, i32 noundef 0)
-  store i16 %31, ptr %10, align 2
-  %32 = load i16, ptr %10, align 2
-  %33 = zext i16 %32 to i32
-  %34 = and i32 %33, 49152
-  %35 = icmp ne i32 %34, 0
-  br i1 %35, label %36, label %37
-
-36:                                               ; preds = %29
   store i32 0, ptr %5, align 4
-  br label %493
+  store i32 1, ptr %24, align 4
+  br label %494
 
-37:                                               ; preds = %29
-  %38 = load ptr, ptr %6, align 8
-  %39 = call i32 @tvb_get_ntohl(ptr noundef %38, i32 noundef 4)
-  %40 = icmp ne i32 %39, 2136644551
-  br i1 %40, label %41, label %42
+30:                                               ; preds = %4
+  %31 = load ptr, ptr %6, align 8
+  %32 = call zeroext i16 @tvb_get_ntohs(ptr noundef %31, i32 noundef 0)
+  store i16 %32, ptr %10, align 2
+  %33 = load i16, ptr %10, align 2
+  %34 = zext i16 %33 to i32
+  %35 = and i32 %34, 49152
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %37, label %38
 
-41:                                               ; preds = %37
+37:                                               ; preds = %30
   store i32 0, ptr %5, align 4
-  br label %493
+  store i32 1, ptr %24, align 4
+  br label %494
 
-42:                                               ; preds = %37
-  %43 = load ptr, ptr %7, align 8
-  %44 = getelementptr inbounds %struct._packet_info, ptr %43, i32 0, i32 1
-  %45 = load ptr, ptr %44, align 8
-  call void @col_set_str(ptr noundef %45, i32 noundef 34, ptr noundef @.str.142)
-  %46 = load ptr, ptr %7, align 8
-  %47 = getelementptr inbounds %struct._packet_info, ptr %46, i32 0, i32 1
-  %48 = load ptr, ptr %47, align 8
-  call void @col_clear(ptr noundef %48, i32 noundef 25)
-  %49 = load i16, ptr %10, align 2
-  %50 = zext i16 %49 to i32
-  %51 = and i32 %50, 272
-  %52 = ashr i32 %51, 4
-  %53 = trunc i32 %52 to i16
-  store i16 %53, ptr @xmcp_msg_type_class, align 2
-  %54 = load i16, ptr %10, align 2
-  %55 = zext i16 %54 to i32
-  %56 = and i32 %55, 16111
-  %57 = trunc i32 %56 to i16
-  store i16 %57, ptr @xmcp_msg_type_method, align 2
-  %58 = load ptr, ptr %7, align 8
-  %59 = getelementptr inbounds %struct._packet_info, ptr %58, i32 0, i32 1
-  %60 = load ptr, ptr %59, align 8
-  %61 = load i16, ptr @xmcp_msg_type_method, align 2
-  %62 = zext i16 %61 to i32
-  %63 = call ptr @val_to_str_const(i32 noundef %62, ptr noundef @methods, ptr noundef @.str.203)
-  %64 = load i16, ptr @xmcp_msg_type_class, align 2
-  %65 = zext i16 %64 to i32
-  %66 = call ptr @val_to_str_const(i32 noundef %65, ptr noundef @classes, ptr noundef @.str.203)
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %60, i32 noundef 25, ptr noundef @.str.202, ptr noundef %63, ptr noundef %66)
-  %67 = load ptr, ptr %6, align 8
-  %68 = call i32 @tvb_get_ntohl(ptr noundef %67, i32 noundef 8)
-  %69 = getelementptr [3 x i32], ptr %19, i64 0, i64 0
-  store i32 %68, ptr %69, align 4
-  %70 = load ptr, ptr %6, align 8
-  %71 = call i32 @tvb_get_ntohl(ptr noundef %70, i32 noundef 12)
-  %72 = getelementptr [3 x i32], ptr %19, i64 0, i64 1
-  store i32 %71, ptr %72, align 4
-  %73 = load ptr, ptr %6, align 8
-  %74 = call i32 @tvb_get_ntohl(ptr noundef %73, i32 noundef 16)
-  %75 = getelementptr [3 x i32], ptr %19, i64 0, i64 2
-  store i32 %74, ptr %75, align 4
-  %76 = getelementptr [2 x %struct._wmem_tree_key_t], ptr %20, i64 0, i64 0
-  %77 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %76, i32 0, i32 0
-  store i32 3, ptr %77, align 16
-  %78 = getelementptr inbounds [3 x i32], ptr %19, i64 0, i64 0
-  %79 = getelementptr [2 x %struct._wmem_tree_key_t], ptr %20, i64 0, i64 0
-  %80 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %79, i32 0, i32 1
-  store ptr %78, ptr %80, align 8
-  %81 = getelementptr [2 x %struct._wmem_tree_key_t], ptr %20, i64 0, i64 1
-  %82 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %81, i32 0, i32 0
-  store i32 0, ptr %82, align 16
-  %83 = getelementptr [2 x %struct._wmem_tree_key_t], ptr %20, i64 0, i64 1
-  %84 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %83, i32 0, i32 1
-  store ptr null, ptr %84, align 8
-  %85 = load ptr, ptr %7, align 8
-  %86 = call nonnull ptr @find_or_create_conversation(ptr noundef %85)
-  store ptr %86, ptr %21, align 8
-  %87 = load ptr, ptr %21, align 8
-  %88 = load i32, ptr @proto_xmcp, align 4
-  %89 = call ptr @conversation_get_proto_data(ptr noundef %87, i32 noundef %88)
-  store ptr %89, ptr %22, align 8
-  %90 = load ptr, ptr %22, align 8
-  %91 = icmp ne ptr %90, null
-  br i1 %91, label %102, label %92
+38:                                               ; preds = %30
+  %39 = load ptr, ptr %6, align 8
+  %40 = call i32 @tvb_get_ntohl(ptr noundef %39, i32 noundef 4)
+  %41 = icmp ne i32 %40, 2136644551
+  br i1 %41, label %42, label %43
 
-92:                                               ; preds = %42
-  %93 = call ptr @wmem_file_scope()
-  %94 = call noalias ptr @wmem_alloc(ptr noundef %93, i64 noundef 8)
-  store ptr %94, ptr %22, align 8
-  %95 = call ptr @wmem_file_scope()
-  %96 = call noalias ptr @wmem_tree_new(ptr noundef %95)
-  %97 = load ptr, ptr %22, align 8
-  %98 = getelementptr inbounds %struct._xmcp_conv_info_t, ptr %97, i32 0, i32 0
-  store ptr %96, ptr %98, align 8
-  %99 = load ptr, ptr %21, align 8
-  %100 = load i32, ptr @proto_xmcp, align 4
-  %101 = load ptr, ptr %22, align 8
-  call void @conversation_add_proto_data(ptr noundef %99, i32 noundef %100, ptr noundef %101)
-  br label %102
+42:                                               ; preds = %38
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %24, align 4
+  br label %494
 
-102:                                              ; preds = %92, %42
-  %103 = load ptr, ptr %22, align 8
-  %104 = getelementptr inbounds %struct._xmcp_conv_info_t, ptr %103, i32 0, i32 0
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds [2 x %struct._wmem_tree_key_t], ptr %20, i64 0, i64 0
-  %107 = call ptr @wmem_tree_lookup32_array(ptr noundef %105, ptr noundef %106)
-  store ptr %107, ptr %23, align 8
-  %108 = load ptr, ptr %23, align 8
-  %109 = icmp ne ptr %108, null
-  br i1 %109, label %128, label %110
+43:                                               ; preds = %38
+  %44 = load ptr, ptr %7, align 8
+  %45 = getelementptr inbounds nuw %struct._packet_info, ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8
+  call void @col_set_str(ptr noundef %46, i32 noundef 35, ptr noundef @.str.142)
+  %47 = load ptr, ptr %7, align 8
+  %48 = getelementptr inbounds nuw %struct._packet_info, ptr %47, i32 0, i32 1
+  %49 = load ptr, ptr %48, align 8
+  call void @col_clear(ptr noundef %49, i32 noundef 25)
+  %50 = load i16, ptr %10, align 2
+  %51 = zext i16 %50 to i32
+  %52 = and i32 %51, 272
+  %53 = ashr i32 %52, 4
+  %54 = trunc i32 %53 to i16
+  store i16 %54, ptr @xmcp_msg_type_class, align 2
+  %55 = load i16, ptr %10, align 2
+  %56 = zext i16 %55 to i32
+  %57 = and i32 %56, 16111
+  %58 = trunc i32 %57 to i16
+  store i16 %58, ptr @xmcp_msg_type_method, align 2
+  %59 = load ptr, ptr %7, align 8
+  %60 = getelementptr inbounds nuw %struct._packet_info, ptr %59, i32 0, i32 1
+  %61 = load ptr, ptr %60, align 8
+  %62 = load i16, ptr @xmcp_msg_type_method, align 2
+  %63 = zext i16 %62 to i32
+  %64 = call ptr @val_to_str_const(i32 noundef %63, ptr noundef @methods, ptr noundef @.str.211)
+  %65 = load i16, ptr @xmcp_msg_type_class, align 2
+  %66 = zext i16 %65 to i32
+  %67 = call ptr @val_to_str_const(i32 noundef %66, ptr noundef @classes, ptr noundef @.str.211)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %61, i32 noundef 25, ptr noundef @.str.210, ptr noundef %64, ptr noundef %67)
+  %68 = load ptr, ptr %6, align 8
+  %69 = call i32 @tvb_get_ntohl(ptr noundef %68, i32 noundef 8)
+  %70 = getelementptr [3 x i32], ptr %19, i64 0, i64 0
+  store i32 %69, ptr %70, align 4
+  %71 = load ptr, ptr %6, align 8
+  %72 = call i32 @tvb_get_ntohl(ptr noundef %71, i32 noundef 12)
+  %73 = getelementptr [3 x i32], ptr %19, i64 0, i64 1
+  store i32 %72, ptr %73, align 4
+  %74 = load ptr, ptr %6, align 8
+  %75 = call i32 @tvb_get_ntohl(ptr noundef %74, i32 noundef 16)
+  %76 = getelementptr [3 x i32], ptr %19, i64 0, i64 2
+  store i32 %75, ptr %76, align 4
+  %77 = getelementptr [2 x %struct._wmem_tree_key_t], ptr %20, i64 0, i64 0
+  %78 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %77, i32 0, i32 0
+  store i32 3, ptr %78, align 16
+  %79 = getelementptr inbounds [3 x i32], ptr %19, i64 0, i64 0
+  %80 = getelementptr [2 x %struct._wmem_tree_key_t], ptr %20, i64 0, i64 0
+  %81 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %80, i32 0, i32 1
+  store ptr %79, ptr %81, align 8
+  %82 = getelementptr [2 x %struct._wmem_tree_key_t], ptr %20, i64 0, i64 1
+  %83 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %82, i32 0, i32 0
+  store i32 0, ptr %83, align 16
+  %84 = getelementptr [2 x %struct._wmem_tree_key_t], ptr %20, i64 0, i64 1
+  %85 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %84, i32 0, i32 1
+  store ptr null, ptr %85, align 8
+  %86 = load ptr, ptr %7, align 8
+  %87 = call ptr @find_or_create_conversation(ptr noundef %86)
+  store ptr %87, ptr %21, align 8
+  %88 = load ptr, ptr %21, align 8
+  %89 = load i32, ptr @proto_xmcp, align 4
+  %90 = call ptr @conversation_get_proto_data(ptr noundef %88, i32 noundef %89)
+  store ptr %90, ptr %22, align 8
+  %91 = load ptr, ptr %22, align 8
+  %92 = icmp ne ptr %91, null
+  br i1 %92, label %103, label %93
 
-110:                                              ; preds = %102
-  %111 = call ptr @wmem_file_scope()
-  %112 = call noalias ptr @wmem_alloc(ptr noundef %111, i64 noundef 32)
-  store ptr %112, ptr %23, align 8
-  %113 = load ptr, ptr %23, align 8
-  %114 = getelementptr inbounds %struct._xmcp_transaction_t, ptr %113, i32 0, i32 0
-  store i32 0, ptr %114, align 8
-  %115 = load ptr, ptr %23, align 8
-  %116 = getelementptr inbounds %struct._xmcp_transaction_t, ptr %115, i32 0, i32 1
-  store i32 0, ptr %116, align 4
-  %117 = load ptr, ptr %23, align 8
-  %118 = getelementptr inbounds %struct._xmcp_transaction_t, ptr %117, i32 0, i32 2
-  %119 = load ptr, ptr %7, align 8
-  %120 = getelementptr inbounds %struct._packet_info, ptr %119, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %118, ptr align 8 %120, i64 16, i1 false)
-  %121 = load ptr, ptr %23, align 8
-  %122 = getelementptr inbounds %struct._xmcp_transaction_t, ptr %121, i32 0, i32 3
-  store i32 0, ptr %122, align 8
-  %123 = load ptr, ptr %22, align 8
-  %124 = getelementptr inbounds %struct._xmcp_conv_info_t, ptr %123, i32 0, i32 0
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds [2 x %struct._wmem_tree_key_t], ptr %20, i64 0, i64 0
-  %127 = load ptr, ptr %23, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %125, ptr noundef %126, ptr noundef %127)
-  br label %128
+93:                                               ; preds = %43
+  %94 = call ptr @wmem_file_scope()
+  %95 = call noalias ptr @wmem_alloc(ptr noundef %94, i64 noundef 8) #10
+  store ptr %95, ptr %22, align 8
+  %96 = call ptr @wmem_file_scope()
+  %97 = call noalias ptr @wmem_tree_new(ptr noundef %96)
+  %98 = load ptr, ptr %22, align 8
+  %99 = getelementptr inbounds nuw %struct._xmcp_conv_info_t, ptr %98, i32 0, i32 0
+  store ptr %97, ptr %99, align 8
+  %100 = load ptr, ptr %21, align 8
+  %101 = load i32, ptr @proto_xmcp, align 4
+  %102 = load ptr, ptr %22, align 8
+  call void @conversation_add_proto_data(ptr noundef %100, i32 noundef %101, ptr noundef %102)
+  br label %103
 
-128:                                              ; preds = %110, %102
-  %129 = load ptr, ptr %7, align 8
-  %130 = getelementptr inbounds %struct._packet_info, ptr %129, i32 0, i32 8
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds %struct._frame_data, ptr %131, i32 0, i32 9
-  %133 = load i16, ptr %132, align 2
-  %134 = lshr i16 %133, 3
-  %135 = and i16 %134, 1
-  %136 = zext i16 %135 to i32
-  %137 = icmp ne i32 %136, 0
-  br i1 %137, label %176, label %138
+103:                                              ; preds = %93, %43
+  %104 = load ptr, ptr %22, align 8
+  %105 = getelementptr inbounds nuw %struct._xmcp_conv_info_t, ptr %104, i32 0, i32 0
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds [2 x %struct._wmem_tree_key_t], ptr %20, i64 0, i64 0
+  %108 = call ptr @wmem_tree_lookup32_array(ptr noundef %106, ptr noundef %107)
+  store ptr %108, ptr %23, align 8
+  %109 = load ptr, ptr %23, align 8
+  %110 = icmp ne ptr %109, null
+  br i1 %110, label %129, label %111
 
-138:                                              ; preds = %128
-  %139 = load i16, ptr @xmcp_msg_type_class, align 2
-  %140 = zext i16 %139 to i32
-  %141 = icmp eq i32 %140, 0
-  br i1 %141, label %142, label %158
+111:                                              ; preds = %103
+  %112 = call ptr @wmem_file_scope()
+  %113 = call noalias ptr @wmem_alloc(ptr noundef %112, i64 noundef 32) #10
+  store ptr %113, ptr %23, align 8
+  %114 = load ptr, ptr %23, align 8
+  %115 = getelementptr inbounds nuw %struct._xmcp_transaction_t, ptr %114, i32 0, i32 0
+  store i32 0, ptr %115, align 8
+  %116 = load ptr, ptr %23, align 8
+  %117 = getelementptr inbounds nuw %struct._xmcp_transaction_t, ptr %116, i32 0, i32 1
+  store i32 0, ptr %117, align 4
+  %118 = load ptr, ptr %23, align 8
+  %119 = getelementptr inbounds nuw %struct._xmcp_transaction_t, ptr %118, i32 0, i32 2
+  %120 = load ptr, ptr %7, align 8
+  %121 = getelementptr inbounds nuw %struct._packet_info, ptr %120, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %119, ptr align 8 %121, i64 16, i1 false)
+  %122 = load ptr, ptr %23, align 8
+  %123 = getelementptr inbounds nuw %struct._xmcp_transaction_t, ptr %122, i32 0, i32 3
+  store i8 0, ptr %123, align 8
+  %124 = load ptr, ptr %22, align 8
+  %125 = getelementptr inbounds nuw %struct._xmcp_conv_info_t, ptr %124, i32 0, i32 0
+  %126 = load ptr, ptr %125, align 8
+  %127 = getelementptr inbounds [2 x %struct._wmem_tree_key_t], ptr %20, i64 0, i64 0
+  %128 = load ptr, ptr %23, align 8
+  call void @wmem_tree_insert32_array(ptr noundef %126, ptr noundef %127, ptr noundef %128)
+  br label %129
 
-142:                                              ; preds = %138
-  %143 = load ptr, ptr %23, align 8
-  %144 = getelementptr inbounds %struct._xmcp_transaction_t, ptr %143, i32 0, i32 0
-  %145 = load i32, ptr %144, align 8
-  %146 = icmp eq i32 %145, 0
-  br i1 %146, label %147, label %157
+129:                                              ; preds = %111, %103
+  %130 = load ptr, ptr %7, align 8
+  %131 = getelementptr inbounds nuw %struct._packet_info, ptr %130, i32 0, i32 8
+  %132 = load ptr, ptr %131, align 8
+  %133 = getelementptr inbounds nuw %struct._frame_data, ptr %132, i32 0, i32 11
+  %134 = load i16, ptr %133, align 1
+  %135 = lshr i16 %134, 3
+  %136 = and i16 %135, 1
+  %137 = zext i16 %136 to i32
+  %138 = icmp ne i32 %137, 0
+  br i1 %138, label %177, label %139
 
-147:                                              ; preds = %142
-  %148 = load ptr, ptr %7, align 8
-  %149 = getelementptr inbounds %struct._packet_info, ptr %148, i32 0, i32 3
-  %150 = load i32, ptr %149, align 4
-  %151 = load ptr, ptr %23, align 8
-  %152 = getelementptr inbounds %struct._xmcp_transaction_t, ptr %151, i32 0, i32 0
-  store i32 %150, ptr %152, align 8
-  %153 = load ptr, ptr %23, align 8
-  %154 = getelementptr inbounds %struct._xmcp_transaction_t, ptr %153, i32 0, i32 2
-  %155 = load ptr, ptr %7, align 8
-  %156 = getelementptr inbounds %struct._packet_info, ptr %155, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %154, ptr align 8 %156, i64 16, i1 false)
-  br label %157
+139:                                              ; preds = %129
+  %140 = load i16, ptr @xmcp_msg_type_class, align 2
+  %141 = zext i16 %140 to i32
+  %142 = icmp eq i32 %141, 0
+  br i1 %142, label %143, label %159
 
-157:                                              ; preds = %147, %142
-  br label %175
+143:                                              ; preds = %139
+  %144 = load ptr, ptr %23, align 8
+  %145 = getelementptr inbounds nuw %struct._xmcp_transaction_t, ptr %144, i32 0, i32 0
+  %146 = load i32, ptr %145, align 8
+  %147 = icmp eq i32 %146, 0
+  br i1 %147, label %148, label %158
 
-158:                                              ; preds = %138
-  %159 = load i16, ptr @xmcp_msg_type_class, align 2
-  %160 = zext i16 %159 to i32
-  %161 = icmp ne i32 %160, 1
-  br i1 %161, label %162, label %174
+148:                                              ; preds = %143
+  %149 = load ptr, ptr %7, align 8
+  %150 = getelementptr inbounds nuw %struct._packet_info, ptr %149, i32 0, i32 3
+  %151 = load i32, ptr %150, align 4
+  %152 = load ptr, ptr %23, align 8
+  %153 = getelementptr inbounds nuw %struct._xmcp_transaction_t, ptr %152, i32 0, i32 0
+  store i32 %151, ptr %153, align 8
+  %154 = load ptr, ptr %23, align 8
+  %155 = getelementptr inbounds nuw %struct._xmcp_transaction_t, ptr %154, i32 0, i32 2
+  %156 = load ptr, ptr %7, align 8
+  %157 = getelementptr inbounds nuw %struct._packet_info, ptr %156, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %155, ptr align 8 %157, i64 16, i1 false)
+  br label %158
 
-162:                                              ; preds = %158
-  %163 = load ptr, ptr %23, align 8
-  %164 = getelementptr inbounds %struct._xmcp_transaction_t, ptr %163, i32 0, i32 1
-  %165 = load i32, ptr %164, align 4
-  %166 = icmp eq i32 %165, 0
-  br i1 %166, label %167, label %173
-
-167:                                              ; preds = %162
-  %168 = load ptr, ptr %7, align 8
-  %169 = getelementptr inbounds %struct._packet_info, ptr %168, i32 0, i32 3
-  %170 = load i32, ptr %169, align 4
-  %171 = load ptr, ptr %23, align 8
-  %172 = getelementptr inbounds %struct._xmcp_transaction_t, ptr %171, i32 0, i32 1
-  store i32 %170, ptr %172, align 4
-  br label %173
-
-173:                                              ; preds = %167, %162
-  br label %174
-
-174:                                              ; preds = %173, %158
-  br label %175
-
-175:                                              ; preds = %174, %157
+158:                                              ; preds = %148, %143
   br label %176
 
-176:                                              ; preds = %175, %128
-  %177 = load ptr, ptr %8, align 8
-  %178 = load i32, ptr @proto_xmcp, align 4
-  %179 = load ptr, ptr %6, align 8
-  %180 = call ptr @proto_tree_add_item(ptr noundef %177, i32 noundef %178, ptr noundef %179, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  store ptr %180, ptr %12, align 8
-  %181 = load ptr, ptr %12, align 8
-  %182 = load i32, ptr @ett_xmcp, align 4
-  %183 = call ptr @proto_item_add_subtree(ptr noundef %181, i32 noundef %182)
-  store ptr %183, ptr %13, align 8
-  %184 = load ptr, ptr %13, align 8
-  %185 = load ptr, ptr %6, align 8
-  %186 = load i32, ptr @hf_xmcp_type, align 4
-  %187 = load i32, ptr @ett_xmcp_type, align 4
-  %188 = call ptr @proto_tree_add_bitmask(ptr noundef %184, ptr noundef %185, i32 noundef 0, i32 noundef %186, i32 noundef %187, ptr noundef @xmcp_type_fields, i32 noundef 0)
-  store ptr %188, ptr %12, align 8
-  %189 = load i16, ptr %10, align 2
-  %190 = zext i16 %189 to i32
-  %191 = and i32 %190, 49152
-  %192 = icmp ne i32 %191, 0
-  br i1 %192, label %193, label %197
+159:                                              ; preds = %139
+  %160 = load i16, ptr @xmcp_msg_type_class, align 2
+  %161 = zext i16 %160 to i32
+  %162 = icmp ne i32 %161, 1
+  br i1 %162, label %163, label %175
 
-193:                                              ; preds = %176
-  %194 = load ptr, ptr %7, align 8
-  %195 = load ptr, ptr %12, align 8
-  %196 = call ptr @expert_add_info(ptr noundef %194, ptr noundef %195, ptr noundef @ei_xmcp_type_reserved_not_zero)
-  br label %197
+163:                                              ; preds = %159
+  %164 = load ptr, ptr %23, align 8
+  %165 = getelementptr inbounds nuw %struct._xmcp_transaction_t, ptr %164, i32 0, i32 1
+  %166 = load i32, ptr %165, align 4
+  %167 = icmp eq i32 %166, 0
+  br i1 %167, label %168, label %174
 
-197:                                              ; preds = %193, %176
-  %198 = load i16, ptr @xmcp_msg_type_class, align 2
-  %199 = zext i16 %198 to i32
-  %200 = icmp eq i32 %199, 1
-  br i1 %200, label %201, label %205
+168:                                              ; preds = %163
+  %169 = load ptr, ptr %7, align 8
+  %170 = getelementptr inbounds nuw %struct._packet_info, ptr %169, i32 0, i32 3
+  %171 = load i32, ptr %170, align 4
+  %172 = load ptr, ptr %23, align 8
+  %173 = getelementptr inbounds nuw %struct._xmcp_transaction_t, ptr %172, i32 0, i32 1
+  store i32 %171, ptr %173, align 4
+  br label %174
 
-201:                                              ; preds = %197
-  %202 = load ptr, ptr %7, align 8
-  %203 = load ptr, ptr %12, align 8
-  %204 = call ptr @expert_add_info(ptr noundef %202, ptr noundef %203, ptr noundef @ei_xmcp_message_class_reserved)
+174:                                              ; preds = %168, %163
+  br label %175
+
+175:                                              ; preds = %174, %159
+  br label %176
+
+176:                                              ; preds = %175, %158
+  br label %177
+
+177:                                              ; preds = %176, %129
+  %178 = load ptr, ptr %8, align 8
+  %179 = load i32, ptr @proto_xmcp, align 4
+  %180 = load ptr, ptr %6, align 8
+  %181 = call ptr @proto_tree_add_item(ptr noundef %178, i32 noundef %179, ptr noundef %180, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  store ptr %181, ptr %12, align 8
+  %182 = load ptr, ptr %12, align 8
+  %183 = load i32, ptr @ett_xmcp, align 4
+  %184 = call ptr @proto_item_add_subtree(ptr noundef %182, i32 noundef %183)
+  store ptr %184, ptr %13, align 8
+  %185 = load ptr, ptr %13, align 8
+  %186 = load ptr, ptr %6, align 8
+  %187 = load i32, ptr @hf_xmcp_type, align 4
+  %188 = load i32, ptr @ett_xmcp_type, align 4
+  %189 = call ptr @proto_tree_add_bitmask(ptr noundef %185, ptr noundef %186, i32 noundef 0, i32 noundef %187, i32 noundef %188, ptr noundef @xmcp_type_fields, i32 noundef 0)
+  store ptr %189, ptr %12, align 8
+  %190 = load i16, ptr %10, align 2
+  %191 = zext i16 %190 to i32
+  %192 = and i32 %191, 49152
+  %193 = icmp ne i32 %192, 0
+  br i1 %193, label %194, label %198
+
+194:                                              ; preds = %177
+  %195 = load ptr, ptr %7, align 8
+  %196 = load ptr, ptr %12, align 8
+  %197 = call ptr @expert_add_info(ptr noundef %195, ptr noundef %196, ptr noundef @ei_xmcp_type_reserved_not_zero)
+  br label %198
+
+198:                                              ; preds = %194, %177
+  %199 = load i16, ptr @xmcp_msg_type_class, align 2
+  %200 = zext i16 %199 to i32
+  %201 = icmp eq i32 %200, 1
+  br i1 %201, label %202, label %206
+
+202:                                              ; preds = %198
+  %203 = load ptr, ptr %7, align 8
+  %204 = load ptr, ptr %12, align 8
+  %205 = call ptr @expert_add_info(ptr noundef %203, ptr noundef %204, ptr noundef @ei_xmcp_message_class_reserved)
+  br label %215
+
+206:                                              ; preds = %198
+  %207 = load i16, ptr @xmcp_msg_type_class, align 2
+  %208 = zext i16 %207 to i32
+  %209 = icmp eq i32 %208, 17
+  br i1 %209, label %210, label %214
+
+210:                                              ; preds = %206
+  %211 = load ptr, ptr %7, align 8
+  %212 = load ptr, ptr %12, align 8
+  %213 = call ptr @expert_add_info(ptr noundef %211, ptr noundef %212, ptr noundef @ei_xmcp_error_response)
   br label %214
 
-205:                                              ; preds = %197
-  %206 = load i16, ptr @xmcp_msg_type_class, align 2
-  %207 = zext i16 %206 to i32
-  %208 = icmp eq i32 %207, 17
-  br i1 %208, label %209, label %213
+214:                                              ; preds = %210, %206
+  br label %215
 
-209:                                              ; preds = %205
-  %210 = load ptr, ptr %7, align 8
-  %211 = load ptr, ptr %12, align 8
-  %212 = call ptr @expert_add_info(ptr noundef %210, ptr noundef %211, ptr noundef @ei_xmcp_error_response)
-  br label %213
+215:                                              ; preds = %214, %202
+  %216 = load i16, ptr @xmcp_msg_type_method, align 2
+  %217 = zext i16 %216 to i32
+  %218 = icmp slt i32 %217, 1
+  br i1 %218, label %223, label %219
 
-213:                                              ; preds = %209, %205
-  br label %214
+219:                                              ; preds = %215
+  %220 = load i16, ptr @xmcp_msg_type_method, align 2
+  %221 = zext i16 %220 to i32
+  %222 = icmp sgt i32 %221, 11
+  br i1 %222, label %223, label %227
 
-214:                                              ; preds = %213, %201
-  %215 = load i16, ptr @xmcp_msg_type_method, align 2
-  %216 = zext i16 %215 to i32
-  %217 = icmp slt i32 %216, 1
-  br i1 %217, label %222, label %218
+223:                                              ; preds = %219, %215
+  %224 = load ptr, ptr %7, align 8
+  %225 = load ptr, ptr %12, align 8
+  %226 = call ptr @expert_add_info(ptr noundef %224, ptr noundef %225, ptr noundef @ei_xmcp_msg_type_method_reserved)
+  br label %227
 
-218:                                              ; preds = %214
-  %219 = load i16, ptr @xmcp_msg_type_method, align 2
-  %220 = zext i16 %219 to i32
-  %221 = icmp sgt i32 %220, 11
-  br i1 %221, label %222, label %226
+227:                                              ; preds = %223, %219
+  %228 = load ptr, ptr %23, align 8
+  %229 = getelementptr inbounds nuw %struct._xmcp_transaction_t, ptr %228, i32 0, i32 3
+  %230 = load i8, ptr %229, align 8, !range !6, !noundef !7
+  %231 = trunc i8 %230 to i1
+  br i1 %231, label %236, label %232
 
-222:                                              ; preds = %218, %214
-  %223 = load ptr, ptr %7, align 8
-  %224 = load ptr, ptr %12, align 8
-  %225 = call ptr @expert_add_info(ptr noundef %223, ptr noundef %224, ptr noundef @ei_xmcp_msg_type_method_reserved)
-  br label %226
+232:                                              ; preds = %227
+  %233 = load i16, ptr @xmcp_msg_type_method, align 2
+  %234 = zext i16 %233 to i32
+  %235 = icmp eq i32 %234, 11
+  br label %236
 
-226:                                              ; preds = %222, %218
-  %227 = load ptr, ptr %23, align 8
-  %228 = getelementptr inbounds %struct._xmcp_transaction_t, ptr %227, i32 0, i32 3
-  %229 = load i32, ptr %228, align 8
-  %230 = icmp ne i32 %229, 0
-  br i1 %230, label %235, label %231
+236:                                              ; preds = %232, %227
+  %237 = phi i1 [ true, %227 ], [ %235, %232 ]
+  %238 = zext i1 %237 to i8
+  store i8 %238, ptr @xmcp_msg_is_keepalive, align 1
+  %239 = load ptr, ptr %13, align 8
+  %240 = load i32, ptr @hf_xmcp_length, align 4
+  %241 = load ptr, ptr %6, align 8
+  %242 = call ptr @proto_tree_add_item(ptr noundef %239, i32 noundef %240, ptr noundef %241, i32 noundef 2, i32 noundef 2, i32 noundef 0)
+  store ptr %242, ptr %12, align 8
+  %243 = load ptr, ptr %6, align 8
+  %244 = call zeroext i16 @tvb_get_ntohs(ptr noundef %243, i32 noundef 2)
+  store i16 %244, ptr %11, align 2
+  %245 = load i16, ptr %11, align 2
+  %246 = zext i16 %245 to i32
+  %247 = add i32 %246, 20
+  %248 = load ptr, ptr %6, align 8
+  %249 = call i32 @tvb_reported_length(ptr noundef %248)
+  %250 = icmp ugt i32 %247, %249
+  br i1 %250, label %251, label %261
 
-231:                                              ; preds = %226
-  %232 = load i16, ptr @xmcp_msg_type_method, align 2
-  %233 = zext i16 %232 to i32
-  %234 = icmp eq i32 %233, 11
-  br label %235
+251:                                              ; preds = %236
+  %252 = load ptr, ptr %7, align 8
+  %253 = load ptr, ptr %12, align 8
+  %254 = load i16, ptr %11, align 2
+  %255 = zext i16 %254 to i32
+  %256 = load ptr, ptr %6, align 8
+  %257 = call i32 @tvb_reported_length(ptr noundef %256)
+  %258 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %252, ptr noundef %253, ptr noundef @ei_xmcp_length_bad, ptr noundef @.str.212, i32 noundef 20, i32 noundef %255, i32 noundef %257)
+  %259 = load ptr, ptr %6, align 8
+  %260 = call i32 @tvb_captured_length(ptr noundef %259)
+  store i32 %260, ptr %5, align 4
+  store i32 1, ptr %24, align 4
+  br label %494
 
-235:                                              ; preds = %231, %226
-  %236 = phi i1 [ true, %226 ], [ %234, %231 ]
-  %237 = zext i1 %236 to i32
-  store i32 %237, ptr @xmcp_msg_is_keepalive, align 4
-  %238 = load ptr, ptr %13, align 8
-  %239 = load i32, ptr @hf_xmcp_length, align 4
-  %240 = load ptr, ptr %6, align 8
-  %241 = call ptr @proto_tree_add_item(ptr noundef %238, i32 noundef %239, ptr noundef %240, i32 noundef 2, i32 noundef 2, i32 noundef 0)
-  store ptr %241, ptr %12, align 8
-  %242 = load ptr, ptr %6, align 8
-  %243 = call zeroext i16 @tvb_get_ntohs(ptr noundef %242, i32 noundef 2)
-  store i16 %243, ptr %11, align 2
-  %244 = load i16, ptr %11, align 2
-  %245 = zext i16 %244 to i32
-  %246 = add i32 %245, 20
-  %247 = load ptr, ptr %6, align 8
-  %248 = call i32 @tvb_reported_length(ptr noundef %247)
-  %249 = icmp ugt i32 %246, %248
-  br i1 %249, label %250, label %260
+261:                                              ; preds = %236
+  %262 = load ptr, ptr %13, align 8
+  %263 = load i32, ptr @hf_xmcp_cookie, align 4
+  %264 = load ptr, ptr %6, align 8
+  %265 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %263, ptr noundef %264, i32 noundef 4, i32 noundef 4, i32 noundef 0)
+  store ptr %265, ptr %12, align 8
+  %266 = load ptr, ptr %6, align 8
+  %267 = call i32 @tvb_get_ntohl(ptr noundef %266, i32 noundef 4)
+  %268 = icmp ne i32 %267, 2136644551
+  br i1 %268, label %269, label %273
 
-250:                                              ; preds = %235
-  %251 = load ptr, ptr %7, align 8
-  %252 = load ptr, ptr %12, align 8
-  %253 = load i16, ptr %11, align 2
-  %254 = zext i16 %253 to i32
-  %255 = load ptr, ptr %6, align 8
-  %256 = call i32 @tvb_reported_length(ptr noundef %255)
-  %257 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %251, ptr noundef %252, ptr noundef @ei_xmcp_length_bad, ptr noundef @.str.204, i32 noundef 20, i32 noundef %254, i32 noundef %256)
-  %258 = load ptr, ptr %6, align 8
-  %259 = call i32 @tvb_captured_length(ptr noundef %258)
-  store i32 %259, ptr %5, align 4
-  br label %493
+269:                                              ; preds = %261
+  %270 = load ptr, ptr %7, align 8
+  %271 = load ptr, ptr %12, align 8
+  %272 = call ptr @expert_add_info(ptr noundef %270, ptr noundef %271, ptr noundef @ei_xmcp_magic_cookie_incorrect)
+  br label %273
 
-260:                                              ; preds = %235
-  %261 = load ptr, ptr %13, align 8
-  %262 = load i32, ptr @hf_xmcp_cookie, align 4
-  %263 = load ptr, ptr %6, align 8
-  %264 = call ptr @proto_tree_add_item(ptr noundef %261, i32 noundef %262, ptr noundef %263, i32 noundef 4, i32 noundef 4, i32 noundef 0)
-  store ptr %264, ptr %12, align 8
-  %265 = load ptr, ptr %6, align 8
-  %266 = call i32 @tvb_get_ntohl(ptr noundef %265, i32 noundef 4)
-  %267 = icmp ne i32 %266, 2136644551
-  br i1 %267, label %268, label %272
+273:                                              ; preds = %269, %261
+  %274 = load ptr, ptr %13, align 8
+  %275 = load i32, ptr @hf_xmcp_id, align 4
+  %276 = load ptr, ptr %6, align 8
+  %277 = call ptr @proto_tree_add_item(ptr noundef %274, i32 noundef %275, ptr noundef %276, i32 noundef 8, i32 noundef 12, i32 noundef 0)
+  store ptr %277, ptr %12, align 8
+  %278 = load i16, ptr @xmcp_msg_type_class, align 2
+  %279 = zext i16 %278 to i32
+  %280 = icmp eq i32 %279, 0
+  br i1 %280, label %281, label %296
 
-268:                                              ; preds = %260
-  %269 = load ptr, ptr %7, align 8
-  %270 = load ptr, ptr %12, align 8
-  %271 = call ptr @expert_add_info(ptr noundef %269, ptr noundef %270, ptr noundef @ei_xmcp_magic_cookie_incorrect)
-  br label %272
+281:                                              ; preds = %273
+  %282 = load ptr, ptr %23, align 8
+  %283 = getelementptr inbounds nuw %struct._xmcp_transaction_t, ptr %282, i32 0, i32 1
+  %284 = load i32, ptr %283, align 4
+  %285 = icmp ne i32 %284, 0
+  br i1 %285, label %286, label %295
 
-272:                                              ; preds = %268, %260
-  %273 = load ptr, ptr %13, align 8
-  %274 = load i32, ptr @hf_xmcp_id, align 4
-  %275 = load ptr, ptr %6, align 8
-  %276 = call ptr @proto_tree_add_item(ptr noundef %273, i32 noundef %274, ptr noundef %275, i32 noundef 8, i32 noundef 12, i32 noundef 0)
-  store ptr %276, ptr %12, align 8
-  %277 = load i16, ptr @xmcp_msg_type_class, align 2
-  %278 = zext i16 %277 to i32
-  %279 = icmp eq i32 %278, 0
-  br i1 %279, label %280, label %295
+286:                                              ; preds = %281
+  %287 = load ptr, ptr %13, align 8
+  %288 = load i32, ptr @hf_xmcp_response_in, align 4
+  %289 = load ptr, ptr %6, align 8
+  %290 = load ptr, ptr %23, align 8
+  %291 = getelementptr inbounds nuw %struct._xmcp_transaction_t, ptr %290, i32 0, i32 1
+  %292 = load i32, ptr %291, align 4
+  %293 = call ptr @proto_tree_add_uint(ptr noundef %287, i32 noundef %288, ptr noundef %289, i32 noundef 0, i32 noundef 0, i32 noundef %292)
+  store ptr %293, ptr %12, align 8
+  %294 = load ptr, ptr %12, align 8
+  call void @proto_item_set_generated(ptr noundef %294)
+  br label %295
 
-280:                                              ; preds = %272
-  %281 = load ptr, ptr %23, align 8
-  %282 = getelementptr inbounds %struct._xmcp_transaction_t, ptr %281, i32 0, i32 1
-  %283 = load i32, ptr %282, align 4
-  %284 = icmp ne i32 %283, 0
-  br i1 %284, label %285, label %294
+295:                                              ; preds = %286, %281
+  br label %329
 
-285:                                              ; preds = %280
-  %286 = load ptr, ptr %13, align 8
-  %287 = load i32, ptr @hf_xmcp_response_in, align 4
-  %288 = load ptr, ptr %6, align 8
-  %289 = load ptr, ptr %23, align 8
-  %290 = getelementptr inbounds %struct._xmcp_transaction_t, ptr %289, i32 0, i32 1
-  %291 = load i32, ptr %290, align 4
-  %292 = call ptr @proto_tree_add_uint(ptr noundef %286, i32 noundef %287, ptr noundef %288, i32 noundef 0, i32 noundef 0, i32 noundef %291)
-  store ptr %292, ptr %12, align 8
-  %293 = load ptr, ptr %12, align 8
-  call void @proto_item_set_generated(ptr noundef %293)
-  br label %294
+296:                                              ; preds = %273
+  %297 = load i16, ptr @xmcp_msg_type_class, align 2
+  %298 = zext i16 %297 to i32
+  %299 = icmp ne i32 %298, 1
+  br i1 %299, label %300, label %328
 
-294:                                              ; preds = %285, %280
-  br label %328
+300:                                              ; preds = %296
+  %301 = load ptr, ptr %23, align 8
+  %302 = getelementptr inbounds nuw %struct._xmcp_transaction_t, ptr %301, i32 0, i32 0
+  %303 = load i32, ptr %302, align 8
+  %304 = icmp ne i32 %303, 0
+  br i1 %304, label %305, label %323
 
-295:                                              ; preds = %272
-  %296 = load i16, ptr @xmcp_msg_type_class, align 2
-  %297 = zext i16 %296 to i32
-  %298 = icmp ne i32 %297, 1
-  br i1 %298, label %299, label %327
-
-299:                                              ; preds = %295
-  %300 = load ptr, ptr %23, align 8
-  %301 = getelementptr inbounds %struct._xmcp_transaction_t, ptr %300, i32 0, i32 0
-  %302 = load i32, ptr %301, align 8
-  %303 = icmp ne i32 %302, 0
-  br i1 %303, label %304, label %322
-
-304:                                              ; preds = %299
-  %305 = load ptr, ptr %13, align 8
-  %306 = load i32, ptr @hf_xmcp_response_to, align 4
-  %307 = load ptr, ptr %6, align 8
-  %308 = load ptr, ptr %23, align 8
-  %309 = getelementptr inbounds %struct._xmcp_transaction_t, ptr %308, i32 0, i32 0
-  %310 = load i32, ptr %309, align 8
-  %311 = call ptr @proto_tree_add_uint(ptr noundef %305, i32 noundef %306, ptr noundef %307, i32 noundef 0, i32 noundef 0, i32 noundef %310)
-  store ptr %311, ptr %12, align 8
-  %312 = load ptr, ptr %12, align 8
-  call void @proto_item_set_generated(ptr noundef %312)
-  %313 = load ptr, ptr %7, align 8
-  %314 = getelementptr inbounds %struct._packet_info, ptr %313, i32 0, i32 4
-  %315 = load ptr, ptr %23, align 8
-  %316 = getelementptr inbounds %struct._xmcp_transaction_t, ptr %315, i32 0, i32 2
-  call void @nstime_delta(ptr noundef %24, ptr noundef %314, ptr noundef %316)
-  %317 = load ptr, ptr %13, align 8
-  %318 = load i32, ptr @hf_xmcp_time, align 4
-  %319 = load ptr, ptr %6, align 8
-  %320 = call ptr @proto_tree_add_time(ptr noundef %317, i32 noundef %318, ptr noundef %319, i32 noundef 0, i32 noundef 0, ptr noundef %24)
-  store ptr %320, ptr %12, align 8
-  %321 = load ptr, ptr %12, align 8
-  call void @proto_item_set_generated(ptr noundef %321)
-  br label %326
-
-322:                                              ; preds = %299
-  %323 = load ptr, ptr %7, align 8
-  %324 = load ptr, ptr %12, align 8
-  %325 = call ptr @expert_add_info(ptr noundef %323, ptr noundef %324, ptr noundef @ei_xmcp_response_without_request)
-  br label %326
-
-326:                                              ; preds = %322, %304
+305:                                              ; preds = %300
+  call void @llvm.lifetime.start.p0(i64 16, ptr %25) #9
+  %306 = load ptr, ptr %13, align 8
+  %307 = load i32, ptr @hf_xmcp_response_to, align 4
+  %308 = load ptr, ptr %6, align 8
+  %309 = load ptr, ptr %23, align 8
+  %310 = getelementptr inbounds nuw %struct._xmcp_transaction_t, ptr %309, i32 0, i32 0
+  %311 = load i32, ptr %310, align 8
+  %312 = call ptr @proto_tree_add_uint(ptr noundef %306, i32 noundef %307, ptr noundef %308, i32 noundef 0, i32 noundef 0, i32 noundef %311)
+  store ptr %312, ptr %12, align 8
+  %313 = load ptr, ptr %12, align 8
+  call void @proto_item_set_generated(ptr noundef %313)
+  %314 = load ptr, ptr %7, align 8
+  %315 = getelementptr inbounds nuw %struct._packet_info, ptr %314, i32 0, i32 4
+  %316 = load ptr, ptr %23, align 8
+  %317 = getelementptr inbounds nuw %struct._xmcp_transaction_t, ptr %316, i32 0, i32 2
+  call void @nstime_delta(ptr noundef %25, ptr noundef %315, ptr noundef %317)
+  %318 = load ptr, ptr %13, align 8
+  %319 = load i32, ptr @hf_xmcp_time, align 4
+  %320 = load ptr, ptr %6, align 8
+  %321 = call ptr @proto_tree_add_time(ptr noundef %318, i32 noundef %319, ptr noundef %320, i32 noundef 0, i32 noundef 0, ptr noundef %25)
+  store ptr %321, ptr %12, align 8
+  %322 = load ptr, ptr %12, align 8
+  call void @proto_item_set_generated(ptr noundef %322)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %25) #9
   br label %327
 
-327:                                              ; preds = %326, %295
+323:                                              ; preds = %300
+  %324 = load ptr, ptr %7, align 8
+  %325 = load ptr, ptr %12, align 8
+  %326 = call ptr @expert_add_info(ptr noundef %324, ptr noundef %325, ptr noundef @ei_xmcp_response_without_request)
+  br label %327
+
+327:                                              ; preds = %323, %305
   br label %328
 
-328:                                              ; preds = %327, %294
+328:                                              ; preds = %327, %296
+  br label %329
+
+329:                                              ; preds = %328, %295
   store i16 -1, ptr @xmcp_service_protocol, align 2
   store i32 -1, ptr @xmcp_service_port, align 4
   store ptr null, ptr @xmcp_it_service_port, align 8
-  %329 = load i16, ptr %11, align 2
-  %330 = zext i16 %329 to i32
-  %331 = icmp sgt i32 %330, 0
-  br i1 %331, label %332, label %426
+  %330 = load i16, ptr %11, align 2
+  %331 = zext i16 %330 to i32
+  %332 = icmp sgt i32 %331, 0
+  br i1 %332, label %333, label %427
 
-332:                                              ; preds = %328
-  %333 = load ptr, ptr %13, align 8
-  %334 = load i32, ptr @hf_xmcp_attributes, align 4
-  %335 = load ptr, ptr %6, align 8
-  %336 = load i16, ptr %11, align 2
-  %337 = zext i16 %336 to i32
-  %338 = call ptr @proto_tree_add_item(ptr noundef %333, i32 noundef %334, ptr noundef %335, i32 noundef 20, i32 noundef %337, i32 noundef 0)
-  store ptr %338, ptr %12, align 8
-  %339 = load ptr, ptr %12, align 8
-  %340 = load i32, ptr @ett_xmcp_attr_all, align 4
-  %341 = call ptr @proto_item_add_subtree(ptr noundef %339, i32 noundef %340)
-  store ptr %341, ptr %14, align 8
+333:                                              ; preds = %329
+  %334 = load ptr, ptr %13, align 8
+  %335 = load i32, ptr @hf_xmcp_attributes, align 4
+  %336 = load ptr, ptr %6, align 8
+  %337 = load i16, ptr %11, align 2
+  %338 = zext i16 %337 to i32
+  %339 = call ptr @proto_tree_add_item(ptr noundef %334, i32 noundef %335, ptr noundef %336, i32 noundef 20, i32 noundef %338, i32 noundef 0)
+  store ptr %339, ptr %12, align 8
+  %340 = load ptr, ptr %12, align 8
+  %341 = load i32, ptr @ett_xmcp_attr_all, align 4
+  %342 = call ptr @proto_item_add_subtree(ptr noundef %340, i32 noundef %341)
+  store ptr %342, ptr %14, align 8
   store i16 20, ptr %16, align 2
-  br label %342
+  br label %343
 
-342:                                              ; preds = %411, %332
-  %343 = load i16, ptr %16, align 2
-  %344 = zext i16 %343 to i32
-  %345 = load i16, ptr %11, align 2
-  %346 = zext i16 %345 to i32
-  %347 = add i32 %346, 20
-  %348 = icmp slt i32 %344, %347
-  br i1 %348, label %349, label %425
+343:                                              ; preds = %412, %333
+  %344 = load i16, ptr %16, align 2
+  %345 = zext i16 %344 to i32
+  %346 = load i16, ptr %11, align 2
+  %347 = zext i16 %346 to i32
+  %348 = add i32 %347, 20
+  %349 = icmp slt i32 %345, %348
+  br i1 %349, label %350, label %426
 
-349:                                              ; preds = %342
-  %350 = load ptr, ptr %6, align 8
-  %351 = load i16, ptr %16, align 2
-  %352 = zext i16 %351 to i32
-  %353 = call zeroext i16 @tvb_get_ntohs(ptr noundef %350, i32 noundef %352)
-  store i16 %353, ptr %17, align 2
-  %354 = load ptr, ptr %6, align 8
-  %355 = load i16, ptr %16, align 2
-  %356 = zext i16 %355 to i32
-  %357 = add i32 %356, 2
-  %358 = call zeroext i16 @tvb_get_ntohs(ptr noundef %354, i32 noundef %357)
-  store i16 %358, ptr %18, align 2
-  %359 = load ptr, ptr %14, align 8
-  %360 = load i32, ptr @hf_xmcp_attr, align 4
-  %361 = load ptr, ptr %6, align 8
-  %362 = load i16, ptr %16, align 2
-  %363 = zext i16 %362 to i32
-  %364 = load i16, ptr %18, align 2
-  %365 = call zeroext i16 @get_xmcp_attr_padded_len(i16 noundef zeroext %364)
-  %366 = zext i16 %365 to i32
-  %367 = add i32 4, %366
-  %368 = load i16, ptr %17, align 2
-  %369 = zext i16 %368 to i32
-  %370 = call ptr @val_to_str_const(i32 noundef %369, ptr noundef @attributes, ptr noundef @.str.203)
-  %371 = load i16, ptr %18, align 2
-  %372 = zext i16 %371 to i32
-  %373 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %359, i32 noundef %360, ptr noundef %361, i32 noundef %363, i32 noundef %367, ptr noundef @.str.205, ptr noundef %370, i32 noundef %372)
-  store ptr %373, ptr %12, align 8
-  %374 = load ptr, ptr %12, align 8
-  %375 = load i32, ptr @ett_xmcp_attr, align 4
-  %376 = call ptr @proto_item_add_subtree(ptr noundef %374, i32 noundef %375)
-  store ptr %376, ptr %15, align 8
-  %377 = load ptr, ptr %15, align 8
-  %378 = load i32, ptr @hf_xmcp_attr_type, align 4
-  %379 = load ptr, ptr %6, align 8
-  %380 = load i16, ptr %16, align 2
-  %381 = zext i16 %380 to i32
-  %382 = call ptr @proto_tree_add_item(ptr noundef %377, i32 noundef %378, ptr noundef %379, i32 noundef %381, i32 noundef 2, i32 noundef 0)
-  %383 = load i16, ptr %16, align 2
-  %384 = zext i16 %383 to i32
-  %385 = add i32 %384, 2
-  %386 = trunc i32 %385 to i16
-  store i16 %386, ptr %16, align 2
-  %387 = load ptr, ptr %15, align 8
-  %388 = load i32, ptr @hf_xmcp_attr_length, align 4
-  %389 = load ptr, ptr %6, align 8
-  %390 = load i16, ptr %16, align 2
-  %391 = zext i16 %390 to i32
-  %392 = call ptr @proto_tree_add_item(ptr noundef %387, i32 noundef %388, ptr noundef %389, i32 noundef %391, i32 noundef 2, i32 noundef 0)
-  store ptr %392, ptr %12, align 8
-  %393 = load i16, ptr %16, align 2
-  %394 = zext i16 %393 to i32
-  %395 = add i32 %394, 2
-  %396 = trunc i32 %395 to i16
-  store i16 %396, ptr %16, align 2
-  %397 = load i16, ptr %16, align 2
-  %398 = zext i16 %397 to i32
-  %399 = load i16, ptr %18, align 2
-  %400 = zext i16 %399 to i32
-  %401 = add i32 %398, %400
-  %402 = load i16, ptr %11, align 2
-  %403 = zext i16 %402 to i32
-  %404 = add i32 20, %403
-  %405 = icmp sgt i32 %401, %404
-  br i1 %405, label %406, label %411
+350:                                              ; preds = %343
+  %351 = load ptr, ptr %6, align 8
+  %352 = load i16, ptr %16, align 2
+  %353 = zext i16 %352 to i32
+  %354 = call zeroext i16 @tvb_get_ntohs(ptr noundef %351, i32 noundef %353)
+  store i16 %354, ptr %17, align 2
+  %355 = load ptr, ptr %6, align 8
+  %356 = load i16, ptr %16, align 2
+  %357 = zext i16 %356 to i32
+  %358 = add i32 %357, 2
+  %359 = call zeroext i16 @tvb_get_ntohs(ptr noundef %355, i32 noundef %358)
+  store i16 %359, ptr %18, align 2
+  %360 = load ptr, ptr %14, align 8
+  %361 = load i32, ptr @hf_xmcp_attr, align 4
+  %362 = load ptr, ptr %6, align 8
+  %363 = load i16, ptr %16, align 2
+  %364 = zext i16 %363 to i32
+  %365 = load i16, ptr %18, align 2
+  %366 = call zeroext i16 @get_xmcp_attr_padded_len(i16 noundef zeroext %365)
+  %367 = zext i16 %366 to i32
+  %368 = add i32 4, %367
+  %369 = load i16, ptr %17, align 2
+  %370 = zext i16 %369 to i32
+  %371 = call ptr @val_to_str_const(i32 noundef %370, ptr noundef @attributes, ptr noundef @.str.211)
+  %372 = load i16, ptr %18, align 2
+  %373 = zext i16 %372 to i32
+  %374 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %360, i32 noundef %361, ptr noundef %362, i32 noundef %364, i32 noundef %368, ptr noundef @.str.213, ptr noundef %371, i32 noundef %373)
+  store ptr %374, ptr %12, align 8
+  %375 = load ptr, ptr %12, align 8
+  %376 = load i32, ptr @ett_xmcp_attr, align 4
+  %377 = call ptr @proto_item_add_subtree(ptr noundef %375, i32 noundef %376)
+  store ptr %377, ptr %15, align 8
+  %378 = load ptr, ptr %15, align 8
+  %379 = load i32, ptr @hf_xmcp_attr_type, align 4
+  %380 = load ptr, ptr %6, align 8
+  %381 = load i16, ptr %16, align 2
+  %382 = zext i16 %381 to i32
+  %383 = call ptr @proto_tree_add_item(ptr noundef %378, i32 noundef %379, ptr noundef %380, i32 noundef %382, i32 noundef 2, i32 noundef 0)
+  %384 = load i16, ptr %16, align 2
+  %385 = zext i16 %384 to i32
+  %386 = add i32 %385, 2
+  %387 = trunc i32 %386 to i16
+  store i16 %387, ptr %16, align 2
+  %388 = load ptr, ptr %15, align 8
+  %389 = load i32, ptr @hf_xmcp_attr_length, align 4
+  %390 = load ptr, ptr %6, align 8
+  %391 = load i16, ptr %16, align 2
+  %392 = zext i16 %391 to i32
+  %393 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %389, ptr noundef %390, i32 noundef %392, i32 noundef 2, i32 noundef 0)
+  store ptr %393, ptr %12, align 8
+  %394 = load i16, ptr %16, align 2
+  %395 = zext i16 %394 to i32
+  %396 = add i32 %395, 2
+  %397 = trunc i32 %396 to i16
+  store i16 %397, ptr %16, align 2
+  %398 = load i16, ptr %16, align 2
+  %399 = zext i16 %398 to i32
+  %400 = load i16, ptr %18, align 2
+  %401 = zext i16 %400 to i32
+  %402 = add i32 %399, %401
+  %403 = load i16, ptr %11, align 2
+  %404 = zext i16 %403 to i32
+  %405 = add i32 20, %404
+  %406 = icmp sgt i32 %402, %405
+  br i1 %406, label %407, label %412
 
-406:                                              ; preds = %349
-  %407 = load ptr, ptr %12, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %407, ptr noundef @.str.206)
-  %408 = load ptr, ptr %7, align 8
-  %409 = load ptr, ptr %15, align 8
-  %410 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %408, ptr noundef %409, ptr noundef @ei_xmcp_attr_length_bad, ptr noundef @.str.207)
-  br label %425
-
-411:                                              ; preds = %349
-  %412 = load ptr, ptr %15, align 8
-  %413 = load i16, ptr %17, align 2
-  %414 = load i16, ptr %18, align 2
-  %415 = load ptr, ptr %6, align 8
-  %416 = load i16, ptr %16, align 2
-  %417 = load ptr, ptr %7, align 8
-  call void @decode_xmcp_attr_value(ptr noundef %412, i16 noundef zeroext %413, i16 noundef zeroext %414, ptr noundef %415, i16 noundef zeroext %416, ptr noundef %417)
-  %418 = load i16, ptr %18, align 2
-  %419 = call zeroext i16 @get_xmcp_attr_padded_len(i16 noundef zeroext %418)
-  %420 = zext i16 %419 to i32
-  %421 = load i16, ptr %16, align 2
-  %422 = zext i16 %421 to i32
-  %423 = add i32 %422, %420
-  %424 = trunc i32 %423 to i16
-  store i16 %424, ptr %16, align 2
-  br label %342, !llvm.loop !4
-
-425:                                              ; preds = %406, %342
+407:                                              ; preds = %350
+  %408 = load ptr, ptr %12, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %408, ptr noundef @.str.214)
+  %409 = load ptr, ptr %7, align 8
+  %410 = load ptr, ptr %15, align 8
+  %411 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %409, ptr noundef %410, ptr noundef @ei_xmcp_attr_length_bad, ptr noundef @.str.215)
   br label %426
 
-426:                                              ; preds = %425, %328
-  %427 = load i32, ptr @xmcp_msg_is_keepalive, align 4
-  %428 = icmp ne i32 %427, 0
-  br i1 %428, label %429, label %450
+412:                                              ; preds = %350
+  %413 = load ptr, ptr %15, align 8
+  %414 = load i16, ptr %17, align 2
+  %415 = load i16, ptr %18, align 2
+  %416 = load ptr, ptr %6, align 8
+  %417 = load i16, ptr %16, align 2
+  %418 = load ptr, ptr %7, align 8
+  call void @decode_xmcp_attr_value(ptr noundef %413, i16 noundef zeroext %414, i16 noundef zeroext %415, ptr noundef %416, i16 noundef zeroext %417, ptr noundef %418)
+  %419 = load i16, ptr %18, align 2
+  %420 = call zeroext i16 @get_xmcp_attr_padded_len(i16 noundef zeroext %419)
+  %421 = zext i16 %420 to i32
+  %422 = load i16, ptr %16, align 2
+  %423 = zext i16 %422 to i32
+  %424 = add i32 %423, %421
+  %425 = trunc i32 %424 to i16
+  store i16 %425, ptr %16, align 2
+  br label %343, !llvm.loop !8
 
-429:                                              ; preds = %426
-  %430 = load ptr, ptr %13, align 8
-  %431 = load i32, ptr @hf_xmcp_msg_is_keepalive, align 4
-  %432 = load ptr, ptr %6, align 8
-  %433 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %430, i32 noundef %431, ptr noundef %432, i32 noundef 0, i32 noundef 0, ptr noundef @.str.208)
-  store ptr %433, ptr %12, align 8
-  %434 = load ptr, ptr %12, align 8
-  call void @proto_item_set_generated(ptr noundef %434)
-  %435 = load i16, ptr @xmcp_msg_type_method, align 2
-  %436 = zext i16 %435 to i32
-  %437 = icmp ne i32 %436, 11
-  br i1 %437, label %438, label %442
+426:                                              ; preds = %407, %343
+  br label %427
 
-438:                                              ; preds = %429
-  %439 = load ptr, ptr %7, align 8
-  %440 = getelementptr inbounds %struct._packet_info, ptr %439, i32 0, i32 1
-  %441 = load ptr, ptr %440, align 8
-  call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %441, i32 noundef 25, ptr noundef @.str.209)
-  br label %442
+427:                                              ; preds = %426, %329
+  %428 = load i8, ptr @xmcp_msg_is_keepalive, align 1, !range !6, !noundef !7
+  %429 = trunc i8 %428 to i1
+  br i1 %429, label %430, label %451
 
-442:                                              ; preds = %438, %429
-  %443 = load i16, ptr @xmcp_msg_type_class, align 2
-  %444 = zext i16 %443 to i32
-  %445 = icmp eq i32 %444, 0
-  br i1 %445, label %446, label %449
+430:                                              ; preds = %427
+  %431 = load ptr, ptr %13, align 8
+  %432 = load i32, ptr @hf_xmcp_msg_is_keepalive, align 4
+  %433 = load ptr, ptr %6, align 8
+  %434 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %431, i32 noundef %432, ptr noundef %433, i32 noundef 0, i32 noundef 0, ptr noundef @.str.216)
+  store ptr %434, ptr %12, align 8
+  %435 = load ptr, ptr %12, align 8
+  call void @proto_item_set_generated(ptr noundef %435)
+  %436 = load i16, ptr @xmcp_msg_type_method, align 2
+  %437 = zext i16 %436 to i32
+  %438 = icmp ne i32 %437, 11
+  br i1 %438, label %439, label %443
 
-446:                                              ; preds = %442
-  %447 = load ptr, ptr %23, align 8
-  %448 = getelementptr inbounds %struct._xmcp_transaction_t, ptr %447, i32 0, i32 3
-  store i32 1, ptr %448, align 8
-  br label %449
+439:                                              ; preds = %430
+  %440 = load ptr, ptr %7, align 8
+  %441 = getelementptr inbounds nuw %struct._packet_info, ptr %440, i32 0, i32 1
+  %442 = load ptr, ptr %441, align 8
+  call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %442, i32 noundef 25, ptr noundef @.str.217)
+  br label %443
 
-449:                                              ; preds = %446, %442
-  br label %490
+443:                                              ; preds = %439, %430
+  %444 = load i16, ptr @xmcp_msg_type_class, align 2
+  %445 = zext i16 %444 to i32
+  %446 = icmp eq i32 %445, 0
+  br i1 %446, label %447, label %450
 
-450:                                              ; preds = %426
-  %451 = load i16, ptr @xmcp_msg_type_class, align 2
-  %452 = zext i16 %451 to i32
-  %453 = icmp eq i32 %452, 0
-  br i1 %453, label %458, label %454
+447:                                              ; preds = %443
+  %448 = load ptr, ptr %23, align 8
+  %449 = getelementptr inbounds nuw %struct._xmcp_transaction_t, ptr %448, i32 0, i32 3
+  store i8 1, ptr %449, align 8
+  br label %450
 
-454:                                              ; preds = %450
-  %455 = load i16, ptr @xmcp_msg_type_class, align 2
-  %456 = zext i16 %455 to i32
-  %457 = icmp eq i32 %456, 16
-  br i1 %457, label %458, label %489
+450:                                              ; preds = %447, %443
+  br label %491
 
-458:                                              ; preds = %454, %450
-  %459 = load i16, ptr @xmcp_msg_type_method, align 2
-  %460 = zext i16 %459 to i32
-  %461 = icmp eq i32 %460, 1
-  br i1 %461, label %462, label %469
+451:                                              ; preds = %427
+  %452 = load i16, ptr @xmcp_msg_type_class, align 2
+  %453 = zext i16 %452 to i32
+  %454 = icmp eq i32 %453, 0
+  br i1 %454, label %459, label %455
 
-462:                                              ; preds = %458
-  %463 = load ptr, ptr %7, align 8
-  %464 = load ptr, ptr %13, align 8
-  %465 = load i16, ptr @xmcp_msg_type_class, align 2
-  %466 = zext i16 %465 to i32
-  %467 = call ptr @val_to_str_const(i32 noundef %466, ptr noundef @classes, ptr noundef @.str.211)
-  %468 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %463, ptr noundef %464, ptr noundef @ei_xmcp_new_session, ptr noundef @.str.210, ptr noundef %467)
-  br label %488
+455:                                              ; preds = %451
+  %456 = load i16, ptr @xmcp_msg_type_class, align 2
+  %457 = zext i16 %456 to i32
+  %458 = icmp eq i32 %457, 16
+  br i1 %458, label %459, label %490
 
-469:                                              ; preds = %458
-  %470 = load i16, ptr @xmcp_msg_type_method, align 2
-  %471 = zext i16 %470 to i32
-  %472 = icmp eq i32 %471, 2
-  br i1 %472, label %477, label %473
+459:                                              ; preds = %455, %451
+  %460 = load i16, ptr @xmcp_msg_type_method, align 2
+  %461 = zext i16 %460 to i32
+  %462 = icmp eq i32 %461, 1
+  br i1 %462, label %463, label %470
 
-473:                                              ; preds = %469
-  %474 = load i16, ptr @xmcp_msg_type_method, align 2
-  %475 = zext i16 %474 to i32
-  %476 = icmp eq i32 %475, 3
-  br i1 %476, label %477, label %487
-
-477:                                              ; preds = %473, %469
-  %478 = load ptr, ptr %7, align 8
-  %479 = load ptr, ptr %13, align 8
-  %480 = load i16, ptr @xmcp_msg_type_method, align 2
-  %481 = zext i16 %480 to i32
-  %482 = call ptr @val_to_str_const(i32 noundef %481, ptr noundef @methods, ptr noundef @.str.211)
-  %483 = load i16, ptr @xmcp_msg_type_class, align 2
-  %484 = zext i16 %483 to i32
-  %485 = call ptr @val_to_str_const(i32 noundef %484, ptr noundef @classes, ptr noundef @.str.211)
-  %486 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %478, ptr noundef %479, ptr noundef @ei_xmcp_session_termination, ptr noundef @.str.212, ptr noundef %482, ptr noundef %485)
-  br label %487
-
-487:                                              ; preds = %477, %473
-  br label %488
-
-488:                                              ; preds = %487, %462
+463:                                              ; preds = %459
+  %464 = load ptr, ptr %7, align 8
+  %465 = load ptr, ptr %13, align 8
+  %466 = load i16, ptr @xmcp_msg_type_class, align 2
+  %467 = zext i16 %466 to i32
+  %468 = call ptr @val_to_str_const(i32 noundef %467, ptr noundef @classes, ptr noundef @.str.219)
+  %469 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %464, ptr noundef %465, ptr noundef @ei_xmcp_new_session, ptr noundef @.str.218, ptr noundef %468)
   br label %489
 
-489:                                              ; preds = %488, %454
+470:                                              ; preds = %459
+  %471 = load i16, ptr @xmcp_msg_type_method, align 2
+  %472 = zext i16 %471 to i32
+  %473 = icmp eq i32 %472, 2
+  br i1 %473, label %478, label %474
+
+474:                                              ; preds = %470
+  %475 = load i16, ptr @xmcp_msg_type_method, align 2
+  %476 = zext i16 %475 to i32
+  %477 = icmp eq i32 %476, 3
+  br i1 %477, label %478, label %488
+
+478:                                              ; preds = %474, %470
+  %479 = load ptr, ptr %7, align 8
+  %480 = load ptr, ptr %13, align 8
+  %481 = load i16, ptr @xmcp_msg_type_method, align 2
+  %482 = zext i16 %481 to i32
+  %483 = call ptr @val_to_str_const(i32 noundef %482, ptr noundef @methods, ptr noundef @.str.219)
+  %484 = load i16, ptr @xmcp_msg_type_class, align 2
+  %485 = zext i16 %484 to i32
+  %486 = call ptr @val_to_str_const(i32 noundef %485, ptr noundef @classes, ptr noundef @.str.219)
+  %487 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %479, ptr noundef %480, ptr noundef @ei_xmcp_session_termination, ptr noundef @.str.220, ptr noundef %483, ptr noundef %486)
+  br label %488
+
+488:                                              ; preds = %478, %474
+  br label %489
+
+489:                                              ; preds = %488, %463
   br label %490
 
-490:                                              ; preds = %489, %449
-  %491 = load ptr, ptr %6, align 8
-  %492 = call i32 @tvb_captured_length(ptr noundef %491)
-  store i32 %492, ptr %5, align 4
-  br label %493
+490:                                              ; preds = %489, %455
+  br label %491
 
-493:                                              ; preds = %490, %250, %41, %36, %28
-  %494 = load i32, ptr %5, align 4
-  ret i32 %494
+491:                                              ; preds = %490, %450
+  %492 = load ptr, ptr %6, align 8
+  %493 = call i32 @tvb_captured_length(ptr noundef %492)
+  store i32 %493, ptr %5, align 4
+  store i32 1, ptr %24, align 4
+  br label %494
+
+494:                                              ; preds = %491, %251, %42, %37, %29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #9
+  call void @llvm.lifetime.end.p0(i64 32, ptr %20) #9
+  call void @llvm.lifetime.end.p0(i64 12, ptr %19) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr %18) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr %17) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr %16) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr %10) #9
+  %495 = load i32, ptr %5, align 4
+  ret i32 %495
 }
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #2
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #2
 
-declare i32 @tvb_reported_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) #2
 
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @col_clear(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_clear(ptr noundef, i32 noundef) #2
 
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #2
 
-declare nonnull ptr @find_or_create_conversation(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_or_create_conversation(ptr noundef) #2
 
-declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) #2
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #3
 
-declare ptr @wmem_file_scope() #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_file_scope() #2
 
-declare noalias ptr @wmem_tree_new(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_tree_new(ptr noundef) #2
 
-declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @wmem_tree_lookup32_array(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_tree_lookup32_array(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) #2
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @proto_item_set_generated(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @proto_item_set_generated(ptr noundef %0) #5 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -1285,22 +1358,22 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._proto_node, ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct._proto_node, ptr %7, i32 0, i32 5
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct._proto_node, ptr %12, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct._proto_node, ptr %12, i32 0, i32 5
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.field_info, ptr %14, i32 0, i32 6
+  %15 = getelementptr inbounds nuw %struct.field_info, ptr %14, i32 0, i32 6
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 2
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct._proto_node, ptr %18, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct._proto_node, ptr %18, i32 0, i32 5
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.field_info, ptr %20, i32 0, i32 6
+  %21 = getelementptr inbounds nuw %struct.field_info, ptr %20, i32 0, i32 6
   store i32 %17, ptr %21, align 4
   br label %22
 
@@ -1314,14 +1387,17 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i16 @get_xmcp_attr_padded_len(i16 noundef zeroext %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i16 @get_xmcp_attr_padded_len(i16 noundef zeroext %0) #6 {
   %2 = alloca i16, align 2
   store i16 %0, ptr %2, align 2
   %3 = load i16, ptr %2, align 2
@@ -1332,9 +1408,10 @@ define internal zeroext i16 @get_xmcp_attr_padded_len(i16 noundef zeroext %0) #0
   ret i16 %7
 }
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i16, align 2
@@ -1363,6 +1440,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   store ptr %3, ptr %10, align 8
   store i16 %4, ptr %11, align 2
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #9
   %28 = load i16, ptr %8, align 2
   %29 = zext i16 %28 to i32
   switch i32 %29, label %919 [
@@ -1399,7 +1477,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %38 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %32, ptr noundef %33, i32 noundef %35, i32 noundef %37, i32 noundef 0)
   %39 = load ptr, ptr %7, align 8
   %40 = load ptr, ptr %12, align 8
-  %41 = getelementptr inbounds %struct._packet_info, ptr %40, i32 0, i32 50
+  %41 = getelementptr inbounds nuw %struct._packet_info, ptr %40, i32 0, i32 51
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %10, align 8
   %44 = load i16, ptr %11, align 2
@@ -1407,7 +1485,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %46 = load i16, ptr %9, align 2
   %47 = zext i16 %46 to i32
   %48 = call ptr @tvb_get_string_enc(ptr noundef %42, ptr noundef %43, i32 noundef %45, i32 noundef %47, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef @.str.213, ptr noundef %48)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef @.str.221, ptr noundef %48)
   %49 = load i16, ptr @xmcp_msg_type_method, align 2
   %50 = zext i16 %49 to i32
   %51 = icmp eq i32 %50, 1
@@ -1415,10 +1493,10 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
 
 52:                                               ; preds = %30
   %53 = load ptr, ptr %12, align 8
-  %54 = getelementptr inbounds %struct._packet_info, ptr %53, i32 0, i32 1
+  %54 = getelementptr inbounds nuw %struct._packet_info, ptr %53, i32 0, i32 1
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %12, align 8
-  %57 = getelementptr inbounds %struct._packet_info, ptr %56, i32 0, i32 50
+  %57 = getelementptr inbounds nuw %struct._packet_info, ptr %56, i32 0, i32 51
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %10, align 8
   %60 = load i16, ptr %11, align 2
@@ -1426,7 +1504,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %62 = load i16, ptr %9, align 2
   %63 = zext i16 %62 to i32
   %64 = call ptr @tvb_get_string_enc(ptr noundef %58, ptr noundef %59, i32 noundef %61, i32 noundef %63, i32 noundef 0)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %55, i32 noundef 25, ptr noundef @.str.214, ptr noundef %64)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %55, i32 noundef 25, ptr noundef @.str.222, ptr noundef %64)
   br label %65
 
 65:                                               ; preds = %52, %30
@@ -1483,6 +1561,9 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %104 = load i16, ptr %11, align 2
   %105 = zext i16 %104 to i32
   %106 = call ptr @proto_tree_add_item(ptr noundef %101, i32 noundef %102, ptr noundef %103, i32 noundef %105, i32 noundef 3, i32 noundef 0)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #9
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr %16) #9
   %107 = load ptr, ptr %7, align 8
   %108 = load i32, ptr @hf_xmcp_attr_error_number, align 4
   %109 = load ptr, ptr %10, align 8
@@ -1495,7 +1576,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %115 = load i16, ptr %11, align 2
   %116 = zext i16 %115 to i32
   %117 = add i32 %116, 2
-  %118 = call zeroext i8 @tvb_get_guint8(ptr noundef %114, i32 noundef %117)
+  %118 = call zeroext i8 @tvb_get_uint8(ptr noundef %114, i32 noundef %117)
   %119 = zext i8 %118 to i32
   %120 = and i32 %119, 7
   %121 = trunc i32 %120 to i8
@@ -1504,7 +1585,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %123 = load i16, ptr %11, align 2
   %124 = zext i16 %123 to i32
   %125 = add i32 %124, 3
-  %126 = call zeroext i8 @tvb_get_guint8(ptr noundef %122, i32 noundef %125)
+  %126 = call zeroext i8 @tvb_get_uint8(ptr noundef %122, i32 noundef %125)
   store i8 %126, ptr %15, align 1
   %127 = load i8, ptr %15, align 1
   %128 = zext i8 %127 to i32
@@ -1541,16 +1622,16 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %152 = load ptr, ptr %7, align 8
   %153 = load i16, ptr %16, align 2
   %154 = zext i16 %153 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %152, ptr noundef @.str.215, i32 noundef %154)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %152, ptr noundef @.str.223, i32 noundef %154)
   %155 = load ptr, ptr %12, align 8
-  %156 = getelementptr inbounds %struct._packet_info, ptr %155, i32 0, i32 1
+  %156 = getelementptr inbounds nuw %struct._packet_info, ptr %155, i32 0, i32 1
   %157 = load ptr, ptr %156, align 8
   %158 = load i16, ptr %16, align 2
   %159 = zext i16 %158 to i32
   %160 = load i16, ptr %16, align 2
   %161 = zext i16 %160 to i32
-  %162 = call ptr @val_to_str_const(i32 noundef %161, ptr noundef @error_codes, ptr noundef @.str.203)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %157, i32 noundef 25, ptr noundef @.str.216, i32 noundef %159, ptr noundef %162)
+  %162 = call ptr @val_to_str_const(i32 noundef %161, ptr noundef @error_codes, ptr noundef @.str.211)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %157, i32 noundef 25, ptr noundef @.str.224, i32 noundef %159, ptr noundef %162)
   %163 = load i16, ptr %16, align 2
   %164 = zext i16 %163 to i32
   switch i32 %164, label %174 [
@@ -1570,8 +1651,8 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %169 = zext i16 %168 to i32
   %170 = load i16, ptr %16, align 2
   %171 = zext i16 %170 to i32
-  %172 = call ptr @val_to_str_const(i32 noundef %171, ptr noundef @error_codes, ptr noundef @.str.203)
-  %173 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %166, ptr noundef %167, ptr noundef @ei_xmcp_attr_error_code_unusual, ptr noundef @.str.217, i32 noundef %169, ptr noundef %172)
+  %172 = call ptr @val_to_str_const(i32 noundef %171, ptr noundef @error_codes, ptr noundef @.str.211)
+  %173 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %166, ptr noundef %167, ptr noundef @ei_xmcp_attr_error_code_unusual, ptr noundef @.str.225, i32 noundef %169, ptr noundef %172)
   br label %175
 
 174:                                              ; preds = %134
@@ -1581,6 +1662,9 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   br label %176
 
 176:                                              ; preds = %175, %130
+  call void @llvm.lifetime.end.p0(i64 2, ptr %16) #9
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #9
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #9
   %177 = load i16, ptr %9, align 2
   %178 = zext i16 %177 to i32
   %179 = icmp slt i32 %178, 5
@@ -1602,7 +1686,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %191 = call ptr @proto_tree_add_item(ptr noundef %182, i32 noundef %183, ptr noundef %184, i32 noundef %187, i32 noundef %190, i32 noundef 0)
   %192 = load ptr, ptr %7, align 8
   %193 = load ptr, ptr %12, align 8
-  %194 = getelementptr inbounds %struct._packet_info, ptr %193, i32 0, i32 50
+  %194 = getelementptr inbounds nuw %struct._packet_info, ptr %193, i32 0, i32 51
   %195 = load ptr, ptr %194, align 8
   %196 = load ptr, ptr %10, align 8
   %197 = load i16, ptr %11, align 2
@@ -1612,7 +1696,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %201 = zext i16 %200 to i32
   %202 = sub i32 %201, 4
   %203 = call ptr @tvb_get_string_enc(ptr noundef %195, ptr noundef %196, i32 noundef %199, i32 noundef %202, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %192, ptr noundef @.str.218, ptr noundef %203)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %192, ptr noundef @.str.226, ptr noundef %203)
   br label %931
 
 204:                                              ; preds = %6
@@ -1625,8 +1709,9 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %211 = zext i16 %210 to i32
   %212 = call ptr @proto_tree_add_item(ptr noundef %205, i32 noundef %206, ptr noundef %207, i32 noundef %209, i32 noundef %211, i32 noundef 0)
   store ptr %212, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #9
   %213 = load ptr, ptr %12, align 8
-  %214 = getelementptr inbounds %struct._packet_info, ptr %213, i32 0, i32 50
+  %214 = getelementptr inbounds nuw %struct._packet_info, ptr %213, i32 0, i32 51
   %215 = load ptr, ptr %214, align 8
   %216 = load ptr, ptr %10, align 8
   %217 = load i16, ptr %11, align 2
@@ -1637,7 +1722,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   store ptr %221, ptr %17, align 8
   %222 = load ptr, ptr %7, align 8
   %223 = load ptr, ptr %17, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %222, ptr noundef @.str.213, ptr noundef %223)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %222, ptr noundef @.str.221, ptr noundef %223)
   %224 = load i16, ptr %9, align 2
   %225 = zext i16 %224 to i32
   %226 = icmp ne i32 %225, 5
@@ -1647,7 +1732,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %228 = load ptr, ptr %17, align 8
   %229 = load i16, ptr %9, align 2
   %230 = zext i16 %229 to i64
-  %231 = call i32 @strncmp(ptr noundef %228, ptr noundef @.str.219, i64 noundef %230) #5
+  %231 = call i32 @strncmp(ptr noundef %228, ptr noundef @.str.227, i64 noundef %230) #11
   %232 = icmp ne i32 %231, 0
   br i1 %232, label %233, label %237
 
@@ -1658,6 +1743,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   br label %237
 
 237:                                              ; preds = %233, %227
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #9
   br label %931
 
 238:                                              ; preds = %6
@@ -1671,7 +1757,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %246 = call ptr @proto_tree_add_item(ptr noundef %239, i32 noundef %240, ptr noundef %241, i32 noundef %243, i32 noundef %245, i32 noundef 0)
   %247 = load ptr, ptr %7, align 8
   %248 = load ptr, ptr %12, align 8
-  %249 = getelementptr inbounds %struct._packet_info, ptr %248, i32 0, i32 50
+  %249 = getelementptr inbounds nuw %struct._packet_info, ptr %248, i32 0, i32 51
   %250 = load ptr, ptr %249, align 8
   %251 = load ptr, ptr %10, align 8
   %252 = load i16, ptr %11, align 2
@@ -1679,7 +1765,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %254 = load i16, ptr %9, align 2
   %255 = zext i16 %254 to i32
   %256 = call ptr @tvb_get_string_enc(ptr noundef %250, ptr noundef %251, i32 noundef %253, i32 noundef %255, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %247, ptr noundef @.str.213, ptr noundef %256)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %247, ptr noundef @.str.221, ptr noundef %256)
   br label %931
 
 257:                                              ; preds = %6
@@ -1693,7 +1779,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %265 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %259, ptr noundef %260, i32 noundef %262, i32 noundef %264, i32 noundef 0)
   %266 = load ptr, ptr %7, align 8
   %267 = load ptr, ptr %12, align 8
-  %268 = getelementptr inbounds %struct._packet_info, ptr %267, i32 0, i32 50
+  %268 = getelementptr inbounds nuw %struct._packet_info, ptr %267, i32 0, i32 51
   %269 = load ptr, ptr %268, align 8
   %270 = load ptr, ptr %10, align 8
   %271 = load i16, ptr %11, align 2
@@ -1701,12 +1787,12 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %273 = load i16, ptr %9, align 2
   %274 = zext i16 %273 to i32
   %275 = call ptr @tvb_get_string_enc(ptr noundef %269, ptr noundef %270, i32 noundef %272, i32 noundef %274, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %266, ptr noundef @.str.213, ptr noundef %275)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %266, ptr noundef @.str.221, ptr noundef %275)
   %276 = load ptr, ptr %12, align 8
-  %277 = getelementptr inbounds %struct._packet_info, ptr %276, i32 0, i32 1
+  %277 = getelementptr inbounds nuw %struct._packet_info, ptr %276, i32 0, i32 1
   %278 = load ptr, ptr %277, align 8
   %279 = load ptr, ptr %12, align 8
-  %280 = getelementptr inbounds %struct._packet_info, ptr %279, i32 0, i32 50
+  %280 = getelementptr inbounds nuw %struct._packet_info, ptr %279, i32 0, i32 51
   %281 = load ptr, ptr %280, align 8
   %282 = load ptr, ptr %10, align 8
   %283 = load i16, ptr %11, align 2
@@ -1714,7 +1800,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %285 = load i16, ptr %9, align 2
   %286 = zext i16 %285 to i32
   %287 = call ptr @tvb_get_string_enc(ptr noundef %281, ptr noundef %282, i32 noundef %284, i32 noundef %286, i32 noundef 0)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %278, i32 noundef 25, ptr noundef @.str.220, ptr noundef %287)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %278, i32 noundef 25, ptr noundef @.str.228, ptr noundef %287)
   br label %931
 
 288:                                              ; preds = %6
@@ -1738,15 +1824,15 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %302 = load i16, ptr %11, align 2
   %303 = zext i16 %302 to i32
   %304 = call i32 @tvb_get_ntohl(ptr noundef %301, i32 noundef %303)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %300, ptr noundef @.str.221, i32 noundef %304)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %300, ptr noundef @.str.229, i32 noundef %304)
   %305 = load ptr, ptr %12, align 8
-  %306 = getelementptr inbounds %struct._packet_info, ptr %305, i32 0, i32 1
+  %306 = getelementptr inbounds nuw %struct._packet_info, ptr %305, i32 0, i32 1
   %307 = load ptr, ptr %306, align 8
   %308 = load ptr, ptr %10, align 8
   %309 = load i16, ptr %11, align 2
   %310 = zext i16 %309 to i32
   %311 = call i32 @tvb_get_ntohl(ptr noundef %308, i32 noundef %310)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %307, i32 noundef 25, ptr noundef @.str.222, i32 noundef %311)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %307, i32 noundef 25, ptr noundef @.str.230, i32 noundef %311)
   %312 = load i16, ptr @xmcp_msg_type_method, align 2
   %313 = zext i16 %312 to i32
   %314 = icmp eq i32 %313, 1
@@ -1759,7 +1845,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   br i1 %318, label %319, label %320
 
 319:                                              ; preds = %315
-  store i32 1, ptr @xmcp_msg_is_keepalive, align 4
+  store i8 1, ptr @xmcp_msg_is_keepalive, align 1
   br label %320
 
 320:                                              ; preds = %319, %315, %293
@@ -1809,7 +1895,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %354 = add i32 %353, 2
   %355 = call zeroext i16 @tvb_get_ntohs(ptr noundef %351, i32 noundef %354)
   %356 = zext i16 %355 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %345, ptr noundef @.str.223, i32 noundef %350, i32 noundef %356)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %345, ptr noundef @.str.231, i32 noundef %350, i32 noundef %356)
   br label %931
 
 357:                                              ; preds = %6
@@ -1833,7 +1919,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %371 = load i16, ptr %11, align 2
   %372 = zext i16 %371 to i32
   %373 = call i32 @tvb_get_ntohl(ptr noundef %370, i32 noundef %372)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %369, ptr noundef @.str.221, i32 noundef %373)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %369, ptr noundef @.str.229, i32 noundef %373)
   br label %931
 
 374:                                              ; preds = %6
@@ -1847,7 +1933,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %382 = call ptr @proto_tree_add_item(ptr noundef %375, i32 noundef %376, ptr noundef %377, i32 noundef %379, i32 noundef %381, i32 noundef 0)
   %383 = load ptr, ptr %7, align 8
   %384 = load ptr, ptr %12, align 8
-  %385 = getelementptr inbounds %struct._packet_info, ptr %384, i32 0, i32 50
+  %385 = getelementptr inbounds nuw %struct._packet_info, ptr %384, i32 0, i32 51
   %386 = load ptr, ptr %385, align 8
   %387 = load ptr, ptr %10, align 8
   %388 = load i16, ptr %11, align 2
@@ -1855,12 +1941,12 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %390 = load i16, ptr %9, align 2
   %391 = zext i16 %390 to i32
   %392 = call ptr @tvb_get_string_enc(ptr noundef %386, ptr noundef %387, i32 noundef %389, i32 noundef %391, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %383, ptr noundef @.str.213, ptr noundef %392)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %383, ptr noundef @.str.221, ptr noundef %392)
   %393 = load ptr, ptr %12, align 8
-  %394 = getelementptr inbounds %struct._packet_info, ptr %393, i32 0, i32 1
+  %394 = getelementptr inbounds nuw %struct._packet_info, ptr %393, i32 0, i32 1
   %395 = load ptr, ptr %394, align 8
   %396 = load ptr, ptr %12, align 8
-  %397 = getelementptr inbounds %struct._packet_info, ptr %396, i32 0, i32 50
+  %397 = getelementptr inbounds nuw %struct._packet_info, ptr %396, i32 0, i32 51
   %398 = load ptr, ptr %397, align 8
   %399 = load ptr, ptr %10, align 8
   %400 = load i16, ptr %11, align 2
@@ -1868,7 +1954,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %402 = load i16, ptr %9, align 2
   %403 = zext i16 %402 to i32
   %404 = call ptr @tvb_get_string_enc(ptr noundef %398, ptr noundef %399, i32 noundef %401, i32 noundef %403, i32 noundef 0)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %395, i32 noundef 25, ptr noundef @.str.224, ptr noundef %404)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %395, i32 noundef 25, ptr noundef @.str.232, ptr noundef %404)
   br label %931
 
 405:                                              ; preds = %6
@@ -1892,7 +1978,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %419 = load i16, ptr %11, align 2
   %420 = zext i16 %419 to i32
   %421 = call i32 @tvb_get_ntohl(ptr noundef %418, i32 noundef %420)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %417, ptr noundef @.str.221, i32 noundef %421)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %417, ptr noundef @.str.229, i32 noundef %421)
   br label %931
 
 422:                                              ; preds = %6
@@ -1943,6 +2029,8 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %455 = zext i16 %454 to i32
   %456 = add i32 %455, 4
   %457 = call ptr @proto_tree_add_item(ptr noundef %451, i32 noundef %452, ptr noundef %453, i32 noundef %456, i32 noundef 16, i32 noundef 0)
+  call void @llvm.lifetime.start.p0(i64 16, ptr %18) #9
+  call void @llvm.lifetime.start.p0(i64 37, ptr %19) #9
   %458 = load ptr, ptr %10, align 8
   %459 = load i16, ptr %11, align 2
   %460 = zext i16 %459 to i32
@@ -1963,9 +2051,9 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %474 = call zeroext i16 @tvb_get_ntohs(ptr noundef %470, i32 noundef %473)
   %475 = zext i16 %474 to i32
   %476 = getelementptr inbounds [37 x i8], ptr %19, i64 0, i64 0
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %464, ptr noundef @.str.225, i32 noundef %469, i32 noundef %475, ptr noundef %476)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %464, ptr noundef @.str.233, i32 noundef %469, i32 noundef %475, ptr noundef %476)
   %477 = load ptr, ptr %12, align 8
-  %478 = getelementptr inbounds %struct._packet_info, ptr %477, i32 0, i32 1
+  %478 = getelementptr inbounds nuw %struct._packet_info, ptr %477, i32 0, i32 1
   %479 = load ptr, ptr %478, align 8
   %480 = load ptr, ptr %10, align 8
   %481 = load i16, ptr %11, align 2
@@ -1979,7 +2067,9 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %489 = call zeroext i16 @tvb_get_ntohs(ptr noundef %485, i32 noundef %488)
   %490 = zext i16 %489 to i32
   %491 = getelementptr inbounds [37 x i8], ptr %19, i64 0, i64 0
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %479, i32 noundef 25, ptr noundef @.str.226, i32 noundef %484, i32 noundef %490, ptr noundef %491)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %479, i32 noundef 25, ptr noundef @.str.234, i32 noundef %484, i32 noundef %490, ptr noundef %491)
+  call void @llvm.lifetime.end.p0(i64 37, ptr %19) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %18) #9
   br label %931
 
 492:                                              ; preds = %6
@@ -2053,7 +2143,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %541 = load i16, ptr %11, align 2
   %542 = zext i16 %541 to i32
   %543 = add i32 %542, 1
-  %544 = call zeroext i8 @tvb_get_guint8(ptr noundef %540, i32 noundef %543)
+  %544 = call zeroext i8 @tvb_get_uint8(ptr noundef %540, i32 noundef %543)
   %545 = zext i8 %544 to i32
   switch i32 %545, label %610 [
     i32 1, label %546
@@ -2082,7 +2172,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %561 = call ptr @proto_tree_add_item(ptr noundef %555, i32 noundef %556, ptr noundef %557, i32 noundef %560, i32 noundef 4, i32 noundef 0)
   %562 = load ptr, ptr %7, align 8
   %563 = load ptr, ptr %12, align 8
-  %564 = getelementptr inbounds %struct._packet_info, ptr %563, i32 0, i32 50
+  %564 = getelementptr inbounds nuw %struct._packet_info, ptr %563, i32 0, i32 51
   %565 = load ptr, ptr %564, align 8
   %566 = load ptr, ptr %10, align 8
   %567 = load i16, ptr %11, align 2
@@ -2095,7 +2185,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %574 = add i32 %573, 2
   %575 = call zeroext i16 @tvb_get_ntohs(ptr noundef %571, i32 noundef %574)
   %576 = zext i16 %575 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %562, ptr noundef @.str.227, ptr noundef %570, i32 noundef %576)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %562, ptr noundef @.str.235, ptr noundef %570, i32 noundef %576)
   br label %577
 
 577:                                              ; preds = %554, %550
@@ -2110,7 +2200,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
 582:                                              ; preds = %578
   %583 = load ptr, ptr %12, align 8
   %584 = load ptr, ptr %7, align 8
-  %585 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %583, ptr noundef %584, ptr noundef @ei_xmcp_attr_length_bad, ptr noundef @.str.228)
+  %585 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %583, ptr noundef %584, ptr noundef @ei_xmcp_attr_length_bad, ptr noundef @.str.236)
   br label %609
 
 586:                                              ; preds = %578
@@ -2123,7 +2213,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %593 = call ptr @proto_tree_add_item(ptr noundef %587, i32 noundef %588, ptr noundef %589, i32 noundef %592, i32 noundef 16, i32 noundef 0)
   %594 = load ptr, ptr %7, align 8
   %595 = load ptr, ptr %12, align 8
-  %596 = getelementptr inbounds %struct._packet_info, ptr %595, i32 0, i32 50
+  %596 = getelementptr inbounds nuw %struct._packet_info, ptr %595, i32 0, i32 51
   %597 = load ptr, ptr %596, align 8
   %598 = load ptr, ptr %10, align 8
   %599 = load i16, ptr %11, align 2
@@ -2136,7 +2226,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %606 = add i32 %605, 2
   %607 = call zeroext i16 @tvb_get_ntohs(ptr noundef %603, i32 noundef %606)
   %608 = zext i16 %607 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %594, ptr noundef @.str.229, ptr noundef %602, i32 noundef %608)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %594, ptr noundef @.str.237, ptr noundef %602, i32 noundef %608)
   br label %609
 
 609:                                              ; preds = %586, %582
@@ -2178,7 +2268,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %635 = load i16, ptr %11, align 2
   %636 = zext i16 %635 to i32
   %637 = add i32 %636, 3
-  %638 = call zeroext i8 @tvb_get_guint8(ptr noundef %634, i32 noundef %637)
+  %638 = call zeroext i8 @tvb_get_uint8(ptr noundef %634, i32 noundef %637)
   %639 = zext i8 %638 to i16
   store i16 %639, ptr @xmcp_service_protocol, align 2
   %640 = load ptr, ptr %7, align 8
@@ -2186,8 +2276,8 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %642 = sext i16 %641 to i32
   %643 = load i16, ptr @xmcp_service_protocol, align 2
   %644 = sext i16 %643 to i32
-  %645 = call ptr @val_to_str_ext_const(i32 noundef %644, ptr noundef @ipproto_val_ext, ptr noundef @.str.203)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %640, ptr noundef @.str.230, i32 noundef %642, ptr noundef %645)
+  %645 = call ptr @val_to_str_ext_const(i32 noundef %644, ptr noundef @ipproto_val_ext, ptr noundef @.str.211)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %640, ptr noundef @.str.238, i32 noundef %642, ptr noundef %645)
   %646 = load i32, ptr @xmcp_service_port, align 4
   %647 = icmp ne i32 %646, -1
   br i1 %647, label %648, label %653
@@ -2215,12 +2305,17 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
 659:                                              ; preds = %654
   %660 = load ptr, ptr %12, align 8
   %661 = load ptr, ptr %7, align 8
-  %662 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %660, ptr noundef %661, ptr noundef @ei_xmcp_attr_length_bad, ptr noundef @.str.231)
+  %662 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %660, ptr noundef %661, ptr noundef @ei_xmcp_attr_length_bad, ptr noundef @.str.239)
   br label %663
 
 663:                                              ; preds = %659, %654
+  call void @llvm.lifetime.start.p0(i64 2, ptr %20) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr %21) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr %22) #9
   %664 = load i16, ptr %11, align 2
   store i16 %664, ptr %22, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #9
   br label %665
 
 665:                                              ; preds = %780, %663
@@ -2254,8 +2349,8 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %689 = zext i16 %688 to i32
   %690 = load i16, ptr %20, align 2
   %691 = zext i16 %690 to i32
-  %692 = call ptr @val_to_str_const(i32 noundef %691, ptr noundef @flag_types, ptr noundef @.str.203)
-  %693 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %685, i32 noundef %686, ptr noundef %687, i32 noundef %689, i32 noundef 4, ptr noundef @.str.232, ptr noundef %692)
+  %692 = call ptr @val_to_str_const(i32 noundef %691, ptr noundef @flag_types, ptr noundef @.str.211)
+  %693 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %685, i32 noundef %686, ptr noundef %687, i32 noundef %689, i32 noundef 4, ptr noundef @.str.240, ptr noundef %692)
   store ptr %693, ptr %23, align 8
   %694 = load ptr, ptr %23, align 8
   %695 = load i32, ptr @ett_xmcp_attr_flag, align 4
@@ -2301,7 +2396,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
 
 726:                                              ; preds = %709
   %727 = load ptr, ptr %24, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %727, ptr noundef @.str.233)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %727, ptr noundef @.str.241)
   br label %728
 
 728:                                              ; preds = %726, %709
@@ -2311,7 +2406,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
 
 731:                                              ; preds = %728
   %732 = load ptr, ptr %24, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %732, ptr noundef @.str.234)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %732, ptr noundef @.str.242)
   br label %733
 
 733:                                              ; preds = %731, %728
@@ -2327,8 +2422,8 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %741 = load ptr, ptr %24, align 8
   %742 = load i16, ptr %21, align 2
   %743 = zext i16 %742 to i32
-  %744 = call ptr @val_to_str_const(i32 noundef %743, ptr noundef @flag_trust_values, ptr noundef @.str.203)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %741, ptr noundef @.str.235, ptr noundef %744)
+  %744 = call ptr @val_to_str_const(i32 noundef %743, ptr noundef @flag_trust_values, ptr noundef @.str.211)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %741, ptr noundef @.str.243, ptr noundef %744)
   br label %780
 
 745:                                              ; preds = %675
@@ -2352,7 +2447,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
 
 762:                                              ; preds = %745
   %763 = load ptr, ptr %24, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %763, ptr noundef @.str.236)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %763, ptr noundef @.str.244)
   br label %764
 
 764:                                              ; preds = %762, %745
@@ -2362,7 +2457,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
 
 767:                                              ; preds = %764
   %768 = load ptr, ptr %24, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %768, ptr noundef @.str.237)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %768, ptr noundef @.str.245)
   br label %769
 
 769:                                              ; preds = %767, %764
@@ -2378,7 +2473,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %777 = load ptr, ptr %24, align 8
   %778 = load i16, ptr %21, align 2
   %779 = zext i16 %778 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %777, ptr noundef @.str.238, i32 noundef %779)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %777, ptr noundef @.str.246, i32 noundef %779)
   br label %780
 
 780:                                              ; preds = %770, %769, %734, %733
@@ -2387,9 +2482,14 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %783 = add i32 %782, 2
   %784 = trunc i32 %783 to i16
   store i16 %784, ptr %22, align 2
-  br label %665, !llvm.loop !6
+  br label %665, !llvm.loop !10
 
 785:                                              ; preds = %665
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr %22) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr %21) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr %20) #9
   br label %931
 
 786:                                              ; preds = %6
@@ -2413,7 +2513,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %800 = load i16, ptr %11, align 2
   %801 = zext i16 %800 to i32
   %802 = call i32 @tvb_get_ntohl(ptr noundef %799, i32 noundef %801)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %798, ptr noundef @.str.221, i32 noundef %802)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %798, ptr noundef @.str.229, i32 noundef %802)
   br label %931
 
 803:                                              ; preds = %6
@@ -2431,6 +2531,9 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   br i1 %814, label %815, label %859
 
 815:                                              ; preds = %803
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #9
   %816 = load ptr, ptr %10, align 8
   %817 = load i16, ptr %11, align 2
   %818 = zext i16 %817 to i32
@@ -2439,7 +2542,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %821 = call ptr @tvb_new_subset_length(ptr noundef %816, i32 noundef %818, i32 noundef %820)
   store ptr %821, ptr %25, align 8
   %822 = load ptr, ptr %12, align 8
-  %823 = getelementptr inbounds %struct._packet_info, ptr %822, i32 0, i32 50
+  %823 = getelementptr inbounds nuw %struct._packet_info, ptr %822, i32 0, i32 51
   %824 = load ptr, ptr %823, align 8
   %825 = load ptr, ptr %25, align 8
   %826 = load i16, ptr %9, align 2
@@ -2460,7 +2563,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %835 = call ptr @tvb_get_string_enc(ptr noundef %824, ptr noundef %825, i32 noundef 0, i32 noundef %834, i32 noundef 0)
   store ptr %835, ptr %26, align 8
   %836 = load ptr, ptr %26, align 8
-  %837 = call ptr @strtok(ptr noundef %836, ptr noundef @.str.239) #6
+  %837 = call ptr @strtok(ptr noundef %836, ptr noundef @.str.247) #9
   store ptr %837, ptr %27, align 8
   %838 = load ptr, ptr %27, align 8
   %839 = icmp ne ptr %838, null
@@ -2479,7 +2582,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %848 = load ptr, ptr %25, align 8
   %849 = load ptr, ptr %12, align 8
   %850 = load ptr, ptr %7, align 8
-  %851 = call i32 @dissector_try_string(ptr noundef %847, ptr noundef @.str.240, ptr noundef %848, ptr noundef %849, ptr noundef %850, ptr noundef null)
+  %851 = call i32 @dissector_try_string_with_data(ptr noundef %847, ptr noundef @.str.248, ptr noundef %848, ptr noundef %849, ptr noundef %850, i1 noundef zeroext true, ptr noundef null)
   br label %858
 
 852:                                              ; preds = %840, %833
@@ -2487,10 +2590,13 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %854 = load ptr, ptr %25, align 8
   %855 = load ptr, ptr %12, align 8
   %856 = load ptr, ptr %7, align 8
-  %857 = call i32 @dissector_try_string(ptr noundef %853, ptr noundef @.str.241, ptr noundef %854, ptr noundef %855, ptr noundef %856, ptr noundef null)
+  %857 = call i32 @dissector_try_string_with_data(ptr noundef %853, ptr noundef @.str.249, ptr noundef %854, ptr noundef %855, ptr noundef %856, i1 noundef zeroext true, ptr noundef null)
   br label %858
 
 858:                                              ; preds = %852, %846
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #9
   br label %859
 
 859:                                              ; preds = %858, %803
@@ -2517,15 +2623,15 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %874 = load i16, ptr %11, align 2
   %875 = zext i16 %874 to i32
   %876 = call i32 @tvb_get_ntohl(ptr noundef %873, i32 noundef %875)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %872, ptr noundef @.str.221, i32 noundef %876)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %872, ptr noundef @.str.229, i32 noundef %876)
   %877 = load ptr, ptr %12, align 8
-  %878 = getelementptr inbounds %struct._packet_info, ptr %877, i32 0, i32 1
+  %878 = getelementptr inbounds nuw %struct._packet_info, ptr %877, i32 0, i32 1
   %879 = load ptr, ptr %878, align 8
   %880 = load ptr, ptr %10, align 8
   %881 = load i16, ptr %11, align 2
   %882 = zext i16 %881 to i32
   %883 = call i32 @tvb_get_ntohl(ptr noundef %880, i32 noundef %882)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %879, i32 noundef 25, ptr noundef @.str.242, i32 noundef %883)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %879, i32 noundef 25, ptr noundef @.str.250, i32 noundef %883)
   br label %931
 
 884:                                              ; preds = %6
@@ -2549,8 +2655,8 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %898 = load i16, ptr %11, align 2
   %899 = zext i16 %898 to i32
   %900 = call i32 @tvb_get_ntohl(ptr noundef %897, i32 noundef %899)
-  %901 = call ptr @val_to_str_const(i32 noundef %900, ptr noundef @service_removed_reasons, ptr noundef @.str.203)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %896, ptr noundef @.str.213, ptr noundef %901)
+  %901 = call ptr @val_to_str_const(i32 noundef %900, ptr noundef @service_removed_reasons, ptr noundef @.str.211)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %896, ptr noundef @.str.221, ptr noundef %901)
   br label %931
 
 902:                                              ; preds = %6
@@ -2574,7 +2680,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
   %916 = load i16, ptr %11, align 2
   %917 = zext i16 %916 to i32
   %918 = call i32 @tvb_get_ntohl(ptr noundef %915, i32 noundef %917)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %914, ptr noundef @.str.221, i32 noundef %918)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %914, ptr noundef @.str.229, i32 noundef %918)
   br label %931
 
 919:                                              ; preds = %6
@@ -2626,7 +2732,7 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
 957:                                              ; preds = %950
   %958 = load ptr, ptr %12, align 8
   %959 = load ptr, ptr %7, align 8
-  %960 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %958, ptr noundef %959, ptr noundef @ei_xmcp_attr_length_bad, ptr noundef @.str.243)
+  %960 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %958, ptr noundef %959, ptr noundef @ei_xmcp_attr_length_bad, ptr noundef @.str.251)
   br label %973
 
 961:                                              ; preds = %950
@@ -2641,32 +2747,39 @@ define internal void @decode_xmcp_attr_value(ptr noundef %0, i16 noundef zeroext
 968:                                              ; preds = %961
   %969 = load ptr, ptr %12, align 8
   %970 = load ptr, ptr %7, align 8
-  %971 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %969, ptr noundef %970, ptr noundef @ei_xmcp_attr_length_bad, ptr noundef @.str.244)
+  %971 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %969, ptr noundef %970, ptr noundef @ei_xmcp_attr_length_bad, ptr noundef @.str.252)
   br label %972
 
 972:                                              ; preds = %968, %961
   br label %973
 
 973:                                              ; preds = %972, %957
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #9
   ret void
 }
 
-declare void @col_prepend_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_prepend_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #3
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #7
 
-declare void @tvb_get_guid(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @tvb_get_guid(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @guid_to_str_buf(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @guid_to_str_buf(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @add_xmcp_port_name(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
@@ -2695,62 +2808,66 @@ define internal void @add_xmcp_port_name(ptr noundef %0) #0 {
 12:                                               ; preds = %9
   %13 = load ptr, ptr @xmcp_it_service_port, align 8
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct._packet_info, ptr %14, i32 0, i32 50
+  %15 = getelementptr inbounds nuw %struct._packet_info, ptr %14, i32 0, i32 51
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr @xmcp_service_port, align 4
   %18 = call ptr @tcp_port_to_display(ptr noundef %16, i32 noundef %17)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef @.str.245, ptr noundef %18)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef @.str.253, ptr noundef %18)
   br label %41
 
 19:                                               ; preds = %9
   %20 = load ptr, ptr @xmcp_it_service_port, align 8
   %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %struct._packet_info, ptr %21, i32 0, i32 50
+  %22 = getelementptr inbounds nuw %struct._packet_info, ptr %21, i32 0, i32 51
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr @xmcp_service_port, align 4
   %25 = call ptr @udp_port_to_display(ptr noundef %23, i32 noundef %24)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %20, ptr noundef @.str.246, ptr noundef %25)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %20, ptr noundef @.str.254, ptr noundef %25)
   br label %41
 
 26:                                               ; preds = %9
   %27 = load ptr, ptr @xmcp_it_service_port, align 8
   %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds %struct._packet_info, ptr %28, i32 0, i32 50
+  %29 = getelementptr inbounds nuw %struct._packet_info, ptr %28, i32 0, i32 51
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr @xmcp_service_port, align 4
   %32 = call ptr @dccp_port_to_display(ptr noundef %30, i32 noundef %31)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef @.str.247, ptr noundef %32)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef @.str.255, ptr noundef %32)
   br label %41
 
 33:                                               ; preds = %9
   %34 = load ptr, ptr @xmcp_it_service_port, align 8
   %35 = load ptr, ptr %2, align 8
-  %36 = getelementptr inbounds %struct._packet_info, ptr %35, i32 0, i32 50
+  %36 = getelementptr inbounds nuw %struct._packet_info, ptr %35, i32 0, i32 51
   %37 = load ptr, ptr %36, align 8
   %38 = load i32, ptr @xmcp_service_port, align 4
   %39 = call ptr @sctp_port_to_display(ptr noundef %37, i32 noundef %38)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %34, ptr noundef @.str.248, ptr noundef %39)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %34, ptr noundef @.str.256, ptr noundef %39)
   br label %41
 
 40:                                               ; preds = %9
   br label %41
 
-41:                                               ; preds = %40, %33, %26, %19, %12, %8
+41:                                               ; preds = %8, %40, %33, %26, %19, %12
   ret void
 }
 
-declare ptr @tvb_address_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_address_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind
-declare ptr @strtok(ptr noundef, ptr noundef) #4
+; Function Attrs: nounwind null_pointer_is_valid
+declare ptr @strtok(ptr noundef, ptr noundef) #8
 
-declare i32 @dissector_try_string(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissector_try_string_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i16 @get_xmcp_attr_min_len(i16 noundef zeroext %0) #0 {
   %2 = alloca i16, align 2
   %3 = alloca i16, align 2
@@ -2794,72 +2911,83 @@ define internal zeroext i16 @get_xmcp_attr_min_len(i16 noundef zeroext %0) #0 {
   ret i16 %14
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i16 @get_xmcp_attr_max_len(i16 noundef zeroext %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i16 @get_xmcp_attr_max_len(i16 noundef zeroext %0) #6 {
   %2 = alloca i16, align 2
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
+  %5 = alloca i32, align 4
   store i16 %0, ptr %3, align 2
-  %5 = load i16, ptr %3, align 2
-  %6 = zext i16 %5 to i32
-  switch i32 %6, label %10 [
-    i32 4104, label %7
-    i32 8, label %8
-    i32 21, label %9
-    i32 4097, label %9
-    i32 4101, label %9
+  call void @llvm.lifetime.start.p0(i64 2, ptr %4) #9
+  %6 = load i16, ptr %3, align 2
+  %7 = zext i16 %6 to i32
+  switch i32 %7, label %11 [
+    i32 4104, label %8
+    i32 8, label %9
+    i32 21, label %10
+    i32 4097, label %10
+    i32 4101, label %10
   ]
 
-7:                                                ; preds = %1
-  store i16 20, ptr %2, align 2
-  br label %23
-
 8:                                                ; preds = %1
+  store i16 20, ptr %2, align 2
+  store i32 1, ptr %5, align 4
+  br label %24
+
+9:                                                ; preds = %1
   store i16 32, ptr %2, align 2
-  br label %23
+  store i32 1, ptr %5, align 4
+  br label %24
 
-9:                                                ; preds = %1, %1, %1
+10:                                               ; preds = %1, %1, %1
   store i16 255, ptr %2, align 2
-  br label %23
+  store i32 1, ptr %5, align 4
+  br label %24
 
-10:                                               ; preds = %1
-  %11 = load i16, ptr %3, align 2
-  %12 = call zeroext i16 @get_xmcp_attr_fixed_len(i16 noundef zeroext %11)
-  store i16 %12, ptr %4, align 2
-  %13 = load i16, ptr %4, align 2
-  %14 = zext i16 %13 to i32
-  %15 = icmp ne i32 %14, 0
-  br i1 %15, label %16, label %19
+11:                                               ; preds = %1
+  %12 = load i16, ptr %3, align 2
+  %13 = call zeroext i16 @get_xmcp_attr_fixed_len(i16 noundef zeroext %12)
+  store i16 %13, ptr %4, align 2
+  %14 = load i16, ptr %4, align 2
+  %15 = zext i16 %14 to i32
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %17, label %20
 
-16:                                               ; preds = %10
-  %17 = load i16, ptr %4, align 2
-  %18 = zext i16 %17 to i32
-  br label %20
+17:                                               ; preds = %11
+  %18 = load i16, ptr %4, align 2
+  %19 = zext i16 %18 to i32
+  br label %21
 
-19:                                               ; preds = %10
-  br label %20
+20:                                               ; preds = %11
+  br label %21
 
-20:                                               ; preds = %19, %16
-  %21 = phi i32 [ %18, %16 ], [ 65535, %19 ]
-  %22 = trunc i32 %21 to i16
-  store i16 %22, ptr %2, align 2
-  br label %23
+21:                                               ; preds = %20, %17
+  %22 = phi i32 [ %19, %17 ], [ 65535, %20 ]
+  %23 = trunc i32 %22 to i16
+  store i16 %23, ptr %2, align 2
+  store i32 1, ptr %5, align 4
+  br label %24
 
-23:                                               ; preds = %20, %9, %8, %7
-  %24 = load i16, ptr %2, align 2
-  ret i16 %24
+24:                                               ; preds = %21, %10, %9, %8
+  call void @llvm.lifetime.end.p0(i64 2, ptr %4) #9
+  %25 = load i16, ptr %2, align 2
+  ret i16 %25
 }
 
-declare ptr @tcp_port_to_display(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tcp_port_to_display(ptr noundef, i32 noundef) #2
 
-declare ptr @udp_port_to_display(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @udp_port_to_display(ptr noundef, i32 noundef) #2
 
-declare ptr @dccp_port_to_display(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @dccp_port_to_display(ptr noundef, i32 noundef) #2
 
-declare ptr @sctp_port_to_display(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @sctp_port_to_display(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i16 @get_xmcp_attr_fixed_len(i16 noundef zeroext %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i16 @get_xmcp_attr_fixed_len(i16 noundef zeroext %0) #6 {
   %2 = alloca i16, align 2
   %3 = alloca i16, align 2
   store i16 %0, ptr %3, align 2
@@ -2895,20 +3023,29 @@ define internal zeroext i16 @get_xmcp_attr_fixed_len(i16 noundef zeroext %0) #0 
   ret i16 %10
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) }
-attributes #6 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind }
+attributes #10 = { allocsize(1) }
+attributes #11 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}

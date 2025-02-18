@@ -3,13 +3,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct.btle_mesh_transport_ctx_t = type { i32, i32, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct.btle_mesh_transport_ctx_t = type { i32, i8, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -18,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_btmesh_provisioning_pdu_type = internal global i32 0, align 4
 @.str = private unnamed_addr constant [22 x i8] c"Provisioning PDU Type\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"provisioning.pdu_type\00", align 1
-@btmesh_provisioning_pdu_type_format = internal constant [11 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.109 }, %struct._value_string { i32 1, ptr @.str.110 }, %struct._value_string { i32 2, ptr @.str.111 }, %struct._value_string { i32 3, ptr @.str.112 }, %struct._value_string { i32 4, ptr @.str.113 }, %struct._value_string { i32 5, ptr @.str.114 }, %struct._value_string { i32 6, ptr @.str.115 }, %struct._value_string { i32 7, ptr @.str.116 }, %struct._value_string { i32 8, ptr @.str.117 }, %struct._value_string { i32 9, ptr @.str.118 }, %struct._value_string zeroinitializer], align 16
 @hf_btmesh_provisioning_pdu_padding = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [25 x i8] c"Provisioning PDU Padding\00", align 1
 @.str.3 = private unnamed_addr constant [25 x i8] c"provisioning.pdu_padding\00", align 1
@@ -57,7 +53,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_btmesh_provisioning_output_oob_size = internal global i32 0, align 4
 @.str.24 = private unnamed_addr constant [16 x i8] c"Output OOB Size\00", align 1
 @.str.25 = private unnamed_addr constant [29 x i8] c"provisioning.output_oob_size\00", align 1
-@btmesh_provisioning_output_oob_size_format = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.119 }, %struct._value_string { i32 1, ptr @.str.120 }, %struct._value_string { i32 2, ptr @.str.120 }, %struct._value_string { i32 3, ptr @.str.120 }, %struct._value_string { i32 4, ptr @.str.120 }, %struct._value_string { i32 5, ptr @.str.120 }, %struct._value_string { i32 6, ptr @.str.120 }, %struct._value_string { i32 7, ptr @.str.120 }, %struct._value_string { i32 8, ptr @.str.120 }, %struct._value_string zeroinitializer], align 16
 @hf_btmesh_provisioning_output_oob_action = internal global i32 0, align 4
 @.str.26 = private unnamed_addr constant [18 x i8] c"Output OOB Action\00", align 1
 @.str.27 = private unnamed_addr constant [31 x i8] c"provisioning.output_oob_action\00", align 1
@@ -81,7 +76,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_btmesh_provisioning_input_oob_size = internal global i32 0, align 4
 @.str.39 = private unnamed_addr constant [15 x i8] c"Input OOB Size\00", align 1
 @.str.40 = private unnamed_addr constant [28 x i8] c"provisioning.input_oob_size\00", align 1
-@btmesh_provisioning_input_oob_size_format = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.121 }, %struct._value_string { i32 1, ptr @.str.120 }, %struct._value_string { i32 2, ptr @.str.120 }, %struct._value_string { i32 3, ptr @.str.120 }, %struct._value_string { i32 4, ptr @.str.120 }, %struct._value_string { i32 5, ptr @.str.120 }, %struct._value_string { i32 6, ptr @.str.120 }, %struct._value_string { i32 7, ptr @.str.120 }, %struct._value_string { i32 8, ptr @.str.120 }, %struct._value_string zeroinitializer], align 16
 @hf_btmesh_provisioning_input_oob_action = internal global i32 0, align 4
 @.str.41 = private unnamed_addr constant [17 x i8] c"Input OOB Action\00", align 1
 @.str.42 = private unnamed_addr constant [30 x i8] c"provisioning.input_oob_action\00", align 1
@@ -102,47 +96,36 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_btmesh_provisioning_algorithm = internal global i32 0, align 4
 @.str.52 = private unnamed_addr constant [10 x i8] c"Algorithm\00", align 1
 @.str.53 = private unnamed_addr constant [23 x i8] c"provisioning.algorithm\00", align 1
-@btmesh_provisioning_algorithm_format = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.10 }, %struct._value_string zeroinitializer], align 16
 @hf_btmesh_provisioning_public_key = internal global i32 0, align 4
 @.str.54 = private unnamed_addr constant [11 x i8] c"Public Key\00", align 1
 @.str.55 = private unnamed_addr constant [24 x i8] c"provisioning.public_key\00", align 1
-@btmesh_provisioning_public_key_format = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.122 }, %struct._value_string { i32 1, ptr @.str.123 }, %struct._value_string zeroinitializer], align 16
 @hf_btmesh_provisioning_authentication_method = internal global i32 0, align 4
 @.str.56 = private unnamed_addr constant [22 x i8] c"Authentication Method\00", align 1
 @.str.57 = private unnamed_addr constant [35 x i8] c"provisioning.authentication_method\00", align 1
-@btmesh_provisioning_authentication_method_format = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.124 }, %struct._value_string { i32 1, ptr @.str.125 }, %struct._value_string { i32 2, ptr @.str.126 }, %struct._value_string { i32 3, ptr @.str.127 }, %struct._value_string zeroinitializer], align 16
 @hf_btmesh_provisioning_authentication_action_no_oob_action = internal global i32 0, align 4
 @.str.58 = private unnamed_addr constant [29 x i8] c"No OOB Authentication Action\00", align 1
 @.str.59 = private unnamed_addr constant [49 x i8] c"provisioning.authentication_action.no_oob_action\00", align 1
-@btmesh_provisioning_authentication_action_no_oob_action_format = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.128 }, %struct._value_string zeroinitializer], align 16
 @hf_btmesh_provisioning_authentication_action_static_oob_action = internal global i32 0, align 4
 @.str.60 = private unnamed_addr constant [33 x i8] c"Static OOB Authentication Action\00", align 1
 @.str.61 = private unnamed_addr constant [53 x i8] c"provisioning.authentication_action.static_oob_action\00", align 1
-@btmesh_provisioning_authentication_action_static_oob_action_format = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.128 }, %struct._value_string zeroinitializer], align 16
 @hf_btmesh_provisioning_authentication_action_output_oob_action = internal global i32 0, align 4
 @.str.62 = private unnamed_addr constant [33 x i8] c"Output OOB Authentication Action\00", align 1
 @.str.63 = private unnamed_addr constant [53 x i8] c"provisioning.authentication_action.output_oob_action\00", align 1
-@btmesh_provisioning_authentication_action_output_oob_action_format = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.28 }, %struct._value_string { i32 1, ptr @.str.30 }, %struct._value_string { i32 2, ptr @.str.32 }, %struct._value_string { i32 3, ptr @.str.34 }, %struct._value_string { i32 4, ptr @.str.36 }, %struct._value_string zeroinitializer], align 16
 @hf_btmesh_provisioning_authentication_action_input_oob_action = internal global i32 0, align 4
 @.str.64 = private unnamed_addr constant [32 x i8] c"Input OOB Authentication Action\00", align 1
 @.str.65 = private unnamed_addr constant [52 x i8] c"provisioning.authentication_action.input_oob_action\00", align 1
-@btmesh_provisioning_authentication_action_input_oob_action_format = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.43 }, %struct._value_string { i32 1, ptr @.str.45 }, %struct._value_string { i32 2, ptr @.str.47 }, %struct._value_string { i32 3, ptr @.str.49 }, %struct._value_string zeroinitializer], align 16
 @hf_btmesh_provisioning_authentication_size_no_oob_action = internal global i32 0, align 4
 @.str.66 = private unnamed_addr constant [27 x i8] c"No OOB Authentication Size\00", align 1
 @.str.67 = private unnamed_addr constant [47 x i8] c"provisioning.authentication_size.no_oob_action\00", align 1
-@btmesh_provisioning_authentication_size_no_oob_action_format = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.128 }, %struct._value_string zeroinitializer], align 16
 @hf_btmesh_provisioning_authentication_size_static_oob_action = internal global i32 0, align 4
 @.str.68 = private unnamed_addr constant [31 x i8] c"Static OOB Authentication Size\00", align 1
 @.str.69 = private unnamed_addr constant [51 x i8] c"provisioning.authentication_size.static_oob_action\00", align 1
-@btmesh_provisioning_authentication_size_static_oob_action_format = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.128 }, %struct._value_string zeroinitializer], align 16
 @hf_btmesh_provisioning_authentication_size_output_oob_action = internal global i32 0, align 4
 @.str.70 = private unnamed_addr constant [31 x i8] c"Output OOB Authentication Size\00", align 1
 @.str.71 = private unnamed_addr constant [51 x i8] c"provisioning.authentication_size.output_oob_action\00", align 1
-@btmesh_provisioning_authentication_size_output_oob_action_format = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.129 }, %struct._value_string { i32 1, ptr @.str.130 }, %struct._value_string { i32 2, ptr @.str.130 }, %struct._value_string { i32 3, ptr @.str.130 }, %struct._value_string { i32 4, ptr @.str.130 }, %struct._value_string { i32 5, ptr @.str.130 }, %struct._value_string { i32 6, ptr @.str.130 }, %struct._value_string { i32 7, ptr @.str.130 }, %struct._value_string { i32 8, ptr @.str.130 }, %struct._value_string zeroinitializer], align 16
 @hf_btmesh_provisioning_authentication_size_input_oob_action = internal global i32 0, align 4
 @.str.72 = private unnamed_addr constant [30 x i8] c"Input OOB Authentication Size\00", align 1
 @.str.73 = private unnamed_addr constant [50 x i8] c"provisioning.authentication_size.input_oob_action\00", align 1
-@btmesh_provisioning_authentication_size_input_oob_action_format = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.129 }, %struct._value_string { i32 1, ptr @.str.131 }, %struct._value_string { i32 2, ptr @.str.131 }, %struct._value_string { i32 3, ptr @.str.131 }, %struct._value_string { i32 4, ptr @.str.131 }, %struct._value_string { i32 5, ptr @.str.131 }, %struct._value_string { i32 6, ptr @.str.131 }, %struct._value_string { i32 7, ptr @.str.131 }, %struct._value_string { i32 8, ptr @.str.131 }, %struct._value_string zeroinitializer], align 16
 @hf_btmesh_provisioning_public_key_x = internal global i32 0, align 4
 @.str.74 = private unnamed_addr constant [13 x i8] c"Public Key X\00", align 1
 @.str.75 = private unnamed_addr constant [26 x i8] c"provisioning.public_key_x\00", align 1
@@ -164,7 +147,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_btmesh_provisioning_error_code = internal global i32 0, align 4
 @.str.86 = private unnamed_addr constant [11 x i8] c"Error Code\00", align 1
 @.str.87 = private unnamed_addr constant [24 x i8] c"provisioning.error_code\00", align 1
-@btmesh_provisioning_error_code_format = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.129 }, %struct._value_string { i32 1, ptr @.str.132 }, %struct._value_string { i32 2, ptr @.str.133 }, %struct._value_string { i32 3, ptr @.str.134 }, %struct._value_string { i32 4, ptr @.str.135 }, %struct._value_string { i32 5, ptr @.str.136 }, %struct._value_string { i32 6, ptr @.str.137 }, %struct._value_string { i32 7, ptr @.str.138 }, %struct._value_string { i32 8, ptr @.str.139 }, %struct._value_string zeroinitializer], align 16
 @hf_btmesh_provisioning_unknown_data = internal global i32 0, align 4
 @.str.88 = private unnamed_addr constant [13 x i8] c"Unknown Data\00", align 1
 @.str.89 = private unnamed_addr constant [26 x i8] c"provisioning.unknown_data\00", align 1
@@ -183,7 +165,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_btmesh_provisioning_authentication_action = internal global i32 0, align 4
 @ett_btmesh_provisioning_authentication_size = internal global i32 0, align 4
 @ett_btmesh_provisioning_error_code = internal global i32 0, align 4
-@proto_register_btmesh_provisioning.ei = internal global [7 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_btmesh_provisioning_unknown_opcode, %struct.expert_field_info { ptr @.str.90, i32 150994944, i32 8388608, ptr @.str.91, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_btmesh_provisioning_unknown_payload, %struct.expert_field_info { ptr @.str.92, i32 150994944, i32 8388608, ptr @.str.93, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_btmesh_provisioning_unknown_authentication_method, %struct.expert_field_info { ptr @.str.94, i32 150994944, i32 8388608, ptr @.str.95, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_btmesh_provisioning_rfu_not_zero, %struct.expert_field_info { ptr @.str.96, i32 150994944, i32 6291456, ptr @.str.97, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_btmesh_provisioning_in_rfu_range, %struct.expert_field_info { ptr @.str.98, i32 150994944, i32 6291456, ptr @.str.99, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_btmesh_provisioning_prohibited, %struct.expert_field_info { ptr @.str.100, i32 150994944, i32 8388608, ptr @.str.101, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_btmesh_provisioning_zero_elements, %struct.expert_field_info { ptr @.str.102, i32 150994944, i32 8388608, ptr @.str.103, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_btmesh_provisioning.ei = internal global [7 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_btmesh_provisioning_unknown_opcode, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.90, i32 150994944, i32 8388608, ptr @.str.91, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_btmesh_provisioning_unknown_payload, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.92, i32 150994944, i32 8388608, ptr @.str.93, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_btmesh_provisioning_unknown_authentication_method, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.94, i32 150994944, i32 8388608, ptr @.str.95, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_btmesh_provisioning_rfu_not_zero, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.96, i32 150994944, i32 6291456, ptr @.str.97, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_btmesh_provisioning_in_rfu_range, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.98, i32 150994944, i32 6291456, ptr @.str.99, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_btmesh_provisioning_prohibited, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.100, i32 150994944, i32 8388608, ptr @.str.101, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_btmesh_provisioning_zero_elements, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.102, i32 150994944, i32 8388608, ptr @.str.103, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_btmesh_provisioning_unknown_opcode = internal global %struct.expert_field zeroinitializer, align 4
 @.str.90 = private unnamed_addr constant [28 x i8] c"provisioning.unknown_opcode\00", align 1
 @.str.91 = private unnamed_addr constant [15 x i8] c"Unknown Opcode\00", align 1
@@ -221,35 +203,51 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.116 = private unnamed_addr constant [22 x i8] c"Provisioning Data PDU\00", align 1
 @.str.117 = private unnamed_addr constant [26 x i8] c"Provisioning Complete PDU\00", align 1
 @.str.118 = private unnamed_addr constant [24 x i8] c"Provisioning Failed PDU\00", align 1
-@.str.119 = private unnamed_addr constant [39 x i8] c"The device does not support output OOB\00", align 1
-@.str.120 = private unnamed_addr constant [47 x i8] c"Maximum size in octets supported by the device\00", align 1
-@.str.121 = private unnamed_addr constant [38 x i8] c"The device does not support input OOB\00", align 1
-@.str.122 = private unnamed_addr constant [26 x i8] c"No OOB Public Key is used\00", align 1
-@.str.123 = private unnamed_addr constant [23 x i8] c"OOB Public Key is used\00", align 1
-@.str.124 = private unnamed_addr constant [30 x i8] c"No OOB authentication is used\00", align 1
-@.str.125 = private unnamed_addr constant [34 x i8] c"Static OOB authentication is used\00", align 1
-@.str.126 = private unnamed_addr constant [34 x i8] c"Output OOB authentication is used\00", align 1
-@.str.127 = private unnamed_addr constant [33 x i8] c"Input OOB authentication is used\00", align 1
-@.str.128 = private unnamed_addr constant [5 x i8] c"None\00", align 1
-@.str.129 = private unnamed_addr constant [11 x i8] c"Prohibited\00", align 1
-@.str.130 = private unnamed_addr constant [45 x i8] c"The Output OOB size in characters to be used\00", align 1
-@.str.131 = private unnamed_addr constant [44 x i8] c"The Input OOB size in characters to be used\00", align 1
-@.str.132 = private unnamed_addr constant [12 x i8] c"Invalid PDU\00", align 1
-@.str.133 = private unnamed_addr constant [15 x i8] c"Invalid Format\00", align 1
-@.str.134 = private unnamed_addr constant [15 x i8] c"Unexpected PDU\00", align 1
-@.str.135 = private unnamed_addr constant [20 x i8] c"Confirmation Failed\00", align 1
-@.str.136 = private unnamed_addr constant [17 x i8] c"Out of Resources\00", align 1
-@.str.137 = private unnamed_addr constant [18 x i8] c"Decryption Failed\00", align 1
-@.str.138 = private unnamed_addr constant [17 x i8] c"Unexpected Error\00", align 1
-@.str.139 = private unnamed_addr constant [24 x i8] c"Cannot Assign Addresses\00", align 1
-@.str.140 = private unnamed_addr constant [25 x i8] c"BT Mesh Provisioning PDU\00", align 1
-@.str.141 = private unnamed_addr constant [25 x i8] c"Unknown Provisioning PDU\00", align 1
-@.str.142 = private unnamed_addr constant [23 x i8] c" (Message fragment %u)\00", align 1
-@.str.143 = private unnamed_addr constant [16 x i8] c" (Last Segment)\00", align 1
+@btmesh_provisioning_pdu_type_format = internal constant [11 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.109 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.110 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.111 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.112 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.113 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.114 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.115 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.116 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.117 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.118 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.120 = private unnamed_addr constant [39 x i8] c"The device does not support output OOB\00", align 1
+@.str.121 = private unnamed_addr constant [47 x i8] c"Maximum size in octets supported by the device\00", align 1
+@btmesh_provisioning_output_oob_size_format = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.120 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.123 = private unnamed_addr constant [38 x i8] c"The device does not support input OOB\00", align 1
+@btmesh_provisioning_input_oob_size_format = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.123 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@btmesh_provisioning_algorithm_format = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.10 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.126 = private unnamed_addr constant [26 x i8] c"No OOB Public Key is used\00", align 1
+@.str.127 = private unnamed_addr constant [23 x i8] c"OOB Public Key is used\00", align 1
+@btmesh_provisioning_public_key_format = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.126 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.127 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.129 = private unnamed_addr constant [30 x i8] c"No OOB authentication is used\00", align 1
+@.str.130 = private unnamed_addr constant [34 x i8] c"Static OOB authentication is used\00", align 1
+@.str.131 = private unnamed_addr constant [34 x i8] c"Output OOB authentication is used\00", align 1
+@.str.132 = private unnamed_addr constant [33 x i8] c"Input OOB authentication is used\00", align 1
+@btmesh_provisioning_authentication_method_format = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.129 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.130 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.131 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.132 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.134 = private unnamed_addr constant [5 x i8] c"None\00", align 1
+@btmesh_provisioning_authentication_action_no_oob_action_format = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.134 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@btmesh_provisioning_authentication_action_static_oob_action_format = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.134 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@btmesh_provisioning_authentication_action_output_oob_action_format = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.28 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.30 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.32 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.34 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.36 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@btmesh_provisioning_authentication_action_input_oob_action_format = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.43 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.45 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.49 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@btmesh_provisioning_authentication_size_no_oob_action_format = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.134 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@btmesh_provisioning_authentication_size_static_oob_action_format = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.134 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.141 = private unnamed_addr constant [11 x i8] c"Prohibited\00", align 1
+@.str.142 = private unnamed_addr constant [45 x i8] c"The Output OOB size in characters to be used\00", align 1
+@btmesh_provisioning_authentication_size_output_oob_action_format = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.141 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.144 = private unnamed_addr constant [44 x i8] c"The Input OOB size in characters to be used\00", align 1
+@btmesh_provisioning_authentication_size_input_oob_action_format = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.141 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.146 = private unnamed_addr constant [12 x i8] c"Invalid PDU\00", align 1
+@.str.147 = private unnamed_addr constant [15 x i8] c"Invalid Format\00", align 1
+@.str.148 = private unnamed_addr constant [15 x i8] c"Unexpected PDU\00", align 1
+@.str.149 = private unnamed_addr constant [20 x i8] c"Confirmation Failed\00", align 1
+@.str.150 = private unnamed_addr constant [17 x i8] c"Out of Resources\00", align 1
+@.str.151 = private unnamed_addr constant [18 x i8] c"Decryption Failed\00", align 1
+@.str.152 = private unnamed_addr constant [17 x i8] c"Unexpected Error\00", align 1
+@.str.153 = private unnamed_addr constant [24 x i8] c"Cannot Assign Addresses\00", align 1
+@btmesh_provisioning_error_code_format = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.141 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.146 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.147 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.148 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.149 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.150 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.151 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.152 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.153 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.155 = private unnamed_addr constant [25 x i8] c"BT Mesh Provisioning PDU\00", align 1
+@.str.156 = private unnamed_addr constant [25 x i8] c"Unknown Provisioning PDU\00", align 1
+@.str.157 = private unnamed_addr constant [23 x i8] c" (Message fragment %u)\00", align 1
+@.str.158 = private unnamed_addr constant [16 x i8] c" (Last Segment)\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_btmesh_provisioning() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #4
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.104, ptr noundef @.str.105, ptr noundef @.str.106)
   store i32 %2, ptr @proto_btmesh_provisioning, align 4
   %3 = load i32, ptr @proto_btmesh_provisioning, align 4
@@ -264,24 +262,35 @@ define hidden void @proto_register_btmesh_provisioning() #0 {
   %8 = call ptr @prefs_register_protocol_subtree(ptr noundef @.str.107, i32 noundef %7, ptr noundef null)
   %9 = load i32, ptr @proto_btmesh_provisioning, align 4
   %10 = call ptr @register_dissector(ptr noundef @.str.108, ptr noundef @dissect_btmesh_provisioning_msg, i32 noundef %9)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #4
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare ptr @prefs_register_protocol_subtree(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol_subtree(ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -321,12 +330,40 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #4
   store i32 0, ptr %23, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #4
+  call void @llvm.lifetime.start.p0(i64 12, ptr %25) #4
   call void @llvm.memset.p0.i64(ptr align 4 %25, i8 0, i64 12, i1 false)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %26) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %27) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %28) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %29) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %30) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %31) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %32) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %33) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %34) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %35) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %36) #4
   %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds %struct._packet_info, ptr %39, i32 0, i32 1
+  %40 = getelementptr inbounds nuw %struct._packet_info, ptr %39, i32 0, i32 1
   %41 = load ptr, ptr %40, align 8
-  call void @col_set_str(ptr noundef %41, i32 noundef 34, ptr noundef @.str.140)
+  call void @col_set_str(ptr noundef %41, i32 noundef 35, ptr noundef @.str.155)
   %42 = load ptr, ptr %8, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %45
@@ -356,9 +393,10 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   %58 = load ptr, ptr %5, align 8
   %59 = load i32, ptr %23, align 4
   %60 = call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %57, ptr noundef %58, i32 noundef %59, i32 noundef 1, i32 noundef 0)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %37) #4
   %61 = load ptr, ptr %5, align 8
   %62 = load i32, ptr %23, align 4
-  %63 = call zeroext i8 @tvb_get_guint8(ptr noundef %61, i32 noundef %62)
+  %63 = call zeroext i8 @tvb_get_uint8(ptr noundef %61, i32 noundef %62)
   %64 = zext i8 %63 to i32
   %65 = and i32 %64, 63
   %66 = trunc i32 %65 to i8
@@ -368,9 +406,10 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   %69 = load ptr, ptr %5, align 8
   %70 = load i32, ptr %23, align 4
   %71 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %68, ptr noundef %69, i32 noundef %70, i32 noundef 1, i32 noundef 0)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %38) #4
   %72 = load ptr, ptr %5, align 8
   %73 = load i32, ptr %23, align 4
-  %74 = call zeroext i8 @tvb_get_guint8(ptr noundef %72, i32 noundef %73)
+  %74 = call zeroext i8 @tvb_get_uint8(ptr noundef %72, i32 noundef %73)
   %75 = zext i8 %74 to i32
   %76 = and i32 %75, 192
   %77 = ashr i32 %76, 6
@@ -394,21 +433,21 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   %90 = add i32 %89, 1
   store i32 %90, ptr %23, align 4
   %91 = load ptr, ptr %6, align 8
-  %92 = getelementptr inbounds %struct._packet_info, ptr %91, i32 0, i32 1
+  %92 = getelementptr inbounds nuw %struct._packet_info, ptr %91, i32 0, i32 1
   %93 = load ptr, ptr %92, align 8
   %94 = load i8, ptr %37, align 1
   %95 = zext i8 %94 to i32
-  %96 = call ptr @val_to_str_const(i32 noundef %95, ptr noundef @btmesh_provisioning_pdu_type_format, ptr noundef @.str.141)
+  %96 = call ptr @val_to_str_const(i32 noundef %95, ptr noundef @btmesh_provisioning_pdu_type_format, ptr noundef @.str.156)
   call void @col_set_str(ptr noundef %93, i32 noundef 25, ptr noundef %96)
   %97 = load ptr, ptr %24, align 8
-  %98 = getelementptr inbounds %struct.btle_mesh_transport_ctx_t, ptr %97, i32 0, i32 1
-  %99 = load i32, ptr %98, align 4
-  %100 = icmp ne i32 %99, 0
+  %98 = getelementptr inbounds nuw %struct.btle_mesh_transport_ctx_t, ptr %97, i32 0, i32 1
+  %99 = load i8, ptr %98, align 4, !range !6, !noundef !7
+  %100 = trunc i8 %99 to i1
   br i1 %100, label %101, label %118
 
 101:                                              ; preds = %88
   %102 = load ptr, ptr %24, align 8
-  %103 = getelementptr inbounds %struct.btle_mesh_transport_ctx_t, ptr %102, i32 0, i32 0
+  %103 = getelementptr inbounds nuw %struct.btle_mesh_transport_ctx_t, ptr %102, i32 0, i32 0
   %104 = load i32, ptr %103, align 4
   switch i32 %104, label %116 [
     i32 1, label %105
@@ -417,19 +456,19 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
 
 105:                                              ; preds = %101
   %106 = load ptr, ptr %6, align 8
-  %107 = getelementptr inbounds %struct._packet_info, ptr %106, i32 0, i32 1
+  %107 = getelementptr inbounds nuw %struct._packet_info, ptr %106, i32 0, i32 1
   %108 = load ptr, ptr %107, align 8
   %109 = load ptr, ptr %24, align 8
-  %110 = getelementptr inbounds %struct.btle_mesh_transport_ctx_t, ptr %109, i32 0, i32 2
+  %110 = getelementptr inbounds nuw %struct.btle_mesh_transport_ctx_t, ptr %109, i32 0, i32 2
   %111 = load i32, ptr %110, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %108, i32 noundef 25, ptr noundef @.str.142, i32 noundef %111)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %108, i32 noundef 25, ptr noundef @.str.157, i32 noundef %111)
   br label %117
 
 112:                                              ; preds = %101
   %113 = load ptr, ptr %6, align 8
-  %114 = getelementptr inbounds %struct._packet_info, ptr %113, i32 0, i32 1
+  %114 = getelementptr inbounds nuw %struct._packet_info, ptr %113, i32 0, i32 1
   %115 = load ptr, ptr %114, align 8
-  call void @col_append_str(ptr noundef %115, i32 noundef 25, ptr noundef @.str.143)
+  call void @col_append_str(ptr noundef %115, i32 noundef 25, ptr noundef @.str.158)
   br label %117
 
 116:                                              ; preds = %101
@@ -441,17 +480,17 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
 118:                                              ; preds = %117, %88
   %119 = load i8, ptr %37, align 1
   %120 = zext i8 %119 to i32
-  switch i32 %120, label %778 [
+  switch i32 %120, label %776 [
     i32 0, label %121
     i32 1, label %129
     i32 2, label %411
     i32 3, label %706
-    i32 4, label %721
-    i32 5, label %722
-    i32 6, label %730
-    i32 7, label %738
-    i32 8, label %753
-    i32 9, label %754
+    i32 4, label %792
+    i32 5, label %721
+    i32 6, label %729
+    i32 7, label %737
+    i32 8, label %792
+    i32 9, label %752
   ]
 
 121:                                              ; preds = %118
@@ -463,7 +502,7 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   %127 = load i32, ptr %23, align 4
   %128 = add i32 %127, 1
   store i32 %128, ptr %23, align 4
-  br label %794
+  br label %792
 
 129:                                              ; preds = %118
   %130 = load ptr, ptr %15, align 8
@@ -473,7 +512,7 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   %134 = call ptr @proto_tree_add_item(ptr noundef %130, i32 noundef %131, ptr noundef %132, i32 noundef %133, i32 noundef 1, i32 noundef 0)
   %135 = load ptr, ptr %5, align 8
   %136 = load i32, ptr %23, align 4
-  %137 = call zeroext i8 @tvb_get_guint8(ptr noundef %135, i32 noundef %136)
+  %137 = call zeroext i8 @tvb_get_uint8(ptr noundef %135, i32 noundef %136)
   store i8 %137, ptr %34, align 1
   %138 = load i8, ptr %34, align 1
   %139 = zext i8 %138 to i32
@@ -514,7 +553,7 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   %167 = call ptr @proto_tree_add_item(ptr noundef %163, i32 noundef %164, ptr noundef %165, i32 noundef %166, i32 noundef 2, i32 noundef 0)
   %168 = load ptr, ptr %5, align 8
   %169 = load i32, ptr %23, align 4
-  %170 = call zeroext i16 @tvb_get_guint16(ptr noundef %168, i32 noundef %169, i32 noundef 0)
+  %170 = call zeroext i16 @tvb_get_uint16(ptr noundef %168, i32 noundef %169, i32 noundef 0)
   %171 = zext i16 %170 to i32
   %172 = ashr i32 %171, 1
   %173 = trunc i32 %172 to i16
@@ -558,7 +597,7 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   %203 = call ptr @proto_tree_add_item(ptr noundef %199, i32 noundef %200, ptr noundef %201, i32 noundef %202, i32 noundef 1, i32 noundef 0)
   %204 = load ptr, ptr %5, align 8
   %205 = load i32, ptr %23, align 4
-  %206 = call zeroext i8 @tvb_get_guint8(ptr noundef %204, i32 noundef %205)
+  %206 = call zeroext i8 @tvb_get_uint8(ptr noundef %204, i32 noundef %205)
   %207 = zext i8 %206 to i32
   %208 = ashr i32 %207, 1
   %209 = trunc i32 %208 to i8
@@ -602,7 +641,7 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   %239 = call ptr @proto_tree_add_item(ptr noundef %235, i32 noundef %236, ptr noundef %237, i32 noundef %238, i32 noundef 1, i32 noundef 0)
   %240 = load ptr, ptr %5, align 8
   %241 = load i32, ptr %23, align 4
-  %242 = call zeroext i8 @tvb_get_guint8(ptr noundef %240, i32 noundef %241)
+  %242 = call zeroext i8 @tvb_get_uint8(ptr noundef %240, i32 noundef %241)
   %243 = zext i8 %242 to i32
   %244 = ashr i32 %243, 1
   %245 = trunc i32 %244 to i8
@@ -632,7 +671,7 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   store ptr %262, ptr %21, align 8
   %263 = load ptr, ptr %5, align 8
   %264 = load i32, ptr %23, align 4
-  %265 = call zeroext i8 @tvb_get_guint8(ptr noundef %263, i32 noundef %264)
+  %265 = call zeroext i8 @tvb_get_uint8(ptr noundef %263, i32 noundef %264)
   store i8 %265, ptr %31, align 1
   %266 = load i8, ptr %31, align 1
   %267 = zext i8 %266 to i32
@@ -697,7 +736,7 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   %318 = call ptr @proto_tree_add_item(ptr noundef %314, i32 noundef %315, ptr noundef %316, i32 noundef %317, i32 noundef 2, i32 noundef 0)
   %319 = load ptr, ptr %5, align 8
   %320 = load i32, ptr %23, align 4
-  %321 = call zeroext i16 @tvb_get_guint16(ptr noundef %319, i32 noundef %320, i32 noundef 0)
+  %321 = call zeroext i16 @tvb_get_uint16(ptr noundef %319, i32 noundef %320, i32 noundef 0)
   %322 = zext i16 %321 to i32
   %323 = ashr i32 %322, 5
   %324 = trunc i32 %323 to i16
@@ -727,7 +766,7 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   store ptr %341, ptr %21, align 8
   %342 = load ptr, ptr %5, align 8
   %343 = load i32, ptr %23, align 4
-  %344 = call zeroext i8 @tvb_get_guint8(ptr noundef %342, i32 noundef %343)
+  %344 = call zeroext i8 @tvb_get_uint8(ptr noundef %342, i32 noundef %343)
   store i8 %344, ptr %32, align 1
   %345 = load i8, ptr %32, align 1
   %346 = zext i8 %345 to i32
@@ -787,7 +826,7 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   %392 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %389, ptr noundef %390, i32 noundef %391, i32 noundef 2, i32 noundef 0)
   %393 = load ptr, ptr %5, align 8
   %394 = load i32, ptr %23, align 4
-  %395 = call zeroext i16 @tvb_get_guint16(ptr noundef %393, i32 noundef %394, i32 noundef 0)
+  %395 = call zeroext i16 @tvb_get_uint16(ptr noundef %393, i32 noundef %394, i32 noundef 0)
   %396 = zext i16 %395 to i32
   %397 = ashr i32 %396, 4
   %398 = trunc i32 %397 to i16
@@ -809,7 +848,7 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   %409 = load i32, ptr %23, align 4
   %410 = add i32 %409, 2
   store i32 %410, ptr %23, align 4
-  br label %794
+  br label %792
 
 411:                                              ; preds = %118
   %412 = load ptr, ptr %15, align 8
@@ -820,7 +859,7 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   store ptr %416, ptr %21, align 8
   %417 = load ptr, ptr %5, align 8
   %418 = load i32, ptr %23, align 4
-  %419 = call zeroext i8 @tvb_get_guint8(ptr noundef %417, i32 noundef %418)
+  %419 = call zeroext i8 @tvb_get_uint8(ptr noundef %417, i32 noundef %418)
   store i8 %419, ptr %29, align 1
   %420 = load i8, ptr %29, align 1
   %421 = zext i8 %420 to i32
@@ -851,7 +890,7 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   store ptr %439, ptr %21, align 8
   %440 = load ptr, ptr %5, align 8
   %441 = load i32, ptr %23, align 4
-  %442 = call zeroext i8 @tvb_get_guint8(ptr noundef %440, i32 noundef %441)
+  %442 = call zeroext i8 @tvb_get_uint8(ptr noundef %440, i32 noundef %441)
   store i8 %442, ptr %36, align 1
   %443 = load i8, ptr %36, align 1
   %444 = zext i8 %443 to i32
@@ -882,7 +921,7 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   store ptr %462, ptr %21, align 8
   %463 = load ptr, ptr %5, align 8
   %464 = load i32, ptr %23, align 4
-  %465 = call zeroext i8 @tvb_get_guint8(ptr noundef %463, i32 noundef %464)
+  %465 = call zeroext i8 @tvb_get_uint8(ptr noundef %463, i32 noundef %464)
   store i8 %465, ptr %26, align 1
   %466 = load i32, ptr %23, align 4
   %467 = add i32 %466, 1
@@ -905,7 +944,7 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   store ptr %475, ptr %21, align 8
   %476 = load ptr, ptr %5, align 8
   %477 = load i32, ptr %23, align 4
-  %478 = call zeroext i8 @tvb_get_guint8(ptr noundef %476, i32 noundef %477)
+  %478 = call zeroext i8 @tvb_get_uint8(ptr noundef %476, i32 noundef %477)
   store i8 %478, ptr %27, align 1
   %479 = load i8, ptr %27, align 1
   %480 = zext i8 %479 to i32
@@ -936,7 +975,7 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   store ptr %498, ptr %21, align 8
   %499 = load ptr, ptr %5, align 8
   %500 = load i32, ptr %23, align 4
-  %501 = call zeroext i8 @tvb_get_guint8(ptr noundef %499, i32 noundef %500)
+  %501 = call zeroext i8 @tvb_get_uint8(ptr noundef %499, i32 noundef %500)
   store i8 %501, ptr %28, align 1
   %502 = load i8, ptr %28, align 1
   %503 = zext i8 %502 to i32
@@ -970,7 +1009,7 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   store ptr %522, ptr %21, align 8
   %523 = load ptr, ptr %5, align 8
   %524 = load i32, ptr %23, align 4
-  %525 = call zeroext i8 @tvb_get_guint8(ptr noundef %523, i32 noundef %524)
+  %525 = call zeroext i8 @tvb_get_uint8(ptr noundef %523, i32 noundef %524)
   store i8 %525, ptr %27, align 1
   %526 = load i8, ptr %27, align 1
   %527 = zext i8 %526 to i32
@@ -1001,7 +1040,7 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   store ptr %545, ptr %21, align 8
   %546 = load ptr, ptr %5, align 8
   %547 = load i32, ptr %23, align 4
-  %548 = call zeroext i8 @tvb_get_guint8(ptr noundef %546, i32 noundef %547)
+  %548 = call zeroext i8 @tvb_get_uint8(ptr noundef %546, i32 noundef %547)
   store i8 %548, ptr %28, align 1
   %549 = load i8, ptr %28, align 1
   %550 = zext i8 %549 to i32
@@ -1035,7 +1074,7 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   store ptr %569, ptr %21, align 8
   %570 = load ptr, ptr %5, align 8
   %571 = load i32, ptr %23, align 4
-  %572 = call zeroext i8 @tvb_get_guint8(ptr noundef %570, i32 noundef %571)
+  %572 = call zeroext i8 @tvb_get_uint8(ptr noundef %570, i32 noundef %571)
   store i8 %572, ptr %27, align 1
   %573 = load i8, ptr %27, align 1
   %574 = zext i8 %573 to i32
@@ -1066,7 +1105,7 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   store ptr %592, ptr %21, align 8
   %593 = load ptr, ptr %5, align 8
   %594 = load i32, ptr %23, align 4
-  %595 = call zeroext i8 @tvb_get_guint8(ptr noundef %593, i32 noundef %594)
+  %595 = call zeroext i8 @tvb_get_uint8(ptr noundef %593, i32 noundef %594)
   store i8 %595, ptr %28, align 1
   %596 = load i8, ptr %28, align 1
   %597 = zext i8 %596 to i32
@@ -1121,7 +1160,7 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   store ptr %630, ptr %21, align 8
   %631 = load ptr, ptr %5, align 8
   %632 = load i32, ptr %23, align 4
-  %633 = call zeroext i8 @tvb_get_guint8(ptr noundef %631, i32 noundef %632)
+  %633 = call zeroext i8 @tvb_get_uint8(ptr noundef %631, i32 noundef %632)
   store i8 %633, ptr %27, align 1
   %634 = load i8, ptr %27, align 1
   %635 = zext i8 %634 to i32
@@ -1152,7 +1191,7 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   store ptr %653, ptr %21, align 8
   %654 = load ptr, ptr %5, align 8
   %655 = load i32, ptr %23, align 4
-  %656 = call zeroext i8 @tvb_get_guint8(ptr noundef %654, i32 noundef %655)
+  %656 = call zeroext i8 @tvb_get_uint8(ptr noundef %654, i32 noundef %655)
   store i8 %656, ptr %28, align 1
   %657 = load i8, ptr %28, align 1
   %658 = zext i8 %657 to i32
@@ -1222,7 +1261,7 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   br label %705
 
 705:                                              ; preds = %686, %683, %622, %561, %514
-  br label %794
+  br label %792
 
 706:                                              ; preds = %118
   %707 = load ptr, ptr %15, align 8
@@ -1241,161 +1280,205 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   %719 = load i32, ptr %23, align 4
   %720 = add i32 %719, 32
   store i32 %720, ptr %23, align 4
-  br label %794
+  br label %792
 
 721:                                              ; preds = %118
-  br label %794
+  %722 = load ptr, ptr %15, align 8
+  %723 = load i32, ptr @hf_btmesh_provisioning_confirmation, align 4
+  %724 = load ptr, ptr %5, align 8
+  %725 = load i32, ptr %23, align 4
+  %726 = call ptr @proto_tree_add_item(ptr noundef %722, i32 noundef %723, ptr noundef %724, i32 noundef %725, i32 noundef 16, i32 noundef 0)
+  %727 = load i32, ptr %23, align 4
+  %728 = add i32 %727, 16
+  store i32 %728, ptr %23, align 4
+  br label %792
 
-722:                                              ; preds = %118
-  %723 = load ptr, ptr %15, align 8
-  %724 = load i32, ptr @hf_btmesh_provisioning_confirmation, align 4
-  %725 = load ptr, ptr %5, align 8
-  %726 = load i32, ptr %23, align 4
-  %727 = call ptr @proto_tree_add_item(ptr noundef %723, i32 noundef %724, ptr noundef %725, i32 noundef %726, i32 noundef 16, i32 noundef 0)
-  %728 = load i32, ptr %23, align 4
-  %729 = add i32 %728, 16
-  store i32 %729, ptr %23, align 4
-  br label %794
+729:                                              ; preds = %118
+  %730 = load ptr, ptr %15, align 8
+  %731 = load i32, ptr @hf_btmesh_provisioning_random, align 4
+  %732 = load ptr, ptr %5, align 8
+  %733 = load i32, ptr %23, align 4
+  %734 = call ptr @proto_tree_add_item(ptr noundef %730, i32 noundef %731, ptr noundef %732, i32 noundef %733, i32 noundef 16, i32 noundef 0)
+  %735 = load i32, ptr %23, align 4
+  %736 = add i32 %735, 16
+  store i32 %736, ptr %23, align 4
+  br label %792
 
-730:                                              ; preds = %118
-  %731 = load ptr, ptr %15, align 8
-  %732 = load i32, ptr @hf_btmesh_provisioning_random, align 4
-  %733 = load ptr, ptr %5, align 8
-  %734 = load i32, ptr %23, align 4
-  %735 = call ptr @proto_tree_add_item(ptr noundef %731, i32 noundef %732, ptr noundef %733, i32 noundef %734, i32 noundef 16, i32 noundef 0)
-  %736 = load i32, ptr %23, align 4
-  %737 = add i32 %736, 16
-  store i32 %737, ptr %23, align 4
-  br label %794
+737:                                              ; preds = %118
+  %738 = load ptr, ptr %15, align 8
+  %739 = load i32, ptr @hf_btmesh_provisioning_encrypted_provisioning_data, align 4
+  %740 = load ptr, ptr %5, align 8
+  %741 = load i32, ptr %23, align 4
+  %742 = call ptr @proto_tree_add_item(ptr noundef %738, i32 noundef %739, ptr noundef %740, i32 noundef %741, i32 noundef 25, i32 noundef 0)
+  %743 = load i32, ptr %23, align 4
+  %744 = add i32 %743, 25
+  store i32 %744, ptr %23, align 4
+  %745 = load ptr, ptr %15, align 8
+  %746 = load i32, ptr @hf_btmesh_provisioning_decrypted_provisioning_data_mic, align 4
+  %747 = load ptr, ptr %5, align 8
+  %748 = load i32, ptr %23, align 4
+  %749 = call ptr @proto_tree_add_item(ptr noundef %745, i32 noundef %746, ptr noundef %747, i32 noundef %748, i32 noundef 8, i32 noundef 0)
+  %750 = load i32, ptr %23, align 4
+  %751 = add i32 %750, 8
+  store i32 %751, ptr %23, align 4
+  br label %792
 
-738:                                              ; preds = %118
-  %739 = load ptr, ptr %15, align 8
-  %740 = load i32, ptr @hf_btmesh_provisioning_encrypted_provisioning_data, align 4
-  %741 = load ptr, ptr %5, align 8
-  %742 = load i32, ptr %23, align 4
-  %743 = call ptr @proto_tree_add_item(ptr noundef %739, i32 noundef %740, ptr noundef %741, i32 noundef %742, i32 noundef 25, i32 noundef 0)
-  %744 = load i32, ptr %23, align 4
-  %745 = add i32 %744, 25
-  store i32 %745, ptr %23, align 4
-  %746 = load ptr, ptr %15, align 8
-  %747 = load i32, ptr @hf_btmesh_provisioning_decrypted_provisioning_data_mic, align 4
-  %748 = load ptr, ptr %5, align 8
-  %749 = load i32, ptr %23, align 4
-  %750 = call ptr @proto_tree_add_item(ptr noundef %746, i32 noundef %747, ptr noundef %748, i32 noundef %749, i32 noundef 8, i32 noundef 0)
-  %751 = load i32, ptr %23, align 4
-  %752 = add i32 %751, 8
-  store i32 %752, ptr %23, align 4
-  br label %794
+752:                                              ; preds = %118
+  %753 = load ptr, ptr %15, align 8
+  %754 = load i32, ptr @hf_btmesh_provisioning_error_code, align 4
+  %755 = load ptr, ptr %5, align 8
+  %756 = load i32, ptr %23, align 4
+  %757 = call ptr @proto_tree_add_item(ptr noundef %753, i32 noundef %754, ptr noundef %755, i32 noundef %756, i32 noundef 1, i32 noundef 0)
+  store ptr %757, ptr %21, align 8
+  %758 = load ptr, ptr %5, align 8
+  %759 = load i32, ptr %23, align 4
+  %760 = call zeroext i8 @tvb_get_uint8(ptr noundef %758, i32 noundef %759)
+  store i8 %760, ptr %35, align 1
+  %761 = load i8, ptr %35, align 1
+  %762 = zext i8 %761 to i32
+  %763 = icmp sge i32 %762, 9
+  br i1 %763, label %764, label %773
 
-753:                                              ; preds = %118
-  br label %794
+764:                                              ; preds = %752
+  %765 = load ptr, ptr %21, align 8
+  %766 = load i32, ptr @ett_btmesh_provisioning_error_code, align 4
+  %767 = call ptr @proto_item_add_subtree(ptr noundef %765, i32 noundef %766)
+  store ptr %767, ptr %22, align 8
+  %768 = load ptr, ptr %22, align 8
+  %769 = load ptr, ptr %6, align 8
+  %770 = load ptr, ptr %5, align 8
+  %771 = load i32, ptr %23, align 4
+  %772 = call ptr @proto_tree_add_expert(ptr noundef %768, ptr noundef %769, ptr noundef @ei_btmesh_provisioning_in_rfu_range, ptr noundef %770, i32 noundef %771, i32 noundef -1)
+  br label %773
 
-754:                                              ; preds = %118
-  %755 = load ptr, ptr %15, align 8
-  %756 = load i32, ptr @hf_btmesh_provisioning_error_code, align 4
-  %757 = load ptr, ptr %5, align 8
-  %758 = load i32, ptr %23, align 4
-  %759 = call ptr @proto_tree_add_item(ptr noundef %755, i32 noundef %756, ptr noundef %757, i32 noundef %758, i32 noundef 1, i32 noundef 0)
-  store ptr %759, ptr %21, align 8
-  %760 = load ptr, ptr %5, align 8
-  %761 = load i32, ptr %23, align 4
-  %762 = call zeroext i8 @tvb_get_guint8(ptr noundef %760, i32 noundef %761)
-  store i8 %762, ptr %35, align 1
-  %763 = load i8, ptr %35, align 1
-  %764 = zext i8 %763 to i32
-  %765 = icmp sge i32 %764, 9
-  br i1 %765, label %766, label %775
+773:                                              ; preds = %764, %752
+  %774 = load i32, ptr %23, align 4
+  %775 = add i32 %774, 1
+  store i32 %775, ptr %23, align 4
+  br label %792
 
-766:                                              ; preds = %754
-  %767 = load ptr, ptr %21, align 8
-  %768 = load i32, ptr @ett_btmesh_provisioning_error_code, align 4
-  %769 = call ptr @proto_item_add_subtree(ptr noundef %767, i32 noundef %768)
-  store ptr %769, ptr %22, align 8
-  %770 = load ptr, ptr %22, align 8
-  %771 = load ptr, ptr %6, align 8
-  %772 = load ptr, ptr %5, align 8
-  %773 = load i32, ptr %23, align 4
-  %774 = call ptr @proto_tree_add_expert(ptr noundef %770, ptr noundef %771, ptr noundef @ei_btmesh_provisioning_in_rfu_range, ptr noundef %772, i32 noundef %773, i32 noundef -1)
-  br label %775
-
-775:                                              ; preds = %766, %754
-  %776 = load i32, ptr %23, align 4
-  %777 = add i32 %776, 1
-  store i32 %777, ptr %23, align 4
-  br label %794
-
-778:                                              ; preds = %118
-  %779 = load ptr, ptr %15, align 8
-  %780 = load i32, ptr @hf_btmesh_provisioning_unknown_data, align 4
-  %781 = load ptr, ptr %5, align 8
-  %782 = load i32, ptr %23, align 4
-  %783 = call ptr @proto_tree_add_item(ptr noundef %779, i32 noundef %780, ptr noundef %781, i32 noundef %782, i32 noundef -1, i32 noundef 0)
-  %784 = load ptr, ptr %15, align 8
-  %785 = load ptr, ptr %6, align 8
-  %786 = load ptr, ptr %5, align 8
-  %787 = load i32, ptr %23, align 4
-  %788 = call ptr @proto_tree_add_expert(ptr noundef %784, ptr noundef %785, ptr noundef @ei_btmesh_provisioning_unknown_opcode, ptr noundef %786, i32 noundef %787, i32 noundef -1)
-  %789 = load ptr, ptr %5, align 8
+776:                                              ; preds = %118
+  %777 = load ptr, ptr %15, align 8
+  %778 = load i32, ptr @hf_btmesh_provisioning_unknown_data, align 4
+  %779 = load ptr, ptr %5, align 8
+  %780 = load i32, ptr %23, align 4
+  %781 = call ptr @proto_tree_add_item(ptr noundef %777, i32 noundef %778, ptr noundef %779, i32 noundef %780, i32 noundef -1, i32 noundef 0)
+  %782 = load ptr, ptr %15, align 8
+  %783 = load ptr, ptr %6, align 8
+  %784 = load ptr, ptr %5, align 8
+  %785 = load i32, ptr %23, align 4
+  %786 = call ptr @proto_tree_add_expert(ptr noundef %782, ptr noundef %783, ptr noundef @ei_btmesh_provisioning_unknown_opcode, ptr noundef %784, i32 noundef %785, i32 noundef -1)
+  %787 = load ptr, ptr %5, align 8
+  %788 = load i32, ptr %23, align 4
+  %789 = call i32 @tvb_captured_length_remaining(ptr noundef %787, i32 noundef %788)
   %790 = load i32, ptr %23, align 4
-  %791 = call i32 @tvb_captured_length_remaining(ptr noundef %789, i32 noundef %790)
-  %792 = load i32, ptr %23, align 4
-  %793 = add i32 %792, %791
-  store i32 %793, ptr %23, align 4
-  br label %794
+  %791 = add i32 %790, %789
+  store i32 %791, ptr %23, align 4
+  br label %792
 
-794:                                              ; preds = %778, %775, %753, %738, %730, %722, %721, %706, %705, %408, %121
-  %795 = load ptr, ptr %5, align 8
-  %796 = load i32, ptr %23, align 4
-  %797 = call i32 @tvb_captured_length_remaining(ptr noundef %795, i32 noundef %796)
-  %798 = icmp ne i32 %797, 0
-  br i1 %798, label %799, label %805
+792:                                              ; preds = %776, %773, %118, %737, %729, %721, %118, %706, %705, %408, %121
+  %793 = load ptr, ptr %5, align 8
+  %794 = load i32, ptr %23, align 4
+  %795 = call i32 @tvb_captured_length_remaining(ptr noundef %793, i32 noundef %794)
+  %796 = icmp ne i32 %795, 0
+  br i1 %796, label %797, label %803
 
-799:                                              ; preds = %794
-  %800 = load ptr, ptr %15, align 8
-  %801 = load ptr, ptr %6, align 8
-  %802 = load ptr, ptr %5, align 8
-  %803 = load i32, ptr %23, align 4
-  %804 = call ptr @proto_tree_add_expert(ptr noundef %800, ptr noundef %801, ptr noundef @ei_btmesh_provisioning_unknown_payload, ptr noundef %802, i32 noundef %803, i32 noundef -1)
-  br label %805
+797:                                              ; preds = %792
+  %798 = load ptr, ptr %15, align 8
+  %799 = load ptr, ptr %6, align 8
+  %800 = load ptr, ptr %5, align 8
+  %801 = load i32, ptr %23, align 4
+  %802 = call ptr @proto_tree_add_expert(ptr noundef %798, ptr noundef %799, ptr noundef @ei_btmesh_provisioning_unknown_payload, ptr noundef %800, i32 noundef %801, i32 noundef -1)
+  br label %803
 
-805:                                              ; preds = %799, %794
-  %806 = load ptr, ptr %5, align 8
-  %807 = call i32 @tvb_reported_length(ptr noundef %806)
-  ret i32 %807
+803:                                              ; preds = %797, %792
+  %804 = load ptr, ptr %5, align 8
+  %805 = call i32 @tvb_reported_length(ptr noundef %804)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %38) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %37) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %36) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %35) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %34) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %33) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %32) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %31) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %30) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %29) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %28) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %27) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %26) #4
+  call void @llvm.lifetime.end.p0(i64 12, ptr %25) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  ret i32 %805
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #2
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_uint16(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #2
 
-declare i32 @tvb_reported_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}

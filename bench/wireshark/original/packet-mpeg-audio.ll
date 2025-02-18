@@ -3,7 +3,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct._per_sequence_t = type { ptr, i32, i32, ptr }
 %struct._asn1_ctx_t = type { i32, i32, i8, ptr, ptr, ptr, ptr, ptr, %struct.anon, %struct.anon.2, %struct.anon.3, ptr }
 %struct.anon = type { i32, i8, i8, i8, ptr, ptr, i32, i32, ptr, ptr, ptr, %union.anon }
@@ -13,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.3 = type { i32, i8, ptr, i32, i32, ptr, ptr, ptr, %union.anon.4 }
 %union.anon.4 = type { %struct.anon.5 }
 %struct.anon.5 = type { ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon.7, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon.7, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon.7 = type { i8, [3 x i8] }
@@ -27,15 +26,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_mpeg_audio_version = internal global i32 0, align 4
 @.str.3 = private unnamed_addr constant [8 x i8] c"version\00", align 1
 @.str.4 = private unnamed_addr constant [19 x i8] c"mpeg-audio.version\00", align 1
-@mpeg_audio_T_version_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.70 }, %struct._value_string { i32 1, ptr @.str.71 }, %struct._value_string { i32 2, ptr @.str.72 }, %struct._value_string { i32 3, ptr @.str.73 }, %struct._value_string zeroinitializer], align 16
 @hf_mpeg_audio_layer = internal global i32 0, align 4
 @.str.5 = private unnamed_addr constant [6 x i8] c"layer\00", align 1
 @.str.6 = private unnamed_addr constant [17 x i8] c"mpeg-audio.layer\00", align 1
-@mpeg_audio_T_layer_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.71 }, %struct._value_string { i32 1, ptr @.str.74 }, %struct._value_string { i32 2, ptr @.str.75 }, %struct._value_string { i32 3, ptr @.str.76 }, %struct._value_string zeroinitializer], align 16
 @hf_mpeg_audio_protection = internal global i32 0, align 4
 @.str.7 = private unnamed_addr constant [11 x i8] c"protection\00", align 1
 @.str.8 = private unnamed_addr constant [22 x i8] c"mpeg-audio.protection\00", align 1
-@mpeg_audio_T_protection_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.77 }, %struct._value_string { i32 1, ptr @.str.78 }, %struct._value_string zeroinitializer], align 16
 @hf_mpeg_audio_bitrate = internal global i32 0, align 4
 @.str.9 = private unnamed_addr constant [8 x i8] c"bitrate\00", align 1
 @.str.10 = private unnamed_addr constant [19 x i8] c"mpeg-audio.bitrate\00", align 1
@@ -54,7 +50,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_mpeg_audio_channel_mode = internal global i32 0, align 4
 @.str.20 = private unnamed_addr constant [13 x i8] c"channel-mode\00", align 1
 @.str.21 = private unnamed_addr constant [24 x i8] c"mpeg-audio.channel_mode\00", align 1
-@mpeg_audio_T_channel_mode_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.79 }, %struct._value_string { i32 1, ptr @.str.80 }, %struct._value_string { i32 2, ptr @.str.81 }, %struct._value_string { i32 3, ptr @.str.82 }, %struct._value_string zeroinitializer], align 16
 @hf_mpeg_audio_mode_extension = internal global i32 0, align 4
 @.str.22 = private unnamed_addr constant [15 x i8] c"mode-extension\00", align 1
 @.str.23 = private unnamed_addr constant [26 x i8] c"mpeg-audio.mode_extension\00", align 1
@@ -67,7 +62,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_mpeg_audio_emphasis = internal global i32 0, align 4
 @.str.28 = private unnamed_addr constant [9 x i8] c"emphasis\00", align 1
 @.str.29 = private unnamed_addr constant [20 x i8] c"mpeg-audio.emphasis\00", align 1
-@mpeg_audio_T_emphasis_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.78 }, %struct._value_string { i32 1, ptr @.str.83 }, %struct._value_string { i32 2, ptr @.str.71 }, %struct._value_string { i32 3, ptr @.str.84 }, %struct._value_string zeroinitializer], align 16
 @hf_mpeg_audio_tag = internal global i32 0, align 4
 @.str.30 = private unnamed_addr constant [4 x i8] c"tag\00", align 1
 @.str.31 = private unnamed_addr constant [15 x i8] c"mpeg-audio.tag\00", align 1
@@ -100,7 +94,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_mpeg_audio_genre = internal global i32 0, align 4
 @.str.51 = private unnamed_addr constant [6 x i8] c"genre\00", align 1
 @.str.52 = private unnamed_addr constant [17 x i8] c"mpeg-audio.genre\00", align 1
-@mpeg_audio_T_genre_vals = internal constant [127 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.85 }, %struct._value_string { i32 1, ptr @.str.86 }, %struct._value_string { i32 2, ptr @.str.87 }, %struct._value_string { i32 3, ptr @.str.88 }, %struct._value_string { i32 4, ptr @.str.89 }, %struct._value_string { i32 5, ptr @.str.90 }, %struct._value_string { i32 6, ptr @.str.91 }, %struct._value_string { i32 7, ptr @.str.92 }, %struct._value_string { i32 8, ptr @.str.93 }, %struct._value_string { i32 9, ptr @.str.94 }, %struct._value_string { i32 10, ptr @.str.95 }, %struct._value_string { i32 11, ptr @.str.96 }, %struct._value_string { i32 12, ptr @.str.97 }, %struct._value_string { i32 13, ptr @.str.98 }, %struct._value_string { i32 14, ptr @.str.99 }, %struct._value_string { i32 15, ptr @.str.100 }, %struct._value_string { i32 16, ptr @.str.101 }, %struct._value_string { i32 17, ptr @.str.102 }, %struct._value_string { i32 18, ptr @.str.103 }, %struct._value_string { i32 19, ptr @.str.104 }, %struct._value_string { i32 20, ptr @.str.105 }, %struct._value_string { i32 21, ptr @.str.106 }, %struct._value_string { i32 22, ptr @.str.107 }, %struct._value_string { i32 23, ptr @.str.108 }, %struct._value_string { i32 24, ptr @.str.109 }, %struct._value_string { i32 25, ptr @.str.110 }, %struct._value_string { i32 26, ptr @.str.111 }, %struct._value_string { i32 27, ptr @.str.112 }, %struct._value_string { i32 28, ptr @.str.113 }, %struct._value_string { i32 29, ptr @.str.114 }, %struct._value_string { i32 30, ptr @.str.115 }, %struct._value_string { i32 31, ptr @.str.116 }, %struct._value_string { i32 32, ptr @.str.117 }, %struct._value_string { i32 33, ptr @.str.118 }, %struct._value_string { i32 34, ptr @.str.119 }, %struct._value_string { i32 35, ptr @.str.120 }, %struct._value_string { i32 36, ptr @.str.121 }, %struct._value_string { i32 37, ptr @.str.122 }, %struct._value_string { i32 38, ptr @.str.123 }, %struct._value_string { i32 39, ptr @.str.124 }, %struct._value_string { i32 40, ptr @.str.125 }, %struct._value_string { i32 41, ptr @.str.126 }, %struct._value_string { i32 42, ptr @.str.127 }, %struct._value_string { i32 43, ptr @.str.128 }, %struct._value_string { i32 44, ptr @.str.129 }, %struct._value_string { i32 45, ptr @.str.130 }, %struct._value_string { i32 46, ptr @.str.131 }, %struct._value_string { i32 47, ptr @.str.132 }, %struct._value_string { i32 48, ptr @.str.133 }, %struct._value_string { i32 49, ptr @.str.134 }, %struct._value_string { i32 50, ptr @.str.135 }, %struct._value_string { i32 51, ptr @.str.136 }, %struct._value_string { i32 52, ptr @.str.137 }, %struct._value_string { i32 53, ptr @.str.138 }, %struct._value_string { i32 54, ptr @.str.139 }, %struct._value_string { i32 55, ptr @.str.140 }, %struct._value_string { i32 56, ptr @.str.141 }, %struct._value_string { i32 57, ptr @.str.142 }, %struct._value_string { i32 58, ptr @.str.143 }, %struct._value_string { i32 59, ptr @.str.144 }, %struct._value_string { i32 60, ptr @.str.145 }, %struct._value_string { i32 61, ptr @.str.146 }, %struct._value_string { i32 62, ptr @.str.147 }, %struct._value_string { i32 63, ptr @.str.148 }, %struct._value_string { i32 64, ptr @.str.149 }, %struct._value_string { i32 65, ptr @.str.150 }, %struct._value_string { i32 66, ptr @.str.151 }, %struct._value_string { i32 67, ptr @.str.152 }, %struct._value_string { i32 68, ptr @.str.153 }, %struct._value_string { i32 69, ptr @.str.154 }, %struct._value_string { i32 70, ptr @.str.155 }, %struct._value_string { i32 71, ptr @.str.156 }, %struct._value_string { i32 72, ptr @.str.157 }, %struct._value_string { i32 73, ptr @.str.158 }, %struct._value_string { i32 74, ptr @.str.159 }, %struct._value_string { i32 75, ptr @.str.160 }, %struct._value_string { i32 76, ptr @.str.161 }, %struct._value_string { i32 77, ptr @.str.162 }, %struct._value_string { i32 78, ptr @.str.163 }, %struct._value_string { i32 79, ptr @.str.164 }, %struct._value_string { i32 80, ptr @.str.165 }, %struct._value_string { i32 81, ptr @.str.166 }, %struct._value_string { i32 82, ptr @.str.167 }, %struct._value_string { i32 83, ptr @.str.168 }, %struct._value_string { i32 84, ptr @.str.169 }, %struct._value_string { i32 85, ptr @.str.170 }, %struct._value_string { i32 86, ptr @.str.171 }, %struct._value_string { i32 87, ptr @.str.172 }, %struct._value_string { i32 88, ptr @.str.173 }, %struct._value_string { i32 89, ptr @.str.174 }, %struct._value_string { i32 90, ptr @.str.175 }, %struct._value_string { i32 91, ptr @.str.176 }, %struct._value_string { i32 92, ptr @.str.177 }, %struct._value_string { i32 93, ptr @.str.178 }, %struct._value_string { i32 94, ptr @.str.179 }, %struct._value_string { i32 95, ptr @.str.180 }, %struct._value_string { i32 96, ptr @.str.181 }, %struct._value_string { i32 97, ptr @.str.182 }, %struct._value_string { i32 98, ptr @.str.183 }, %struct._value_string { i32 99, ptr @.str.184 }, %struct._value_string { i32 100, ptr @.str.185 }, %struct._value_string { i32 101, ptr @.str.186 }, %struct._value_string { i32 102, ptr @.str.187 }, %struct._value_string { i32 103, ptr @.str.188 }, %struct._value_string { i32 104, ptr @.str.189 }, %struct._value_string { i32 105, ptr @.str.190 }, %struct._value_string { i32 106, ptr @.str.191 }, %struct._value_string { i32 107, ptr @.str.192 }, %struct._value_string { i32 108, ptr @.str.193 }, %struct._value_string { i32 109, ptr @.str.194 }, %struct._value_string { i32 110, ptr @.str.195 }, %struct._value_string { i32 111, ptr @.str.196 }, %struct._value_string { i32 112, ptr @.str.197 }, %struct._value_string { i32 113, ptr @.str.198 }, %struct._value_string { i32 114, ptr @.str.199 }, %struct._value_string { i32 115, ptr @.str.200 }, %struct._value_string { i32 116, ptr @.str.201 }, %struct._value_string { i32 117, ptr @.str.202 }, %struct._value_string { i32 118, ptr @.str.203 }, %struct._value_string { i32 119, ptr @.str.204 }, %struct._value_string { i32 120, ptr @.str.205 }, %struct._value_string { i32 121, ptr @.str.206 }, %struct._value_string { i32 122, ptr @.str.207 }, %struct._value_string { i32 123, ptr @.str.208 }, %struct._value_string { i32 124, ptr @.str.209 }, %struct._value_string { i32 125, ptr @.str.210 }, %struct._value_string zeroinitializer], align 16
 @hf_mpeg_audio_header = internal global i32 0, align 4
 @.str.53 = private unnamed_addr constant [13 x i8] c"Frame Header\00", align 1
 @.str.54 = private unnamed_addr constant [18 x i8] c"mpeg-audio.header\00", align 1
@@ -133,156 +126,162 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.71 = private unnamed_addr constant [9 x i8] c"reserved\00", align 1
 @.str.72 = private unnamed_addr constant [7 x i8] c"mpeg-2\00", align 1
 @.str.73 = private unnamed_addr constant [7 x i8] c"mpeg-1\00", align 1
-@.str.74 = private unnamed_addr constant [8 x i8] c"layer-3\00", align 1
-@.str.75 = private unnamed_addr constant [8 x i8] c"layer-2\00", align 1
-@.str.76 = private unnamed_addr constant [8 x i8] c"layer-1\00", align 1
-@.str.77 = private unnamed_addr constant [4 x i8] c"crc\00", align 1
-@.str.78 = private unnamed_addr constant [5 x i8] c"none\00", align 1
-@.str.79 = private unnamed_addr constant [7 x i8] c"stereo\00", align 1
-@.str.80 = private unnamed_addr constant [13 x i8] c"joint-stereo\00", align 1
-@.str.81 = private unnamed_addr constant [13 x i8] c"dual-channel\00", align 1
-@.str.82 = private unnamed_addr constant [15 x i8] c"single-channel\00", align 1
-@.str.83 = private unnamed_addr constant [12 x i8] c"em-50-15-ms\00", align 1
-@.str.84 = private unnamed_addr constant [10 x i8] c"ccit-j-17\00", align 1
-@.str.85 = private unnamed_addr constant [6 x i8] c"blues\00", align 1
-@.str.86 = private unnamed_addr constant [13 x i8] c"classic-rock\00", align 1
-@.str.87 = private unnamed_addr constant [8 x i8] c"country\00", align 1
-@.str.88 = private unnamed_addr constant [6 x i8] c"dance\00", align 1
-@.str.89 = private unnamed_addr constant [6 x i8] c"disco\00", align 1
-@.str.90 = private unnamed_addr constant [5 x i8] c"funk\00", align 1
-@.str.91 = private unnamed_addr constant [7 x i8] c"grunge\00", align 1
-@.str.92 = private unnamed_addr constant [8 x i8] c"hip-hop\00", align 1
-@.str.93 = private unnamed_addr constant [5 x i8] c"jazz\00", align 1
-@.str.94 = private unnamed_addr constant [6 x i8] c"metal\00", align 1
-@.str.95 = private unnamed_addr constant [8 x i8] c"new-age\00", align 1
-@.str.96 = private unnamed_addr constant [7 x i8] c"oldies\00", align 1
-@.str.97 = private unnamed_addr constant [6 x i8] c"other\00", align 1
-@.str.98 = private unnamed_addr constant [4 x i8] c"pop\00", align 1
-@.str.99 = private unnamed_addr constant [8 x i8] c"r-and-b\00", align 1
-@.str.100 = private unnamed_addr constant [4 x i8] c"rap\00", align 1
-@.str.101 = private unnamed_addr constant [7 x i8] c"reggae\00", align 1
-@.str.102 = private unnamed_addr constant [5 x i8] c"rock\00", align 1
-@.str.103 = private unnamed_addr constant [7 x i8] c"techno\00", align 1
-@.str.104 = private unnamed_addr constant [11 x i8] c"industrial\00", align 1
-@.str.105 = private unnamed_addr constant [12 x i8] c"alternative\00", align 1
-@.str.106 = private unnamed_addr constant [4 x i8] c"ska\00", align 1
-@.str.107 = private unnamed_addr constant [12 x i8] c"death-metal\00", align 1
-@.str.108 = private unnamed_addr constant [7 x i8] c"pranks\00", align 1
-@.str.109 = private unnamed_addr constant [11 x i8] c"soundtrack\00", align 1
-@.str.110 = private unnamed_addr constant [12 x i8] c"euro-techno\00", align 1
-@.str.111 = private unnamed_addr constant [8 x i8] c"ambient\00", align 1
-@.str.112 = private unnamed_addr constant [9 x i8] c"trip-hop\00", align 1
-@.str.113 = private unnamed_addr constant [6 x i8] c"vocal\00", align 1
-@.str.114 = private unnamed_addr constant [14 x i8] c"jazz-and-funk\00", align 1
-@.str.115 = private unnamed_addr constant [7 x i8] c"fusion\00", align 1
-@.str.116 = private unnamed_addr constant [7 x i8] c"trance\00", align 1
-@.str.117 = private unnamed_addr constant [10 x i8] c"classical\00", align 1
-@.str.118 = private unnamed_addr constant [13 x i8] c"instrumental\00", align 1
-@.str.119 = private unnamed_addr constant [5 x i8] c"acid\00", align 1
-@.str.120 = private unnamed_addr constant [6 x i8] c"house\00", align 1
-@.str.121 = private unnamed_addr constant [5 x i8] c"game\00", align 1
-@.str.122 = private unnamed_addr constant [11 x i8] c"sound-clip\00", align 1
-@.str.123 = private unnamed_addr constant [7 x i8] c"gospel\00", align 1
-@.str.124 = private unnamed_addr constant [6 x i8] c"noise\00", align 1
-@.str.125 = private unnamed_addr constant [17 x i8] c"alternative-rock\00", align 1
-@.str.126 = private unnamed_addr constant [5 x i8] c"bass\00", align 1
-@.str.127 = private unnamed_addr constant [5 x i8] c"soul\00", align 1
-@.str.128 = private unnamed_addr constant [5 x i8] c"punk\00", align 1
-@.str.129 = private unnamed_addr constant [6 x i8] c"space\00", align 1
-@.str.130 = private unnamed_addr constant [11 x i8] c"meditative\00", align 1
-@.str.131 = private unnamed_addr constant [17 x i8] c"instrumental-pop\00", align 1
-@.str.132 = private unnamed_addr constant [18 x i8] c"instrumental-rock\00", align 1
-@.str.133 = private unnamed_addr constant [7 x i8] c"ethnic\00", align 1
-@.str.134 = private unnamed_addr constant [7 x i8] c"gothic\00", align 1
-@.str.135 = private unnamed_addr constant [9 x i8] c"darkwave\00", align 1
-@.str.136 = private unnamed_addr constant [18 x i8] c"techno-industrial\00", align 1
-@.str.137 = private unnamed_addr constant [11 x i8] c"electronic\00", align 1
-@.str.138 = private unnamed_addr constant [9 x i8] c"pop-folk\00", align 1
-@.str.139 = private unnamed_addr constant [10 x i8] c"eurodance\00", align 1
-@.str.140 = private unnamed_addr constant [6 x i8] c"dream\00", align 1
-@.str.141 = private unnamed_addr constant [14 x i8] c"southern-rock\00", align 1
-@.str.142 = private unnamed_addr constant [7 x i8] c"comedy\00", align 1
-@.str.143 = private unnamed_addr constant [5 x i8] c"cult\00", align 1
-@.str.144 = private unnamed_addr constant [8 x i8] c"gangsta\00", align 1
-@.str.145 = private unnamed_addr constant [7 x i8] c"top-40\00", align 1
-@.str.146 = private unnamed_addr constant [14 x i8] c"christian-rap\00", align 1
-@.str.147 = private unnamed_addr constant [9 x i8] c"pop-funk\00", align 1
-@.str.148 = private unnamed_addr constant [7 x i8] c"jungle\00", align 1
-@.str.149 = private unnamed_addr constant [16 x i8] c"native-american\00", align 1
-@.str.150 = private unnamed_addr constant [8 x i8] c"cabaret\00", align 1
-@.str.151 = private unnamed_addr constant [9 x i8] c"new-wave\00", align 1
-@.str.152 = private unnamed_addr constant [12 x i8] c"psychedelic\00", align 1
-@.str.153 = private unnamed_addr constant [5 x i8] c"rave\00", align 1
-@.str.154 = private unnamed_addr constant [10 x i8] c"showtunes\00", align 1
-@.str.155 = private unnamed_addr constant [8 x i8] c"trailer\00", align 1
-@.str.156 = private unnamed_addr constant [6 x i8] c"lo-fi\00", align 1
-@.str.157 = private unnamed_addr constant [7 x i8] c"tribal\00", align 1
-@.str.158 = private unnamed_addr constant [10 x i8] c"acid-punk\00", align 1
-@.str.159 = private unnamed_addr constant [10 x i8] c"acid-jazz\00", align 1
-@.str.160 = private unnamed_addr constant [6 x i8] c"polka\00", align 1
-@.str.161 = private unnamed_addr constant [6 x i8] c"retro\00", align 1
-@.str.162 = private unnamed_addr constant [8 x i8] c"musical\00", align 1
-@.str.163 = private unnamed_addr constant [14 x i8] c"rock-and-roll\00", align 1
-@.str.164 = private unnamed_addr constant [10 x i8] c"hard-rock\00", align 1
-@.str.165 = private unnamed_addr constant [5 x i8] c"folk\00", align 1
-@.str.166 = private unnamed_addr constant [10 x i8] c"folk-rock\00", align 1
-@.str.167 = private unnamed_addr constant [14 x i8] c"national-folk\00", align 1
-@.str.168 = private unnamed_addr constant [6 x i8] c"swing\00", align 1
-@.str.169 = private unnamed_addr constant [12 x i8] c"fast-fusion\00", align 1
-@.str.170 = private unnamed_addr constant [6 x i8] c"bebob\00", align 1
-@.str.171 = private unnamed_addr constant [6 x i8] c"latin\00", align 1
-@.str.172 = private unnamed_addr constant [8 x i8] c"revival\00", align 1
-@.str.173 = private unnamed_addr constant [7 x i8] c"celtic\00", align 1
-@.str.174 = private unnamed_addr constant [10 x i8] c"bluegrass\00", align 1
-@.str.175 = private unnamed_addr constant [11 x i8] c"avantgarde\00", align 1
-@.str.176 = private unnamed_addr constant [12 x i8] c"gothic-rock\00", align 1
-@.str.177 = private unnamed_addr constant [17 x i8] c"progressive-rock\00", align 1
-@.str.178 = private unnamed_addr constant [17 x i8] c"psychedelic-rock\00", align 1
-@.str.179 = private unnamed_addr constant [15 x i8] c"symphonic-rock\00", align 1
-@.str.180 = private unnamed_addr constant [10 x i8] c"slow-rock\00", align 1
-@.str.181 = private unnamed_addr constant [9 x i8] c"big-band\00", align 1
-@.str.182 = private unnamed_addr constant [7 x i8] c"chorus\00", align 1
-@.str.183 = private unnamed_addr constant [15 x i8] c"easy-listening\00", align 1
-@.str.184 = private unnamed_addr constant [9 x i8] c"acoustic\00", align 1
-@.str.185 = private unnamed_addr constant [7 x i8] c"humour\00", align 1
-@.str.186 = private unnamed_addr constant [7 x i8] c"speech\00", align 1
-@.str.187 = private unnamed_addr constant [8 x i8] c"chanson\00", align 1
-@.str.188 = private unnamed_addr constant [6 x i8] c"opera\00", align 1
-@.str.189 = private unnamed_addr constant [14 x i8] c"chamber-music\00", align 1
-@.str.190 = private unnamed_addr constant [7 x i8] c"sonata\00", align 1
-@.str.191 = private unnamed_addr constant [9 x i8] c"symphony\00", align 1
-@.str.192 = private unnamed_addr constant [11 x i8] c"booty-bass\00", align 1
-@.str.193 = private unnamed_addr constant [7 x i8] c"primus\00", align 1
-@.str.194 = private unnamed_addr constant [12 x i8] c"porn-groove\00", align 1
-@.str.195 = private unnamed_addr constant [7 x i8] c"satire\00", align 1
-@.str.196 = private unnamed_addr constant [9 x i8] c"slow-jam\00", align 1
-@.str.197 = private unnamed_addr constant [5 x i8] c"club\00", align 1
-@.str.198 = private unnamed_addr constant [6 x i8] c"tango\00", align 1
-@.str.199 = private unnamed_addr constant [6 x i8] c"samba\00", align 1
-@.str.200 = private unnamed_addr constant [9 x i8] c"folklore\00", align 1
-@.str.201 = private unnamed_addr constant [7 x i8] c"ballad\00", align 1
-@.str.202 = private unnamed_addr constant [13 x i8] c"power-ballad\00", align 1
-@.str.203 = private unnamed_addr constant [14 x i8] c"rhythmic-soul\00", align 1
-@.str.204 = private unnamed_addr constant [10 x i8] c"freestyle\00", align 1
-@.str.205 = private unnamed_addr constant [5 x i8] c"duet\00", align 1
-@.str.206 = private unnamed_addr constant [10 x i8] c"punk-rock\00", align 1
-@.str.207 = private unnamed_addr constant [10 x i8] c"drum-solo\00", align 1
-@.str.208 = private unnamed_addr constant [11 x i8] c"a-cappella\00", align 1
-@.str.209 = private unnamed_addr constant [11 x i8] c"euro-house\00", align 1
-@.str.210 = private unnamed_addr constant [11 x i8] c"dance-hall\00", align 1
+@mpeg_audio_T_version_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.70 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.71 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.72 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.73 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.75 = private unnamed_addr constant [8 x i8] c"layer-3\00", align 1
+@.str.76 = private unnamed_addr constant [8 x i8] c"layer-2\00", align 1
+@.str.77 = private unnamed_addr constant [8 x i8] c"layer-1\00", align 1
+@mpeg_audio_T_layer_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.71 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.75 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.76 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.77 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.79 = private unnamed_addr constant [4 x i8] c"crc\00", align 1
+@.str.80 = private unnamed_addr constant [5 x i8] c"none\00", align 1
+@mpeg_audio_T_protection_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.79 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.80 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.82 = private unnamed_addr constant [7 x i8] c"stereo\00", align 1
+@.str.83 = private unnamed_addr constant [13 x i8] c"joint-stereo\00", align 1
+@.str.84 = private unnamed_addr constant [13 x i8] c"dual-channel\00", align 1
+@.str.85 = private unnamed_addr constant [15 x i8] c"single-channel\00", align 1
+@mpeg_audio_T_channel_mode_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.82 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.83 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.84 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.85 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.87 = private unnamed_addr constant [12 x i8] c"em-50-15-ms\00", align 1
+@.str.88 = private unnamed_addr constant [10 x i8] c"ccit-j-17\00", align 1
+@mpeg_audio_T_emphasis_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.80 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.87 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.71 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.88 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.90 = private unnamed_addr constant [6 x i8] c"blues\00", align 1
+@.str.91 = private unnamed_addr constant [13 x i8] c"classic-rock\00", align 1
+@.str.92 = private unnamed_addr constant [8 x i8] c"country\00", align 1
+@.str.93 = private unnamed_addr constant [6 x i8] c"dance\00", align 1
+@.str.94 = private unnamed_addr constant [6 x i8] c"disco\00", align 1
+@.str.95 = private unnamed_addr constant [5 x i8] c"funk\00", align 1
+@.str.96 = private unnamed_addr constant [7 x i8] c"grunge\00", align 1
+@.str.97 = private unnamed_addr constant [8 x i8] c"hip-hop\00", align 1
+@.str.98 = private unnamed_addr constant [5 x i8] c"jazz\00", align 1
+@.str.99 = private unnamed_addr constant [6 x i8] c"metal\00", align 1
+@.str.100 = private unnamed_addr constant [8 x i8] c"new-age\00", align 1
+@.str.101 = private unnamed_addr constant [7 x i8] c"oldies\00", align 1
+@.str.102 = private unnamed_addr constant [6 x i8] c"other\00", align 1
+@.str.103 = private unnamed_addr constant [4 x i8] c"pop\00", align 1
+@.str.104 = private unnamed_addr constant [8 x i8] c"r-and-b\00", align 1
+@.str.105 = private unnamed_addr constant [4 x i8] c"rap\00", align 1
+@.str.106 = private unnamed_addr constant [7 x i8] c"reggae\00", align 1
+@.str.107 = private unnamed_addr constant [5 x i8] c"rock\00", align 1
+@.str.108 = private unnamed_addr constant [7 x i8] c"techno\00", align 1
+@.str.109 = private unnamed_addr constant [11 x i8] c"industrial\00", align 1
+@.str.110 = private unnamed_addr constant [12 x i8] c"alternative\00", align 1
+@.str.111 = private unnamed_addr constant [4 x i8] c"ska\00", align 1
+@.str.112 = private unnamed_addr constant [12 x i8] c"death-metal\00", align 1
+@.str.113 = private unnamed_addr constant [7 x i8] c"pranks\00", align 1
+@.str.114 = private unnamed_addr constant [11 x i8] c"soundtrack\00", align 1
+@.str.115 = private unnamed_addr constant [12 x i8] c"euro-techno\00", align 1
+@.str.116 = private unnamed_addr constant [8 x i8] c"ambient\00", align 1
+@.str.117 = private unnamed_addr constant [9 x i8] c"trip-hop\00", align 1
+@.str.118 = private unnamed_addr constant [6 x i8] c"vocal\00", align 1
+@.str.119 = private unnamed_addr constant [14 x i8] c"jazz-and-funk\00", align 1
+@.str.120 = private unnamed_addr constant [7 x i8] c"fusion\00", align 1
+@.str.121 = private unnamed_addr constant [7 x i8] c"trance\00", align 1
+@.str.122 = private unnamed_addr constant [10 x i8] c"classical\00", align 1
+@.str.123 = private unnamed_addr constant [13 x i8] c"instrumental\00", align 1
+@.str.124 = private unnamed_addr constant [5 x i8] c"acid\00", align 1
+@.str.125 = private unnamed_addr constant [6 x i8] c"house\00", align 1
+@.str.126 = private unnamed_addr constant [5 x i8] c"game\00", align 1
+@.str.127 = private unnamed_addr constant [11 x i8] c"sound-clip\00", align 1
+@.str.128 = private unnamed_addr constant [7 x i8] c"gospel\00", align 1
+@.str.129 = private unnamed_addr constant [6 x i8] c"noise\00", align 1
+@.str.130 = private unnamed_addr constant [17 x i8] c"alternative-rock\00", align 1
+@.str.131 = private unnamed_addr constant [5 x i8] c"bass\00", align 1
+@.str.132 = private unnamed_addr constant [5 x i8] c"soul\00", align 1
+@.str.133 = private unnamed_addr constant [5 x i8] c"punk\00", align 1
+@.str.134 = private unnamed_addr constant [6 x i8] c"space\00", align 1
+@.str.135 = private unnamed_addr constant [11 x i8] c"meditative\00", align 1
+@.str.136 = private unnamed_addr constant [17 x i8] c"instrumental-pop\00", align 1
+@.str.137 = private unnamed_addr constant [18 x i8] c"instrumental-rock\00", align 1
+@.str.138 = private unnamed_addr constant [7 x i8] c"ethnic\00", align 1
+@.str.139 = private unnamed_addr constant [7 x i8] c"gothic\00", align 1
+@.str.140 = private unnamed_addr constant [9 x i8] c"darkwave\00", align 1
+@.str.141 = private unnamed_addr constant [18 x i8] c"techno-industrial\00", align 1
+@.str.142 = private unnamed_addr constant [11 x i8] c"electronic\00", align 1
+@.str.143 = private unnamed_addr constant [9 x i8] c"pop-folk\00", align 1
+@.str.144 = private unnamed_addr constant [10 x i8] c"eurodance\00", align 1
+@.str.145 = private unnamed_addr constant [6 x i8] c"dream\00", align 1
+@.str.146 = private unnamed_addr constant [14 x i8] c"southern-rock\00", align 1
+@.str.147 = private unnamed_addr constant [7 x i8] c"comedy\00", align 1
+@.str.148 = private unnamed_addr constant [5 x i8] c"cult\00", align 1
+@.str.149 = private unnamed_addr constant [8 x i8] c"gangsta\00", align 1
+@.str.150 = private unnamed_addr constant [7 x i8] c"top-40\00", align 1
+@.str.151 = private unnamed_addr constant [14 x i8] c"christian-rap\00", align 1
+@.str.152 = private unnamed_addr constant [9 x i8] c"pop-funk\00", align 1
+@.str.153 = private unnamed_addr constant [7 x i8] c"jungle\00", align 1
+@.str.154 = private unnamed_addr constant [16 x i8] c"native-american\00", align 1
+@.str.155 = private unnamed_addr constant [8 x i8] c"cabaret\00", align 1
+@.str.156 = private unnamed_addr constant [9 x i8] c"new-wave\00", align 1
+@.str.157 = private unnamed_addr constant [12 x i8] c"psychedelic\00", align 1
+@.str.158 = private unnamed_addr constant [5 x i8] c"rave\00", align 1
+@.str.159 = private unnamed_addr constant [10 x i8] c"showtunes\00", align 1
+@.str.160 = private unnamed_addr constant [8 x i8] c"trailer\00", align 1
+@.str.161 = private unnamed_addr constant [6 x i8] c"lo-fi\00", align 1
+@.str.162 = private unnamed_addr constant [7 x i8] c"tribal\00", align 1
+@.str.163 = private unnamed_addr constant [10 x i8] c"acid-punk\00", align 1
+@.str.164 = private unnamed_addr constant [10 x i8] c"acid-jazz\00", align 1
+@.str.165 = private unnamed_addr constant [6 x i8] c"polka\00", align 1
+@.str.166 = private unnamed_addr constant [6 x i8] c"retro\00", align 1
+@.str.167 = private unnamed_addr constant [8 x i8] c"musical\00", align 1
+@.str.168 = private unnamed_addr constant [14 x i8] c"rock-and-roll\00", align 1
+@.str.169 = private unnamed_addr constant [10 x i8] c"hard-rock\00", align 1
+@.str.170 = private unnamed_addr constant [5 x i8] c"folk\00", align 1
+@.str.171 = private unnamed_addr constant [10 x i8] c"folk-rock\00", align 1
+@.str.172 = private unnamed_addr constant [14 x i8] c"national-folk\00", align 1
+@.str.173 = private unnamed_addr constant [6 x i8] c"swing\00", align 1
+@.str.174 = private unnamed_addr constant [12 x i8] c"fast-fusion\00", align 1
+@.str.175 = private unnamed_addr constant [6 x i8] c"bebob\00", align 1
+@.str.176 = private unnamed_addr constant [6 x i8] c"latin\00", align 1
+@.str.177 = private unnamed_addr constant [8 x i8] c"revival\00", align 1
+@.str.178 = private unnamed_addr constant [7 x i8] c"celtic\00", align 1
+@.str.179 = private unnamed_addr constant [10 x i8] c"bluegrass\00", align 1
+@.str.180 = private unnamed_addr constant [11 x i8] c"avantgarde\00", align 1
+@.str.181 = private unnamed_addr constant [12 x i8] c"gothic-rock\00", align 1
+@.str.182 = private unnamed_addr constant [17 x i8] c"progressive-rock\00", align 1
+@.str.183 = private unnamed_addr constant [17 x i8] c"psychedelic-rock\00", align 1
+@.str.184 = private unnamed_addr constant [15 x i8] c"symphonic-rock\00", align 1
+@.str.185 = private unnamed_addr constant [10 x i8] c"slow-rock\00", align 1
+@.str.186 = private unnamed_addr constant [9 x i8] c"big-band\00", align 1
+@.str.187 = private unnamed_addr constant [7 x i8] c"chorus\00", align 1
+@.str.188 = private unnamed_addr constant [15 x i8] c"easy-listening\00", align 1
+@.str.189 = private unnamed_addr constant [9 x i8] c"acoustic\00", align 1
+@.str.190 = private unnamed_addr constant [7 x i8] c"humour\00", align 1
+@.str.191 = private unnamed_addr constant [7 x i8] c"speech\00", align 1
+@.str.192 = private unnamed_addr constant [8 x i8] c"chanson\00", align 1
+@.str.193 = private unnamed_addr constant [6 x i8] c"opera\00", align 1
+@.str.194 = private unnamed_addr constant [14 x i8] c"chamber-music\00", align 1
+@.str.195 = private unnamed_addr constant [7 x i8] c"sonata\00", align 1
+@.str.196 = private unnamed_addr constant [9 x i8] c"symphony\00", align 1
+@.str.197 = private unnamed_addr constant [11 x i8] c"booty-bass\00", align 1
+@.str.198 = private unnamed_addr constant [7 x i8] c"primus\00", align 1
+@.str.199 = private unnamed_addr constant [12 x i8] c"porn-groove\00", align 1
+@.str.200 = private unnamed_addr constant [7 x i8] c"satire\00", align 1
+@.str.201 = private unnamed_addr constant [9 x i8] c"slow-jam\00", align 1
+@.str.202 = private unnamed_addr constant [5 x i8] c"club\00", align 1
+@.str.203 = private unnamed_addr constant [6 x i8] c"tango\00", align 1
+@.str.204 = private unnamed_addr constant [6 x i8] c"samba\00", align 1
+@.str.205 = private unnamed_addr constant [9 x i8] c"folklore\00", align 1
+@.str.206 = private unnamed_addr constant [7 x i8] c"ballad\00", align 1
+@.str.207 = private unnamed_addr constant [13 x i8] c"power-ballad\00", align 1
+@.str.208 = private unnamed_addr constant [14 x i8] c"rhythmic-soul\00", align 1
+@.str.209 = private unnamed_addr constant [10 x i8] c"freestyle\00", align 1
+@.str.210 = private unnamed_addr constant [5 x i8] c"duet\00", align 1
+@.str.211 = private unnamed_addr constant [10 x i8] c"punk-rock\00", align 1
+@.str.212 = private unnamed_addr constant [10 x i8] c"drum-solo\00", align 1
+@.str.213 = private unnamed_addr constant [11 x i8] c"a-cappella\00", align 1
+@.str.214 = private unnamed_addr constant [11 x i8] c"euro-house\00", align 1
+@.str.215 = private unnamed_addr constant [11 x i8] c"dance-hall\00", align 1
+@mpeg_audio_T_genre_vals = internal constant [127 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.90 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.91 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.92 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.93 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.94 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.95 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.96 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.97 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.98 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.99 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.100 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.101 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.102 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.103 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.104 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.105 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.106 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.107 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.108 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.109 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.110 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.111 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.112 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.113 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.114 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.115 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.116 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.117 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.118 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.119 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.120 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.122 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.123 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.124 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.125 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.126 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.127 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.128 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.129 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.130 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.131 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.132 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.133 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.134 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.135 }, { i32, [4 x i8], ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.136 }, { i32, [4 x i8], ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.137 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.138 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.139 }, { i32, [4 x i8], ptr } { i32 50, [4 x i8] zeroinitializer, ptr @.str.140 }, { i32, [4 x i8], ptr } { i32 51, [4 x i8] zeroinitializer, ptr @.str.141 }, { i32, [4 x i8], ptr } { i32 52, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } { i32 53, [4 x i8] zeroinitializer, ptr @.str.143 }, { i32, [4 x i8], ptr } { i32 54, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.145 }, { i32, [4 x i8], ptr } { i32 56, [4 x i8] zeroinitializer, ptr @.str.146 }, { i32, [4 x i8], ptr } { i32 57, [4 x i8] zeroinitializer, ptr @.str.147 }, { i32, [4 x i8], ptr } { i32 58, [4 x i8] zeroinitializer, ptr @.str.148 }, { i32, [4 x i8], ptr } { i32 59, [4 x i8] zeroinitializer, ptr @.str.149 }, { i32, [4 x i8], ptr } { i32 60, [4 x i8] zeroinitializer, ptr @.str.150 }, { i32, [4 x i8], ptr } { i32 61, [4 x i8] zeroinitializer, ptr @.str.151 }, { i32, [4 x i8], ptr } { i32 62, [4 x i8] zeroinitializer, ptr @.str.152 }, { i32, [4 x i8], ptr } { i32 63, [4 x i8] zeroinitializer, ptr @.str.153 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.154 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.155 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.156 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.157 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.158 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.159 }, { i32, [4 x i8], ptr } { i32 70, [4 x i8] zeroinitializer, ptr @.str.160 }, { i32, [4 x i8], ptr } { i32 71, [4 x i8] zeroinitializer, ptr @.str.161 }, { i32, [4 x i8], ptr } { i32 72, [4 x i8] zeroinitializer, ptr @.str.162 }, { i32, [4 x i8], ptr } { i32 73, [4 x i8] zeroinitializer, ptr @.str.163 }, { i32, [4 x i8], ptr } { i32 74, [4 x i8] zeroinitializer, ptr @.str.164 }, { i32, [4 x i8], ptr } { i32 75, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 76, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } { i32 77, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 78, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 79, [4 x i8] zeroinitializer, ptr @.str.169 }, { i32, [4 x i8], ptr } { i32 80, [4 x i8] zeroinitializer, ptr @.str.170 }, { i32, [4 x i8], ptr } { i32 81, [4 x i8] zeroinitializer, ptr @.str.171 }, { i32, [4 x i8], ptr } { i32 82, [4 x i8] zeroinitializer, ptr @.str.172 }, { i32, [4 x i8], ptr } { i32 83, [4 x i8] zeroinitializer, ptr @.str.173 }, { i32, [4 x i8], ptr } { i32 84, [4 x i8] zeroinitializer, ptr @.str.174 }, { i32, [4 x i8], ptr } { i32 85, [4 x i8] zeroinitializer, ptr @.str.175 }, { i32, [4 x i8], ptr } { i32 86, [4 x i8] zeroinitializer, ptr @.str.176 }, { i32, [4 x i8], ptr } { i32 87, [4 x i8] zeroinitializer, ptr @.str.177 }, { i32, [4 x i8], ptr } { i32 88, [4 x i8] zeroinitializer, ptr @.str.178 }, { i32, [4 x i8], ptr } { i32 89, [4 x i8] zeroinitializer, ptr @.str.179 }, { i32, [4 x i8], ptr } { i32 90, [4 x i8] zeroinitializer, ptr @.str.180 }, { i32, [4 x i8], ptr } { i32 91, [4 x i8] zeroinitializer, ptr @.str.181 }, { i32, [4 x i8], ptr } { i32 92, [4 x i8] zeroinitializer, ptr @.str.182 }, { i32, [4 x i8], ptr } { i32 93, [4 x i8] zeroinitializer, ptr @.str.183 }, { i32, [4 x i8], ptr } { i32 94, [4 x i8] zeroinitializer, ptr @.str.184 }, { i32, [4 x i8], ptr } { i32 95, [4 x i8] zeroinitializer, ptr @.str.185 }, { i32, [4 x i8], ptr } { i32 96, [4 x i8] zeroinitializer, ptr @.str.186 }, { i32, [4 x i8], ptr } { i32 97, [4 x i8] zeroinitializer, ptr @.str.187 }, { i32, [4 x i8], ptr } { i32 98, [4 x i8] zeroinitializer, ptr @.str.188 }, { i32, [4 x i8], ptr } { i32 99, [4 x i8] zeroinitializer, ptr @.str.189 }, { i32, [4 x i8], ptr } { i32 100, [4 x i8] zeroinitializer, ptr @.str.190 }, { i32, [4 x i8], ptr } { i32 101, [4 x i8] zeroinitializer, ptr @.str.191 }, { i32, [4 x i8], ptr } { i32 102, [4 x i8] zeroinitializer, ptr @.str.192 }, { i32, [4 x i8], ptr } { i32 103, [4 x i8] zeroinitializer, ptr @.str.193 }, { i32, [4 x i8], ptr } { i32 104, [4 x i8] zeroinitializer, ptr @.str.194 }, { i32, [4 x i8], ptr } { i32 105, [4 x i8] zeroinitializer, ptr @.str.195 }, { i32, [4 x i8], ptr } { i32 106, [4 x i8] zeroinitializer, ptr @.str.196 }, { i32, [4 x i8], ptr } { i32 107, [4 x i8] zeroinitializer, ptr @.str.197 }, { i32, [4 x i8], ptr } { i32 108, [4 x i8] zeroinitializer, ptr @.str.198 }, { i32, [4 x i8], ptr } { i32 109, [4 x i8] zeroinitializer, ptr @.str.199 }, { i32, [4 x i8], ptr } { i32 110, [4 x i8] zeroinitializer, ptr @.str.200 }, { i32, [4 x i8], ptr } { i32 111, [4 x i8] zeroinitializer, ptr @.str.201 }, { i32, [4 x i8], ptr } { i32 112, [4 x i8] zeroinitializer, ptr @.str.202 }, { i32, [4 x i8], ptr } { i32 113, [4 x i8] zeroinitializer, ptr @.str.203 }, { i32, [4 x i8], ptr } { i32 114, [4 x i8] zeroinitializer, ptr @.str.204 }, { i32, [4 x i8], ptr } { i32 115, [4 x i8] zeroinitializer, ptr @.str.205 }, { i32, [4 x i8], ptr } { i32 116, [4 x i8] zeroinitializer, ptr @.str.206 }, { i32, [4 x i8], ptr } { i32 117, [4 x i8] zeroinitializer, ptr @.str.207 }, { i32, [4 x i8], ptr } { i32 118, [4 x i8] zeroinitializer, ptr @.str.208 }, { i32, [4 x i8], ptr } { i32 119, [4 x i8] zeroinitializer, ptr @.str.209 }, { i32, [4 x i8], ptr } { i32 120, [4 x i8] zeroinitializer, ptr @.str.210 }, { i32, [4 x i8], ptr } { i32 121, [4 x i8] zeroinitializer, ptr @.str.211 }, { i32, [4 x i8], ptr } { i32 122, [4 x i8] zeroinitializer, ptr @.str.212 }, { i32, [4 x i8], ptr } { i32 123, [4 x i8] zeroinitializer, ptr @.str.213 }, { i32, [4 x i8], ptr } { i32 124, [4 x i8] zeroinitializer, ptr @.str.214 }, { i32, [4 x i8], ptr } { i32 125, [4 x i8] zeroinitializer, ptr @.str.215 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @ID3v1_sequence = internal constant [10 x %struct._per_sequence_t] [%struct._per_sequence_t { ptr @hf_mpeg_audio_tag, i32 0, i32 0, ptr @dissect_mpeg_audio_OCTET_STRING_SIZE_3 }, %struct._per_sequence_t { ptr @hf_mpeg_audio_title, i32 0, i32 0, ptr @dissect_mpeg_audio_OCTET_STRING_SIZE_30 }, %struct._per_sequence_t { ptr @hf_mpeg_audio_artist, i32 0, i32 0, ptr @dissect_mpeg_audio_OCTET_STRING_SIZE_30 }, %struct._per_sequence_t { ptr @hf_mpeg_audio_album, i32 0, i32 0, ptr @dissect_mpeg_audio_OCTET_STRING_SIZE_30 }, %struct._per_sequence_t { ptr @hf_mpeg_audio_year, i32 0, i32 0, ptr @dissect_mpeg_audio_OCTET_STRING_SIZE_4 }, %struct._per_sequence_t { ptr @hf_mpeg_audio_comment, i32 0, i32 0, ptr @dissect_mpeg_audio_OCTET_STRING_SIZE_28 }, %struct._per_sequence_t { ptr @hf_mpeg_audio_must_be_zero, i32 0, i32 0, ptr @dissect_mpeg_audio_INTEGER_0_255 }, %struct._per_sequence_t { ptr @hf_mpeg_audio_track, i32 0, i32 0, ptr @dissect_mpeg_audio_INTEGER_0_255 }, %struct._per_sequence_t { ptr @hf_mpeg_audio_genre, i32 0, i32 0, ptr @dissect_mpeg_audio_T_genre }, %struct._per_sequence_t zeroinitializer], align 16
-@dissect_mpeg_audio_frame.version_names = internal global [3 x ptr] [ptr @.str.211, ptr @.str.212, ptr @.str.213], align 16
-@.str.211 = private unnamed_addr constant [2 x i8] c"1\00", align 1
-@.str.212 = private unnamed_addr constant [2 x i8] c"2\00", align 1
-@.str.213 = private unnamed_addr constant [4 x i8] c"2.5\00", align 1
-@.str.214 = private unnamed_addr constant [8 x i8] c"MPEG-%s\00", align 1
-@.str.215 = private unnamed_addr constant [15 x i8] c"Audio Layer %d\00", align 1
-@.str.216 = private unnamed_addr constant [18 x i8] c", %d kb/s, %g kHz\00", align 1
+@dissect_mpeg_audio_frame.version_names = internal global [3 x ptr] [ptr @.str.217, ptr @.str.218, ptr @.str.219], align 16
+@.str.217 = private unnamed_addr constant [2 x i8] c"1\00", align 1
+@.str.218 = private unnamed_addr constant [2 x i8] c"2\00", align 1
+@.str.219 = private unnamed_addr constant [4 x i8] c"2.5\00", align 1
+@.str.220 = private unnamed_addr constant [8 x i8] c"MPEG-%s\00", align 1
+@.str.221 = private unnamed_addr constant [15 x i8] c"Audio Layer %d\00", align 1
+@.str.222 = private unnamed_addr constant [18 x i8] c", %d kb/s, %g kHz\00", align 1
 @Audio_sequence = internal constant [14 x %struct._per_sequence_t] [%struct._per_sequence_t { ptr @hf_mpeg_audio_sync, i32 0, i32 0, ptr @dissect_mpeg_audio_BIT_STRING_SIZE_11 }, %struct._per_sequence_t { ptr @hf_mpeg_audio_version, i32 0, i32 0, ptr @dissect_mpeg_audio_T_version }, %struct._per_sequence_t { ptr @hf_mpeg_audio_layer, i32 0, i32 0, ptr @dissect_mpeg_audio_T_layer }, %struct._per_sequence_t { ptr @hf_mpeg_audio_protection, i32 0, i32 0, ptr @dissect_mpeg_audio_T_protection }, %struct._per_sequence_t { ptr @hf_mpeg_audio_bitrate, i32 0, i32 0, ptr @dissect_mpeg_audio_INTEGER_0_15 }, %struct._per_sequence_t { ptr @hf_mpeg_audio_frequency, i32 0, i32 0, ptr @dissect_mpeg_audio_INTEGER_0_3 }, %struct._per_sequence_t { ptr @hf_mpeg_audio_padding, i32 0, i32 0, ptr @dissect_mpeg_audio_BOOLEAN }, %struct._per_sequence_t { ptr @hf_mpeg_audio_private, i32 0, i32 0, ptr @dissect_mpeg_audio_BOOLEAN }, %struct._per_sequence_t { ptr @hf_mpeg_audio_channel_mode, i32 0, i32 0, ptr @dissect_mpeg_audio_T_channel_mode }, %struct._per_sequence_t { ptr @hf_mpeg_audio_mode_extension, i32 0, i32 0, ptr @dissect_mpeg_audio_INTEGER_0_3 }, %struct._per_sequence_t { ptr @hf_mpeg_audio_copyright, i32 0, i32 0, ptr @dissect_mpeg_audio_BOOLEAN }, %struct._per_sequence_t { ptr @hf_mpeg_audio_original, i32 0, i32 0, ptr @dissect_mpeg_audio_BOOLEAN }, %struct._per_sequence_t { ptr @hf_mpeg_audio_emphasis, i32 0, i32 0, ptr @dissect_mpeg_audio_T_emphasis }, %struct._per_sequence_t zeroinitializer], align 16
-@.str.217 = private unnamed_addr constant [4 x i8] c"TAG\00", align 1
-@.str.218 = private unnamed_addr constant [4 x i8] c"ID3\00", align 1
+@.str.223 = private unnamed_addr constant [4 x i8] c"TAG\00", align 1
+@.str.224 = private unnamed_addr constant [4 x i8] c"ID3\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_mpeg_audio() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.61, ptr noundef @.str.62, ptr noundef @.str.63)
   store i32 %1, ptr @proto_mpeg_audio, align 4
@@ -295,15 +294,19 @@ define hidden void @proto_register_mpeg_audio() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_audio(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -319,7 +322,13 @@ define internal i32 @dissect_mpeg_audio(ptr noundef %0, ptr noundef %1, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
   store i32 0, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr @proto_mpeg_audio, align 4
   %17 = load ptr, ptr %5, align 8
@@ -398,15 +407,21 @@ define internal i32 @dissect_mpeg_audio(ptr noundef %0, ptr noundef %1, ptr noun
   br label %64
 
 64:                                               ; preds = %60, %42, %35
-  br label %23, !llvm.loop !4
+  br label %23, !llvm.loop !6
 
 65:                                               ; preds = %23
   %66 = load ptr, ptr %5, align 8
   %67 = call i32 @tvb_reported_length(ptr noundef %66)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret i32 %67
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_mpeg_audio() #0 {
   %1 = load ptr, ptr @mpeg_audio_handle, align 8
   call void @dissector_add_string(ptr noundef @.str.64, ptr noundef @.str.65, ptr noundef %1)
@@ -419,13 +434,15 @@ define hidden void @proto_reg_handoff_mpeg_audio() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_mpeg_audio_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @dissect_mpeg_audio_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i1, align 1
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -435,41 +452,49 @@ define internal i32 @dissect_mpeg_audio_heur(ptr noundef %0, ptr noundef %1, ptr
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = call i32 @test_mpeg_audio(ptr noundef %10, i32 noundef 0)
-  %12 = icmp ne i32 %11, 0
-  br i1 %12, label %14, label %13
+  %11 = call zeroext i1 @test_mpeg_audio(ptr noundef %10, i32 noundef 0)
+  br i1 %11, label %13, label %12
+
+12:                                               ; preds = %4
+  store i1 false, ptr %5, align 1
+  br label %19
 
 13:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %20
+  %14 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %8, align 8
+  %17 = load ptr, ptr %9, align 8
+  %18 = call i32 @dissect_mpeg_audio(ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17)
+  store i1 true, ptr %5, align 1
+  br label %19
 
-14:                                               ; preds = %4
-  %15 = load ptr, ptr %6, align 8
-  %16 = load ptr, ptr %7, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = call i32 @dissect_mpeg_audio(ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18)
-  store i32 1, ptr %5, align 4
-  br label %20
-
-20:                                               ; preds = %14, %13
-  %21 = load i32, ptr %5, align 4
-  ret i32 %21
+19:                                               ; preds = %13, %12
+  %20 = load i1, ptr %5, align 1
+  ret i1 %20
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @find_dissector(ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_id3v1(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -478,12 +503,13 @@ define internal i32 @dissect_id3v1(ptr noundef %0, ptr noundef %1, ptr noundef %
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 208, ptr %7) #3
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds %struct._packet_info, ptr %8, i32 0, i32 1
+  %9 = getelementptr inbounds nuw %struct._packet_info, ptr %8, i32 0, i32 1
   %10 = load ptr, ptr %9, align 8
-  call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef @.str.59)
+  call void @col_set_str(ptr noundef %10, i32 noundef 35, ptr noundef @.str.59)
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct._packet_info, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct._packet_info, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
   call void @col_clear(ptr noundef %13, i32 noundef 25)
   %14 = load ptr, ptr %5, align 8
@@ -492,12 +518,14 @@ define internal i32 @dissect_id3v1(ptr noundef %0, ptr noundef %1, ptr noundef %
   %16 = load ptr, ptr %6, align 8
   %17 = load i32, ptr @hf_id3v1, align 4
   %18 = call i32 @dissect_mpeg_audio_ID3v1(ptr noundef %15, i32 noundef 0, ptr noundef %7, ptr noundef %16, i32 noundef %17)
+  call void @llvm.lifetime.end.p0(i64 208, ptr %7) #3
   ret i32 %18
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_audio_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -509,19 +537,25 @@ define internal i32 @dissect_mpeg_audio_frame(ptr noundef %0, ptr noundef %1, pt
   %11 = alloca %struct._asn1_ctx_t, align 8
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
   store i32 0, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 208, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
   store i32 0, ptr %12, align 4
-  %14 = load ptr, ptr %5, align 8
-  %15 = call i32 @tvb_bytes_exist(ptr noundef %14, i32 noundef 0, i32 noundef 4)
-  %16 = icmp ne i32 %15, 0
+  %15 = load ptr, ptr %5, align 8
+  %16 = call zeroext i1 @tvb_bytes_exist(ptr noundef %15, i32 noundef 0, i32 noundef 4)
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %3
   store i32 0, ptr %4, align 4
-  br label %213
+  store i32 1, ptr %13, align 4
+  br label %214
 
 18:                                               ; preds = %3
   %19 = load ptr, ptr %5, align 8
@@ -649,168 +683,182 @@ define internal i32 @dissect_mpeg_audio_frame(ptr noundef %0, ptr noundef %1, pt
   br label %125
 
 125:                                              ; preds = %21
-  %126 = load i32, ptr %9, align 4
-  %127 = lshr i32 %126, 21
-  %128 = icmp eq i32 %127, 2047
-  br i1 %128, label %129, label %135
+  br label %126
 
-129:                                              ; preds = %125
-  %130 = call i32 @mpa_version(ptr noundef %9)
-  %131 = icmp sge i32 %130, 0
-  br i1 %131, label %132, label %135
+126:                                              ; preds = %125
+  %127 = load i32, ptr %9, align 4
+  %128 = lshr i32 %127, 21
+  %129 = icmp eq i32 %128, 2047
+  br i1 %129, label %130, label %136
 
-132:                                              ; preds = %129
-  %133 = call i32 @mpa_layer(ptr noundef %9)
-  %134 = icmp sge i32 %133, 0
-  br i1 %134, label %136, label %135
+130:                                              ; preds = %126
+  %131 = call i32 @mpa_version(ptr noundef %9)
+  %132 = icmp sge i32 %131, 0
+  br i1 %132, label %133, label %136
 
-135:                                              ; preds = %132, %129, %125
+133:                                              ; preds = %130
+  %134 = call i32 @mpa_layer(ptr noundef %9)
+  %135 = icmp sge i32 %134, 0
+  br i1 %135, label %137, label %136
+
+136:                                              ; preds = %133, %130, %126
   store i32 0, ptr %4, align 4
-  br label %213
+  store i32 1, ptr %13, align 4
+  br label %214
 
-136:                                              ; preds = %132
-  %137 = load ptr, ptr %6, align 8
-  %138 = getelementptr inbounds %struct._packet_info, ptr %137, i32 0, i32 1
-  %139 = load ptr, ptr %138, align 8
-  %140 = call i32 @mpa_version(ptr noundef %9)
-  %141 = sext i32 %140 to i64
-  %142 = getelementptr [3 x ptr], ptr @dissect_mpeg_audio_frame.version_names, i64 0, i64 %141
-  %143 = load ptr, ptr %142, align 8
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %139, i32 noundef 34, ptr noundef @.str.214, ptr noundef %143)
-  %144 = load ptr, ptr %6, align 8
-  %145 = getelementptr inbounds %struct._packet_info, ptr %144, i32 0, i32 1
-  %146 = load ptr, ptr %145, align 8
-  %147 = call i32 @mpa_layer(ptr noundef %9)
-  %148 = add i32 %147, 1
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %146, i32 noundef 25, ptr noundef @.str.215, i32 noundef %148)
-  %149 = call i32 @mpa_bitrate(ptr noundef %9)
-  %150 = icmp ugt i32 %149, 0
-  br i1 %150, label %151, label %173
+137:                                              ; preds = %133
+  %138 = load ptr, ptr %6, align 8
+  %139 = getelementptr inbounds nuw %struct._packet_info, ptr %138, i32 0, i32 1
+  %140 = load ptr, ptr %139, align 8
+  %141 = call i32 @mpa_version(ptr noundef %9)
+  %142 = sext i32 %141 to i64
+  %143 = getelementptr [3 x ptr], ptr @dissect_mpeg_audio_frame.version_names, i64 0, i64 %142
+  %144 = load ptr, ptr %143, align 8
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %140, i32 noundef 35, ptr noundef @.str.220, ptr noundef %144)
+  %145 = load ptr, ptr %6, align 8
+  %146 = getelementptr inbounds nuw %struct._packet_info, ptr %145, i32 0, i32 1
+  %147 = load ptr, ptr %146, align 8
+  %148 = call i32 @mpa_layer(ptr noundef %9)
+  %149 = add i32 %148, 1
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %147, i32 noundef 25, ptr noundef @.str.221, i32 noundef %149)
+  %150 = call i32 @mpa_bitrate(ptr noundef %9)
+  %151 = icmp ugt i32 %150, 0
+  br i1 %151, label %152, label %174
 
-151:                                              ; preds = %136
-  %152 = call i32 @mpa_frequency(ptr noundef %9)
-  %153 = icmp ugt i32 %152, 0
-  br i1 %153, label %154, label %173
+152:                                              ; preds = %137
+  %153 = call i32 @mpa_frequency(ptr noundef %9)
+  %154 = icmp ugt i32 %153, 0
+  br i1 %154, label %155, label %174
 
-154:                                              ; preds = %151
-  %155 = call i32 @mpa_bitrate(ptr noundef %9)
-  %156 = call i32 @mpa_samples(ptr noundef %9)
-  %157 = mul i32 %155, %156
-  %158 = call i32 @mpa_frequency(ptr noundef %9)
-  %159 = udiv i32 %157, %158
-  %160 = udiv i32 %159, 8
-  %161 = zext i32 %160 to i64
-  %162 = sub i64 %161, 4
-  %163 = trunc i64 %162 to i32
-  store i32 %163, ptr %10, align 4
-  %164 = load ptr, ptr %6, align 8
-  %165 = getelementptr inbounds %struct._packet_info, ptr %164, i32 0, i32 1
-  %166 = load ptr, ptr %165, align 8
-  %167 = call i32 @mpa_bitrate(ptr noundef %9)
-  %168 = udiv i32 %167, 1000
-  %169 = call i32 @mpa_frequency(ptr noundef %9)
-  %170 = uitofp i32 %169 to float
-  %171 = fdiv float %170, 1.000000e+03
-  %172 = fpext float %171 to double
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %166, i32 noundef 25, ptr noundef @.str.216, i32 noundef %168, double noundef %172)
-  br label %173
+155:                                              ; preds = %152
+  %156 = call i32 @mpa_bitrate(ptr noundef %9)
+  %157 = call i32 @mpa_samples(ptr noundef %9)
+  %158 = mul i32 %156, %157
+  %159 = call i32 @mpa_frequency(ptr noundef %9)
+  %160 = udiv i32 %158, %159
+  %161 = udiv i32 %160, 8
+  %162 = zext i32 %161 to i64
+  %163 = sub i64 %162, 4
+  %164 = trunc i64 %163 to i32
+  store i32 %164, ptr %10, align 4
+  %165 = load ptr, ptr %6, align 8
+  %166 = getelementptr inbounds nuw %struct._packet_info, ptr %165, i32 0, i32 1
+  %167 = load ptr, ptr %166, align 8
+  %168 = call i32 @mpa_bitrate(ptr noundef %9)
+  %169 = udiv i32 %168, 1000
+  %170 = call i32 @mpa_frequency(ptr noundef %9)
+  %171 = uitofp i32 %170 to float
+  %172 = fdiv float %171, 1.000000e+03
+  %173 = fpext float %172 to double
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %167, i32 noundef 25, ptr noundef @.str.222, i32 noundef %169, double noundef %173)
+  br label %174
 
-173:                                              ; preds = %154, %151, %136
-  %174 = load ptr, ptr %6, align 8
-  call void @asn1_ctx_init(ptr noundef %11, i32 noundef 1, i1 noundef zeroext true, ptr noundef %174)
-  %175 = load ptr, ptr %5, align 8
-  %176 = load i32, ptr %12, align 4
-  %177 = load ptr, ptr %7, align 8
-  %178 = load i32, ptr @hf_mpeg_audio_header, align 4
-  %179 = call i32 @dissect_mpeg_audio_Audio(ptr noundef %175, i32 noundef %176, ptr noundef %11, ptr noundef %177, i32 noundef %178)
-  store i32 %179, ptr %12, align 4
-  %180 = load i32, ptr %10, align 4
-  %181 = icmp sgt i32 %180, 0
-  br i1 %181, label %182, label %210
+174:                                              ; preds = %155, %152, %137
+  %175 = load ptr, ptr %6, align 8
+  call void @asn1_ctx_init(ptr noundef %11, i32 noundef 1, i1 noundef zeroext true, ptr noundef %175)
+  %176 = load ptr, ptr %5, align 8
+  %177 = load i32, ptr %12, align 4
+  %178 = load ptr, ptr %7, align 8
+  %179 = load i32, ptr @hf_mpeg_audio_header, align 4
+  %180 = call i32 @dissect_mpeg_audio_Audio(ptr noundef %176, i32 noundef %177, ptr noundef %11, ptr noundef %178, i32 noundef %179)
+  store i32 %180, ptr %12, align 4
+  %181 = load i32, ptr %10, align 4
+  %182 = icmp sgt i32 %181, 0
+  br i1 %182, label %183, label %211
 
-182:                                              ; preds = %173
-  %183 = load ptr, ptr %7, align 8
-  %184 = load i32, ptr @hf_mpeg_audio_data, align 4
-  %185 = load ptr, ptr %5, align 8
-  %186 = load i32, ptr %12, align 4
-  %187 = sdiv i32 %186, 8
-  %188 = load i32, ptr %10, align 4
-  %189 = call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %184, ptr noundef %185, i32 noundef %187, i32 noundef %188, i32 noundef 0)
-  %190 = load i32, ptr %10, align 4
-  %191 = mul i32 %190, 8
-  %192 = load i32, ptr %12, align 4
-  %193 = add i32 %192, %191
-  store i32 %193, ptr %12, align 4
-  %194 = call i32 @mpa_padding(ptr noundef %9)
-  store i32 %194, ptr %13, align 4
-  %195 = load i32, ptr %13, align 4
-  %196 = icmp ugt i32 %195, 0
-  br i1 %196, label %197, label %209
+183:                                              ; preds = %174
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  %184 = load ptr, ptr %7, align 8
+  %185 = load i32, ptr @hf_mpeg_audio_data, align 4
+  %186 = load ptr, ptr %5, align 8
+  %187 = load i32, ptr %12, align 4
+  %188 = sdiv i32 %187, 8
+  %189 = load i32, ptr %10, align 4
+  %190 = call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %185, ptr noundef %186, i32 noundef %188, i32 noundef %189, i32 noundef 0)
+  %191 = load i32, ptr %10, align 4
+  %192 = mul i32 %191, 8
+  %193 = load i32, ptr %12, align 4
+  %194 = add i32 %193, %192
+  store i32 %194, ptr %12, align 4
+  %195 = call i32 @mpa_padding(ptr noundef %9)
+  store i32 %195, ptr %14, align 4
+  %196 = load i32, ptr %14, align 4
+  %197 = icmp ugt i32 %196, 0
+  br i1 %197, label %198, label %210
 
-197:                                              ; preds = %182
-  %198 = load ptr, ptr %7, align 8
-  %199 = load i32, ptr @hf_mpeg_audio_padbytes, align 4
-  %200 = load ptr, ptr %5, align 8
-  %201 = load i32, ptr %12, align 4
-  %202 = sdiv i32 %201, 8
-  %203 = load i32, ptr %13, align 4
-  %204 = call ptr @proto_tree_add_item(ptr noundef %198, i32 noundef %199, ptr noundef %200, i32 noundef %202, i32 noundef %203, i32 noundef 0)
-  %205 = load i32, ptr %13, align 4
-  %206 = mul i32 %205, 8
-  %207 = load i32, ptr %12, align 4
-  %208 = add i32 %207, %206
-  store i32 %208, ptr %12, align 4
-  br label %209
-
-209:                                              ; preds = %197, %182
+198:                                              ; preds = %183
+  %199 = load ptr, ptr %7, align 8
+  %200 = load i32, ptr @hf_mpeg_audio_padbytes, align 4
+  %201 = load ptr, ptr %5, align 8
+  %202 = load i32, ptr %12, align 4
+  %203 = sdiv i32 %202, 8
+  %204 = load i32, ptr %14, align 4
+  %205 = call ptr @proto_tree_add_item(ptr noundef %199, i32 noundef %200, ptr noundef %201, i32 noundef %203, i32 noundef %204, i32 noundef 0)
+  %206 = load i32, ptr %14, align 4
+  %207 = mul i32 %206, 8
+  %208 = load i32, ptr %12, align 4
+  %209 = add i32 %208, %207
+  store i32 %209, ptr %12, align 4
   br label %210
 
-210:                                              ; preds = %209, %173
-  %211 = load i32, ptr %12, align 4
-  %212 = sdiv i32 %211, 8
-  store i32 %212, ptr %4, align 4
-  br label %213
+210:                                              ; preds = %198, %183
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  br label %211
 
-213:                                              ; preds = %210, %135, %17
-  %214 = load i32, ptr %4, align 4
-  ret i32 %214
+211:                                              ; preds = %210, %174
+  %212 = load i32, ptr %12, align 4
+  %213 = sdiv i32 %212, 8
+  store i32 %213, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %214
+
+214:                                              ; preds = %211, %136, %17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 208, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  %215 = load i32, ptr %4, align 4
+  ret i32 %215
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mpeg_resync(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca %struct.mpa, align 4
+  %8 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i32, ptr %5, align 4
-  %10 = call i32 @tvb_find_guint8(ptr noundef %8, i32 noundef %9, i32 noundef -1, i8 noundef zeroext -1)
-  store i32 %10, ptr %5, align 4
-  br label %11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %9 = load ptr, ptr %4, align 8
+  %10 = load i32, ptr %5, align 4
+  %11 = call i32 @tvb_find_uint8(ptr noundef %9, i32 noundef %10, i32 noundef -1, i8 noundef zeroext -1)
+  store i32 %11, ptr %5, align 4
+  br label %12
 
-11:                                               ; preds = %147, %2
-  %12 = load i32, ptr %5, align 4
-  %13 = icmp ne i32 %12, -1
-  br i1 %13, label %14, label %19
+12:                                               ; preds = %148, %2
+  %13 = load i32, ptr %5, align 4
+  %14 = icmp ne i32 %13, -1
+  br i1 %14, label %15, label %19
 
-14:                                               ; preds = %11
-  %15 = load ptr, ptr %4, align 8
-  %16 = load i32, ptr %5, align 4
-  %17 = call i32 @tvb_bytes_exist(ptr noundef %15, i32 noundef %16, i32 noundef 4)
-  %18 = icmp ne i32 %17, 0
+15:                                               ; preds = %12
+  %16 = load ptr, ptr %4, align 8
+  %17 = load i32, ptr %5, align 4
+  %18 = call zeroext i1 @tvb_bytes_exist(ptr noundef %16, i32 noundef %17, i32 noundef 4)
   br label %19
 
-19:                                               ; preds = %14, %11
-  %20 = phi i1 [ false, %11 ], [ %18, %14 ]
-  br i1 %20, label %21, label %152
+19:                                               ; preds = %15, %12
+  %20 = phi i1 [ false, %12 ], [ %18, %15 ]
+  br i1 %20, label %21, label %153
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr %4, align 8
   %23 = load i32, ptr %5, align 4
-  %24 = call i32 @tvb_get_guint32(ptr noundef %22, i32 noundef %23, i32 noundef 0)
+  %24 = call i32 @tvb_get_uint32(ptr noundef %22, i32 noundef %23, i32 noundef 0)
   store i32 %24, ptr %6, align 4
   br label %25
 
@@ -934,64 +982,78 @@ define internal i32 @mpeg_resync(ptr noundef %0, i32 noundef %1) #0 {
   br label %129
 
 129:                                              ; preds = %25
-  %130 = load i32, ptr %7, align 4
-  %131 = lshr i32 %130, 21
-  %132 = icmp eq i32 %131, 2047
-  br i1 %132, label %133, label %147
+  br label %130
 
-133:                                              ; preds = %129
-  %134 = call i32 @mpa_version(ptr noundef %7)
-  %135 = icmp sge i32 %134, 0
-  br i1 %135, label %136, label %147
+130:                                              ; preds = %129
+  %131 = load i32, ptr %7, align 4
+  %132 = lshr i32 %131, 21
+  %133 = icmp eq i32 %132, 2047
+  br i1 %133, label %134, label %148
 
-136:                                              ; preds = %133
-  %137 = call i32 @mpa_layer(ptr noundef %7)
-  %138 = icmp sge i32 %137, 0
-  br i1 %138, label %139, label %147
+134:                                              ; preds = %130
+  %135 = call i32 @mpa_version(ptr noundef %7)
+  %136 = icmp sge i32 %135, 0
+  br i1 %136, label %137, label %148
 
-139:                                              ; preds = %136
-  %140 = call i32 @mpa_bitrate(ptr noundef %7)
-  %141 = icmp ugt i32 %140, 0
-  br i1 %141, label %142, label %147
+137:                                              ; preds = %134
+  %138 = call i32 @mpa_layer(ptr noundef %7)
+  %139 = icmp sge i32 %138, 0
+  br i1 %139, label %140, label %148
 
-142:                                              ; preds = %139
-  %143 = call i32 @mpa_frequency(ptr noundef %7)
-  %144 = icmp ugt i32 %143, 0
-  br i1 %144, label %145, label %147
+140:                                              ; preds = %137
+  %141 = call i32 @mpa_bitrate(ptr noundef %7)
+  %142 = icmp ugt i32 %141, 0
+  br i1 %142, label %143, label %148
 
-145:                                              ; preds = %142
-  %146 = load i32, ptr %5, align 4
-  store i32 %146, ptr %3, align 4
-  br label %155
+143:                                              ; preds = %140
+  %144 = call i32 @mpa_frequency(ptr noundef %7)
+  %145 = icmp ugt i32 %144, 0
+  br i1 %145, label %146, label %148
 
-147:                                              ; preds = %142, %139, %136, %133, %129
-  %148 = load ptr, ptr %4, align 8
-  %149 = load i32, ptr %5, align 4
-  %150 = add i32 %149, 1
-  %151 = call i32 @tvb_find_guint8(ptr noundef %148, i32 noundef %150, i32 noundef -1, i8 noundef zeroext -1)
-  store i32 %151, ptr %5, align 4
-  br label %11, !llvm.loop !6
+146:                                              ; preds = %143
+  %147 = load i32, ptr %5, align 4
+  store i32 %147, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %156
 
-152:                                              ; preds = %19
-  %153 = load ptr, ptr %4, align 8
-  %154 = call i32 @tvb_reported_length(ptr noundef %153)
-  store i32 %154, ptr %3, align 4
-  br label %155
+148:                                              ; preds = %143, %140, %137, %134, %130
+  %149 = load ptr, ptr %4, align 8
+  %150 = load i32, ptr %5, align 4
+  %151 = add i32 %150, 1
+  %152 = call i32 @tvb_find_uint8(ptr noundef %149, i32 noundef %151, i32 noundef -1, i8 noundef zeroext -1)
+  store i32 %152, ptr %5, align 4
+  br label %12, !llvm.loop !8
 
-155:                                              ; preds = %152, %145
-  %156 = load i32, ptr %3, align 4
-  ret i32 %156
+153:                                              ; preds = %19
+  %154 = load ptr, ptr %4, align 8
+  %155 = call i32 @tvb_reported_length(ptr noundef %154)
+  store i32 %155, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %156
+
+156:                                              ; preds = %153, %146
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  %157 = load i32, ptr %3, align 4
+  ret i32 %157
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @asn1_ctx_init(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_audio_ID3v1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1015,9 +1077,10 @@ define internal i32 @dissect_mpeg_audio_ID3v1(ptr noundef %0, i32 noundef %1, pt
   ret i32 %18
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_per_sequence(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_audio_OCTET_STRING_SIZE_3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1034,13 +1097,13 @@ define internal i32 @dissect_mpeg_audio_OCTET_STRING_SIZE_3(ptr noundef %0, i32 
   %13 = load ptr, ptr %8, align 8
   %14 = load ptr, ptr %9, align 8
   %15 = load i32, ptr %10, align 4
-  %16 = call i32 @dissect_per_octet_string(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 3, i32 noundef 3, i32 noundef 0, ptr noundef null)
+  %16 = call i32 @dissect_per_octet_string(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 3, i32 noundef 3, i1 noundef zeroext false, ptr noundef null)
   store i32 %16, ptr %7, align 4
   %17 = load i32, ptr %7, align 4
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_audio_OCTET_STRING_SIZE_30(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1057,13 +1120,13 @@ define internal i32 @dissect_mpeg_audio_OCTET_STRING_SIZE_30(ptr noundef %0, i32
   %13 = load ptr, ptr %8, align 8
   %14 = load ptr, ptr %9, align 8
   %15 = load i32, ptr %10, align 4
-  %16 = call i32 @dissect_per_octet_string(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 30, i32 noundef 30, i32 noundef 0, ptr noundef null)
+  %16 = call i32 @dissect_per_octet_string(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 30, i32 noundef 30, i1 noundef zeroext false, ptr noundef null)
   store i32 %16, ptr %7, align 4
   %17 = load i32, ptr %7, align 4
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_audio_OCTET_STRING_SIZE_4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1080,13 +1143,13 @@ define internal i32 @dissect_mpeg_audio_OCTET_STRING_SIZE_4(ptr noundef %0, i32 
   %13 = load ptr, ptr %8, align 8
   %14 = load ptr, ptr %9, align 8
   %15 = load i32, ptr %10, align 4
-  %16 = call i32 @dissect_per_octet_string(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 4, i32 noundef 4, i32 noundef 0, ptr noundef null)
+  %16 = call i32 @dissect_per_octet_string(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 4, i32 noundef 4, i1 noundef zeroext false, ptr noundef null)
   store i32 %16, ptr %7, align 4
   %17 = load i32, ptr %7, align 4
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_audio_OCTET_STRING_SIZE_28(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1103,13 +1166,13 @@ define internal i32 @dissect_mpeg_audio_OCTET_STRING_SIZE_28(ptr noundef %0, i32
   %13 = load ptr, ptr %8, align 8
   %14 = load ptr, ptr %9, align 8
   %15 = load i32, ptr %10, align 4
-  %16 = call i32 @dissect_per_octet_string(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 28, i32 noundef 28, i32 noundef 0, ptr noundef null)
+  %16 = call i32 @dissect_per_octet_string(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 28, i32 noundef 28, i1 noundef zeroext false, ptr noundef null)
   store i32 %16, ptr %7, align 4
   %17 = load i32, ptr %7, align 4
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_audio_INTEGER_0_255(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1126,13 +1189,13 @@ define internal i32 @dissect_mpeg_audio_INTEGER_0_255(ptr noundef %0, i32 nounde
   %13 = load ptr, ptr %8, align 8
   %14 = load ptr, ptr %9, align 8
   %15 = load i32, ptr %10, align 4
-  %16 = call i32 @dissect_per_constrained_integer(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 0, i32 noundef 255, ptr noundef null, i32 noundef 0)
+  %16 = call i32 @dissect_per_constrained_integer(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 0, i32 noundef 255, ptr noundef null, i1 noundef zeroext false)
   store i32 %16, ptr %7, align 4
   %17 = load i32, ptr %7, align 4
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_audio_T_genre(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1149,35 +1212,46 @@ define internal i32 @dissect_mpeg_audio_T_genre(ptr noundef %0, i32 noundef %1, 
   %13 = load ptr, ptr %8, align 8
   %14 = load ptr, ptr %9, align 8
   %15 = load i32, ptr %10, align 4
-  %16 = call i32 @dissect_per_constrained_integer(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 0, i32 noundef 255, ptr noundef null, i32 noundef 0)
+  %16 = call i32 @dissect_per_constrained_integer(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 0, i32 noundef 255, ptr noundef null, i1 noundef zeroext false)
   store i32 %16, ptr %7, align 4
   %17 = load i32, ptr %7, align 4
   ret i32 %17
 }
 
-declare i32 @dissect_per_octet_string(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_per_octet_string(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) #1
 
-declare i32 @dissect_per_constrained_integer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_per_constrained_integer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext) #1
 
-declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @mpa_version(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @mpa_layer(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @mpa_bitrate(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @mpa_frequency(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @mpa_samples(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_audio_Audio(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1201,9 +1275,10 @@ define internal i32 @dissect_mpeg_audio_Audio(ptr noundef %0, i32 noundef %1, pt
   ret i32 %18
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @mpa_padding(ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_audio_BIT_STRING_SIZE_11(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1220,13 +1295,13 @@ define internal i32 @dissect_mpeg_audio_BIT_STRING_SIZE_11(ptr noundef %0, i32 n
   %13 = load ptr, ptr %8, align 8
   %14 = load ptr, ptr %9, align 8
   %15 = load i32, ptr %10, align 4
-  %16 = call i32 @dissect_per_bit_string(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 11, i32 noundef 11, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %16 = call i32 @dissect_per_bit_string(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 11, i32 noundef 11, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null)
   store i32 %16, ptr %7, align 4
   %17 = load i32, ptr %7, align 4
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_audio_T_version(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1243,13 +1318,13 @@ define internal i32 @dissect_mpeg_audio_T_version(ptr noundef %0, i32 noundef %1
   %13 = load ptr, ptr %8, align 8
   %14 = load ptr, ptr %9, align 8
   %15 = load i32, ptr %10, align 4
-  %16 = call i32 @dissect_per_enumerated(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 4, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %16 = call i32 @dissect_per_enumerated(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 4, ptr noundef null, i1 noundef zeroext false, i32 noundef 0, ptr noundef null)
   store i32 %16, ptr %7, align 4
   %17 = load i32, ptr %7, align 4
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_audio_T_layer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1266,13 +1341,13 @@ define internal i32 @dissect_mpeg_audio_T_layer(ptr noundef %0, i32 noundef %1, 
   %13 = load ptr, ptr %8, align 8
   %14 = load ptr, ptr %9, align 8
   %15 = load i32, ptr %10, align 4
-  %16 = call i32 @dissect_per_enumerated(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 4, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %16 = call i32 @dissect_per_enumerated(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 4, ptr noundef null, i1 noundef zeroext false, i32 noundef 0, ptr noundef null)
   store i32 %16, ptr %7, align 4
   %17 = load i32, ptr %7, align 4
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_audio_T_protection(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1289,13 +1364,13 @@ define internal i32 @dissect_mpeg_audio_T_protection(ptr noundef %0, i32 noundef
   %13 = load ptr, ptr %8, align 8
   %14 = load ptr, ptr %9, align 8
   %15 = load i32, ptr %10, align 4
-  %16 = call i32 @dissect_per_enumerated(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 2, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %16 = call i32 @dissect_per_enumerated(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 2, ptr noundef null, i1 noundef zeroext false, i32 noundef 0, ptr noundef null)
   store i32 %16, ptr %7, align 4
   %17 = load i32, ptr %7, align 4
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_audio_INTEGER_0_15(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1312,13 +1387,13 @@ define internal i32 @dissect_mpeg_audio_INTEGER_0_15(ptr noundef %0, i32 noundef
   %13 = load ptr, ptr %8, align 8
   %14 = load ptr, ptr %9, align 8
   %15 = load i32, ptr %10, align 4
-  %16 = call i32 @dissect_per_constrained_integer(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 0, i32 noundef 15, ptr noundef null, i32 noundef 0)
+  %16 = call i32 @dissect_per_constrained_integer(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 0, i32 noundef 15, ptr noundef null, i1 noundef zeroext false)
   store i32 %16, ptr %7, align 4
   %17 = load i32, ptr %7, align 4
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_audio_INTEGER_0_3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1335,13 +1410,13 @@ define internal i32 @dissect_mpeg_audio_INTEGER_0_3(ptr noundef %0, i32 noundef 
   %13 = load ptr, ptr %8, align 8
   %14 = load ptr, ptr %9, align 8
   %15 = load i32, ptr %10, align 4
-  %16 = call i32 @dissect_per_constrained_integer(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 0, i32 noundef 3, ptr noundef null, i32 noundef 0)
+  %16 = call i32 @dissect_per_constrained_integer(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 0, i32 noundef 3, ptr noundef null, i1 noundef zeroext false)
   store i32 %16, ptr %7, align 4
   %17 = load i32, ptr %7, align 4
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_audio_BOOLEAN(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1364,7 +1439,7 @@ define internal i32 @dissect_mpeg_audio_BOOLEAN(ptr noundef %0, i32 noundef %1, 
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_audio_T_channel_mode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1381,13 +1456,13 @@ define internal i32 @dissect_mpeg_audio_T_channel_mode(ptr noundef %0, i32 nound
   %13 = load ptr, ptr %8, align 8
   %14 = load ptr, ptr %9, align 8
   %15 = load i32, ptr %10, align 4
-  %16 = call i32 @dissect_per_enumerated(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 4, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %16 = call i32 @dissect_per_enumerated(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 4, ptr noundef null, i1 noundef zeroext false, i32 noundef 0, ptr noundef null)
   store i32 %16, ptr %7, align 4
   %17 = load i32, ptr %7, align 4
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_audio_T_emphasis(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1404,67 +1479,77 @@ define internal i32 @dissect_mpeg_audio_T_emphasis(ptr noundef %0, i32 noundef %
   %13 = load ptr, ptr %8, align 8
   %14 = load ptr, ptr %9, align 8
   %15 = load i32, ptr %10, align 4
-  %16 = call i32 @dissect_per_enumerated(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 4, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %16 = call i32 @dissect_per_enumerated(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef 4, ptr noundef null, i1 noundef zeroext false, i32 noundef 0, ptr noundef null)
   store i32 %16, ptr %7, align 4
   %17 = load i32, ptr %7, align 4
   ret i32 %17
 }
 
-declare i32 @dissect_per_bit_string(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_per_bit_string(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
-declare i32 @dissect_per_enumerated(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_per_enumerated(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_per_boolean(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
-declare i32 @tvb_find_guint8(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_find_uint8(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext) #1
 
-declare i32 @tvb_get_guint32(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_uint32(ptr noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @test_mpeg_audio(ptr noundef %0, i32 noundef %1) #0 {
-  %3 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @test_mpeg_audio(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i1, align 1
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca %struct.mpa, align 4
+  %8 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i32, ptr %5, align 4
-  %10 = call i32 @tvb_bytes_exist(ptr noundef %8, i32 noundef %9, i32 noundef 4)
-  %11 = icmp ne i32 %10, 0
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %9 = load ptr, ptr %4, align 8
+  %10 = load i32, ptr %5, align 4
+  %11 = call zeroext i1 @tvb_bytes_exist(ptr noundef %9, i32 noundef %10, i32 noundef 4)
   br i1 %11, label %13, label %12
 
 12:                                               ; preds = %2
-  store i32 0, ptr %3, align 4
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %8, align 4
   br label %152
 
 13:                                               ; preds = %2
   %14 = load ptr, ptr %4, align 8
   %15 = load i32, ptr %5, align 4
-  %16 = call i32 @tvb_strneql(ptr noundef %14, i32 noundef %15, ptr noundef @.str.217, i64 noundef 3)
+  %16 = call i32 @tvb_strneql(ptr noundef %14, i32 noundef %15, ptr noundef @.str.223, i64 noundef 3)
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %13
-  store i32 1, ptr %3, align 4
+  store i1 true, ptr %3, align 1
+  store i32 1, ptr %8, align 4
   br label %152
 
 19:                                               ; preds = %13
   %20 = load ptr, ptr %4, align 8
   %21 = load i32, ptr %5, align 4
-  %22 = call i32 @tvb_strneql(ptr noundef %20, i32 noundef %21, ptr noundef @.str.218, i64 noundef 3)
+  %22 = call i32 @tvb_strneql(ptr noundef %20, i32 noundef %21, ptr noundef @.str.224, i64 noundef 3)
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %19
-  store i32 1, ptr %3, align 4
+  store i1 true, ptr %3, align 1
+  store i32 1, ptr %8, align 4
   br label %152
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %4, align 8
   %27 = load i32, ptr %5, align 4
-  %28 = call i32 @tvb_get_guint32(ptr noundef %26, i32 noundef %27, i32 noundef 0)
+  %28 = call i32 @tvb_get_uint32(ptr noundef %26, i32 noundef %27, i32 noundef 0)
   store i32 %28, ptr %6, align 4
   br label %29
 
@@ -1588,53 +1673,63 @@ define internal i32 @test_mpeg_audio(ptr noundef %0, i32 noundef %1) #0 {
   br label %133
 
 133:                                              ; preds = %29
-  %134 = load i32, ptr %7, align 4
-  %135 = lshr i32 %134, 21
-  %136 = icmp eq i32 %135, 2047
-  br i1 %136, label %137, label %149
+  br label %134
 
-137:                                              ; preds = %133
-  %138 = call i32 @mpa_version(ptr noundef %7)
-  %139 = icmp sge i32 %138, 0
-  br i1 %139, label %140, label %149
+134:                                              ; preds = %133
+  %135 = load i32, ptr %7, align 4
+  %136 = lshr i32 %135, 21
+  %137 = icmp eq i32 %136, 2047
+  br i1 %137, label %138, label %150
 
-140:                                              ; preds = %137
-  %141 = call i32 @mpa_layer(ptr noundef %7)
-  %142 = icmp sge i32 %141, 0
-  br i1 %142, label %143, label %149
+138:                                              ; preds = %134
+  %139 = call i32 @mpa_version(ptr noundef %7)
+  %140 = icmp sge i32 %139, 0
+  br i1 %140, label %141, label %150
 
-143:                                              ; preds = %140
-  %144 = call i32 @mpa_bitrate(ptr noundef %7)
-  %145 = icmp ugt i32 %144, 0
-  br i1 %145, label %146, label %149
+141:                                              ; preds = %138
+  %142 = call i32 @mpa_layer(ptr noundef %7)
+  %143 = icmp sge i32 %142, 0
+  br i1 %143, label %144, label %150
 
-146:                                              ; preds = %143
-  %147 = call i32 @mpa_frequency(ptr noundef %7)
-  %148 = icmp ugt i32 %147, 0
-  br label %149
+144:                                              ; preds = %141
+  %145 = call i32 @mpa_bitrate(ptr noundef %7)
+  %146 = icmp ugt i32 %145, 0
+  br i1 %146, label %147, label %150
 
-149:                                              ; preds = %146, %143, %140, %137, %133
-  %150 = phi i1 [ false, %143 ], [ false, %140 ], [ false, %137 ], [ false, %133 ], [ %148, %146 ]
-  %151 = zext i1 %150 to i32
-  store i32 %151, ptr %3, align 4
+147:                                              ; preds = %144
+  %148 = call i32 @mpa_frequency(ptr noundef %7)
+  %149 = icmp ugt i32 %148, 0
+  br label %150
+
+150:                                              ; preds = %147, %144, %141, %138, %134
+  %151 = phi i1 [ false, %144 ], [ false, %141 ], [ false, %138 ], [ false, %134 ], [ %149, %147 ]
+  store i1 %151, ptr %3, align 1
+  store i32 1, ptr %8, align 4
   br label %152
 
-152:                                              ; preds = %149, %24, %18, %12
-  %153 = load i32, ptr %3, align 4
-  ret i32 %153
+152:                                              ; preds = %150, %24, %18, %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  %153 = load i1, ptr %3, align 1
+  ret i1 %153
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_strneql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

@@ -3,17 +3,16 @@ source_filename = "bench/wireshark/original/wtap_opttypes.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.wtap_blocktype_t = type { i32, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.wtap_opttype_t = type { ptr, ptr, i32, i32 }
 %struct.wtap_option_t = type { i32, %union.wtap_optval_t }
 %union.wtap_optval_t = type { %struct.custom_opt_s }
 %struct.custom_opt_s = type { i32, %union.anon.0 }
 %union.anon.0 = type { %struct.nflx_custom_opt_data }
-%struct.nflx_custom_opt_data = type { i32, i64, ptr, i32 }
+%struct.nflx_custom_opt_data = type { i32, i64, ptr, i8 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @blocktype_list = internal unnamed_addr global [12 x ptr] zeroinitializer, align 16
-@wtap_opttypes_initialize.shb_block = internal global %struct.wtap_blocktype_t { i32 0, ptr @.str, ptr @.str.1, ptr @shb_create, ptr null, ptr @shb_copy_mand, ptr null }, align 8
+@wtap_opttypes_initialize.shb_block = internal global { i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str, ptr @.str.1, ptr @shb_create, ptr null, ptr @shb_copy_mand, ptr null }, align 8
 @.str = private unnamed_addr constant [4 x i8] c"SHB\00", align 1
 @.str.1 = private unnamed_addr constant [21 x i8] c"Section Header Block\00", align 1
 @wtap_opttypes_initialize.shb_hardware = internal constant %struct.wtap_opttype_t { ptr @.str.2, ptr @.str.3, i32 3, i32 0 }, align 8
@@ -25,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @wtap_opttypes_initialize.shb_userappl = internal constant %struct.wtap_opttype_t { ptr @.str.6, ptr @.str.7, i32 3, i32 0 }, align 8
 @.str.6 = private unnamed_addr constant [10 x i8] c"user_appl\00", align 1
 @.str.7 = private unnamed_addr constant [21 x i8] c"SHB User Application\00", align 1
-@wtap_opttypes_initialize.idb_block = internal global %struct.wtap_blocktype_t { i32 1, ptr @.str.8, ptr @.str.9, ptr @idb_create, ptr @idb_free_mand, ptr @idb_copy_mand, ptr null }, align 8
+@wtap_opttypes_initialize.idb_block = internal global { i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.8, ptr @.str.9, ptr @idb_create, ptr @idb_free_mand, ptr @idb_copy_mand, ptr null }, align 8
 @.str.8 = private unnamed_addr constant [4 x i8] c"IDB\00", align 1
 @.str.9 = private unnamed_addr constant [28 x i8] c"Interface Description Block\00", align 1
 @wtap_opttypes_initialize.if_name = internal constant %struct.wtap_opttype_t { ptr @.str.10, ptr @.str.11, i32 3, i32 0 }, align 8
@@ -53,10 +52,10 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.24 = private unnamed_addr constant [22 x i8] c"IDB Time Stamp Offset\00", align 1
 @wtap_opttypes_initialize.if_hardware = internal constant %struct.wtap_opttype_t { ptr @.str.2, ptr @.str.25, i32 3, i32 0 }, align 8
 @.str.25 = private unnamed_addr constant [13 x i8] c"IDB Hardware\00", align 1
-@wtap_opttypes_initialize.dsb_block = internal global %struct.wtap_blocktype_t { i32 4, ptr @.str.26, ptr @.str.27, ptr @dsb_create, ptr @dsb_free_mand, ptr @dsb_copy_mand, ptr null }, align 8
+@wtap_opttypes_initialize.dsb_block = internal global { i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.26, ptr @.str.27, ptr @dsb_create, ptr @dsb_free_mand, ptr @dsb_copy_mand, ptr null }, align 8
 @.str.26 = private unnamed_addr constant [4 x i8] c"DSB\00", align 1
 @.str.27 = private unnamed_addr constant [25 x i8] c"Decryption Secrets Block\00", align 1
-@wtap_opttypes_initialize.nrb_block = internal global %struct.wtap_blocktype_t { i32 2, ptr @.str.28, ptr @.str.29, ptr @nrb_create, ptr @nrb_free_mand, ptr null, ptr null }, align 8
+@wtap_opttypes_initialize.nrb_block = internal global { i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.28, ptr @.str.29, ptr @nrb_create, ptr @nrb_free_mand, ptr null, ptr null }, align 8
 @.str.28 = private unnamed_addr constant [4 x i8] c"NRB\00", align 1
 @.str.29 = private unnamed_addr constant [22 x i8] c"Name Resolution Block\00", align 1
 @wtap_opttypes_initialize.ns_dnsname = internal constant %struct.wtap_opttype_t { ptr @.str.30, ptr @.str.31, i32 3, i32 0 }, align 8
@@ -68,7 +67,7 @@ target triple = "x86_64-pc-linux-gnu"
 @wtap_opttypes_initialize.ns_dnsIP6addr = internal constant %struct.wtap_opttype_t { ptr @.str.34, ptr @.str.35, i32 6, i32 0 }, align 8
 @.str.34 = private unnamed_addr constant [11 x i8] c"dnsIP6addr\00", align 1
 @.str.35 = private unnamed_addr constant [28 x i8] c"NRB DNS server IPv6 address\00", align 1
-@wtap_opttypes_initialize.isb_block = internal global %struct.wtap_blocktype_t { i32 3, ptr @.str.36, ptr @.str.37, ptr @isb_create, ptr null, ptr @isb_copy_mand, ptr null }, align 8
+@wtap_opttypes_initialize.isb_block = internal global { i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.36, ptr @.str.37, ptr @isb_create, ptr null, ptr @isb_copy_mand, ptr null }, align 8
 @.str.36 = private unnamed_addr constant [4 x i8] c"ISB\00", align 1
 @.str.37 = private unnamed_addr constant [27 x i8] c"Interface Statistics Block\00", align 1
 @wtap_opttypes_initialize.isb_starttime = internal constant %struct.wtap_opttype_t { ptr @.str.38, ptr @.str.39, i32 2, i32 0 }, align 8
@@ -92,10 +91,10 @@ target triple = "x86_64-pc-linux-gnu"
 @wtap_opttypes_initialize.isb_usrdeliv = internal constant %struct.wtap_opttype_t { ptr @.str.50, ptr @.str.51, i32 2, i32 0 }, align 8
 @.str.50 = private unnamed_addr constant [9 x i8] c"usrdeliv\00", align 1
 @.str.51 = private unnamed_addr constant [34 x i8] c"ISB Packets Delivered To The User\00", align 1
-@wtap_opttypes_initialize.mev_block = internal global %struct.wtap_blocktype_t { i32 9, ptr @.str.52, ptr @.str.53, ptr @mev_create, ptr @mev_free_mand, ptr @mev_copy_mand, ptr null }, align 8
+@wtap_opttypes_initialize.mev_block = internal global { i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.52, ptr @.str.53, ptr @mev_create, ptr @mev_free_mand, ptr @mev_copy_mand, ptr null }, align 8
 @.str.52 = private unnamed_addr constant [4 x i8] c"MEV\00", align 1
 @.str.53 = private unnamed_addr constant [17 x i8] c"Meta Event Block\00", align 1
-@wtap_opttypes_initialize.pkt_block = internal global %struct.wtap_blocktype_t { i32 5, ptr @.str.54, ptr @.str.55, ptr @pkt_create, ptr null, ptr null, ptr null }, align 8
+@wtap_opttypes_initialize.pkt_block = internal global { i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.54, ptr @.str.55, ptr @pkt_create, ptr null, ptr null, ptr null }, align 8
 @.str.54 = private unnamed_addr constant [11 x i8] c"EPB/SPB/PB\00", align 1
 @.str.55 = private unnamed_addr constant [13 x i8] c"Packet Block\00", align 1
 @wtap_opttypes_initialize.pkt_flags = internal constant %struct.wtap_opttype_t { ptr @.str.56, ptr @.str.57, i32 1, i32 0 }, align 8
@@ -116,10 +115,10 @@ target triple = "x86_64-pc-linux-gnu"
 @wtap_opttypes_initialize.pkt_verdict = internal constant %struct.wtap_opttype_t { ptr @.str.66, ptr @.str.67, i32 9, i32 1 }, align 8
 @.str.66 = private unnamed_addr constant [8 x i8] c"verdict\00", align 1
 @.str.67 = private unnamed_addr constant [15 x i8] c"Packet Verdict\00", align 1
-@wtap_opttypes_initialize.journal_block = internal global %struct.wtap_blocktype_t { i32 10, ptr @.str.68, ptr @.str.69, ptr @sjeb_create, ptr null, ptr null, ptr null }, align 8
+@wtap_opttypes_initialize.journal_block = internal global { i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.68, ptr @.str.69, ptr @sjeb_create, ptr null, ptr null, ptr null }, align 8
 @.str.68 = private unnamed_addr constant [5 x i8] c"SJEB\00", align 1
 @.str.69 = private unnamed_addr constant [29 x i8] c"systemd Journal Export Block\00", align 1
-@wtap_opttypes_initialize.cb_block = internal global %struct.wtap_blocktype_t { i32 11, ptr @.str.70, ptr @.str.71, ptr @cb_create, ptr null, ptr null, ptr null }, align 8
+@wtap_opttypes_initialize.cb_block = internal global { i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.70, ptr @.str.71, ptr @cb_create, ptr null, ptr null, ptr null }, align 8
 @.str.70 = private unnamed_addr constant [3 x i8] c"CB\00", align 1
 @.str.71 = private unnamed_addr constant [13 x i8] c"Custom Block\00", align 1
 @wtap_opttype_block_register.opt_comment = internal constant %struct.wtap_opttype_t { ptr @.str.72, ptr @.str.73, i32 3, i32 1 }, align 8
@@ -129,7 +128,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.74 = private unnamed_addr constant [11 x i8] c"opt_custom\00", align 1
 @.str.75 = private unnamed_addr constant [14 x i8] c"Custom Option\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @wtap_packet_verdict_free(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %cond = icmp eq i32 %2, 0
@@ -138,54 +137,55 @@ define void @wtap_packet_verdict_free(ptr noundef readonly captures(none) %0) lo
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr @g_byte_array_free(ptr noundef %5, i32 noundef 1) #15
+  %6 = tail call ptr @g_byte_array_free(ptr noundef %5, i32 noundef 1)
   br label %7
 
 7:                                                ; preds = %1, %3
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @g_byte_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @wtap_packet_hash_free(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @g_byte_array_free(ptr noundef %3, i32 noundef 1) #15
+  %4 = tail call ptr @g_byte_array_free(ptr noundef %3, i32 noundef 1)
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @wtap_block_get_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
 define ptr @wtap_block_get_mandatory_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noundef ptr @wtap_block_create(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ugt i32 %0, 11
   br i1 %2, label %13, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #16
+  %4 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #16
   %5 = zext nneg i32 %0 to i64
   %6 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %4, align 8
-  %8 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 48) #15
+  %8 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 48)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull %4) #15
+  tail call void %11(ptr noundef %4)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 1, ptr %12, align 8
   br label %13
@@ -195,13 +195,20 @@ define noundef ptr @wtap_block_create(i32 noundef %0) local_unnamed_addr #0 {
   ret ptr %.0
 }
 
-; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
+; Function Attrs: null_pointer_is_valid allocsize(0)
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @g_array_new(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @wtap_block_ref(ptr noundef returned captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #5 {
+; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: readwrite) uwtable
+define noundef ptr @wtap_block_ref(ptr noundef returned captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -214,7 +221,7 @@ define noundef ptr @wtap_block_ref(ptr noundef returned captures(address_is_null
   ret ptr %0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @wtap_block_unref(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %31, label %2
@@ -233,13 +240,13 @@ define void @wtap_block_unref(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %11, label %10
 
 10:                                               ; preds = %6
-  tail call void %9(ptr noundef nonnull %0) #15
+  tail call void %9(ptr noundef nonnull %0)
   br label %11
 
 11:                                               ; preds = %10, %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
-  tail call void @g_free(ptr noundef %13) #15
+  tail call void @g_free(ptr noundef %13)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
@@ -266,30 +273,32 @@ define void @wtap_block_unref(ptr noundef %0) local_unnamed_addr #0 {
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
   %27 = icmp samesign ult i64 %indvars.iv.next.i, %26
-  br i1 %27, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4
+  br i1 %27, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %.lcssa12.i = phi ptr [ %15, %.preheader.i ], [ %23, %.lr.ph.i ]
   %.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %25, %.lr.ph.i ]
-  %28 = tail call ptr @g_array_remove_range(ptr noundef nonnull %.lcssa12.i, i32 noundef 0, i32 noundef %.lcssa.i) #15
+  %28 = tail call ptr @g_array_remove_range(ptr noundef %.lcssa12.i, i32 noundef 0, i32 noundef %.lcssa.i)
   %.pre = load ptr, ptr %14, align 8
   br label %wtap_block_free_options.exit
 
 wtap_block_free_options.exit:                     ; preds = %11, %._crit_edge.i
   %29 = phi ptr [ null, %11 ], [ %.pre, %._crit_edge.i ]
-  %30 = tail call ptr @g_array_free(ptr noundef %29, i32 noundef 1) #15
-  tail call void @g_free(ptr noundef nonnull %0) #15
+  %30 = tail call ptr @g_array_free(ptr noundef %29, i32 noundef 1)
+  tail call void @g_free(ptr noundef nonnull %0)
   br label %31
 
 31:                                               ; preds = %2, %wtap_block_free_options.exit, %1
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @g_free(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @g_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @wtap_block_array_free(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %12, label %.preheader
@@ -310,17 +319,95 @@ define void @wtap_block_array_free(ptr noundef %0) local_unnamed_addr #0 {
   %8 = load i32, ptr %3, align 8
   %9 = zext i32 %8 to i64
   %10 = icmp samesign ult i64 %indvars.iv.next, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %11 = tail call ptr @g_array_free(ptr noundef nonnull %0, i32 noundef 1) #15
+  %11 = tail call ptr @g_array_free(ptr noundef nonnull %0, i32 noundef 1)
   br label %12
 
 12:                                               ; preds = %1, %._crit_edge
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define void @wtap_block_array_ref(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %17, label %.preheader
+
+.preheader:                                       ; preds = %1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load i32, ptr %3, align 8
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.preheader, %wtap_block_ref.exit
+  %5 = phi i32 [ %13, %wtap_block_ref.exit ], [ %4, %.preheader ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %wtap_block_ref.exit ], [ 0, %.preheader ]
+  %6 = load ptr, ptr %0, align 8
+  %7 = getelementptr ptr, ptr %6, i64 %indvars.iv
+  %8 = load ptr, ptr %7, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %wtap_block_ref.exit, label %10
+
+10:                                               ; preds = %.lr.ph
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %12 = atomicrmw add ptr %11, i32 1 seq_cst, align 8
+  %.pre = load i32, ptr %3, align 8
+  br label %wtap_block_ref.exit
+
+wtap_block_ref.exit:                              ; preds = %.lr.ph, %10
+  %13 = phi i32 [ %5, %.lr.ph ], [ %.pre, %10 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %14 = zext i32 %13 to i64
+  %15 = icmp samesign ult i64 %indvars.iv.next, %14
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+
+._crit_edge:                                      ; preds = %wtap_block_ref.exit, %.preheader
+  %16 = tail call ptr @g_array_ref(ptr noundef nonnull %0)
+  br label %17
+
+17:                                               ; preds = %1, %._crit_edge
+  ret void
+}
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_array_ref(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define void @wtap_block_array_unref(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %11, label %.preheader
+
+.preheader:                                       ; preds = %1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load i32, ptr %3, align 8
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
+  %5 = load ptr, ptr %0, align 8
+  %6 = getelementptr ptr, ptr %5, i64 %indvars.iv
+  %7 = load ptr, ptr %6, align 8
+  tail call void @wtap_block_unref(ptr noundef %7)
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %8 = load i32, ptr %3, align 8
+  %9 = zext i32 %8 to i64
+  %10 = icmp samesign ult i64 %indvars.iv.next, %9
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+
+._crit_edge:                                      ; preds = %.lr.ph, %.preheader
+  tail call void @g_array_unref(ptr noundef nonnull %0)
+  br label %11
+
+11:                                               ; preds = %1, %._crit_edge
+  ret void
+}
+
+; Function Attrs: null_pointer_is_valid
+declare void @g_array_unref(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -329,7 +416,7 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %2
-  tail call void %5(ptr noundef nonnull %0, ptr noundef %1) #15
+  tail call void %5(ptr noundef %0, ptr noundef %1)
   br label %7
 
 7:                                                ; preds = %6, %2
@@ -341,792 +428,827 @@ define void @wtap_block_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %.not174, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %13
+  %12 = icmp eq ptr %0, null
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %14
 
-13:                                               ; preds = %.lr.ph, %wtap_block_add_uint8_option.exit
+14:                                               ; preds = %.lr.ph, %wtap_block_add_uint8_option.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %wtap_block_add_uint8_option.exit ]
-  %14 = phi ptr [ %9, %.lr.ph ], [ %452, %wtap_block_add_uint8_option.exit ]
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr %struct.wtap_option_t, ptr %15, i64 %indvars.iv
-  %17 = load ptr, ptr %1, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  %19 = load ptr, ptr %18, align 8
-  %20 = load i32, ptr %16, align 8
-  %21 = zext i32 %20 to i64
-  %22 = inttoptr i64 %21 to ptr
-  %23 = tail call ptr @g_hash_table_lookup(ptr noundef %19, ptr noundef %22) #15
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %25 = load i32, ptr %24, align 8
-  switch i32 %25, label %wtap_block_add_uint8_option.exit [
-    i32 0, label %26
-    i32 1, label %62
-    i32 2, label %98
-    i32 11, label %134
-    i32 12, label %170
-    i32 13, label %206
-    i32 5, label %242
-    i32 6, label %278
-    i32 3, label %313
-    i32 4, label %351
-    i32 7, label %388
-    i32 8, label %440
-    i32 9, label %444
-    i32 10, label %448
+  %15 = phi ptr [ %9, %.lr.ph ], [ %464, %wtap_block_add_uint8_option.exit ]
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr %struct.wtap_option_t, ptr %16, i64 %indvars.iv
+  %18 = load ptr, ptr %1, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i32, ptr %17, align 8
+  %22 = zext i32 %21 to i64
+  %23 = inttoptr i64 %22 to ptr
+  %24 = tail call ptr @g_hash_table_lookup(ptr noundef %20, ptr noundef %23)
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %26 = load i32, ptr %25, align 8
+  switch i32 %26, label %wtap_block_add_uint8_option.exit [
+    i32 0, label %27
+    i32 1, label %64
+    i32 2, label %101
+    i32 11, label %138
+    i32 12, label %175
+    i32 13, label %212
+    i32 5, label %249
+    i32 6, label %286
+    i32 3, label %322
+    i32 4, label %361
+    i32 7, label %399
+    i32 8, label %452
+    i32 9, label %456
+    i32 10, label %460
   ]
 
-26:                                               ; preds = %13
-  %27 = load i32, ptr %16, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %29 = load i8, ptr %28, align 8
-  %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  %32 = load ptr, ptr %31, align 8
-  %33 = zext i32 %27 to i64
-  %34 = inttoptr i64 %33 to ptr
-  %35 = tail call ptr @g_hash_table_lookup(ptr noundef %32, ptr noundef %34) #15
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %wtap_block_add_uint8_option.exit, label %37
+27:                                               ; preds = %14
+  %28 = load i32, ptr %17, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %30 = load i8, ptr %29, align 8
+  br i1 %12, label %wtap_block_add_uint8_option.exit, label %31
 
-37:                                               ; preds = %26
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %39 = load i32, ptr %38, align 8
-  %.not.i.i = icmp eq i32 %39, 0
-  br i1 %.not.i.i, label %40, label %wtap_block_add_uint8_option.exit
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %0, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
+  %34 = load ptr, ptr %33, align 8
+  %35 = zext i32 %28 to i64
+  %36 = inttoptr i64 %35 to ptr
+  %37 = tail call ptr @g_hash_table_lookup(ptr noundef %34, ptr noundef %36)
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %wtap_block_add_uint8_option.exit, label %39
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %35, i64 20
-  %42 = load i32, ptr %41, align 4
-  %43 = and i32 %42, 1
-  %.not20.i.i = icmp eq i32 %43, 0
-  %44 = load ptr, ptr %12, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load i32, ptr %45, align 8
-  br i1 %.not20.i.i, label %47, label %.loopexit.i
+39:                                               ; preds = %31
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %41 = load i32, ptr %40, align 8
+  %.not.i.i = icmp eq i32 %41, 0
+  br i1 %.not.i.i, label %42, label %wtap_block_add_uint8_option.exit
 
-47:                                               ; preds = %40
-  %.not.i.i.i = icmp eq i32 %46, 0
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 20
+  %44 = load i32, ptr %43, align 4
+  %45 = and i32 %44, 1
+  %.not20.i.i = icmp eq i32 %45, 0
+  %46 = load ptr, ptr %13, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %48 = load i32, ptr %47, align 8
+  br i1 %.not20.i.i, label %49, label %.loopexit.i
+
+49:                                               ; preds = %42
+  %.not.i.i.i = icmp eq i32 %48, 0
   br i1 %.not.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %47
-  %48 = load ptr, ptr %44, align 8
-  %wide.trip.count.i.i.i = zext i32 %46 to i64
-  br label %50
+.lr.ph.i.i.i:                                     ; preds = %49
+  %50 = load ptr, ptr %46, align 8
+  %wide.trip.count.i.i.i = zext i32 %48 to i64
+  br label %52
 
-49:                                               ; preds = %50
+51:                                               ; preds = %52
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %.loopexit.i, label %50, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i, label %.loopexit.i, label %52, !llvm.loop !11
 
-50:                                               ; preds = %49, %.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %49 ]
-  %51 = getelementptr %struct.wtap_option_t, ptr %48, i64 %indvars.iv.i.i.i
-  %52 = load i32, ptr %51, align 8
-  %53 = icmp eq i32 %52, %27
-  br i1 %53, label %wtap_block_add_uint8_option.exit, label %49
+52:                                               ; preds = %51, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %51 ]
+  %53 = getelementptr %struct.wtap_option_t, ptr %50, i64 %indvars.iv.i.i.i
+  %54 = load i32, ptr %53, align 8
+  %55 = icmp eq i32 %54, %28
+  br i1 %55, label %wtap_block_add_uint8_option.exit, label %51
 
-.loopexit.i:                                      ; preds = %49, %47, %40
-  %54 = phi i32 [ 0, %47 ], [ %46, %40 ], [ %46, %49 ]
-  %55 = add i32 %54, 1
-  %56 = tail call ptr @g_array_set_size(ptr noundef %44, i32 noundef %55) #15
-  %57 = load ptr, ptr %12, align 8
-  %58 = load ptr, ptr %57, align 8
-  %59 = zext i32 %54 to i64
-  %60 = getelementptr %struct.wtap_option_t, ptr %58, i64 %59
-  store i32 %27, ptr %60, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store i8 %29, ptr %61, align 8
+.loopexit.i:                                      ; preds = %51, %49, %42
+  %56 = phi i32 [ 0, %49 ], [ %48, %42 ], [ %48, %51 ]
+  %57 = add i32 %56, 1
+  %58 = tail call ptr @g_array_set_size(ptr noundef %46, i32 noundef %57)
+  %59 = load ptr, ptr %13, align 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = zext i32 %56 to i64
+  %62 = getelementptr %struct.wtap_option_t, ptr %60, i64 %61
+  store i32 %28, ptr %62, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  store i8 %30, ptr %63, align 8
   br label %wtap_block_add_uint8_option.exit
 
-62:                                               ; preds = %13
-  %63 = load i32, ptr %16, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %65 = load i32, ptr %64, align 8
-  %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 48
-  %68 = load ptr, ptr %67, align 8
-  %69 = zext i32 %63 to i64
-  %70 = inttoptr i64 %69 to ptr
-  %71 = tail call ptr @g_hash_table_lookup(ptr noundef %68, ptr noundef %70) #15
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %wtap_block_add_uint8_option.exit, label %73
+64:                                               ; preds = %14
+  %65 = load i32, ptr %17, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %67 = load i32, ptr %66, align 8
+  br i1 %12, label %wtap_block_add_uint8_option.exit, label %68
 
-73:                                               ; preds = %62
-  %74 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %75 = load i32, ptr %74, align 8
-  %.not.i.i63 = icmp eq i32 %75, 1
-  br i1 %.not.i.i63, label %76, label %wtap_block_add_uint8_option.exit
+68:                                               ; preds = %64
+  %69 = load ptr, ptr %0, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 48
+  %71 = load ptr, ptr %70, align 8
+  %72 = zext i32 %65 to i64
+  %73 = inttoptr i64 %72 to ptr
+  %74 = tail call ptr @g_hash_table_lookup(ptr noundef %71, ptr noundef %73)
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %wtap_block_add_uint8_option.exit, label %76
 
-76:                                               ; preds = %73
-  %77 = getelementptr inbounds nuw i8, ptr %71, i64 20
-  %78 = load i32, ptr %77, align 4
-  %79 = and i32 %78, 1
-  %.not20.i.i65 = icmp eq i32 %79, 0
-  %80 = load ptr, ptr %12, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %82 = load i32, ptr %81, align 8
-  br i1 %.not20.i.i65, label %83, label %.loopexit.i66
+76:                                               ; preds = %68
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  %78 = load i32, ptr %77, align 8
+  %.not.i.i63 = icmp eq i32 %78, 1
+  br i1 %.not.i.i63, label %79, label %wtap_block_add_uint8_option.exit
 
-83:                                               ; preds = %76
-  %.not.i.i.i67 = icmp eq i32 %82, 0
+79:                                               ; preds = %76
+  %80 = getelementptr inbounds nuw i8, ptr %74, i64 20
+  %81 = load i32, ptr %80, align 4
+  %82 = and i32 %81, 1
+  %.not20.i.i65 = icmp eq i32 %82, 0
+  %83 = load ptr, ptr %13, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %85 = load i32, ptr %84, align 8
+  br i1 %.not20.i.i65, label %86, label %.loopexit.i66
+
+86:                                               ; preds = %79
+  %.not.i.i.i67 = icmp eq i32 %85, 0
   br i1 %.not.i.i.i67, label %.loopexit.i66, label %.lr.ph.i.i.i68
 
-.lr.ph.i.i.i68:                                   ; preds = %83
-  %84 = load ptr, ptr %80, align 8
-  %wide.trip.count.i.i.i69 = zext i32 %82 to i64
-  br label %86
+.lr.ph.i.i.i68:                                   ; preds = %86
+  %87 = load ptr, ptr %83, align 8
+  %wide.trip.count.i.i.i69 = zext i32 %85 to i64
+  br label %89
 
-85:                                               ; preds = %86
+88:                                               ; preds = %89
   %indvars.iv.next.i.i.i71 = add nuw nsw i64 %indvars.iv.i.i.i70, 1
   %exitcond.not.i.i.i72 = icmp eq i64 %indvars.iv.next.i.i.i71, %wide.trip.count.i.i.i69
-  br i1 %exitcond.not.i.i.i72, label %.loopexit.i66, label %86, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i72, label %.loopexit.i66, label %89, !llvm.loop !11
 
-86:                                               ; preds = %85, %.lr.ph.i.i.i68
-  %indvars.iv.i.i.i70 = phi i64 [ 0, %.lr.ph.i.i.i68 ], [ %indvars.iv.next.i.i.i71, %85 ]
-  %87 = getelementptr %struct.wtap_option_t, ptr %84, i64 %indvars.iv.i.i.i70
-  %88 = load i32, ptr %87, align 8
-  %89 = icmp eq i32 %88, %63
-  br i1 %89, label %wtap_block_add_uint8_option.exit, label %85
+89:                                               ; preds = %88, %.lr.ph.i.i.i68
+  %indvars.iv.i.i.i70 = phi i64 [ 0, %.lr.ph.i.i.i68 ], [ %indvars.iv.next.i.i.i71, %88 ]
+  %90 = getelementptr %struct.wtap_option_t, ptr %87, i64 %indvars.iv.i.i.i70
+  %91 = load i32, ptr %90, align 8
+  %92 = icmp eq i32 %91, %65
+  br i1 %92, label %wtap_block_add_uint8_option.exit, label %88
 
-.loopexit.i66:                                    ; preds = %85, %83, %76
-  %90 = phi i32 [ 0, %83 ], [ %82, %76 ], [ %82, %85 ]
-  %91 = add i32 %90, 1
-  %92 = tail call ptr @g_array_set_size(ptr noundef %80, i32 noundef %91) #15
-  %93 = load ptr, ptr %12, align 8
-  %94 = load ptr, ptr %93, align 8
-  %95 = zext i32 %90 to i64
-  %96 = getelementptr %struct.wtap_option_t, ptr %94, i64 %95
-  store i32 %63, ptr %96, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store i32 %65, ptr %97, align 8
+.loopexit.i66:                                    ; preds = %88, %86, %79
+  %93 = phi i32 [ 0, %86 ], [ %85, %79 ], [ %85, %88 ]
+  %94 = add i32 %93, 1
+  %95 = tail call ptr @g_array_set_size(ptr noundef %83, i32 noundef %94)
+  %96 = load ptr, ptr %13, align 8
+  %97 = load ptr, ptr %96, align 8
+  %98 = zext i32 %93 to i64
+  %99 = getelementptr %struct.wtap_option_t, ptr %97, i64 %98
+  store i32 %65, ptr %99, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  store i32 %67, ptr %100, align 8
   br label %wtap_block_add_uint8_option.exit
 
-98:                                               ; preds = %13
-  %99 = load i32, ptr %16, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %101 = load i64, ptr %100, align 8
-  %102 = load ptr, ptr %0, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 48
-  %104 = load ptr, ptr %103, align 8
-  %105 = zext i32 %99 to i64
-  %106 = inttoptr i64 %105 to ptr
-  %107 = tail call ptr @g_hash_table_lookup(ptr noundef %104, ptr noundef %106) #15
-  %108 = icmp eq ptr %107, null
-  br i1 %108, label %wtap_block_add_uint8_option.exit, label %109
+101:                                              ; preds = %14
+  %102 = load i32, ptr %17, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %104 = load i64, ptr %103, align 8
+  br i1 %12, label %wtap_block_add_uint8_option.exit, label %105
 
-109:                                              ; preds = %98
-  %110 = getelementptr inbounds nuw i8, ptr %107, i64 16
-  %111 = load i32, ptr %110, align 8
-  %.not.i.i73 = icmp eq i32 %111, 2
-  br i1 %.not.i.i73, label %112, label %wtap_block_add_uint8_option.exit
+105:                                              ; preds = %101
+  %106 = load ptr, ptr %0, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 48
+  %108 = load ptr, ptr %107, align 8
+  %109 = zext i32 %102 to i64
+  %110 = inttoptr i64 %109 to ptr
+  %111 = tail call ptr @g_hash_table_lookup(ptr noundef %108, ptr noundef %110)
+  %112 = icmp eq ptr %111, null
+  br i1 %112, label %wtap_block_add_uint8_option.exit, label %113
 
-112:                                              ; preds = %109
-  %113 = getelementptr inbounds nuw i8, ptr %107, i64 20
-  %114 = load i32, ptr %113, align 4
-  %115 = and i32 %114, 1
-  %.not20.i.i75 = icmp eq i32 %115, 0
-  %116 = load ptr, ptr %12, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %118 = load i32, ptr %117, align 8
-  br i1 %.not20.i.i75, label %119, label %.loopexit.i76
+113:                                              ; preds = %105
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 16
+  %115 = load i32, ptr %114, align 8
+  %.not.i.i73 = icmp eq i32 %115, 2
+  br i1 %.not.i.i73, label %116, label %wtap_block_add_uint8_option.exit
 
-119:                                              ; preds = %112
-  %.not.i.i.i77 = icmp eq i32 %118, 0
+116:                                              ; preds = %113
+  %117 = getelementptr inbounds nuw i8, ptr %111, i64 20
+  %118 = load i32, ptr %117, align 4
+  %119 = and i32 %118, 1
+  %.not20.i.i75 = icmp eq i32 %119, 0
+  %120 = load ptr, ptr %13, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  %122 = load i32, ptr %121, align 8
+  br i1 %.not20.i.i75, label %123, label %.loopexit.i76
+
+123:                                              ; preds = %116
+  %.not.i.i.i77 = icmp eq i32 %122, 0
   br i1 %.not.i.i.i77, label %.loopexit.i76, label %.lr.ph.i.i.i78
 
-.lr.ph.i.i.i78:                                   ; preds = %119
-  %120 = load ptr, ptr %116, align 8
-  %wide.trip.count.i.i.i79 = zext i32 %118 to i64
-  br label %122
+.lr.ph.i.i.i78:                                   ; preds = %123
+  %124 = load ptr, ptr %120, align 8
+  %wide.trip.count.i.i.i79 = zext i32 %122 to i64
+  br label %126
 
-121:                                              ; preds = %122
+125:                                              ; preds = %126
   %indvars.iv.next.i.i.i81 = add nuw nsw i64 %indvars.iv.i.i.i80, 1
   %exitcond.not.i.i.i82 = icmp eq i64 %indvars.iv.next.i.i.i81, %wide.trip.count.i.i.i79
-  br i1 %exitcond.not.i.i.i82, label %.loopexit.i76, label %122, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i82, label %.loopexit.i76, label %126, !llvm.loop !11
 
-122:                                              ; preds = %121, %.lr.ph.i.i.i78
-  %indvars.iv.i.i.i80 = phi i64 [ 0, %.lr.ph.i.i.i78 ], [ %indvars.iv.next.i.i.i81, %121 ]
-  %123 = getelementptr %struct.wtap_option_t, ptr %120, i64 %indvars.iv.i.i.i80
-  %124 = load i32, ptr %123, align 8
-  %125 = icmp eq i32 %124, %99
-  br i1 %125, label %wtap_block_add_uint8_option.exit, label %121
+126:                                              ; preds = %125, %.lr.ph.i.i.i78
+  %indvars.iv.i.i.i80 = phi i64 [ 0, %.lr.ph.i.i.i78 ], [ %indvars.iv.next.i.i.i81, %125 ]
+  %127 = getelementptr %struct.wtap_option_t, ptr %124, i64 %indvars.iv.i.i.i80
+  %128 = load i32, ptr %127, align 8
+  %129 = icmp eq i32 %128, %102
+  br i1 %129, label %wtap_block_add_uint8_option.exit, label %125
 
-.loopexit.i76:                                    ; preds = %121, %119, %112
-  %126 = phi i32 [ 0, %119 ], [ %118, %112 ], [ %118, %121 ]
-  %127 = add i32 %126, 1
-  %128 = tail call ptr @g_array_set_size(ptr noundef %116, i32 noundef %127) #15
-  %129 = load ptr, ptr %12, align 8
-  %130 = load ptr, ptr %129, align 8
-  %131 = zext i32 %126 to i64
-  %132 = getelementptr %struct.wtap_option_t, ptr %130, i64 %131
-  store i32 %99, ptr %132, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  store i64 %101, ptr %133, align 8
+.loopexit.i76:                                    ; preds = %125, %123, %116
+  %130 = phi i32 [ 0, %123 ], [ %122, %116 ], [ %122, %125 ]
+  %131 = add i32 %130, 1
+  %132 = tail call ptr @g_array_set_size(ptr noundef %120, i32 noundef %131)
+  %133 = load ptr, ptr %13, align 8
+  %134 = load ptr, ptr %133, align 8
+  %135 = zext i32 %130 to i64
+  %136 = getelementptr %struct.wtap_option_t, ptr %134, i64 %135
+  store i32 %102, ptr %136, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
+  store i64 %104, ptr %137, align 8
   br label %wtap_block_add_uint8_option.exit
 
-134:                                              ; preds = %13
-  %135 = load i32, ptr %16, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %137 = load i8, ptr %136, align 8
-  %138 = load ptr, ptr %0, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 48
-  %140 = load ptr, ptr %139, align 8
-  %141 = zext i32 %135 to i64
-  %142 = inttoptr i64 %141 to ptr
-  %143 = tail call ptr @g_hash_table_lookup(ptr noundef %140, ptr noundef %142) #15
-  %144 = icmp eq ptr %143, null
-  br i1 %144, label %wtap_block_add_uint8_option.exit, label %145
+138:                                              ; preds = %14
+  %139 = load i32, ptr %17, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %141 = load i8, ptr %140, align 8
+  br i1 %12, label %wtap_block_add_uint8_option.exit, label %142
 
-145:                                              ; preds = %134
-  %146 = getelementptr inbounds nuw i8, ptr %143, i64 16
-  %147 = load i32, ptr %146, align 8
-  %.not.i.i83 = icmp eq i32 %147, 11
-  br i1 %.not.i.i83, label %148, label %wtap_block_add_uint8_option.exit
+142:                                              ; preds = %138
+  %143 = load ptr, ptr %0, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 48
+  %145 = load ptr, ptr %144, align 8
+  %146 = zext i32 %139 to i64
+  %147 = inttoptr i64 %146 to ptr
+  %148 = tail call ptr @g_hash_table_lookup(ptr noundef %145, ptr noundef %147)
+  %149 = icmp eq ptr %148, null
+  br i1 %149, label %wtap_block_add_uint8_option.exit, label %150
 
-148:                                              ; preds = %145
-  %149 = getelementptr inbounds nuw i8, ptr %143, i64 20
-  %150 = load i32, ptr %149, align 4
-  %151 = and i32 %150, 1
-  %.not20.i.i85 = icmp eq i32 %151, 0
-  %152 = load ptr, ptr %12, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  %154 = load i32, ptr %153, align 8
-  br i1 %.not20.i.i85, label %155, label %.loopexit.i86
+150:                                              ; preds = %142
+  %151 = getelementptr inbounds nuw i8, ptr %148, i64 16
+  %152 = load i32, ptr %151, align 8
+  %.not.i.i83 = icmp eq i32 %152, 11
+  br i1 %.not.i.i83, label %153, label %wtap_block_add_uint8_option.exit
 
-155:                                              ; preds = %148
-  %.not.i.i.i87 = icmp eq i32 %154, 0
+153:                                              ; preds = %150
+  %154 = getelementptr inbounds nuw i8, ptr %148, i64 20
+  %155 = load i32, ptr %154, align 4
+  %156 = and i32 %155, 1
+  %.not20.i.i85 = icmp eq i32 %156, 0
+  %157 = load ptr, ptr %13, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
+  %159 = load i32, ptr %158, align 8
+  br i1 %.not20.i.i85, label %160, label %.loopexit.i86
+
+160:                                              ; preds = %153
+  %.not.i.i.i87 = icmp eq i32 %159, 0
   br i1 %.not.i.i.i87, label %.loopexit.i86, label %.lr.ph.i.i.i88
 
-.lr.ph.i.i.i88:                                   ; preds = %155
-  %156 = load ptr, ptr %152, align 8
-  %wide.trip.count.i.i.i89 = zext i32 %154 to i64
-  br label %158
+.lr.ph.i.i.i88:                                   ; preds = %160
+  %161 = load ptr, ptr %157, align 8
+  %wide.trip.count.i.i.i89 = zext i32 %159 to i64
+  br label %163
 
-157:                                              ; preds = %158
+162:                                              ; preds = %163
   %indvars.iv.next.i.i.i91 = add nuw nsw i64 %indvars.iv.i.i.i90, 1
   %exitcond.not.i.i.i92 = icmp eq i64 %indvars.iv.next.i.i.i91, %wide.trip.count.i.i.i89
-  br i1 %exitcond.not.i.i.i92, label %.loopexit.i86, label %158, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i92, label %.loopexit.i86, label %163, !llvm.loop !11
 
-158:                                              ; preds = %157, %.lr.ph.i.i.i88
-  %indvars.iv.i.i.i90 = phi i64 [ 0, %.lr.ph.i.i.i88 ], [ %indvars.iv.next.i.i.i91, %157 ]
-  %159 = getelementptr %struct.wtap_option_t, ptr %156, i64 %indvars.iv.i.i.i90
-  %160 = load i32, ptr %159, align 8
-  %161 = icmp eq i32 %160, %135
-  br i1 %161, label %wtap_block_add_uint8_option.exit, label %157
+163:                                              ; preds = %162, %.lr.ph.i.i.i88
+  %indvars.iv.i.i.i90 = phi i64 [ 0, %.lr.ph.i.i.i88 ], [ %indvars.iv.next.i.i.i91, %162 ]
+  %164 = getelementptr %struct.wtap_option_t, ptr %161, i64 %indvars.iv.i.i.i90
+  %165 = load i32, ptr %164, align 8
+  %166 = icmp eq i32 %165, %139
+  br i1 %166, label %wtap_block_add_uint8_option.exit, label %162
 
-.loopexit.i86:                                    ; preds = %157, %155, %148
-  %162 = phi i32 [ 0, %155 ], [ %154, %148 ], [ %154, %157 ]
-  %163 = add i32 %162, 1
-  %164 = tail call ptr @g_array_set_size(ptr noundef %152, i32 noundef %163) #15
-  %165 = load ptr, ptr %12, align 8
-  %166 = load ptr, ptr %165, align 8
-  %167 = zext i32 %162 to i64
-  %168 = getelementptr %struct.wtap_option_t, ptr %166, i64 %167
-  store i32 %135, ptr %168, align 8
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  store i8 %137, ptr %169, align 8
+.loopexit.i86:                                    ; preds = %162, %160, %153
+  %167 = phi i32 [ 0, %160 ], [ %159, %153 ], [ %159, %162 ]
+  %168 = add i32 %167, 1
+  %169 = tail call ptr @g_array_set_size(ptr noundef %157, i32 noundef %168)
+  %170 = load ptr, ptr %13, align 8
+  %171 = load ptr, ptr %170, align 8
+  %172 = zext i32 %167 to i64
+  %173 = getelementptr %struct.wtap_option_t, ptr %171, i64 %172
+  store i32 %139, ptr %173, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
+  store i8 %141, ptr %174, align 8
   br label %wtap_block_add_uint8_option.exit
 
-170:                                              ; preds = %13
-  %171 = load i32, ptr %16, align 8
-  %172 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %173 = load i32, ptr %172, align 8
-  %174 = load ptr, ptr %0, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 48
-  %176 = load ptr, ptr %175, align 8
-  %177 = zext i32 %171 to i64
-  %178 = inttoptr i64 %177 to ptr
-  %179 = tail call ptr @g_hash_table_lookup(ptr noundef %176, ptr noundef %178) #15
-  %180 = icmp eq ptr %179, null
-  br i1 %180, label %wtap_block_add_uint8_option.exit, label %181
+175:                                              ; preds = %14
+  %176 = load i32, ptr %17, align 8
+  %177 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %178 = load i32, ptr %177, align 8
+  br i1 %12, label %wtap_block_add_uint8_option.exit, label %179
 
-181:                                              ; preds = %170
-  %182 = getelementptr inbounds nuw i8, ptr %179, i64 16
-  %183 = load i32, ptr %182, align 8
-  %.not.i.i93 = icmp eq i32 %183, 12
-  br i1 %.not.i.i93, label %184, label %wtap_block_add_uint8_option.exit
+179:                                              ; preds = %175
+  %180 = load ptr, ptr %0, align 8
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 48
+  %182 = load ptr, ptr %181, align 8
+  %183 = zext i32 %176 to i64
+  %184 = inttoptr i64 %183 to ptr
+  %185 = tail call ptr @g_hash_table_lookup(ptr noundef %182, ptr noundef %184)
+  %186 = icmp eq ptr %185, null
+  br i1 %186, label %wtap_block_add_uint8_option.exit, label %187
 
-184:                                              ; preds = %181
-  %185 = getelementptr inbounds nuw i8, ptr %179, i64 20
-  %186 = load i32, ptr %185, align 4
-  %187 = and i32 %186, 1
-  %.not20.i.i95 = icmp eq i32 %187, 0
-  %188 = load ptr, ptr %12, align 8
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
-  %190 = load i32, ptr %189, align 8
-  br i1 %.not20.i.i95, label %191, label %.loopexit.i96
+187:                                              ; preds = %179
+  %188 = getelementptr inbounds nuw i8, ptr %185, i64 16
+  %189 = load i32, ptr %188, align 8
+  %.not.i.i93 = icmp eq i32 %189, 12
+  br i1 %.not.i.i93, label %190, label %wtap_block_add_uint8_option.exit
 
-191:                                              ; preds = %184
-  %.not.i.i.i97 = icmp eq i32 %190, 0
+190:                                              ; preds = %187
+  %191 = getelementptr inbounds nuw i8, ptr %185, i64 20
+  %192 = load i32, ptr %191, align 4
+  %193 = and i32 %192, 1
+  %.not20.i.i95 = icmp eq i32 %193, 0
+  %194 = load ptr, ptr %13, align 8
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
+  %196 = load i32, ptr %195, align 8
+  br i1 %.not20.i.i95, label %197, label %.loopexit.i96
+
+197:                                              ; preds = %190
+  %.not.i.i.i97 = icmp eq i32 %196, 0
   br i1 %.not.i.i.i97, label %.loopexit.i96, label %.lr.ph.i.i.i98
 
-.lr.ph.i.i.i98:                                   ; preds = %191
-  %192 = load ptr, ptr %188, align 8
-  %wide.trip.count.i.i.i99 = zext i32 %190 to i64
-  br label %194
+.lr.ph.i.i.i98:                                   ; preds = %197
+  %198 = load ptr, ptr %194, align 8
+  %wide.trip.count.i.i.i99 = zext i32 %196 to i64
+  br label %200
 
-193:                                              ; preds = %194
+199:                                              ; preds = %200
   %indvars.iv.next.i.i.i101 = add nuw nsw i64 %indvars.iv.i.i.i100, 1
   %exitcond.not.i.i.i102 = icmp eq i64 %indvars.iv.next.i.i.i101, %wide.trip.count.i.i.i99
-  br i1 %exitcond.not.i.i.i102, label %.loopexit.i96, label %194, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i102, label %.loopexit.i96, label %200, !llvm.loop !11
 
-194:                                              ; preds = %193, %.lr.ph.i.i.i98
-  %indvars.iv.i.i.i100 = phi i64 [ 0, %.lr.ph.i.i.i98 ], [ %indvars.iv.next.i.i.i101, %193 ]
-  %195 = getelementptr %struct.wtap_option_t, ptr %192, i64 %indvars.iv.i.i.i100
-  %196 = load i32, ptr %195, align 8
-  %197 = icmp eq i32 %196, %171
-  br i1 %197, label %wtap_block_add_uint8_option.exit, label %193
+200:                                              ; preds = %199, %.lr.ph.i.i.i98
+  %indvars.iv.i.i.i100 = phi i64 [ 0, %.lr.ph.i.i.i98 ], [ %indvars.iv.next.i.i.i101, %199 ]
+  %201 = getelementptr %struct.wtap_option_t, ptr %198, i64 %indvars.iv.i.i.i100
+  %202 = load i32, ptr %201, align 8
+  %203 = icmp eq i32 %202, %176
+  br i1 %203, label %wtap_block_add_uint8_option.exit, label %199
 
-.loopexit.i96:                                    ; preds = %193, %191, %184
-  %198 = phi i32 [ 0, %191 ], [ %190, %184 ], [ %190, %193 ]
-  %199 = add i32 %198, 1
-  %200 = tail call ptr @g_array_set_size(ptr noundef %188, i32 noundef %199) #15
-  %201 = load ptr, ptr %12, align 8
-  %202 = load ptr, ptr %201, align 8
-  %203 = zext i32 %198 to i64
-  %204 = getelementptr %struct.wtap_option_t, ptr %202, i64 %203
-  store i32 %171, ptr %204, align 8
-  %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
-  store i32 %173, ptr %205, align 8
+.loopexit.i96:                                    ; preds = %199, %197, %190
+  %204 = phi i32 [ 0, %197 ], [ %196, %190 ], [ %196, %199 ]
+  %205 = add i32 %204, 1
+  %206 = tail call ptr @g_array_set_size(ptr noundef %194, i32 noundef %205)
+  %207 = load ptr, ptr %13, align 8
+  %208 = load ptr, ptr %207, align 8
+  %209 = zext i32 %204 to i64
+  %210 = getelementptr %struct.wtap_option_t, ptr %208, i64 %209
+  store i32 %176, ptr %210, align 8
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 8
+  store i32 %178, ptr %211, align 8
   br label %wtap_block_add_uint8_option.exit
 
-206:                                              ; preds = %13
-  %207 = load i32, ptr %16, align 8
-  %208 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %209 = load i64, ptr %208, align 8
-  %210 = load ptr, ptr %0, align 8
-  %211 = getelementptr inbounds nuw i8, ptr %210, i64 48
-  %212 = load ptr, ptr %211, align 8
-  %213 = zext i32 %207 to i64
-  %214 = inttoptr i64 %213 to ptr
-  %215 = tail call ptr @g_hash_table_lookup(ptr noundef %212, ptr noundef %214) #15
-  %216 = icmp eq ptr %215, null
-  br i1 %216, label %wtap_block_add_uint8_option.exit, label %217
+212:                                              ; preds = %14
+  %213 = load i32, ptr %17, align 8
+  %214 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %215 = load i64, ptr %214, align 8
+  br i1 %12, label %wtap_block_add_uint8_option.exit, label %216
 
-217:                                              ; preds = %206
-  %218 = getelementptr inbounds nuw i8, ptr %215, i64 16
-  %219 = load i32, ptr %218, align 8
-  %.not.i.i103 = icmp eq i32 %219, 13
-  br i1 %.not.i.i103, label %220, label %wtap_block_add_uint8_option.exit
+216:                                              ; preds = %212
+  %217 = load ptr, ptr %0, align 8
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 48
+  %219 = load ptr, ptr %218, align 8
+  %220 = zext i32 %213 to i64
+  %221 = inttoptr i64 %220 to ptr
+  %222 = tail call ptr @g_hash_table_lookup(ptr noundef %219, ptr noundef %221)
+  %223 = icmp eq ptr %222, null
+  br i1 %223, label %wtap_block_add_uint8_option.exit, label %224
 
-220:                                              ; preds = %217
-  %221 = getelementptr inbounds nuw i8, ptr %215, i64 20
-  %222 = load i32, ptr %221, align 4
-  %223 = and i32 %222, 1
-  %.not20.i.i105 = icmp eq i32 %223, 0
-  %224 = load ptr, ptr %12, align 8
-  %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
+224:                                              ; preds = %216
+  %225 = getelementptr inbounds nuw i8, ptr %222, i64 16
   %226 = load i32, ptr %225, align 8
-  br i1 %.not20.i.i105, label %227, label %.loopexit.i106
+  %.not.i.i103 = icmp eq i32 %226, 13
+  br i1 %.not.i.i103, label %227, label %wtap_block_add_uint8_option.exit
 
-227:                                              ; preds = %220
-  %.not.i.i.i107 = icmp eq i32 %226, 0
+227:                                              ; preds = %224
+  %228 = getelementptr inbounds nuw i8, ptr %222, i64 20
+  %229 = load i32, ptr %228, align 4
+  %230 = and i32 %229, 1
+  %.not20.i.i105 = icmp eq i32 %230, 0
+  %231 = load ptr, ptr %13, align 8
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
+  %233 = load i32, ptr %232, align 8
+  br i1 %.not20.i.i105, label %234, label %.loopexit.i106
+
+234:                                              ; preds = %227
+  %.not.i.i.i107 = icmp eq i32 %233, 0
   br i1 %.not.i.i.i107, label %.loopexit.i106, label %.lr.ph.i.i.i108
 
-.lr.ph.i.i.i108:                                  ; preds = %227
-  %228 = load ptr, ptr %224, align 8
-  %wide.trip.count.i.i.i109 = zext i32 %226 to i64
-  br label %230
+.lr.ph.i.i.i108:                                  ; preds = %234
+  %235 = load ptr, ptr %231, align 8
+  %wide.trip.count.i.i.i109 = zext i32 %233 to i64
+  br label %237
 
-229:                                              ; preds = %230
+236:                                              ; preds = %237
   %indvars.iv.next.i.i.i111 = add nuw nsw i64 %indvars.iv.i.i.i110, 1
   %exitcond.not.i.i.i112 = icmp eq i64 %indvars.iv.next.i.i.i111, %wide.trip.count.i.i.i109
-  br i1 %exitcond.not.i.i.i112, label %.loopexit.i106, label %230, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i112, label %.loopexit.i106, label %237, !llvm.loop !11
 
-230:                                              ; preds = %229, %.lr.ph.i.i.i108
-  %indvars.iv.i.i.i110 = phi i64 [ 0, %.lr.ph.i.i.i108 ], [ %indvars.iv.next.i.i.i111, %229 ]
-  %231 = getelementptr %struct.wtap_option_t, ptr %228, i64 %indvars.iv.i.i.i110
-  %232 = load i32, ptr %231, align 8
-  %233 = icmp eq i32 %232, %207
-  br i1 %233, label %wtap_block_add_uint8_option.exit, label %229
+237:                                              ; preds = %236, %.lr.ph.i.i.i108
+  %indvars.iv.i.i.i110 = phi i64 [ 0, %.lr.ph.i.i.i108 ], [ %indvars.iv.next.i.i.i111, %236 ]
+  %238 = getelementptr %struct.wtap_option_t, ptr %235, i64 %indvars.iv.i.i.i110
+  %239 = load i32, ptr %238, align 8
+  %240 = icmp eq i32 %239, %213
+  br i1 %240, label %wtap_block_add_uint8_option.exit, label %236
 
-.loopexit.i106:                                   ; preds = %229, %227, %220
-  %234 = phi i32 [ 0, %227 ], [ %226, %220 ], [ %226, %229 ]
-  %235 = add i32 %234, 1
-  %236 = tail call ptr @g_array_set_size(ptr noundef %224, i32 noundef %235) #15
-  %237 = load ptr, ptr %12, align 8
-  %238 = load ptr, ptr %237, align 8
-  %239 = zext i32 %234 to i64
-  %240 = getelementptr %struct.wtap_option_t, ptr %238, i64 %239
-  store i32 %207, ptr %240, align 8
-  %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
-  store i64 %209, ptr %241, align 8
+.loopexit.i106:                                   ; preds = %236, %234, %227
+  %241 = phi i32 [ 0, %234 ], [ %233, %227 ], [ %233, %236 ]
+  %242 = add i32 %241, 1
+  %243 = tail call ptr @g_array_set_size(ptr noundef %231, i32 noundef %242)
+  %244 = load ptr, ptr %13, align 8
+  %245 = load ptr, ptr %244, align 8
+  %246 = zext i32 %241 to i64
+  %247 = getelementptr %struct.wtap_option_t, ptr %245, i64 %246
+  store i32 %213, ptr %247, align 8
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
+  store i64 %215, ptr %248, align 8
   br label %wtap_block_add_uint8_option.exit
 
-242:                                              ; preds = %13
-  %243 = load i32, ptr %16, align 8
-  %244 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %245 = load i32, ptr %244, align 8
-  %246 = load ptr, ptr %0, align 8
-  %247 = getelementptr inbounds nuw i8, ptr %246, i64 48
-  %248 = load ptr, ptr %247, align 8
-  %249 = zext i32 %243 to i64
-  %250 = inttoptr i64 %249 to ptr
-  %251 = tail call ptr @g_hash_table_lookup(ptr noundef %248, ptr noundef %250) #15
-  %252 = icmp eq ptr %251, null
-  br i1 %252, label %wtap_block_add_uint8_option.exit, label %253
+249:                                              ; preds = %14
+  %250 = load i32, ptr %17, align 8
+  %251 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %252 = load i32, ptr %251, align 8
+  br i1 %12, label %wtap_block_add_uint8_option.exit, label %253
 
-253:                                              ; preds = %242
-  %254 = getelementptr inbounds nuw i8, ptr %251, i64 16
-  %255 = load i32, ptr %254, align 8
-  %.not.i.i113 = icmp eq i32 %255, 5
-  br i1 %.not.i.i113, label %256, label %wtap_block_add_uint8_option.exit
+253:                                              ; preds = %249
+  %254 = load ptr, ptr %0, align 8
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 48
+  %256 = load ptr, ptr %255, align 8
+  %257 = zext i32 %250 to i64
+  %258 = inttoptr i64 %257 to ptr
+  %259 = tail call ptr @g_hash_table_lookup(ptr noundef %256, ptr noundef %258)
+  %260 = icmp eq ptr %259, null
+  br i1 %260, label %wtap_block_add_uint8_option.exit, label %261
 
-256:                                              ; preds = %253
-  %257 = getelementptr inbounds nuw i8, ptr %251, i64 20
-  %258 = load i32, ptr %257, align 4
-  %259 = and i32 %258, 1
-  %.not20.i.i115 = icmp eq i32 %259, 0
-  %260 = load ptr, ptr %12, align 8
-  %261 = getelementptr inbounds nuw i8, ptr %260, i64 8
-  %262 = load i32, ptr %261, align 8
-  br i1 %.not20.i.i115, label %263, label %.loopexit.i116
+261:                                              ; preds = %253
+  %262 = getelementptr inbounds nuw i8, ptr %259, i64 16
+  %263 = load i32, ptr %262, align 8
+  %.not.i.i113 = icmp eq i32 %263, 5
+  br i1 %.not.i.i113, label %264, label %wtap_block_add_uint8_option.exit
 
-263:                                              ; preds = %256
-  %.not.i.i.i117 = icmp eq i32 %262, 0
+264:                                              ; preds = %261
+  %265 = getelementptr inbounds nuw i8, ptr %259, i64 20
+  %266 = load i32, ptr %265, align 4
+  %267 = and i32 %266, 1
+  %.not20.i.i115 = icmp eq i32 %267, 0
+  %268 = load ptr, ptr %13, align 8
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load i32, ptr %269, align 8
+  br i1 %.not20.i.i115, label %271, label %.loopexit.i116
+
+271:                                              ; preds = %264
+  %.not.i.i.i117 = icmp eq i32 %270, 0
   br i1 %.not.i.i.i117, label %.loopexit.i116, label %.lr.ph.i.i.i118
 
-.lr.ph.i.i.i118:                                  ; preds = %263
-  %264 = load ptr, ptr %260, align 8
-  %wide.trip.count.i.i.i119 = zext i32 %262 to i64
-  br label %266
+.lr.ph.i.i.i118:                                  ; preds = %271
+  %272 = load ptr, ptr %268, align 8
+  %wide.trip.count.i.i.i119 = zext i32 %270 to i64
+  br label %274
 
-265:                                              ; preds = %266
+273:                                              ; preds = %274
   %indvars.iv.next.i.i.i121 = add nuw nsw i64 %indvars.iv.i.i.i120, 1
   %exitcond.not.i.i.i122 = icmp eq i64 %indvars.iv.next.i.i.i121, %wide.trip.count.i.i.i119
-  br i1 %exitcond.not.i.i.i122, label %.loopexit.i116, label %266, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i122, label %.loopexit.i116, label %274, !llvm.loop !11
 
-266:                                              ; preds = %265, %.lr.ph.i.i.i118
-  %indvars.iv.i.i.i120 = phi i64 [ 0, %.lr.ph.i.i.i118 ], [ %indvars.iv.next.i.i.i121, %265 ]
-  %267 = getelementptr %struct.wtap_option_t, ptr %264, i64 %indvars.iv.i.i.i120
-  %268 = load i32, ptr %267, align 8
-  %269 = icmp eq i32 %268, %243
-  br i1 %269, label %wtap_block_add_uint8_option.exit, label %265
+274:                                              ; preds = %273, %.lr.ph.i.i.i118
+  %indvars.iv.i.i.i120 = phi i64 [ 0, %.lr.ph.i.i.i118 ], [ %indvars.iv.next.i.i.i121, %273 ]
+  %275 = getelementptr %struct.wtap_option_t, ptr %272, i64 %indvars.iv.i.i.i120
+  %276 = load i32, ptr %275, align 8
+  %277 = icmp eq i32 %276, %250
+  br i1 %277, label %wtap_block_add_uint8_option.exit, label %273
 
-.loopexit.i116:                                   ; preds = %265, %263, %256
-  %270 = phi i32 [ 0, %263 ], [ %262, %256 ], [ %262, %265 ]
-  %271 = add i32 %270, 1
-  %272 = tail call ptr @g_array_set_size(ptr noundef %260, i32 noundef %271) #15
-  %273 = load ptr, ptr %12, align 8
-  %274 = load ptr, ptr %273, align 8
-  %275 = zext i32 %270 to i64
-  %276 = getelementptr %struct.wtap_option_t, ptr %274, i64 %275
-  store i32 %243, ptr %276, align 8
-  %277 = getelementptr inbounds nuw i8, ptr %276, i64 8
-  store i32 %245, ptr %277, align 8
+.loopexit.i116:                                   ; preds = %273, %271, %264
+  %278 = phi i32 [ 0, %271 ], [ %270, %264 ], [ %270, %273 ]
+  %279 = add i32 %278, 1
+  %280 = tail call ptr @g_array_set_size(ptr noundef %268, i32 noundef %279)
+  %281 = load ptr, ptr %13, align 8
+  %282 = load ptr, ptr %281, align 8
+  %283 = zext i32 %278 to i64
+  %284 = getelementptr %struct.wtap_option_t, ptr %282, i64 %283
+  store i32 %250, ptr %284, align 8
+  %285 = getelementptr inbounds nuw i8, ptr %284, i64 8
+  store i32 %252, ptr %285, align 8
   br label %wtap_block_add_uint8_option.exit
 
-278:                                              ; preds = %13
-  %279 = load i32, ptr %16, align 8
-  %280 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %281 = load ptr, ptr %0, align 8
-  %282 = getelementptr inbounds nuw i8, ptr %281, i64 48
-  %283 = load ptr, ptr %282, align 8
-  %284 = zext i32 %279 to i64
-  %285 = inttoptr i64 %284 to ptr
-  %286 = tail call ptr @g_hash_table_lookup(ptr noundef %283, ptr noundef %285) #15
-  %287 = icmp eq ptr %286, null
-  br i1 %287, label %wtap_block_add_uint8_option.exit, label %288
+286:                                              ; preds = %14
+  %287 = load i32, ptr %17, align 8
+  %288 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  br i1 %12, label %wtap_block_add_uint8_option.exit, label %289
 
-288:                                              ; preds = %278
-  %289 = getelementptr inbounds nuw i8, ptr %286, i64 16
-  %290 = load i32, ptr %289, align 8
-  %.not.i.i123 = icmp eq i32 %290, 6
-  br i1 %.not.i.i123, label %291, label %wtap_block_add_uint8_option.exit
+289:                                              ; preds = %286
+  %290 = load ptr, ptr %0, align 8
+  %291 = getelementptr inbounds nuw i8, ptr %290, i64 48
+  %292 = load ptr, ptr %291, align 8
+  %293 = zext i32 %287 to i64
+  %294 = inttoptr i64 %293 to ptr
+  %295 = tail call ptr @g_hash_table_lookup(ptr noundef %292, ptr noundef %294)
+  %296 = icmp eq ptr %295, null
+  br i1 %296, label %wtap_block_add_uint8_option.exit, label %297
 
-291:                                              ; preds = %288
-  %292 = getelementptr inbounds nuw i8, ptr %286, i64 20
-  %293 = load i32, ptr %292, align 4
-  %294 = and i32 %293, 1
-  %.not20.i.i125 = icmp eq i32 %294, 0
-  %295 = load ptr, ptr %12, align 8
-  %296 = getelementptr inbounds nuw i8, ptr %295, i64 8
-  %297 = load i32, ptr %296, align 8
-  br i1 %.not20.i.i125, label %298, label %.loopexit.i126
+297:                                              ; preds = %289
+  %298 = getelementptr inbounds nuw i8, ptr %295, i64 16
+  %299 = load i32, ptr %298, align 8
+  %.not.i.i123 = icmp eq i32 %299, 6
+  br i1 %.not.i.i123, label %300, label %wtap_block_add_uint8_option.exit
 
-298:                                              ; preds = %291
-  %.not.i.i.i127 = icmp eq i32 %297, 0
+300:                                              ; preds = %297
+  %301 = getelementptr inbounds nuw i8, ptr %295, i64 20
+  %302 = load i32, ptr %301, align 4
+  %303 = and i32 %302, 1
+  %.not20.i.i125 = icmp eq i32 %303, 0
+  %304 = load ptr, ptr %13, align 8
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 8
+  %306 = load i32, ptr %305, align 8
+  br i1 %.not20.i.i125, label %307, label %.loopexit.i126
+
+307:                                              ; preds = %300
+  %.not.i.i.i127 = icmp eq i32 %306, 0
   br i1 %.not.i.i.i127, label %.loopexit.i126, label %.lr.ph.i.i.i128
 
-.lr.ph.i.i.i128:                                  ; preds = %298
-  %299 = load ptr, ptr %295, align 8
-  %wide.trip.count.i.i.i129 = zext i32 %297 to i64
-  br label %301
+.lr.ph.i.i.i128:                                  ; preds = %307
+  %308 = load ptr, ptr %304, align 8
+  %wide.trip.count.i.i.i129 = zext i32 %306 to i64
+  br label %310
 
-300:                                              ; preds = %301
+309:                                              ; preds = %310
   %indvars.iv.next.i.i.i131 = add nuw nsw i64 %indvars.iv.i.i.i130, 1
   %exitcond.not.i.i.i132 = icmp eq i64 %indvars.iv.next.i.i.i131, %wide.trip.count.i.i.i129
-  br i1 %exitcond.not.i.i.i132, label %.loopexit.i126, label %301, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i132, label %.loopexit.i126, label %310, !llvm.loop !11
 
-301:                                              ; preds = %300, %.lr.ph.i.i.i128
-  %indvars.iv.i.i.i130 = phi i64 [ 0, %.lr.ph.i.i.i128 ], [ %indvars.iv.next.i.i.i131, %300 ]
-  %302 = getelementptr %struct.wtap_option_t, ptr %299, i64 %indvars.iv.i.i.i130
-  %303 = load i32, ptr %302, align 8
-  %304 = icmp eq i32 %303, %279
-  br i1 %304, label %wtap_block_add_uint8_option.exit, label %300
+310:                                              ; preds = %309, %.lr.ph.i.i.i128
+  %indvars.iv.i.i.i130 = phi i64 [ 0, %.lr.ph.i.i.i128 ], [ %indvars.iv.next.i.i.i131, %309 ]
+  %311 = getelementptr %struct.wtap_option_t, ptr %308, i64 %indvars.iv.i.i.i130
+  %312 = load i32, ptr %311, align 8
+  %313 = icmp eq i32 %312, %287
+  br i1 %313, label %wtap_block_add_uint8_option.exit, label %309
 
-.loopexit.i126:                                   ; preds = %300, %298, %291
-  %305 = phi i32 [ 0, %298 ], [ %297, %291 ], [ %297, %300 ]
-  %306 = add i32 %305, 1
-  %307 = tail call ptr @g_array_set_size(ptr noundef %295, i32 noundef %306) #15
-  %308 = load ptr, ptr %12, align 8
-  %309 = load ptr, ptr %308, align 8
-  %310 = zext i32 %305 to i64
-  %311 = getelementptr %struct.wtap_option_t, ptr %309, i64 %310
-  store i32 %279, ptr %311, align 8
-  %312 = getelementptr inbounds nuw i8, ptr %311, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %312, ptr noundef nonnull readonly align 1 dereferenceable(16) %280, i64 16, i1 false)
+.loopexit.i126:                                   ; preds = %309, %307, %300
+  %314 = phi i32 [ 0, %307 ], [ %306, %300 ], [ %306, %309 ]
+  %315 = add i32 %314, 1
+  %316 = tail call ptr @g_array_set_size(ptr noundef %304, i32 noundef %315)
+  %317 = load ptr, ptr %13, align 8
+  %318 = load ptr, ptr %317, align 8
+  %319 = zext i32 %314 to i64
+  %320 = getelementptr %struct.wtap_option_t, ptr %318, i64 %319
+  store i32 %287, ptr %320, align 8
+  %321 = getelementptr inbounds nuw i8, ptr %320, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %321, ptr noundef nonnull readonly align 1 dereferenceable(16) %288, i64 16, i1 false)
   br label %wtap_block_add_uint8_option.exit
 
-313:                                              ; preds = %13
-  %314 = load i32, ptr %16, align 8
-  %315 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %316 = load ptr, ptr %315, align 8
-  %317 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %316) #17
-  %318 = load ptr, ptr %0, align 8
-  %319 = getelementptr inbounds nuw i8, ptr %318, i64 48
-  %320 = load ptr, ptr %319, align 8
-  %321 = zext i32 %314 to i64
-  %322 = inttoptr i64 %321 to ptr
-  %323 = tail call ptr @g_hash_table_lookup(ptr noundef %320, ptr noundef %322) #15
-  %324 = icmp eq ptr %323, null
-  br i1 %324, label %wtap_block_add_uint8_option.exit, label %325
+322:                                              ; preds = %14
+  %323 = load i32, ptr %17, align 8
+  %324 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %325 = load ptr, ptr %324, align 8
+  %326 = tail call i64 @strlen(ptr noundef %325) #17
+  br i1 %12, label %wtap_block_add_uint8_option.exit, label %327
 
-325:                                              ; preds = %313
-  %326 = getelementptr inbounds nuw i8, ptr %323, i64 16
-  %327 = load i32, ptr %326, align 8
-  %.not.i.i133 = icmp eq i32 %327, 3
-  br i1 %.not.i.i133, label %328, label %wtap_block_add_uint8_option.exit
+327:                                              ; preds = %322
+  %328 = load ptr, ptr %0, align 8
+  %329 = getelementptr inbounds nuw i8, ptr %328, i64 48
+  %330 = load ptr, ptr %329, align 8
+  %331 = zext i32 %323 to i64
+  %332 = inttoptr i64 %331 to ptr
+  %333 = tail call ptr @g_hash_table_lookup(ptr noundef %330, ptr noundef %332)
+  %334 = icmp eq ptr %333, null
+  br i1 %334, label %wtap_block_add_uint8_option.exit, label %335
 
-328:                                              ; preds = %325
-  %329 = getelementptr inbounds nuw i8, ptr %323, i64 20
-  %330 = load i32, ptr %329, align 4
-  %331 = and i32 %330, 1
-  %.not20.i.i135 = icmp eq i32 %331, 0
-  %332 = load ptr, ptr %12, align 8
-  %333 = getelementptr inbounds nuw i8, ptr %332, i64 8
-  %334 = load i32, ptr %333, align 8
-  br i1 %.not20.i.i135, label %335, label %.loopexit.i136
+335:                                              ; preds = %327
+  %336 = getelementptr inbounds nuw i8, ptr %333, i64 16
+  %337 = load i32, ptr %336, align 8
+  %.not.i.i133 = icmp eq i32 %337, 3
+  br i1 %.not.i.i133, label %338, label %wtap_block_add_uint8_option.exit
 
-335:                                              ; preds = %328
-  %.not.i.i.i137 = icmp eq i32 %334, 0
+338:                                              ; preds = %335
+  %339 = getelementptr inbounds nuw i8, ptr %333, i64 20
+  %340 = load i32, ptr %339, align 4
+  %341 = and i32 %340, 1
+  %.not20.i.i135 = icmp eq i32 %341, 0
+  %342 = load ptr, ptr %13, align 8
+  %343 = getelementptr inbounds nuw i8, ptr %342, i64 8
+  %344 = load i32, ptr %343, align 8
+  br i1 %.not20.i.i135, label %345, label %.loopexit.i136
+
+345:                                              ; preds = %338
+  %.not.i.i.i137 = icmp eq i32 %344, 0
   br i1 %.not.i.i.i137, label %.loopexit.i136, label %.lr.ph.i.i.i138
 
-.lr.ph.i.i.i138:                                  ; preds = %335
-  %336 = load ptr, ptr %332, align 8
-  %wide.trip.count.i.i.i139 = zext i32 %334 to i64
-  br label %338
+.lr.ph.i.i.i138:                                  ; preds = %345
+  %346 = load ptr, ptr %342, align 8
+  %wide.trip.count.i.i.i139 = zext i32 %344 to i64
+  br label %348
 
-337:                                              ; preds = %338
+347:                                              ; preds = %348
   %indvars.iv.next.i.i.i141 = add nuw nsw i64 %indvars.iv.i.i.i140, 1
   %exitcond.not.i.i.i142 = icmp eq i64 %indvars.iv.next.i.i.i141, %wide.trip.count.i.i.i139
-  br i1 %exitcond.not.i.i.i142, label %.loopexit.i136, label %338, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i142, label %.loopexit.i136, label %348, !llvm.loop !11
 
-338:                                              ; preds = %337, %.lr.ph.i.i.i138
-  %indvars.iv.i.i.i140 = phi i64 [ 0, %.lr.ph.i.i.i138 ], [ %indvars.iv.next.i.i.i141, %337 ]
-  %339 = getelementptr %struct.wtap_option_t, ptr %336, i64 %indvars.iv.i.i.i140
-  %340 = load i32, ptr %339, align 8
-  %341 = icmp eq i32 %340, %314
-  br i1 %341, label %wtap_block_add_uint8_option.exit, label %337
+348:                                              ; preds = %347, %.lr.ph.i.i.i138
+  %indvars.iv.i.i.i140 = phi i64 [ 0, %.lr.ph.i.i.i138 ], [ %indvars.iv.next.i.i.i141, %347 ]
+  %349 = getelementptr %struct.wtap_option_t, ptr %346, i64 %indvars.iv.i.i.i140
+  %350 = load i32, ptr %349, align 8
+  %351 = icmp eq i32 %350, %323
+  br i1 %351, label %wtap_block_add_uint8_option.exit, label %347
 
-.loopexit.i136:                                   ; preds = %337, %335, %328
-  %342 = phi i32 [ 0, %335 ], [ %334, %328 ], [ %334, %337 ]
-  %343 = add i32 %342, 1
-  %344 = tail call ptr @g_array_set_size(ptr noundef %332, i32 noundef %343) #15
-  %345 = load ptr, ptr %12, align 8
-  %346 = load ptr, ptr %345, align 8
-  %347 = zext i32 %342 to i64
-  %348 = getelementptr %struct.wtap_option_t, ptr %346, i64 %347
-  store i32 %314, ptr %348, align 8
-  %349 = tail call noalias ptr @g_strndup(ptr noundef nonnull %316, i64 noundef %317) #15
-  %350 = getelementptr inbounds nuw i8, ptr %348, i64 8
-  store ptr %349, ptr %350, align 8
+.loopexit.i136:                                   ; preds = %347, %345, %338
+  %352 = phi i32 [ 0, %345 ], [ %344, %338 ], [ %344, %347 ]
+  %353 = add i32 %352, 1
+  %354 = tail call ptr @g_array_set_size(ptr noundef %342, i32 noundef %353)
+  %355 = load ptr, ptr %13, align 8
+  %356 = load ptr, ptr %355, align 8
+  %357 = zext i32 %352 to i64
+  %358 = getelementptr %struct.wtap_option_t, ptr %356, i64 %357
+  store i32 %323, ptr %358, align 8
+  %359 = tail call noalias ptr @g_strndup(ptr noundef %325, i64 noundef %326)
+  %360 = getelementptr inbounds nuw i8, ptr %358, i64 8
+  store ptr %359, ptr %360, align 8
   br label %wtap_block_add_uint8_option.exit
 
-351:                                              ; preds = %13
-  %352 = load i32, ptr %16, align 8
-  %353 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %354 = load ptr, ptr %353, align 8
-  %355 = load ptr, ptr %0, align 8
-  %356 = getelementptr inbounds nuw i8, ptr %355, i64 48
-  %357 = load ptr, ptr %356, align 8
-  %358 = zext i32 %352 to i64
-  %359 = inttoptr i64 %358 to ptr
-  %360 = tail call ptr @g_hash_table_lookup(ptr noundef %357, ptr noundef %359) #15
-  %361 = icmp eq ptr %360, null
-  br i1 %361, label %wtap_block_add_uint8_option.exit, label %362
+361:                                              ; preds = %14
+  %362 = load i32, ptr %17, align 8
+  %363 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %364 = load ptr, ptr %363, align 8
+  br i1 %12, label %wtap_block_add_uint8_option.exit, label %365
 
-362:                                              ; preds = %351
-  %363 = getelementptr inbounds nuw i8, ptr %360, i64 16
-  %364 = load i32, ptr %363, align 8
-  %.not.i.i143 = icmp eq i32 %364, 4
-  br i1 %.not.i.i143, label %365, label %wtap_block_add_uint8_option.exit
+365:                                              ; preds = %361
+  %366 = load ptr, ptr %0, align 8
+  %367 = getelementptr inbounds nuw i8, ptr %366, i64 48
+  %368 = load ptr, ptr %367, align 8
+  %369 = zext i32 %362 to i64
+  %370 = inttoptr i64 %369 to ptr
+  %371 = tail call ptr @g_hash_table_lookup(ptr noundef %368, ptr noundef %370)
+  %372 = icmp eq ptr %371, null
+  br i1 %372, label %wtap_block_add_uint8_option.exit, label %373
 
-365:                                              ; preds = %362
-  %366 = getelementptr inbounds nuw i8, ptr %360, i64 20
-  %367 = load i32, ptr %366, align 4
-  %368 = and i32 %367, 1
-  %.not20.i.i145 = icmp eq i32 %368, 0
-  %369 = load ptr, ptr %12, align 8
-  %370 = getelementptr inbounds nuw i8, ptr %369, i64 8
-  %371 = load i32, ptr %370, align 8
-  br i1 %.not20.i.i145, label %372, label %.loopexit.i146
+373:                                              ; preds = %365
+  %374 = getelementptr inbounds nuw i8, ptr %371, i64 16
+  %375 = load i32, ptr %374, align 8
+  %.not.i.i143 = icmp eq i32 %375, 4
+  br i1 %.not.i.i143, label %376, label %wtap_block_add_uint8_option.exit
 
-372:                                              ; preds = %365
-  %.not.i.i.i147 = icmp eq i32 %371, 0
+376:                                              ; preds = %373
+  %377 = getelementptr inbounds nuw i8, ptr %371, i64 20
+  %378 = load i32, ptr %377, align 4
+  %379 = and i32 %378, 1
+  %.not20.i.i145 = icmp eq i32 %379, 0
+  %380 = load ptr, ptr %13, align 8
+  %381 = getelementptr inbounds nuw i8, ptr %380, i64 8
+  %382 = load i32, ptr %381, align 8
+  br i1 %.not20.i.i145, label %383, label %.loopexit.i146
+
+383:                                              ; preds = %376
+  %.not.i.i.i147 = icmp eq i32 %382, 0
   br i1 %.not.i.i.i147, label %.loopexit.i146, label %.lr.ph.i.i.i148
 
-.lr.ph.i.i.i148:                                  ; preds = %372
-  %373 = load ptr, ptr %369, align 8
-  %wide.trip.count.i.i.i149 = zext i32 %371 to i64
-  br label %375
+.lr.ph.i.i.i148:                                  ; preds = %383
+  %384 = load ptr, ptr %380, align 8
+  %wide.trip.count.i.i.i149 = zext i32 %382 to i64
+  br label %386
 
-374:                                              ; preds = %375
+385:                                              ; preds = %386
   %indvars.iv.next.i.i.i151 = add nuw nsw i64 %indvars.iv.i.i.i150, 1
   %exitcond.not.i.i.i152 = icmp eq i64 %indvars.iv.next.i.i.i151, %wide.trip.count.i.i.i149
-  br i1 %exitcond.not.i.i.i152, label %.loopexit.i146, label %375, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i152, label %.loopexit.i146, label %386, !llvm.loop !11
 
-375:                                              ; preds = %374, %.lr.ph.i.i.i148
-  %indvars.iv.i.i.i150 = phi i64 [ 0, %.lr.ph.i.i.i148 ], [ %indvars.iv.next.i.i.i151, %374 ]
-  %376 = getelementptr %struct.wtap_option_t, ptr %373, i64 %indvars.iv.i.i.i150
-  %377 = load i32, ptr %376, align 8
-  %378 = icmp eq i32 %377, %352
-  br i1 %378, label %wtap_block_add_uint8_option.exit, label %374
+386:                                              ; preds = %385, %.lr.ph.i.i.i148
+  %indvars.iv.i.i.i150 = phi i64 [ 0, %.lr.ph.i.i.i148 ], [ %indvars.iv.next.i.i.i151, %385 ]
+  %387 = getelementptr %struct.wtap_option_t, ptr %384, i64 %indvars.iv.i.i.i150
+  %388 = load i32, ptr %387, align 8
+  %389 = icmp eq i32 %388, %362
+  br i1 %389, label %wtap_block_add_uint8_option.exit, label %385
 
-.loopexit.i146:                                   ; preds = %374, %372, %365
-  %379 = phi i32 [ 0, %372 ], [ %371, %365 ], [ %371, %374 ]
-  %380 = add i32 %379, 1
-  %381 = tail call ptr @g_array_set_size(ptr noundef %369, i32 noundef %380) #15
-  %382 = load ptr, ptr %12, align 8
-  %383 = load ptr, ptr %382, align 8
-  %384 = zext i32 %379 to i64
-  %385 = getelementptr %struct.wtap_option_t, ptr %383, i64 %384
-  store i32 %352, ptr %385, align 8
-  %386 = tail call ptr @g_bytes_ref(ptr noundef %354) #15
-  %387 = getelementptr inbounds nuw i8, ptr %385, i64 8
-  store ptr %386, ptr %387, align 8
+.loopexit.i146:                                   ; preds = %385, %383, %376
+  %390 = phi i32 [ 0, %383 ], [ %382, %376 ], [ %382, %385 ]
+  %391 = add i32 %390, 1
+  %392 = tail call ptr @g_array_set_size(ptr noundef %380, i32 noundef %391)
+  %393 = load ptr, ptr %13, align 8
+  %394 = load ptr, ptr %393, align 8
+  %395 = zext i32 %390 to i64
+  %396 = getelementptr %struct.wtap_option_t, ptr %394, i64 %395
+  store i32 %362, ptr %396, align 8
+  %397 = tail call ptr @g_bytes_ref(ptr noundef %364)
+  %398 = getelementptr inbounds nuw i8, ptr %396, i64 8
+  store ptr %397, ptr %398, align 8
   br label %wtap_block_add_uint8_option.exit
 
-388:                                              ; preds = %13
-  %389 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %390 = load i32, ptr %389, align 8
-  %cond = icmp eq i32 %390, 10949
-  br i1 %cond, label %391, label %399
+399:                                              ; preds = %14
+  %400 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %401 = load i32, ptr %400, align 8
+  %cond = icmp eq i32 %401, 10949
+  br i1 %cond, label %402, label %410
 
-391:                                              ; preds = %388
-  %392 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %393 = load i32, ptr %392, align 8
-  %394 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %395 = load ptr, ptr %394, align 8
-  %396 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %397 = load i64, ptr %396, align 8
-  %398 = tail call i32 @wtap_block_add_nflx_custom_option(ptr noundef nonnull %0, i32 noundef %393, ptr noundef %395, i64 noundef %397)
+402:                                              ; preds = %399
+  %403 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %404 = load i32, ptr %403, align 8
+  %405 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %406 = load ptr, ptr %405, align 8
+  %407 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %408 = load i64, ptr %407, align 8
+  %409 = tail call i32 @wtap_block_add_nflx_custom_option(ptr noundef %0, i32 noundef %404, ptr noundef %406, i64 noundef %408)
   br label %wtap_block_add_uint8_option.exit
 
-399:                                              ; preds = %388
-  %400 = load i32, ptr %16, align 8
-  %401 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %402 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %403 = load ptr, ptr %402, align 8
-  %404 = load i64, ptr %401, align 8
-  %405 = load ptr, ptr %0, align 8
-  %406 = getelementptr inbounds nuw i8, ptr %405, i64 48
-  %407 = load ptr, ptr %406, align 8
-  %408 = zext i32 %400 to i64
-  %409 = inttoptr i64 %408 to ptr
-  %410 = tail call ptr @g_hash_table_lookup(ptr noundef %407, ptr noundef %409) #15
-  %411 = icmp eq ptr %410, null
-  br i1 %411, label %wtap_block_add_uint8_option.exit, label %412
+410:                                              ; preds = %399
+  %411 = load i32, ptr %17, align 8
+  %412 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %413 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %414 = load ptr, ptr %413, align 8
+  %415 = load i64, ptr %412, align 8
+  br i1 %12, label %wtap_block_add_uint8_option.exit, label %416
 
-412:                                              ; preds = %399
-  %413 = getelementptr inbounds nuw i8, ptr %410, i64 16
-  %414 = load i32, ptr %413, align 8
-  %.not.i.i153 = icmp eq i32 %414, 7
-  br i1 %.not.i.i153, label %415, label %wtap_block_add_uint8_option.exit
+416:                                              ; preds = %410
+  %417 = load ptr, ptr %0, align 8
+  %418 = getelementptr inbounds nuw i8, ptr %417, i64 48
+  %419 = load ptr, ptr %418, align 8
+  %420 = zext i32 %411 to i64
+  %421 = inttoptr i64 %420 to ptr
+  %422 = tail call ptr @g_hash_table_lookup(ptr noundef %419, ptr noundef %421)
+  %423 = icmp eq ptr %422, null
+  br i1 %423, label %wtap_block_add_uint8_option.exit, label %424
 
-415:                                              ; preds = %412
-  %416 = getelementptr inbounds nuw i8, ptr %410, i64 20
-  %417 = load i32, ptr %416, align 4
-  %418 = and i32 %417, 1
-  %.not20.i.i155 = icmp eq i32 %418, 0
-  %419 = load ptr, ptr %12, align 8
-  %420 = getelementptr inbounds nuw i8, ptr %419, i64 8
-  %421 = load i32, ptr %420, align 8
-  br i1 %.not20.i.i155, label %422, label %.loopexit.i156
+424:                                              ; preds = %416
+  %425 = getelementptr inbounds nuw i8, ptr %422, i64 16
+  %426 = load i32, ptr %425, align 8
+  %.not.i.i153 = icmp eq i32 %426, 7
+  br i1 %.not.i.i153, label %427, label %wtap_block_add_uint8_option.exit
 
-422:                                              ; preds = %415
-  %.not.i.i.i157 = icmp eq i32 %421, 0
+427:                                              ; preds = %424
+  %428 = getelementptr inbounds nuw i8, ptr %422, i64 20
+  %429 = load i32, ptr %428, align 4
+  %430 = and i32 %429, 1
+  %.not20.i.i155 = icmp eq i32 %430, 0
+  %431 = load ptr, ptr %13, align 8
+  %432 = getelementptr inbounds nuw i8, ptr %431, i64 8
+  %433 = load i32, ptr %432, align 8
+  br i1 %.not20.i.i155, label %434, label %.loopexit.i156
+
+434:                                              ; preds = %427
+  %.not.i.i.i157 = icmp eq i32 %433, 0
   br i1 %.not.i.i.i157, label %.loopexit.i156, label %.lr.ph.i.i.i158
 
-.lr.ph.i.i.i158:                                  ; preds = %422
-  %423 = load ptr, ptr %419, align 8
-  %wide.trip.count.i.i.i159 = zext i32 %421 to i64
-  br label %425
+.lr.ph.i.i.i158:                                  ; preds = %434
+  %435 = load ptr, ptr %431, align 8
+  %wide.trip.count.i.i.i159 = zext i32 %433 to i64
+  br label %437
 
-424:                                              ; preds = %425
+436:                                              ; preds = %437
   %indvars.iv.next.i.i.i161 = add nuw nsw i64 %indvars.iv.i.i.i160, 1
   %exitcond.not.i.i.i162 = icmp eq i64 %indvars.iv.next.i.i.i161, %wide.trip.count.i.i.i159
-  br i1 %exitcond.not.i.i.i162, label %.loopexit.i156, label %425, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i162, label %.loopexit.i156, label %437, !llvm.loop !11
 
-425:                                              ; preds = %424, %.lr.ph.i.i.i158
-  %indvars.iv.i.i.i160 = phi i64 [ 0, %.lr.ph.i.i.i158 ], [ %indvars.iv.next.i.i.i161, %424 ]
-  %426 = getelementptr %struct.wtap_option_t, ptr %423, i64 %indvars.iv.i.i.i160
-  %427 = load i32, ptr %426, align 8
-  %428 = icmp eq i32 %427, %400
-  br i1 %428, label %wtap_block_add_uint8_option.exit, label %424
+437:                                              ; preds = %436, %.lr.ph.i.i.i158
+  %indvars.iv.i.i.i160 = phi i64 [ 0, %.lr.ph.i.i.i158 ], [ %indvars.iv.next.i.i.i161, %436 ]
+  %438 = getelementptr %struct.wtap_option_t, ptr %435, i64 %indvars.iv.i.i.i160
+  %439 = load i32, ptr %438, align 8
+  %440 = icmp eq i32 %439, %411
+  br i1 %440, label %wtap_block_add_uint8_option.exit, label %436
 
-.loopexit.i156:                                   ; preds = %424, %422, %415
-  %429 = phi i32 [ 0, %422 ], [ %421, %415 ], [ %421, %424 ]
-  %430 = add i32 %429, 1
-  %431 = tail call ptr @g_array_set_size(ptr noundef %419, i32 noundef %430) #15
-  %432 = load ptr, ptr %12, align 8
-  %433 = load ptr, ptr %432, align 8
-  %434 = zext i32 %429 to i64
-  %435 = getelementptr %struct.wtap_option_t, ptr %433, i64 %434
-  store i32 %400, ptr %435, align 8
-  %436 = getelementptr inbounds nuw i8, ptr %435, i64 8
-  store i32 %390, ptr %436, align 8
-  %437 = getelementptr inbounds nuw i8, ptr %435, i64 16
-  store i64 %404, ptr %437, align 8
-  %438 = tail call ptr @g_memdup2(ptr noundef %403, i64 noundef %404) #18
-  %439 = getelementptr inbounds nuw i8, ptr %435, i64 24
-  store ptr %438, ptr %439, align 8
+.loopexit.i156:                                   ; preds = %436, %434, %427
+  %441 = phi i32 [ 0, %434 ], [ %433, %427 ], [ %433, %436 ]
+  %442 = add i32 %441, 1
+  %443 = tail call ptr @g_array_set_size(ptr noundef %431, i32 noundef %442)
+  %444 = load ptr, ptr %13, align 8
+  %445 = load ptr, ptr %444, align 8
+  %446 = zext i32 %441 to i64
+  %447 = getelementptr %struct.wtap_option_t, ptr %445, i64 %446
+  store i32 %411, ptr %447, align 8
+  %448 = getelementptr inbounds nuw i8, ptr %447, i64 8
+  store i32 %401, ptr %448, align 8
+  %449 = getelementptr inbounds nuw i8, ptr %447, i64 16
+  store i64 %415, ptr %449, align 8
+  %450 = tail call ptr @g_memdup2(ptr noundef %414, i64 noundef %415) #18
+  %451 = getelementptr inbounds nuw i8, ptr %447, i64 24
+  store ptr %450, ptr %451, align 8
   br label %wtap_block_add_uint8_option.exit
 
-440:                                              ; preds = %13
-  %441 = load i32, ptr %16, align 8
-  %442 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %443 = tail call i32 @wtap_block_add_if_filter_option(ptr noundef nonnull %0, i32 noundef %441, ptr noundef nonnull %442)
+452:                                              ; preds = %14
+  %453 = load i32, ptr %17, align 8
+  %454 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %455 = tail call i32 @wtap_block_add_if_filter_option(ptr noundef %0, i32 noundef %453, ptr noundef nonnull %454)
   br label %wtap_block_add_uint8_option.exit
 
-444:                                              ; preds = %13
-  %445 = load i32, ptr %16, align 8
-  %446 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %447 = tail call i32 @wtap_block_add_packet_verdict_option(ptr noundef nonnull %0, i32 noundef %445, ptr noundef nonnull %446)
+456:                                              ; preds = %14
+  %457 = load i32, ptr %17, align 8
+  %458 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %459 = tail call i32 @wtap_block_add_packet_verdict_option(ptr noundef %0, i32 noundef %457, ptr noundef nonnull %458)
   br label %wtap_block_add_uint8_option.exit
 
-448:                                              ; preds = %13
-  %449 = load i32, ptr %16, align 8
-  %450 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %451 = tail call i32 @wtap_block_add_packet_hash_option(ptr noundef nonnull %0, i32 noundef %449, ptr noundef nonnull %450)
+460:                                              ; preds = %14
+  %461 = load i32, ptr %17, align 8
+  %462 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %463 = tail call i32 @wtap_block_add_packet_hash_option(ptr noundef %0, i32 noundef %461, ptr noundef nonnull %462)
   br label %wtap_block_add_uint8_option.exit
 
-wtap_block_add_uint8_option.exit:                 ; preds = %425, %375, %338, %301, %266, %230, %194, %158, %122, %86, %50, %.loopexit.i156, %412, %399, %.loopexit.i146, %362, %351, %.loopexit.i136, %325, %313, %.loopexit.i126, %288, %278, %.loopexit.i116, %253, %242, %.loopexit.i106, %217, %206, %.loopexit.i96, %181, %170, %.loopexit.i86, %145, %134, %.loopexit.i76, %109, %98, %.loopexit.i66, %73, %62, %.loopexit.i, %37, %26, %13, %440, %444, %448, %391
+wtap_block_add_uint8_option.exit:                 ; preds = %437, %386, %348, %310, %274, %237, %200, %163, %126, %89, %52, %.loopexit.i156, %424, %416, %410, %.loopexit.i146, %373, %365, %361, %.loopexit.i136, %335, %327, %322, %.loopexit.i126, %297, %289, %286, %.loopexit.i116, %261, %253, %249, %.loopexit.i106, %224, %216, %212, %.loopexit.i96, %187, %179, %175, %.loopexit.i86, %150, %142, %138, %.loopexit.i76, %113, %105, %101, %.loopexit.i66, %76, %68, %64, %.loopexit.i, %39, %31, %27, %14, %452, %456, %460, %402
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %452 = load ptr, ptr %8, align 8
-  %453 = getelementptr inbounds nuw i8, ptr %452, i64 8
-  %454 = load i32, ptr %453, align 8
-  %455 = zext i32 %454 to i64
-  %456 = icmp samesign ult i64 %indvars.iv.next, %455
-  br i1 %456, label %13, label %._crit_edge, !llvm.loop !8
+  %464 = load ptr, ptr %8, align 8
+  %465 = getelementptr inbounds nuw i8, ptr %464, i64 8
+  %466 = load i32, ptr %465, align 8
+  %467 = zext i32 %466 to i64
+  %468 = icmp samesign ult i64 %indvars.iv.next, %467
+  br i1 %468, label %14, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %wtap_block_add_uint8_option.exit, %7
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_add_uint8_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
@@ -1137,7 +1259,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_uint8_option(ptr noundef readonly ca
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_add_option_common.exit.thread, label %13
 
@@ -1170,7 +1292,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_uint8_option(ptr noundef readonly ca
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -1182,7 +1304,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_uint8_option(ptr noundef readonly ca
 .loopexit:                                        ; preds = %26, %24, %16
   %31 = phi i32 [ 0, %24 ], [ %23, %16 ], [ %23, %26 ]
   %32 = add i32 %31, 1
-  %33 = tail call ptr @g_array_set_size(ptr noundef %21, i32 noundef %32) #15
+  %33 = tail call ptr @g_array_set_size(ptr noundef %21, i32 noundef %32)
   %34 = load ptr, ptr %20, align 8
   %35 = load ptr, ptr %34, align 8
   %36 = zext i32 %31 to i64
@@ -1197,7 +1319,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_add_uint32_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
@@ -1208,7 +1330,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_uint32_option(ptr noundef readonly c
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_add_option_common.exit.thread, label %13
 
@@ -1241,7 +1363,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_uint32_option(ptr noundef readonly c
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -1253,7 +1375,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_uint32_option(ptr noundef readonly c
 .loopexit:                                        ; preds = %26, %24, %16
   %31 = phi i32 [ 0, %24 ], [ %23, %16 ], [ %23, %26 ]
   %32 = add i32 %31, 1
-  %33 = tail call ptr @g_array_set_size(ptr noundef %21, i32 noundef %32) #15
+  %33 = tail call ptr @g_array_set_size(ptr noundef %21, i32 noundef %32)
   %34 = load ptr, ptr %20, align 8
   %35 = load ptr, ptr %34, align 8
   %36 = zext i32 %31 to i64
@@ -1268,7 +1390,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_add_uint64_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
@@ -1279,7 +1401,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_uint64_option(ptr noundef readonly c
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_add_option_common.exit.thread, label %13
 
@@ -1312,7 +1434,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_uint64_option(ptr noundef readonly c
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -1324,7 +1446,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_uint64_option(ptr noundef readonly c
 .loopexit:                                        ; preds = %26, %24, %16
   %31 = phi i32 [ 0, %24 ], [ %23, %16 ], [ %23, %26 ]
   %32 = add i32 %31, 1
-  %33 = tail call ptr @g_array_set_size(ptr noundef %21, i32 noundef %32) #15
+  %33 = tail call ptr @g_array_set_size(ptr noundef %21, i32 noundef %32)
   %34 = load ptr, ptr %20, align 8
   %35 = load ptr, ptr %34, align 8
   %36 = zext i32 %31 to i64
@@ -1339,7 +1461,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_add_int8_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i8 noundef signext %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
@@ -1350,7 +1472,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_int8_option(ptr noundef readonly cap
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_add_option_common.exit.thread, label %13
 
@@ -1383,7 +1505,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_int8_option(ptr noundef readonly cap
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -1395,7 +1517,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_int8_option(ptr noundef readonly cap
 .loopexit:                                        ; preds = %26, %24, %16
   %31 = phi i32 [ 0, %24 ], [ %23, %16 ], [ %23, %26 ]
   %32 = add i32 %31, 1
-  %33 = tail call ptr @g_array_set_size(ptr noundef %21, i32 noundef %32) #15
+  %33 = tail call ptr @g_array_set_size(ptr noundef %21, i32 noundef %32)
   %34 = load ptr, ptr %20, align 8
   %35 = load ptr, ptr %34, align 8
   %36 = zext i32 %31 to i64
@@ -1410,7 +1532,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_add_int32_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
@@ -1421,7 +1543,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_int32_option(ptr noundef readonly ca
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_add_option_common.exit.thread, label %13
 
@@ -1454,7 +1576,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_int32_option(ptr noundef readonly ca
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -1466,7 +1588,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_int32_option(ptr noundef readonly ca
 .loopexit:                                        ; preds = %26, %24, %16
   %31 = phi i32 [ 0, %24 ], [ %23, %16 ], [ %23, %26 ]
   %32 = add i32 %31, 1
-  %33 = tail call ptr @g_array_set_size(ptr noundef %21, i32 noundef %32) #15
+  %33 = tail call ptr @g_array_set_size(ptr noundef %21, i32 noundef %32)
   %34 = load ptr, ptr %20, align 8
   %35 = load ptr, ptr %34, align 8
   %36 = zext i32 %31 to i64
@@ -1481,7 +1603,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_add_int64_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
@@ -1492,7 +1614,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_int64_option(ptr noundef readonly ca
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_add_option_common.exit.thread, label %13
 
@@ -1525,7 +1647,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_int64_option(ptr noundef readonly ca
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -1537,7 +1659,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_int64_option(ptr noundef readonly ca
 .loopexit:                                        ; preds = %26, %24, %16
   %31 = phi i32 [ 0, %24 ], [ %23, %16 ], [ %23, %26 ]
   %32 = add i32 %31, 1
-  %33 = tail call ptr @g_array_set_size(ptr noundef %21, i32 noundef %32) #15
+  %33 = tail call ptr @g_array_set_size(ptr noundef %21, i32 noundef %32)
   %34 = load ptr, ptr %20, align 8
   %35 = load ptr, ptr %34, align 8
   %36 = zext i32 %31 to i64
@@ -1552,7 +1674,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_add_ipv4_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
@@ -1563,7 +1685,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_ipv4_option(ptr noundef readonly cap
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_add_option_common.exit.thread, label %13
 
@@ -1596,7 +1718,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_ipv4_option(ptr noundef readonly cap
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -1608,7 +1730,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_ipv4_option(ptr noundef readonly cap
 .loopexit:                                        ; preds = %26, %24, %16
   %31 = phi i32 [ 0, %24 ], [ %23, %16 ], [ %23, %26 ]
   %32 = add i32 %31, 1
-  %33 = tail call ptr @g_array_set_size(ptr noundef %21, i32 noundef %32) #15
+  %33 = tail call ptr @g_array_set_size(ptr noundef %21, i32 noundef %32)
   %34 = load ptr, ptr %20, align 8
   %35 = load ptr, ptr %34, align 8
   %36 = zext i32 %31 to i64
@@ -1623,7 +1745,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_add_ipv6_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
@@ -1634,7 +1756,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_ipv6_option(ptr noundef readonly cap
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_add_option_common.exit.thread, label %13
 
@@ -1667,7 +1789,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_ipv6_option(ptr noundef readonly cap
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -1679,14 +1801,14 @@ define range(i32 -6, 1) i32 @wtap_block_add_ipv6_option(ptr noundef readonly cap
 .loopexit:                                        ; preds = %26, %24, %16
   %31 = phi i32 [ 0, %24 ], [ %23, %16 ], [ %23, %26 ]
   %32 = add i32 %31, 1
-  %33 = tail call ptr @g_array_set_size(ptr noundef %21, i32 noundef %32) #15
+  %33 = tail call ptr @g_array_set_size(ptr noundef %21, i32 noundef %32)
   %34 = load ptr, ptr %20, align 8
   %35 = load ptr, ptr %34, align 8
   %36 = zext i32 %31 to i64
   %37 = getelementptr %struct.wtap_option_t, ptr %35, i64 %36
   store i32 %1, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 1 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef align 1 dereferenceable(16) %2, i64 16, i1 false)
   br label %wtap_block_add_option_common.exit.thread
 
 wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.loopexit
@@ -1694,7 +1816,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_add_string_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_add_option_common.exit.thread, label %6
@@ -1705,7 +1827,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_string_option(ptr noundef readonly c
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %11) #15
+  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %11)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %wtap_block_add_option_common.exit.thread, label %14
 
@@ -1738,7 +1860,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_string_option(ptr noundef readonly c
 27:                                               ; preds = %28
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %28, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %.loopexit, label %28, !llvm.loop !11
 
 28:                                               ; preds = %27, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %27 ]
@@ -1750,13 +1872,13 @@ define range(i32 -6, 1) i32 @wtap_block_add_string_option(ptr noundef readonly c
 .loopexit:                                        ; preds = %27, %25, %17
   %32 = phi i32 [ 0, %25 ], [ %24, %17 ], [ %24, %27 ]
   %33 = add i32 %32, 1
-  %34 = tail call ptr @g_array_set_size(ptr noundef %22, i32 noundef %33) #15
+  %34 = tail call ptr @g_array_set_size(ptr noundef %22, i32 noundef %33)
   %35 = load ptr, ptr %21, align 8
   %36 = load ptr, ptr %35, align 8
   %37 = zext i32 %32 to i64
   %38 = getelementptr %struct.wtap_option_t, ptr %36, i64 %37
   store i32 %1, ptr %38, align 8
-  %39 = tail call noalias ptr @g_strndup(ptr noundef %2, i64 noundef %3) #15
+  %39 = tail call noalias ptr @g_strndup(ptr noundef %2, i64 noundef %3)
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %39, ptr %40, align 8
   br label %wtap_block_add_option_common.exit.thread
@@ -1766,10 +1888,10 @@ wtap_block_add_option_common.exit.thread:         ; preds = %28, %14, %6, %4, %.
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_add_bytes_option_borrow(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
@@ -1780,7 +1902,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_bytes_option_borrow(ptr noundef read
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_add_option_common.exit.thread, label %13
 
@@ -1813,7 +1935,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_bytes_option_borrow(ptr noundef read
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -1825,13 +1947,13 @@ define range(i32 -6, 1) i32 @wtap_block_add_bytes_option_borrow(ptr noundef read
 .loopexit:                                        ; preds = %26, %24, %16
   %31 = phi i32 [ 0, %24 ], [ %23, %16 ], [ %23, %26 ]
   %32 = add i32 %31, 1
-  %33 = tail call ptr @g_array_set_size(ptr noundef %21, i32 noundef %32) #15
+  %33 = tail call ptr @g_array_set_size(ptr noundef %21, i32 noundef %32)
   %34 = load ptr, ptr %20, align 8
   %35 = load ptr, ptr %34, align 8
   %36 = zext i32 %31 to i64
   %37 = getelementptr %struct.wtap_option_t, ptr %35, i64 %36
   store i32 %1, ptr %37, align 8
-  %38 = tail call ptr @g_bytes_ref(ptr noundef %2) #15
+  %38 = tail call ptr @g_bytes_ref(ptr noundef %2)
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %38, ptr %39, align 8
   br label %wtap_block_add_option_common.exit.thread
@@ -1841,7 +1963,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_add_nflx_custom_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_add_option_common.exit.thread, label %6
@@ -1850,7 +1972,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_nflx_custom_option(ptr noundef reado
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef nonnull inttoptr (i64 2989 to ptr)) #15
+  %10 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef nonnull inttoptr (i64 2989 to ptr))
   %11 = icmp eq ptr %10, null
   br i1 %11, label %wtap_block_add_option_common.exit.thread, label %12
 
@@ -1883,7 +2005,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_nflx_custom_option(ptr noundef reado
 25:                                               ; preds = %26
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %26, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %.loopexit, label %26, !llvm.loop !11
 
 26:                                               ; preds = %25, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %25 ]
@@ -1895,7 +2017,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_nflx_custom_option(ptr noundef reado
 .loopexit:                                        ; preds = %25, %23, %15
   %30 = phi i32 [ 0, %23 ], [ %22, %15 ], [ %22, %25 ]
   %31 = add i32 %30, 1
-  %32 = tail call ptr @g_array_set_size(ptr noundef %20, i32 noundef %31) #15
+  %32 = tail call ptr @g_array_set_size(ptr noundef %20, i32 noundef %31)
   %33 = load ptr, ptr %19, align 8
   %34 = load ptr, ptr %33, align 8
   %35 = zext i32 %30 to i64
@@ -1913,9 +2035,9 @@ define range(i32 -6, 1) i32 @wtap_block_add_nflx_custom_option(ptr noundef reado
   %42 = load ptr, ptr %0, align 8
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 11
-  %45 = zext i1 %44 to i32
-  %46 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  store i32 %45, ptr %46, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %36, i64 40
+  %46 = zext i1 %44 to i8
+  store i8 %46, ptr %45, align 8
   br label %wtap_block_add_option_common.exit.thread
 
 wtap_block_add_option_common.exit.thread:         ; preds = %26, %12, %6, %4, %.loopexit
@@ -1923,7 +2045,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %26, %12, %6, %4, %.
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_add_custom_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %wtap_block_add_option_common.exit.thread, label %7
@@ -1934,7 +2056,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_custom_option(ptr noundef readonly c
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %1 to i64
   %12 = inttoptr i64 %11 to ptr
-  %13 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef %12) #15
+  %13 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef %12)
   %14 = icmp eq ptr %13, null
   br i1 %14, label %wtap_block_add_option_common.exit.thread, label %15
 
@@ -1967,7 +2089,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_custom_option(ptr noundef readonly c
 28:                                               ; preds = %29
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %29, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %.loopexit, label %29, !llvm.loop !11
 
 29:                                               ; preds = %28, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %28 ]
@@ -1979,7 +2101,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_custom_option(ptr noundef readonly c
 .loopexit:                                        ; preds = %28, %26, %18
   %33 = phi i32 [ 0, %26 ], [ %25, %18 ], [ %25, %28 ]
   %34 = add i32 %33, 1
-  %35 = tail call ptr @g_array_set_size(ptr noundef %23, i32 noundef %34) #15
+  %35 = tail call ptr @g_array_set_size(ptr noundef %23, i32 noundef %34)
   %36 = load ptr, ptr %22, align 8
   %37 = load ptr, ptr %36, align 8
   %38 = zext i32 %33 to i64
@@ -1999,10 +2121,10 @@ wtap_block_add_option_common.exit.thread:         ; preds = %29, %15, %7, %5, %.
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_add_if_filter_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
-  %.sroa.37 = alloca i64, align 8
-  %.sroa.5 = alloca ptr, align 8
+  %.sroa.511 = alloca i64, align 8
+  %.sroa.7 = alloca ptr, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
 
@@ -2012,7 +2134,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_if_filter_option(ptr noundef readonl
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_add_option_common.exit.thread, label %13
 
@@ -2045,7 +2167,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_if_filter_option(ptr noundef readonl
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -2057,17 +2179,19 @@ define range(i32 -6, 1) i32 @wtap_block_add_if_filter_option(ptr noundef readonl
 .loopexit:                                        ; preds = %26, %24, %16
   %31 = phi i32 [ 0, %24 ], [ %23, %16 ], [ %23, %26 ]
   %32 = add i32 %31, 1
-  %33 = tail call ptr @g_array_set_size(ptr noundef %21, i32 noundef %32) #15
+  %33 = tail call ptr @g_array_set_size(ptr noundef %21, i32 noundef %32)
   %34 = load ptr, ptr %20, align 8
   %35 = load ptr, ptr %34, align 8
   %36 = zext i32 %31 to i64
   %37 = getelementptr %struct.wtap_option_t, ptr %35, i64 %36
   store i32 %1, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
-  store i64 0, ptr %.sroa.37, align 8, !alias.scope !9
-  store ptr null, ptr %.sroa.5, align 8, !alias.scope !9
-  %39 = load i32, ptr %2, align 8, !noalias !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.511)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.7)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
+  store i64 0, ptr %.sroa.511, align 8
+  store ptr null, ptr %.sroa.7, align 8
+  %39 = load i32, ptr %2, align 8, !noalias !13
   switch i32 %39, label %if_filter_dup.exit [
     i32 0, label %40
     i32 1, label %44
@@ -2075,39 +2199,41 @@ define range(i32 -6, 1) i32 @wtap_block_add_if_filter_option(ptr noundef readonl
 
 40:                                               ; preds = %.loopexit
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %42 = load ptr, ptr %41, align 8, !noalias !9
-  %43 = tail call noalias ptr @g_strdup(ptr noundef %42) #15, !noalias !9
+  %42 = load ptr, ptr %41, align 8, !noalias !13
+  %43 = tail call noalias ptr @g_strdup(ptr noundef %42)
   br label %.sink.split.i
 
 44:                                               ; preds = %.loopexit
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %46 = load i32, ptr %45, align 8, !noalias !9
-  store i32 %46, ptr %.sroa.37, align 8, !alias.scope !9
+  %46 = load i32, ptr %45, align 8, !noalias !13
+  store i32 %46, ptr %.sroa.511, align 8, !alias.scope !13
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %48 = load ptr, ptr %47, align 8, !noalias !9
+  %48 = load ptr, ptr %47, align 8, !noalias !13
   %49 = zext i32 %46 to i64
   %50 = shl nuw nsw i64 %49, 3
-  %51 = tail call ptr @g_memdup2(ptr noundef %48, i64 noundef %50) #18, !noalias !9
+  %51 = tail call ptr @g_memdup2(ptr noundef %48, i64 noundef %50) #18
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %44, %40
-  %.sink7.i.sroa.phi = phi ptr [ %.sroa.5, %44 ], [ %.sroa.37, %40 ]
+  %.sink7.i.sroa.phi = phi ptr [ %.sroa.7, %44 ], [ %.sroa.511, %40 ]
   %.sink.i = phi ptr [ %51, %44 ], [ %43, %40 ]
-  store ptr %.sink.i, ptr %.sink7.i.sroa.phi, align 8, !alias.scope !9
-  %.sroa.37.0..sroa.37.0..sroa.37.0..sroa.37.0.copyload.pre = load i64, ptr %.sroa.37, align 8
-  %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.0.copyload.pre = load ptr, ptr %.sroa.5, align 8
+  store ptr %.sink.i, ptr %.sink7.i.sroa.phi, align 8, !alias.scope !13
+  %.sroa.511.0..sroa.511.0..sroa.511.0.copyload.pre = load i64, ptr %.sroa.511, align 8
+  %.sroa.7.0..sroa.7.0..sroa.7.0.copyload.pre = load ptr, ptr %.sroa.7, align 8
   br label %if_filter_dup.exit
 
 if_filter_dup.exit:                               ; preds = %.loopexit, %.sink.split.i
-  %.sroa.5.0..sroa.5.0..sroa.5.0.copyload = phi ptr [ null, %.loopexit ], [ %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.0.copyload.pre, %.sink.split.i ]
-  %.sroa.37.0..sroa.37.0..sroa.37.0.copyload = phi i64 [ 0, %.loopexit ], [ %.sroa.37.0..sroa.37.0..sroa.37.0..sroa.37.0.copyload.pre, %.sink.split.i ]
+  %.sroa.7.0..sroa.7.0.copyload = phi ptr [ null, %.loopexit ], [ %.sroa.7.0..sroa.7.0..sroa.7.0.copyload.pre, %.sink.split.i ]
+  %.sroa.511.0..sroa.511.0.copyload = phi i64 [ 0, %.loopexit ], [ %.sroa.511.0..sroa.511.0..sroa.511.0.copyload.pre, %.sink.split.i ]
   store i32 %39, ptr %38, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 12
-  store i32 0, ptr %.sroa.3.0..sroa_idx, align 4
-  %.sroa.37.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store i64 %.sroa.37.0..sroa.37.0..sroa.37.0.copyload, ptr %.sroa.37.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 24
-  store ptr %.sroa.5.0..sroa.5.0..sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 12
+  store i32 0, ptr %.sroa.5.0..sroa_idx, align 4
+  %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 16
+  store i64 %.sroa.511.0..sroa.511.0.copyload, ptr %.sroa.511.0..sroa_idx, align 8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 24
+  store ptr %.sroa.7.0..sroa.7.0.copyload, ptr %.sroa.7.0..sroa_idx, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.511)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.7)
   br label %wtap_block_add_option_common.exit.thread
 
 wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %if_filter_dup.exit
@@ -2115,7 +2241,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %i
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_add_packet_verdict_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
@@ -2126,7 +2252,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_packet_verdict_option(ptr noundef re
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_add_option_common.exit.thread, label %13
 
@@ -2159,7 +2285,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_packet_verdict_option(ptr noundef re
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -2171,7 +2297,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_packet_verdict_option(ptr noundef re
 .loopexit:                                        ; preds = %26, %24, %16
   %31 = phi i32 [ 0, %24 ], [ %23, %16 ], [ %23, %26 ]
   %32 = add i32 %31, 1
-  %33 = tail call ptr @g_array_set_size(ptr noundef %21, i32 noundef %32) #15
+  %33 = tail call ptr @g_array_set_size(ptr noundef %21, i32 noundef %32)
   %34 = load ptr, ptr %20, align 8
   %35 = load ptr, ptr %34, align 8
   %36 = zext i32 %31 to i64
@@ -2197,7 +2323,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_packet_verdict_option(ptr noundef re
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i32, ptr %49, align 8
   %51 = zext i32 %50 to i64
-  %52 = tail call ptr @g_byte_array_new_take(ptr noundef %47, i64 noundef %51) #15
+  %52 = tail call ptr @g_byte_array_new_take(ptr noundef %47, i64 noundef %51)
   br label %packet_verdict_dup.exit
 
 53:                                               ; preds = %.loopexit
@@ -2215,8 +2341,8 @@ define range(i32 -6, 1) i32 @wtap_block_add_packet_verdict_option(ptr noundef re
 packet_verdict_dup.exit:                          ; preds = %.loopexit, %40, %53, %57
   %.sroa.37.0.i = phi ptr [ null, %.loopexit ], [ %60, %57 ], [ %56, %53 ], [ %52, %40 ]
   store i32 %39, ptr %38, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store ptr %.sroa.37.0.i, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 16
+  store ptr %.sroa.37.0.i, ptr %.sroa.41.0..sroa_idx, align 8
   br label %wtap_block_add_option_common.exit.thread
 
 wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %packet_verdict_dup.exit
@@ -2224,7 +2350,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %p
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_add_packet_hash_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
@@ -2235,7 +2361,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_packet_hash_option(ptr noundef reado
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_add_option_common.exit.thread, label %13
 
@@ -2268,7 +2394,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_packet_hash_option(ptr noundef reado
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -2280,7 +2406,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_packet_hash_option(ptr noundef reado
 .loopexit:                                        ; preds = %26, %24, %16
   %31 = phi i32 [ 0, %24 ], [ %23, %16 ], [ %23, %26 ]
   %32 = add i32 %31, 1
-  %33 = tail call ptr @g_array_set_size(ptr noundef %21, i32 noundef %32) #15
+  %33 = tail call ptr @g_array_set_size(ptr noundef %21, i32 noundef %32)
   %34 = load ptr, ptr %20, align 8
   %35 = load ptr, ptr %34, align 8
   %36 = zext i32 %31 to i64
@@ -2299,10 +2425,10 @@ define range(i32 -6, 1) i32 @wtap_block_add_packet_hash_option(ptr noundef reado
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i32, ptr %48, align 8
   %50 = zext i32 %49 to i64
-  %51 = tail call ptr @g_byte_array_new_take(ptr noundef %46, i64 noundef %50) #15
+  %51 = tail call ptr @g_byte_array_new_take(ptr noundef %46, i64 noundef %50)
   store i8 %39, ptr %38, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store ptr %51, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 16
+  store ptr %51, ptr %.sroa.41.0..sroa_idx, align 8
   br label %wtap_block_add_option_common.exit.thread
 
 wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.loopexit
@@ -2310,7 +2436,7 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noundef ptr @wtap_block_make_copy(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 8
@@ -2318,29 +2444,29 @@ define noundef ptr @wtap_block_make_copy(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %4, label %wtap_block_create.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #16
+  %6 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #16
   %7 = zext nneg i32 %3 to i64
   %8 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %7
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %6, align 8
-  %10 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 48) #15
+  %10 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 48)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %10, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull %6) #15
+  tail call void %13(ptr noundef %6)
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 1, ptr %14, align 8
   br label %wtap_block_create.exit
 
 wtap_block_create.exit:                           ; preds = %1, %5
   %.0.i = phi ptr [ %6, %5 ], [ null, %1 ]
-  tail call void @wtap_block_copy(ptr noundef %.0.i, ptr noundef nonnull %0)
+  tail call void @wtap_block_copy(ptr noundef %.0.i, ptr noundef %0)
   ret ptr %.0.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @wtap_block_count_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
+define i32 @wtap_block_count_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -2367,15 +2493,15 @@ define i32 @wtap_block_count_option(ptr noundef readonly captures(address_is_nul
   %spec.select = add i32 %.01014, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !16
 
 .loopexit:                                        ; preds = %9, %.preheader, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %.preheader ], [ %spec.select, %9 ]
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @wtap_block_foreach_option(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define noundef zeroext i1 @wtap_block_foreach_option(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -2384,8 +2510,8 @@ define range(i32 0, 2) i32 @wtap_block_foreach_option(ptr noundef %0, ptr nounde
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
-  %.not19 = icmp eq i32 %8, 0
-  br i1 %.not19, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 9:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2394,7 +2520,7 @@ define range(i32 0, 2) i32 @wtap_block_foreach_option(ptr noundef %0, ptr nounde
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   %14 = icmp samesign ult i64 %indvars.iv.next, %13
-  br i1 %14, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %14, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
 .lr.ph:                                           ; preds = %.preheader, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %.preheader ]
@@ -2407,21 +2533,20 @@ define range(i32 0, 2) i32 @wtap_block_foreach_option(ptr noundef %0, ptr nounde
   %21 = load i32, ptr %17, align 8
   %22 = zext i32 %21 to i64
   %23 = inttoptr i64 %22 to ptr
-  %24 = tail call ptr @g_hash_table_lookup(ptr noundef %20, ptr noundef %23) #15
+  %24 = tail call ptr @g_hash_table_lookup(ptr noundef %20, ptr noundef %23)
   %25 = load i32, ptr %17, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %29 = tail call i32 %1(ptr noundef nonnull %0, i32 noundef %25, i32 noundef %27, ptr noundef nonnull %28, ptr noundef %2) #15
-  %.not = icmp eq i32 %29, 0
-  br i1 %.not, label %.loopexit, label %9
+  %29 = tail call zeroext i1 %1(ptr noundef nonnull %0, i32 noundef %25, i32 noundef %27, ptr noundef nonnull %28, ptr noundef %2)
+  br i1 %29, label %9, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %9, %.preheader, %3
-  %.0 = phi i32 [ 1, %3 ], [ 1, %.preheader ], [ 0, %.lr.ph ], [ 1, %9 ]
-  ret i32 %.0
+  %.0 = phi i1 [ true, %3 ], [ true, %.preheader ], [ %29, %9 ], [ %29, %.lr.ph ]
+  ret i1 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_set_uint8_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
@@ -2432,7 +2557,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_uint8_option_value(ptr noundef reado
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
@@ -2465,7 +2590,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_uint8_option_value(ptr noundef reado
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -2484,7 +2609,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_get_uint8_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
@@ -2495,7 +2620,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_uint8_option_value(ptr noundef reado
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
@@ -2528,7 +2653,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_uint8_option_value(ptr noundef reado
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -2548,7 +2673,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_set_uint32_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
@@ -2559,7 +2684,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_uint32_option_value(ptr noundef read
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
@@ -2592,7 +2717,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_uint32_option_value(ptr noundef read
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -2611,7 +2736,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_get_uint32_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
@@ -2622,7 +2747,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_uint32_option_value(ptr noundef read
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
@@ -2655,7 +2780,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_uint32_option_value(ptr noundef read
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -2675,7 +2800,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_set_uint64_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
@@ -2686,7 +2811,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_uint64_option_value(ptr noundef read
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
@@ -2719,7 +2844,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_uint64_option_value(ptr noundef read
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -2738,7 +2863,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_get_uint64_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
@@ -2749,7 +2874,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_uint64_option_value(ptr noundef read
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
@@ -2782,7 +2907,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_uint64_option_value(ptr noundef read
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -2802,7 +2927,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_set_int8_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i8 noundef signext %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
@@ -2813,7 +2938,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_int8_option_value(ptr noundef readon
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
@@ -2846,7 +2971,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_int8_option_value(ptr noundef readon
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -2865,7 +2990,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_get_int8_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
@@ -2876,7 +3001,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_int8_option_value(ptr noundef readon
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
@@ -2909,7 +3034,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_int8_option_value(ptr noundef readon
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -2929,7 +3054,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_set_int32_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
@@ -2940,7 +3065,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_int32_option_value(ptr noundef reado
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
@@ -2973,7 +3098,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_int32_option_value(ptr noundef reado
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -2992,7 +3117,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_get_int32_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
@@ -3003,7 +3128,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_int32_option_value(ptr noundef reado
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
@@ -3036,7 +3161,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_int32_option_value(ptr noundef reado
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -3056,7 +3181,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_set_int64_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
@@ -3067,7 +3192,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_int64_option_value(ptr noundef reado
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
@@ -3100,7 +3225,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_int64_option_value(ptr noundef reado
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -3119,7 +3244,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_get_int64_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
@@ -3130,7 +3255,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_int64_option_value(ptr noundef reado
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
@@ -3163,7 +3288,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_int64_option_value(ptr noundef reado
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -3183,7 +3308,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_set_ipv4_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
@@ -3194,7 +3319,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_ipv4_option_value(ptr noundef readon
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
@@ -3227,7 +3352,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_ipv4_option_value(ptr noundef readon
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -3246,7 +3371,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_get_ipv4_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
@@ -3257,7 +3382,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_ipv4_option_value(ptr noundef readon
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
@@ -3290,7 +3415,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_ipv4_option_value(ptr noundef readon
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -3311,9 +3436,9 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_set_ipv6_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
@@ -3324,7 +3449,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_ipv6_option_value(ptr noundef readon
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
@@ -3357,7 +3482,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_ipv6_option_value(ptr noundef readon
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -3368,7 +3493,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_ipv6_option_value(ptr noundef readon
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 1 dereferenceable(16) %2, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef align 1 dereferenceable(16) %2, i64 16, i1 false)
   br label %wtap_block_get_option_common.exit.thread
 
 wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, %5, %3, %31
@@ -3376,7 +3501,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_get_ipv6_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
@@ -3387,7 +3512,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_ipv6_option_value(ptr noundef readon
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
@@ -3420,7 +3545,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_ipv6_option_value(ptr noundef readon
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -3431,7 +3556,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_ipv6_option_value(ptr noundef readon
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   br label %wtap_block_get_option_common.exit.thread
 
 wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, %5, %3, %31
@@ -3439,9 +3564,10 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
   ret i32 %.0
 }
 
+; Function Attrs: null_pointer_is_valid
 declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_add_string_option_owned(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_add_option_common.exit.thread, label %5
@@ -3452,7 +3578,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_string_option_owned(ptr noundef read
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_add_option_common.exit.thread, label %13
 
@@ -3485,7 +3611,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_string_option_owned(ptr noundef read
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %.loopexit, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -3497,7 +3623,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_string_option_owned(ptr noundef read
 .loopexit:                                        ; preds = %26, %24, %16
   %31 = phi i32 [ 0, %24 ], [ %23, %16 ], [ %23, %26 ]
   %32 = add i32 %31, 1
-  %33 = tail call ptr @g_array_set_size(ptr noundef %21, i32 noundef %32) #15
+  %33 = tail call ptr @g_array_set_size(ptr noundef %21, i32 noundef %32)
   %34 = load ptr, ptr %20, align 8
   %35 = load ptr, ptr %34, align 8
   %36 = zext i32 %31 to i64
@@ -3512,9 +3638,10 @@ wtap_block_add_option_common.exit.thread:         ; preds = %27, %13, %5, %3, %.
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_add_string_option_format(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #19
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_add_option_common.exit.thread, label %6
 
@@ -3524,7 +3651,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_string_option_format(ptr noundef rea
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %11) #15
+  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %11)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %wtap_block_add_option_common.exit.thread, label %14
 
@@ -3557,7 +3684,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_string_option_format(ptr noundef rea
 27:                                               ; preds = %28
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %28, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %.loopexit, label %28, !llvm.loop !11
 
 28:                                               ; preds = %27, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %27 ]
@@ -3569,14 +3696,14 @@ define range(i32 -6, 1) i32 @wtap_block_add_string_option_format(ptr noundef rea
 .loopexit:                                        ; preds = %27, %25, %17
   %32 = phi i32 [ 0, %25 ], [ %24, %17 ], [ %24, %27 ]
   %33 = add i32 %32, 1
-  %34 = tail call ptr @g_array_set_size(ptr noundef %22, i32 noundef %33) #15
+  %34 = tail call ptr @g_array_set_size(ptr noundef %22, i32 noundef %33)
   %35 = load ptr, ptr %21, align 8
   %36 = load ptr, ptr %35, align 8
   %37 = zext i32 %32 to i64
   %38 = getelementptr %struct.wtap_option_t, ptr %36, i64 %37
   store i32 %1, ptr %38, align 8
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %39 = call noalias ptr @wmem_strdup_vprintf(ptr noundef null, ptr noundef %2, ptr noundef nonnull %4) #15
+  %39 = call noalias ptr @wmem_strdup_vprintf(ptr noundef null, ptr noundef %2, ptr noundef nonnull %4)
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %39, ptr %40, align 8
   call void @llvm.va_end.p0(ptr nonnull %4)
@@ -3584,12 +3711,20 @@ define range(i32 -6, 1) i32 @wtap_block_add_string_option_format(ptr noundef rea
 
 wtap_block_add_option_common.exit.thread:         ; preds = %28, %14, %6, %3, %.loopexit
   %.0 = phi i32 [ 0, %.loopexit ], [ -3, %14 ], [ -1, %6 ], [ -6, %3 ], [ -5, %28 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #19
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: null_pointer_is_valid
 declare noalias ptr @wmem_strdup_vprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_set_string_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_add_string_option.exit, label %6
@@ -3600,7 +3735,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_string_option_value(ptr noundef read
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %11) #15
+  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %11)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %wtap_block_add_string_option.exit, label %14
 
@@ -3633,7 +3768,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_string_option_value(ptr noundef read
 27:                                               ; preds = %28
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.thread, label %28, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %.thread, label %28, !llvm.loop !11
 
 28:                                               ; preds = %27, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %27 ]
@@ -3646,7 +3781,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_string_option_value(ptr noundef read
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call ptr @g_hash_table_lookup(ptr noundef %34, ptr noundef %11) #15
+  %35 = tail call ptr @g_hash_table_lookup(ptr noundef %34, ptr noundef %11)
   %36 = icmp eq ptr %35, null
   br i1 %36, label %wtap_block_add_string_option.exit, label %37
 
@@ -3678,7 +3813,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_string_option_value(ptr noundef read
 49:                                               ; preds = %50
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %.loopexit.i, label %50, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i, label %.loopexit.i, label %50, !llvm.loop !11
 
 50:                                               ; preds = %49, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %49 ]
@@ -3690,13 +3825,13 @@ define range(i32 -6, 1) i32 @wtap_block_set_string_option_value(ptr noundef read
 .loopexit.i:                                      ; preds = %49, %47, %40
   %54 = phi i32 [ 0, %47 ], [ %46, %40 ], [ %46, %49 ]
   %55 = add i32 %54, 1
-  %56 = tail call ptr @g_array_set_size(ptr noundef %44, i32 noundef %55) #15
+  %56 = tail call ptr @g_array_set_size(ptr noundef %44, i32 noundef %55)
   %57 = load ptr, ptr %22, align 8
   %58 = load ptr, ptr %57, align 8
   %59 = zext i32 %54 to i64
   %60 = getelementptr %struct.wtap_option_t, ptr %58, i64 %59
   store i32 %1, ptr %60, align 8
-  %61 = tail call noalias ptr @g_strndup(ptr noundef %2, i64 noundef %3) #15
+  %61 = tail call noalias ptr @g_strndup(ptr noundef %2, i64 noundef %3)
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %61, ptr %62, align 8
   br label %wtap_block_add_string_option.exit
@@ -3704,8 +3839,8 @@ define range(i32 -6, 1) i32 @wtap_block_set_string_option_value(ptr noundef read
 63:                                               ; preds = %28
   %64 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %65 = load ptr, ptr %64, align 8
-  tail call void @g_free(ptr noundef %65) #15
-  %66 = tail call noalias ptr @g_strndup(ptr noundef %2, i64 noundef %3) #15
+  tail call void @g_free(ptr noundef %65)
+  %66 = tail call noalias ptr @g_strndup(ptr noundef %2, i64 noundef %3)
   store ptr %66, ptr %64, align 8
   br label %wtap_block_add_string_option.exit
 
@@ -3714,7 +3849,7 @@ wtap_block_add_string_option.exit:                ; preds = %50, %17, %14, %6, %
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_set_nth_string_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %wtap_block_get_nth_option_common.exit.thread, label %7
@@ -3725,7 +3860,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_string_option_value(ptr noundef 
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %1 to i64
   %12 = inttoptr i64 %11 to ptr
-  %13 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef %12) #15
+  %13 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef %12)
   %14 = icmp eq ptr %13, null
   br i1 %14, label %wtap_block_get_nth_option_common.exit.thread, label %15
 
@@ -3775,13 +3910,13 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_string_option_value(ptr noundef 
   %.1.i.i = phi i32 [ %35, %34 ], [ %.016.i.i, %28 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %28, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %28, !llvm.loop !18
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %39 = load ptr, ptr %38, align 8
-  tail call void @g_free(ptr noundef %39) #15
-  %40 = tail call noalias ptr @g_strndup(ptr noundef %3, i64 noundef %4) #15
+  tail call void @g_free(ptr noundef %39)
+  %40 = tail call noalias ptr @g_strndup(ptr noundef %3, i64 noundef %4)
   store ptr %40, ptr %38, align 8
   br label %wtap_block_get_nth_option_common.exit.thread
 
@@ -3790,9 +3925,10 @@ wtap_block_get_nth_option_common.exit.thread:     ; preds = %36, %22, %18, %15, 
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_set_string_option_value_format(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #19
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_get_option_common.exit.thread, label %6
 
@@ -3802,7 +3938,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_string_option_value_format(ptr nound
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %11) #15
+  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %11)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %wtap_block_get_option_common.exit.thread, label %14
 
@@ -3835,7 +3971,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_string_option_value_format(ptr nound
 27:                                               ; preds = %28
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.thread, label %28, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %.thread, label %28, !llvm.loop !11
 
 28:                                               ; preds = %27, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %27 ]
@@ -3849,7 +3985,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_string_option_value_format(ptr nound
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %34 = load ptr, ptr %33, align 8
-  %35 = call ptr @g_hash_table_lookup(ptr noundef %34, ptr noundef %11) #15
+  %35 = call ptr @g_hash_table_lookup(ptr noundef %34, ptr noundef %11)
   %36 = icmp eq ptr %35, null
   br i1 %36, label %wtap_block_get_option_common.exit.thread.sink.split, label %37
 
@@ -3881,7 +4017,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_string_option_value_format(ptr nound
 49:                                               ; preds = %50
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %.loopexit.i, label %50, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i, label %.loopexit.i, label %50, !llvm.loop !11
 
 50:                                               ; preds = %49, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %49 ]
@@ -3893,13 +4029,13 @@ define range(i32 -6, 1) i32 @wtap_block_set_string_option_value_format(ptr nound
 .loopexit.i:                                      ; preds = %49, %47, %40
   %54 = phi i32 [ 0, %47 ], [ %46, %40 ], [ %46, %49 ]
   %55 = add i32 %54, 1
-  %56 = call ptr @g_array_set_size(ptr noundef %44, i32 noundef %55) #15
+  %56 = call ptr @g_array_set_size(ptr noundef %44, i32 noundef %55)
   %57 = load ptr, ptr %22, align 8
   %58 = load ptr, ptr %57, align 8
   %59 = zext i32 %54 to i64
   %60 = getelementptr %struct.wtap_option_t, ptr %58, i64 %59
   store i32 %1, ptr %60, align 8
-  %61 = call noalias ptr @wmem_strdup_vprintf(ptr noundef null, ptr noundef %2, ptr noundef nonnull %4) #15
+  %61 = call noalias ptr @wmem_strdup_vprintf(ptr noundef null, ptr noundef %2, ptr noundef nonnull %4)
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %61, ptr %62, align 8
   br label %wtap_block_get_option_common.exit.thread.sink.split
@@ -3907,9 +4043,9 @@ define range(i32 -6, 1) i32 @wtap_block_set_string_option_value_format(ptr nound
 63:                                               ; preds = %28
   %64 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %65 = load ptr, ptr %64, align 8
-  tail call void @g_free(ptr noundef %65) #15
+  tail call void @g_free(ptr noundef %65)
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %66 = call noalias ptr @wmem_strdup_vprintf(ptr noundef null, ptr noundef %2, ptr noundef nonnull %4) #15
+  %66 = call noalias ptr @wmem_strdup_vprintf(ptr noundef null, ptr noundef %2, ptr noundef nonnull %4)
   store ptr %66, ptr %64, align 8
   br label %wtap_block_get_option_common.exit.thread.sink.split
 
@@ -3920,12 +4056,14 @@ wtap_block_get_option_common.exit.thread.sink.split: ; preds = %50, %.loopexit.i
 
 wtap_block_get_option_common.exit.thread:         ; preds = %wtap_block_get_option_common.exit.thread.sink.split, %17, %14, %6, %3
   %.0 = phi i32 [ -4, %17 ], [ -3, %14 ], [ -1, %6 ], [ -6, %3 ], [ %.0.ph, %wtap_block_get_option_common.exit.thread.sink.split ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #19
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_set_nth_string_option_value_format(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ...) local_unnamed_addr #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #19
   %6 = icmp eq ptr %0, null
   br i1 %6, label %wtap_block_get_nth_option_common.exit.thread, label %7
 
@@ -3935,7 +4073,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_string_option_value_format(ptr n
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %1 to i64
   %12 = inttoptr i64 %11 to ptr
-  %13 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef %12) #15
+  %13 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef %12)
   %14 = icmp eq ptr %13, null
   br i1 %14, label %wtap_block_get_nth_option_common.exit.thread, label %15
 
@@ -3985,24 +4123,25 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_string_option_value_format(ptr n
   %.1.i.i = phi i32 [ %35, %34 ], [ %.016.i.i, %28 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %28, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %28, !llvm.loop !18
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %39 = load ptr, ptr %38, align 8
-  tail call void @g_free(ptr noundef %39) #15
+  tail call void @g_free(ptr noundef %39)
   call void @llvm.va_start.p0(ptr nonnull %5)
-  %40 = call noalias ptr @wmem_strdup_vprintf(ptr noundef null, ptr noundef %3, ptr noundef nonnull %5) #15
+  %40 = call noalias ptr @wmem_strdup_vprintf(ptr noundef null, ptr noundef %3, ptr noundef nonnull %5)
   store ptr %40, ptr %38, align 8
   call void @llvm.va_end.p0(ptr nonnull %5)
   br label %wtap_block_get_nth_option_common.exit.thread
 
 wtap_block_get_nth_option_common.exit.thread:     ; preds = %36, %22, %18, %15, %7, %4, %37
   %.0 = phi i32 [ 0, %37 ], [ -2, %22 ], [ -4, %18 ], [ -3, %15 ], [ -1, %7 ], [ -6, %4 ], [ -2, %36 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #19
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_get_string_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
@@ -4013,7 +4152,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_string_option_value(ptr noundef read
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
@@ -4046,7 +4185,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_string_option_value(ptr noundef read
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -4066,7 +4205,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_get_nth_string_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_get_nth_option_common.exit.thread, label %6
@@ -4077,7 +4216,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nth_string_option_value(ptr noundef 
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %11) #15
+  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %11)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %wtap_block_get_nth_option_common.exit.thread, label %14
 
@@ -4127,7 +4266,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nth_string_option_value(ptr noundef 
   %.1.i.i = phi i32 [ %34, %33 ], [ %.016.i.i, %27 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !18
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -4140,7 +4279,7 @@ wtap_block_get_nth_option_common.exit.thread:     ; preds = %35, %21, %17, %14, 
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_add_bytes_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_add_option_common.exit.thread, label %6
@@ -4151,7 +4290,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_bytes_option(ptr noundef readonly ca
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %11) #15
+  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %11)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %wtap_block_add_option_common.exit.thread, label %14
 
@@ -4184,7 +4323,7 @@ define range(i32 -6, 1) i32 @wtap_block_add_bytes_option(ptr noundef readonly ca
 27:                                               ; preds = %28
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit, label %28, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %.loopexit, label %28, !llvm.loop !11
 
 28:                                               ; preds = %27, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %27 ]
@@ -4196,13 +4335,13 @@ define range(i32 -6, 1) i32 @wtap_block_add_bytes_option(ptr noundef readonly ca
 .loopexit:                                        ; preds = %27, %25, %17
   %32 = phi i32 [ 0, %25 ], [ %24, %17 ], [ %24, %27 ]
   %33 = add i32 %32, 1
-  %34 = tail call ptr @g_array_set_size(ptr noundef %22, i32 noundef %33) #15
+  %34 = tail call ptr @g_array_set_size(ptr noundef %22, i32 noundef %33)
   %35 = load ptr, ptr %21, align 8
   %36 = load ptr, ptr %35, align 8
   %37 = zext i32 %32 to i64
   %38 = getelementptr %struct.wtap_option_t, ptr %36, i64 %37
   store i32 %1, ptr %38, align 8
-  %39 = tail call ptr @g_bytes_new(ptr noundef %2, i64 noundef %3) #15
+  %39 = tail call ptr @g_bytes_new(ptr noundef %2, i64 noundef %3)
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %39, ptr %40, align 8
   br label %wtap_block_add_option_common.exit.thread
@@ -4212,11 +4351,13 @@ wtap_block_add_option_common.exit.thread:         ; preds = %28, %14, %6, %4, %.
   ret i32 %.0
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @g_bytes_new(ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @g_bytes_ref(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_set_bytes_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_add_bytes_option.exit, label %6
@@ -4227,7 +4368,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_bytes_option_value(ptr noundef reado
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %11) #15
+  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %11)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %wtap_block_add_bytes_option.exit, label %14
 
@@ -4260,7 +4401,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_bytes_option_value(ptr noundef reado
 27:                                               ; preds = %28
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.thread, label %28, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %.thread, label %28, !llvm.loop !11
 
 28:                                               ; preds = %27, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %27 ]
@@ -4273,7 +4414,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_bytes_option_value(ptr noundef reado
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call ptr @g_hash_table_lookup(ptr noundef %34, ptr noundef %11) #15
+  %35 = tail call ptr @g_hash_table_lookup(ptr noundef %34, ptr noundef %11)
   %36 = icmp eq ptr %35, null
   br i1 %36, label %wtap_block_add_bytes_option.exit, label %37
 
@@ -4305,7 +4446,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_bytes_option_value(ptr noundef reado
 49:                                               ; preds = %50
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %.loopexit.i, label %50, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i, label %.loopexit.i, label %50, !llvm.loop !11
 
 50:                                               ; preds = %49, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %49 ]
@@ -4317,13 +4458,13 @@ define range(i32 -6, 1) i32 @wtap_block_set_bytes_option_value(ptr noundef reado
 .loopexit.i:                                      ; preds = %49, %47, %40
   %54 = phi i32 [ 0, %47 ], [ %46, %40 ], [ %46, %49 ]
   %55 = add i32 %54, 1
-  %56 = tail call ptr @g_array_set_size(ptr noundef %44, i32 noundef %55) #15
+  %56 = tail call ptr @g_array_set_size(ptr noundef %44, i32 noundef %55)
   %57 = load ptr, ptr %22, align 8
   %58 = load ptr, ptr %57, align 8
   %59 = zext i32 %54 to i64
   %60 = getelementptr %struct.wtap_option_t, ptr %58, i64 %59
   store i32 %1, ptr %60, align 8
-  %61 = tail call ptr @g_bytes_new(ptr noundef %2, i64 noundef %3) #15
+  %61 = tail call ptr @g_bytes_new(ptr noundef %2, i64 noundef %3)
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %61, ptr %62, align 8
   br label %wtap_block_add_bytes_option.exit
@@ -4331,8 +4472,8 @@ define range(i32 -6, 1) i32 @wtap_block_set_bytes_option_value(ptr noundef reado
 63:                                               ; preds = %28
   %64 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %65 = load ptr, ptr %64, align 8
-  tail call void @g_bytes_unref(ptr noundef %65) #15
-  %66 = tail call ptr @g_bytes_new(ptr noundef %2, i64 noundef %3) #15
+  tail call void @g_bytes_unref(ptr noundef %65)
+  %66 = tail call ptr @g_bytes_new(ptr noundef %2, i64 noundef %3)
   store ptr %66, ptr %64, align 8
   br label %wtap_block_add_bytes_option.exit
 
@@ -4341,9 +4482,10 @@ wtap_block_add_bytes_option.exit:                 ; preds = %50, %17, %14, %6, %
   ret i32 %.0
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @g_bytes_unref(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_set_nth_bytes_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_get_nth_option_common.exit.thread, label %6
@@ -4354,7 +4496,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_bytes_option_value(ptr noundef r
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %11) #15
+  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %11)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %wtap_block_get_nth_option_common.exit.thread, label %14
 
@@ -4404,13 +4546,13 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_bytes_option_value(ptr noundef r
   %.1.i.i = phi i32 [ %34, %33 ], [ %.016.i.i, %27 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !18
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %38 = load ptr, ptr %37, align 8
-  tail call void @g_bytes_unref(ptr noundef %38) #15
-  %39 = tail call ptr @g_bytes_ref(ptr noundef %3) #15
+  tail call void @g_bytes_unref(ptr noundef %38)
+  %39 = tail call ptr @g_bytes_ref(ptr noundef %3)
   store ptr %39, ptr %37, align 8
   br label %wtap_block_get_nth_option_common.exit.thread
 
@@ -4419,7 +4561,7 @@ wtap_block_get_nth_option_common.exit.thread:     ; preds = %35, %21, %17, %14, 
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_get_bytes_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
@@ -4430,7 +4572,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_bytes_option_value(ptr noundef reado
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
@@ -4463,7 +4605,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_bytes_option_value(ptr noundef reado
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -4483,7 +4625,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_get_nth_bytes_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_get_nth_option_common.exit.thread, label %6
@@ -4494,7 +4636,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nth_bytes_option_value(ptr noundef r
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %11) #15
+  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %11)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %wtap_block_get_nth_option_common.exit.thread, label %14
 
@@ -4544,7 +4686,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nth_bytes_option_value(ptr noundef r
   %.1.i.i = phi i32 [ %34, %33 ], [ %.016.i.i, %27 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !18
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -4557,10 +4699,10 @@ wtap_block_get_nth_option_common.exit.thread:     ; preds = %35, %21, %17, %14, 
   ret i32 %.0
 }
 
-; Function Attrs: allocsize(1)
-declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #9
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #11
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %._crit_edge.thread, label %6
@@ -4569,7 +4711,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef reado
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef nonnull inttoptr (i64 2989 to ptr)) #15
+  %10 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef nonnull inttoptr (i64 2989 to ptr))
   %11 = icmp eq ptr %10, null
   br i1 %11, label %._crit_edge.thread, label %12
 
@@ -4614,7 +4756,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef reado
 32:                                               ; preds = %20, %24, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %20, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge.thread, label %20, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %28
   %33 = trunc nuw i64 %indvars.iv to i32
@@ -4829,7 +4971,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef reado
   store i8 %176, ptr %177, align 1
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
   %exitcond239.not = icmp eq i64 %indvars.iv.next237, 3
-  br i1 %exitcond239.not, label %178, label %174, !llvm.loop !16
+  br i1 %exitcond239.not, label %178, label %174, !llvm.loop !20
 
 178:                                              ; preds = %174
   %179 = getelementptr inbounds nuw i8, ptr %46, i64 160
@@ -4988,7 +5130,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef reado
   store i32 %290, ptr %291, align 4
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %exitcond235.not = icmp eq i64 %indvars.iv.next233, 4
-  br i1 %exitcond235.not, label %292, label %285, !llvm.loop !17
+  br i1 %exitcond235.not, label %292, label %285, !llvm.loop !21
 
 292:                                              ; preds = %285
   %293 = getelementptr inbounds nuw i8, ptr %267, i64 52
@@ -5005,20 +5147,20 @@ define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef reado
   store i64 %300, ptr %301, align 8
   %302 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %303 = getelementptr inbounds nuw i8, ptr %267, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %302, ptr noundef nonnull align 8 dereferenceable(64) %303, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %302, ptr noundef nonnull align 1 dereferenceable(64) %303, i64 noundef 64, i1 noundef false) #19
   %304 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %305 = getelementptr inbounds nuw i8, ptr %267, i64 136
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %304, ptr noundef nonnull align 8 dereferenceable(32) %305, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %304, ptr noundef nonnull align 1 dereferenceable(32) %305, i64 noundef 32, i1 noundef false) #19
   %306 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %307 = getelementptr inbounds nuw i8, ptr %267, i64 168
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %306, ptr noundef nonnull align 8 dereferenceable(32) %307, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %306, ptr noundef nonnull align 1 dereferenceable(32) %307, i64 noundef 32, i1 noundef false) #19
   %308 = getelementptr inbounds nuw i8, ptr %267, i64 200
   %309 = load i8, ptr %308, align 8
   %310 = getelementptr inbounds nuw i8, ptr %2, i64 200
   store i8 %309, ptr %310, align 8
   %311 = getelementptr inbounds nuw i8, ptr %2, i64 201
   %312 = getelementptr inbounds nuw i8, ptr %267, i64 201
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %311, ptr noundef nonnull align 1 dereferenceable(7) %312, i64 7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %311, ptr noundef nonnull align 1 dereferenceable(7) %312, i64 noundef 7, i1 noundef false) #19
   br label %._crit_edge.thread
 
 313:                                              ; preds = %39
@@ -5031,7 +5173,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef reado
 317:                                              ; preds = %39
   %318 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   %319 = load ptr, ptr %318, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %319, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %2, ptr noundef align 1 %319, i64 noundef %3, i1 noundef false) #19
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %32, %40, %178, %292, %313, %317, %39, %35, %._crit_edge, %12, %6, %4
@@ -5039,10 +5181,10 @@ define range(i32 -6, 1) i32 @wtap_block_get_nflx_custom_option(ptr noundef reado
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_set_if_filter_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
-  %.sroa.39 = alloca i64, align 8
-  %.sroa.5 = alloca ptr, align 8
+  %.sroa.520 = alloca i64, align 8
+  %.sroa.7 = alloca ptr, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %if_filter_free.exit, label %5
 
@@ -5052,7 +5194,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_if_filter_option_value(ptr noundef r
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %if_filter_free.exit, label %13
 
@@ -5085,7 +5227,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_if_filter_option_value(ptr noundef r
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %if_filter_free.exit, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %if_filter_free.exit, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -5096,16 +5238,17 @@ define range(i32 -6, 1) i32 @wtap_block_set_if_filter_option_value(ptr noundef r
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %.sroa.011.0.copyload = load i32, ptr %32, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 12
-  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %.sroa.212.0.copyload = load i64, ptr %.sroa.212.0..sroa_idx, align 8
-  %.sroa.313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %.sroa.313.0.copyload = load ptr, ptr %.sroa.313.0..sroa_idx, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  store i64 0, ptr %.sroa.39, align 8, !alias.scope !18
-  store ptr null, ptr %.sroa.5, align 8, !alias.scope !18
-  %33 = load i32, ptr %2, align 8, !noalias !18
+  %.sroa.0.0.copyload = load i32, ptr %32, align 8
+  %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %.sroa.410.0.copyload = load i64, ptr %.sroa.410.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.520)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.7)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  store i64 0, ptr %.sroa.520, align 8
+  store ptr null, ptr %.sroa.7, align 8
+  %33 = load i32, ptr %2, align 8, !noalias !22
   switch i32 %33, label %if_filter_dup.exit [
     i32 0, label %34
     i32 1, label %38
@@ -5113,38 +5256,43 @@ define range(i32 -6, 1) i32 @wtap_block_set_if_filter_option_value(ptr noundef r
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %36 = load ptr, ptr %35, align 8, !noalias !18
-  %37 = tail call noalias ptr @g_strdup(ptr noundef %36) #15, !noalias !18
+  %36 = load ptr, ptr %35, align 8, !noalias !22
+  %37 = tail call noalias ptr @g_strdup(ptr noundef %36)
   br label %.sink.split.i
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = load i32, ptr %39, align 8, !noalias !18
-  store i32 %40, ptr %.sroa.39, align 8, !alias.scope !18
+  %40 = load i32, ptr %39, align 8, !noalias !22
+  store i32 %40, ptr %.sroa.520, align 8, !alias.scope !22
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %42 = load ptr, ptr %41, align 8, !noalias !18
+  %42 = load ptr, ptr %41, align 8, !noalias !22
   %43 = zext i32 %40 to i64
   %44 = shl nuw nsw i64 %43, 3
-  %45 = tail call ptr @g_memdup2(ptr noundef %42, i64 noundef %44) #18, !noalias !18
+  %45 = tail call ptr @g_memdup2(ptr noundef %42, i64 noundef %44) #18
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %38, %34
-  %.sink7.i.sroa.phi = phi ptr [ %.sroa.5, %38 ], [ %.sroa.39, %34 ]
+  %.sink7.i.sroa.phi = phi ptr [ %.sroa.7, %38 ], [ %.sroa.520, %34 ]
   %.sink.i = phi ptr [ %45, %38 ], [ %37, %34 ]
-  store ptr %.sink.i, ptr %.sink7.i.sroa.phi, align 8, !alias.scope !18
-  %.sroa.39.0..sroa.39.0..sroa.39.0..sroa.39.0.copyload.pre = load i64, ptr %.sroa.39, align 8
-  %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.0.copyload.pre = load ptr, ptr %.sroa.5, align 8
+  store ptr %.sink.i, ptr %.sink7.i.sroa.phi, align 8, !alias.scope !22
+  %.sroa.520.0..sroa.520.0..sroa.520.0.copyload.pre = load i64, ptr %.sroa.520, align 8
+  %.sroa.7.0..sroa.7.0..sroa.7.0.copyload.pre = load ptr, ptr %.sroa.7, align 8
   br label %if_filter_dup.exit
 
 if_filter_dup.exit:                               ; preds = %31, %.sink.split.i
-  %.sroa.5.0..sroa.5.0..sroa.5.0.copyload = phi ptr [ null, %31 ], [ %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.0.copyload.pre, %.sink.split.i ]
-  %.sroa.39.0..sroa.39.0..sroa.39.0.copyload = phi i64 [ 0, %31 ], [ %.sroa.39.0..sroa.39.0..sroa.39.0..sroa.39.0.copyload.pre, %.sink.split.i ]
+  %.sroa.7.0..sroa.7.0.copyload = phi ptr [ null, %31 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0.copyload.pre, %.sink.split.i ]
+  %.sroa.520.0..sroa.520.0.copyload = phi i64 [ 0, %31 ], [ %.sroa.520.0..sroa.520.0..sroa.520.0.copyload.pre, %.sink.split.i ]
   store i32 %33, ptr %32, align 8
-  store i32 0, ptr %.sroa.2.0..sroa_idx, align 4
-  store i64 %.sroa.39.0..sroa.39.0..sroa.39.0.copyload, ptr %.sroa.212.0..sroa_idx, align 8
-  store ptr %.sroa.5.0..sroa.5.0..sroa.5.0.copyload, ptr %.sroa.313.0..sroa_idx, align 8
-  %46 = inttoptr i64 %.sroa.212.0.copyload to ptr
-  switch i32 %.sroa.011.0.copyload, label %if_filter_free.exit [
+  %.sroa.5.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %28, i64 12
+  store i32 0, ptr %.sroa.5.0..sroa_idx18, align 4
+  %.sroa.520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 16
+  store i64 %.sroa.520.0..sroa.520.0.copyload, ptr %.sroa.520.0..sroa_idx, align 8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 24
+  store ptr %.sroa.7.0..sroa.7.0.copyload, ptr %.sroa.7.0..sroa_idx, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.520)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.7)
+  %46 = inttoptr i64 %.sroa.410.0.copyload to ptr
+  switch i32 %.sroa.0.0.copyload, label %if_filter_free.exit [
     i32 0, label %.sink.split.i6
     i32 1, label %47
   ]
@@ -5153,8 +5301,8 @@ if_filter_dup.exit:                               ; preds = %31, %.sink.split.i
   br label %.sink.split.i6
 
 .sink.split.i6:                                   ; preds = %47, %if_filter_dup.exit
-  %.sink.i7.sroa.phi.sroa.speculated = phi ptr [ %.sroa.313.0.copyload, %47 ], [ %46, %if_filter_dup.exit ]
-  tail call void @g_free(ptr noundef %.sink.i7.sroa.phi.sroa.speculated) #15
+  %.sink.i7.sroa.phi.sroa.speculated = phi ptr [ %.sroa.5.0.copyload, %47 ], [ %46, %if_filter_dup.exit ]
+  tail call void @g_free(ptr noundef %.sink.i7.sroa.phi.sroa.speculated)
   br label %if_filter_free.exit
 
 if_filter_free.exit:                              ; preds = %26, %20, %16, %13, %5, %3, %.sink.split.i6, %if_filter_dup.exit
@@ -5162,7 +5310,7 @@ if_filter_free.exit:                              ; preds = %26, %20, %16, %13, 
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_get_if_filter_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wtap_block_get_option_common.exit.thread, label %5
@@ -5173,7 +5321,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_if_filter_option_value(ptr noundef r
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %wtap_block_get_option_common.exit.thread, label %13
 
@@ -5206,7 +5354,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_if_filter_option_value(ptr noundef r
 26:                                               ; preds = %27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %wtap_block_get_option_common.exit.thread, label %27, !llvm.loop !11
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
@@ -5217,7 +5365,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_if_filter_option_value(ptr noundef r
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
   br label %wtap_block_get_option_common.exit.thread
 
 wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, %5, %3, %31
@@ -5225,7 +5373,7 @@ wtap_block_get_option_common.exit.thread:         ; preds = %26, %20, %16, %13, 
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_set_nth_packet_verdict_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_packet_verdict_free.exit, label %6
@@ -5236,7 +5384,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_packet_verdict_option_value(ptr 
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %11) #15
+  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %11)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %wtap_packet_verdict_free.exit, label %14
 
@@ -5286,13 +5434,13 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_packet_verdict_option_value(ptr 
   %.1.i.i = phi i32 [ %34, %33 ], [ %.016.i.i, %27 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_packet_verdict_free.exit, label %27, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %wtap_packet_verdict_free.exit, label %27, !llvm.loop !18
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %.sroa.0.0.copyload = load i32, ptr %37, align 8
-  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %.sroa.28.0.copyload = load ptr, ptr %.sroa.28.0..sroa_idx, align 8
+  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %.sroa.48.0.copyload = load ptr, ptr %.sroa.48.0..sroa_idx, align 8
   %38 = load i32, ptr %3, align 8
   switch i32 %38, label %packet_verdict_dup.exit [
     i32 0, label %39
@@ -5312,7 +5460,7 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_packet_verdict_option_value(ptr 
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i32, ptr %48, align 8
   %50 = zext i32 %49 to i64
-  %51 = tail call ptr @g_byte_array_new_take(ptr noundef %46, i64 noundef %50) #15
+  %51 = tail call ptr @g_byte_array_new_take(ptr noundef %46, i64 noundef %50)
   br label %packet_verdict_dup.exit
 
 52:                                               ; preds = %36
@@ -5330,12 +5478,12 @@ define range(i32 -6, 1) i32 @wtap_block_set_nth_packet_verdict_option_value(ptr 
 packet_verdict_dup.exit:                          ; preds = %36, %39, %52, %56
   %.sroa.37.0.i = phi ptr [ null, %36 ], [ %59, %56 ], [ %55, %52 ], [ %51, %39 ]
   store i32 %38, ptr %37, align 8
-  store ptr %.sroa.37.0.i, ptr %.sroa.28.0..sroa_idx, align 8
+  store ptr %.sroa.37.0.i, ptr %.sroa.48.0..sroa_idx, align 8
   %cond.i = icmp eq i32 %.sroa.0.0.copyload, 0
   br i1 %cond.i, label %60, label %wtap_packet_verdict_free.exit
 
 60:                                               ; preds = %packet_verdict_dup.exit
-  %61 = tail call ptr @g_byte_array_free(ptr noundef %.sroa.28.0.copyload, i32 noundef 1) #15
+  %61 = tail call ptr @g_byte_array_free(ptr noundef %.sroa.48.0.copyload, i32 noundef 1)
   br label %wtap_packet_verdict_free.exit
 
 wtap_packet_verdict_free.exit:                    ; preds = %35, %21, %17, %14, %6, %4, %60, %packet_verdict_dup.exit
@@ -5343,7 +5491,7 @@ wtap_packet_verdict_free.exit:                    ; preds = %35, %21, %17, %14, 
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_get_nth_packet_verdict_option_value(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wtap_block_get_nth_option_common.exit.thread, label %6
@@ -5354,7 +5502,7 @@ define range(i32 -6, 1) i32 @wtap_block_get_nth_packet_verdict_option_value(ptr 
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %11) #15
+  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %11)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %wtap_block_get_nth_option_common.exit.thread, label %14
 
@@ -5404,11 +5552,11 @@ define range(i32 -6, 1) i32 @wtap_block_get_nth_packet_verdict_option_value(ptr 
   %.1.i.i = phi i32 [ %34, %33 ], [ %.016.i.i, %27 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %wtap_block_get_nth_option_common.exit.thread, label %27, !llvm.loop !18
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false)
   br label %wtap_block_get_nth_option_common.exit.thread
 
 wtap_block_get_nth_option_common.exit.thread:     ; preds = %35, %21, %17, %14, %6, %4, %36
@@ -5416,7 +5564,7 @@ wtap_block_get_nth_option_common.exit.thread:     ; preds = %35, %21, %17, %14, 
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_remove_option(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
@@ -5427,7 +5575,7 @@ define range(i32 -6, 1) i32 @wtap_block_remove_option(ptr noundef readonly captu
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %1 to i64
   %9 = inttoptr i64 %8 to ptr
-  %10 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %9) #15
+  %10 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %9)
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %12
 
@@ -5463,27 +5611,27 @@ define range(i32 -6, 1) i32 @wtap_block_remove_option(ptr noundef readonly captu
   %.val = load ptr, ptr %0, align 8
   %27 = getelementptr i8, ptr %.val, i64 48
   %.val.val = load ptr, ptr %27, align 8
-  tail call fastcc void @wtap_block_free_option(ptr %.val.val, ptr noundef nonnull %22)
+  tail call fastcc void @wtap_block_free_option(ptr %.val.val, ptr noundef %22)
   %28 = load ptr, ptr %16, align 8
-  %29 = tail call ptr @g_array_remove_index(ptr noundef %28, i32 noundef %26) #15
+  %29 = tail call ptr @g_array_remove_index(ptr noundef %28, i32 noundef %26)
   br label %.loopexit
 
 30:                                               ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !25
 
 .loopexit:                                        ; preds = %30, %.preheader, %12, %4, %2, %25
   %.0 = phi i32 [ 0, %25 ], [ -6, %2 ], [ -1, %4 ], [ -4, %12 ], [ -2, %.preheader ], [ -2, %30 ]
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @wtap_block_free_option(ptr %.0.val.48.val, ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = zext i32 %2 to i64
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %.0.val.48.val, ptr noundef %4) #15
+  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %.0.val.48.val, ptr noundef %4)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %if_filter_free.exit [
@@ -5498,13 +5646,13 @@ define internal fastcc void @wtap_block_free_option(ptr %.0.val.48.val, ptr noun
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
-  tail call void @g_free(ptr noundef %10) #15
+  tail call void @g_free(ptr noundef %10)
   br label %if_filter_free.exit
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
-  tail call void @g_bytes_unref(ptr noundef %13) #15
+  tail call void @g_bytes_unref(ptr noundef %13)
   br label %if_filter_free.exit
 
 14:                                               ; preds = %1
@@ -5516,13 +5664,13 @@ define internal fastcc void @wtap_block_free_option(ptr %.0.val.48.val, ptr noun
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
-  tail call void @g_free(ptr noundef %19) #15
+  tail call void @g_free(ptr noundef %19)
   br label %if_filter_free.exit
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
-  tail call void @g_free(ptr noundef %22) #15
+  tail call void @g_free(ptr noundef %22)
   br label %if_filter_free.exit
 
 23:                                               ; preds = %1
@@ -5540,7 +5688,7 @@ define internal fastcc void @wtap_block_free_option(ptr %.0.val.48.val, ptr noun
   %.sink.i = phi i64 [ 16, %26 ], [ 8, %23 ]
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 %.sink.i
   %28 = load ptr, ptr %27, align 8
-  tail call void @g_free(ptr noundef %28) #15
+  tail call void @g_free(ptr noundef %28)
   br label %if_filter_free.exit
 
 29:                                               ; preds = %1
@@ -5552,22 +5700,23 @@ define internal fastcc void @wtap_block_free_option(ptr %.0.val.48.val, ptr noun
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call ptr @g_byte_array_free(ptr noundef %34, i32 noundef 1) #15
+  %35 = tail call ptr @g_byte_array_free(ptr noundef %34, i32 noundef 1)
   br label %if_filter_free.exit
 
 36:                                               ; preds = %1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call ptr @g_byte_array_free(ptr noundef %38, i32 noundef 1) #15
+  %39 = tail call ptr @g_byte_array_free(ptr noundef %38, i32 noundef 1)
   br label %if_filter_free.exit
 
-if_filter_free.exit:                              ; preds = %32, %29, %.sink.split.i, %23, %1, %17, %20, %36, %11, %8
+if_filter_free.exit:                              ; preds = %32, %29, %.sink.split.i, %23, %8, %11, %36, %20, %17, %1
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @g_array_remove_index(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 -6, 1) i32 @wtap_block_remove_nth_option_instance(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %5
@@ -5578,7 +5727,7 @@ define range(i32 -6, 1) i32 @wtap_block_remove_nth_option_instance(ptr noundef r
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10) #15
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.loopexit, label %13
 
@@ -5619,9 +5768,9 @@ define range(i32 -6, 1) i32 @wtap_block_remove_nth_option_instance(ptr noundef r
   %.val = load ptr, ptr %0, align 8
   %30 = getelementptr i8, ptr %.val, i64 48
   %.val.val = load ptr, ptr %30, align 8
-  tail call fastcc void @wtap_block_free_option(ptr %.val.val, ptr noundef nonnull %23)
+  tail call fastcc void @wtap_block_free_option(ptr %.val.val, ptr noundef %23)
   %31 = load ptr, ptr %17, align 8
-  %32 = tail call ptr @g_array_remove_index(ptr noundef %31, i32 noundef %29) #15
+  %32 = tail call ptr @g_array_remove_index(ptr noundef %31, i32 noundef %29)
   br label %.loopexit
 
 33:                                               ; preds = %26
@@ -5632,220 +5781,220 @@ define range(i32 -6, 1) i32 @wtap_block_remove_nth_option_instance(ptr noundef r
   %.1 = phi i32 [ %34, %33 ], [ %.027, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !26
 
 .loopexit:                                        ; preds = %35, %.preheader, %13, %5, %3, %28
   %.019 = phi i32 [ 0, %28 ], [ -6, %3 ], [ -1, %5 ], [ -4, %13 ], [ -2, %.preheader ], [ -2, %35 ]
   ret i32 %.019
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @wtap_opttypes_initialize() local_unnamed_addr #0 {
   %1 = load i32, ptr @wtap_opttypes_initialize.shb_block, align 8
-  %2 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
+  %2 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
   store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.shb_block, i64 48), align 8
-  %3 = tail call i32 @g_hash_table_insert(ptr noundef %2, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment) #15
+  %3 = tail call i32 @g_hash_table_insert(ptr noundef %2, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment)
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.shb_block, i64 48), align 8
-  %5 = tail call i32 @g_hash_table_insert(ptr noundef %4, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %5 = tail call i32 @g_hash_table_insert(ptr noundef %4, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.shb_block, i64 48), align 8
-  %7 = tail call i32 @g_hash_table_insert(ptr noundef %6, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %7 = tail call i32 @g_hash_table_insert(ptr noundef %6, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.shb_block, i64 48), align 8
-  %9 = tail call i32 @g_hash_table_insert(ptr noundef %8, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %9 = tail call i32 @g_hash_table_insert(ptr noundef %8, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.shb_block, i64 48), align 8
-  %11 = tail call i32 @g_hash_table_insert(ptr noundef %10, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %11 = tail call i32 @g_hash_table_insert(ptr noundef %10, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %12 = zext i32 %1 to i64
   %13 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %12
   store ptr @wtap_opttypes_initialize.shb_block, ptr %13, align 8
   %wtap_opttypes_initialize.shb_block.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.shb_block, i64 48), align 8
-  %14 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.shb_block.val, ptr noundef nonnull inttoptr (i64 2 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.shb_hardware) #15
+  %14 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.shb_block.val, ptr noundef nonnull inttoptr (i64 2 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.shb_hardware)
   %wtap_opttypes_initialize.shb_block.val1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.shb_block, i64 48), align 8
-  %15 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.shb_block.val1, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.shb_os) #15
+  %15 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.shb_block.val1, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.shb_os)
   %wtap_opttypes_initialize.shb_block.val2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.shb_block, i64 48), align 8
-  %16 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.shb_block.val2, ptr noundef nonnull inttoptr (i64 4 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.shb_userappl) #15
+  %16 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.shb_block.val2, ptr noundef nonnull inttoptr (i64 4 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.shb_userappl)
   %17 = load i32, ptr @wtap_opttypes_initialize.idb_block, align 8
-  %18 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
+  %18 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
   store ptr %18, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
-  %19 = tail call i32 @g_hash_table_insert(ptr noundef %18, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment) #15
+  %19 = tail call i32 @g_hash_table_insert(ptr noundef %18, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment)
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
-  %21 = tail call i32 @g_hash_table_insert(ptr noundef %20, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %21 = tail call i32 @g_hash_table_insert(ptr noundef %20, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
-  %23 = tail call i32 @g_hash_table_insert(ptr noundef %22, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %23 = tail call i32 @g_hash_table_insert(ptr noundef %22, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
-  %25 = tail call i32 @g_hash_table_insert(ptr noundef %24, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %25 = tail call i32 @g_hash_table_insert(ptr noundef %24, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
-  %27 = tail call i32 @g_hash_table_insert(ptr noundef %26, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %27 = tail call i32 @g_hash_table_insert(ptr noundef %26, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %28 = zext i32 %17 to i64
   %29 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %28
   store ptr @wtap_opttypes_initialize.idb_block, ptr %29, align 8
   %wtap_opttypes_initialize.idb_block.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
-  %30 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val, ptr noundef nonnull inttoptr (i64 2 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_name) #15
+  %30 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val, ptr noundef nonnull inttoptr (i64 2 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_name)
   %wtap_opttypes_initialize.idb_block.val3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
-  %31 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val3, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_description) #15
+  %31 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val3, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_description)
   %wtap_opttypes_initialize.idb_block.val4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
-  %32 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val4, ptr noundef nonnull inttoptr (i64 8 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_speed) #15
+  %32 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val4, ptr noundef nonnull inttoptr (i64 8 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_speed)
   %wtap_opttypes_initialize.idb_block.val5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
-  %33 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val5, ptr noundef nonnull inttoptr (i64 9 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_tsresol) #15
+  %33 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val5, ptr noundef nonnull inttoptr (i64 9 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_tsresol)
   %wtap_opttypes_initialize.idb_block.val6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
-  %34 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val6, ptr noundef nonnull inttoptr (i64 11 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_filter) #15
+  %34 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val6, ptr noundef nonnull inttoptr (i64 11 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_filter)
   %wtap_opttypes_initialize.idb_block.val7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
-  %35 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val7, ptr noundef nonnull inttoptr (i64 12 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_os) #15
+  %35 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val7, ptr noundef nonnull inttoptr (i64 12 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_os)
   %wtap_opttypes_initialize.idb_block.val8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
-  %36 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val8, ptr noundef nonnull inttoptr (i64 13 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_fcslen) #15
+  %36 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val8, ptr noundef nonnull inttoptr (i64 13 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_fcslen)
   %wtap_opttypes_initialize.idb_block.val9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
-  %37 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val9, ptr noundef nonnull inttoptr (i64 14 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_tsoffset) #15
+  %37 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val9, ptr noundef nonnull inttoptr (i64 14 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_tsoffset)
   %wtap_opttypes_initialize.idb_block.val10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.idb_block, i64 48), align 8
-  %38 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val10, ptr noundef nonnull inttoptr (i64 15 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_hardware) #15
+  %38 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.idb_block.val10, ptr noundef nonnull inttoptr (i64 15 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.if_hardware)
   %39 = load i32, ptr @wtap_opttypes_initialize.nrb_block, align 8
-  %40 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
+  %40 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
   store ptr %40, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.nrb_block, i64 48), align 8
-  %41 = tail call i32 @g_hash_table_insert(ptr noundef %40, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment) #15
+  %41 = tail call i32 @g_hash_table_insert(ptr noundef %40, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment)
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.nrb_block, i64 48), align 8
-  %43 = tail call i32 @g_hash_table_insert(ptr noundef %42, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %43 = tail call i32 @g_hash_table_insert(ptr noundef %42, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.nrb_block, i64 48), align 8
-  %45 = tail call i32 @g_hash_table_insert(ptr noundef %44, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %45 = tail call i32 @g_hash_table_insert(ptr noundef %44, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.nrb_block, i64 48), align 8
-  %47 = tail call i32 @g_hash_table_insert(ptr noundef %46, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %47 = tail call i32 @g_hash_table_insert(ptr noundef %46, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.nrb_block, i64 48), align 8
-  %49 = tail call i32 @g_hash_table_insert(ptr noundef %48, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %49 = tail call i32 @g_hash_table_insert(ptr noundef %48, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %50 = zext i32 %39 to i64
   %51 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %50
   store ptr @wtap_opttypes_initialize.nrb_block, ptr %51, align 8
   %wtap_opttypes_initialize.nrb_block.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.nrb_block, i64 48), align 8
-  %52 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.nrb_block.val, ptr noundef nonnull inttoptr (i64 2 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.ns_dnsname) #15
+  %52 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.nrb_block.val, ptr noundef nonnull inttoptr (i64 2 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.ns_dnsname)
   %wtap_opttypes_initialize.nrb_block.val11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.nrb_block, i64 48), align 8
-  %53 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.nrb_block.val11, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.ns_dnsIP4addr) #15
+  %53 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.nrb_block.val11, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.ns_dnsIP4addr)
   %wtap_opttypes_initialize.nrb_block.val12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.nrb_block, i64 48), align 8
-  %54 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.nrb_block.val12, ptr noundef nonnull inttoptr (i64 4 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.ns_dnsIP6addr) #15
+  %54 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.nrb_block.val12, ptr noundef nonnull inttoptr (i64 4 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.ns_dnsIP6addr)
   %55 = load i32, ptr @wtap_opttypes_initialize.isb_block, align 8
-  %56 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
+  %56 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
   store ptr %56, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
-  %57 = tail call i32 @g_hash_table_insert(ptr noundef %56, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment) #15
+  %57 = tail call i32 @g_hash_table_insert(ptr noundef %56, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment)
   %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
-  %59 = tail call i32 @g_hash_table_insert(ptr noundef %58, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %59 = tail call i32 @g_hash_table_insert(ptr noundef %58, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
-  %61 = tail call i32 @g_hash_table_insert(ptr noundef %60, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %61 = tail call i32 @g_hash_table_insert(ptr noundef %60, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
-  %63 = tail call i32 @g_hash_table_insert(ptr noundef %62, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %63 = tail call i32 @g_hash_table_insert(ptr noundef %62, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
-  %65 = tail call i32 @g_hash_table_insert(ptr noundef %64, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %65 = tail call i32 @g_hash_table_insert(ptr noundef %64, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %66 = zext i32 %55 to i64
   %67 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %66
   store ptr @wtap_opttypes_initialize.isb_block, ptr %67, align 8
   %wtap_opttypes_initialize.isb_block.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
-  %68 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.isb_block.val, ptr noundef nonnull inttoptr (i64 2 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.isb_starttime) #15
+  %68 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.isb_block.val, ptr noundef nonnull inttoptr (i64 2 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.isb_starttime)
   %wtap_opttypes_initialize.isb_block.val13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
-  %69 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.isb_block.val13, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.isb_endtime) #15
+  %69 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.isb_block.val13, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.isb_endtime)
   %wtap_opttypes_initialize.isb_block.val14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
-  %70 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.isb_block.val14, ptr noundef nonnull inttoptr (i64 4 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.isb_ifrecv) #15
+  %70 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.isb_block.val14, ptr noundef nonnull inttoptr (i64 4 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.isb_ifrecv)
   %wtap_opttypes_initialize.isb_block.val15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
-  %71 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.isb_block.val15, ptr noundef nonnull inttoptr (i64 5 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.isb_ifdrop) #15
+  %71 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.isb_block.val15, ptr noundef nonnull inttoptr (i64 5 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.isb_ifdrop)
   %wtap_opttypes_initialize.isb_block.val16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
-  %72 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.isb_block.val16, ptr noundef nonnull inttoptr (i64 6 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.isb_filteraccept) #15
+  %72 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.isb_block.val16, ptr noundef nonnull inttoptr (i64 6 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.isb_filteraccept)
   %wtap_opttypes_initialize.isb_block.val17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
-  %73 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.isb_block.val17, ptr noundef nonnull inttoptr (i64 7 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.isb_osdrop) #15
+  %73 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.isb_block.val17, ptr noundef nonnull inttoptr (i64 7 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.isb_osdrop)
   %wtap_opttypes_initialize.isb_block.val18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.isb_block, i64 48), align 8
-  %74 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.isb_block.val18, ptr noundef nonnull inttoptr (i64 8 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.isb_usrdeliv) #15
+  %74 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.isb_block.val18, ptr noundef nonnull inttoptr (i64 8 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.isb_usrdeliv)
   %75 = load i32, ptr @wtap_opttypes_initialize.dsb_block, align 8
-  %76 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
+  %76 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
   store ptr %76, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.dsb_block, i64 48), align 8
-  %77 = tail call i32 @g_hash_table_insert(ptr noundef %76, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment) #15
+  %77 = tail call i32 @g_hash_table_insert(ptr noundef %76, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment)
   %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.dsb_block, i64 48), align 8
-  %79 = tail call i32 @g_hash_table_insert(ptr noundef %78, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %79 = tail call i32 @g_hash_table_insert(ptr noundef %78, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.dsb_block, i64 48), align 8
-  %81 = tail call i32 @g_hash_table_insert(ptr noundef %80, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %81 = tail call i32 @g_hash_table_insert(ptr noundef %80, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.dsb_block, i64 48), align 8
-  %83 = tail call i32 @g_hash_table_insert(ptr noundef %82, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %83 = tail call i32 @g_hash_table_insert(ptr noundef %82, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.dsb_block, i64 48), align 8
-  %85 = tail call i32 @g_hash_table_insert(ptr noundef %84, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %85 = tail call i32 @g_hash_table_insert(ptr noundef %84, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %86 = zext i32 %75 to i64
   %87 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %86
   store ptr @wtap_opttypes_initialize.dsb_block, ptr %87, align 8
   %88 = load i32, ptr @wtap_opttypes_initialize.mev_block, align 8
-  %89 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
+  %89 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
   store ptr %89, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.mev_block, i64 48), align 8
-  %90 = tail call i32 @g_hash_table_insert(ptr noundef %89, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment) #15
+  %90 = tail call i32 @g_hash_table_insert(ptr noundef %89, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment)
   %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.mev_block, i64 48), align 8
-  %92 = tail call i32 @g_hash_table_insert(ptr noundef %91, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %92 = tail call i32 @g_hash_table_insert(ptr noundef %91, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.mev_block, i64 48), align 8
-  %94 = tail call i32 @g_hash_table_insert(ptr noundef %93, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %94 = tail call i32 @g_hash_table_insert(ptr noundef %93, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.mev_block, i64 48), align 8
-  %96 = tail call i32 @g_hash_table_insert(ptr noundef %95, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %96 = tail call i32 @g_hash_table_insert(ptr noundef %95, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.mev_block, i64 48), align 8
-  %98 = tail call i32 @g_hash_table_insert(ptr noundef %97, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %98 = tail call i32 @g_hash_table_insert(ptr noundef %97, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %99 = zext i32 %88 to i64
   %100 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %99
   store ptr @wtap_opttypes_initialize.mev_block, ptr %100, align 8
   %101 = load i32, ptr @wtap_opttypes_initialize.pkt_block, align 8
-  %102 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
+  %102 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
   store ptr %102, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
-  %103 = tail call i32 @g_hash_table_insert(ptr noundef %102, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment) #15
+  %103 = tail call i32 @g_hash_table_insert(ptr noundef %102, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment)
   %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
-  %105 = tail call i32 @g_hash_table_insert(ptr noundef %104, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %105 = tail call i32 @g_hash_table_insert(ptr noundef %104, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
-  %107 = tail call i32 @g_hash_table_insert(ptr noundef %106, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %107 = tail call i32 @g_hash_table_insert(ptr noundef %106, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %108 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
-  %109 = tail call i32 @g_hash_table_insert(ptr noundef %108, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %109 = tail call i32 @g_hash_table_insert(ptr noundef %108, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
-  %111 = tail call i32 @g_hash_table_insert(ptr noundef %110, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %111 = tail call i32 @g_hash_table_insert(ptr noundef %110, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %112 = zext i32 %101 to i64
   %113 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %112
   store ptr @wtap_opttypes_initialize.pkt_block, ptr %113, align 8
   %wtap_opttypes_initialize.pkt_block.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
-  %114 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.pkt_block.val, ptr noundef nonnull inttoptr (i64 2 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.pkt_flags) #15
+  %114 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.pkt_block.val, ptr noundef nonnull inttoptr (i64 2 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.pkt_flags)
   %wtap_opttypes_initialize.pkt_block.val19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
-  %115 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.pkt_block.val19, ptr noundef nonnull inttoptr (i64 4 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.pkt_dropcount) #15
+  %115 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.pkt_block.val19, ptr noundef nonnull inttoptr (i64 4 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.pkt_dropcount)
   %wtap_opttypes_initialize.pkt_block.val20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
-  %116 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.pkt_block.val20, ptr noundef nonnull inttoptr (i64 5 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.pkt_id) #15
+  %116 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.pkt_block.val20, ptr noundef nonnull inttoptr (i64 5 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.pkt_id)
   %wtap_opttypes_initialize.pkt_block.val21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
-  %117 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.pkt_block.val21, ptr noundef nonnull inttoptr (i64 6 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.pkt_queue) #15
+  %117 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.pkt_block.val21, ptr noundef nonnull inttoptr (i64 6 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.pkt_queue)
   %wtap_opttypes_initialize.pkt_block.val22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
-  %118 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.pkt_block.val22, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.pkt_hash) #15
+  %118 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.pkt_block.val22, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.pkt_hash)
   %wtap_opttypes_initialize.pkt_block.val23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.pkt_block, i64 48), align 8
-  %119 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.pkt_block.val23, ptr noundef nonnull inttoptr (i64 7 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.pkt_verdict) #15
+  %119 = tail call i32 @g_hash_table_insert(ptr noundef %wtap_opttypes_initialize.pkt_block.val23, ptr noundef nonnull inttoptr (i64 7 to ptr), ptr noundef nonnull @wtap_opttypes_initialize.pkt_verdict)
   %120 = load i32, ptr @wtap_opttypes_initialize.journal_block, align 8
-  %121 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
+  %121 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
   store ptr %121, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.journal_block, i64 48), align 8
-  %122 = tail call i32 @g_hash_table_insert(ptr noundef %121, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment) #15
+  %122 = tail call i32 @g_hash_table_insert(ptr noundef %121, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment)
   %123 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.journal_block, i64 48), align 8
-  %124 = tail call i32 @g_hash_table_insert(ptr noundef %123, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %124 = tail call i32 @g_hash_table_insert(ptr noundef %123, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.journal_block, i64 48), align 8
-  %126 = tail call i32 @g_hash_table_insert(ptr noundef %125, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %126 = tail call i32 @g_hash_table_insert(ptr noundef %125, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.journal_block, i64 48), align 8
-  %128 = tail call i32 @g_hash_table_insert(ptr noundef %127, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %128 = tail call i32 @g_hash_table_insert(ptr noundef %127, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.journal_block, i64 48), align 8
-  %130 = tail call i32 @g_hash_table_insert(ptr noundef %129, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %130 = tail call i32 @g_hash_table_insert(ptr noundef %129, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %131 = zext i32 %120 to i64
   %132 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %131
   store ptr @wtap_opttypes_initialize.journal_block, ptr %132, align 8
   %133 = load i32, ptr @wtap_opttypes_initialize.cb_block, align 8
-  %134 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #15
+  %134 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
   store ptr %134, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.cb_block, i64 48), align 8
-  %135 = tail call i32 @g_hash_table_insert(ptr noundef %134, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment) #15
+  %135 = tail call i32 @g_hash_table_insert(ptr noundef %134, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_comment)
   %136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.cb_block, i64 48), align 8
-  %137 = tail call i32 @g_hash_table_insert(ptr noundef %136, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %137 = tail call i32 @g_hash_table_insert(ptr noundef %136, ptr noundef nonnull inttoptr (i64 2988 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.cb_block, i64 48), align 8
-  %139 = tail call i32 @g_hash_table_insert(ptr noundef %138, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %139 = tail call i32 @g_hash_table_insert(ptr noundef %138, ptr noundef nonnull inttoptr (i64 2989 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %140 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.cb_block, i64 48), align 8
-  %141 = tail call i32 @g_hash_table_insert(ptr noundef %140, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %141 = tail call i32 @g_hash_table_insert(ptr noundef %140, ptr noundef nonnull inttoptr (i64 19372 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wtap_opttypes_initialize.cb_block, i64 48), align 8
-  %143 = tail call i32 @g_hash_table_insert(ptr noundef %142, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom) #15
+  %143 = tail call i32 @g_hash_table_insert(ptr noundef %142, ptr noundef nonnull inttoptr (i64 19373 to ptr), ptr noundef nonnull @wtap_opttype_block_register.opt_custom)
   %144 = zext i32 %133 to i64
   %145 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %144
   store ptr @wtap_opttypes_initialize.cb_block, ptr %145, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @shb_create(ptr noundef writeonly captures(none) initializes((8, 16)) %0) #0 {
-  %2 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc_n(i64 noundef 1, i64 noundef 8) #16
+  %2 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #16
   store i64 -1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @shb_copy_mand(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #10 {
+; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+define internal void @shb_copy_mand(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5855,15 +6004,15 @@ define internal void @shb_copy_mand(ptr noundef readonly captures(none) %0, ptr 
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @idb_create(ptr noundef writeonly captures(none) initializes((8, 16)) %0) #0 {
-  %2 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #16
+  %2 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @idb_free_mand(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -5887,7 +6036,7 @@ define internal void @idb_free_mand(ptr noundef readonly captures(none) %0) #0 {
   %12 = load i8, ptr %4, align 8
   %13 = zext i8 %12 to i64
   %14 = icmp samesign ult i64 %indvars.iv.next, %13
-  br i1 %14, label %7, label %._crit_edge, !llvm.loop !23
+  br i1 %14, label %7, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %7, %1
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -5896,16 +6045,17 @@ define internal void @idb_free_mand(ptr noundef readonly captures(none) %0) #0 {
   br i1 %.not, label %19, label %17
 
 17:                                               ; preds = %._crit_edge
-  %18 = tail call ptr @g_array_free(ptr noundef nonnull %16, i32 noundef 1) #15
+  %18 = tail call ptr @g_array_free(ptr noundef nonnull %16, i32 noundef 1)
   br label %19
 
 19:                                               ; preds = %17, %._crit_edge
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @idb_copy_mand(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5918,18 +6068,18 @@ define internal void @idb_copy_mand(ptr noundef readonly captures(none) %0, ptr 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call ptr @g_array_free(ptr noundef %12, i32 noundef 1) #15
+  %13 = tail call ptr @g_array_free(ptr noundef %12, i32 noundef 1)
   br label %14
 
 14:                                               ; preds = %10, %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(40) %7, ptr noundef align 1 dereferenceable(40) %5, i64 noundef 40, i1 noundef false) #19
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %16 = load i8, ptr %15, align 8
   %.not15 = icmp eq i8 %16, 0
   br i1 %.not15, label %.loopexit, label %17
 
 17:                                               ; preds = %14
-  %18 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8) #15
+  %18 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8)
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %18, ptr %19, align 8
   %20 = load i8, ptr %15, align 8
@@ -5952,57 +6102,58 @@ define internal void @idb_copy_mand(ptr noundef readonly captures(none) %0, ptr 
   br i1 %29, label %wtap_block_make_copy.exit, label %30
 
 30:                                               ; preds = %22
-  %31 = call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #16
+  %31 = call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #16
   %32 = zext nneg i32 %28 to i64
   %33 = getelementptr [12 x ptr], ptr @blocktype_list, i64 0, i64 %32
   %34 = load ptr, ptr %33, align 8
   store ptr %34, ptr %31, align 8
-  %35 = call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 48) #15
+  %35 = call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 48)
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr %35, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull %31) #15
+  call void %38(ptr noundef %31)
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store i32 1, ptr %39, align 8
   br label %wtap_block_make_copy.exit
 
 wtap_block_make_copy.exit:                        ; preds = %22, %30
   %.0.i.i = phi ptr [ %31, %30 ], [ null, %22 ]
-  call void @wtap_block_copy(ptr noundef %.0.i.i, ptr noundef nonnull %26)
+  call void @wtap_block_copy(ptr noundef %.0.i.i, ptr noundef %26)
   store ptr %.0.i.i, ptr %3, align 8
   %40 = load ptr, ptr %19, align 8
-  %41 = call ptr @g_array_append_vals(ptr noundef %40, ptr noundef nonnull %3, i32 noundef 1) #15
+  %41 = call ptr @g_array_append_vals(ptr noundef %40, ptr noundef nonnull %3, i32 noundef 1)
   store ptr %41, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = load i8, ptr %15, align 8
   %43 = zext i8 %42 to i64
   %44 = icmp samesign ult i64 %indvars.iv.next, %43
-  br i1 %44, label %22, label %.loopexit, !llvm.loop !24
+  br i1 %44, label %22, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %wtap_block_make_copy.exit, %17, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dsb_create(ptr noundef writeonly captures(none) initializes((8, 16)) %0) #0 {
-  %2 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #16
+  %2 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dsb_free_mand(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
-  tail call void @g_free(ptr noundef %5) #15
+  tail call void @g_free(ptr noundef %5)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dsb_copy_mand(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -6016,7 +6167,7 @@ define internal void @dsb_copy_mand(ptr noundef readonly captures(none) %0, ptr 
   store i32 %9, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load ptr, ptr %11, align 8
-  tail call void @g_free(ptr noundef %12) #15
+  tail call void @g_free(ptr noundef %12)
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %8, align 4
@@ -6026,63 +6177,63 @@ define internal void @dsb_copy_mand(ptr noundef readonly captures(none) %0, ptr 
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @nrb_create(ptr noundef writeonly captures(none) initializes((8, 16)) %0) #0 {
-  %2 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #16
+  %2 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @nrb_free_mand(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  tail call void @g_list_free_full(ptr noundef %4, ptr noundef nonnull @g_free) #15
+  tail call void @g_list_free_full(ptr noundef %4, ptr noundef nonnull @g_free)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void @g_list_free_full(ptr noundef %6, ptr noundef nonnull @g_free) #15
+  tail call void @g_list_free_full(ptr noundef %6, ptr noundef nonnull @g_free)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @isb_create(ptr noundef writeonly captures(none) initializes((8, 16)) %0) #0 {
-  %2 = tail call noalias dereferenceable_or_null(12) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 12) #16
+  %2 = tail call noalias dereferenceable_or_null(12) ptr @g_malloc0(i64 noundef 12) #16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @isb_copy_mand(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #10 {
+; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+define internal void @isb_copy_mand(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %4, ptr noundef nonnull align 1 dereferenceable(12) %6, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(12) %4, ptr noundef align 1 dereferenceable(12) %6, i64 noundef 12, i1 noundef false) #19
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @mev_create(ptr noundef writeonly captures(none) initializes((8, 16)) %0) #0 {
-  %2 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #16
+  %2 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @mev_free_mand(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
-  tail call void @g_free(ptr noundef %5) #15
+  tail call void @g_free(ptr noundef %5)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @mev_copy_mand(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -6096,7 +6247,7 @@ define internal void @mev_copy_mand(ptr noundef readonly captures(none) %0, ptr 
   store i32 %9, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load ptr, ptr %11, align 8
-  tail call void @g_free(ptr noundef %12) #15
+  tail call void @g_free(ptr noundef %12)
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %8, align 4
@@ -6106,28 +6257,28 @@ define internal void @mev_copy_mand(ptr noundef readonly captures(none) %0, ptr 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @pkt_create(ptr noundef writeonly captures(none) initializes((8, 16)) %0) #11 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
+define internal void @pkt_create(ptr noundef writeonly captures(none) initializes((8, 16)) %0) #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @sjeb_create(ptr noundef writeonly captures(none) initializes((8, 16)) %0) #11 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
+define internal void @sjeb_create(ptr noundef writeonly captures(none) initializes((8, 16)) %0) #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @cb_create(ptr noundef writeonly captures(none) initializes((8, 16)) %0) #11 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
+define internal void @cb_create(ptr noundef writeonly captures(none) initializes((8, 16)) %0) #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @wtap_opttypes_cleanup() local_unnamed_addr #0 {
   br label %1
 
@@ -6145,7 +6296,7 @@ define void @wtap_opttypes_cleanup() local_unnamed_addr #0 {
   br i1 %.not8, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void @g_hash_table_destroy(ptr noundef nonnull %6) #15
+  tail call void @g_hash_table_destroy(ptr noundef nonnull %6)
   br label %8
 
 8:                                                ; preds = %7, %4
@@ -6155,93 +6306,101 @@ define void @wtap_opttypes_cleanup() local_unnamed_addr #0 {
 9:                                                ; preds = %1, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %10, label %1, !llvm.loop !25
+  br i1 %exitcond.not, label %10, label %1, !llvm.loop !29
 
 10:                                               ; preds = %9
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @g_array_remove_range(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @g_array_set_size(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @g_byte_array_new_take(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #4
+; Function Attrs: null_pointer_is_valid allocsize(0)
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #5
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @g_array_append_vals(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @g_list_free_full(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @g_hash_table_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @g_direct_hash(ptr noundef) #12
+; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
+declare i32 @g_direct_hash(ptr noundef) #14
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @g_direct_equal(ptr noundef, ptr noundef) #12
+; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
+declare i32 @g_direct_equal(ptr noundef, ptr noundef) #14
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #13
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #13
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #14
+declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind allocsize(0,1) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #11 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #16 = { allocsize(0) }
 attributes #17 = { nounwind willreturn memory(read) }
-attributes #18 = { nounwind allocsize(1) }
+attributes #18 = { allocsize(1) }
+attributes #19 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"if_filter_dup: argument 0"}
-!11 = distinct !{!11, !"if_filter_dup"}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"if_filter_dup: argument 0"}
-!20 = distinct !{!20, !"if_filter_dup"}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"if_filter_dup: argument 0"}
+!15 = distinct !{!15, !"if_filter_dup"}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"if_filter_dup: argument 0"}
+!24 = distinct !{!24, !"if_filter_dup"}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}

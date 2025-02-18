@@ -5,29 +5,22 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct.enum_val_t = type { ptr, ptr, i32 }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
+%struct._value_string = type { i32, ptr }
 %struct.expert_field = type { i32, i32 }
 
 @proto_register_bssap.hf = internal global [67 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_bssap_pdu_type, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 4, i32 2, ptr @bssap_pdu_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bsap_pdu_type, %struct._header_field_info { ptr @.str, ptr @.str.2, i32 4, i32 2, ptr @bsap_pdu_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_dlci_cc, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 4, i32 2, ptr @bssap_cc_values, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bsap_dlci_cc, %struct._header_field_info { ptr @.str.3, ptr @.str.5, i32 4, i32 2, ptr @bsap_cc_values, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_dlci_spare, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 2, ptr null, i64 56, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bsap_dlci_rsvd, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 4, i32 2, ptr null, i64 56, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_dlci_sapi, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 4, i32 2, ptr @bssap_sapi_values, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bsap_dlci_sapi, %struct._header_field_info { ptr @.str.10, ptr @.str.12, i32 4, i32 2, ptr @bsap_sapi_values, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_length, %struct._header_field_info { ptr @.str.13, ptr @.str.14, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_plus_message_type, %struct._header_field_info { ptr @.str, ptr @.str.15, i32 4, i32 513, ptr @bssap_plus_message_type_values_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_plus_ie, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 4, i32 513, ptr @bssap_plus_ie_id_values_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_plus_ie_len, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_extension, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 2, i32 8, ptr @tfs_no_extension_extension, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_type_of_number, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 4, i32 2, ptr @gsm_a_dtap_type_of_number_values, i64 112, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_numbering_plan_id, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 4, i32 2, ptr @gsm_a_dtap_numbering_plan_id_values, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_sgsn_number, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_vlr_number, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_cell_global_id_ie, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_channel_needed_ie, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_dlink_tnl_pld_cntrl_amd_inf_ie, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_ulink_tnl_pld_cntrl_amd_inf_ie, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_emlpp_prio_ie, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_gprs_erroneous_msg_ie, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_gprs_loc_upd_type_ie, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_Gs_cause_ie, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_imei_ie, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_imeisv_ie, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_imsi_ie, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_imsi_det_from_gprs_serv_type_ie, %struct._header_field_info { ptr @.str.52, ptr @.str.53, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_imsi_det_from_non_gprs_serv_type_ie, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_info_req_ie, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_loc_area_id_ie, %struct._header_field_info { ptr @.str.58, ptr @.str.59, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_loc_inf_age_ie, %struct._header_field_info { ptr @.str.60, ptr @.str.61, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_mm_information_ie, %struct._header_field_info { ptr @.str.62, ptr @.str.63, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_mobile_id_ie, %struct._header_field_info { ptr @.str.64, ptr @.str.65, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_mobile_stn_cls_mrk1_ie, %struct._header_field_info { ptr @.str.66, ptr @.str.67, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_mobile_station_state_ie, %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_ptmsi_ie, %struct._header_field_info { ptr @.str.70, ptr @.str.71, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_reject_cause_ie, %struct._header_field_info { ptr @.str.72, ptr @.str.73, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_service_area_id_ie, %struct._header_field_info { ptr @.str.74, ptr @.str.75, i32 0, i32 0, ptr null, i64 0, ptr @.str.76, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_sgsn_nr_ie, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_tmsi_ie, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_tmsi_status_ie, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_vlr_number_ie, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_global_cn_id_ie, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_plus_ie_data, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_call_priority, %struct._header_field_info { ptr @.str.89, ptr @.str.90, i32 4, i32 1, ptr @bssap_call_priority_values, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_gprs_loc_upd_type, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 4, i32 1, ptr @bssap_plus_GPRS_loc_upd_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_Gs_cause, %struct._header_field_info { ptr @.str.93, ptr @.str.94, i32 4, i32 1, ptr @bssap_Gs_cause_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_imei, %struct._header_field_info { ptr @.str.95, ptr @.str.96, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_imeisv, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_imsi_det_from_gprs_serv_type, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 4, i32 1, ptr @bssap_Gs_cause_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_info_req, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 4, i32 1, ptr @bssap_info_req_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_loc_inf_age, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_mobile_station_state, %struct._header_field_info { ptr @.str.105, ptr @.str.106, i32 4, i32 1, ptr @bssap_mobile_station_state_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_ptmsi, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_tmsi, %struct._header_field_info { ptr @.str.109, ptr @.str.110, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_tmsi_status, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 2, i32 8, ptr @bssap_tmsi_flag, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_tom_prot_disc, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 4, i32 1, ptr @bssap_tom_prot_disc_values, i64 120, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_e_bit, %struct._header_field_info { ptr @.str.115, ptr @.str.116, i32 2, i32 8, ptr @bssap_E_flag, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_tunnel_prio, %struct._header_field_info { ptr @.str.117, ptr @.str.118, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_global_cn_id, %struct._header_field_info { ptr @.str.119, ptr @.str.120, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_plmn_id, %struct._header_field_info { ptr @.str.121, ptr @.str.122, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_cn_id, %struct._header_field_info { ptr @.str.123, ptr @.str.124, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_cell_global_id, %struct._header_field_info { ptr @.str.125, ptr @.str.126, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_extraneous_data, %struct._header_field_info { ptr @.str.127, ptr @.str.128, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bssap_conditional_ie, %struct._header_field_info { ptr @.str.129, ptr @.str.130, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_bssap_pdu_type = internal global i32 0, align 4
 @.str = private unnamed_addr constant [13 x i8] c"Message Type\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"bssap.pdu_type\00", align 1
-@bssap_pdu_type_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.167 }, %struct._value_string { i32 1, ptr @.str.168 }, %struct._value_string zeroinitializer], align 16
 @hf_bsap_pdu_type = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [14 x i8] c"bsap.pdu_type\00", align 1
-@bsap_pdu_type_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.169 }, %struct._value_string { i32 1, ptr @.str.168 }, %struct._value_string zeroinitializer], align 16
 @hf_bssap_dlci_cc = internal global i32 0, align 4
 @.str.3 = private unnamed_addr constant [16 x i8] c"Control Channel\00", align 1
 @.str.4 = private unnamed_addr constant [14 x i8] c"bssap.dlci.cc\00", align 1
-@bssap_cc_values = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.170 }, %struct._value_string { i32 2, ptr @.str.171 }, %struct._value_string { i32 3, ptr @.str.172 }, %struct._value_string zeroinitializer], align 16
 @hf_bsap_dlci_cc = internal global i32 0, align 4
 @.str.5 = private unnamed_addr constant [13 x i8] c"bsap.dlci.cc\00", align 1
-@bsap_cc_values = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.173 }, %struct._value_string zeroinitializer], align 16
 @hf_bssap_dlci_spare = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [6 x i8] c"Spare\00", align 1
 @.str.7 = private unnamed_addr constant [17 x i8] c"bssap.dlci.spare\00", align 1
@@ -37,20 +30,18 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_bssap_dlci_sapi = internal global i32 0, align 4
 @.str.10 = private unnamed_addr constant [5 x i8] c"SAPI\00", align 1
 @.str.11 = private unnamed_addr constant [16 x i8] c"bssap.dlci.sapi\00", align 1
-@bssap_sapi_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.174 }, %struct._value_string { i32 3, ptr @.str.175 }, %struct._value_string zeroinitializer], align 16
 @hf_bsap_dlci_sapi = internal global i32 0, align 4
 @.str.12 = private unnamed_addr constant [15 x i8] c"bsap.dlci.sapi\00", align 1
-@bsap_sapi_values = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.176 }, %struct._value_string zeroinitializer], align 16
 @hf_bssap_length = internal global i32 0, align 4
 @.str.13 = private unnamed_addr constant [7 x i8] c"Length\00", align 1
 @.str.14 = private unnamed_addr constant [13 x i8] c"bssap.length\00", align 1
 @hf_bssap_plus_message_type = internal global i32 0, align 4
 @.str.15 = private unnamed_addr constant [20 x i8] c"bssap_plus.msg_type\00", align 1
-@bssap_plus_message_type_values_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 32, ptr @bssap_plus_message_type_values, ptr @.str.177 }, align 8
+@bssap_plus_message_type_values_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 32, ptr @bssap_plus_message_type_values, ptr @.str.183 }, align 8
 @hf_bssap_plus_ie = internal global i32 0, align 4
 @.str.16 = private unnamed_addr constant [4 x i8] c"IEI\00", align 1
 @.str.17 = private unnamed_addr constant [15 x i8] c"bssap_plus.iei\00", align 1
-@bssap_plus_ie_id_values_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 31, ptr @bssap_plus_ie_id_values, ptr @.str.202 }, align 8
+@bssap_plus_ie_id_values_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 31, ptr @bssap_plus_ie_id_values, ptr @.str.209 }, align 8
 @hf_bssap_plus_ie_len = internal global i32 0, align 4
 @.str.18 = private unnamed_addr constant [17 x i8] c"Length indicator\00", align 1
 @.str.19 = private unnamed_addr constant [18 x i8] c"bssap_plus.ie_len\00", align 1
@@ -163,15 +154,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_bssap_call_priority = internal global i32 0, align 4
 @.str.89 = private unnamed_addr constant [15 x i8] c"eMLPP Priority\00", align 1
 @.str.90 = private unnamed_addr constant [20 x i8] c"bssap.call_priority\00", align 1
-@bssap_call_priority_values = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.218 }, %struct._value_string { i32 1, ptr @.str.219 }, %struct._value_string { i32 2, ptr @.str.220 }, %struct._value_string { i32 3, ptr @.str.221 }, %struct._value_string { i32 4, ptr @.str.222 }, %struct._value_string { i32 5, ptr @.str.223 }, %struct._value_string { i32 6, ptr @.str.224 }, %struct._value_string { i32 7, ptr @.str.225 }, %struct._value_string zeroinitializer], align 16
 @hf_bssap_gprs_loc_upd_type = internal global i32 0, align 4
 @.str.91 = private unnamed_addr constant [26 x i8] c"GPRS location update type\00", align 1
 @.str.92 = private unnamed_addr constant [24 x i8] c"bssap.gprs_loc_upd_type\00", align 1
-@bssap_plus_GPRS_loc_upd_type_values = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.226 }, %struct._value_string { i32 1, ptr @.str.227 }, %struct._value_string { i32 2, ptr @.str.228 }, %struct._value_string zeroinitializer], align 16
 @hf_bssap_Gs_cause = internal global i32 0, align 4
 @.str.93 = private unnamed_addr constant [9 x i8] c"Gs cause\00", align 1
 @.str.94 = private unnamed_addr constant [15 x i8] c"bssap.Gs_cause\00", align 1
-@bssap_Gs_cause_values = internal constant [17 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.229 }, %struct._value_string { i32 1, ptr @.str.230 }, %struct._value_string { i32 2, ptr @.str.231 }, %struct._value_string { i32 3, ptr @.str.232 }, %struct._value_string { i32 4, ptr @.str.233 }, %struct._value_string { i32 5, ptr @.str.234 }, %struct._value_string { i32 6, ptr @.str.235 }, %struct._value_string { i32 7, ptr @.str.236 }, %struct._value_string { i32 8, ptr @.str.237 }, %struct._value_string { i32 9, ptr @.str.238 }, %struct._value_string { i32 10, ptr @.str.239 }, %struct._value_string { i32 11, ptr @.str.240 }, %struct._value_string { i32 12, ptr @.str.241 }, %struct._value_string { i32 13, ptr @.str.242 }, %struct._value_string { i32 14, ptr @.str.243 }, %struct._value_string { i32 15, ptr @.str.244 }, %struct._value_string zeroinitializer], align 16
 @hf_bssap_imei = internal global i32 0, align 4
 @.str.95 = private unnamed_addr constant [5 x i8] c"IMEI\00", align 1
 @.str.96 = private unnamed_addr constant [11 x i8] c"bssap.imei\00", align 1
@@ -184,14 +172,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_bssap_info_req = internal global i32 0, align 4
 @.str.101 = private unnamed_addr constant [22 x i8] c"Information requested\00", align 1
 @.str.102 = private unnamed_addr constant [15 x i8] c"bssap.info_req\00", align 1
-@bssap_info_req_values = internal constant [11 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.245 }, %struct._value_string { i32 1, ptr @.str.107 }, %struct._value_string { i32 2, ptr @.str.95 }, %struct._value_string { i32 3, ptr @.str.97 }, %struct._value_string { i32 4, ptr @.str.246 }, %struct._value_string { i32 5, ptr @.str.247 }, %struct._value_string { i32 6, ptr @.str.248 }, %struct._value_string { i32 7, ptr @.str.249 }, %struct._value_string { i32 8, ptr @.str.250 }, %struct._value_string { i32 9, ptr @.str.109 }, %struct._value_string zeroinitializer], align 16
 @hf_bssap_loc_inf_age = internal global i32 0, align 4
 @.str.103 = private unnamed_addr constant [36 x i8] c"AgeOfLocationInformation in minutes\00", align 1
 @.str.104 = private unnamed_addr constant [18 x i8] c"bssap.loc_inf_age\00", align 1
 @hf_bssap_mobile_station_state = internal global i32 0, align 4
 @.str.105 = private unnamed_addr constant [21 x i8] c"Mobile station state\00", align 1
 @.str.106 = private unnamed_addr constant [27 x i8] c"bssap.mobile_station_state\00", align 1
-@bssap_mobile_station_state_values = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.251 }, %struct._value_string { i32 1, ptr @.str.252 }, %struct._value_string { i32 2, ptr @.str.253 }, %struct._value_string { i32 3, ptr @.str.254 }, %struct._value_string { i32 4, ptr @.str.255 }, %struct._value_string { i32 5, ptr @.str.256 }, %struct._value_string { i32 6, ptr @.str.257 }, %struct._value_string { i32 7, ptr @.str.232 }, %struct._value_string { i32 8, ptr @.str.258 }, %struct._value_string zeroinitializer], align 16
 @hf_bssap_ptmsi = internal global i32 0, align 4
 @.str.107 = private unnamed_addr constant [6 x i8] c"PTMSI\00", align 1
 @.str.108 = private unnamed_addr constant [12 x i8] c"bssap.ptmsi\00", align 1
@@ -201,15 +187,14 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_bssap_tmsi_status = internal global i32 0, align 4
 @.str.111 = private unnamed_addr constant [12 x i8] c"TMSI status\00", align 1
 @.str.112 = private unnamed_addr constant [18 x i8] c"bssap.tmsi_status\00", align 1
-@bssap_tmsi_flag = internal constant %struct.true_false_string { ptr @.str.259, ptr @.str.260 }, align 8
+@bssap_tmsi_flag = internal constant %struct.true_false_string { ptr @.str.272, ptr @.str.273 }, align 8
 @hf_bssap_tom_prot_disc = internal global i32 0, align 4
 @.str.113 = private unnamed_addr constant [27 x i8] c"TOM Protocol Discriminator\00", align 1
 @.str.114 = private unnamed_addr constant [20 x i8] c"bssap.Tom_prot_disc\00", align 1
-@bssap_tom_prot_disc_values = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.261 }, %struct._value_string { i32 1, ptr @.str.262 }, %struct._value_string { i32 2, ptr @.str.263 }, %struct._value_string { i32 3, ptr @.str.264 }, %struct._value_string zeroinitializer], align 16
 @hf_bssap_e_bit = internal global i32 0, align 4
 @.str.115 = private unnamed_addr constant [18 x i8] c"E: Cipher Request\00", align 1
 @.str.116 = private unnamed_addr constant [12 x i8] c"bssap.e_bit\00", align 1
-@bssap_E_flag = internal constant %struct.true_false_string { ptr @.str.265, ptr @.str.266 }, align 8
+@bssap_E_flag = internal constant %struct.true_false_string { ptr @.str.279, ptr @.str.280 }, align 8
 @hf_bssap_tunnel_prio = internal global i32 0, align 4
 @.str.117 = private unnamed_addr constant [16 x i8] c"Tunnel Priority\00", align 1
 @.str.118 = private unnamed_addr constant [18 x i8] c"bssap.tunnel_prio\00", align 1
@@ -265,14 +250,14 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_bssap_service_area_id = internal global i32 0, align 4
 @ett_bssap_global_cn_id = internal global i32 0, align 4
 @ett_bssap_plmn = internal global i32 0, align 4
-@proto_register_bssap.default_protocol_options = internal constant [4 x %struct.enum_val_t] [%struct.enum_val_t { ptr @.str.131, ptr @.str.132, i32 0 }, %struct.enum_val_t { ptr @.str.133, ptr @.str.134, i32 1 }, %struct.enum_val_t { ptr @.str.135, ptr @.str.136, i32 2 }, %struct.enum_val_t zeroinitializer], align 16
+@proto_register_bssap.default_protocol_options = internal constant [4 x { ptr, ptr, i32, [4 x i8] }] [{ ptr, ptr, i32, [4 x i8] } { ptr @.str.131, ptr @.str.132, i32 0, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } { ptr @.str.133, ptr @.str.134, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } { ptr @.str.135, ptr @.str.136, i32 2, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } zeroinitializer], align 16
 @.str.131 = private unnamed_addr constant [6 x i8] c"bssap\00", align 1
 @.str.132 = private unnamed_addr constant [18 x i8] c"BSSAP (GSM A-I/F)\00", align 1
 @.str.133 = private unnamed_addr constant [5 x i8] c"bsap\00", align 1
 @.str.134 = private unnamed_addr constant [22 x i8] c"BSAP (CDMA2000 A-I/F)\00", align 1
 @.str.135 = private unnamed_addr constant [9 x i8] c"bssap_le\00", align 1
 @.str.136 = private unnamed_addr constant [22 x i8] c"BSSAP-LE (GSM Lb-I/F)\00", align 1
-@proto_register_bssap.ei = internal global [3 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_bssap_unknown_message, %struct.expert_field_info { ptr @.str.137, i32 150994944, i32 6291456, ptr @.str.138, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_bssap_unknown_parameter, %struct.expert_field_info { ptr @.str.139, i32 150994944, i32 6291456, ptr @.str.140, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_bssap_mandatory_ie, %struct.expert_field_info { ptr @.str.141, i32 150994944, i32 6291456, ptr @.str.142, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_bssap.ei = internal global [3 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_bssap_unknown_message, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.137, i32 150994944, i32 6291456, ptr @.str.138, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_bssap_unknown_parameter, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.139, i32 150994944, i32 6291456, ptr @.str.140, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_bssap_mandatory_ie, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.141, i32 150994944, i32 6291456, ptr @.str.142, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_bssap_unknown_message = internal global %struct.expert_field zeroinitializer, align 4
 @.str.137 = private unnamed_addr constant [22 x i8] c"bssap.unknown_message\00", align 1
 @.str.138 = private unnamed_addr constant [16 x i8] c"Unknown message\00", align 1
@@ -323,184 +308,199 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.166 = private unnamed_addr constant [9 x i8] c"sccp.ssn\00", align 1
 @.str.167 = private unnamed_addr constant [15 x i8] c"BSS Management\00", align 1
 @.str.168 = private unnamed_addr constant [16 x i8] c"Direct Transfer\00", align 1
-@.str.169 = private unnamed_addr constant [14 x i8] c"BS Management\00", align 1
-@.str.170 = private unnamed_addr constant [22 x i8] c"not further specified\00", align 1
-@.str.171 = private unnamed_addr constant [15 x i8] c"FACCH or SDCCH\00", align 1
-@.str.172 = private unnamed_addr constant [6 x i8] c"SACCH\00", align 1
-@.str.173 = private unnamed_addr constant [28 x i8] c"default for TIA/EIA/IS-2000\00", align 1
-@.str.174 = private unnamed_addr constant [9 x i8] c"RR/MM/CC\00", align 1
-@.str.175 = private unnamed_addr constant [4 x i8] c"SMS\00", align 1
-@.str.176 = private unnamed_addr constant [9 x i8] c"Not used\00", align 1
-@bssap_plus_message_type_values = internal constant [33 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.178 }, %struct._value_string { i32 1, ptr @.str.179 }, %struct._value_string { i32 2, ptr @.str.180 }, %struct._value_string { i32 3, ptr @.str.178 }, %struct._value_string { i32 4, ptr @.str.178 }, %struct._value_string { i32 5, ptr @.str.178 }, %struct._value_string { i32 6, ptr @.str.178 }, %struct._value_string { i32 7, ptr @.str.181 }, %struct._value_string { i32 8, ptr @.str.182 }, %struct._value_string { i32 9, ptr @.str.183 }, %struct._value_string { i32 10, ptr @.str.184 }, %struct._value_string { i32 11, ptr @.str.185 }, %struct._value_string { i32 12, ptr @.str.186 }, %struct._value_string { i32 13, ptr @.str.187 }, %struct._value_string { i32 14, ptr @.str.188 }, %struct._value_string { i32 15, ptr @.str.189 }, %struct._value_string { i32 16, ptr @.str.190 }, %struct._value_string { i32 17, ptr @.str.191 }, %struct._value_string { i32 18, ptr @.str.192 }, %struct._value_string { i32 19, ptr @.str.193 }, %struct._value_string { i32 20, ptr @.str.194 }, %struct._value_string { i32 21, ptr @.str.195 }, %struct._value_string { i32 22, ptr @.str.196 }, %struct._value_string { i32 23, ptr @.str.197 }, %struct._value_string { i32 24, ptr @.str.198 }, %struct._value_string { i32 25, ptr @.str.178 }, %struct._value_string { i32 26, ptr @.str.199 }, %struct._value_string { i32 27, ptr @.str.178 }, %struct._value_string { i32 28, ptr @.str.178 }, %struct._value_string { i32 29, ptr @.str.200 }, %struct._value_string { i32 30, ptr @.str.178 }, %struct._value_string { i32 31, ptr @.str.201 }, %struct._value_string zeroinitializer], align 16
-@.str.177 = private unnamed_addr constant [31 x i8] c"bssap_plus_message_type_values\00", align 1
-@.str.178 = private unnamed_addr constant [48 x i8] c"Unassigned: treated as an unknown Message type.\00", align 1
-@.str.179 = private unnamed_addr constant [22 x i8] c"BSSAP+-PAGING-REQUEST\00", align 1
-@.str.180 = private unnamed_addr constant [21 x i8] c"BSSAP+-PAGING-REJECT\00", align 1
-@.str.181 = private unnamed_addr constant [31 x i8] c"BSSAP+-DOWNLINK-TUNNEL-REQUEST\00", align 1
-@.str.182 = private unnamed_addr constant [29 x i8] c"BSSAP+-UPLINK-TUNNEL-REQUEST\00", align 1
-@.str.183 = private unnamed_addr constant [31 x i8] c"BSSAP+-LOCATION-UPDATE-REQUEST\00", align 1
-@.str.184 = private unnamed_addr constant [30 x i8] c"BSSAP+-LOCATION-UPDATE-ACCEPT\00", align 1
-@.str.185 = private unnamed_addr constant [30 x i8] c"BSSAP+-LOCATION-UPDATE-REJECT\00", align 1
-@.str.186 = private unnamed_addr constant [34 x i8] c"BSSAP+-TMSI-REALLOCATION-COMPLETE\00", align 1
-@.str.187 = private unnamed_addr constant [21 x i8] c"BSSAP+-ALERT-REQUEST\00", align 1
-@.str.188 = private unnamed_addr constant [17 x i8] c"BSSAP+-ALERT-ACK\00", align 1
-@.str.189 = private unnamed_addr constant [20 x i8] c"BSSAP+-ALERT-REJECT\00", align 1
-@.str.190 = private unnamed_addr constant [30 x i8] c"BSSAP+-MS-ACTIVITY-INDICATION\00", align 1
-@.str.191 = private unnamed_addr constant [30 x i8] c"BSSAP+-GPRS-DETACH-INDICATION\00", align 1
-@.str.192 = private unnamed_addr constant [23 x i8] c"BSSAP+-GPRS-DETACH-ACK\00", align 1
-@.str.193 = private unnamed_addr constant [30 x i8] c"BSSAP+-IMSI-DETACH-INDICATION\00", align 1
-@.str.194 = private unnamed_addr constant [23 x i8] c"BSSAP+-IMSI-DETACH-ACK\00", align 1
-@.str.195 = private unnamed_addr constant [24 x i8] c"BSSAP+-RESET-INDICATION\00", align 1
-@.str.196 = private unnamed_addr constant [17 x i8] c"BSSAP+-RESET-ACK\00", align 1
-@.str.197 = private unnamed_addr constant [30 x i8] c"BSSAP+-MS-INFORMATION-REQUEST\00", align 1
-@.str.198 = private unnamed_addr constant [31 x i8] c"BSSAP+-MS-INFORMATION-RESPONSE\00", align 1
-@.str.199 = private unnamed_addr constant [30 x i8] c"BSSAP+-MM-INFORMATION-REQUEST\00", align 1
-@.str.200 = private unnamed_addr constant [21 x i8] c"BSSAP+-MOBILE-STATUS\00", align 1
-@.str.201 = private unnamed_addr constant [22 x i8] c"BSSAP+-MS-UNREACHABLE\00", align 1
-@bssap_plus_ie_id_values = internal constant [32 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.203 }, %struct._value_string { i32 2, ptr @.str.28 }, %struct._value_string { i32 3, ptr @.str.109 }, %struct._value_string { i32 4, ptr @.str.204 }, %struct._value_string { i32 5, ptr @.str.205 }, %struct._value_string { i32 6, ptr @.str.89 }, %struct._value_string { i32 7, ptr @.str.111 }, %struct._value_string { i32 8, ptr @.str.93 }, %struct._value_string { i32 9, ptr @.str.26 }, %struct._value_string { i32 10, ptr @.str.91 }, %struct._value_string { i32 11, ptr @.str.119 }, %struct._value_string { i32 12, ptr @.str.206 }, %struct._value_string { i32 13, ptr @.str.76 }, %struct._value_string { i32 14, ptr @.str.207 }, %struct._value_string { i32 15, ptr @.str.208 }, %struct._value_string { i32 16, ptr @.str.99 }, %struct._value_string { i32 17, ptr @.str.209 }, %struct._value_string { i32 18, ptr @.str.101 }, %struct._value_string { i32 19, ptr @.str.107 }, %struct._value_string { i32 20, ptr @.str.95 }, %struct._value_string { i32 21, ptr @.str.97 }, %struct._value_string { i32 22, ptr @.str.206 }, %struct._value_string { i32 23, ptr @.str.210 }, %struct._value_string { i32 24, ptr @.str.211 }, %struct._value_string { i32 25, ptr @.str.212 }, %struct._value_string { i32 26, ptr @.str.105 }, %struct._value_string { i32 27, ptr @.str.213 }, %struct._value_string { i32 28, ptr @.str.214 }, %struct._value_string { i32 29, ptr @.str.215 }, %struct._value_string { i32 30, ptr @.str.216 }, %struct._value_string { i32 31, ptr @.str.217 }, %struct._value_string zeroinitializer], align 16
-@.str.202 = private unnamed_addr constant [24 x i8] c"bssap_plus_ie_id_values\00", align 1
-@.str.203 = private unnamed_addr constant [5 x i8] c"IMSI\00", align 1
-@.str.204 = private unnamed_addr constant [25 x i8] c"Location area identifier\00", align 1
-@.str.205 = private unnamed_addr constant [15 x i8] c"Channel Needed\00", align 1
-@.str.206 = private unnamed_addr constant [39 x i8] c"Unassigned: treated as an unknown IEI.\00", align 1
-@.str.207 = private unnamed_addr constant [16 x i8] c"Mobile identity\00", align 1
-@.str.208 = private unnamed_addr constant [13 x i8] c"Reject cause\00", align 1
-@.str.209 = private unnamed_addr constant [39 x i8] c"IMSI detach from non-GPRS service type\00", align 1
-@.str.210 = private unnamed_addr constant [15 x i8] c"MM information\00", align 1
-@.str.211 = private unnamed_addr constant [21 x i8] c"Cell Global Identity\00", align 1
-@.str.212 = private unnamed_addr constant [25 x i8] c"Location information age\00", align 1
-@.str.213 = private unnamed_addr constant [18 x i8] c"Erroneous message\00", align 1
-@.str.214 = private unnamed_addr constant [41 x i8] c"Downlink Tunnel Payload Control and Info\00", align 1
-@.str.215 = private unnamed_addr constant [39 x i8] c"Uplink Tunnel Payload Control and Info\00", align 1
-@.str.216 = private unnamed_addr constant [28 x i8] c"Service Area Identification\00", align 1
-@.str.217 = private unnamed_addr constant [25 x i8] c"TMSI based NRI container\00", align 1
-@.str.218 = private unnamed_addr constant [20 x i8] c"No priority applied\00", align 1
-@.str.219 = private unnamed_addr constant [22 x i8] c"Call priority level 4\00", align 1
-@.str.220 = private unnamed_addr constant [22 x i8] c"Call priority level 3\00", align 1
-@.str.221 = private unnamed_addr constant [22 x i8] c"Call priority level 2\00", align 1
-@.str.222 = private unnamed_addr constant [22 x i8] c"Call priority level 1\00", align 1
-@.str.223 = private unnamed_addr constant [22 x i8] c"Call priority level 0\00", align 1
-@.str.224 = private unnamed_addr constant [22 x i8] c"Call priority level B\00", align 1
-@.str.225 = private unnamed_addr constant [22 x i8] c"Call priority level A\00", align 1
-@.str.226 = private unnamed_addr constant [96 x i8] c"Shall not be sent in this version of the protocol. If received, shall be treated as '00000010'.\00", align 1
-@.str.227 = private unnamed_addr constant [12 x i8] c"IMSI attach\00", align 1
-@.str.228 = private unnamed_addr constant [23 x i8] c"Normal location update\00", align 1
-@.str.229 = private unnamed_addr constant [53 x i8] c"Normal, unspecified in this version of the protocol.\00", align 1
-@.str.230 = private unnamed_addr constant [32 x i8] c"IMSI detached for GPRS services\00", align 1
-@.str.231 = private unnamed_addr constant [45 x i8] c"IMSI detached for GPRS and non-GPRS services\00", align 1
-@.str.232 = private unnamed_addr constant [13 x i8] c"IMSI unknown\00", align 1
-@.str.233 = private unnamed_addr constant [36 x i8] c"IMSI detached for non-GPRS services\00", align 1
-@.str.234 = private unnamed_addr constant [47 x i8] c"IMSI implicitly detached for non-GPRS services\00", align 1
-@.str.235 = private unnamed_addr constant [15 x i8] c"MS unreachable\00", align 1
-@.str.236 = private unnamed_addr constant [47 x i8] c"Message not compatible with the protocol state\00", align 1
-@.str.237 = private unnamed_addr constant [38 x i8] c"Missing mandatory information element\00", align 1
-@.str.238 = private unnamed_addr constant [30 x i8] c"Invalid mandatory information\00", align 1
-@.str.239 = private unnamed_addr constant [21 x i8] c"Conditional IE error\00", align 1
-@.str.240 = private unnamed_addr constant [31 x i8] c"Semantically incorrect message\00", align 1
-@.str.241 = private unnamed_addr constant [16 x i8] c"Message unknown\00", align 1
-@.str.242 = private unnamed_addr constant [14 x i8] c"Address error\00", align 1
-@.str.243 = private unnamed_addr constant [32 x i8] c"TOM functionality not supported\00", align 1
-@.str.244 = private unnamed_addr constant [41 x i8] c"Ciphering request cannot be accommodated\00", align 1
-@.str.245 = private unnamed_addr constant [62 x i8] c"Interpreted as Not supported in this version of the protocol.\00", align 1
-@.str.246 = private unnamed_addr constant [15 x i8] c"PTMSI and IMEI\00", align 1
-@.str.247 = private unnamed_addr constant [17 x i8] c"PTMSI and IMEISV\00", align 1
-@.str.248 = private unnamed_addr constant [16 x i8] c"IMEI and IMEISV\00", align 1
-@.str.249 = private unnamed_addr constant [24 x i8] c"PTMSI, IMEI, and IMEISV\00", align 1
-@.str.250 = private unnamed_addr constant [28 x i8] c"Mobile location information\00", align 1
-@.str.251 = private unnamed_addr constant [21 x i8] c"IDLE or PMM-DETACHED\00", align 1
-@.str.252 = private unnamed_addr constant [43 x i8] c"STANDBY or PMM-IDLE, 0 PDP contexts active\00", align 1
-@.str.253 = private unnamed_addr constant [51 x i8] c"STANDBY or PMM-IDLE, 1 or more PDP contexts active\00", align 1
-@.str.254 = private unnamed_addr constant [33 x i8] c"SUSPENDED, 0 PDP contexts active\00", align 1
-@.str.255 = private unnamed_addr constant [41 x i8] c"SUSPENDED, 1 or more PDP contexts active\00", align 1
-@.str.256 = private unnamed_addr constant [46 x i8] c"READY or PMM-CONNECTED, 0 PDP contexts active\00", align 1
-@.str.257 = private unnamed_addr constant [54 x i8] c"READY or PMM-CONNECTED, 1 or more PDP contexts active\00", align 1
-@.str.258 = private unnamed_addr constant [36 x i8] c"Information requested not supported\00", align 1
-@.str.259 = private unnamed_addr constant [21 x i8] c"Valid TMSI available\00", align 1
-@.str.260 = private unnamed_addr constant [24 x i8] c"No valid TMSI available\00", align 1
-@.str.261 = private unnamed_addr constant [14 x i8] c"Not specified\00", align 1
-@.str.262 = private unnamed_addr constant [12 x i8] c"TIA/EIA-136\00", align 1
-@.str.263 = private unnamed_addr constant [5 x i8] c"RRLP\00", align 1
-@.str.264 = private unnamed_addr constant [23 x i8] c"Reserved for extension\00", align 1
-@.str.265 = private unnamed_addr constant [38 x i8] c"SGSN received the payload in ciphered\00", align 1
-@.str.266 = private unnamed_addr constant [50 x i8] c"SGSN did not receive the payload in ciphered form\00", align 1
-@.str.267 = private unnamed_addr constant [4 x i8] c"%s \00", align 1
-@bssap_pdu_type_acro_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.274 }, %struct._value_string { i32 1, ptr @.str.275 }, %struct._value_string zeroinitializer], align 16
-@bsap_pdu_type_acro_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.276 }, %struct._value_string { i32 1, ptr @.str.275 }, %struct._value_string zeroinitializer], align 16
-@.str.268 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
-@.str.269 = private unnamed_addr constant [28 x i8] c"Unknown message (%u byte%s)\00", align 1
-@.str.270 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.271 = private unnamed_addr constant [2 x i8] c"s\00", align 1
-@.str.273 = private unnamed_addr constant [32 x i8] c"Data Link Connection Identifier\00", align 1
-@.str.274 = private unnamed_addr constant [7 x i8] c"BSSMAP\00", align 1
-@.str.275 = private unnamed_addr constant [5 x i8] c"DTAP\00", align 1
-@.str.276 = private unnamed_addr constant [6 x i8] c"BSMAP\00", align 1
-@.str.277 = private unnamed_addr constant [7 x i8] c"BSSAP+\00", align 1
-@.str.278 = private unnamed_addr constant [11 x i8] c"Unknown %u\00", align 1
-@.str.279 = private unnamed_addr constant [41 x i8] c"Mandatory IE %s expected but IE %s Found\00", align 1
+@bssap_pdu_type_values = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.170 = private unnamed_addr constant [14 x i8] c"BS Management\00", align 1
+@bsap_pdu_type_values = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.170 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.172 = private unnamed_addr constant [22 x i8] c"not further specified\00", align 1
+@.str.173 = private unnamed_addr constant [15 x i8] c"FACCH or SDCCH\00", align 1
+@.str.174 = private unnamed_addr constant [6 x i8] c"SACCH\00", align 1
+@bssap_cc_values = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.172 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.173 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.174 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.176 = private unnamed_addr constant [28 x i8] c"default for TIA/EIA/IS-2000\00", align 1
+@bsap_cc_values = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.176 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.178 = private unnamed_addr constant [9 x i8] c"RR/MM/CC\00", align 1
+@.str.179 = private unnamed_addr constant [4 x i8] c"SMS\00", align 1
+@bssap_sapi_values = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.178 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.179 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.181 = private unnamed_addr constant [9 x i8] c"Not used\00", align 1
+@bsap_sapi_values = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.181 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.183 = private unnamed_addr constant [31 x i8] c"bssap_plus_message_type_values\00", align 1
+@.str.184 = private unnamed_addr constant [48 x i8] c"Unassigned: treated as an unknown Message type.\00", align 1
+@.str.185 = private unnamed_addr constant [22 x i8] c"BSSAP+-PAGING-REQUEST\00", align 1
+@.str.186 = private unnamed_addr constant [21 x i8] c"BSSAP+-PAGING-REJECT\00", align 1
+@.str.187 = private unnamed_addr constant [31 x i8] c"BSSAP+-DOWNLINK-TUNNEL-REQUEST\00", align 1
+@.str.188 = private unnamed_addr constant [29 x i8] c"BSSAP+-UPLINK-TUNNEL-REQUEST\00", align 1
+@.str.189 = private unnamed_addr constant [31 x i8] c"BSSAP+-LOCATION-UPDATE-REQUEST\00", align 1
+@.str.190 = private unnamed_addr constant [30 x i8] c"BSSAP+-LOCATION-UPDATE-ACCEPT\00", align 1
+@.str.191 = private unnamed_addr constant [30 x i8] c"BSSAP+-LOCATION-UPDATE-REJECT\00", align 1
+@.str.192 = private unnamed_addr constant [34 x i8] c"BSSAP+-TMSI-REALLOCATION-COMPLETE\00", align 1
+@.str.193 = private unnamed_addr constant [21 x i8] c"BSSAP+-ALERT-REQUEST\00", align 1
+@.str.194 = private unnamed_addr constant [17 x i8] c"BSSAP+-ALERT-ACK\00", align 1
+@.str.195 = private unnamed_addr constant [20 x i8] c"BSSAP+-ALERT-REJECT\00", align 1
+@.str.196 = private unnamed_addr constant [30 x i8] c"BSSAP+-MS-ACTIVITY-INDICATION\00", align 1
+@.str.197 = private unnamed_addr constant [30 x i8] c"BSSAP+-GPRS-DETACH-INDICATION\00", align 1
+@.str.198 = private unnamed_addr constant [23 x i8] c"BSSAP+-GPRS-DETACH-ACK\00", align 1
+@.str.199 = private unnamed_addr constant [30 x i8] c"BSSAP+-IMSI-DETACH-INDICATION\00", align 1
+@.str.200 = private unnamed_addr constant [23 x i8] c"BSSAP+-IMSI-DETACH-ACK\00", align 1
+@.str.201 = private unnamed_addr constant [24 x i8] c"BSSAP+-RESET-INDICATION\00", align 1
+@.str.202 = private unnamed_addr constant [17 x i8] c"BSSAP+-RESET-ACK\00", align 1
+@.str.203 = private unnamed_addr constant [30 x i8] c"BSSAP+-MS-INFORMATION-REQUEST\00", align 1
+@.str.204 = private unnamed_addr constant [31 x i8] c"BSSAP+-MS-INFORMATION-RESPONSE\00", align 1
+@.str.205 = private unnamed_addr constant [30 x i8] c"BSSAP+-MM-INFORMATION-REQUEST\00", align 1
+@.str.206 = private unnamed_addr constant [21 x i8] c"BSSAP+-MOBILE-STATUS\00", align 1
+@.str.207 = private unnamed_addr constant [22 x i8] c"BSSAP+-MS-UNREACHABLE\00", align 1
+@bssap_plus_message_type_values = internal constant [33 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.184 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.185 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.186 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.184 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.184 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.184 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.184 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.187 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.188 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.189 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.190 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.191 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.192 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.193 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.194 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.195 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.196 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.197 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.198 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.199 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.200 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.201 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.202 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.203 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.204 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.184 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.205 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.184 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.184 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.206 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.184 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.207 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.209 = private unnamed_addr constant [24 x i8] c"bssap_plus_ie_id_values\00", align 1
+@.str.210 = private unnamed_addr constant [5 x i8] c"IMSI\00", align 1
+@.str.211 = private unnamed_addr constant [25 x i8] c"Location area identifier\00", align 1
+@.str.212 = private unnamed_addr constant [15 x i8] c"Channel Needed\00", align 1
+@.str.213 = private unnamed_addr constant [39 x i8] c"Unassigned: treated as an unknown IEI.\00", align 1
+@.str.214 = private unnamed_addr constant [16 x i8] c"Mobile identity\00", align 1
+@.str.215 = private unnamed_addr constant [13 x i8] c"Reject cause\00", align 1
+@.str.216 = private unnamed_addr constant [39 x i8] c"IMSI detach from non-GPRS service type\00", align 1
+@.str.217 = private unnamed_addr constant [15 x i8] c"MM information\00", align 1
+@.str.218 = private unnamed_addr constant [21 x i8] c"Cell Global Identity\00", align 1
+@.str.219 = private unnamed_addr constant [25 x i8] c"Location information age\00", align 1
+@.str.220 = private unnamed_addr constant [18 x i8] c"Erroneous message\00", align 1
+@.str.221 = private unnamed_addr constant [41 x i8] c"Downlink Tunnel Payload Control and Info\00", align 1
+@.str.222 = private unnamed_addr constant [39 x i8] c"Uplink Tunnel Payload Control and Info\00", align 1
+@.str.223 = private unnamed_addr constant [28 x i8] c"Service Area Identification\00", align 1
+@.str.224 = private unnamed_addr constant [25 x i8] c"TMSI based NRI container\00", align 1
+@bssap_plus_ie_id_values = internal constant [32 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.210 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.28 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.109 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.211 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.212 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.89 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.111 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.93 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.26 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.91 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.119 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.213 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.76 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.214 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.215 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.99 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.216 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.101 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.107 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.95 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.97 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.213 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.217 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.218 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.219 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.105 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.220 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.221 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.222 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.223 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.224 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.226 = private unnamed_addr constant [20 x i8] c"No priority applied\00", align 1
+@.str.227 = private unnamed_addr constant [22 x i8] c"Call priority level 4\00", align 1
+@.str.228 = private unnamed_addr constant [22 x i8] c"Call priority level 3\00", align 1
+@.str.229 = private unnamed_addr constant [22 x i8] c"Call priority level 2\00", align 1
+@.str.230 = private unnamed_addr constant [22 x i8] c"Call priority level 1\00", align 1
+@.str.231 = private unnamed_addr constant [22 x i8] c"Call priority level 0\00", align 1
+@.str.232 = private unnamed_addr constant [22 x i8] c"Call priority level B\00", align 1
+@.str.233 = private unnamed_addr constant [22 x i8] c"Call priority level A\00", align 1
+@bssap_call_priority_values = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.226 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.228 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.229 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.230 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.231 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.232 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.233 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.235 = private unnamed_addr constant [96 x i8] c"Shall not be sent in this version of the protocol. If received, shall be treated as '00000010'.\00", align 1
+@.str.236 = private unnamed_addr constant [12 x i8] c"IMSI attach\00", align 1
+@.str.237 = private unnamed_addr constant [23 x i8] c"Normal location update\00", align 1
+@bssap_plus_GPRS_loc_upd_type_values = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.235 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.236 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.237 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.239 = private unnamed_addr constant [53 x i8] c"Normal, unspecified in this version of the protocol.\00", align 1
+@.str.240 = private unnamed_addr constant [32 x i8] c"IMSI detached for GPRS services\00", align 1
+@.str.241 = private unnamed_addr constant [45 x i8] c"IMSI detached for GPRS and non-GPRS services\00", align 1
+@.str.242 = private unnamed_addr constant [13 x i8] c"IMSI unknown\00", align 1
+@.str.243 = private unnamed_addr constant [36 x i8] c"IMSI detached for non-GPRS services\00", align 1
+@.str.244 = private unnamed_addr constant [47 x i8] c"IMSI implicitly detached for non-GPRS services\00", align 1
+@.str.245 = private unnamed_addr constant [15 x i8] c"MS unreachable\00", align 1
+@.str.246 = private unnamed_addr constant [47 x i8] c"Message not compatible with the protocol state\00", align 1
+@.str.247 = private unnamed_addr constant [38 x i8] c"Missing mandatory information element\00", align 1
+@.str.248 = private unnamed_addr constant [30 x i8] c"Invalid mandatory information\00", align 1
+@.str.249 = private unnamed_addr constant [21 x i8] c"Conditional IE error\00", align 1
+@.str.250 = private unnamed_addr constant [31 x i8] c"Semantically incorrect message\00", align 1
+@.str.251 = private unnamed_addr constant [16 x i8] c"Message unknown\00", align 1
+@.str.252 = private unnamed_addr constant [14 x i8] c"Address error\00", align 1
+@.str.253 = private unnamed_addr constant [32 x i8] c"TOM functionality not supported\00", align 1
+@.str.254 = private unnamed_addr constant [41 x i8] c"Ciphering request cannot be accommodated\00", align 1
+@bssap_Gs_cause_values = internal constant [17 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.239 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.240 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.241 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.242 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.243 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.244 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.245 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.246 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.247 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.248 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.249 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.250 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.251 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.252 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.253 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.254 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.256 = private unnamed_addr constant [62 x i8] c"Interpreted as Not supported in this version of the protocol.\00", align 1
+@.str.257 = private unnamed_addr constant [15 x i8] c"PTMSI and IMEI\00", align 1
+@.str.258 = private unnamed_addr constant [17 x i8] c"PTMSI and IMEISV\00", align 1
+@.str.259 = private unnamed_addr constant [16 x i8] c"IMEI and IMEISV\00", align 1
+@.str.260 = private unnamed_addr constant [24 x i8] c"PTMSI, IMEI, and IMEISV\00", align 1
+@.str.261 = private unnamed_addr constant [28 x i8] c"Mobile location information\00", align 1
+@bssap_info_req_values = internal constant [11 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.256 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.107 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.95 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.97 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.257 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.258 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.259 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.260 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.261 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.109 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.263 = private unnamed_addr constant [21 x i8] c"IDLE or PMM-DETACHED\00", align 1
+@.str.264 = private unnamed_addr constant [43 x i8] c"STANDBY or PMM-IDLE, 0 PDP contexts active\00", align 1
+@.str.265 = private unnamed_addr constant [51 x i8] c"STANDBY or PMM-IDLE, 1 or more PDP contexts active\00", align 1
+@.str.266 = private unnamed_addr constant [33 x i8] c"SUSPENDED, 0 PDP contexts active\00", align 1
+@.str.267 = private unnamed_addr constant [41 x i8] c"SUSPENDED, 1 or more PDP contexts active\00", align 1
+@.str.268 = private unnamed_addr constant [46 x i8] c"READY or PMM-CONNECTED, 0 PDP contexts active\00", align 1
+@.str.269 = private unnamed_addr constant [54 x i8] c"READY or PMM-CONNECTED, 1 or more PDP contexts active\00", align 1
+@.str.270 = private unnamed_addr constant [36 x i8] c"Information requested not supported\00", align 1
+@bssap_mobile_station_state_values = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.263 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.264 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.265 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.266 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.268 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.269 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.242 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.270 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.272 = private unnamed_addr constant [21 x i8] c"Valid TMSI available\00", align 1
+@.str.273 = private unnamed_addr constant [24 x i8] c"No valid TMSI available\00", align 1
+@.str.274 = private unnamed_addr constant [14 x i8] c"Not specified\00", align 1
+@.str.275 = private unnamed_addr constant [12 x i8] c"TIA/EIA-136\00", align 1
+@.str.276 = private unnamed_addr constant [5 x i8] c"RRLP\00", align 1
+@.str.277 = private unnamed_addr constant [23 x i8] c"Reserved for extension\00", align 1
+@bssap_tom_prot_disc_values = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.274 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.276 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.277 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.279 = private unnamed_addr constant [38 x i8] c"SGSN received the payload in ciphered\00", align 1
+@.str.280 = private unnamed_addr constant [50 x i8] c"SGSN did not receive the payload in ciphered form\00", align 1
+@.str.281 = private unnamed_addr constant [4 x i8] c"%s \00", align 1
+@.str.282 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
+@.str.283 = private unnamed_addr constant [28 x i8] c"Unknown message (%u byte%s)\00", align 1
+@.str.284 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.285 = private unnamed_addr constant [2 x i8] c"s\00", align 1
+@.str.287 = private unnamed_addr constant [32 x i8] c"Data Link Connection Identifier\00", align 1
+@.str.288 = private unnamed_addr constant [7 x i8] c"BSSMAP\00", align 1
+@.str.289 = private unnamed_addr constant [5 x i8] c"DTAP\00", align 1
+@bssap_pdu_type_acro_values = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.288 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.289 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.291 = private unnamed_addr constant [6 x i8] c"BSMAP\00", align 1
+@bsap_pdu_type_acro_values = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.291 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.289 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.293 = private unnamed_addr constant [7 x i8] c"BSSAP+\00", align 1
+@.str.294 = private unnamed_addr constant [11 x i8] c"Unknown %u\00", align 1
+@.str.295 = private unnamed_addr constant [41 x i8] c"Mandatory IE %s expected but IE %s Found\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_bssap() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.143, ptr noundef nonnull @.str.143, ptr noundef nonnull @.str.131) #2
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.143, ptr noundef nonnull @.str.143, ptr noundef nonnull @.str.131)
   store i32 %1, ptr @proto_bssap, align 4
-  %2 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.144, ptr noundef nonnull @.str.144, ptr noundef nonnull @.str.145) #2
+  %2 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.144, ptr noundef nonnull @.str.144, ptr noundef nonnull @.str.145)
   store i32 %2, ptr @proto_bssap_plus, align 4
   %3 = load i32, ptr @proto_bssap, align 4
-  %4 = tail call i32 @proto_register_protocol_in_name_only(ptr noundef nonnull @.str.146, ptr noundef nonnull @.str.146, ptr noundef nonnull @.str.133, i32 noundef %3, i32 noundef 1) #2
+  %4 = tail call i32 @proto_register_protocol_in_name_only(ptr noundef nonnull @.str.146, ptr noundef nonnull @.str.146, ptr noundef nonnull @.str.133, i32 noundef %3, i32 noundef 1)
   store i32 %4, ptr @proto_bsap, align 4
   %5 = load i32, ptr @proto_bssap, align 4
-  %6 = tail call i32 @proto_register_protocol_in_name_only(ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.135, i32 noundef %5, i32 noundef 1) #2
+  %6 = tail call i32 @proto_register_protocol_in_name_only(ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.135, i32 noundef %5, i32 noundef 1)
   store i32 %6, ptr @proto_bssap_le, align 4
   %7 = load i32, ptr @proto_bssap, align 4
-  %8 = tail call ptr @register_dissector(ptr noundef nonnull @.str.131, ptr noundef nonnull @dissect_bssap, i32 noundef %7) #2
+  %8 = tail call ptr @register_dissector(ptr noundef nonnull @.str.131, ptr noundef nonnull @dissect_bssap, i32 noundef %7)
   store ptr %8, ptr @bssap_handle, align 8
   %9 = load i32, ptr @proto_bsap, align 4
-  %10 = tail call ptr @register_dissector(ptr noundef nonnull @.str.133, ptr noundef nonnull @dissect_bsap, i32 noundef %9) #2
+  %10 = tail call ptr @register_dissector(ptr noundef nonnull @.str.133, ptr noundef nonnull @dissect_bsap, i32 noundef %9)
   store ptr %10, ptr @bsap_handle, align 8
   %11 = load i32, ptr @proto_bssap_le, align 4
-  %12 = tail call ptr @register_dissector(ptr noundef nonnull @.str.135, ptr noundef nonnull @dissect_bssap_le, i32 noundef %11) #2
+  %12 = tail call ptr @register_dissector(ptr noundef nonnull @.str.135, ptr noundef nonnull @dissect_bssap_le, i32 noundef %11)
   store ptr %12, ptr @bssap_le_handle, align 8
   %13 = load i32, ptr @proto_bssap, align 4
-  %14 = tail call ptr @register_dissector(ptr noundef nonnull @.str.96, ptr noundef nonnull @dissect_bssap_imei_dissector, i32 noundef %13) #2
+  %14 = tail call ptr @register_dissector(ptr noundef nonnull @.str.96, ptr noundef nonnull @dissect_bssap_imei_dissector, i32 noundef %13)
   %15 = load i32, ptr @proto_bssap_plus, align 4
-  %16 = tail call ptr @register_dissector(ptr noundef nonnull @.str.145, ptr noundef nonnull @dissect_bssap_plus, i32 noundef %15) #2
+  %16 = tail call ptr @register_dissector(ptr noundef nonnull @.str.145, ptr noundef nonnull @dissect_bssap_plus, i32 noundef %15)
   store ptr %16, ptr @bssap_plus_handle, align 8
   %17 = load i32, ptr @proto_bssap, align 4
-  tail call void @proto_register_field_array(i32 noundef %17, ptr noundef nonnull @proto_register_bssap.hf, i32 noundef 67) #2
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_bssap.ett, i32 noundef 33) #2
+  tail call void @proto_register_field_array(i32 noundef %17, ptr noundef nonnull @proto_register_bssap.hf, i32 noundef 67)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_bssap.ett, i32 noundef 33)
   %18 = load i32, ptr @proto_bssap, align 4
-  %19 = tail call ptr @expert_register_protocol(i32 noundef %18) #2
-  tail call void @expert_register_field_array(ptr noundef %19, ptr noundef nonnull @proto_register_bssap.ei, i32 noundef 3) #2
+  %19 = tail call ptr @expert_register_protocol(i32 noundef %18)
+  tail call void @expert_register_field_array(ptr noundef %19, ptr noundef nonnull @proto_register_bssap.ei, i32 noundef 3)
   %20 = load i32, ptr @proto_bssap, align 4
-  %21 = tail call ptr @prefs_register_protocol(i32 noundef %20, ptr noundef null) #2
-  tail call void @prefs_register_obsolete_preference(ptr noundef %21, ptr noundef nonnull @.str.148) #2
-  tail call void @prefs_register_obsolete_preference(ptr noundef %21, ptr noundef nonnull @.str.149) #2
-  tail call void @prefs_register_enum_preference(ptr noundef %21, ptr noundef nonnull @.str.150, ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.152, ptr noundef nonnull @default_protocol_global, ptr noundef nonnull @proto_register_bssap.default_protocol_options, i32 noundef 0) #2
+  %21 = tail call ptr @prefs_register_protocol(i32 noundef %20, ptr noundef null)
+  tail call void @prefs_register_obsolete_preference(ptr noundef %21, ptr noundef nonnull @.str.148)
+  tail call void @prefs_register_obsolete_preference(ptr noundef %21, ptr noundef nonnull @.str.149)
+  tail call void @prefs_register_enum_preference(ptr noundef %21, ptr noundef nonnull @.str.150, ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.152, ptr noundef nonnull @default_protocol_global, ptr noundef nonnull @proto_register_bssap.default_protocol_options, i1 noundef zeroext false)
   %22 = load i32, ptr @proto_bssap_plus, align 4
-  %23 = tail call ptr @prefs_register_protocol(i32 noundef %22, ptr noundef null) #2
-  tail call void @prefs_register_obsolete_preference(ptr noundef %23, ptr noundef nonnull @.str.153) #2
+  %23 = tail call ptr @prefs_register_protocol(i32 noundef %22, ptr noundef null)
+  tail call void @prefs_register_obsolete_preference(ptr noundef %23, ptr noundef nonnull @.str.153)
   %24 = load i32, ptr @proto_bssap, align 4
-  %25 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.154, i32 noundef %24, i32 noundef 4, i32 noundef 1) #2
+  %25 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.154, i32 noundef %24, i32 noundef 4, i32 noundef 1)
   store ptr %25, ptr @bssap_dissector_table, align 8
   %26 = load i32, ptr @proto_bssap, align 4
-  %27 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.155, i32 noundef %26, i32 noundef 4, i32 noundef 1) #2
+  %27 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.155, i32 noundef %26, i32 noundef 4, i32 noundef 1)
   store ptr %27, ptr @bsap_dissector_table, align 8
   %28 = load i32, ptr @proto_bssap, align 4
-  %29 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.154, i32 noundef %28, i32 noundef 4, i32 noundef 1) #2
+  %29 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.154, i32 noundef %28, i32 noundef 4, i32 noundef 1)
   store ptr %29, ptr @bssap_le_dissector_table, align 8
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol_in_name_only(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 1, 260) i32 @dissect_bssap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.143) #2
+  tail call void @col_set_str(ptr noundef %6, i32 noundef 35, ptr noundef nonnull @.str.143)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %7
 
@@ -511,32 +511,32 @@ define internal range(i32 1, 260) i32 @dissect_bssap(ptr noundef %0, ptr noundef
   br i1 %.not19, label %12, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i32 1, ptr %11, align 8
   br label %12
 
 12:                                               ; preds = %10, %7, %4
   %13 = load i32, ptr @proto_bssap, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %15 = load i32, ptr @ett_bssap, align 4
-  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #2
+  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef 8) #2
+  %19 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %18, i64 noundef 8) #3
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 0, ptr %20, align 4
   %21 = load ptr, ptr %17, align 8
   %22 = load i32, ptr @proto_bssap, align 4
-  tail call void @p_add_proto_data(ptr noundef %21, ptr noundef nonnull %1, i32 noundef %22, i32 noundef 0, ptr noundef %19) #2
-  %23 = tail call fastcc i32 @dissect_bssap_message(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %16, ptr noundef %2, ptr noundef %3)
+  tail call void @p_add_proto_data(ptr noundef %21, ptr noundef %1, i32 noundef %22, i32 noundef 0, ptr noundef %19)
+  %23 = tail call fastcc i32 @dissect_bssap_message(ptr noundef %0, ptr noundef %1, ptr noundef %16, ptr noundef %2, ptr noundef %3)
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 1, 260) i32 @dissect_bsap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.146) #2
+  tail call void @col_set_str(ptr noundef %6, i32 noundef 35, ptr noundef nonnull @.str.146)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %7
 
@@ -547,32 +547,32 @@ define internal range(i32 1, 260) i32 @dissect_bsap(ptr noundef %0, ptr noundef 
   br i1 %.not19, label %12, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i32 1, ptr %11, align 8
   br label %12
 
 12:                                               ; preds = %10, %7, %4
   %13 = load i32, ptr @proto_bssap, align 4
-  %14 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.146) #2
+  %14 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.146)
   %15 = load i32, ptr @ett_bssap, align 4
-  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #2
+  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef 8) #2
+  %19 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %18, i64 noundef 8) #3
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 1, ptr %20, align 4
   %21 = load ptr, ptr %17, align 8
   %22 = load i32, ptr @proto_bssap, align 4
-  tail call void @p_add_proto_data(ptr noundef %21, ptr noundef nonnull %1, i32 noundef %22, i32 noundef 0, ptr noundef %19) #2
-  %23 = tail call fastcc i32 @dissect_bssap_message(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %16, ptr noundef %2, ptr noundef %3)
+  tail call void @p_add_proto_data(ptr noundef %21, ptr noundef %1, i32 noundef %22, i32 noundef 0, ptr noundef %19)
+  %23 = tail call fastcc i32 @dissect_bssap_message(ptr noundef %0, ptr noundef %1, ptr noundef %16, ptr noundef %2, ptr noundef %3)
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 1, 260) i32 @dissect_bssap_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.147) #2
+  tail call void @col_set_str(ptr noundef %6, i32 noundef 35, ptr noundef nonnull @.str.147)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %7
 
@@ -583,51 +583,51 @@ define internal range(i32 1, 260) i32 @dissect_bssap_le(ptr noundef %0, ptr noun
   br i1 %.not19, label %12, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i32 1, ptr %11, align 8
   br label %12
 
 12:                                               ; preds = %10, %7, %4
   %13 = load i32, ptr @proto_bssap, align 4
-  %14 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.147) #2
+  %14 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.147)
   %15 = load i32, ptr @ett_bssap, align 4
-  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #2
+  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef 8) #2
+  %19 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %18, i64 noundef 8) #3
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 2, ptr %20, align 4
   %21 = load ptr, ptr %17, align 8
   %22 = load i32, ptr @proto_bssap, align 4
-  tail call void @p_add_proto_data(ptr noundef %21, ptr noundef nonnull %1, i32 noundef %22, i32 noundef 0, ptr noundef %19) #2
-  %23 = tail call fastcc i32 @dissect_bssap_message(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %16, ptr noundef %2, ptr noundef %3)
+  tail call void @p_add_proto_data(ptr noundef %21, ptr noundef %1, i32 noundef %22, i32 noundef 0, ptr noundef %19)
+  %23 = tail call fastcc i32 @dissect_bssap_message(ptr noundef %0, ptr noundef %1, ptr noundef %16, ptr noundef %2, ptr noundef %3)
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 2, 258) i32 @dissect_bssap_imei_dissector(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
-  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
+  %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %6 = load i32, ptr @hf_bssap_imei_ie, align 4
   %7 = zext i8 %5 to i32
   %8 = add nuw nsw i32 %7, 2
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef %8, i32 noundef 0) #2
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef %8, i32 noundef 0)
   %10 = load i32, ptr @ett_bassp_imei, align 4
-  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #2
+  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10)
   %12 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %14 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %16 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 2, i32 noundef %7) #2
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %16 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 2, i32 noundef %7)
   %17 = load i32, ptr @hf_bssap_imei, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %16, i32 noundef 0, i32 noundef -1, i32 noundef -2147483580) #2
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %16, i32 noundef 0, i32 noundef -1, i32 noundef -2147483580)
   ret i32 %8
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_bssap_plus(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.277) #2
+  tail call void @col_set_str(ptr noundef %6, i32 noundef 35, ptr noundef nonnull @.str.293)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %7
 
@@ -638,2086 +638,2095 @@ define internal i32 @dissect_bssap_plus(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not519, label %12, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i32 1, ptr %11, align 8
   br label %12
 
 12:                                               ; preds = %10, %7, %4
   %13 = load i32, ptr @proto_bssap_plus, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %15 = load i32, ptr @ett_bssap, align 4
-  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #2
-  %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
+  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15)
+  %17 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %18 = load i32, ptr @hf_bssap_plus_message_type, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %20 = load ptr, ptr %5, align 8
   %21 = zext i8 %17 to i32
-  %22 = tail call ptr @val_to_str_ext(i32 noundef %21, ptr noundef nonnull @bssap_plus_message_type_values_ext, ptr noundef nonnull @.str.278) #2
-  tail call void @col_add_str(ptr noundef %20, i32 noundef 25, ptr noundef %22) #2
-  switch i8 %17, label %1255 [
+  %22 = tail call ptr @val_to_str_ext(i32 noundef %21, ptr noundef nonnull @bssap_plus_message_type_values_ext, ptr noundef nonnull @.str.294)
+  tail call void @col_add_str(ptr noundef %20, i32 noundef 25, ptr noundef %22)
+  switch i8 %17, label %1296 [
     i8 1, label %23
-    i8 2, label %95
-    i8 7, label %147
-    i8 8, label %225
-    i8 9, label %303
-    i8 10, label %430
-    i8 11, label %488
-    i8 12, label %539
-    i8 13, label %579
-    i8 14, label %605
-    i8 15, label %631
-    i8 16, label %683
-    i8 17, label %723
-    i8 18, label %800
-    i8 19, label %826
-    i8 20, label %910
-    i8 21, label %936
-    i8 22, label %948
-    i8 23, label %960
-    i8 24, label %1012
-    i8 26, label %1094
-    i8 29, label %1127
-    i8 31, label %1199
+    i8 2, label %97
+    i8 7, label %151
+    i8 8, label %232
+    i8 9, label %313
+    i8 10, label %445
+    i8 11, label %505
+    i8 12, label %558
+    i8 13, label %599
+    i8 14, label %626
+    i8 15, label %653
+    i8 16, label %707
+    i8 17, label %748
+    i8 18, label %828
+    i8 19, label %855
+    i8 20, label %942
+    i8 21, label %969
+    i8 22, label %981
+    i8 23, label %993
+    i8 24, label %1047
+    i8 26, label %1130
+    i8 29, label %1164
+    i8 31, label %1238
   ]
 
 23:                                               ; preds = %12
-  %24 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
+  %24 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %.not.i = icmp eq i8 %24, 1
-  br i1 %.not.i, label %check_ie.exit, label %check_ie.exit.thread
-
-check_ie.exit.thread:                             ; preds = %23
-  %25 = zext i8 %24 to i32
-  %26 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %27 = tail call ptr @val_to_str_ext(i32 noundef %25, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %28 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %26, ptr noundef %27) #2
-  %29 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %30 = zext i8 %29 to i32
-  %31 = add nuw nsw i32 %30, 2
-  br label %46
+  br i1 %.not.i, label %32, label %check_ie.exit
 
 check_ie.exit:                                    ; preds = %23
-  %32 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %33 = load i32, ptr @hf_bssap_imsi_ie, align 4
-  %34 = zext i8 %32 to i32
-  %35 = add nuw nsw i32 %34, 2
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %33, ptr noundef %0, i32 noundef 1, i32 noundef %35, i32 noundef 0) #2
-  %37 = load i32, ptr @ett_bssap_imsi, align 4
-  %38 = tail call ptr @proto_item_add_subtree(ptr noundef %36, i32 noundef %37) #2
-  %39 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %40 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %39, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %41 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %42 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %41, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %43 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %34) #2
-  %44 = tail call ptr @dissect_e212_imsi(ptr noundef %43, ptr noundef nonnull %1, ptr noundef %16, i32 noundef 0, i32 noundef %34, i32 noundef 1) #2
-  %45 = add nuw nsw i32 %34, 3
-  br label %46
+  %25 = zext i8 %24 to i32
+  %26 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %27 = tail call ptr @val_to_str_ext(i32 noundef %25, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %28 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %26, ptr noundef %27)
+  %29 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %30 = zext i8 %29 to i32
+  %31 = add nuw nsw i32 %30, 2
+  br label %47
 
-46:                                               ; preds = %check_ie.exit.thread, %check_ie.exit
-  %.01129 = phi i32 [ %45, %check_ie.exit ], [ %31, %check_ie.exit.thread ]
-  %47 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.01129) #2
-  %.not.i594 = icmp eq i8 %47, 2
-  br i1 %.not.i594, label %check_ie.exit596, label %check_ie.exit596.thread
+32:                                               ; preds = %23
+  %33 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %34 = load i32, ptr @hf_bssap_imsi_ie, align 4
+  %35 = zext i8 %33 to i32
+  %36 = add nuw nsw i32 %35, 2
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %34, ptr noundef %0, i32 noundef 1, i32 noundef %36, i32 noundef 0)
+  %38 = load i32, ptr @ett_bssap_imsi, align 4
+  %39 = tail call ptr @proto_item_add_subtree(ptr noundef %37, i32 noundef %38)
+  %40 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %40, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %42 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %43 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %42, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %44 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %35)
+  %45 = tail call ptr @dissect_e212_imsi(ptr noundef %44, ptr noundef %1, ptr noundef %16, i32 noundef 0, i32 noundef %35, i1 noundef zeroext true)
+  %46 = add nuw nsw i32 %35, 3
+  br label %47
 
-check_ie.exit596.thread:                          ; preds = %46
-  %48 = zext i8 %47 to i32
-  %49 = tail call ptr @val_to_str_ext(i32 noundef 2, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %50 = tail call ptr @val_to_str_ext(i32 noundef %48, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %51 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.01129, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %49, ptr noundef %50) #2
-  %52 = add nuw nsw i32 %.01129, 1
-  %53 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %52) #2
-  %54 = zext i8 %53 to i32
-  %55 = add nuw nsw i32 %52, %54
-  br label %57
+47:                                               ; preds = %check_ie.exit, %32
+  %.0983 = phi i32 [ %46, %32 ], [ %31, %check_ie.exit ]
+  %48 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0983)
+  %.not.i520 = icmp eq i8 %48, 2
+  br i1 %.not.i520, label %57, label %check_ie.exit521
 
-check_ie.exit596:                                 ; preds = %46
-  %56 = tail call fastcc i32 @dissect_bssap_vlr_number(ptr noundef %0, ptr noundef %16, i32 noundef %.01129)
-  br label %57
+check_ie.exit521:                                 ; preds = %47
+  %49 = zext i8 %48 to i32
+  %50 = tail call ptr @val_to_str_ext(i32 noundef 2, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %51 = tail call ptr @val_to_str_ext(i32 noundef %49, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %52 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.0983, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %50, ptr noundef %51)
+  %53 = add nuw nsw i32 %.0983, 1
+  %54 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %53)
+  %55 = zext i8 %54 to i32
+  %56 = add nuw nsw i32 %53, %55
+  br label %59
 
-57:                                               ; preds = %check_ie.exit596.thread, %check_ie.exit596
-  %.1 = phi i32 [ %56, %check_ie.exit596 ], [ %55, %check_ie.exit596.thread ]
-  %58 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #2
-  %59 = icmp slt i32 %58, 1
-  br i1 %59, label %1255, label %60
+57:                                               ; preds = %47
+  %58 = tail call fastcc i32 @dissect_bssap_vlr_number(ptr noundef %0, ptr noundef %16, i32 noundef %.0983)
+  br label %59
 
-60:                                               ; preds = %57
-  %61 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1) #2
-  %.not.i597.not = icmp eq i8 %61, 3
-  br i1 %.not.i597.not, label %62, label %64
+59:                                               ; preds = %check_ie.exit521, %57
+  %.1 = phi i32 [ %58, %57 ], [ %56, %check_ie.exit521 ]
+  %60 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1)
+  %61 = icmp slt i32 %60, 1
+  br i1 %61, label %1296, label %62
 
-62:                                               ; preds = %60
-  %63 = tail call fastcc i32 @dissect_bssap_tmsi(ptr noundef %0, ptr noundef %16, i32 noundef %.1)
-  br label %64
+62:                                               ; preds = %59
+  %63 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.1)
+  %.not.i522 = icmp eq i8 %63, 3
+  br i1 %.not.i522, label %64, label %66
 
-64:                                               ; preds = %62, %60
-  %.2 = phi i32 [ %.1, %60 ], [ %63, %62 ]
-  %65 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2) #2
-  %66 = icmp slt i32 %65, 1
-  br i1 %66, label %1255, label %67
+64:                                               ; preds = %62
+  %65 = tail call fastcc i32 @dissect_bssap_tmsi(ptr noundef %0, ptr noundef %16, i32 noundef %.1)
+  br label %66
 
-67:                                               ; preds = %64
-  %68 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #2
-  %.not.i598.not = icmp eq i8 %68, 4
-  br i1 %.not.i598.not, label %69, label %71
+66:                                               ; preds = %64, %62
+  %.2 = phi i32 [ %65, %64 ], [ %.1, %62 ]
+  %67 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2)
+  %68 = icmp slt i32 %67, 1
+  br i1 %68, label %1296, label %69
 
-69:                                               ; preds = %67
-  %70 = tail call fastcc i32 @dissect_bssap_loc_area_id(ptr noundef %0, ptr noundef %16, ptr noundef nonnull %1, i32 noundef %.2)
-  br label %71
+69:                                               ; preds = %66
+  %70 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.2)
+  %.not.i523 = icmp eq i8 %70, 4
+  br i1 %.not.i523, label %71, label %73
 
-71:                                               ; preds = %69, %67
-  %.3 = phi i32 [ %.2, %67 ], [ %70, %69 ]
-  %72 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3) #2
-  %73 = icmp slt i32 %72, 1
-  br i1 %73, label %1255, label %74
+71:                                               ; preds = %69
+  %72 = tail call fastcc i32 @dissect_bssap_loc_area_id(ptr noundef %0, ptr noundef %16, ptr noundef %1, i32 noundef %.2)
+  br label %73
 
-74:                                               ; preds = %71
-  %75 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3) #2
-  %.not.i600.not = icmp eq i8 %75, 5
-  br i1 %.not.i600.not, label %76, label %78
+73:                                               ; preds = %71, %69
+  %.3 = phi i32 [ %72, %71 ], [ %.2, %69 ]
+  %74 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3)
+  %75 = icmp slt i32 %74, 1
+  br i1 %75, label %1296, label %76
 
-76:                                               ; preds = %74
-  %77 = tail call fastcc i32 @dissect_bssap_channel_needed(ptr noundef %0, ptr noundef %16, ptr noundef nonnull %1, i32 noundef %.3)
-  br label %78
+76:                                               ; preds = %73
+  %77 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.3)
+  %.not.i524 = icmp eq i8 %77, 5
+  br i1 %.not.i524, label %78, label %80
 
-78:                                               ; preds = %76, %74
-  %.4 = phi i32 [ %.3, %74 ], [ %77, %76 ]
-  %79 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4) #2
-  %80 = icmp slt i32 %79, 1
-  br i1 %80, label %1255, label %81
+78:                                               ; preds = %76
+  %79 = tail call fastcc i32 @dissect_bssap_channel_needed(ptr noundef %0, ptr noundef %16, ptr noundef %1, i32 noundef %.3)
+  br label %80
 
-81:                                               ; preds = %78
-  %82 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.4) #2
-  %.not.i602.not = icmp eq i8 %82, 6
-  br i1 %.not.i602.not, label %83, label %85
+80:                                               ; preds = %78, %76
+  %.4 = phi i32 [ %79, %78 ], [ %.3, %76 ]
+  %81 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4)
+  %82 = icmp slt i32 %81, 1
+  br i1 %82, label %1296, label %83
 
-83:                                               ; preds = %81
-  %84 = tail call fastcc i32 @dissect_bssap_emlpp_priority(ptr noundef %0, ptr noundef %16, i32 noundef %.4)
-  br label %85
+83:                                               ; preds = %80
+  %84 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.4)
+  %.not.i525 = icmp eq i8 %84, 6
+  br i1 %.not.i525, label %85, label %87
 
-85:                                               ; preds = %83, %81
-  %.5 = phi i32 [ %.4, %81 ], [ %84, %83 ]
-  %86 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.5) #2
-  %87 = icmp slt i32 %86, 1
-  br i1 %87, label %1255, label %88
+85:                                               ; preds = %83
+  %86 = tail call fastcc i32 @dissect_bssap_emlpp_priority(ptr noundef %0, ptr noundef %16, i32 noundef %.4)
+  br label %87
 
-88:                                               ; preds = %85
-  %89 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.5) #2
-  %.not.i604.not = icmp eq i8 %89, 11
-  br i1 %.not.i604.not, label %90, label %92
+87:                                               ; preds = %85, %83
+  %.5 = phi i32 [ %86, %85 ], [ %.4, %83 ]
+  %88 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.5)
+  %89 = icmp slt i32 %88, 1
+  br i1 %89, label %1296, label %90
 
-90:                                               ; preds = %88
-  %91 = tail call fastcc i32 @dissect_bssap_global_cn_id(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %16, i32 noundef %.5)
-  br label %92
+90:                                               ; preds = %87
+  %91 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.5)
+  %.not.i526 = icmp eq i8 %91, 11
+  br i1 %.not.i526, label %92, label %94
 
-92:                                               ; preds = %90, %88
-  %.6 = phi i32 [ %.5, %88 ], [ %91, %90 ]
-  %93 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.6) #2
-  %94 = icmp slt i32 %93, 1
-  br i1 %94, label %1255, label %.sink.split1256
+92:                                               ; preds = %90
+  %93 = tail call fastcc i32 @dissect_bssap_global_cn_id(ptr noundef %0, ptr noundef %1, ptr noundef %16, i32 noundef %.5)
+  br label %94
 
-95:                                               ; preds = %12
-  %96 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %.not.i606 = icmp eq i8 %96, 1
-  br i1 %.not.i606, label %check_ie.exit608, label %check_ie.exit608.thread
+94:                                               ; preds = %92, %90
+  %.6 = phi i32 [ %93, %92 ], [ %.5, %90 ]
+  %95 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.6)
+  %96 = icmp slt i32 %95, 1
+  br i1 %96, label %1296, label %.sink.split1069
 
-check_ie.exit608.thread:                          ; preds = %95
-  %97 = zext i8 %96 to i32
-  %98 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %99 = tail call ptr @val_to_str_ext(i32 noundef %97, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %100 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %98, ptr noundef %99) #2
-  %101 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %102 = zext i8 %101 to i32
-  %103 = add nuw nsw i32 %102, 2
-  br label %118
+97:                                               ; preds = %12
+  %98 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %.not.i527 = icmp eq i8 %98, 1
+  br i1 %.not.i527, label %106, label %check_ie.exit528
 
-check_ie.exit608:                                 ; preds = %95
-  %104 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %105 = load i32, ptr @hf_bssap_imsi_ie, align 4
-  %106 = zext i8 %104 to i32
-  %107 = add nuw nsw i32 %106, 2
-  %108 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %105, ptr noundef %0, i32 noundef 1, i32 noundef %107, i32 noundef 0) #2
-  %109 = load i32, ptr @ett_bssap_imsi, align 4
-  %110 = tail call ptr @proto_item_add_subtree(ptr noundef %108, i32 noundef %109) #2
-  %111 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %112 = tail call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %111, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %113 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %114 = tail call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %113, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %115 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %106) #2
-  %116 = tail call ptr @dissect_e212_imsi(ptr noundef %115, ptr noundef nonnull %1, ptr noundef %16, i32 noundef 0, i32 noundef %106, i32 noundef 1) #2
-  %117 = add nuw nsw i32 %106, 3
-  br label %118
+check_ie.exit528:                                 ; preds = %97
+  %99 = zext i8 %98 to i32
+  %100 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %101 = tail call ptr @val_to_str_ext(i32 noundef %99, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %102 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %100, ptr noundef %101)
+  %103 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %104 = zext i8 %103 to i32
+  %105 = add nuw nsw i32 %104, 2
+  br label %121
 
-118:                                              ; preds = %check_ie.exit608.thread, %check_ie.exit608
-  %.7 = phi i32 [ %117, %check_ie.exit608 ], [ %103, %check_ie.exit608.thread ]
-  %119 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.7) #2
-  %.not.i609 = icmp eq i8 %119, 8
-  br i1 %.not.i609, label %check_ie.exit611, label %check_ie.exit611.thread
+106:                                              ; preds = %97
+  %107 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %108 = load i32, ptr @hf_bssap_imsi_ie, align 4
+  %109 = zext i8 %107 to i32
+  %110 = add nuw nsw i32 %109, 2
+  %111 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %108, ptr noundef %0, i32 noundef 1, i32 noundef %110, i32 noundef 0)
+  %112 = load i32, ptr @ett_bssap_imsi, align 4
+  %113 = tail call ptr @proto_item_add_subtree(ptr noundef %111, i32 noundef %112)
+  %114 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %115 = tail call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %114, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %116 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %117 = tail call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %116, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %118 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %109)
+  %119 = tail call ptr @dissect_e212_imsi(ptr noundef %118, ptr noundef %1, ptr noundef %16, i32 noundef 0, i32 noundef %109, i1 noundef zeroext true)
+  %120 = add nuw nsw i32 %109, 3
+  br label %121
 
-check_ie.exit611.thread:                          ; preds = %118
-  %120 = zext i8 %119 to i32
-  %121 = tail call ptr @val_to_str_ext(i32 noundef 8, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %122 = tail call ptr @val_to_str_ext(i32 noundef %120, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %123 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.7, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %121, ptr noundef %122) #2
-  %124 = add nuw nsw i32 %.7, 1
-  %125 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %124) #2
-  %126 = zext i8 %125 to i32
-  %127 = add nuw nsw i32 %124, %126
-  br label %144
+121:                                              ; preds = %check_ie.exit528, %106
+  %.7 = phi i32 [ %120, %106 ], [ %105, %check_ie.exit528 ]
+  %122 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.7)
+  %.not.i529 = icmp eq i8 %122, 8
+  br i1 %.not.i529, label %131, label %check_ie.exit530
 
-check_ie.exit611:                                 ; preds = %118
-  %128 = add nuw nsw i32 %.7, 1
-  %129 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %128) #2
-  %130 = load i32, ptr @hf_bssap_Gs_cause_ie, align 4
-  %131 = zext i8 %129 to i32
-  %132 = add nuw nsw i32 %131, 2
-  %133 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %130, ptr noundef %0, i32 noundef %.7, i32 noundef %132, i32 noundef 0) #2
-  %134 = load i32, ptr @ett_bassp_Gs_cause, align 4
-  %135 = tail call ptr @proto_item_add_subtree(ptr noundef %133, i32 noundef %134) #2
-  %136 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %137 = tail call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %136, ptr noundef %0, i32 noundef %.7, i32 noundef 1, i32 noundef 0) #2
-  %138 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %139 = tail call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %138, ptr noundef %0, i32 noundef %128, i32 noundef 1, i32 noundef 0) #2
-  %140 = add nuw nsw i32 %.7, 2
-  %141 = load i32, ptr @hf_bssap_Gs_cause, align 4
-  %142 = tail call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %141, ptr noundef %0, i32 noundef %140, i32 noundef %131, i32 noundef 0) #2
-  %143 = add nuw nsw i32 %140, %131
-  br label %144
+check_ie.exit530:                                 ; preds = %121
+  %123 = zext i8 %122 to i32
+  %124 = tail call ptr @val_to_str_ext(i32 noundef 8, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %125 = tail call ptr @val_to_str_ext(i32 noundef %123, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %126 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.7, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %124, ptr noundef %125)
+  %127 = add nuw nsw i32 %.7, 1
+  %128 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %127)
+  %129 = zext i8 %128 to i32
+  %130 = add nuw nsw i32 %127, %129
+  br label %148
 
-144:                                              ; preds = %check_ie.exit611.thread, %check_ie.exit611
-  %.8 = phi i32 [ %143, %check_ie.exit611 ], [ %127, %check_ie.exit611.thread ]
-  %145 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.8) #2
-  %146 = icmp slt i32 %145, 1
-  br i1 %146, label %1255, label %.sink.split1256
+131:                                              ; preds = %121
+  %132 = add nuw nsw i32 %.7, 1
+  %133 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %132)
+  %134 = load i32, ptr @hf_bssap_Gs_cause_ie, align 4
+  %135 = zext i8 %133 to i32
+  %136 = add nuw nsw i32 %135, 2
+  %137 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %134, ptr noundef %0, i32 noundef %.7, i32 noundef %136, i32 noundef 0)
+  %138 = load i32, ptr @ett_bassp_Gs_cause, align 4
+  %139 = tail call ptr @proto_item_add_subtree(ptr noundef %137, i32 noundef %138)
+  %140 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %141 = tail call ptr @proto_tree_add_item(ptr noundef %139, i32 noundef %140, ptr noundef %0, i32 noundef %.7, i32 noundef 1, i32 noundef 0)
+  %142 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %143 = tail call ptr @proto_tree_add_item(ptr noundef %139, i32 noundef %142, ptr noundef %0, i32 noundef %132, i32 noundef 1, i32 noundef 0)
+  %144 = add nuw nsw i32 %.7, 2
+  %145 = load i32, ptr @hf_bssap_Gs_cause, align 4
+  %146 = tail call ptr @proto_tree_add_item(ptr noundef %139, i32 noundef %145, ptr noundef %0, i32 noundef %144, i32 noundef %135, i32 noundef 0)
+  %147 = add nuw nsw i32 %144, %135
+  br label %148
 
-147:                                              ; preds = %12
-  %148 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %.not.i612 = icmp eq i8 %148, 1
-  br i1 %.not.i612, label %check_ie.exit614, label %check_ie.exit614.thread
+148:                                              ; preds = %check_ie.exit530, %131
+  %.8 = phi i32 [ %147, %131 ], [ %130, %check_ie.exit530 ]
+  %149 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.8)
+  %150 = icmp slt i32 %149, 1
+  br i1 %150, label %1296, label %.sink.split1069
 
-check_ie.exit614.thread:                          ; preds = %147
-  %149 = zext i8 %148 to i32
-  %150 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %151 = tail call ptr @val_to_str_ext(i32 noundef %149, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %152 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %150, ptr noundef %151) #2
-  %153 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %154 = zext i8 %153 to i32
-  %155 = add nuw nsw i32 %154, 2
-  br label %170
+151:                                              ; preds = %12
+  %152 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %.not.i531 = icmp eq i8 %152, 1
+  br i1 %.not.i531, label %160, label %check_ie.exit532
 
-check_ie.exit614:                                 ; preds = %147
-  %156 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %157 = load i32, ptr @hf_bssap_imsi_ie, align 4
-  %158 = zext i8 %156 to i32
+check_ie.exit532:                                 ; preds = %151
+  %153 = zext i8 %152 to i32
+  %154 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %155 = tail call ptr @val_to_str_ext(i32 noundef %153, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %156 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %154, ptr noundef %155)
+  %157 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %158 = zext i8 %157 to i32
   %159 = add nuw nsw i32 %158, 2
-  %160 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %157, ptr noundef %0, i32 noundef 1, i32 noundef %159, i32 noundef 0) #2
-  %161 = load i32, ptr @ett_bssap_imsi, align 4
-  %162 = tail call ptr @proto_item_add_subtree(ptr noundef %160, i32 noundef %161) #2
-  %163 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %164 = tail call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %163, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %165 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %166 = tail call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %165, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %167 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %158) #2
-  %168 = tail call ptr @dissect_e212_imsi(ptr noundef %167, ptr noundef nonnull %1, ptr noundef %16, i32 noundef 0, i32 noundef %158, i32 noundef 1) #2
-  %169 = add nuw nsw i32 %158, 3
-  br label %170
+  br label %175
 
-170:                                              ; preds = %check_ie.exit614.thread, %check_ie.exit614
-  %.9 = phi i32 [ %169, %check_ie.exit614 ], [ %155, %check_ie.exit614.thread ]
-  %171 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.9) #2
-  %.not.i615 = icmp eq i8 %171, 2
-  br i1 %.not.i615, label %check_ie.exit617, label %check_ie.exit617.thread
+160:                                              ; preds = %151
+  %161 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %162 = load i32, ptr @hf_bssap_imsi_ie, align 4
+  %163 = zext i8 %161 to i32
+  %164 = add nuw nsw i32 %163, 2
+  %165 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %162, ptr noundef %0, i32 noundef 1, i32 noundef %164, i32 noundef 0)
+  %166 = load i32, ptr @ett_bssap_imsi, align 4
+  %167 = tail call ptr @proto_item_add_subtree(ptr noundef %165, i32 noundef %166)
+  %168 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %169 = tail call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %168, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %170 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %171 = tail call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %170, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %172 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %163)
+  %173 = tail call ptr @dissect_e212_imsi(ptr noundef %172, ptr noundef %1, ptr noundef %16, i32 noundef 0, i32 noundef %163, i1 noundef zeroext true)
+  %174 = add nuw nsw i32 %163, 3
+  br label %175
 
-check_ie.exit617.thread:                          ; preds = %170
-  %172 = zext i8 %171 to i32
-  %173 = tail call ptr @val_to_str_ext(i32 noundef 2, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %174 = tail call ptr @val_to_str_ext(i32 noundef %172, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %175 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.9, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %173, ptr noundef %174) #2
-  %176 = add nuw nsw i32 %.9, 1
-  %177 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %176) #2
-  %178 = zext i8 %177 to i32
-  %179 = add nuw nsw i32 %176, %178
-  br label %181
+175:                                              ; preds = %check_ie.exit532, %160
+  %.9 = phi i32 [ %174, %160 ], [ %159, %check_ie.exit532 ]
+  %176 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.9)
+  %.not.i533 = icmp eq i8 %176, 2
+  br i1 %.not.i533, label %185, label %check_ie.exit534
 
-check_ie.exit617:                                 ; preds = %170
-  %180 = tail call fastcc i32 @dissect_bssap_vlr_number(ptr noundef %0, ptr noundef %16, i32 noundef %.9)
-  br label %181
-
-181:                                              ; preds = %check_ie.exit617.thread, %check_ie.exit617
-  %.10 = phi i32 [ %180, %check_ie.exit617 ], [ %179, %check_ie.exit617.thread ]
-  %182 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.10) #2
-  %.not.i618 = icmp eq i8 %182, 28
-  br i1 %.not.i618, label %check_ie.exit620, label %check_ie.exit620.thread
-
-check_ie.exit620.thread:                          ; preds = %181
+check_ie.exit534:                                 ; preds = %175
+  %177 = zext i8 %176 to i32
+  %178 = tail call ptr @val_to_str_ext(i32 noundef 2, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %179 = tail call ptr @val_to_str_ext(i32 noundef %177, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %180 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.9, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %178, ptr noundef %179)
+  %181 = add nuw nsw i32 %.9, 1
+  %182 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %181)
   %183 = zext i8 %182 to i32
-  %184 = tail call ptr @val_to_str_ext(i32 noundef 28, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %185 = tail call ptr @val_to_str_ext(i32 noundef %183, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %186 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.10, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %184, ptr noundef %185) #2
-  %187 = add i32 %.10, 1
-  %188 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %187) #2
+  %184 = add nuw nsw i32 %181, %183
+  br label %187
+
+185:                                              ; preds = %175
+  %186 = tail call fastcc i32 @dissect_bssap_vlr_number(ptr noundef %0, ptr noundef %16, i32 noundef %.9)
+  br label %187
+
+187:                                              ; preds = %check_ie.exit534, %185
+  %.10 = phi i32 [ %186, %185 ], [ %184, %check_ie.exit534 ]
+  %188 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.10)
+  %.not.i535 = icmp eq i8 %188, 28
+  br i1 %.not.i535, label %197, label %check_ie.exit536
+
+check_ie.exit536:                                 ; preds = %187
   %189 = zext i8 %188 to i32
-  %190 = add i32 %187, %189
-  br label %222
+  %190 = tail call ptr @val_to_str_ext(i32 noundef 28, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %191 = tail call ptr @val_to_str_ext(i32 noundef %189, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %192 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.10, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %190, ptr noundef %191)
+  %193 = add i32 %.10, 1
+  %194 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %193)
+  %195 = zext i8 %194 to i32
+  %196 = add i32 %193, %195
+  br label %229
 
-check_ie.exit620:                                 ; preds = %181
-  %191 = add i32 %.10, 1
-  %192 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %191) #2
-  %193 = load i32, ptr @hf_bssap_dlink_tnl_pld_cntrl_amd_inf_ie, align 4
-  %194 = zext i8 %192 to i32
-  %195 = add nuw nsw i32 %194, 2
-  %196 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %193, ptr noundef %0, i32 noundef %.10, i32 noundef %195, i32 noundef 0) #2
-  %197 = load i32, ptr @ett_bssap_dlink_tnl_pld_cntrl_amd_inf, align 4
-  %198 = tail call ptr @proto_item_add_subtree(ptr noundef %196, i32 noundef %197) #2
-  %199 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %200 = tail call ptr @proto_tree_add_item(ptr noundef %198, i32 noundef %199, ptr noundef %0, i32 noundef %.10, i32 noundef 1, i32 noundef 0) #2
-  %201 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %202 = tail call ptr @proto_tree_add_item(ptr noundef %198, i32 noundef %201, ptr noundef %0, i32 noundef %191, i32 noundef 1, i32 noundef 0) #2
-  %203 = add i32 %.10, 2
-  %204 = load i32, ptr @hf_bssap_tom_prot_disc, align 4
-  %205 = tail call ptr @proto_tree_add_item(ptr noundef %198, i32 noundef %204, ptr noundef %0, i32 noundef %203, i32 noundef 1, i32 noundef 0) #2
-  %206 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %203) #2
-  %207 = load i32, ptr @hf_bssap_e_bit, align 4
-  %208 = tail call ptr @proto_tree_add_item(ptr noundef %198, i32 noundef %207, ptr noundef %0, i32 noundef %203, i32 noundef 1, i32 noundef 0) #2
-  %209 = load i32, ptr @hf_bssap_tunnel_prio, align 4
-  %210 = tail call ptr @proto_tree_add_item(ptr noundef %198, i32 noundef %209, ptr noundef %0, i32 noundef %203, i32 noundef 1, i32 noundef 0) #2
-  %211 = add nsw i32 %194, -4
-  %212 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %203, i32 noundef %211) #2
-  %213 = and i8 %206, 120
-  %214 = icmp eq i8 %213, 16
-  %215 = load ptr, ptr @rrlp_handle, align 8
-  %216 = icmp ne ptr %215, null
-  %or.cond.i = select i1 %214, i1 %216, i1 false
-  br i1 %or.cond.i, label %217, label %219
+197:                                              ; preds = %187
+  %198 = add i32 %.10, 1
+  %199 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %198)
+  %200 = load i32, ptr @hf_bssap_dlink_tnl_pld_cntrl_amd_inf_ie, align 4
+  %201 = zext i8 %199 to i32
+  %202 = add nuw nsw i32 %201, 2
+  %203 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %200, ptr noundef %0, i32 noundef %.10, i32 noundef %202, i32 noundef 0)
+  %204 = load i32, ptr @ett_bssap_dlink_tnl_pld_cntrl_amd_inf, align 4
+  %205 = tail call ptr @proto_item_add_subtree(ptr noundef %203, i32 noundef %204)
+  %206 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %207 = tail call ptr @proto_tree_add_item(ptr noundef %205, i32 noundef %206, ptr noundef %0, i32 noundef %.10, i32 noundef 1, i32 noundef 0)
+  %208 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %209 = tail call ptr @proto_tree_add_item(ptr noundef %205, i32 noundef %208, ptr noundef %0, i32 noundef %198, i32 noundef 1, i32 noundef 0)
+  %210 = add i32 %.10, 2
+  %211 = load i32, ptr @hf_bssap_tom_prot_disc, align 4
+  %212 = tail call ptr @proto_tree_add_item(ptr noundef %205, i32 noundef %211, ptr noundef %0, i32 noundef %210, i32 noundef 1, i32 noundef 0)
+  %213 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %210)
+  %214 = load i32, ptr @hf_bssap_e_bit, align 4
+  %215 = tail call ptr @proto_tree_add_item(ptr noundef %205, i32 noundef %214, ptr noundef %0, i32 noundef %210, i32 noundef 1, i32 noundef 0)
+  %216 = load i32, ptr @hf_bssap_tunnel_prio, align 4
+  %217 = tail call ptr @proto_tree_add_item(ptr noundef %205, i32 noundef %216, ptr noundef %0, i32 noundef %210, i32 noundef 1, i32 noundef 0)
+  %218 = add nsw i32 %201, -4
+  %219 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %210, i32 noundef %218)
+  %220 = and i8 %213, 120
+  %221 = icmp eq i8 %220, 16
+  %222 = load ptr, ptr @rrlp_handle, align 8
+  %223 = icmp ne ptr %222, null
+  %or.cond.i = select i1 %221, i1 %223, i1 false
+  br i1 %or.cond.i, label %224, label %226
 
-217:                                              ; preds = %check_ie.exit620
-  %218 = tail call i32 @call_dissector(ptr noundef nonnull %215, ptr noundef %212, ptr noundef nonnull %1, ptr noundef %198) #2
+224:                                              ; preds = %197
+  %225 = tail call i32 @call_dissector(ptr noundef nonnull %222, ptr noundef %219, ptr noundef %1, ptr noundef %205)
   br label %dissect_bssap_dlink_tunnel_payload_control_and_info.exit
 
-219:                                              ; preds = %check_ie.exit620
-  %220 = tail call i32 @call_data_dissector(ptr noundef %212, ptr noundef nonnull %1, ptr noundef %198) #2
+226:                                              ; preds = %197
+  %227 = tail call i32 @call_data_dissector(ptr noundef %219, ptr noundef %1, ptr noundef %205)
   br label %dissect_bssap_dlink_tunnel_payload_control_and_info.exit
 
-dissect_bssap_dlink_tunnel_payload_control_and_info.exit: ; preds = %217, %219
-  %221 = add i32 %203, %194
-  br label %222
+dissect_bssap_dlink_tunnel_payload_control_and_info.exit: ; preds = %224, %226
+  %228 = add i32 %210, %201
+  br label %229
 
-222:                                              ; preds = %check_ie.exit620.thread, %dissect_bssap_dlink_tunnel_payload_control_and_info.exit
-  %.11 = phi i32 [ %221, %dissect_bssap_dlink_tunnel_payload_control_and_info.exit ], [ %190, %check_ie.exit620.thread ]
-  %223 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.11) #2
-  %224 = icmp slt i32 %223, 1
-  br i1 %224, label %1255, label %.sink.split1256
+229:                                              ; preds = %check_ie.exit536, %dissect_bssap_dlink_tunnel_payload_control_and_info.exit
+  %.11 = phi i32 [ %228, %dissect_bssap_dlink_tunnel_payload_control_and_info.exit ], [ %196, %check_ie.exit536 ]
+  %230 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.11)
+  %231 = icmp slt i32 %230, 1
+  br i1 %231, label %1296, label %.sink.split1069
 
-225:                                              ; preds = %12
-  %226 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %.not.i621 = icmp eq i8 %226, 1
-  br i1 %.not.i621, label %check_ie.exit623, label %check_ie.exit623.thread
+232:                                              ; preds = %12
+  %233 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %.not.i537 = icmp eq i8 %233, 1
+  br i1 %.not.i537, label %241, label %check_ie.exit538
 
-check_ie.exit623.thread:                          ; preds = %225
-  %227 = zext i8 %226 to i32
-  %228 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %229 = tail call ptr @val_to_str_ext(i32 noundef %227, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %230 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %228, ptr noundef %229) #2
-  %231 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %232 = zext i8 %231 to i32
-  %233 = add nuw nsw i32 %232, 2
-  br label %248
+check_ie.exit538:                                 ; preds = %232
+  %234 = zext i8 %233 to i32
+  %235 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %236 = tail call ptr @val_to_str_ext(i32 noundef %234, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %237 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %235, ptr noundef %236)
+  %238 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %239 = zext i8 %238 to i32
+  %240 = add nuw nsw i32 %239, 2
+  br label %256
 
-check_ie.exit623:                                 ; preds = %225
-  %234 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %235 = load i32, ptr @hf_bssap_imsi_ie, align 4
-  %236 = zext i8 %234 to i32
-  %237 = add nuw nsw i32 %236, 2
-  %238 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %235, ptr noundef %0, i32 noundef 1, i32 noundef %237, i32 noundef 0) #2
-  %239 = load i32, ptr @ett_bssap_imsi, align 4
-  %240 = tail call ptr @proto_item_add_subtree(ptr noundef %238, i32 noundef %239) #2
-  %241 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %242 = tail call ptr @proto_tree_add_item(ptr noundef %240, i32 noundef %241, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %243 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %244 = tail call ptr @proto_tree_add_item(ptr noundef %240, i32 noundef %243, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %245 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %236) #2
-  %246 = tail call ptr @dissect_e212_imsi(ptr noundef %245, ptr noundef nonnull %1, ptr noundef %16, i32 noundef 0, i32 noundef %236, i32 noundef 1) #2
-  %247 = add nuw nsw i32 %236, 3
-  br label %248
+241:                                              ; preds = %232
+  %242 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %243 = load i32, ptr @hf_bssap_imsi_ie, align 4
+  %244 = zext i8 %242 to i32
+  %245 = add nuw nsw i32 %244, 2
+  %246 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %243, ptr noundef %0, i32 noundef 1, i32 noundef %245, i32 noundef 0)
+  %247 = load i32, ptr @ett_bssap_imsi, align 4
+  %248 = tail call ptr @proto_item_add_subtree(ptr noundef %246, i32 noundef %247)
+  %249 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %250 = tail call ptr @proto_tree_add_item(ptr noundef %248, i32 noundef %249, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %251 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %252 = tail call ptr @proto_tree_add_item(ptr noundef %248, i32 noundef %251, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %253 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %244)
+  %254 = tail call ptr @dissect_e212_imsi(ptr noundef %253, ptr noundef %1, ptr noundef %16, i32 noundef 0, i32 noundef %244, i1 noundef zeroext true)
+  %255 = add nuw nsw i32 %244, 3
+  br label %256
 
-248:                                              ; preds = %check_ie.exit623.thread, %check_ie.exit623
-  %.12 = phi i32 [ %247, %check_ie.exit623 ], [ %233, %check_ie.exit623.thread ]
-  %249 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.12) #2
-  %.not.i624 = icmp eq i8 %249, 9
-  br i1 %.not.i624, label %check_ie.exit626, label %check_ie.exit626.thread
+256:                                              ; preds = %check_ie.exit538, %241
+  %.12 = phi i32 [ %255, %241 ], [ %240, %check_ie.exit538 ]
+  %257 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.12)
+  %.not.i539 = icmp eq i8 %257, 9
+  br i1 %.not.i539, label %266, label %check_ie.exit540
 
-check_ie.exit626.thread:                          ; preds = %248
-  %250 = zext i8 %249 to i32
-  %251 = tail call ptr @val_to_str_ext(i32 noundef 9, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %252 = tail call ptr @val_to_str_ext(i32 noundef %250, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %253 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.12, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %251, ptr noundef %252) #2
-  %254 = add nuw nsw i32 %.12, 1
-  %255 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %254) #2
-  %256 = zext i8 %255 to i32
-  %257 = add nuw nsw i32 %254, %256
-  br label %259
+check_ie.exit540:                                 ; preds = %256
+  %258 = zext i8 %257 to i32
+  %259 = tail call ptr @val_to_str_ext(i32 noundef 9, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %260 = tail call ptr @val_to_str_ext(i32 noundef %258, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %261 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.12, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %259, ptr noundef %260)
+  %262 = add nuw nsw i32 %.12, 1
+  %263 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %262)
+  %264 = zext i8 %263 to i32
+  %265 = add nuw nsw i32 %262, %264
+  br label %268
 
-check_ie.exit626:                                 ; preds = %248
-  %258 = tail call fastcc i32 @dissect_bssap_sgsn_number(ptr noundef %0, ptr noundef %16, i32 noundef %.12)
-  br label %259
+266:                                              ; preds = %256
+  %267 = tail call fastcc i32 @dissect_bssap_sgsn_number(ptr noundef %0, ptr noundef %16, i32 noundef %.12)
+  br label %268
 
-259:                                              ; preds = %check_ie.exit626.thread, %check_ie.exit626
-  %.13 = phi i32 [ %258, %check_ie.exit626 ], [ %257, %check_ie.exit626.thread ]
-  %260 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.13) #2
-  %.not.i627 = icmp eq i8 %260, 29
-  br i1 %.not.i627, label %check_ie.exit629, label %check_ie.exit629.thread
+268:                                              ; preds = %check_ie.exit540, %266
+  %.13 = phi i32 [ %267, %266 ], [ %265, %check_ie.exit540 ]
+  %269 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.13)
+  %.not.i541 = icmp eq i8 %269, 29
+  br i1 %.not.i541, label %278, label %check_ie.exit542
 
-check_ie.exit629.thread:                          ; preds = %259
-  %261 = zext i8 %260 to i32
-  %262 = tail call ptr @val_to_str_ext(i32 noundef 29, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %263 = tail call ptr @val_to_str_ext(i32 noundef %261, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %264 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.13, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %262, ptr noundef %263) #2
-  %265 = add i32 %.13, 1
-  %266 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %265) #2
-  %267 = zext i8 %266 to i32
-  %268 = add i32 %265, %267
-  br label %300
+check_ie.exit542:                                 ; preds = %268
+  %270 = zext i8 %269 to i32
+  %271 = tail call ptr @val_to_str_ext(i32 noundef 29, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %272 = tail call ptr @val_to_str_ext(i32 noundef %270, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %273 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.13, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %271, ptr noundef %272)
+  %274 = add i32 %.13, 1
+  %275 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %274)
+  %276 = zext i8 %275 to i32
+  %277 = add i32 %274, %276
+  br label %310
 
-check_ie.exit629:                                 ; preds = %259
-  %269 = add i32 %.13, 1
-  %270 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %269) #2
-  %271 = load i32, ptr @hf_bssap_ulink_tnl_pld_cntrl_amd_inf_ie, align 4
-  %272 = zext i8 %270 to i32
-  %273 = add nuw nsw i32 %272, 2
-  %274 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %271, ptr noundef %0, i32 noundef %.13, i32 noundef %273, i32 noundef 0) #2
-  %275 = load i32, ptr @ett_bssap_ulink_tnl_pld_cntrl_amd_inf, align 4
-  %276 = tail call ptr @proto_item_add_subtree(ptr noundef %274, i32 noundef %275) #2
-  %277 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %278 = tail call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %277, ptr noundef %0, i32 noundef %.13, i32 noundef 1, i32 noundef 0) #2
-  %279 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %280 = tail call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %279, ptr noundef %0, i32 noundef %269, i32 noundef 1, i32 noundef 0) #2
-  %281 = add i32 %.13, 2
-  %282 = load i32, ptr @hf_bssap_tom_prot_disc, align 4
-  %283 = tail call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %282, ptr noundef %0, i32 noundef %281, i32 noundef 1, i32 noundef 0) #2
-  %284 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %281) #2
-  %285 = load i32, ptr @hf_bssap_e_bit, align 4
-  %286 = tail call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %285, ptr noundef %0, i32 noundef %281, i32 noundef 1, i32 noundef 0) #2
-  %287 = load i32, ptr @hf_bssap_tunnel_prio, align 4
-  %288 = tail call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %287, ptr noundef %0, i32 noundef %281, i32 noundef 1, i32 noundef 0) #2
-  %289 = add nsw i32 %272, -4
-  %290 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %281, i32 noundef %289) #2
-  %291 = and i8 %284, 120
-  %292 = icmp eq i8 %291, 16
-  %293 = load ptr, ptr @rrlp_handle, align 8
-  %294 = icmp ne ptr %293, null
-  %or.cond.i630 = select i1 %292, i1 %294, i1 false
-  br i1 %or.cond.i630, label %295, label %297
+278:                                              ; preds = %268
+  %279 = add i32 %.13, 1
+  %280 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %279)
+  %281 = load i32, ptr @hf_bssap_ulink_tnl_pld_cntrl_amd_inf_ie, align 4
+  %282 = zext i8 %280 to i32
+  %283 = add nuw nsw i32 %282, 2
+  %284 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %281, ptr noundef %0, i32 noundef %.13, i32 noundef %283, i32 noundef 0)
+  %285 = load i32, ptr @ett_bssap_ulink_tnl_pld_cntrl_amd_inf, align 4
+  %286 = tail call ptr @proto_item_add_subtree(ptr noundef %284, i32 noundef %285)
+  %287 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %288 = tail call ptr @proto_tree_add_item(ptr noundef %286, i32 noundef %287, ptr noundef %0, i32 noundef %.13, i32 noundef 1, i32 noundef 0)
+  %289 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %290 = tail call ptr @proto_tree_add_item(ptr noundef %286, i32 noundef %289, ptr noundef %0, i32 noundef %279, i32 noundef 1, i32 noundef 0)
+  %291 = add i32 %.13, 2
+  %292 = load i32, ptr @hf_bssap_tom_prot_disc, align 4
+  %293 = tail call ptr @proto_tree_add_item(ptr noundef %286, i32 noundef %292, ptr noundef %0, i32 noundef %291, i32 noundef 1, i32 noundef 0)
+  %294 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %291)
+  %295 = load i32, ptr @hf_bssap_e_bit, align 4
+  %296 = tail call ptr @proto_tree_add_item(ptr noundef %286, i32 noundef %295, ptr noundef %0, i32 noundef %291, i32 noundef 1, i32 noundef 0)
+  %297 = load i32, ptr @hf_bssap_tunnel_prio, align 4
+  %298 = tail call ptr @proto_tree_add_item(ptr noundef %286, i32 noundef %297, ptr noundef %0, i32 noundef %291, i32 noundef 1, i32 noundef 0)
+  %299 = add nsw i32 %282, -4
+  %300 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %291, i32 noundef %299)
+  %301 = and i8 %294, 120
+  %302 = icmp eq i8 %301, 16
+  %303 = load ptr, ptr @rrlp_handle, align 8
+  %304 = icmp ne ptr %303, null
+  %or.cond.i543 = select i1 %302, i1 %304, i1 false
+  br i1 %or.cond.i543, label %305, label %307
 
-295:                                              ; preds = %check_ie.exit629
-  %296 = tail call i32 @call_dissector(ptr noundef nonnull %293, ptr noundef %290, ptr noundef nonnull %1, ptr noundef %276) #2
+305:                                              ; preds = %278
+  %306 = tail call i32 @call_dissector(ptr noundef nonnull %303, ptr noundef %300, ptr noundef %1, ptr noundef %286)
   br label %dissect_bssap_ulink_tunnel_payload_control_and_info.exit
 
-297:                                              ; preds = %check_ie.exit629
-  %298 = tail call i32 @call_data_dissector(ptr noundef %290, ptr noundef nonnull %1, ptr noundef %276) #2
+307:                                              ; preds = %278
+  %308 = tail call i32 @call_data_dissector(ptr noundef %300, ptr noundef %1, ptr noundef %286)
   br label %dissect_bssap_ulink_tunnel_payload_control_and_info.exit
 
-dissect_bssap_ulink_tunnel_payload_control_and_info.exit: ; preds = %295, %297
-  %299 = add i32 %281, %272
-  br label %300
+dissect_bssap_ulink_tunnel_payload_control_and_info.exit: ; preds = %305, %307
+  %309 = add i32 %291, %282
+  br label %310
 
-300:                                              ; preds = %check_ie.exit629.thread, %dissect_bssap_ulink_tunnel_payload_control_and_info.exit
-  %.14 = phi i32 [ %299, %dissect_bssap_ulink_tunnel_payload_control_and_info.exit ], [ %268, %check_ie.exit629.thread ]
-  %301 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.14) #2
-  %302 = icmp slt i32 %301, 1
-  br i1 %302, label %1255, label %.sink.split1256
+310:                                              ; preds = %check_ie.exit542, %dissect_bssap_ulink_tunnel_payload_control_and_info.exit
+  %.14 = phi i32 [ %309, %dissect_bssap_ulink_tunnel_payload_control_and_info.exit ], [ %277, %check_ie.exit542 ]
+  %311 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.14)
+  %312 = icmp slt i32 %311, 1
+  br i1 %312, label %1296, label %.sink.split1069
 
-303:                                              ; preds = %12
-  %304 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %.not.i631 = icmp eq i8 %304, 1
-  br i1 %.not.i631, label %check_ie.exit633, label %check_ie.exit633.thread
+313:                                              ; preds = %12
+  %314 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %.not.i544 = icmp eq i8 %314, 1
+  br i1 %.not.i544, label %322, label %check_ie.exit545
 
-check_ie.exit633.thread:                          ; preds = %303
-  %305 = zext i8 %304 to i32
-  %306 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %307 = tail call ptr @val_to_str_ext(i32 noundef %305, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %308 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %306, ptr noundef %307) #2
-  %309 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %310 = zext i8 %309 to i32
-  %311 = add nuw nsw i32 %310, 2
-  br label %326
-
-check_ie.exit633:                                 ; preds = %303
-  %312 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %313 = load i32, ptr @hf_bssap_imsi_ie, align 4
-  %314 = zext i8 %312 to i32
-  %315 = add nuw nsw i32 %314, 2
-  %316 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %313, ptr noundef %0, i32 noundef 1, i32 noundef %315, i32 noundef 0) #2
-  %317 = load i32, ptr @ett_bssap_imsi, align 4
-  %318 = tail call ptr @proto_item_add_subtree(ptr noundef %316, i32 noundef %317) #2
-  %319 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %320 = tail call ptr @proto_tree_add_item(ptr noundef %318, i32 noundef %319, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %321 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %322 = tail call ptr @proto_tree_add_item(ptr noundef %318, i32 noundef %321, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %323 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %314) #2
-  %324 = tail call ptr @dissect_e212_imsi(ptr noundef %323, ptr noundef nonnull %1, ptr noundef %16, i32 noundef 0, i32 noundef %314, i32 noundef 1) #2
-  %325 = add nuw nsw i32 %314, 3
-  br label %326
-
-326:                                              ; preds = %check_ie.exit633.thread, %check_ie.exit633
-  %.15 = phi i32 [ %325, %check_ie.exit633 ], [ %311, %check_ie.exit633.thread ]
-  %327 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.15) #2
-  %.not.i634 = icmp eq i8 %327, 9
-  br i1 %.not.i634, label %check_ie.exit636, label %check_ie.exit636.thread
-
-check_ie.exit636.thread:                          ; preds = %326
-  %328 = zext i8 %327 to i32
-  %329 = tail call ptr @val_to_str_ext(i32 noundef 9, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %330 = tail call ptr @val_to_str_ext(i32 noundef %328, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %331 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.15, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %329, ptr noundef %330) #2
-  %332 = add nuw nsw i32 %.15, 1
-  %333 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %332) #2
-  %334 = zext i8 %333 to i32
-  %335 = add nuw nsw i32 %332, %334
+check_ie.exit545:                                 ; preds = %313
+  %315 = zext i8 %314 to i32
+  %316 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %317 = tail call ptr @val_to_str_ext(i32 noundef %315, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %318 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %316, ptr noundef %317)
+  %319 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %320 = zext i8 %319 to i32
+  %321 = add nuw nsw i32 %320, 2
   br label %337
 
-check_ie.exit636:                                 ; preds = %326
-  %336 = tail call fastcc i32 @dissect_bssap_sgsn_number(ptr noundef %0, ptr noundef %16, i32 noundef %.15)
+322:                                              ; preds = %313
+  %323 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %324 = load i32, ptr @hf_bssap_imsi_ie, align 4
+  %325 = zext i8 %323 to i32
+  %326 = add nuw nsw i32 %325, 2
+  %327 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %324, ptr noundef %0, i32 noundef 1, i32 noundef %326, i32 noundef 0)
+  %328 = load i32, ptr @ett_bssap_imsi, align 4
+  %329 = tail call ptr @proto_item_add_subtree(ptr noundef %327, i32 noundef %328)
+  %330 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %331 = tail call ptr @proto_tree_add_item(ptr noundef %329, i32 noundef %330, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %332 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %333 = tail call ptr @proto_tree_add_item(ptr noundef %329, i32 noundef %332, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %334 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %325)
+  %335 = tail call ptr @dissect_e212_imsi(ptr noundef %334, ptr noundef %1, ptr noundef %16, i32 noundef 0, i32 noundef %325, i1 noundef zeroext true)
+  %336 = add nuw nsw i32 %325, 3
   br label %337
 
-337:                                              ; preds = %check_ie.exit636.thread, %check_ie.exit636
-  %.16 = phi i32 [ %336, %check_ie.exit636 ], [ %335, %check_ie.exit636.thread ]
-  %338 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.16) #2
-  %.not.i637 = icmp eq i8 %338, 10
-  br i1 %.not.i637, label %check_ie.exit639, label %check_ie.exit639.thread
+337:                                              ; preds = %check_ie.exit545, %322
+  %.15 = phi i32 [ %336, %322 ], [ %321, %check_ie.exit545 ]
+  %338 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.15)
+  %.not.i546 = icmp eq i8 %338, 9
+  br i1 %.not.i546, label %347, label %check_ie.exit547
 
-check_ie.exit639.thread:                          ; preds = %337
+check_ie.exit547:                                 ; preds = %337
   %339 = zext i8 %338 to i32
-  %340 = tail call ptr @val_to_str_ext(i32 noundef 10, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %341 = tail call ptr @val_to_str_ext(i32 noundef %339, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %342 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.16, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %340, ptr noundef %341) #2
-  %343 = add i32 %.16, 1
-  %344 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %343) #2
+  %340 = tail call ptr @val_to_str_ext(i32 noundef 9, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %341 = tail call ptr @val_to_str_ext(i32 noundef %339, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %342 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.15, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %340, ptr noundef %341)
+  %343 = add nuw nsw i32 %.15, 1
+  %344 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %343)
   %345 = zext i8 %344 to i32
-  %346 = add i32 %343, %345
-  br label %363
+  %346 = add nuw nsw i32 %343, %345
+  br label %349
 
-check_ie.exit639:                                 ; preds = %337
-  %347 = add i32 %.16, 1
-  %348 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %347) #2
-  %349 = load i32, ptr @hf_bssap_gprs_loc_upd_type_ie, align 4
-  %350 = zext i8 %348 to i32
-  %351 = add nuw nsw i32 %350, 2
-  %352 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %349, ptr noundef %0, i32 noundef %.16, i32 noundef %351, i32 noundef 0) #2
-  %353 = load i32, ptr @ett_bssap_gprs_loc_upd, align 4
-  %354 = tail call ptr @proto_item_add_subtree(ptr noundef %352, i32 noundef %353) #2
-  %355 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %356 = tail call ptr @proto_tree_add_item(ptr noundef %354, i32 noundef %355, ptr noundef %0, i32 noundef %.16, i32 noundef 1, i32 noundef 0) #2
-  %357 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %358 = tail call ptr @proto_tree_add_item(ptr noundef %354, i32 noundef %357, ptr noundef %0, i32 noundef %347, i32 noundef 1, i32 noundef 0) #2
-  %359 = add i32 %.16, 2
-  %360 = load i32, ptr @hf_bssap_gprs_loc_upd_type, align 4
-  %361 = tail call ptr @proto_tree_add_item(ptr noundef %354, i32 noundef %360, ptr noundef %0, i32 noundef %359, i32 noundef %350, i32 noundef 0) #2
-  %362 = add i32 %359, %350
-  br label %363
+347:                                              ; preds = %337
+  %348 = tail call fastcc i32 @dissect_bssap_sgsn_number(ptr noundef %0, ptr noundef %16, i32 noundef %.15)
+  br label %349
 
-363:                                              ; preds = %check_ie.exit639.thread, %check_ie.exit639
-  %.17 = phi i32 [ %362, %check_ie.exit639 ], [ %346, %check_ie.exit639.thread ]
-  %364 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.17) #2
-  %.not.i640 = icmp eq i8 %364, 24
-  br i1 %.not.i640, label %check_ie.exit642, label %check_ie.exit642.thread
+349:                                              ; preds = %check_ie.exit547, %347
+  %.16 = phi i32 [ %348, %347 ], [ %346, %check_ie.exit547 ]
+  %350 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.16)
+  %.not.i548 = icmp eq i8 %350, 10
+  br i1 %.not.i548, label %359, label %check_ie.exit549
 
-check_ie.exit642.thread:                          ; preds = %363
-  %365 = zext i8 %364 to i32
-  %366 = tail call ptr @val_to_str_ext(i32 noundef 24, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %367 = tail call ptr @val_to_str_ext(i32 noundef %365, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %368 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.17, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %366, ptr noundef %367) #2
-  %369 = add i32 %.17, 1
-  %370 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %369) #2
-  %371 = zext i8 %370 to i32
-  %372 = add i32 %369, %371
-  br label %374
+check_ie.exit549:                                 ; preds = %349
+  %351 = zext i8 %350 to i32
+  %352 = tail call ptr @val_to_str_ext(i32 noundef 10, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %353 = tail call ptr @val_to_str_ext(i32 noundef %351, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %354 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.16, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %352, ptr noundef %353)
+  %355 = add i32 %.16, 1
+  %356 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %355)
+  %357 = zext i8 %356 to i32
+  %358 = add i32 %355, %357
+  br label %376
 
-check_ie.exit642:                                 ; preds = %363
-  %373 = tail call fastcc i32 @dissect_bssap_cell_global_id(ptr noundef %0, ptr noundef %16, ptr noundef nonnull %1, i32 noundef %.17)
-  br label %374
+359:                                              ; preds = %349
+  %360 = add i32 %.16, 1
+  %361 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %360)
+  %362 = load i32, ptr @hf_bssap_gprs_loc_upd_type_ie, align 4
+  %363 = zext i8 %361 to i32
+  %364 = add nuw nsw i32 %363, 2
+  %365 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %362, ptr noundef %0, i32 noundef %.16, i32 noundef %364, i32 noundef 0)
+  %366 = load i32, ptr @ett_bssap_gprs_loc_upd, align 4
+  %367 = tail call ptr @proto_item_add_subtree(ptr noundef %365, i32 noundef %366)
+  %368 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %369 = tail call ptr @proto_tree_add_item(ptr noundef %367, i32 noundef %368, ptr noundef %0, i32 noundef %.16, i32 noundef 1, i32 noundef 0)
+  %370 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %371 = tail call ptr @proto_tree_add_item(ptr noundef %367, i32 noundef %370, ptr noundef %0, i32 noundef %360, i32 noundef 1, i32 noundef 0)
+  %372 = add i32 %.16, 2
+  %373 = load i32, ptr @hf_bssap_gprs_loc_upd_type, align 4
+  %374 = tail call ptr @proto_tree_add_item(ptr noundef %367, i32 noundef %373, ptr noundef %0, i32 noundef %372, i32 noundef %363, i32 noundef 0)
+  %375 = add i32 %372, %363
+  br label %376
 
-374:                                              ; preds = %check_ie.exit642.thread, %check_ie.exit642
-  %.18 = phi i32 [ %373, %check_ie.exit642 ], [ %372, %check_ie.exit642.thread ]
-  %375 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.18) #2
-  %.not.i643 = icmp eq i8 %375, 13
-  br i1 %.not.i643, label %check_ie.exit645, label %check_ie.exit645.thread
+376:                                              ; preds = %check_ie.exit549, %359
+  %.17 = phi i32 [ %375, %359 ], [ %358, %check_ie.exit549 ]
+  %377 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.17)
+  %.not.i550 = icmp eq i8 %377, 24
+  br i1 %.not.i550, label %386, label %check_ie.exit551
 
-check_ie.exit645.thread:                          ; preds = %374
-  %376 = zext i8 %375 to i32
-  %377 = tail call ptr @val_to_str_ext(i32 noundef 13, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %378 = tail call ptr @val_to_str_ext(i32 noundef %376, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %379 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.18, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %377, ptr noundef %378) #2
-  %380 = add i32 %.18, 1
-  %381 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %380) #2
-  %382 = zext i8 %381 to i32
-  %383 = add i32 %380, %382
-  br label %399
+check_ie.exit551:                                 ; preds = %376
+  %378 = zext i8 %377 to i32
+  %379 = tail call ptr @val_to_str_ext(i32 noundef 24, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %380 = tail call ptr @val_to_str_ext(i32 noundef %378, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %381 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.17, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %379, ptr noundef %380)
+  %382 = add i32 %.17, 1
+  %383 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %382)
+  %384 = zext i8 %383 to i32
+  %385 = add i32 %382, %384
+  br label %388
 
-check_ie.exit645:                                 ; preds = %374
-  %384 = add i32 %.18, 1
-  %385 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %384) #2
-  %386 = load i32, ptr @hf_bssap_mobile_stn_cls_mrk1_ie, align 4
-  %387 = zext i8 %385 to i32
-  %388 = add nuw nsw i32 %387, 2
-  %389 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %386, ptr noundef %0, i32 noundef %.18, i32 noundef %388, i32 noundef 0) #2
-  %390 = load i32, ptr @ett_bssap_mobile_stn_cls_mrk1, align 4
-  %391 = tail call ptr @proto_item_add_subtree(ptr noundef %389, i32 noundef %390) #2
-  %392 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %393 = tail call ptr @proto_tree_add_item(ptr noundef %391, i32 noundef %392, ptr noundef %0, i32 noundef %.18, i32 noundef 1, i32 noundef 0) #2
-  %394 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %395 = tail call ptr @proto_tree_add_item(ptr noundef %391, i32 noundef %394, ptr noundef %0, i32 noundef %384, i32 noundef 1, i32 noundef 0) #2
-  %396 = add i32 %.18, 2
-  %397 = tail call zeroext i16 @de_ms_cm_1(ptr noundef %0, ptr noundef %391, ptr noundef nonnull %1, i32 noundef %396, i32 noundef %387, ptr noundef null, i32 noundef 0) #2
-  %398 = add i32 %396, %387
-  br label %399
+386:                                              ; preds = %376
+  %387 = tail call fastcc i32 @dissect_bssap_cell_global_id(ptr noundef %0, ptr noundef %16, ptr noundef %1, i32 noundef %.17)
+  br label %388
 
-399:                                              ; preds = %check_ie.exit645.thread, %check_ie.exit645
-  %.19 = phi i32 [ %398, %check_ie.exit645 ], [ %383, %check_ie.exit645.thread ]
-  %400 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.19) #2
-  %401 = icmp slt i32 %400, 1
-  br i1 %401, label %1255, label %402
+388:                                              ; preds = %check_ie.exit551, %386
+  %.18 = phi i32 [ %387, %386 ], [ %385, %check_ie.exit551 ]
+  %389 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.18)
+  %.not.i552 = icmp eq i8 %389, 13
+  br i1 %.not.i552, label %398, label %check_ie.exit553
 
-402:                                              ; preds = %399
-  %403 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.19) #2
-  %.not.i646.not = icmp eq i8 %403, 4
-  br i1 %.not.i646.not, label %404, label %406
+check_ie.exit553:                                 ; preds = %388
+  %390 = zext i8 %389 to i32
+  %391 = tail call ptr @val_to_str_ext(i32 noundef 13, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %392 = tail call ptr @val_to_str_ext(i32 noundef %390, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %393 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.18, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %391, ptr noundef %392)
+  %394 = add i32 %.18, 1
+  %395 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %394)
+  %396 = zext i8 %395 to i32
+  %397 = add i32 %394, %396
+  br label %414
 
-404:                                              ; preds = %402
-  %405 = tail call fastcc i32 @dissect_bssap_loc_area_id(ptr noundef %0, ptr noundef %16, ptr noundef nonnull %1, i32 noundef %.19)
-  br label %406
+398:                                              ; preds = %388
+  %399 = add i32 %.18, 1
+  %400 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %399)
+  %401 = load i32, ptr @hf_bssap_mobile_stn_cls_mrk1_ie, align 4
+  %402 = zext i8 %400 to i32
+  %403 = add nuw nsw i32 %402, 2
+  %404 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %401, ptr noundef %0, i32 noundef %.18, i32 noundef %403, i32 noundef 0)
+  %405 = load i32, ptr @ett_bssap_mobile_stn_cls_mrk1, align 4
+  %406 = tail call ptr @proto_item_add_subtree(ptr noundef %404, i32 noundef %405)
+  %407 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %408 = tail call ptr @proto_tree_add_item(ptr noundef %406, i32 noundef %407, ptr noundef %0, i32 noundef %.18, i32 noundef 1, i32 noundef 0)
+  %409 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %410 = tail call ptr @proto_tree_add_item(ptr noundef %406, i32 noundef %409, ptr noundef %0, i32 noundef %399, i32 noundef 1, i32 noundef 0)
+  %411 = add i32 %.18, 2
+  %412 = tail call zeroext i16 @de_ms_cm_1(ptr noundef %0, ptr noundef %406, ptr noundef %1, i32 noundef %411, i32 noundef %402, ptr noundef null, i32 noundef 0)
+  %413 = add i32 %411, %402
+  br label %414
 
-406:                                              ; preds = %404, %402
-  %.20 = phi i32 [ %.19, %402 ], [ %405, %404 ]
-  %407 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.20) #2
-  %408 = icmp slt i32 %407, 1
-  br i1 %408, label %1255, label %409
+414:                                              ; preds = %check_ie.exit553, %398
+  %.19 = phi i32 [ %413, %398 ], [ %397, %check_ie.exit553 ]
+  %415 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.19)
+  %416 = icmp slt i32 %415, 1
+  br i1 %416, label %1296, label %417
 
-409:                                              ; preds = %406
-  %410 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.20) #2
-  %.not.i648.not = icmp eq i8 %410, 7
-  br i1 %.not.i648.not, label %411, label %413
+417:                                              ; preds = %414
+  %418 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.19)
+  %.not.i554 = icmp eq i8 %418, 4
+  br i1 %.not.i554, label %419, label %421
 
-411:                                              ; preds = %409
-  %412 = tail call fastcc i32 @dissect_bssap_tmsi_status(ptr noundef %0, ptr noundef %16, i32 noundef %.20)
-  br label %413
+419:                                              ; preds = %417
+  %420 = tail call fastcc i32 @dissect_bssap_loc_area_id(ptr noundef %0, ptr noundef %16, ptr noundef %1, i32 noundef %.19)
+  br label %421
 
-413:                                              ; preds = %411, %409
-  %.21 = phi i32 [ %.20, %409 ], [ %412, %411 ]
-  %414 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.21) #2
-  %415 = icmp slt i32 %414, 1
-  br i1 %415, label %1255, label %416
+421:                                              ; preds = %419, %417
+  %.20 = phi i32 [ %420, %419 ], [ %.19, %417 ]
+  %422 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.20)
+  %423 = icmp slt i32 %422, 1
+  br i1 %423, label %1296, label %424
 
-416:                                              ; preds = %413
-  %417 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.21) #2
-  %.not.i650.not = icmp eq i8 %417, 30
-  br i1 %.not.i650.not, label %418, label %420
+424:                                              ; preds = %421
+  %425 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.20)
+  %.not.i555 = icmp eq i8 %425, 7
+  br i1 %.not.i555, label %426, label %428
 
-418:                                              ; preds = %416
-  %419 = tail call fastcc i32 @dissect_bssap_service_area_id(ptr noundef %0, ptr noundef %16, i32 noundef %.21)
-  br label %420
+426:                                              ; preds = %424
+  %427 = tail call fastcc i32 @dissect_bssap_tmsi_status(ptr noundef %0, ptr noundef %16, i32 noundef %.20)
+  br label %428
 
-420:                                              ; preds = %418, %416
-  %.22 = phi i32 [ %.21, %416 ], [ %419, %418 ]
-  %421 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.22) #2
-  %422 = icmp slt i32 %421, 1
-  br i1 %422, label %1255, label %423
+428:                                              ; preds = %426, %424
+  %.21 = phi i32 [ %427, %426 ], [ %.20, %424 ]
+  %429 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.21)
+  %430 = icmp slt i32 %429, 1
+  br i1 %430, label %1296, label %431
 
-423:                                              ; preds = %420
-  %424 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.22) #2
-  %.not.i652.not = icmp eq i8 %424, 21
-  br i1 %.not.i652.not, label %425, label %427
+431:                                              ; preds = %428
+  %432 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.21)
+  %.not.i556 = icmp eq i8 %432, 30
+  br i1 %.not.i556, label %433, label %435
 
-425:                                              ; preds = %423
-  %426 = tail call fastcc i32 @dissect_bssap_imeisv(ptr noundef %0, ptr noundef %16, i32 noundef %.22)
-  br label %427
+433:                                              ; preds = %431
+  %434 = tail call fastcc i32 @dissect_bssap_service_area_id(ptr noundef %0, ptr noundef %16, i32 noundef %.21)
+  br label %435
 
-427:                                              ; preds = %425, %423
-  %.23 = phi i32 [ %.22, %423 ], [ %426, %425 ]
-  %428 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.23) #2
-  %429 = icmp slt i32 %428, 1
-  br i1 %429, label %1255, label %.sink.split1256
+435:                                              ; preds = %433, %431
+  %.22 = phi i32 [ %434, %433 ], [ %.21, %431 ]
+  %436 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.22)
+  %437 = icmp slt i32 %436, 1
+  br i1 %437, label %1296, label %438
 
-430:                                              ; preds = %12
-  %431 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %.not.i654 = icmp eq i8 %431, 1
-  br i1 %.not.i654, label %check_ie.exit656, label %check_ie.exit656.thread
+438:                                              ; preds = %435
+  %439 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.22)
+  %.not.i557 = icmp eq i8 %439, 21
+  br i1 %.not.i557, label %440, label %442
 
-check_ie.exit656.thread:                          ; preds = %430
-  %432 = zext i8 %431 to i32
-  %433 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %434 = tail call ptr @val_to_str_ext(i32 noundef %432, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %435 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %433, ptr noundef %434) #2
-  %436 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %437 = zext i8 %436 to i32
-  %438 = add nuw nsw i32 %437, 2
-  br label %453
+440:                                              ; preds = %438
+  %441 = tail call fastcc i32 @dissect_bssap_imeisv(ptr noundef %0, ptr noundef %16, i32 noundef %.22)
+  br label %442
 
-check_ie.exit656:                                 ; preds = %430
-  %439 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %440 = load i32, ptr @hf_bssap_imsi_ie, align 4
-  %441 = zext i8 %439 to i32
-  %442 = add nuw nsw i32 %441, 2
-  %443 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %440, ptr noundef %0, i32 noundef 1, i32 noundef %442, i32 noundef 0) #2
-  %444 = load i32, ptr @ett_bssap_imsi, align 4
-  %445 = tail call ptr @proto_item_add_subtree(ptr noundef %443, i32 noundef %444) #2
-  %446 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %447 = tail call ptr @proto_tree_add_item(ptr noundef %445, i32 noundef %446, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %448 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %449 = tail call ptr @proto_tree_add_item(ptr noundef %445, i32 noundef %448, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %450 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %441) #2
-  %451 = tail call ptr @dissect_e212_imsi(ptr noundef %450, ptr noundef nonnull %1, ptr noundef %16, i32 noundef 0, i32 noundef %441, i32 noundef 1) #2
-  %452 = add nuw nsw i32 %441, 3
-  br label %453
+442:                                              ; preds = %440, %438
+  %.23 = phi i32 [ %441, %440 ], [ %.22, %438 ]
+  %443 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.23)
+  %444 = icmp slt i32 %443, 1
+  br i1 %444, label %1296, label %.sink.split1069
 
-453:                                              ; preds = %check_ie.exit656.thread, %check_ie.exit656
-  %.24 = phi i32 [ %452, %check_ie.exit656 ], [ %438, %check_ie.exit656.thread ]
-  %454 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.24) #2
-  %.not.i657 = icmp eq i8 %454, 4
-  br i1 %.not.i657, label %check_ie.exit659, label %check_ie.exit659.thread
+445:                                              ; preds = %12
+  %446 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %.not.i558 = icmp eq i8 %446, 1
+  br i1 %.not.i558, label %454, label %check_ie.exit559
 
-check_ie.exit659.thread:                          ; preds = %453
-  %455 = zext i8 %454 to i32
-  %456 = tail call ptr @val_to_str_ext(i32 noundef 4, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %457 = tail call ptr @val_to_str_ext(i32 noundef %455, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %458 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.24, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %456, ptr noundef %457) #2
-  %459 = add nuw nsw i32 %.24, 1
-  %460 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %459) #2
-  %461 = zext i8 %460 to i32
-  %462 = add nuw nsw i32 %459, %461
-  br label %478
+check_ie.exit559:                                 ; preds = %445
+  %447 = zext i8 %446 to i32
+  %448 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %449 = tail call ptr @val_to_str_ext(i32 noundef %447, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %450 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %448, ptr noundef %449)
+  %451 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %452 = zext i8 %451 to i32
+  %453 = add nuw nsw i32 %452, 2
+  br label %469
 
-check_ie.exit659:                                 ; preds = %453
-  %463 = add nuw nsw i32 %.24, 1
-  %464 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %463) #2
-  %465 = load i32, ptr @hf_bssap_loc_area_id_ie, align 4
-  %466 = zext i8 %464 to i32
-  %467 = add nuw nsw i32 %466, 2
-  %468 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %465, ptr noundef %0, i32 noundef %.24, i32 noundef %467, i32 noundef 0) #2
-  %469 = load i32, ptr @ett_bssap_loc_area_id, align 4
-  %470 = tail call ptr @proto_item_add_subtree(ptr noundef %468, i32 noundef %469) #2
-  %471 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %472 = tail call ptr @proto_tree_add_item(ptr noundef %470, i32 noundef %471, ptr noundef %0, i32 noundef %.24, i32 noundef 1, i32 noundef 0) #2
-  %473 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %474 = tail call ptr @proto_tree_add_item(ptr noundef %470, i32 noundef %473, ptr noundef %0, i32 noundef %463, i32 noundef 1, i32 noundef 0) #2
-  %475 = add nuw nsw i32 %.24, 2
-  %476 = tail call zeroext i16 @de_lai(ptr noundef %0, ptr noundef %470, ptr noundef nonnull %1, i32 noundef %475, i32 noundef %466, ptr noundef null, i32 noundef 0) #2
-  %477 = add nuw nsw i32 %475, %466
-  br label %478
+454:                                              ; preds = %445
+  %455 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %456 = load i32, ptr @hf_bssap_imsi_ie, align 4
+  %457 = zext i8 %455 to i32
+  %458 = add nuw nsw i32 %457, 2
+  %459 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %456, ptr noundef %0, i32 noundef 1, i32 noundef %458, i32 noundef 0)
+  %460 = load i32, ptr @ett_bssap_imsi, align 4
+  %461 = tail call ptr @proto_item_add_subtree(ptr noundef %459, i32 noundef %460)
+  %462 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %463 = tail call ptr @proto_tree_add_item(ptr noundef %461, i32 noundef %462, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %464 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %465 = tail call ptr @proto_tree_add_item(ptr noundef %461, i32 noundef %464, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %466 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %457)
+  %467 = tail call ptr @dissect_e212_imsi(ptr noundef %466, ptr noundef %1, ptr noundef %16, i32 noundef 0, i32 noundef %457, i1 noundef zeroext true)
+  %468 = add nuw nsw i32 %457, 3
+  br label %469
 
-478:                                              ; preds = %check_ie.exit659.thread, %check_ie.exit659
-  %.25 = phi i32 [ %477, %check_ie.exit659 ], [ %462, %check_ie.exit659.thread ]
-  %479 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.25) #2
-  %480 = icmp slt i32 %479, 1
-  br i1 %480, label %1255, label %481
+469:                                              ; preds = %check_ie.exit559, %454
+  %.24 = phi i32 [ %468, %454 ], [ %453, %check_ie.exit559 ]
+  %470 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.24)
+  %.not.i560 = icmp eq i8 %470, 4
+  br i1 %.not.i560, label %479, label %check_ie.exit561
 
-481:                                              ; preds = %478
-  %482 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.25) #2
-  %.not.i660.not = icmp eq i8 %482, 14
-  br i1 %.not.i660.not, label %483, label %485
+check_ie.exit561:                                 ; preds = %469
+  %471 = zext i8 %470 to i32
+  %472 = tail call ptr @val_to_str_ext(i32 noundef 4, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %473 = tail call ptr @val_to_str_ext(i32 noundef %471, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %474 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.24, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %472, ptr noundef %473)
+  %475 = add nuw nsw i32 %.24, 1
+  %476 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %475)
+  %477 = zext i8 %476 to i32
+  %478 = add nuw nsw i32 %475, %477
+  br label %495
 
-483:                                              ; preds = %481
-  %484 = tail call fastcc i32 @dissect_bssap_mobile_id(ptr noundef %0, ptr noundef %16, ptr noundef nonnull %1, i32 noundef %.25)
-  br label %485
+479:                                              ; preds = %469
+  %480 = add nuw nsw i32 %.24, 1
+  %481 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %480)
+  %482 = load i32, ptr @hf_bssap_loc_area_id_ie, align 4
+  %483 = zext i8 %481 to i32
+  %484 = add nuw nsw i32 %483, 2
+  %485 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %482, ptr noundef %0, i32 noundef %.24, i32 noundef %484, i32 noundef 0)
+  %486 = load i32, ptr @ett_bssap_loc_area_id, align 4
+  %487 = tail call ptr @proto_item_add_subtree(ptr noundef %485, i32 noundef %486)
+  %488 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %489 = tail call ptr @proto_tree_add_item(ptr noundef %487, i32 noundef %488, ptr noundef %0, i32 noundef %.24, i32 noundef 1, i32 noundef 0)
+  %490 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %491 = tail call ptr @proto_tree_add_item(ptr noundef %487, i32 noundef %490, ptr noundef %0, i32 noundef %480, i32 noundef 1, i32 noundef 0)
+  %492 = add nuw nsw i32 %.24, 2
+  %493 = tail call zeroext i16 @de_lai(ptr noundef %0, ptr noundef %487, ptr noundef %1, i32 noundef %492, i32 noundef %483, ptr noundef null, i32 noundef 0)
+  %494 = add nuw nsw i32 %492, %483
+  br label %495
 
-485:                                              ; preds = %483, %481
-  %.26 = phi i32 [ %.25, %481 ], [ %484, %483 ]
-  %486 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.26) #2
-  %487 = icmp slt i32 %486, 1
-  br i1 %487, label %1255, label %.sink.split1256
+495:                                              ; preds = %check_ie.exit561, %479
+  %.25 = phi i32 [ %494, %479 ], [ %478, %check_ie.exit561 ]
+  %496 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.25)
+  %497 = icmp slt i32 %496, 1
+  br i1 %497, label %1296, label %498
 
-488:                                              ; preds = %12
-  %489 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %.not.i662 = icmp eq i8 %489, 1
-  br i1 %.not.i662, label %check_ie.exit664, label %check_ie.exit664.thread
+498:                                              ; preds = %495
+  %499 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.25)
+  %.not.i562 = icmp eq i8 %499, 14
+  br i1 %.not.i562, label %500, label %502
 
-check_ie.exit664.thread:                          ; preds = %488
-  %490 = zext i8 %489 to i32
-  %491 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %492 = tail call ptr @val_to_str_ext(i32 noundef %490, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %493 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %491, ptr noundef %492) #2
-  %494 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %495 = zext i8 %494 to i32
-  %496 = add nuw nsw i32 %495, 2
-  br label %511
+500:                                              ; preds = %498
+  %501 = tail call fastcc i32 @dissect_bssap_mobile_id(ptr noundef %0, ptr noundef %16, ptr noundef %1, i32 noundef %.25)
+  br label %502
 
-check_ie.exit664:                                 ; preds = %488
-  %497 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %498 = load i32, ptr @hf_bssap_imsi_ie, align 4
-  %499 = zext i8 %497 to i32
-  %500 = add nuw nsw i32 %499, 2
-  %501 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %498, ptr noundef %0, i32 noundef 1, i32 noundef %500, i32 noundef 0) #2
-  %502 = load i32, ptr @ett_bssap_imsi, align 4
-  %503 = tail call ptr @proto_item_add_subtree(ptr noundef %501, i32 noundef %502) #2
-  %504 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %505 = tail call ptr @proto_tree_add_item(ptr noundef %503, i32 noundef %504, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %506 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %507 = tail call ptr @proto_tree_add_item(ptr noundef %503, i32 noundef %506, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %508 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %499) #2
-  %509 = tail call ptr @dissect_e212_imsi(ptr noundef %508, ptr noundef nonnull %1, ptr noundef %16, i32 noundef 0, i32 noundef %499, i32 noundef 1) #2
-  %510 = add nuw nsw i32 %499, 3
-  br label %511
+502:                                              ; preds = %500, %498
+  %.26 = phi i32 [ %501, %500 ], [ %.25, %498 ]
+  %503 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.26)
+  %504 = icmp slt i32 %503, 1
+  br i1 %504, label %1296, label %.sink.split1069
 
-511:                                              ; preds = %check_ie.exit664.thread, %check_ie.exit664
-  %.27 = phi i32 [ %510, %check_ie.exit664 ], [ %496, %check_ie.exit664.thread ]
-  %512 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.27) #2
-  %.not.i665 = icmp eq i8 %512, 15
-  br i1 %.not.i665, label %check_ie.exit667, label %check_ie.exit667.thread
+505:                                              ; preds = %12
+  %506 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %.not.i563 = icmp eq i8 %506, 1
+  br i1 %.not.i563, label %514, label %check_ie.exit564
 
-check_ie.exit667.thread:                          ; preds = %511
-  %513 = zext i8 %512 to i32
-  %514 = tail call ptr @val_to_str_ext(i32 noundef 15, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %515 = tail call ptr @val_to_str_ext(i32 noundef %513, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %516 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.27, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %514, ptr noundef %515) #2
-  %517 = add nuw nsw i32 %.27, 1
-  %518 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %517) #2
-  %519 = zext i8 %518 to i32
-  %520 = add nuw nsw i32 %517, %519
-  br label %536
+check_ie.exit564:                                 ; preds = %505
+  %507 = zext i8 %506 to i32
+  %508 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %509 = tail call ptr @val_to_str_ext(i32 noundef %507, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %510 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %508, ptr noundef %509)
+  %511 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %512 = zext i8 %511 to i32
+  %513 = add nuw nsw i32 %512, 2
+  br label %529
 
-check_ie.exit667:                                 ; preds = %511
-  %521 = add nuw nsw i32 %.27, 1
-  %522 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %521) #2
-  %523 = load i32, ptr @hf_bssap_reject_cause_ie, align 4
-  %524 = zext i8 %522 to i32
-  %525 = add nuw nsw i32 %524, 2
-  %526 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %523, ptr noundef %0, i32 noundef %.27, i32 noundef %525, i32 noundef 0) #2
-  %527 = load i32, ptr @ett_bssap_reject_cause, align 4
-  %528 = tail call ptr @proto_item_add_subtree(ptr noundef %526, i32 noundef %527) #2
-  %529 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %530 = tail call ptr @proto_tree_add_item(ptr noundef %528, i32 noundef %529, ptr noundef %0, i32 noundef %.27, i32 noundef 1, i32 noundef 0) #2
-  %531 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %532 = tail call ptr @proto_tree_add_item(ptr noundef %528, i32 noundef %531, ptr noundef %0, i32 noundef %521, i32 noundef 1, i32 noundef 0) #2
-  %533 = add nuw nsw i32 %.27, 2
-  %534 = tail call zeroext i16 @de_rej_cause(ptr noundef %0, ptr noundef %528, ptr noundef nonnull %1, i32 noundef %533, i32 noundef %524, ptr noundef null, i32 noundef 0) #2
-  %535 = add nuw nsw i32 %533, %524
-  br label %536
+514:                                              ; preds = %505
+  %515 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %516 = load i32, ptr @hf_bssap_imsi_ie, align 4
+  %517 = zext i8 %515 to i32
+  %518 = add nuw nsw i32 %517, 2
+  %519 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %516, ptr noundef %0, i32 noundef 1, i32 noundef %518, i32 noundef 0)
+  %520 = load i32, ptr @ett_bssap_imsi, align 4
+  %521 = tail call ptr @proto_item_add_subtree(ptr noundef %519, i32 noundef %520)
+  %522 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %523 = tail call ptr @proto_tree_add_item(ptr noundef %521, i32 noundef %522, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %524 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %525 = tail call ptr @proto_tree_add_item(ptr noundef %521, i32 noundef %524, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %526 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %517)
+  %527 = tail call ptr @dissect_e212_imsi(ptr noundef %526, ptr noundef %1, ptr noundef %16, i32 noundef 0, i32 noundef %517, i1 noundef zeroext true)
+  %528 = add nuw nsw i32 %517, 3
+  br label %529
 
-536:                                              ; preds = %check_ie.exit667.thread, %check_ie.exit667
-  %.28 = phi i32 [ %535, %check_ie.exit667 ], [ %520, %check_ie.exit667.thread ]
-  %537 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.28) #2
-  %538 = icmp slt i32 %537, 1
-  br i1 %538, label %1255, label %.sink.split1256
+529:                                              ; preds = %check_ie.exit564, %514
+  %.27 = phi i32 [ %528, %514 ], [ %513, %check_ie.exit564 ]
+  %530 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.27)
+  %.not.i565 = icmp eq i8 %530, 15
+  br i1 %.not.i565, label %539, label %check_ie.exit566
 
-539:                                              ; preds = %12
-  %540 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %.not.i668 = icmp eq i8 %540, 1
-  br i1 %.not.i668, label %check_ie.exit670, label %check_ie.exit670.thread
+check_ie.exit566:                                 ; preds = %529
+  %531 = zext i8 %530 to i32
+  %532 = tail call ptr @val_to_str_ext(i32 noundef 15, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %533 = tail call ptr @val_to_str_ext(i32 noundef %531, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %534 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.27, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %532, ptr noundef %533)
+  %535 = add nuw nsw i32 %.27, 1
+  %536 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %535)
+  %537 = zext i8 %536 to i32
+  %538 = add nuw nsw i32 %535, %537
+  br label %555
 
-check_ie.exit670.thread:                          ; preds = %539
-  %541 = zext i8 %540 to i32
-  %542 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %543 = tail call ptr @val_to_str_ext(i32 noundef %541, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %544 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %542, ptr noundef %543) #2
-  %545 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %546 = zext i8 %545 to i32
-  %547 = add nuw nsw i32 %546, 2
-  br label %562
+539:                                              ; preds = %529
+  %540 = add nuw nsw i32 %.27, 1
+  %541 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %540)
+  %542 = load i32, ptr @hf_bssap_reject_cause_ie, align 4
+  %543 = zext i8 %541 to i32
+  %544 = add nuw nsw i32 %543, 2
+  %545 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %542, ptr noundef %0, i32 noundef %.27, i32 noundef %544, i32 noundef 0)
+  %546 = load i32, ptr @ett_bssap_reject_cause, align 4
+  %547 = tail call ptr @proto_item_add_subtree(ptr noundef %545, i32 noundef %546)
+  %548 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %549 = tail call ptr @proto_tree_add_item(ptr noundef %547, i32 noundef %548, ptr noundef %0, i32 noundef %.27, i32 noundef 1, i32 noundef 0)
+  %550 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %551 = tail call ptr @proto_tree_add_item(ptr noundef %547, i32 noundef %550, ptr noundef %0, i32 noundef %540, i32 noundef 1, i32 noundef 0)
+  %552 = add nuw nsw i32 %.27, 2
+  %553 = tail call zeroext i16 @de_rej_cause(ptr noundef %0, ptr noundef %547, ptr noundef %1, i32 noundef %552, i32 noundef %543, ptr noundef null, i32 noundef 0)
+  %554 = add nuw nsw i32 %552, %543
+  br label %555
 
-check_ie.exit670:                                 ; preds = %539
-  %548 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %549 = load i32, ptr @hf_bssap_imsi_ie, align 4
-  %550 = zext i8 %548 to i32
-  %551 = add nuw nsw i32 %550, 2
-  %552 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %549, ptr noundef %0, i32 noundef 1, i32 noundef %551, i32 noundef 0) #2
-  %553 = load i32, ptr @ett_bssap_imsi, align 4
-  %554 = tail call ptr @proto_item_add_subtree(ptr noundef %552, i32 noundef %553) #2
-  %555 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %556 = tail call ptr @proto_tree_add_item(ptr noundef %554, i32 noundef %555, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %557 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %558 = tail call ptr @proto_tree_add_item(ptr noundef %554, i32 noundef %557, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %559 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %550) #2
-  %560 = tail call ptr @dissect_e212_imsi(ptr noundef %559, ptr noundef nonnull %1, ptr noundef %16, i32 noundef 0, i32 noundef %550, i32 noundef 1) #2
-  %561 = add nuw nsw i32 %550, 3
-  br label %562
+555:                                              ; preds = %check_ie.exit566, %539
+  %.28 = phi i32 [ %554, %539 ], [ %538, %check_ie.exit566 ]
+  %556 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.28)
+  %557 = icmp slt i32 %556, 1
+  br i1 %557, label %1296, label %.sink.split1069
 
-562:                                              ; preds = %check_ie.exit670.thread, %check_ie.exit670
-  %.29 = phi i32 [ %561, %check_ie.exit670 ], [ %547, %check_ie.exit670.thread ]
-  %563 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.29) #2
-  %564 = icmp slt i32 %563, 1
-  br i1 %564, label %1255, label %565
+558:                                              ; preds = %12
+  %559 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %.not.i567 = icmp eq i8 %559, 1
+  br i1 %.not.i567, label %567, label %check_ie.exit568
 
-565:                                              ; preds = %562
-  %566 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.29) #2
-  %.not.i671.not = icmp eq i8 %566, 24
-  br i1 %.not.i671.not, label %567, label %569
+check_ie.exit568:                                 ; preds = %558
+  %560 = zext i8 %559 to i32
+  %561 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %562 = tail call ptr @val_to_str_ext(i32 noundef %560, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %563 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %561, ptr noundef %562)
+  %564 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %565 = zext i8 %564 to i32
+  %566 = add nuw nsw i32 %565, 2
+  br label %582
 
-567:                                              ; preds = %565
-  %568 = tail call fastcc i32 @dissect_bssap_cell_global_id(ptr noundef %0, ptr noundef %16, ptr noundef nonnull %1, i32 noundef %.29)
-  br label %569
+567:                                              ; preds = %558
+  %568 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %569 = load i32, ptr @hf_bssap_imsi_ie, align 4
+  %570 = zext i8 %568 to i32
+  %571 = add nuw nsw i32 %570, 2
+  %572 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %569, ptr noundef %0, i32 noundef 1, i32 noundef %571, i32 noundef 0)
+  %573 = load i32, ptr @ett_bssap_imsi, align 4
+  %574 = tail call ptr @proto_item_add_subtree(ptr noundef %572, i32 noundef %573)
+  %575 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %576 = tail call ptr @proto_tree_add_item(ptr noundef %574, i32 noundef %575, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %577 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %578 = tail call ptr @proto_tree_add_item(ptr noundef %574, i32 noundef %577, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %579 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %570)
+  %580 = tail call ptr @dissect_e212_imsi(ptr noundef %579, ptr noundef %1, ptr noundef %16, i32 noundef 0, i32 noundef %570, i1 noundef zeroext true)
+  %581 = add nuw nsw i32 %570, 3
+  br label %582
 
-569:                                              ; preds = %567, %565
-  %.30 = phi i32 [ %.29, %565 ], [ %568, %567 ]
-  %570 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.30) #2
-  %571 = icmp slt i32 %570, 1
-  br i1 %571, label %1255, label %572
+582:                                              ; preds = %check_ie.exit568, %567
+  %.29 = phi i32 [ %581, %567 ], [ %566, %check_ie.exit568 ]
+  %583 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.29)
+  %584 = icmp slt i32 %583, 1
+  br i1 %584, label %1296, label %585
 
-572:                                              ; preds = %569
-  %573 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.30) #2
-  %.not.i673.not = icmp eq i8 %573, 30
-  br i1 %.not.i673.not, label %574, label %576
+585:                                              ; preds = %582
+  %586 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.29)
+  %.not.i569 = icmp eq i8 %586, 24
+  br i1 %.not.i569, label %587, label %589
 
-574:                                              ; preds = %572
-  %575 = tail call fastcc i32 @dissect_bssap_service_area_id(ptr noundef %0, ptr noundef %16, i32 noundef %.30)
-  br label %576
+587:                                              ; preds = %585
+  %588 = tail call fastcc i32 @dissect_bssap_cell_global_id(ptr noundef %0, ptr noundef %16, ptr noundef %1, i32 noundef %.29)
+  br label %589
 
-576:                                              ; preds = %574, %572
-  %.31 = phi i32 [ %.30, %572 ], [ %575, %574 ]
-  %577 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.31) #2
-  %578 = icmp slt i32 %577, 1
-  br i1 %578, label %1255, label %.sink.split1256
+589:                                              ; preds = %587, %585
+  %.30 = phi i32 [ %588, %587 ], [ %.29, %585 ]
+  %590 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.30)
+  %591 = icmp slt i32 %590, 1
+  br i1 %591, label %1296, label %592
 
-579:                                              ; preds = %12
-  %580 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %.not.i675 = icmp eq i8 %580, 1
-  br i1 %.not.i675, label %check_ie.exit677, label %check_ie.exit677.thread
+592:                                              ; preds = %589
+  %593 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.30)
+  %.not.i570 = icmp eq i8 %593, 30
+  br i1 %.not.i570, label %594, label %596
 
-check_ie.exit677.thread:                          ; preds = %579
-  %581 = zext i8 %580 to i32
-  %582 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %583 = tail call ptr @val_to_str_ext(i32 noundef %581, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %584 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %582, ptr noundef %583) #2
-  %585 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %586 = zext i8 %585 to i32
-  %587 = add nuw nsw i32 %586, 2
-  br label %602
+594:                                              ; preds = %592
+  %595 = tail call fastcc i32 @dissect_bssap_service_area_id(ptr noundef %0, ptr noundef %16, i32 noundef %.30)
+  br label %596
 
-check_ie.exit677:                                 ; preds = %579
-  %588 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %589 = load i32, ptr @hf_bssap_imsi_ie, align 4
-  %590 = zext i8 %588 to i32
-  %591 = add nuw nsw i32 %590, 2
-  %592 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %589, ptr noundef %0, i32 noundef 1, i32 noundef %591, i32 noundef 0) #2
-  %593 = load i32, ptr @ett_bssap_imsi, align 4
-  %594 = tail call ptr @proto_item_add_subtree(ptr noundef %592, i32 noundef %593) #2
-  %595 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %596 = tail call ptr @proto_tree_add_item(ptr noundef %594, i32 noundef %595, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %597 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %598 = tail call ptr @proto_tree_add_item(ptr noundef %594, i32 noundef %597, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %599 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %590) #2
-  %600 = tail call ptr @dissect_e212_imsi(ptr noundef %599, ptr noundef nonnull %1, ptr noundef %16, i32 noundef 0, i32 noundef %590, i32 noundef 1) #2
-  %601 = add nuw nsw i32 %590, 3
-  br label %602
+596:                                              ; preds = %594, %592
+  %.31 = phi i32 [ %595, %594 ], [ %.30, %592 ]
+  %597 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.31)
+  %598 = icmp slt i32 %597, 1
+  br i1 %598, label %1296, label %.sink.split1069
 
-602:                                              ; preds = %check_ie.exit677.thread, %check_ie.exit677
-  %.32 = phi i32 [ %601, %check_ie.exit677 ], [ %587, %check_ie.exit677.thread ]
-  %603 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.32) #2
-  %604 = icmp slt i32 %603, 1
-  br i1 %604, label %1255, label %.sink.split1256
+599:                                              ; preds = %12
+  %600 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %.not.i571 = icmp eq i8 %600, 1
+  br i1 %.not.i571, label %608, label %check_ie.exit572
 
-605:                                              ; preds = %12
-  %606 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %.not.i678 = icmp eq i8 %606, 1
-  br i1 %.not.i678, label %check_ie.exit680, label %check_ie.exit680.thread
+check_ie.exit572:                                 ; preds = %599
+  %601 = zext i8 %600 to i32
+  %602 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %603 = tail call ptr @val_to_str_ext(i32 noundef %601, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %604 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %602, ptr noundef %603)
+  %605 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %606 = zext i8 %605 to i32
+  %607 = add nuw nsw i32 %606, 2
+  br label %623
 
-check_ie.exit680.thread:                          ; preds = %605
-  %607 = zext i8 %606 to i32
-  %608 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %609 = tail call ptr @val_to_str_ext(i32 noundef %607, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %610 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %608, ptr noundef %609) #2
-  %611 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %612 = zext i8 %611 to i32
-  %613 = add nuw nsw i32 %612, 2
-  br label %628
+608:                                              ; preds = %599
+  %609 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %610 = load i32, ptr @hf_bssap_imsi_ie, align 4
+  %611 = zext i8 %609 to i32
+  %612 = add nuw nsw i32 %611, 2
+  %613 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %610, ptr noundef %0, i32 noundef 1, i32 noundef %612, i32 noundef 0)
+  %614 = load i32, ptr @ett_bssap_imsi, align 4
+  %615 = tail call ptr @proto_item_add_subtree(ptr noundef %613, i32 noundef %614)
+  %616 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %617 = tail call ptr @proto_tree_add_item(ptr noundef %615, i32 noundef %616, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %618 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %619 = tail call ptr @proto_tree_add_item(ptr noundef %615, i32 noundef %618, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %620 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %611)
+  %621 = tail call ptr @dissect_e212_imsi(ptr noundef %620, ptr noundef %1, ptr noundef %16, i32 noundef 0, i32 noundef %611, i1 noundef zeroext true)
+  %622 = add nuw nsw i32 %611, 3
+  br label %623
 
-check_ie.exit680:                                 ; preds = %605
-  %614 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %615 = load i32, ptr @hf_bssap_imsi_ie, align 4
-  %616 = zext i8 %614 to i32
-  %617 = add nuw nsw i32 %616, 2
-  %618 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %615, ptr noundef %0, i32 noundef 1, i32 noundef %617, i32 noundef 0) #2
-  %619 = load i32, ptr @ett_bssap_imsi, align 4
-  %620 = tail call ptr @proto_item_add_subtree(ptr noundef %618, i32 noundef %619) #2
-  %621 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %622 = tail call ptr @proto_tree_add_item(ptr noundef %620, i32 noundef %621, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %623 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %624 = tail call ptr @proto_tree_add_item(ptr noundef %620, i32 noundef %623, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %625 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %616) #2
-  %626 = tail call ptr @dissect_e212_imsi(ptr noundef %625, ptr noundef nonnull %1, ptr noundef %16, i32 noundef 0, i32 noundef %616, i32 noundef 1) #2
-  %627 = add nuw nsw i32 %616, 3
-  br label %628
+623:                                              ; preds = %check_ie.exit572, %608
+  %.32 = phi i32 [ %622, %608 ], [ %607, %check_ie.exit572 ]
+  %624 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.32)
+  %625 = icmp slt i32 %624, 1
+  br i1 %625, label %1296, label %.sink.split1069
 
-628:                                              ; preds = %check_ie.exit680.thread, %check_ie.exit680
-  %.33 = phi i32 [ %627, %check_ie.exit680 ], [ %613, %check_ie.exit680.thread ]
-  %629 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.33) #2
-  %630 = icmp slt i32 %629, 1
-  br i1 %630, label %1255, label %.sink.split1256
+626:                                              ; preds = %12
+  %627 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %.not.i573 = icmp eq i8 %627, 1
+  br i1 %.not.i573, label %635, label %check_ie.exit574
 
-631:                                              ; preds = %12
-  %632 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %.not.i681 = icmp eq i8 %632, 1
-  br i1 %.not.i681, label %check_ie.exit683, label %check_ie.exit683.thread
-
-check_ie.exit683.thread:                          ; preds = %631
+check_ie.exit574:                                 ; preds = %626
+  %628 = zext i8 %627 to i32
+  %629 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %630 = tail call ptr @val_to_str_ext(i32 noundef %628, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %631 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %629, ptr noundef %630)
+  %632 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
   %633 = zext i8 %632 to i32
-  %634 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %635 = tail call ptr @val_to_str_ext(i32 noundef %633, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %636 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %634, ptr noundef %635) #2
-  %637 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %638 = zext i8 %637 to i32
+  %634 = add nuw nsw i32 %633, 2
+  br label %650
+
+635:                                              ; preds = %626
+  %636 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %637 = load i32, ptr @hf_bssap_imsi_ie, align 4
+  %638 = zext i8 %636 to i32
   %639 = add nuw nsw i32 %638, 2
-  br label %654
+  %640 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %637, ptr noundef %0, i32 noundef 1, i32 noundef %639, i32 noundef 0)
+  %641 = load i32, ptr @ett_bssap_imsi, align 4
+  %642 = tail call ptr @proto_item_add_subtree(ptr noundef %640, i32 noundef %641)
+  %643 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %644 = tail call ptr @proto_tree_add_item(ptr noundef %642, i32 noundef %643, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %645 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %646 = tail call ptr @proto_tree_add_item(ptr noundef %642, i32 noundef %645, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %647 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %638)
+  %648 = tail call ptr @dissect_e212_imsi(ptr noundef %647, ptr noundef %1, ptr noundef %16, i32 noundef 0, i32 noundef %638, i1 noundef zeroext true)
+  %649 = add nuw nsw i32 %638, 3
+  br label %650
 
-check_ie.exit683:                                 ; preds = %631
-  %640 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %641 = load i32, ptr @hf_bssap_imsi_ie, align 4
-  %642 = zext i8 %640 to i32
-  %643 = add nuw nsw i32 %642, 2
-  %644 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %641, ptr noundef %0, i32 noundef 1, i32 noundef %643, i32 noundef 0) #2
-  %645 = load i32, ptr @ett_bssap_imsi, align 4
-  %646 = tail call ptr @proto_item_add_subtree(ptr noundef %644, i32 noundef %645) #2
-  %647 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %648 = tail call ptr @proto_tree_add_item(ptr noundef %646, i32 noundef %647, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %649 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %650 = tail call ptr @proto_tree_add_item(ptr noundef %646, i32 noundef %649, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %651 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %642) #2
-  %652 = tail call ptr @dissect_e212_imsi(ptr noundef %651, ptr noundef nonnull %1, ptr noundef %16, i32 noundef 0, i32 noundef %642, i32 noundef 1) #2
-  %653 = add nuw nsw i32 %642, 3
-  br label %654
+650:                                              ; preds = %check_ie.exit574, %635
+  %.33 = phi i32 [ %649, %635 ], [ %634, %check_ie.exit574 ]
+  %651 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.33)
+  %652 = icmp slt i32 %651, 1
+  br i1 %652, label %1296, label %.sink.split1069
 
-654:                                              ; preds = %check_ie.exit683.thread, %check_ie.exit683
-  %.34 = phi i32 [ %653, %check_ie.exit683 ], [ %639, %check_ie.exit683.thread ]
-  %655 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.34) #2
-  %.not.i684 = icmp eq i8 %655, 8
-  br i1 %.not.i684, label %check_ie.exit686, label %check_ie.exit686.thread
+653:                                              ; preds = %12
+  %654 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %.not.i575 = icmp eq i8 %654, 1
+  br i1 %.not.i575, label %662, label %check_ie.exit576
 
-check_ie.exit686.thread:                          ; preds = %654
-  %656 = zext i8 %655 to i32
-  %657 = tail call ptr @val_to_str_ext(i32 noundef 8, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %658 = tail call ptr @val_to_str_ext(i32 noundef %656, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %659 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.34, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %657, ptr noundef %658) #2
-  %660 = add nuw nsw i32 %.34, 1
-  %661 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %660) #2
-  %662 = zext i8 %661 to i32
-  %663 = add nuw nsw i32 %660, %662
-  br label %680
+check_ie.exit576:                                 ; preds = %653
+  %655 = zext i8 %654 to i32
+  %656 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %657 = tail call ptr @val_to_str_ext(i32 noundef %655, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %658 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %656, ptr noundef %657)
+  %659 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %660 = zext i8 %659 to i32
+  %661 = add nuw nsw i32 %660, 2
+  br label %677
 
-check_ie.exit686:                                 ; preds = %654
-  %664 = add nuw nsw i32 %.34, 1
-  %665 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %664) #2
-  %666 = load i32, ptr @hf_bssap_Gs_cause_ie, align 4
-  %667 = zext i8 %665 to i32
-  %668 = add nuw nsw i32 %667, 2
-  %669 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %666, ptr noundef %0, i32 noundef %.34, i32 noundef %668, i32 noundef 0) #2
-  %670 = load i32, ptr @ett_bassp_Gs_cause, align 4
-  %671 = tail call ptr @proto_item_add_subtree(ptr noundef %669, i32 noundef %670) #2
-  %672 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %673 = tail call ptr @proto_tree_add_item(ptr noundef %671, i32 noundef %672, ptr noundef %0, i32 noundef %.34, i32 noundef 1, i32 noundef 0) #2
-  %674 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %675 = tail call ptr @proto_tree_add_item(ptr noundef %671, i32 noundef %674, ptr noundef %0, i32 noundef %664, i32 noundef 1, i32 noundef 0) #2
-  %676 = add nuw nsw i32 %.34, 2
-  %677 = load i32, ptr @hf_bssap_Gs_cause, align 4
-  %678 = tail call ptr @proto_tree_add_item(ptr noundef %671, i32 noundef %677, ptr noundef %0, i32 noundef %676, i32 noundef %667, i32 noundef 0) #2
-  %679 = add nuw nsw i32 %676, %667
-  br label %680
+662:                                              ; preds = %653
+  %663 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %664 = load i32, ptr @hf_bssap_imsi_ie, align 4
+  %665 = zext i8 %663 to i32
+  %666 = add nuw nsw i32 %665, 2
+  %667 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %664, ptr noundef %0, i32 noundef 1, i32 noundef %666, i32 noundef 0)
+  %668 = load i32, ptr @ett_bssap_imsi, align 4
+  %669 = tail call ptr @proto_item_add_subtree(ptr noundef %667, i32 noundef %668)
+  %670 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %671 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %670, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %672 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %673 = tail call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %672, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %674 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %665)
+  %675 = tail call ptr @dissect_e212_imsi(ptr noundef %674, ptr noundef %1, ptr noundef %16, i32 noundef 0, i32 noundef %665, i1 noundef zeroext true)
+  %676 = add nuw nsw i32 %665, 3
+  br label %677
 
-680:                                              ; preds = %check_ie.exit686.thread, %check_ie.exit686
-  %.35 = phi i32 [ %679, %check_ie.exit686 ], [ %663, %check_ie.exit686.thread ]
-  %681 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.35) #2
-  %682 = icmp slt i32 %681, 1
-  br i1 %682, label %1255, label %.sink.split1256
+677:                                              ; preds = %check_ie.exit576, %662
+  %.34 = phi i32 [ %676, %662 ], [ %661, %check_ie.exit576 ]
+  %678 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.34)
+  %.not.i577 = icmp eq i8 %678, 8
+  br i1 %.not.i577, label %687, label %check_ie.exit578
 
-683:                                              ; preds = %12
-  %684 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %.not.i687 = icmp eq i8 %684, 1
-  br i1 %.not.i687, label %check_ie.exit689, label %check_ie.exit689.thread
-
-check_ie.exit689.thread:                          ; preds = %683
+check_ie.exit578:                                 ; preds = %677
+  %679 = zext i8 %678 to i32
+  %680 = tail call ptr @val_to_str_ext(i32 noundef 8, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %681 = tail call ptr @val_to_str_ext(i32 noundef %679, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %682 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.34, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %680, ptr noundef %681)
+  %683 = add nuw nsw i32 %.34, 1
+  %684 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %683)
   %685 = zext i8 %684 to i32
-  %686 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %687 = tail call ptr @val_to_str_ext(i32 noundef %685, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %688 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %686, ptr noundef %687) #2
-  %689 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %690 = zext i8 %689 to i32
-  %691 = add nuw nsw i32 %690, 2
-  br label %706
+  %686 = add nuw nsw i32 %683, %685
+  br label %704
 
-check_ie.exit689:                                 ; preds = %683
-  %692 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %693 = load i32, ptr @hf_bssap_imsi_ie, align 4
-  %694 = zext i8 %692 to i32
-  %695 = add nuw nsw i32 %694, 2
-  %696 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %693, ptr noundef %0, i32 noundef 1, i32 noundef %695, i32 noundef 0) #2
-  %697 = load i32, ptr @ett_bssap_imsi, align 4
-  %698 = tail call ptr @proto_item_add_subtree(ptr noundef %696, i32 noundef %697) #2
-  %699 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %700 = tail call ptr @proto_tree_add_item(ptr noundef %698, i32 noundef %699, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %701 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %702 = tail call ptr @proto_tree_add_item(ptr noundef %698, i32 noundef %701, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %703 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %694) #2
-  %704 = tail call ptr @dissect_e212_imsi(ptr noundef %703, ptr noundef nonnull %1, ptr noundef %16, i32 noundef 0, i32 noundef %694, i32 noundef 1) #2
-  %705 = add nuw nsw i32 %694, 3
-  br label %706
+687:                                              ; preds = %677
+  %688 = add nuw nsw i32 %.34, 1
+  %689 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %688)
+  %690 = load i32, ptr @hf_bssap_Gs_cause_ie, align 4
+  %691 = zext i8 %689 to i32
+  %692 = add nuw nsw i32 %691, 2
+  %693 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %690, ptr noundef %0, i32 noundef %.34, i32 noundef %692, i32 noundef 0)
+  %694 = load i32, ptr @ett_bassp_Gs_cause, align 4
+  %695 = tail call ptr @proto_item_add_subtree(ptr noundef %693, i32 noundef %694)
+  %696 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %697 = tail call ptr @proto_tree_add_item(ptr noundef %695, i32 noundef %696, ptr noundef %0, i32 noundef %.34, i32 noundef 1, i32 noundef 0)
+  %698 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %699 = tail call ptr @proto_tree_add_item(ptr noundef %695, i32 noundef %698, ptr noundef %0, i32 noundef %688, i32 noundef 1, i32 noundef 0)
+  %700 = add nuw nsw i32 %.34, 2
+  %701 = load i32, ptr @hf_bssap_Gs_cause, align 4
+  %702 = tail call ptr @proto_tree_add_item(ptr noundef %695, i32 noundef %701, ptr noundef %0, i32 noundef %700, i32 noundef %691, i32 noundef 0)
+  %703 = add nuw nsw i32 %700, %691
+  br label %704
 
-706:                                              ; preds = %check_ie.exit689.thread, %check_ie.exit689
-  %.36 = phi i32 [ %705, %check_ie.exit689 ], [ %691, %check_ie.exit689.thread ]
-  %707 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.36) #2
-  %708 = icmp slt i32 %707, 1
-  br i1 %708, label %1255, label %709
+704:                                              ; preds = %check_ie.exit578, %687
+  %.35 = phi i32 [ %703, %687 ], [ %686, %check_ie.exit578 ]
+  %705 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.35)
+  %706 = icmp slt i32 %705, 1
+  br i1 %706, label %1296, label %.sink.split1069
 
-709:                                              ; preds = %706
-  %710 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.36) #2
-  %.not.i690.not = icmp eq i8 %710, 24
-  br i1 %.not.i690.not, label %711, label %713
+707:                                              ; preds = %12
+  %708 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %.not.i579 = icmp eq i8 %708, 1
+  br i1 %.not.i579, label %716, label %check_ie.exit580
 
-711:                                              ; preds = %709
-  %712 = tail call fastcc i32 @dissect_bssap_cell_global_id(ptr noundef %0, ptr noundef %16, ptr noundef nonnull %1, i32 noundef %.36)
-  br label %713
+check_ie.exit580:                                 ; preds = %707
+  %709 = zext i8 %708 to i32
+  %710 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %711 = tail call ptr @val_to_str_ext(i32 noundef %709, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %712 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %710, ptr noundef %711)
+  %713 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %714 = zext i8 %713 to i32
+  %715 = add nuw nsw i32 %714, 2
+  br label %731
 
-713:                                              ; preds = %711, %709
-  %.37 = phi i32 [ %.36, %709 ], [ %712, %711 ]
-  %714 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.37) #2
-  %715 = icmp slt i32 %714, 1
-  br i1 %715, label %1255, label %716
+716:                                              ; preds = %707
+  %717 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %718 = load i32, ptr @hf_bssap_imsi_ie, align 4
+  %719 = zext i8 %717 to i32
+  %720 = add nuw nsw i32 %719, 2
+  %721 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %718, ptr noundef %0, i32 noundef 1, i32 noundef %720, i32 noundef 0)
+  %722 = load i32, ptr @ett_bssap_imsi, align 4
+  %723 = tail call ptr @proto_item_add_subtree(ptr noundef %721, i32 noundef %722)
+  %724 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %725 = tail call ptr @proto_tree_add_item(ptr noundef %723, i32 noundef %724, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %726 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %727 = tail call ptr @proto_tree_add_item(ptr noundef %723, i32 noundef %726, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %728 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %719)
+  %729 = tail call ptr @dissect_e212_imsi(ptr noundef %728, ptr noundef %1, ptr noundef %16, i32 noundef 0, i32 noundef %719, i1 noundef zeroext true)
+  %730 = add nuw nsw i32 %719, 3
+  br label %731
 
-716:                                              ; preds = %713
-  %717 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.37) #2
-  %.not.i692.not = icmp eq i8 %717, 30
-  br i1 %.not.i692.not, label %718, label %720
+731:                                              ; preds = %check_ie.exit580, %716
+  %.36 = phi i32 [ %730, %716 ], [ %715, %check_ie.exit580 ]
+  %732 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.36)
+  %733 = icmp slt i32 %732, 1
+  br i1 %733, label %1296, label %734
 
-718:                                              ; preds = %716
-  %719 = tail call fastcc i32 @dissect_bssap_service_area_id(ptr noundef %0, ptr noundef %16, i32 noundef %.37)
-  br label %720
+734:                                              ; preds = %731
+  %735 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.36)
+  %.not.i581 = icmp eq i8 %735, 24
+  br i1 %.not.i581, label %736, label %738
 
-720:                                              ; preds = %718, %716
-  %.38 = phi i32 [ %.37, %716 ], [ %719, %718 ]
-  %721 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.38) #2
-  %722 = icmp slt i32 %721, 1
-  br i1 %722, label %1255, label %.sink.split1256
+736:                                              ; preds = %734
+  %737 = tail call fastcc i32 @dissect_bssap_cell_global_id(ptr noundef %0, ptr noundef %16, ptr noundef %1, i32 noundef %.36)
+  br label %738
 
-723:                                              ; preds = %12
-  %724 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %.not.i694 = icmp eq i8 %724, 1
-  br i1 %.not.i694, label %check_ie.exit696, label %check_ie.exit696.thread
+738:                                              ; preds = %736, %734
+  %.37 = phi i32 [ %737, %736 ], [ %.36, %734 ]
+  %739 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.37)
+  %740 = icmp slt i32 %739, 1
+  br i1 %740, label %1296, label %741
 
-check_ie.exit696.thread:                          ; preds = %723
-  %725 = zext i8 %724 to i32
-  %726 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %727 = tail call ptr @val_to_str_ext(i32 noundef %725, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %728 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %726, ptr noundef %727) #2
-  %729 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %730 = zext i8 %729 to i32
-  %731 = add nuw nsw i32 %730, 2
-  br label %746
+741:                                              ; preds = %738
+  %742 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.37)
+  %.not.i582 = icmp eq i8 %742, 30
+  br i1 %.not.i582, label %743, label %745
 
-check_ie.exit696:                                 ; preds = %723
-  %732 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %733 = load i32, ptr @hf_bssap_imsi_ie, align 4
-  %734 = zext i8 %732 to i32
-  %735 = add nuw nsw i32 %734, 2
-  %736 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %733, ptr noundef %0, i32 noundef 1, i32 noundef %735, i32 noundef 0) #2
-  %737 = load i32, ptr @ett_bssap_imsi, align 4
-  %738 = tail call ptr @proto_item_add_subtree(ptr noundef %736, i32 noundef %737) #2
-  %739 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %740 = tail call ptr @proto_tree_add_item(ptr noundef %738, i32 noundef %739, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %741 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %742 = tail call ptr @proto_tree_add_item(ptr noundef %738, i32 noundef %741, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %743 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %734) #2
-  %744 = tail call ptr @dissect_e212_imsi(ptr noundef %743, ptr noundef nonnull %1, ptr noundef %16, i32 noundef 0, i32 noundef %734, i32 noundef 1) #2
-  %745 = add nuw nsw i32 %734, 3
-  br label %746
+743:                                              ; preds = %741
+  %744 = tail call fastcc i32 @dissect_bssap_service_area_id(ptr noundef %0, ptr noundef %16, i32 noundef %.37)
+  br label %745
 
-746:                                              ; preds = %check_ie.exit696.thread, %check_ie.exit696
-  %.39 = phi i32 [ %745, %check_ie.exit696 ], [ %731, %check_ie.exit696.thread ]
-  %747 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.39) #2
-  %.not.i697 = icmp eq i8 %747, 9
-  br i1 %.not.i697, label %check_ie.exit699, label %check_ie.exit699.thread
+745:                                              ; preds = %743, %741
+  %.38 = phi i32 [ %744, %743 ], [ %.37, %741 ]
+  %746 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.38)
+  %747 = icmp slt i32 %746, 1
+  br i1 %747, label %1296, label %.sink.split1069
 
-check_ie.exit699.thread:                          ; preds = %746
-  %748 = zext i8 %747 to i32
-  %749 = tail call ptr @val_to_str_ext(i32 noundef 9, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %750 = tail call ptr @val_to_str_ext(i32 noundef %748, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %751 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.39, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %749, ptr noundef %750) #2
-  %752 = add nuw nsw i32 %.39, 1
-  %753 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %752) #2
-  %754 = zext i8 %753 to i32
-  %755 = add nuw nsw i32 %752, %754
-  br label %757
+748:                                              ; preds = %12
+  %749 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %.not.i583 = icmp eq i8 %749, 1
+  br i1 %.not.i583, label %757, label %check_ie.exit584
 
-check_ie.exit699:                                 ; preds = %746
-  %756 = tail call fastcc i32 @dissect_bssap_sgsn_number(ptr noundef %0, ptr noundef %16, i32 noundef %.39)
-  br label %757
+check_ie.exit584:                                 ; preds = %748
+  %750 = zext i8 %749 to i32
+  %751 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %752 = tail call ptr @val_to_str_ext(i32 noundef %750, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %753 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %751, ptr noundef %752)
+  %754 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %755 = zext i8 %754 to i32
+  %756 = add nuw nsw i32 %755, 2
+  br label %772
 
-757:                                              ; preds = %check_ie.exit699.thread, %check_ie.exit699
-  %.40 = phi i32 [ %756, %check_ie.exit699 ], [ %755, %check_ie.exit699.thread ]
-  %758 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.40) #2
-  %.not.i700 = icmp eq i8 %758, 16
-  br i1 %.not.i700, label %check_ie.exit702, label %check_ie.exit702.thread
+757:                                              ; preds = %748
+  %758 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %759 = load i32, ptr @hf_bssap_imsi_ie, align 4
+  %760 = zext i8 %758 to i32
+  %761 = add nuw nsw i32 %760, 2
+  %762 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %759, ptr noundef %0, i32 noundef 1, i32 noundef %761, i32 noundef 0)
+  %763 = load i32, ptr @ett_bssap_imsi, align 4
+  %764 = tail call ptr @proto_item_add_subtree(ptr noundef %762, i32 noundef %763)
+  %765 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %766 = tail call ptr @proto_tree_add_item(ptr noundef %764, i32 noundef %765, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %767 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %768 = tail call ptr @proto_tree_add_item(ptr noundef %764, i32 noundef %767, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %769 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %760)
+  %770 = tail call ptr @dissect_e212_imsi(ptr noundef %769, ptr noundef %1, ptr noundef %16, i32 noundef 0, i32 noundef %760, i1 noundef zeroext true)
+  %771 = add nuw nsw i32 %760, 3
+  br label %772
 
-check_ie.exit702.thread:                          ; preds = %757
-  %759 = zext i8 %758 to i32
-  %760 = tail call ptr @val_to_str_ext(i32 noundef 16, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %761 = tail call ptr @val_to_str_ext(i32 noundef %759, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %762 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.40, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %760, ptr noundef %761) #2
-  %763 = add i32 %.40, 1
-  %764 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %763) #2
-  %765 = zext i8 %764 to i32
-  %766 = add i32 %763, %765
-  br label %783
+772:                                              ; preds = %check_ie.exit584, %757
+  %.39 = phi i32 [ %771, %757 ], [ %756, %check_ie.exit584 ]
+  %773 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.39)
+  %.not.i585 = icmp eq i8 %773, 9
+  br i1 %.not.i585, label %782, label %check_ie.exit586
 
-check_ie.exit702:                                 ; preds = %757
-  %767 = add i32 %.40, 1
-  %768 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %767) #2
-  %769 = load i32, ptr @hf_bssap_imsi_det_from_gprs_serv_type_ie, align 4
-  %770 = zext i8 %768 to i32
-  %771 = add nuw nsw i32 %770, 2
-  %772 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %769, ptr noundef %0, i32 noundef %.40, i32 noundef %771, i32 noundef 0) #2
-  %773 = load i32, ptr @ett_bssap_imsi_det_from_gprs_serv_type, align 4
-  %774 = tail call ptr @proto_item_add_subtree(ptr noundef %772, i32 noundef %773) #2
-  %775 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %776 = tail call ptr @proto_tree_add_item(ptr noundef %774, i32 noundef %775, ptr noundef %0, i32 noundef %.40, i32 noundef 1, i32 noundef 0) #2
-  %777 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %778 = tail call ptr @proto_tree_add_item(ptr noundef %774, i32 noundef %777, ptr noundef %0, i32 noundef %767, i32 noundef 1, i32 noundef 0) #2
-  %779 = add i32 %.40, 2
-  %780 = load i32, ptr @hf_bssap_imsi_det_from_gprs_serv_type, align 4
-  %781 = tail call ptr @proto_tree_add_item(ptr noundef %774, i32 noundef %780, ptr noundef %0, i32 noundef %779, i32 noundef %770, i32 noundef 0) #2
-  %782 = add i32 %779, %770
-  br label %783
+check_ie.exit586:                                 ; preds = %772
+  %774 = zext i8 %773 to i32
+  %775 = tail call ptr @val_to_str_ext(i32 noundef 9, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %776 = tail call ptr @val_to_str_ext(i32 noundef %774, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %777 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.39, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %775, ptr noundef %776)
+  %778 = add nuw nsw i32 %.39, 1
+  %779 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %778)
+  %780 = zext i8 %779 to i32
+  %781 = add nuw nsw i32 %778, %780
+  br label %784
 
-783:                                              ; preds = %check_ie.exit702.thread, %check_ie.exit702
-  %.41 = phi i32 [ %782, %check_ie.exit702 ], [ %766, %check_ie.exit702.thread ]
-  %784 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.41) #2
-  %785 = icmp slt i32 %784, 1
-  br i1 %785, label %1255, label %786
+782:                                              ; preds = %772
+  %783 = tail call fastcc i32 @dissect_bssap_sgsn_number(ptr noundef %0, ptr noundef %16, i32 noundef %.39)
+  br label %784
 
-786:                                              ; preds = %783
-  %787 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.41) #2
-  %.not.i703.not = icmp eq i8 %787, 24
-  br i1 %.not.i703.not, label %788, label %790
+784:                                              ; preds = %check_ie.exit586, %782
+  %.40 = phi i32 [ %783, %782 ], [ %781, %check_ie.exit586 ]
+  %785 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.40)
+  %.not.i587 = icmp eq i8 %785, 16
+  br i1 %.not.i587, label %794, label %check_ie.exit588
 
-788:                                              ; preds = %786
-  %789 = tail call fastcc i32 @dissect_bssap_cell_global_id(ptr noundef %0, ptr noundef %16, ptr noundef nonnull %1, i32 noundef %.41)
-  br label %790
+check_ie.exit588:                                 ; preds = %784
+  %786 = zext i8 %785 to i32
+  %787 = tail call ptr @val_to_str_ext(i32 noundef 16, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %788 = tail call ptr @val_to_str_ext(i32 noundef %786, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %789 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.40, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %787, ptr noundef %788)
+  %790 = add i32 %.40, 1
+  %791 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %790)
+  %792 = zext i8 %791 to i32
+  %793 = add i32 %790, %792
+  br label %811
 
-790:                                              ; preds = %788, %786
-  %.42 = phi i32 [ %.41, %786 ], [ %789, %788 ]
-  %791 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.42) #2
-  %792 = icmp slt i32 %791, 1
-  br i1 %792, label %1255, label %793
+794:                                              ; preds = %784
+  %795 = add i32 %.40, 1
+  %796 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %795)
+  %797 = load i32, ptr @hf_bssap_imsi_det_from_gprs_serv_type_ie, align 4
+  %798 = zext i8 %796 to i32
+  %799 = add nuw nsw i32 %798, 2
+  %800 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %797, ptr noundef %0, i32 noundef %.40, i32 noundef %799, i32 noundef 0)
+  %801 = load i32, ptr @ett_bssap_imsi_det_from_gprs_serv_type, align 4
+  %802 = tail call ptr @proto_item_add_subtree(ptr noundef %800, i32 noundef %801)
+  %803 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %804 = tail call ptr @proto_tree_add_item(ptr noundef %802, i32 noundef %803, ptr noundef %0, i32 noundef %.40, i32 noundef 1, i32 noundef 0)
+  %805 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %806 = tail call ptr @proto_tree_add_item(ptr noundef %802, i32 noundef %805, ptr noundef %0, i32 noundef %795, i32 noundef 1, i32 noundef 0)
+  %807 = add i32 %.40, 2
+  %808 = load i32, ptr @hf_bssap_imsi_det_from_gprs_serv_type, align 4
+  %809 = tail call ptr @proto_tree_add_item(ptr noundef %802, i32 noundef %808, ptr noundef %0, i32 noundef %807, i32 noundef %798, i32 noundef 0)
+  %810 = add i32 %807, %798
+  br label %811
 
-793:                                              ; preds = %790
-  %794 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.42) #2
-  %.not.i705.not = icmp eq i8 %794, 30
-  br i1 %.not.i705.not, label %795, label %797
+811:                                              ; preds = %check_ie.exit588, %794
+  %.41 = phi i32 [ %810, %794 ], [ %793, %check_ie.exit588 ]
+  %812 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.41)
+  %813 = icmp slt i32 %812, 1
+  br i1 %813, label %1296, label %814
 
-795:                                              ; preds = %793
-  %796 = tail call fastcc i32 @dissect_bssap_service_area_id(ptr noundef %0, ptr noundef %16, i32 noundef %.42)
-  br label %797
+814:                                              ; preds = %811
+  %815 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.41)
+  %.not.i589 = icmp eq i8 %815, 24
+  br i1 %.not.i589, label %816, label %818
 
-797:                                              ; preds = %795, %793
-  %.43 = phi i32 [ %.42, %793 ], [ %796, %795 ]
-  %798 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.43) #2
-  %799 = icmp slt i32 %798, 1
-  br i1 %799, label %1255, label %.sink.split1256
+816:                                              ; preds = %814
+  %817 = tail call fastcc i32 @dissect_bssap_cell_global_id(ptr noundef %0, ptr noundef %16, ptr noundef %1, i32 noundef %.41)
+  br label %818
 
-800:                                              ; preds = %12
-  %801 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %.not.i707 = icmp eq i8 %801, 1
-  br i1 %.not.i707, label %check_ie.exit709, label %check_ie.exit709.thread
+818:                                              ; preds = %816, %814
+  %.42 = phi i32 [ %817, %816 ], [ %.41, %814 ]
+  %819 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.42)
+  %820 = icmp slt i32 %819, 1
+  br i1 %820, label %1296, label %821
 
-check_ie.exit709.thread:                          ; preds = %800
-  %802 = zext i8 %801 to i32
-  %803 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %804 = tail call ptr @val_to_str_ext(i32 noundef %802, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %805 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %803, ptr noundef %804) #2
-  %806 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %807 = zext i8 %806 to i32
-  %808 = add nuw nsw i32 %807, 2
-  br label %823
+821:                                              ; preds = %818
+  %822 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.42)
+  %.not.i590 = icmp eq i8 %822, 30
+  br i1 %.not.i590, label %823, label %825
 
-check_ie.exit709:                                 ; preds = %800
-  %809 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %810 = load i32, ptr @hf_bssap_imsi_ie, align 4
-  %811 = zext i8 %809 to i32
-  %812 = add nuw nsw i32 %811, 2
-  %813 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %810, ptr noundef %0, i32 noundef 1, i32 noundef %812, i32 noundef 0) #2
-  %814 = load i32, ptr @ett_bssap_imsi, align 4
-  %815 = tail call ptr @proto_item_add_subtree(ptr noundef %813, i32 noundef %814) #2
-  %816 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %817 = tail call ptr @proto_tree_add_item(ptr noundef %815, i32 noundef %816, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %818 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %819 = tail call ptr @proto_tree_add_item(ptr noundef %815, i32 noundef %818, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %820 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %811) #2
-  %821 = tail call ptr @dissect_e212_imsi(ptr noundef %820, ptr noundef nonnull %1, ptr noundef %16, i32 noundef 0, i32 noundef %811, i32 noundef 1) #2
-  %822 = add nuw nsw i32 %811, 3
-  br label %823
+823:                                              ; preds = %821
+  %824 = tail call fastcc i32 @dissect_bssap_service_area_id(ptr noundef %0, ptr noundef %16, i32 noundef %.42)
+  br label %825
 
-823:                                              ; preds = %check_ie.exit709.thread, %check_ie.exit709
-  %.44 = phi i32 [ %822, %check_ie.exit709 ], [ %808, %check_ie.exit709.thread ]
-  %824 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.44) #2
-  %825 = icmp slt i32 %824, 1
-  br i1 %825, label %1255, label %.sink.split1256
+825:                                              ; preds = %823, %821
+  %.43 = phi i32 [ %824, %823 ], [ %.42, %821 ]
+  %826 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.43)
+  %827 = icmp slt i32 %826, 1
+  br i1 %827, label %1296, label %.sink.split1069
 
-826:                                              ; preds = %12
-  %827 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %.not.i710 = icmp eq i8 %827, 1
-  br i1 %.not.i710, label %check_ie.exit712, label %check_ie.exit712.thread
+828:                                              ; preds = %12
+  %829 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %.not.i591 = icmp eq i8 %829, 1
+  br i1 %.not.i591, label %837, label %check_ie.exit592
 
-check_ie.exit712.thread:                          ; preds = %826
-  %828 = zext i8 %827 to i32
-  %829 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %830 = tail call ptr @val_to_str_ext(i32 noundef %828, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %831 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %829, ptr noundef %830) #2
-  %832 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %833 = zext i8 %832 to i32
-  %834 = add nuw nsw i32 %833, 2
-  br label %849
+check_ie.exit592:                                 ; preds = %828
+  %830 = zext i8 %829 to i32
+  %831 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %832 = tail call ptr @val_to_str_ext(i32 noundef %830, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %833 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %831, ptr noundef %832)
+  %834 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %835 = zext i8 %834 to i32
+  %836 = add nuw nsw i32 %835, 2
+  br label %852
 
-check_ie.exit712:                                 ; preds = %826
-  %835 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %836 = load i32, ptr @hf_bssap_imsi_ie, align 4
-  %837 = zext i8 %835 to i32
-  %838 = add nuw nsw i32 %837, 2
-  %839 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %836, ptr noundef %0, i32 noundef 1, i32 noundef %838, i32 noundef 0) #2
-  %840 = load i32, ptr @ett_bssap_imsi, align 4
-  %841 = tail call ptr @proto_item_add_subtree(ptr noundef %839, i32 noundef %840) #2
-  %842 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %843 = tail call ptr @proto_tree_add_item(ptr noundef %841, i32 noundef %842, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %844 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %845 = tail call ptr @proto_tree_add_item(ptr noundef %841, i32 noundef %844, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %846 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %837) #2
-  %847 = tail call ptr @dissect_e212_imsi(ptr noundef %846, ptr noundef nonnull %1, ptr noundef %16, i32 noundef 0, i32 noundef %837, i32 noundef 1) #2
-  %848 = add nuw nsw i32 %837, 3
-  br label %849
+837:                                              ; preds = %828
+  %838 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %839 = load i32, ptr @hf_bssap_imsi_ie, align 4
+  %840 = zext i8 %838 to i32
+  %841 = add nuw nsw i32 %840, 2
+  %842 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %839, ptr noundef %0, i32 noundef 1, i32 noundef %841, i32 noundef 0)
+  %843 = load i32, ptr @ett_bssap_imsi, align 4
+  %844 = tail call ptr @proto_item_add_subtree(ptr noundef %842, i32 noundef %843)
+  %845 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %846 = tail call ptr @proto_tree_add_item(ptr noundef %844, i32 noundef %845, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %847 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %848 = tail call ptr @proto_tree_add_item(ptr noundef %844, i32 noundef %847, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %849 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %840)
+  %850 = tail call ptr @dissect_e212_imsi(ptr noundef %849, ptr noundef %1, ptr noundef %16, i32 noundef 0, i32 noundef %840, i1 noundef zeroext true)
+  %851 = add nuw nsw i32 %840, 3
+  br label %852
 
-849:                                              ; preds = %check_ie.exit712.thread, %check_ie.exit712
-  %.45 = phi i32 [ %848, %check_ie.exit712 ], [ %834, %check_ie.exit712.thread ]
-  %850 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.45) #2
-  %.not.i713 = icmp eq i8 %850, 9
-  br i1 %.not.i713, label %check_ie.exit715, label %check_ie.exit715.thread
+852:                                              ; preds = %check_ie.exit592, %837
+  %.44 = phi i32 [ %851, %837 ], [ %836, %check_ie.exit592 ]
+  %853 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.44)
+  %854 = icmp slt i32 %853, 1
+  br i1 %854, label %1296, label %.sink.split1069
 
-check_ie.exit715.thread:                          ; preds = %849
-  %851 = zext i8 %850 to i32
-  %852 = tail call ptr @val_to_str_ext(i32 noundef 9, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %853 = tail call ptr @val_to_str_ext(i32 noundef %851, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %854 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.45, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %852, ptr noundef %853) #2
-  %855 = add nuw nsw i32 %.45, 1
-  %856 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %855) #2
+855:                                              ; preds = %12
+  %856 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %.not.i593 = icmp eq i8 %856, 1
+  br i1 %.not.i593, label %864, label %check_ie.exit594
+
+check_ie.exit594:                                 ; preds = %855
   %857 = zext i8 %856 to i32
-  %858 = add nuw nsw i32 %855, %857
-  br label %860
-
-check_ie.exit715:                                 ; preds = %849
-  %859 = tail call fastcc i32 @dissect_bssap_sgsn_number(ptr noundef %0, ptr noundef %16, i32 noundef %.45)
-  br label %860
-
-860:                                              ; preds = %check_ie.exit715.thread, %check_ie.exit715
-  %.46 = phi i32 [ %859, %check_ie.exit715 ], [ %858, %check_ie.exit715.thread ]
-  %861 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.46) #2
-  %.not.i716 = icmp eq i8 %861, 17
-  br i1 %.not.i716, label %check_ie.exit718, label %check_ie.exit718.thread
-
-check_ie.exit718.thread:                          ; preds = %860
+  %858 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %859 = tail call ptr @val_to_str_ext(i32 noundef %857, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %860 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %858, ptr noundef %859)
+  %861 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
   %862 = zext i8 %861 to i32
-  %863 = tail call ptr @val_to_str_ext(i32 noundef 17, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %864 = tail call ptr @val_to_str_ext(i32 noundef %862, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %865 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.46, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %863, ptr noundef %864) #2
-  %866 = add i32 %.46, 1
-  %867 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %866) #2
-  %868 = zext i8 %867 to i32
-  %869 = add i32 %866, %868
-  br label %886
+  %863 = add nuw nsw i32 %862, 2
+  br label %879
 
-check_ie.exit718:                                 ; preds = %860
-  %870 = add i32 %.46, 1
-  %871 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %870) #2
-  %872 = load i32, ptr @hf_bssap_imsi_det_from_non_gprs_serv_type_ie, align 4
-  %873 = zext i8 %871 to i32
-  %874 = add nuw nsw i32 %873, 2
-  %875 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %872, ptr noundef %0, i32 noundef %.46, i32 noundef %874, i32 noundef 0) #2
-  %876 = load i32, ptr @ett_bssap_imsi_det_from_non_gprs_serv_type, align 4
-  %877 = tail call ptr @proto_item_add_subtree(ptr noundef %875, i32 noundef %876) #2
-  %878 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %879 = tail call ptr @proto_tree_add_item(ptr noundef %877, i32 noundef %878, ptr noundef %0, i32 noundef %.46, i32 noundef 1, i32 noundef 0) #2
-  %880 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %881 = tail call ptr @proto_tree_add_item(ptr noundef %877, i32 noundef %880, ptr noundef %0, i32 noundef %870, i32 noundef 1, i32 noundef 0) #2
-  %882 = add i32 %.46, 2
-  %883 = load i32, ptr @hf_bssap_plus_ie_data, align 4
-  %884 = tail call ptr @proto_tree_add_item(ptr noundef %877, i32 noundef %883, ptr noundef %0, i32 noundef %882, i32 noundef %873, i32 noundef 0) #2
-  %885 = add i32 %882, %873
-  br label %886
+864:                                              ; preds = %855
+  %865 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %866 = load i32, ptr @hf_bssap_imsi_ie, align 4
+  %867 = zext i8 %865 to i32
+  %868 = add nuw nsw i32 %867, 2
+  %869 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %866, ptr noundef %0, i32 noundef 1, i32 noundef %868, i32 noundef 0)
+  %870 = load i32, ptr @ett_bssap_imsi, align 4
+  %871 = tail call ptr @proto_item_add_subtree(ptr noundef %869, i32 noundef %870)
+  %872 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %873 = tail call ptr @proto_tree_add_item(ptr noundef %871, i32 noundef %872, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %874 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %875 = tail call ptr @proto_tree_add_item(ptr noundef %871, i32 noundef %874, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %876 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %867)
+  %877 = tail call ptr @dissect_e212_imsi(ptr noundef %876, ptr noundef %1, ptr noundef %16, i32 noundef 0, i32 noundef %867, i1 noundef zeroext true)
+  %878 = add nuw nsw i32 %867, 3
+  br label %879
 
-886:                                              ; preds = %check_ie.exit718.thread, %check_ie.exit718
-  %.47 = phi i32 [ %885, %check_ie.exit718 ], [ %869, %check_ie.exit718.thread ]
-  %887 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.47) #2
-  %888 = icmp slt i32 %887, 1
-  br i1 %888, label %1255, label %889
+879:                                              ; preds = %check_ie.exit594, %864
+  %.45 = phi i32 [ %878, %864 ], [ %863, %check_ie.exit594 ]
+  %880 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.45)
+  %.not.i595 = icmp eq i8 %880, 9
+  br i1 %.not.i595, label %889, label %check_ie.exit596
 
-889:                                              ; preds = %886
-  %890 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.47) #2
-  %.not.i719.not = icmp eq i8 %890, 24
-  br i1 %.not.i719.not, label %891, label %893
+check_ie.exit596:                                 ; preds = %879
+  %881 = zext i8 %880 to i32
+  %882 = tail call ptr @val_to_str_ext(i32 noundef 9, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %883 = tail call ptr @val_to_str_ext(i32 noundef %881, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %884 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.45, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %882, ptr noundef %883)
+  %885 = add nuw nsw i32 %.45, 1
+  %886 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %885)
+  %887 = zext i8 %886 to i32
+  %888 = add nuw nsw i32 %885, %887
+  br label %891
 
-891:                                              ; preds = %889
-  %892 = tail call fastcc i32 @dissect_bssap_cell_global_id(ptr noundef %0, ptr noundef %16, ptr noundef nonnull %1, i32 noundef %.47)
-  br label %893
+889:                                              ; preds = %879
+  %890 = tail call fastcc i32 @dissect_bssap_sgsn_number(ptr noundef %0, ptr noundef %16, i32 noundef %.45)
+  br label %891
 
-893:                                              ; preds = %891, %889
-  %.48 = phi i32 [ %.47, %889 ], [ %892, %891 ]
-  %894 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.48) #2
-  %895 = icmp slt i32 %894, 1
-  br i1 %895, label %1255, label %896
+891:                                              ; preds = %check_ie.exit596, %889
+  %.46 = phi i32 [ %890, %889 ], [ %888, %check_ie.exit596 ]
+  %892 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.46)
+  %.not.i597 = icmp eq i8 %892, 17
+  br i1 %.not.i597, label %901, label %check_ie.exit598
 
-896:                                              ; preds = %893
-  %897 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.48) #2
-  %.not.i721.not = icmp eq i8 %897, 25
-  br i1 %.not.i721.not, label %898, label %900
+check_ie.exit598:                                 ; preds = %891
+  %893 = zext i8 %892 to i32
+  %894 = tail call ptr @val_to_str_ext(i32 noundef 17, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %895 = tail call ptr @val_to_str_ext(i32 noundef %893, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %896 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.46, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %894, ptr noundef %895)
+  %897 = add i32 %.46, 1
+  %898 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %897)
+  %899 = zext i8 %898 to i32
+  %900 = add i32 %897, %899
+  br label %918
 
-898:                                              ; preds = %896
-  %899 = tail call fastcc i32 @dissect_bssap_location_information_age(ptr noundef %0, ptr noundef %16, i32 noundef %.48)
-  br label %900
+901:                                              ; preds = %891
+  %902 = add i32 %.46, 1
+  %903 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %902)
+  %904 = load i32, ptr @hf_bssap_imsi_det_from_non_gprs_serv_type_ie, align 4
+  %905 = zext i8 %903 to i32
+  %906 = add nuw nsw i32 %905, 2
+  %907 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %904, ptr noundef %0, i32 noundef %.46, i32 noundef %906, i32 noundef 0)
+  %908 = load i32, ptr @ett_bssap_imsi_det_from_non_gprs_serv_type, align 4
+  %909 = tail call ptr @proto_item_add_subtree(ptr noundef %907, i32 noundef %908)
+  %910 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %911 = tail call ptr @proto_tree_add_item(ptr noundef %909, i32 noundef %910, ptr noundef %0, i32 noundef %.46, i32 noundef 1, i32 noundef 0)
+  %912 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %913 = tail call ptr @proto_tree_add_item(ptr noundef %909, i32 noundef %912, ptr noundef %0, i32 noundef %902, i32 noundef 1, i32 noundef 0)
+  %914 = add i32 %.46, 2
+  %915 = load i32, ptr @hf_bssap_plus_ie_data, align 4
+  %916 = tail call ptr @proto_tree_add_item(ptr noundef %909, i32 noundef %915, ptr noundef %0, i32 noundef %914, i32 noundef %905, i32 noundef 0)
+  %917 = add i32 %914, %905
+  br label %918
 
-900:                                              ; preds = %898, %896
-  %.49 = phi i32 [ %.48, %896 ], [ %899, %898 ]
-  %901 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.49) #2
-  %902 = icmp slt i32 %901, 1
-  br i1 %902, label %1255, label %903
+918:                                              ; preds = %check_ie.exit598, %901
+  %.47 = phi i32 [ %917, %901 ], [ %900, %check_ie.exit598 ]
+  %919 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.47)
+  %920 = icmp slt i32 %919, 1
+  br i1 %920, label %1296, label %921
 
-903:                                              ; preds = %900
-  %904 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.49) #2
-  %.not.i723.not = icmp eq i8 %904, 30
-  br i1 %.not.i723.not, label %905, label %907
+921:                                              ; preds = %918
+  %922 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.47)
+  %.not.i599 = icmp eq i8 %922, 24
+  br i1 %.not.i599, label %923, label %925
 
-905:                                              ; preds = %903
-  %906 = tail call fastcc i32 @dissect_bssap_service_area_id(ptr noundef %0, ptr noundef %16, i32 noundef %.49)
-  br label %907
+923:                                              ; preds = %921
+  %924 = tail call fastcc i32 @dissect_bssap_cell_global_id(ptr noundef %0, ptr noundef %16, ptr noundef %1, i32 noundef %.47)
+  br label %925
 
-907:                                              ; preds = %905, %903
-  %.50 = phi i32 [ %.49, %903 ], [ %906, %905 ]
-  %908 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.50) #2
-  %909 = icmp slt i32 %908, 1
-  br i1 %909, label %1255, label %.sink.split1256
+925:                                              ; preds = %923, %921
+  %.48 = phi i32 [ %924, %923 ], [ %.47, %921 ]
+  %926 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.48)
+  %927 = icmp slt i32 %926, 1
+  br i1 %927, label %1296, label %928
 
-910:                                              ; preds = %12
-  %911 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %.not.i725 = icmp eq i8 %911, 1
-  br i1 %.not.i725, label %check_ie.exit727, label %check_ie.exit727.thread
+928:                                              ; preds = %925
+  %929 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.48)
+  %.not.i600 = icmp eq i8 %929, 25
+  br i1 %.not.i600, label %930, label %932
 
-check_ie.exit727.thread:                          ; preds = %910
-  %912 = zext i8 %911 to i32
-  %913 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %914 = tail call ptr @val_to_str_ext(i32 noundef %912, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %915 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %913, ptr noundef %914) #2
-  %916 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %917 = zext i8 %916 to i32
-  %918 = add nuw nsw i32 %917, 2
-  br label %933
+930:                                              ; preds = %928
+  %931 = tail call fastcc i32 @dissect_bssap_location_information_age(ptr noundef %0, ptr noundef %16, i32 noundef %.48)
+  br label %932
 
-check_ie.exit727:                                 ; preds = %910
-  %919 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %920 = load i32, ptr @hf_bssap_imsi_ie, align 4
-  %921 = zext i8 %919 to i32
-  %922 = add nuw nsw i32 %921, 2
-  %923 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %920, ptr noundef %0, i32 noundef 1, i32 noundef %922, i32 noundef 0) #2
-  %924 = load i32, ptr @ett_bssap_imsi, align 4
-  %925 = tail call ptr @proto_item_add_subtree(ptr noundef %923, i32 noundef %924) #2
-  %926 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %927 = tail call ptr @proto_tree_add_item(ptr noundef %925, i32 noundef %926, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %928 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %929 = tail call ptr @proto_tree_add_item(ptr noundef %925, i32 noundef %928, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %930 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %921) #2
-  %931 = tail call ptr @dissect_e212_imsi(ptr noundef %930, ptr noundef nonnull %1, ptr noundef %16, i32 noundef 0, i32 noundef %921, i32 noundef 1) #2
-  %932 = add nuw nsw i32 %921, 3
-  br label %933
+932:                                              ; preds = %930, %928
+  %.49 = phi i32 [ %931, %930 ], [ %.48, %928 ]
+  %933 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.49)
+  %934 = icmp slt i32 %933, 1
+  br i1 %934, label %1296, label %935
 
-933:                                              ; preds = %check_ie.exit727.thread, %check_ie.exit727
-  %.51 = phi i32 [ %932, %check_ie.exit727 ], [ %918, %check_ie.exit727.thread ]
-  %934 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.51) #2
-  %935 = icmp slt i32 %934, 1
-  br i1 %935, label %1255, label %.sink.split1256
+935:                                              ; preds = %932
+  %936 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.49)
+  %.not.i601 = icmp eq i8 %936, 30
+  br i1 %.not.i601, label %937, label %939
 
-936:                                              ; preds = %12
-  %937 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %.not.i728.not = icmp eq i8 %937, 9
-  br i1 %.not.i728.not, label %938, label %942
+937:                                              ; preds = %935
+  %938 = tail call fastcc i32 @dissect_bssap_service_area_id(ptr noundef %0, ptr noundef %16, i32 noundef %.49)
+  br label %939
 
-938:                                              ; preds = %936
-  %939 = tail call fastcc i32 @dissect_bssap_sgsn_number(ptr noundef %0, ptr noundef %16, i32 noundef 1)
-  %940 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %939) #2
+939:                                              ; preds = %937, %935
+  %.50 = phi i32 [ %938, %937 ], [ %.49, %935 ]
+  %940 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.50)
   %941 = icmp slt i32 %940, 1
-  br i1 %941, label %1255, label %.sink.split1256.sink.split
+  br i1 %941, label %1296, label %.sink.split1069
 
-942:                                              ; preds = %936
-  %943 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %.not.i730.not = icmp eq i8 %943, 2
-  br i1 %.not.i730.not, label %944, label %.sink.split1256
+942:                                              ; preds = %12
+  %943 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %.not.i602 = icmp eq i8 %943, 1
+  br i1 %.not.i602, label %951, label %check_ie.exit603
 
-944:                                              ; preds = %942
-  %945 = tail call fastcc i32 @dissect_bssap_vlr_number(ptr noundef %0, ptr noundef %16, i32 noundef 1)
-  %946 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %945) #2
-  %947 = icmp slt i32 %946, 1
-  br i1 %947, label %1255, label %.sink.split1256.sink.split
+check_ie.exit603:                                 ; preds = %942
+  %944 = zext i8 %943 to i32
+  %945 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %946 = tail call ptr @val_to_str_ext(i32 noundef %944, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %947 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %945, ptr noundef %946)
+  %948 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %949 = zext i8 %948 to i32
+  %950 = add nuw nsw i32 %949, 2
+  br label %966
 
-948:                                              ; preds = %12
-  %949 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %.not.i732.not = icmp eq i8 %949, 9
-  br i1 %.not.i732.not, label %950, label %954
+951:                                              ; preds = %942
+  %952 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %953 = load i32, ptr @hf_bssap_imsi_ie, align 4
+  %954 = zext i8 %952 to i32
+  %955 = add nuw nsw i32 %954, 2
+  %956 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %953, ptr noundef %0, i32 noundef 1, i32 noundef %955, i32 noundef 0)
+  %957 = load i32, ptr @ett_bssap_imsi, align 4
+  %958 = tail call ptr @proto_item_add_subtree(ptr noundef %956, i32 noundef %957)
+  %959 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %960 = tail call ptr @proto_tree_add_item(ptr noundef %958, i32 noundef %959, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %961 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %962 = tail call ptr @proto_tree_add_item(ptr noundef %958, i32 noundef %961, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %963 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %954)
+  %964 = tail call ptr @dissect_e212_imsi(ptr noundef %963, ptr noundef %1, ptr noundef %16, i32 noundef 0, i32 noundef %954, i1 noundef zeroext true)
+  %965 = add nuw nsw i32 %954, 3
+  br label %966
 
-950:                                              ; preds = %948
-  %951 = tail call fastcc i32 @dissect_bssap_sgsn_number(ptr noundef %0, ptr noundef %16, i32 noundef 1)
-  %952 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %951) #2
-  %953 = icmp slt i32 %952, 1
-  br i1 %953, label %1255, label %.sink.split1256.sink.split
+966:                                              ; preds = %check_ie.exit603, %951
+  %.51 = phi i32 [ %965, %951 ], [ %950, %check_ie.exit603 ]
+  %967 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.51)
+  %968 = icmp slt i32 %967, 1
+  br i1 %968, label %1296, label %.sink.split1069
 
-954:                                              ; preds = %948
-  %955 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %.not.i734.not = icmp eq i8 %955, 2
-  br i1 %.not.i734.not, label %956, label %.sink.split1256
+969:                                              ; preds = %12
+  %970 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %.not.i604 = icmp eq i8 %970, 9
+  br i1 %.not.i604, label %971, label %975
 
-956:                                              ; preds = %954
-  %957 = tail call fastcc i32 @dissect_bssap_vlr_number(ptr noundef %0, ptr noundef %16, i32 noundef 1)
-  %958 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %957) #2
-  %959 = icmp slt i32 %958, 1
-  br i1 %959, label %1255, label %.sink.split1256.sink.split
+971:                                              ; preds = %969
+  %972 = tail call fastcc i32 @dissect_bssap_sgsn_number(ptr noundef %0, ptr noundef %16, i32 noundef 1)
+  %973 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %972)
+  %974 = icmp slt i32 %973, 1
+  br i1 %974, label %1296, label %.sink.split1069.sink.split
 
-960:                                              ; preds = %12
-  %961 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %.not.i736 = icmp eq i8 %961, 1
-  br i1 %.not.i736, label %check_ie.exit738, label %check_ie.exit738.thread
+975:                                              ; preds = %969
+  %976 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %.not.i605 = icmp eq i8 %976, 2
+  br i1 %.not.i605, label %977, label %.sink.split1069
 
-check_ie.exit738.thread:                          ; preds = %960
-  %962 = zext i8 %961 to i32
-  %963 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %964 = tail call ptr @val_to_str_ext(i32 noundef %962, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %965 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %963, ptr noundef %964) #2
-  %966 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %967 = zext i8 %966 to i32
-  %968 = add nuw nsw i32 %967, 2
-  br label %983
+977:                                              ; preds = %975
+  %978 = tail call fastcc i32 @dissect_bssap_vlr_number(ptr noundef %0, ptr noundef %16, i32 noundef 1)
+  %979 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %978)
+  %980 = icmp slt i32 %979, 1
+  br i1 %980, label %1296, label %.sink.split1069.sink.split
 
-check_ie.exit738:                                 ; preds = %960
-  %969 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %970 = load i32, ptr @hf_bssap_imsi_ie, align 4
-  %971 = zext i8 %969 to i32
-  %972 = add nuw nsw i32 %971, 2
-  %973 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %970, ptr noundef %0, i32 noundef 1, i32 noundef %972, i32 noundef 0) #2
-  %974 = load i32, ptr @ett_bssap_imsi, align 4
-  %975 = tail call ptr @proto_item_add_subtree(ptr noundef %973, i32 noundef %974) #2
-  %976 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %977 = tail call ptr @proto_tree_add_item(ptr noundef %975, i32 noundef %976, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %978 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %979 = tail call ptr @proto_tree_add_item(ptr noundef %975, i32 noundef %978, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %980 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %971) #2
-  %981 = tail call ptr @dissect_e212_imsi(ptr noundef %980, ptr noundef nonnull %1, ptr noundef %16, i32 noundef 0, i32 noundef %971, i32 noundef 1) #2
-  %982 = add nuw nsw i32 %971, 3
-  br label %983
+981:                                              ; preds = %12
+  %982 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %.not.i606 = icmp eq i8 %982, 9
+  br i1 %.not.i606, label %983, label %987
 
-983:                                              ; preds = %check_ie.exit738.thread, %check_ie.exit738
-  %.54 = phi i32 [ %982, %check_ie.exit738 ], [ %968, %check_ie.exit738.thread ]
-  %984 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.54) #2
-  %.not.i739 = icmp eq i8 %984, 18
-  br i1 %.not.i739, label %check_ie.exit741, label %check_ie.exit741.thread
+983:                                              ; preds = %981
+  %984 = tail call fastcc i32 @dissect_bssap_sgsn_number(ptr noundef %0, ptr noundef %16, i32 noundef 1)
+  %985 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %984)
+  %986 = icmp slt i32 %985, 1
+  br i1 %986, label %1296, label %.sink.split1069.sink.split
 
-check_ie.exit741.thread:                          ; preds = %983
-  %985 = zext i8 %984 to i32
-  %986 = tail call ptr @val_to_str_ext(i32 noundef 18, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %987 = tail call ptr @val_to_str_ext(i32 noundef %985, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %988 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.54, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %986, ptr noundef %987) #2
-  %989 = add nuw nsw i32 %.54, 1
-  %990 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %989) #2
-  %991 = zext i8 %990 to i32
-  %992 = add nuw nsw i32 %989, %991
-  br label %1009
+987:                                              ; preds = %981
+  %988 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %.not.i607 = icmp eq i8 %988, 2
+  br i1 %.not.i607, label %989, label %.sink.split1069
 
-check_ie.exit741:                                 ; preds = %983
-  %993 = add nuw nsw i32 %.54, 1
-  %994 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %993) #2
-  %995 = load i32, ptr @hf_bssap_info_req_ie, align 4
-  %996 = zext i8 %994 to i32
-  %997 = add nuw nsw i32 %996, 2
-  %998 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %995, ptr noundef %0, i32 noundef %.54, i32 noundef %997, i32 noundef 0) #2
-  %999 = load i32, ptr @ett_bssap_info_req, align 4
-  %1000 = tail call ptr @proto_item_add_subtree(ptr noundef %998, i32 noundef %999) #2
-  %1001 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %1002 = tail call ptr @proto_tree_add_item(ptr noundef %1000, i32 noundef %1001, ptr noundef %0, i32 noundef %.54, i32 noundef 1, i32 noundef 0) #2
-  %1003 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %1004 = tail call ptr @proto_tree_add_item(ptr noundef %1000, i32 noundef %1003, ptr noundef %0, i32 noundef %993, i32 noundef 1, i32 noundef 0) #2
-  %1005 = add nuw nsw i32 %.54, 2
-  %1006 = load i32, ptr @hf_bssap_info_req, align 4
-  %1007 = tail call ptr @proto_tree_add_item(ptr noundef %1000, i32 noundef %1006, ptr noundef %0, i32 noundef %1005, i32 noundef %996, i32 noundef 0) #2
-  %1008 = add nuw nsw i32 %1005, %996
-  br label %1009
+989:                                              ; preds = %987
+  %990 = tail call fastcc i32 @dissect_bssap_vlr_number(ptr noundef %0, ptr noundef %16, i32 noundef 1)
+  %991 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %990)
+  %992 = icmp slt i32 %991, 1
+  br i1 %992, label %1296, label %.sink.split1069.sink.split
 
-1009:                                             ; preds = %check_ie.exit741.thread, %check_ie.exit741
-  %.55 = phi i32 [ %1008, %check_ie.exit741 ], [ %992, %check_ie.exit741.thread ]
-  %1010 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.55) #2
-  %1011 = icmp slt i32 %1010, 1
-  br i1 %1011, label %1255, label %.sink.split1256
+993:                                              ; preds = %12
+  %994 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %.not.i608 = icmp eq i8 %994, 1
+  br i1 %.not.i608, label %1002, label %check_ie.exit609
 
-1012:                                             ; preds = %12
-  %1013 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %.not.i742 = icmp eq i8 %1013, 1
-  br i1 %.not.i742, label %check_ie.exit744, label %check_ie.exit744.thread
+check_ie.exit609:                                 ; preds = %993
+  %995 = zext i8 %994 to i32
+  %996 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %997 = tail call ptr @val_to_str_ext(i32 noundef %995, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %998 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %996, ptr noundef %997)
+  %999 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %1000 = zext i8 %999 to i32
+  %1001 = add nuw nsw i32 %1000, 2
+  br label %1017
 
-check_ie.exit744.thread:                          ; preds = %1012
-  %1014 = zext i8 %1013 to i32
-  %1015 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %1016 = tail call ptr @val_to_str_ext(i32 noundef %1014, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %1017 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %1015, ptr noundef %1016) #2
-  %1018 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
+1002:                                             ; preds = %993
+  %1003 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %1004 = load i32, ptr @hf_bssap_imsi_ie, align 4
+  %1005 = zext i8 %1003 to i32
+  %1006 = add nuw nsw i32 %1005, 2
+  %1007 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %1004, ptr noundef %0, i32 noundef 1, i32 noundef %1006, i32 noundef 0)
+  %1008 = load i32, ptr @ett_bssap_imsi, align 4
+  %1009 = tail call ptr @proto_item_add_subtree(ptr noundef %1007, i32 noundef %1008)
+  %1010 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %1011 = tail call ptr @proto_tree_add_item(ptr noundef %1009, i32 noundef %1010, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %1012 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %1013 = tail call ptr @proto_tree_add_item(ptr noundef %1009, i32 noundef %1012, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %1014 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %1005)
+  %1015 = tail call ptr @dissect_e212_imsi(ptr noundef %1014, ptr noundef %1, ptr noundef %16, i32 noundef 0, i32 noundef %1005, i1 noundef zeroext true)
+  %1016 = add nuw nsw i32 %1005, 3
+  br label %1017
+
+1017:                                             ; preds = %check_ie.exit609, %1002
+  %.54 = phi i32 [ %1016, %1002 ], [ %1001, %check_ie.exit609 ]
+  %1018 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.54)
+  %.not.i610 = icmp eq i8 %1018, 18
+  br i1 %.not.i610, label %1027, label %check_ie.exit611
+
+check_ie.exit611:                                 ; preds = %1017
   %1019 = zext i8 %1018 to i32
-  %1020 = add nuw nsw i32 %1019, 2
-  br label %1035
+  %1020 = tail call ptr @val_to_str_ext(i32 noundef 18, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %1021 = tail call ptr @val_to_str_ext(i32 noundef %1019, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %1022 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.54, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %1020, ptr noundef %1021)
+  %1023 = add nuw nsw i32 %.54, 1
+  %1024 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1023)
+  %1025 = zext i8 %1024 to i32
+  %1026 = add nuw nsw i32 %1023, %1025
+  br label %1044
 
-check_ie.exit744:                                 ; preds = %1012
-  %1021 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %1022 = load i32, ptr @hf_bssap_imsi_ie, align 4
-  %1023 = zext i8 %1021 to i32
-  %1024 = add nuw nsw i32 %1023, 2
-  %1025 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %1022, ptr noundef %0, i32 noundef 1, i32 noundef %1024, i32 noundef 0) #2
-  %1026 = load i32, ptr @ett_bssap_imsi, align 4
-  %1027 = tail call ptr @proto_item_add_subtree(ptr noundef %1025, i32 noundef %1026) #2
-  %1028 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %1029 = tail call ptr @proto_tree_add_item(ptr noundef %1027, i32 noundef %1028, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %1030 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %1031 = tail call ptr @proto_tree_add_item(ptr noundef %1027, i32 noundef %1030, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %1032 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %1023) #2
-  %1033 = tail call ptr @dissect_e212_imsi(ptr noundef %1032, ptr noundef nonnull %1, ptr noundef %16, i32 noundef 0, i32 noundef %1023, i32 noundef 1) #2
-  %1034 = add nuw nsw i32 %1023, 3
-  br label %1035
+1027:                                             ; preds = %1017
+  %1028 = add nuw nsw i32 %.54, 1
+  %1029 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1028)
+  %1030 = load i32, ptr @hf_bssap_info_req_ie, align 4
+  %1031 = zext i8 %1029 to i32
+  %1032 = add nuw nsw i32 %1031, 2
+  %1033 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %1030, ptr noundef %0, i32 noundef %.54, i32 noundef %1032, i32 noundef 0)
+  %1034 = load i32, ptr @ett_bssap_info_req, align 4
+  %1035 = tail call ptr @proto_item_add_subtree(ptr noundef %1033, i32 noundef %1034)
+  %1036 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %1037 = tail call ptr @proto_tree_add_item(ptr noundef %1035, i32 noundef %1036, ptr noundef %0, i32 noundef %.54, i32 noundef 1, i32 noundef 0)
+  %1038 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %1039 = tail call ptr @proto_tree_add_item(ptr noundef %1035, i32 noundef %1038, ptr noundef %0, i32 noundef %1028, i32 noundef 1, i32 noundef 0)
+  %1040 = add nuw nsw i32 %.54, 2
+  %1041 = load i32, ptr @hf_bssap_info_req, align 4
+  %1042 = tail call ptr @proto_tree_add_item(ptr noundef %1035, i32 noundef %1041, ptr noundef %0, i32 noundef %1040, i32 noundef %1031, i32 noundef 0)
+  %1043 = add nuw nsw i32 %1040, %1031
+  br label %1044
 
-1035:                                             ; preds = %check_ie.exit744.thread, %check_ie.exit744
-  %.56 = phi i32 [ %1034, %check_ie.exit744 ], [ %1020, %check_ie.exit744.thread ]
-  %1036 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.56) #2
-  %1037 = icmp slt i32 %1036, 1
-  br i1 %1037, label %1255, label %1038
+1044:                                             ; preds = %check_ie.exit611, %1027
+  %.55 = phi i32 [ %1043, %1027 ], [ %1026, %check_ie.exit611 ]
+  %1045 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.55)
+  %1046 = icmp slt i32 %1045, 1
+  br i1 %1046, label %1296, label %.sink.split1069
 
-1038:                                             ; preds = %1035
-  %1039 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.56) #2
-  %.not.i745.not = icmp eq i8 %1039, 3
-  br i1 %.not.i745.not, label %1040, label %1042
+1047:                                             ; preds = %12
+  %1048 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %.not.i612 = icmp eq i8 %1048, 1
+  br i1 %.not.i612, label %1056, label %check_ie.exit613
 
-1040:                                             ; preds = %1038
-  %1041 = tail call fastcc i32 @dissect_bssap_tmsi(ptr noundef %0, ptr noundef %16, i32 noundef %.56)
-  br label %1042
+check_ie.exit613:                                 ; preds = %1047
+  %1049 = zext i8 %1048 to i32
+  %1050 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %1051 = tail call ptr @val_to_str_ext(i32 noundef %1049, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %1052 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %1050, ptr noundef %1051)
+  %1053 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %1054 = zext i8 %1053 to i32
+  %1055 = add nuw nsw i32 %1054, 2
+  br label %1071
 
-1042:                                             ; preds = %1040, %1038
-  %.57 = phi i32 [ %.56, %1038 ], [ %1041, %1040 ]
-  %1043 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.57) #2
-  %1044 = icmp slt i32 %1043, 1
-  br i1 %1044, label %1255, label %1045
+1056:                                             ; preds = %1047
+  %1057 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %1058 = load i32, ptr @hf_bssap_imsi_ie, align 4
+  %1059 = zext i8 %1057 to i32
+  %1060 = add nuw nsw i32 %1059, 2
+  %1061 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %1058, ptr noundef %0, i32 noundef 1, i32 noundef %1060, i32 noundef 0)
+  %1062 = load i32, ptr @ett_bssap_imsi, align 4
+  %1063 = tail call ptr @proto_item_add_subtree(ptr noundef %1061, i32 noundef %1062)
+  %1064 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %1065 = tail call ptr @proto_tree_add_item(ptr noundef %1063, i32 noundef %1064, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %1066 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %1067 = tail call ptr @proto_tree_add_item(ptr noundef %1063, i32 noundef %1066, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %1068 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %1059)
+  %1069 = tail call ptr @dissect_e212_imsi(ptr noundef %1068, ptr noundef %1, ptr noundef %16, i32 noundef 0, i32 noundef %1059, i1 noundef zeroext true)
+  %1070 = add nuw nsw i32 %1059, 3
+  br label %1071
 
-1045:                                             ; preds = %1042
-  %1046 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.57) #2
-  %.not.i747.not = icmp eq i8 %1046, 19
-  br i1 %.not.i747.not, label %1047, label %1049
+1071:                                             ; preds = %check_ie.exit613, %1056
+  %.56 = phi i32 [ %1070, %1056 ], [ %1055, %check_ie.exit613 ]
+  %1072 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.56)
+  %1073 = icmp slt i32 %1072, 1
+  br i1 %1073, label %1296, label %1074
 
-1047:                                             ; preds = %1045
-  %1048 = tail call fastcc i32 @dissect_bssap_ptmsi(ptr noundef %0, ptr noundef %16, i32 noundef %.57)
-  br label %1049
+1074:                                             ; preds = %1071
+  %1075 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.56)
+  %.not.i614 = icmp eq i8 %1075, 3
+  br i1 %.not.i614, label %1076, label %1078
 
-1049:                                             ; preds = %1047, %1045
-  %.58 = phi i32 [ %.57, %1045 ], [ %1048, %1047 ]
-  %1050 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.58) #2
-  %1051 = icmp slt i32 %1050, 1
-  br i1 %1051, label %1255, label %1052
+1076:                                             ; preds = %1074
+  %1077 = tail call fastcc i32 @dissect_bssap_tmsi(ptr noundef %0, ptr noundef %16, i32 noundef %.56)
+  br label %1078
 
-1052:                                             ; preds = %1049
-  %1053 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.58) #2
-  %.not.i749.not = icmp eq i8 %1053, 20
-  br i1 %.not.i749.not, label %1054, label %1056
+1078:                                             ; preds = %1076, %1074
+  %.57 = phi i32 [ %1077, %1076 ], [ %.56, %1074 ]
+  %1079 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.57)
+  %1080 = icmp slt i32 %1079, 1
+  br i1 %1080, label %1296, label %1081
 
-1054:                                             ; preds = %1052
-  %1055 = tail call fastcc i32 @dissect_bssap_imei(ptr noundef %0, ptr noundef %16, i32 noundef %.58)
-  br label %1056
+1081:                                             ; preds = %1078
+  %1082 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.57)
+  %.not.i615 = icmp eq i8 %1082, 19
+  br i1 %.not.i615, label %1083, label %1085
 
-1056:                                             ; preds = %1054, %1052
-  %.59 = phi i32 [ %.58, %1052 ], [ %1055, %1054 ]
-  %1057 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.59) #2
-  %1058 = icmp slt i32 %1057, 1
-  br i1 %1058, label %1255, label %1059
+1083:                                             ; preds = %1081
+  %1084 = tail call fastcc i32 @dissect_bssap_ptmsi(ptr noundef %0, ptr noundef %16, i32 noundef %.57)
+  br label %1085
 
-1059:                                             ; preds = %1056
-  %1060 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.59) #2
-  %.not.i751.not = icmp eq i8 %1060, 21
-  br i1 %.not.i751.not, label %1061, label %1063
+1085:                                             ; preds = %1083, %1081
+  %.58 = phi i32 [ %1084, %1083 ], [ %.57, %1081 ]
+  %1086 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.58)
+  %1087 = icmp slt i32 %1086, 1
+  br i1 %1087, label %1296, label %1088
 
-1061:                                             ; preds = %1059
-  %1062 = tail call fastcc i32 @dissect_bssap_imeisv(ptr noundef %0, ptr noundef %16, i32 noundef %.59)
-  br label %1063
+1088:                                             ; preds = %1085
+  %1089 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.58)
+  %.not.i616 = icmp eq i8 %1089, 20
+  br i1 %.not.i616, label %1090, label %1092
 
-1063:                                             ; preds = %1061, %1059
-  %.60 = phi i32 [ %.59, %1059 ], [ %1062, %1061 ]
-  %1064 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.60) #2
-  %1065 = icmp slt i32 %1064, 1
-  br i1 %1065, label %1255, label %1066
+1090:                                             ; preds = %1088
+  %1091 = tail call fastcc i32 @dissect_bssap_imei(ptr noundef %0, ptr noundef %16, i32 noundef %.58)
+  br label %1092
 
-1066:                                             ; preds = %1063
-  %1067 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.60) #2
-  %.not.i753.not = icmp eq i8 %1067, 24
-  br i1 %.not.i753.not, label %1068, label %1070
+1092:                                             ; preds = %1090, %1088
+  %.59 = phi i32 [ %1091, %1090 ], [ %.58, %1088 ]
+  %1093 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.59)
+  %1094 = icmp slt i32 %1093, 1
+  br i1 %1094, label %1296, label %1095
 
-1068:                                             ; preds = %1066
-  %1069 = tail call fastcc i32 @dissect_bssap_cell_global_id(ptr noundef %0, ptr noundef %16, ptr noundef nonnull %1, i32 noundef %.60)
-  br label %1070
+1095:                                             ; preds = %1092
+  %1096 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.59)
+  %.not.i617 = icmp eq i8 %1096, 21
+  br i1 %.not.i617, label %1097, label %1099
 
-1070:                                             ; preds = %1068, %1066
-  %.61 = phi i32 [ %.60, %1066 ], [ %1069, %1068 ]
-  %1071 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.61) #2
-  %1072 = icmp slt i32 %1071, 1
-  br i1 %1072, label %1255, label %1073
+1097:                                             ; preds = %1095
+  %1098 = tail call fastcc i32 @dissect_bssap_imeisv(ptr noundef %0, ptr noundef %16, i32 noundef %.59)
+  br label %1099
 
-1073:                                             ; preds = %1070
-  %1074 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.61) #2
-  %.not.i755.not = icmp eq i8 %1074, 25
-  br i1 %.not.i755.not, label %1075, label %1077
+1099:                                             ; preds = %1097, %1095
+  %.60 = phi i32 [ %1098, %1097 ], [ %.59, %1095 ]
+  %1100 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.60)
+  %1101 = icmp slt i32 %1100, 1
+  br i1 %1101, label %1296, label %1102
 
-1075:                                             ; preds = %1073
-  %1076 = tail call fastcc i32 @dissect_bssap_location_information_age(ptr noundef %0, ptr noundef %16, i32 noundef %.61)
-  br label %1077
+1102:                                             ; preds = %1099
+  %1103 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.60)
+  %.not.i618 = icmp eq i8 %1103, 24
+  br i1 %.not.i618, label %1104, label %1106
 
-1077:                                             ; preds = %1075, %1073
-  %.62 = phi i32 [ %.61, %1073 ], [ %1076, %1075 ]
-  %1078 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.62) #2
-  %1079 = icmp slt i32 %1078, 1
-  br i1 %1079, label %1255, label %1080
+1104:                                             ; preds = %1102
+  %1105 = tail call fastcc i32 @dissect_bssap_cell_global_id(ptr noundef %0, ptr noundef %16, ptr noundef %1, i32 noundef %.60)
+  br label %1106
 
-1080:                                             ; preds = %1077
-  %1081 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.62) #2
-  %.not.i757.not = icmp eq i8 %1081, 26
-  br i1 %.not.i757.not, label %1082, label %1084
+1106:                                             ; preds = %1104, %1102
+  %.61 = phi i32 [ %1105, %1104 ], [ %.60, %1102 ]
+  %1107 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.61)
+  %1108 = icmp slt i32 %1107, 1
+  br i1 %1108, label %1296, label %1109
 
-1082:                                             ; preds = %1080
-  %1083 = tail call fastcc i32 @dissect_bssap_mobile_station_state(ptr noundef %0, ptr noundef %16, i32 noundef %.62)
-  br label %1084
+1109:                                             ; preds = %1106
+  %1110 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.61)
+  %.not.i619 = icmp eq i8 %1110, 25
+  br i1 %.not.i619, label %1111, label %1113
 
-1084:                                             ; preds = %1082, %1080
-  %.63 = phi i32 [ %.62, %1080 ], [ %1083, %1082 ]
-  %1085 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.63) #2
-  %1086 = icmp slt i32 %1085, 1
-  br i1 %1086, label %1255, label %1087
+1111:                                             ; preds = %1109
+  %1112 = tail call fastcc i32 @dissect_bssap_location_information_age(ptr noundef %0, ptr noundef %16, i32 noundef %.61)
+  br label %1113
 
-1087:                                             ; preds = %1084
-  %1088 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.63) #2
-  %.not.i759.not = icmp eq i8 %1088, 30
-  br i1 %.not.i759.not, label %1089, label %1091
+1113:                                             ; preds = %1111, %1109
+  %.62 = phi i32 [ %1112, %1111 ], [ %.61, %1109 ]
+  %1114 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.62)
+  %1115 = icmp slt i32 %1114, 1
+  br i1 %1115, label %1296, label %1116
 
-1089:                                             ; preds = %1087
-  %1090 = tail call fastcc i32 @dissect_bssap_service_area_id(ptr noundef %0, ptr noundef %16, i32 noundef %.63)
-  br label %1091
+1116:                                             ; preds = %1113
+  %1117 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.62)
+  %.not.i620 = icmp eq i8 %1117, 26
+  br i1 %.not.i620, label %1118, label %1120
 
-1091:                                             ; preds = %1089, %1087
-  %.64 = phi i32 [ %.63, %1087 ], [ %1090, %1089 ]
-  %1092 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.64) #2
-  %1093 = icmp slt i32 %1092, 1
-  br i1 %1093, label %1255, label %.sink.split1256
+1118:                                             ; preds = %1116
+  %1119 = tail call fastcc i32 @dissect_bssap_mobile_station_state(ptr noundef %0, ptr noundef %16, i32 noundef %.62)
+  br label %1120
 
-1094:                                             ; preds = %12
-  %1095 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %.not.i761 = icmp eq i8 %1095, 1
-  br i1 %.not.i761, label %check_ie.exit763, label %check_ie.exit763.thread
+1120:                                             ; preds = %1118, %1116
+  %.63 = phi i32 [ %1119, %1118 ], [ %.62, %1116 ]
+  %1121 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.63)
+  %1122 = icmp slt i32 %1121, 1
+  br i1 %1122, label %1296, label %1123
 
-check_ie.exit763.thread:                          ; preds = %1094
-  %1096 = zext i8 %1095 to i32
-  %1097 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %1098 = tail call ptr @val_to_str_ext(i32 noundef %1096, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %1099 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %1097, ptr noundef %1098) #2
-  %1100 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %1101 = zext i8 %1100 to i32
-  %1102 = add nuw nsw i32 %1101, 2
-  br label %1117
+1123:                                             ; preds = %1120
+  %1124 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.63)
+  %.not.i621 = icmp eq i8 %1124, 30
+  br i1 %.not.i621, label %1125, label %1127
 
-check_ie.exit763:                                 ; preds = %1094
-  %1103 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %1104 = load i32, ptr @hf_bssap_imsi_ie, align 4
-  %1105 = zext i8 %1103 to i32
-  %1106 = add nuw nsw i32 %1105, 2
-  %1107 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %1104, ptr noundef %0, i32 noundef 1, i32 noundef %1106, i32 noundef 0) #2
-  %1108 = load i32, ptr @ett_bssap_imsi, align 4
-  %1109 = tail call ptr @proto_item_add_subtree(ptr noundef %1107, i32 noundef %1108) #2
-  %1110 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %1111 = tail call ptr @proto_tree_add_item(ptr noundef %1109, i32 noundef %1110, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %1112 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %1113 = tail call ptr @proto_tree_add_item(ptr noundef %1109, i32 noundef %1112, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %1114 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %1105) #2
-  %1115 = tail call ptr @dissect_e212_imsi(ptr noundef %1114, ptr noundef nonnull %1, ptr noundef %16, i32 noundef 0, i32 noundef %1105, i32 noundef 1) #2
-  %1116 = add nuw nsw i32 %1105, 3
-  br label %1117
+1125:                                             ; preds = %1123
+  %1126 = tail call fastcc i32 @dissect_bssap_service_area_id(ptr noundef %0, ptr noundef %16, i32 noundef %.63)
+  br label %1127
 
-1117:                                             ; preds = %check_ie.exit763.thread, %check_ie.exit763
-  %.65 = phi i32 [ %1116, %check_ie.exit763 ], [ %1102, %check_ie.exit763.thread ]
-  %1118 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.65) #2
-  %1119 = icmp slt i32 %1118, 1
-  br i1 %1119, label %1255, label %1120
+1127:                                             ; preds = %1125, %1123
+  %.64 = phi i32 [ %1126, %1125 ], [ %.63, %1123 ]
+  %1128 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.64)
+  %1129 = icmp slt i32 %1128, 1
+  br i1 %1129, label %1296, label %.sink.split1069
 
-1120:                                             ; preds = %1117
-  %1121 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.65) #2
-  %.not.i764.not = icmp eq i8 %1121, 23
-  br i1 %.not.i764.not, label %1122, label %1124
+1130:                                             ; preds = %12
+  %1131 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %.not.i622 = icmp eq i8 %1131, 1
+  br i1 %.not.i622, label %1139, label %check_ie.exit623
 
-1122:                                             ; preds = %1120
-  %1123 = tail call fastcc i32 @dissect_bssap_MM_information(ptr noundef %0, ptr noundef %16, ptr noundef nonnull %1, i32 noundef %.65)
-  br label %1124
+check_ie.exit623:                                 ; preds = %1130
+  %1132 = zext i8 %1131 to i32
+  %1133 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %1134 = tail call ptr @val_to_str_ext(i32 noundef %1132, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %1135 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %1133, ptr noundef %1134)
+  %1136 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %1137 = zext i8 %1136 to i32
+  %1138 = add nuw nsw i32 %1137, 2
+  br label %1154
 
-1124:                                             ; preds = %1122, %1120
-  %.66 = phi i32 [ %.65, %1120 ], [ %1123, %1122 ]
-  %1125 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.66) #2
-  %1126 = icmp slt i32 %1125, 1
-  br i1 %1126, label %1255, label %.sink.split1256
+1139:                                             ; preds = %1130
+  %1140 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %1141 = load i32, ptr @hf_bssap_imsi_ie, align 4
+  %1142 = zext i8 %1140 to i32
+  %1143 = add nuw nsw i32 %1142, 2
+  %1144 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %1141, ptr noundef %0, i32 noundef 1, i32 noundef %1143, i32 noundef 0)
+  %1145 = load i32, ptr @ett_bssap_imsi, align 4
+  %1146 = tail call ptr @proto_item_add_subtree(ptr noundef %1144, i32 noundef %1145)
+  %1147 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %1148 = tail call ptr @proto_tree_add_item(ptr noundef %1146, i32 noundef %1147, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %1149 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %1150 = tail call ptr @proto_tree_add_item(ptr noundef %1146, i32 noundef %1149, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %1151 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %1142)
+  %1152 = tail call ptr @dissect_e212_imsi(ptr noundef %1151, ptr noundef %1, ptr noundef %16, i32 noundef 0, i32 noundef %1142, i1 noundef zeroext true)
+  %1153 = add nuw nsw i32 %1142, 3
+  br label %1154
 
-1127:                                             ; preds = %12
-  %1128 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %.not.i766.not = icmp eq i8 %1128, 1
-  br i1 %.not.i766.not, label %1129, label %1144
+1154:                                             ; preds = %check_ie.exit623, %1139
+  %.65 = phi i32 [ %1153, %1139 ], [ %1138, %check_ie.exit623 ]
+  %1155 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.65)
+  %1156 = icmp slt i32 %1155, 1
+  br i1 %1156, label %1296, label %1157
 
-1129:                                             ; preds = %1127
-  %1130 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %1131 = load i32, ptr @hf_bssap_imsi_ie, align 4
-  %1132 = zext i8 %1130 to i32
-  %1133 = add nuw nsw i32 %1132, 2
-  %1134 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %1131, ptr noundef %0, i32 noundef 1, i32 noundef %1133, i32 noundef 0) #2
-  %1135 = load i32, ptr @ett_bssap_imsi, align 4
-  %1136 = tail call ptr @proto_item_add_subtree(ptr noundef %1134, i32 noundef %1135) #2
-  %1137 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %1138 = tail call ptr @proto_tree_add_item(ptr noundef %1136, i32 noundef %1137, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %1139 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %1140 = tail call ptr @proto_tree_add_item(ptr noundef %1136, i32 noundef %1139, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %1141 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %1132) #2
-  %1142 = tail call ptr @dissect_e212_imsi(ptr noundef %1141, ptr noundef nonnull %1, ptr noundef %16, i32 noundef 0, i32 noundef %1132, i32 noundef 1) #2
-  %1143 = add nuw nsw i32 %1132, 3
-  br label %1144
+1157:                                             ; preds = %1154
+  %1158 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.65)
+  %.not.i624 = icmp eq i8 %1158, 23
+  br i1 %.not.i624, label %1159, label %1161
 
-1144:                                             ; preds = %1129, %1127
-  %.67 = phi i32 [ 1, %1127 ], [ %1143, %1129 ]
-  %1145 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.67) #2
-  %.not.i768 = icmp eq i8 %1145, 8
-  br i1 %.not.i768, label %check_ie.exit770, label %check_ie.exit770.thread
+1159:                                             ; preds = %1157
+  %1160 = tail call fastcc i32 @dissect_bssap_MM_information(ptr noundef %0, ptr noundef %16, ptr noundef %1, i32 noundef %.65)
+  br label %1161
 
-check_ie.exit770.thread:                          ; preds = %1144
-  %1146 = zext i8 %1145 to i32
-  %1147 = tail call ptr @val_to_str_ext(i32 noundef 8, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %1148 = tail call ptr @val_to_str_ext(i32 noundef %1146, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %1149 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.67, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %1147, ptr noundef %1148) #2
-  %1150 = add nuw nsw i32 %.67, 1
-  %1151 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1150) #2
-  %1152 = zext i8 %1151 to i32
-  %1153 = add nuw nsw i32 %1150, %1152
-  br label %1170
+1161:                                             ; preds = %1159, %1157
+  %.66 = phi i32 [ %1160, %1159 ], [ %.65, %1157 ]
+  %1162 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.66)
+  %1163 = icmp slt i32 %1162, 1
+  br i1 %1163, label %1296, label %.sink.split1069
 
-check_ie.exit770:                                 ; preds = %1144
-  %1154 = add nuw nsw i32 %.67, 1
-  %1155 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1154) #2
-  %1156 = load i32, ptr @hf_bssap_Gs_cause_ie, align 4
-  %1157 = zext i8 %1155 to i32
-  %1158 = add nuw nsw i32 %1157, 2
-  %1159 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %1156, ptr noundef %0, i32 noundef %.67, i32 noundef %1158, i32 noundef 0) #2
-  %1160 = load i32, ptr @ett_bassp_Gs_cause, align 4
-  %1161 = tail call ptr @proto_item_add_subtree(ptr noundef %1159, i32 noundef %1160) #2
-  %1162 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %1163 = tail call ptr @proto_tree_add_item(ptr noundef %1161, i32 noundef %1162, ptr noundef %0, i32 noundef %.67, i32 noundef 1, i32 noundef 0) #2
-  %1164 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %1165 = tail call ptr @proto_tree_add_item(ptr noundef %1161, i32 noundef %1164, ptr noundef %0, i32 noundef %1154, i32 noundef 1, i32 noundef 0) #2
-  %1166 = add nuw nsw i32 %.67, 2
-  %1167 = load i32, ptr @hf_bssap_Gs_cause, align 4
-  %1168 = tail call ptr @proto_tree_add_item(ptr noundef %1161, i32 noundef %1167, ptr noundef %0, i32 noundef %1166, i32 noundef %1157, i32 noundef 0) #2
-  %1169 = add nuw nsw i32 %1166, %1157
-  br label %1170
+1164:                                             ; preds = %12
+  %1165 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %.not.i625 = icmp eq i8 %1165, 1
+  br i1 %.not.i625, label %1166, label %1181
 
-1170:                                             ; preds = %check_ie.exit770.thread, %check_ie.exit770
-  %.68 = phi i32 [ %1169, %check_ie.exit770 ], [ %1153, %check_ie.exit770.thread ]
-  %1171 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.68) #2
-  %.not.i771 = icmp eq i8 %1171, 27
-  br i1 %.not.i771, label %check_ie.exit773, label %check_ie.exit773.thread
+1166:                                             ; preds = %1164
+  %1167 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %1168 = load i32, ptr @hf_bssap_imsi_ie, align 4
+  %1169 = zext i8 %1167 to i32
+  %1170 = add nuw nsw i32 %1169, 2
+  %1171 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %1168, ptr noundef %0, i32 noundef 1, i32 noundef %1170, i32 noundef 0)
+  %1172 = load i32, ptr @ett_bssap_imsi, align 4
+  %1173 = tail call ptr @proto_item_add_subtree(ptr noundef %1171, i32 noundef %1172)
+  %1174 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %1175 = tail call ptr @proto_tree_add_item(ptr noundef %1173, i32 noundef %1174, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %1176 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %1177 = tail call ptr @proto_tree_add_item(ptr noundef %1173, i32 noundef %1176, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %1178 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %1169)
+  %1179 = tail call ptr @dissect_e212_imsi(ptr noundef %1178, ptr noundef %1, ptr noundef %16, i32 noundef 0, i32 noundef %1169, i1 noundef zeroext true)
+  %1180 = add nuw nsw i32 %1169, 3
+  br label %1181
 
-check_ie.exit773.thread:                          ; preds = %1170
-  %1172 = zext i8 %1171 to i32
-  %1173 = tail call ptr @val_to_str_ext(i32 noundef 27, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %1174 = tail call ptr @val_to_str_ext(i32 noundef %1172, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %1175 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.68, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %1173, ptr noundef %1174) #2
-  %1176 = add nuw nsw i32 %.68, 1
-  %1177 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1176) #2
-  %1178 = zext i8 %1177 to i32
-  %1179 = add nuw nsw i32 %1176, %1178
-  br label %1196
+1181:                                             ; preds = %1166, %1164
+  %.67 = phi i32 [ %1180, %1166 ], [ 1, %1164 ]
+  %1182 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.67)
+  %.not.i626 = icmp eq i8 %1182, 8
+  br i1 %.not.i626, label %1191, label %check_ie.exit627
 
-check_ie.exit773:                                 ; preds = %1170
-  %1180 = add nuw nsw i32 %.68, 1
-  %1181 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1180) #2
-  %1182 = load i32, ptr @hf_bssap_gprs_erroneous_msg_ie, align 4
-  %1183 = zext i8 %1181 to i32
-  %1184 = add nuw nsw i32 %1183, 2
-  %1185 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %1182, ptr noundef %0, i32 noundef %.68, i32 noundef %1184, i32 noundef 0) #2
-  %1186 = load i32, ptr @ett_bssap_erroneous_msg, align 4
-  %1187 = tail call ptr @proto_item_add_subtree(ptr noundef %1185, i32 noundef %1186) #2
-  %1188 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %1189 = tail call ptr @proto_tree_add_item(ptr noundef %1187, i32 noundef %1188, ptr noundef %0, i32 noundef %.68, i32 noundef 1, i32 noundef 0) #2
-  %1190 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %1191 = tail call ptr @proto_tree_add_item(ptr noundef %1187, i32 noundef %1190, ptr noundef %0, i32 noundef %1180, i32 noundef 1, i32 noundef 0) #2
-  %1192 = add nuw nsw i32 %.68, 2
-  %1193 = load i32, ptr @hf_bssap_plus_ie_data, align 4
-  %1194 = tail call ptr @proto_tree_add_item(ptr noundef %1187, i32 noundef %1193, ptr noundef %0, i32 noundef %1192, i32 noundef %1183, i32 noundef 0) #2
-  %1195 = add nuw nsw i32 %1192, %1183
-  br label %1196
+check_ie.exit627:                                 ; preds = %1181
+  %1183 = zext i8 %1182 to i32
+  %1184 = tail call ptr @val_to_str_ext(i32 noundef 8, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %1185 = tail call ptr @val_to_str_ext(i32 noundef %1183, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %1186 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.67, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %1184, ptr noundef %1185)
+  %1187 = add nuw nsw i32 %.67, 1
+  %1188 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1187)
+  %1189 = zext i8 %1188 to i32
+  %1190 = add nuw nsw i32 %1187, %1189
+  br label %1208
 
-1196:                                             ; preds = %check_ie.exit773.thread, %check_ie.exit773
-  %.69 = phi i32 [ %1195, %check_ie.exit773 ], [ %1179, %check_ie.exit773.thread ]
-  %1197 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.69) #2
-  %1198 = icmp slt i32 %1197, 1
-  br i1 %1198, label %1255, label %.sink.split1256
+1191:                                             ; preds = %1181
+  %1192 = add nuw nsw i32 %.67, 1
+  %1193 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1192)
+  %1194 = load i32, ptr @hf_bssap_Gs_cause_ie, align 4
+  %1195 = zext i8 %1193 to i32
+  %1196 = add nuw nsw i32 %1195, 2
+  %1197 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %1194, ptr noundef %0, i32 noundef %.67, i32 noundef %1196, i32 noundef 0)
+  %1198 = load i32, ptr @ett_bassp_Gs_cause, align 4
+  %1199 = tail call ptr @proto_item_add_subtree(ptr noundef %1197, i32 noundef %1198)
+  %1200 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %1201 = tail call ptr @proto_tree_add_item(ptr noundef %1199, i32 noundef %1200, ptr noundef %0, i32 noundef %.67, i32 noundef 1, i32 noundef 0)
+  %1202 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %1203 = tail call ptr @proto_tree_add_item(ptr noundef %1199, i32 noundef %1202, ptr noundef %0, i32 noundef %1192, i32 noundef 1, i32 noundef 0)
+  %1204 = add nuw nsw i32 %.67, 2
+  %1205 = load i32, ptr @hf_bssap_Gs_cause, align 4
+  %1206 = tail call ptr @proto_tree_add_item(ptr noundef %1199, i32 noundef %1205, ptr noundef %0, i32 noundef %1204, i32 noundef %1195, i32 noundef 0)
+  %1207 = add nuw nsw i32 %1204, %1195
+  br label %1208
 
-1199:                                             ; preds = %12
-  %1200 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %.not.i774 = icmp eq i8 %1200, 1
-  br i1 %.not.i774, label %check_ie.exit776, label %check_ie.exit776.thread
+1208:                                             ; preds = %check_ie.exit627, %1191
+  %.68 = phi i32 [ %1207, %1191 ], [ %1190, %check_ie.exit627 ]
+  %1209 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.68)
+  %.not.i628 = icmp eq i8 %1209, 27
+  br i1 %.not.i628, label %1218, label %check_ie.exit629
 
-check_ie.exit776.thread:                          ; preds = %1199
-  %1201 = zext i8 %1200 to i32
-  %1202 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %1203 = tail call ptr @val_to_str_ext(i32 noundef %1201, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %1204 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %1202, ptr noundef %1203) #2
-  %1205 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %1206 = zext i8 %1205 to i32
-  %1207 = add nuw nsw i32 %1206, 2
-  br label %1222
+check_ie.exit629:                                 ; preds = %1208
+  %1210 = zext i8 %1209 to i32
+  %1211 = tail call ptr @val_to_str_ext(i32 noundef 27, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %1212 = tail call ptr @val_to_str_ext(i32 noundef %1210, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %1213 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.68, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %1211, ptr noundef %1212)
+  %1214 = add nuw nsw i32 %.68, 1
+  %1215 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1214)
+  %1216 = zext i8 %1215 to i32
+  %1217 = add nuw nsw i32 %1214, %1216
+  br label %1235
 
-check_ie.exit776:                                 ; preds = %1199
-  %1208 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
-  %1209 = load i32, ptr @hf_bssap_imsi_ie, align 4
-  %1210 = zext i8 %1208 to i32
-  %1211 = add nuw nsw i32 %1210, 2
-  %1212 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %1209, ptr noundef %0, i32 noundef 1, i32 noundef %1211, i32 noundef 0) #2
-  %1213 = load i32, ptr @ett_bssap_imsi, align 4
-  %1214 = tail call ptr @proto_item_add_subtree(ptr noundef %1212, i32 noundef %1213) #2
-  %1215 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %1216 = tail call ptr @proto_tree_add_item(ptr noundef %1214, i32 noundef %1215, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
-  %1217 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %1218 = tail call ptr @proto_tree_add_item(ptr noundef %1214, i32 noundef %1217, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %1219 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %1210) #2
-  %1220 = tail call ptr @dissect_e212_imsi(ptr noundef %1219, ptr noundef nonnull %1, ptr noundef %16, i32 noundef 0, i32 noundef %1210, i32 noundef 1) #2
-  %1221 = add nuw nsw i32 %1210, 3
-  br label %1222
+1218:                                             ; preds = %1208
+  %1219 = add nuw nsw i32 %.68, 1
+  %1220 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1219)
+  %1221 = load i32, ptr @hf_bssap_gprs_erroneous_msg_ie, align 4
+  %1222 = zext i8 %1220 to i32
+  %1223 = add nuw nsw i32 %1222, 2
+  %1224 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %1221, ptr noundef %0, i32 noundef %.68, i32 noundef %1223, i32 noundef 0)
+  %1225 = load i32, ptr @ett_bssap_erroneous_msg, align 4
+  %1226 = tail call ptr @proto_item_add_subtree(ptr noundef %1224, i32 noundef %1225)
+  %1227 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %1228 = tail call ptr @proto_tree_add_item(ptr noundef %1226, i32 noundef %1227, ptr noundef %0, i32 noundef %.68, i32 noundef 1, i32 noundef 0)
+  %1229 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %1230 = tail call ptr @proto_tree_add_item(ptr noundef %1226, i32 noundef %1229, ptr noundef %0, i32 noundef %1219, i32 noundef 1, i32 noundef 0)
+  %1231 = add nuw nsw i32 %.68, 2
+  %1232 = load i32, ptr @hf_bssap_plus_ie_data, align 4
+  %1233 = tail call ptr @proto_tree_add_item(ptr noundef %1226, i32 noundef %1232, ptr noundef %0, i32 noundef %1231, i32 noundef %1222, i32 noundef 0)
+  %1234 = add nuw nsw i32 %1231, %1222
+  br label %1235
 
-1222:                                             ; preds = %check_ie.exit776.thread, %check_ie.exit776
-  %.70 = phi i32 [ %1221, %check_ie.exit776 ], [ %1207, %check_ie.exit776.thread ]
-  %1223 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.70) #2
-  %.not.i777 = icmp eq i8 %1223, 8
-  br i1 %.not.i777, label %check_ie.exit779, label %check_ie.exit779.thread
+1235:                                             ; preds = %check_ie.exit629, %1218
+  %.69 = phi i32 [ %1234, %1218 ], [ %1217, %check_ie.exit629 ]
+  %1236 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.69)
+  %1237 = icmp slt i32 %1236, 1
+  br i1 %1237, label %1296, label %.sink.split1069
 
-check_ie.exit779.thread:                          ; preds = %1222
-  %1224 = zext i8 %1223 to i32
-  %1225 = tail call ptr @val_to_str_ext(i32 noundef 8, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %1226 = tail call ptr @val_to_str_ext(i32 noundef %1224, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.278) #2
-  %1227 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.70, i32 noundef 1, ptr noundef nonnull @.str.279, ptr noundef %1225, ptr noundef %1226) #2
-  %1228 = add nuw nsw i32 %.70, 1
-  %1229 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1228) #2
-  %1230 = zext i8 %1229 to i32
-  %1231 = add nuw nsw i32 %1228, %1230
-  br label %1248
+1238:                                             ; preds = %12
+  %1239 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %.not.i630 = icmp eq i8 %1239, 1
+  br i1 %.not.i630, label %1247, label %check_ie.exit631
 
-check_ie.exit779:                                 ; preds = %1222
-  %1232 = add nuw nsw i32 %.70, 1
-  %1233 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1232) #2
-  %1234 = load i32, ptr @hf_bssap_Gs_cause_ie, align 4
-  %1235 = zext i8 %1233 to i32
-  %1236 = add nuw nsw i32 %1235, 2
-  %1237 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %1234, ptr noundef %0, i32 noundef %.70, i32 noundef %1236, i32 noundef 0) #2
-  %1238 = load i32, ptr @ett_bassp_Gs_cause, align 4
-  %1239 = tail call ptr @proto_item_add_subtree(ptr noundef %1237, i32 noundef %1238) #2
-  %1240 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %1241 = tail call ptr @proto_tree_add_item(ptr noundef %1239, i32 noundef %1240, ptr noundef %0, i32 noundef %.70, i32 noundef 1, i32 noundef 0) #2
-  %1242 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %1243 = tail call ptr @proto_tree_add_item(ptr noundef %1239, i32 noundef %1242, ptr noundef %0, i32 noundef %1232, i32 noundef 1, i32 noundef 0) #2
-  %1244 = add nuw nsw i32 %.70, 2
-  %1245 = load i32, ptr @hf_bssap_Gs_cause, align 4
-  %1246 = tail call ptr @proto_tree_add_item(ptr noundef %1239, i32 noundef %1245, ptr noundef %0, i32 noundef %1244, i32 noundef %1235, i32 noundef 0) #2
-  %1247 = add nuw nsw i32 %1244, %1235
-  br label %1248
+check_ie.exit631:                                 ; preds = %1238
+  %1240 = zext i8 %1239 to i32
+  %1241 = tail call ptr @val_to_str_ext(i32 noundef 1, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %1242 = tail call ptr @val_to_str_ext(i32 noundef %1240, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %1243 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %1241, ptr noundef %1242)
+  %1244 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %1245 = zext i8 %1244 to i32
+  %1246 = add nuw nsw i32 %1245, 2
+  br label %1262
 
-1248:                                             ; preds = %check_ie.exit779.thread, %check_ie.exit779
-  %.71 = phi i32 [ %1247, %check_ie.exit779 ], [ %1231, %check_ie.exit779.thread ]
-  %1249 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.71) #2
-  %1250 = icmp slt i32 %1249, 1
-  br i1 %1250, label %1255, label %.sink.split1256
+1247:                                             ; preds = %1238
+  %1248 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %1249 = load i32, ptr @hf_bssap_imsi_ie, align 4
+  %1250 = zext i8 %1248 to i32
+  %1251 = add nuw nsw i32 %1250, 2
+  %1252 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %1249, ptr noundef %0, i32 noundef 1, i32 noundef %1251, i32 noundef 0)
+  %1253 = load i32, ptr @ett_bssap_imsi, align 4
+  %1254 = tail call ptr @proto_item_add_subtree(ptr noundef %1252, i32 noundef %1253)
+  %1255 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %1256 = tail call ptr @proto_tree_add_item(ptr noundef %1254, i32 noundef %1255, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %1257 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %1258 = tail call ptr @proto_tree_add_item(ptr noundef %1254, i32 noundef %1257, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %1259 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 3, i32 noundef %1250)
+  %1260 = tail call ptr @dissect_e212_imsi(ptr noundef %1259, ptr noundef %1, ptr noundef %16, i32 noundef 0, i32 noundef %1250, i1 noundef zeroext true)
+  %1261 = add nuw nsw i32 %1250, 3
+  br label %1262
 
-.sink.split1256.sink.split:                       ; preds = %950, %956, %938, %944
-  %.sink1255.sink = phi i32 [ %939, %938 ], [ %945, %944 ], [ %951, %950 ], [ %957, %956 ]
-  %1251 = load i32, ptr @hf_bssap_extraneous_data, align 4
-  %1252 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1251, ptr noundef %0, i32 noundef %.sink1255.sink, i32 noundef -1, i32 noundef 0) #2
-  br label %.sink.split1256
+1262:                                             ; preds = %check_ie.exit631, %1247
+  %.70 = phi i32 [ %1261, %1247 ], [ %1246, %check_ie.exit631 ]
+  %1263 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.70)
+  %.not.i632 = icmp eq i8 %1263, 8
+  br i1 %.not.i632, label %1272, label %check_ie.exit633
 
-.sink.split1256:                                  ; preds = %.sink.split1256.sink.split, %1248, %1196, %1124, %1091, %1009, %954, %942, %933, %907, %823, %797, %720, %680, %628, %602, %576, %536, %485, %427, %300, %222, %144, %92
-  %hf_bssap_extraneous_data.sink = phi ptr [ @hf_bssap_extraneous_data, %92 ], [ @hf_bssap_extraneous_data, %144 ], [ @hf_bssap_extraneous_data, %222 ], [ @hf_bssap_extraneous_data, %300 ], [ @hf_bssap_extraneous_data, %427 ], [ @hf_bssap_extraneous_data, %485 ], [ @hf_bssap_extraneous_data, %536 ], [ @hf_bssap_extraneous_data, %576 ], [ @hf_bssap_extraneous_data, %602 ], [ @hf_bssap_extraneous_data, %628 ], [ @hf_bssap_extraneous_data, %680 ], [ @hf_bssap_extraneous_data, %720 ], [ @hf_bssap_extraneous_data, %797 ], [ @hf_bssap_extraneous_data, %823 ], [ @hf_bssap_extraneous_data, %907 ], [ @hf_bssap_extraneous_data, %933 ], [ @hf_bssap_conditional_ie, %942 ], [ @hf_bssap_conditional_ie, %954 ], [ @hf_bssap_extraneous_data, %1009 ], [ @hf_bssap_extraneous_data, %1091 ], [ @hf_bssap_extraneous_data, %1124 ], [ @hf_bssap_extraneous_data, %1196 ], [ @hf_bssap_extraneous_data, %1248 ], [ @hf_bssap_conditional_ie, %.sink.split1256.sink.split ]
-  %.71.sink = phi i32 [ %.6, %92 ], [ %.8, %144 ], [ %.11, %222 ], [ %.14, %300 ], [ %.23, %427 ], [ %.26, %485 ], [ %.28, %536 ], [ %.31, %576 ], [ %.32, %602 ], [ %.33, %628 ], [ %.35, %680 ], [ %.38, %720 ], [ %.43, %797 ], [ %.44, %823 ], [ %.50, %907 ], [ %.51, %933 ], [ 1, %942 ], [ 1, %954 ], [ %.55, %1009 ], [ %.64, %1091 ], [ %.66, %1124 ], [ %.69, %1196 ], [ %.71, %1248 ], [ %.sink1255.sink, %.sink.split1256.sink.split ]
-  %1253 = load i32, ptr %hf_bssap_extraneous_data.sink, align 4
-  %1254 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1253, ptr noundef %0, i32 noundef %.71.sink, i32 noundef -1, i32 noundef 0) #2
-  br label %1255
+check_ie.exit633:                                 ; preds = %1262
+  %1264 = zext i8 %1263 to i32
+  %1265 = tail call ptr @val_to_str_ext(i32 noundef 8, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %1266 = tail call ptr @val_to_str_ext(i32 noundef %1264, ptr noundef nonnull @bssap_plus_ie_id_values_ext, ptr noundef nonnull @.str.294)
+  %1267 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_bssap_mandatory_ie, ptr noundef %0, i32 noundef %.70, i32 noundef 1, ptr noundef nonnull @.str.295, ptr noundef %1265, ptr noundef %1266)
+  %1268 = add nuw nsw i32 %.70, 1
+  %1269 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1268)
+  %1270 = zext i8 %1269 to i32
+  %1271 = add nuw nsw i32 %1268, %1270
+  br label %1289
 
-1255:                                             ; preds = %12, %.sink.split1256, %1248, %1196, %1124, %1117, %1091, %1084, %1077, %1070, %1063, %1056, %1049, %1042, %1035, %1009, %956, %950, %944, %938, %933, %907, %900, %893, %886, %823, %797, %790, %783, %720, %713, %706, %680, %628, %602, %576, %569, %562, %536, %485, %478, %427, %420, %413, %406, %399, %300, %222, %144, %92, %85, %78, %71, %64, %57
-  %1256 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
-  ret i32 %1256
+1272:                                             ; preds = %1262
+  %1273 = add nuw nsw i32 %.70, 1
+  %1274 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1273)
+  %1275 = load i32, ptr @hf_bssap_Gs_cause_ie, align 4
+  %1276 = zext i8 %1274 to i32
+  %1277 = add nuw nsw i32 %1276, 2
+  %1278 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %1275, ptr noundef %0, i32 noundef %.70, i32 noundef %1277, i32 noundef 0)
+  %1279 = load i32, ptr @ett_bassp_Gs_cause, align 4
+  %1280 = tail call ptr @proto_item_add_subtree(ptr noundef %1278, i32 noundef %1279)
+  %1281 = load i32, ptr @hf_bssap_plus_ie, align 4
+  %1282 = tail call ptr @proto_tree_add_item(ptr noundef %1280, i32 noundef %1281, ptr noundef %0, i32 noundef %.70, i32 noundef 1, i32 noundef 0)
+  %1283 = load i32, ptr @hf_bssap_plus_ie_len, align 4
+  %1284 = tail call ptr @proto_tree_add_item(ptr noundef %1280, i32 noundef %1283, ptr noundef %0, i32 noundef %1273, i32 noundef 1, i32 noundef 0)
+  %1285 = add nuw nsw i32 %.70, 2
+  %1286 = load i32, ptr @hf_bssap_Gs_cause, align 4
+  %1287 = tail call ptr @proto_tree_add_item(ptr noundef %1280, i32 noundef %1286, ptr noundef %0, i32 noundef %1285, i32 noundef %1276, i32 noundef 0)
+  %1288 = add nuw nsw i32 %1285, %1276
+  br label %1289
+
+1289:                                             ; preds = %check_ie.exit633, %1272
+  %.71 = phi i32 [ %1288, %1272 ], [ %1271, %check_ie.exit633 ]
+  %1290 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.71)
+  %1291 = icmp slt i32 %1290, 1
+  br i1 %1291, label %1296, label %.sink.split1069
+
+.sink.split1069.sink.split:                       ; preds = %983, %989, %971, %977
+  %.sink1068.sink = phi i32 [ %972, %971 ], [ %978, %977 ], [ %984, %983 ], [ %990, %989 ]
+  %1292 = load i32, ptr @hf_bssap_extraneous_data, align 4
+  %1293 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1292, ptr noundef %0, i32 noundef %.sink1068.sink, i32 noundef -1, i32 noundef 0)
+  br label %.sink.split1069
+
+.sink.split1069:                                  ; preds = %.sink.split1069.sink.split, %1289, %1235, %1161, %1127, %1044, %987, %975, %966, %939, %852, %825, %745, %704, %650, %623, %596, %555, %502, %442, %310, %229, %148, %94
+  %hf_bssap_extraneous_data.sink = phi ptr [ @hf_bssap_extraneous_data, %94 ], [ @hf_bssap_extraneous_data, %148 ], [ @hf_bssap_extraneous_data, %229 ], [ @hf_bssap_extraneous_data, %310 ], [ @hf_bssap_extraneous_data, %442 ], [ @hf_bssap_extraneous_data, %502 ], [ @hf_bssap_extraneous_data, %555 ], [ @hf_bssap_extraneous_data, %596 ], [ @hf_bssap_extraneous_data, %623 ], [ @hf_bssap_extraneous_data, %650 ], [ @hf_bssap_extraneous_data, %704 ], [ @hf_bssap_extraneous_data, %745 ], [ @hf_bssap_extraneous_data, %825 ], [ @hf_bssap_extraneous_data, %852 ], [ @hf_bssap_extraneous_data, %939 ], [ @hf_bssap_extraneous_data, %966 ], [ @hf_bssap_conditional_ie, %975 ], [ @hf_bssap_conditional_ie, %987 ], [ @hf_bssap_extraneous_data, %1044 ], [ @hf_bssap_extraneous_data, %1127 ], [ @hf_bssap_extraneous_data, %1161 ], [ @hf_bssap_extraneous_data, %1235 ], [ @hf_bssap_extraneous_data, %1289 ], [ @hf_bssap_conditional_ie, %.sink.split1069.sink.split ]
+  %.71.sink = phi i32 [ %.6, %94 ], [ %.8, %148 ], [ %.11, %229 ], [ %.14, %310 ], [ %.23, %442 ], [ %.26, %502 ], [ %.28, %555 ], [ %.31, %596 ], [ %.32, %623 ], [ %.33, %650 ], [ %.35, %704 ], [ %.38, %745 ], [ %.43, %825 ], [ %.44, %852 ], [ %.50, %939 ], [ %.51, %966 ], [ 1, %975 ], [ 1, %987 ], [ %.55, %1044 ], [ %.64, %1127 ], [ %.66, %1161 ], [ %.69, %1235 ], [ %.71, %1289 ], [ %.sink1068.sink, %.sink.split1069.sink.split ]
+  %1294 = load i32, ptr %hf_bssap_extraneous_data.sink, align 4
+  %1295 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1294, ptr noundef %0, i32 noundef %.71.sink, i32 noundef -1, i32 noundef 0)
+  br label %1296
+
+1296:                                             ; preds = %12, %.sink.split1069, %1289, %1235, %1161, %1154, %1127, %1120, %1113, %1106, %1099, %1092, %1085, %1078, %1071, %1044, %989, %983, %977, %971, %966, %939, %932, %925, %918, %852, %825, %818, %811, %745, %738, %731, %704, %650, %623, %596, %589, %582, %555, %502, %495, %442, %435, %428, %421, %414, %310, %229, %148, %94, %87, %80, %73, %66, %59
+  %1297 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  ret i32 %1297
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_bssap() local_unnamed_addr #0 {
   %1 = load i32, ptr @proto_bssap, align 4
-  tail call void @heur_dissector_add(ptr noundef nonnull @.str.157, ptr noundef nonnull @dissect_bssap_heur, ptr noundef nonnull @.str.158, ptr noundef nonnull @.str.159, i32 noundef %1, i32 noundef 1) #2
+  tail call void @heur_dissector_add(ptr noundef nonnull @.str.157, ptr noundef nonnull @dissect_bssap_heur, ptr noundef nonnull @.str.158, ptr noundef nonnull @.str.159, i32 noundef %1, i32 noundef 1)
   %2 = load i32, ptr @proto_bssap, align 4
-  tail call void @heur_dissector_add(ptr noundef nonnull @.str.160, ptr noundef nonnull @dissect_bssap_heur, ptr noundef nonnull @.str.161, ptr noundef nonnull @.str.162, i32 noundef %2, i32 noundef 1) #2
+  tail call void @heur_dissector_add(ptr noundef nonnull @.str.160, ptr noundef nonnull @dissect_bssap_heur, ptr noundef nonnull @.str.161, ptr noundef nonnull @.str.162, i32 noundef %2, i32 noundef 1)
   %3 = load i32, ptr @proto_bssap_plus, align 4
-  %4 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.163, i32 noundef %3) #2
+  %4 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.163, i32 noundef %3)
   store ptr %4, ptr @rrlp_handle, align 8
   %5 = load i32, ptr @proto_bssap, align 4
-  %6 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.164, i32 noundef %5) #2
+  %6 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.164, i32 noundef %5)
   store ptr %6, ptr @gsm_bssmap_le_dissector_handle, align 8
   %7 = load i32, ptr @proto_bssap, align 4
-  %8 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.165, i32 noundef %7) #2
+  %8 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.165, i32 noundef %7)
   store ptr %8, ptr @gsm_a_bssmap_dissector_handle, align 8
   %9 = load ptr, ptr @bssap_handle, align 8
-  tail call void @dissector_add_for_decode_as(ptr noundef nonnull @.str.166, ptr noundef %9) #2
+  tail call void @dissector_add_for_decode_as(ptr noundef nonnull @.str.166, ptr noundef %9)
   %10 = load ptr, ptr @bsap_handle, align 8
-  tail call void @dissector_add_for_decode_as(ptr noundef nonnull @.str.166, ptr noundef %10) #2
+  tail call void @dissector_add_for_decode_as(ptr noundef nonnull @.str.166, ptr noundef %10)
   %11 = load ptr, ptr @bssap_le_handle, align 8
-  tail call void @dissector_add_for_decode_as(ptr noundef nonnull @.str.166, ptr noundef %11) #2
+  tail call void @dissector_add_for_decode_as(ptr noundef nonnull @.str.166, ptr noundef %11)
   %12 = load ptr, ptr @bssap_plus_handle, align 8
-  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.166, i32 noundef 98, ptr noundef %12) #2
+  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.166, i32 noundef 98, ptr noundef %12)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_bssap_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal noundef zeroext i1 @dissect_bssap_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   switch i8 %5, label %29 [
     i8 0, label %6
     i8 1, label %16
   ]
 
 6:                                                ; preds = %4
-  %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
+  %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %8 = zext i8 %7 to i32
-  %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
+  %9 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %10 = add i32 %9, -2
-  %.not19 = icmp eq i32 %10, %8
-  br i1 %.not19, label %11, label %29
+  %.not20 = icmp eq i32 %10, %8
+  br i1 %.not20, label %11, label %29
 
 11:                                               ; preds = %6
-  %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
+  %12 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
   %13 = icmp eq i8 %12, 64
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %11
-  %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #2
-  %.not20 = icmp eq i8 %15, 1
-  br i1 %.not20, label %21, label %29
+  %15 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
+  %.not21 = icmp eq i8 %15, 1
+  br i1 %.not21, label %21, label %29
 
 16:                                               ; preds = %4
-  %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
+  %17 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
   %18 = zext i8 %17 to i32
-  %19 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
+  %19 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %20 = add i32 %19, -3
   %.not = icmp eq i32 %20, %18
   br i1 %.not, label %21, label %29
@@ -2743,35 +2752,44 @@ define internal range(i32 0, 2) i32 @dissect_bssap_heur(ptr noundef %0, ptr noun
   br label %29
 
 29:                                               ; preds = %21, %23, %25, %27, %4, %16, %14, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %14 ], [ 0, %16 ], [ 0, %4 ], [ 1, %27 ], [ 1, %25 ], [ 1, %23 ], [ 1, %21 ]
-  ret i32 %.0
+  %.0 = phi i1 [ false, %6 ], [ false, %14 ], [ false, %16 ], [ false, %4 ], [ true, %27 ], [ true, %25 ], [ true, %23 ], [ true, %21 ]
+  ret i1 %.0
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc range(i32 1, 260) i32 @dissect_bssap_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @proto_bssap, align 4
-  %9 = tail call ptr @p_get_proto_data(ptr noundef %7, ptr noundef %1, i32 noundef %8, i32 noundef 0) #2
-  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
+  %9 = tail call ptr @p_get_proto_data(ptr noundef %7, ptr noundef %1, i32 noundef %8, i32 noundef 0)
+  %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   store i8 %10, ptr %9, align 4
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %12 = load i32, ptr %11, align 4
@@ -2780,7 +2798,7 @@ define internal fastcc range(i32 1, 260) i32 @dissect_bssap_message(ptr noundef 
   %14 = load i32, ptr @hf_bsap_pdu_type, align 4
   %15 = select i1 %.not, i32 %14, i32 %13
   %16 = zext i8 %10 to i32
-  %17 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %16) #2
+  %17 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %16)
   %18 = load i8, ptr %9, align 4
   switch i8 %18, label %41 [
     i8 0, label %19
@@ -2788,28 +2806,28 @@ define internal fastcc range(i32 1, 260) i32 @dissect_bssap_message(ptr noundef 
   ]
 
 19:                                               ; preds = %5
-  %20 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 1, i32 noundef 1) #2
-  %21 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %20, i32 noundef 0) #2
+  %20 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 1, i32 noundef 1)
+  %21 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %20, i32 noundef 0)
   %22 = load i32, ptr @hf_bssap_length, align 4
   %23 = zext i8 %21 to i32
-  %24 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %22, ptr noundef %20, i32 noundef 0, i32 noundef 1, i32 noundef %23) #2
-  %25 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 0, 511) 1) #2
+  %24 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %22, ptr noundef %20, i32 noundef 0, i32 noundef 1, i32 noundef %23)
+  %25 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef range(i32 0, 511) 1)
   %26 = zext i8 %25 to i16
-  %27 = tail call fastcc zeroext i16 @dissect_bssap_parameter(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 2, i32 noundef 2, i16 noundef zeroext %26, ptr noundef %4)
+  %27 = tail call fastcc zeroext i16 @dissect_bssap_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 2, i32 noundef 2, i16 noundef zeroext %26, ptr noundef %4)
   %28 = zext i8 %25 to i32
   %29 = add nuw nsw i32 %28, 3
   br label %52
 
 30:                                               ; preds = %5
-  %31 = tail call fastcc zeroext i16 @dissect_bssap_parameter(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 0, i32 noundef 1, i16 noundef zeroext 1, ptr noundef %4)
-  %32 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef range(i32 1, 512) 2, i32 noundef 1) #2
-  %33 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %32, i32 noundef 0) #2
+  %31 = tail call fastcc zeroext i16 @dissect_bssap_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 0, i32 noundef 1, i16 noundef zeroext 1, ptr noundef %4)
+  %32 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef range(i32 1, 512) 2, i32 noundef 1)
+  %33 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %32, i32 noundef 0)
   %34 = load i32, ptr @hf_bssap_length, align 4
   %35 = zext i8 %33 to i32
-  %36 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %34, ptr noundef %32, i32 noundef 0, i32 noundef 1, i32 noundef %35) #2
-  %37 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 0, 511) 2) #2
+  %36 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %34, ptr noundef %32, i32 noundef 0, i32 noundef 1, i32 noundef %35)
+  %37 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef range(i32 0, 511) 2)
   %38 = zext i8 %37 to i16
-  %39 = tail call fastcc zeroext i16 @dissect_bssap_parameter(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 2, i32 noundef 3, i16 noundef zeroext %38, ptr noundef %4)
+  %39 = tail call fastcc zeroext i16 @dissect_bssap_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 2, i32 noundef 3, i16 noundef zeroext %38, ptr noundef %4)
   %narrow53 = add nuw nsw i16 %38, 4
   %40 = zext nneg i16 %narrow53 to i32
   br label %52
@@ -2821,12 +2839,12 @@ define internal fastcc range(i32 1, 260) i32 @dissect_bssap_message(ptr noundef 
   %45 = load i32, ptr %11, align 4
   %.not54 = icmp eq i32 %45, 1
   %46 = select i1 %.not54, ptr @bsap_pdu_type_acro_values, ptr @bssap_pdu_type_acro_values
-  %47 = tail call ptr @val_to_str_const(i32 noundef %42, ptr noundef nonnull %46, ptr noundef nonnull @.str.268) #2
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %44, i32 noundef 25, ptr noundef nonnull @.str.267, ptr noundef %47) #2
-  %48 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
+  %47 = tail call ptr @val_to_str_const(i32 noundef %42, ptr noundef nonnull %46, ptr noundef nonnull @.str.282)
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %44, i32 noundef 25, ptr noundef nonnull @.str.281, ptr noundef %47)
+  %48 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %49 = icmp eq i32 %48, 1
-  %50 = select i1 %49, ptr @.str.270, ptr @.str.271
-  %51 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %17, ptr noundef nonnull @ei_bssap_unknown_message, ptr noundef nonnull @.str.269, i32 noundef %48, ptr noundef nonnull %50) #2
+  %50 = select i1 %49, ptr @.str.284, ptr @.str.285
+  %51 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %17, ptr noundef nonnull @ei_bssap_unknown_message, ptr noundef nonnull @.str.283, i32 noundef %48, ptr noundef nonnull %50)
   br label %52
 
 52:                                               ; preds = %41, %30, %19
@@ -2834,16 +2852,19 @@ define internal fastcc range(i32 1, 260) i32 @dissect_bssap_message(ptr noundef 
   ret i32 %.0
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef zeroext range(i16 0, 256) i16 @dissect_bssap_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext range(i8 0, 3) %4, i32 noundef range(i32 1, 512) %5, i16 noundef returned zeroext range(i16 0, 256) %6, ptr noundef %7) unnamed_addr #0 {
   %9 = zext nneg i16 %6 to i32
-  %10 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %5, i32 noundef %9) #2
+  %10 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %5, i32 noundef %9)
   switch i8 %4, label %default.unreachable24 [
     i8 0, label %11
     i8 1, label %28
@@ -2854,10 +2875,10 @@ define internal fastcc noundef zeroext range(i16 0, 256) i16 @dissect_bssap_para
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_bssap, align 4
-  %15 = tail call ptr @p_get_proto_data(ptr noundef %13, ptr noundef %1, i32 noundef %14, i32 noundef 0) #2
+  %15 = tail call ptr @p_get_proto_data(ptr noundef %13, ptr noundef %1, i32 noundef %14, i32 noundef 0)
   %16 = load i32, ptr @ett_bssap_dlci, align 4
-  %17 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %10, i32 noundef 0, i32 noundef %9, i32 noundef %16, ptr noundef null, ptr noundef nonnull @.str.273) #2
-  %18 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %10, i32 noundef 0) #2
+  %17 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %10, i32 noundef 0, i32 noundef %9, i32 noundef %16, ptr noundef null, ptr noundef nonnull @.str.287)
+  %18 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %10, i32 noundef 0)
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %20 = load i32, ptr %19, align 4
   %.not.i = icmp eq i32 %20, 1
@@ -2865,29 +2886,29 @@ define internal fastcc noundef zeroext range(i16 0, 256) i16 @dissect_bssap_para
   %hf_bsap_dlci_cc.val.i = load i32, ptr @hf_bsap_dlci_cc, align 4
   %hf_bssap_dlci_cc.val.i = load i32, ptr @hf_bssap_dlci_cc, align 4
   %22 = select i1 %.not.i, i32 %hf_bsap_dlci_cc.val.i, i32 %hf_bssap_dlci_cc.val.i
-  %23 = tail call ptr @proto_tree_add_uint(ptr noundef %17, i32 noundef %22, ptr noundef %10, i32 noundef 0, i32 noundef %9, i32 noundef %21) #2
+  %23 = tail call ptr @proto_tree_add_uint(ptr noundef %17, i32 noundef %22, ptr noundef %10, i32 noundef 0, i32 noundef %9, i32 noundef %21)
   %hf_bsap_dlci_rsvd.val.i = load i32, ptr @hf_bsap_dlci_rsvd, align 4
   %hf_bssap_dlci_spare.val.i = load i32, ptr @hf_bssap_dlci_spare, align 4
   %24 = select i1 %.not.i, i32 %hf_bsap_dlci_rsvd.val.i, i32 %hf_bssap_dlci_spare.val.i
-  %25 = tail call ptr @proto_tree_add_uint(ptr noundef %17, i32 noundef %24, ptr noundef %10, i32 noundef 0, i32 noundef %9, i32 noundef %21) #2
+  %25 = tail call ptr @proto_tree_add_uint(ptr noundef %17, i32 noundef %24, ptr noundef %10, i32 noundef 0, i32 noundef %9, i32 noundef %21)
   %hf_bsap_dlci_sapi.val.i = load i32, ptr @hf_bsap_dlci_sapi, align 4
   %hf_bssap_dlci_sapi.val.i = load i32, ptr @hf_bssap_dlci_sapi, align 4
   %26 = select i1 %.not.i, i32 %hf_bsap_dlci_sapi.val.i, i32 %hf_bssap_dlci_sapi.val.i
-  %27 = tail call ptr @proto_tree_add_uint(ptr noundef %17, i32 noundef %26, ptr noundef %10, i32 noundef 0, i32 noundef %9, i32 noundef %21) #2
+  %27 = tail call ptr @proto_tree_add_uint(ptr noundef %17, i32 noundef %26, ptr noundef %10, i32 noundef 0, i32 noundef %9, i32 noundef %21)
   br label %dissect_bssap_data_param.exit
 
 28:                                               ; preds = %8
-  %29 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %10, i32 noundef 0) #2
+  %29 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %10, i32 noundef 0)
   %30 = load i32, ptr @hf_bssap_length, align 4
   %31 = zext i8 %29 to i32
-  %32 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %30, ptr noundef %10, i32 noundef 0, i32 noundef %9, i32 noundef %31) #2
+  %32 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %30, ptr noundef %10, i32 noundef 0, i32 noundef %9, i32 noundef %31)
   br label %dissect_bssap_data_param.exit
 
 33:                                               ; preds = %8
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %35 = load ptr, ptr %34, align 8
   %36 = load i32, ptr @proto_bssap, align 4
-  %37 = tail call ptr @p_get_proto_data(ptr noundef %35, ptr noundef %1, i32 noundef %36, i32 noundef 0) #2
+  %37 = tail call ptr @p_get_proto_data(ptr noundef %35, ptr noundef %1, i32 noundef %36, i32 noundef 0)
   %38 = load i8, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %40 = load i32, ptr %39, align 4
@@ -2900,26 +2921,26 @@ define internal fastcc noundef zeroext range(i16 0, 256) i16 @dissect_bssap_para
 41:                                               ; preds = %33
   %42 = load ptr, ptr @bssap_dissector_table, align 8
   %43 = zext i8 %38 to i32
-  %44 = tail call i32 @dissector_try_uint_new(ptr noundef %42, i32 noundef %43, ptr noundef %10, ptr noundef nonnull %1, ptr noundef %3, i32 noundef 1, ptr noundef %7) #2
+  %44 = tail call i32 @dissector_try_uint_with_data(ptr noundef %42, i32 noundef %43, ptr noundef %10, ptr noundef %1, ptr noundef %3, i1 noundef zeroext true, ptr noundef %7)
   %.not22.i = icmp eq i32 %44, 0
   br i1 %.not22.i, label %53, label %dissect_bssap_data_param.exit
 
 45:                                               ; preds = %33
   %46 = load ptr, ptr @bssap_le_dissector_table, align 8
   %47 = zext i8 %38 to i32
-  %48 = tail call i32 @dissector_try_uint_new(ptr noundef %46, i32 noundef %47, ptr noundef %10, ptr noundef nonnull %1, ptr noundef %3, i32 noundef 1, ptr noundef %7) #2
+  %48 = tail call i32 @dissector_try_uint_with_data(ptr noundef %46, i32 noundef %47, ptr noundef %10, ptr noundef %1, ptr noundef %3, i1 noundef zeroext true, ptr noundef %7)
   %.not21.i = icmp eq i32 %48, 0
   br i1 %.not21.i, label %53, label %dissect_bssap_data_param.exit
 
 49:                                               ; preds = %33
   %50 = load ptr, ptr @bsap_dissector_table, align 8
   %51 = zext i8 %38 to i32
-  %52 = tail call i32 @dissector_try_uint_new(ptr noundef %50, i32 noundef %51, ptr noundef %10, ptr noundef nonnull %1, ptr noundef %3, i32 noundef 1, ptr noundef %7) #2
+  %52 = tail call i32 @dissector_try_uint_with_data(ptr noundef %50, i32 noundef %51, ptr noundef %10, ptr noundef %1, ptr noundef %3, i1 noundef zeroext true, ptr noundef %7)
   %.not.i23 = icmp eq i32 %52, 0
   br i1 %.not.i23, label %53, label %dissect_bssap_data_param.exit
 
 53:                                               ; preds = %49, %45, %41, %33
-  %54 = tail call i32 @call_data_dissector(ptr noundef %10, ptr noundef nonnull %1, ptr noundef %2) #2
+  %54 = tail call i32 @call_data_dissector(ptr noundef %10, ptr noundef %1, ptr noundef %2)
   br label %dissect_bssap_data_param.exit
 
 default.unreachable24:                            ; preds = %8
@@ -2929,449 +2950,476 @@ dissect_bssap_data_param.exit:                    ; preds = %53, %49, %45, %41, 
   ret i16 %6
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @dissector_try_uint_new(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissector_try_uint_with_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_bssap_imei(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = add i32 %2, 1
-  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #2
+  %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %4)
   %6 = load i32, ptr @hf_bssap_imei_ie, align 4
   %7 = zext i8 %5 to i32
   %8 = add nuw nsw i32 %7, 2
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef %8, i32 noundef 0) #2
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef %8, i32 noundef 0)
   %10 = load i32, ptr @ett_bassp_imei, align 4
-  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #2
+  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10)
   %12 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0) #2
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
   %14 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0) #2
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0)
   %16 = add i32 %2, 2
-  %17 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %16, i32 noundef %7) #2
+  %17 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %16, i32 noundef %7)
   %18 = load i32, ptr @hf_bssap_imei, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %18, ptr noundef %17, i32 noundef 0, i32 noundef -1, i32 noundef -2147483580) #2
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %18, ptr noundef %17, i32 noundef 0, i32 noundef -1, i32 noundef -2147483580)
   %20 = add i32 %16, %7
   ret i32 %20
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_bssap_vlr_number(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = add i32 %2, 1
-  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #2
+  %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %4)
   %6 = load i32, ptr @hf_bssap_vlr_number_ie, align 4
   %7 = zext i8 %5 to i32
   %8 = add nuw nsw i32 %7, 2
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef %8, i32 noundef 0) #2
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef %8, i32 noundef 0)
   %10 = load i32, ptr @ett_bssap_vlr_number, align 4
-  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #2
+  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10)
   %12 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0) #2
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
   %14 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0) #2
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0)
   %16 = add i32 %2, 2
   %17 = load i32, ptr @hf_bssap_extension, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef 1, i32 noundef 0) #2
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef 1, i32 noundef 0)
   %19 = load i32, ptr @hf_bssap_type_of_number, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %19, ptr noundef %0, i32 noundef %16, i32 noundef 1, i32 noundef 0) #2
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %19, ptr noundef %0, i32 noundef %16, i32 noundef 1, i32 noundef 0)
   %21 = load i32, ptr @hf_bssap_numbering_plan_id, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %21, ptr noundef %0, i32 noundef %16, i32 noundef 1, i32 noundef 0) #2
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %21, ptr noundef %0, i32 noundef %16, i32 noundef 1, i32 noundef 0)
   %23 = add i32 %2, 3
   %24 = add nsw i32 %7, -1
-  %25 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %23, i32 noundef %24) #2
+  %25 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %23, i32 noundef %24)
   %26 = load i32, ptr @hf_bssap_vlr_number, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %26, ptr noundef %25, i32 noundef 0, i32 noundef -1, i32 noundef -2147483580) #2
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %26, ptr noundef %25, i32 noundef 0, i32 noundef -1, i32 noundef -2147483580)
   %28 = add i32 %24, %23
   ret i32 %28
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_bssap_tmsi(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = add i32 %2, 1
-  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #2
+  %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %4)
   %6 = load i32, ptr @hf_bssap_tmsi_ie, align 4
   %7 = zext i8 %5 to i32
   %8 = add nuw nsw i32 %7, 2
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef %8, i32 noundef 0) #2
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef %8, i32 noundef 0)
   %10 = load i32, ptr @ett_bssap_tmsi, align 4
-  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #2
+  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10)
   %12 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0) #2
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
   %14 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0) #2
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0)
   %16 = add i32 %2, 2
   %17 = load i32, ptr @hf_bssap_tmsi, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef %7, i32 noundef 0) #2
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef %7, i32 noundef 0)
   %19 = add i32 %16, %7
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_bssap_loc_area_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = add i32 %3, 1
-  %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #2
+  %6 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %5)
   %7 = load i32, ptr @hf_bssap_loc_area_id_ie, align 4
   %8 = zext i8 %6 to i32
   %9 = add nuw nsw i32 %8, 2
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef %9, i32 noundef 0) #2
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef %9, i32 noundef 0)
   %11 = load i32, ptr @ett_bssap_loc_area_id, align 4
-  %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #2
+  %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11)
   %13 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
   %15 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %15, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0) #2
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %15, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0)
   %17 = add i32 %3, 2
-  %18 = tail call zeroext i16 @de_lai(ptr noundef %0, ptr noundef %12, ptr noundef %2, i32 noundef %17, i32 noundef %8, ptr noundef null, i32 noundef 0) #2
+  %18 = tail call zeroext i16 @de_lai(ptr noundef %0, ptr noundef %12, ptr noundef %2, i32 noundef %17, i32 noundef %8, ptr noundef null, i32 noundef 0)
   %19 = add i32 %17, %8
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_bssap_channel_needed(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = add i32 %3, 1
-  %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #2
+  %6 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %5)
   %7 = load i32, ptr @hf_bssap_channel_needed_ie, align 4
   %8 = zext i8 %6 to i32
   %9 = add nuw nsw i32 %8, 2
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef %9, i32 noundef 0) #2
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef %9, i32 noundef 0)
   %11 = load i32, ptr @ett_bssap_channel_needed, align 4
-  %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #2
+  %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11)
   %13 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
   %15 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %15, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0) #2
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %15, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0)
   %17 = add i32 %3, 2
-  %18 = tail call zeroext i16 @de_rr_chnl_needed(ptr noundef %0, ptr noundef %12, ptr noundef %2, i32 noundef %17, i32 noundef %8, ptr noundef null, i32 noundef 0) #2
+  %18 = tail call zeroext i16 @de_rr_chnl_needed(ptr noundef %0, ptr noundef %12, ptr noundef %2, i32 noundef %17, i32 noundef %8, ptr noundef null, i32 noundef 0)
   %19 = add i32 %17, %8
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_bssap_emlpp_priority(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = add i32 %2, 1
-  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #2
+  %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %4)
   %6 = load i32, ptr @hf_bssap_emlpp_prio_ie, align 4
   %7 = zext i8 %5 to i32
   %8 = add nuw nsw i32 %7, 2
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef %8, i32 noundef 0) #2
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef %8, i32 noundef 0)
   %10 = load i32, ptr @ett_bssap_emlpp_prio, align 4
-  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #2
+  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10)
   %12 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0) #2
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
   %14 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0) #2
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0)
   %16 = add i32 %2, 2
   %17 = load i32, ptr @hf_bssap_call_priority, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef %7, i32 noundef 0) #2
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef %7, i32 noundef 0)
   %19 = add i32 %16, %7
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_bssap_global_cn_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = add i32 %3, 1
-  %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #2
+  %6 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %5)
   %7 = load i32, ptr @hf_bssap_global_cn_id_ie, align 4
   %8 = zext i8 %6 to i32
   %9 = add nuw nsw i32 %8, 2
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef %9, i32 noundef 0) #2
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef %9, i32 noundef 0)
   %11 = load i32, ptr @ett_bssap_global_cn, align 4
-  %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #2
+  %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11)
   %13 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
   %15 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %15, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0) #2
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %15, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0)
   %17 = add i32 %3, 2
   %18 = load i32, ptr @hf_bssap_global_cn_id, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %18, ptr noundef %0, i32 noundef %17, i32 noundef %8, i32 noundef 0) #2
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %18, ptr noundef %0, i32 noundef %17, i32 noundef %8, i32 noundef 0)
   %20 = load i32, ptr @ett_bssap_global_cn_id, align 4
-  %21 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %20) #2
+  %21 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %20)
   %22 = load i32, ptr @hf_bssap_plmn_id, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %22, ptr noundef %0, i32 noundef %17, i32 noundef 3, i32 noundef 0) #2
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %22, ptr noundef %0, i32 noundef %17, i32 noundef 3, i32 noundef 0)
   %24 = load i32, ptr @ett_bssap_plmn, align 4
-  %25 = tail call ptr @proto_item_add_subtree(ptr noundef %23, i32 noundef %24) #2
-  %26 = tail call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %1, ptr noundef %25, i32 noundef %17, i32 noundef 0, i32 noundef 1) #2
+  %25 = tail call ptr @proto_item_add_subtree(ptr noundef %23, i32 noundef %24)
+  %26 = tail call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %1, ptr noundef %25, i32 noundef %17, i32 noundef 0, i1 noundef zeroext true)
   %27 = add i32 %3, 5
   %28 = load i32, ptr @hf_bssap_cn_id, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %28, ptr noundef %0, i32 noundef %27, i32 noundef 2, i32 noundef 0) #2
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %28, ptr noundef %0, i32 noundef %27, i32 noundef 2, i32 noundef 0)
   %30 = add i32 %3, 7
   ret i32 %30
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_bssap_sgsn_number(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = add i32 %2, 1
-  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #2
+  %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %4)
   %6 = load i32, ptr @hf_bssap_sgsn_nr_ie, align 4
   %7 = zext i8 %5 to i32
   %8 = add nuw nsw i32 %7, 2
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef %8, i32 noundef 0) #2
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef %8, i32 noundef 0)
   %10 = load i32, ptr @ett_bssap_sgsn_nr, align 4
-  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #2
+  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10)
   %12 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0) #2
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
   %14 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0) #2
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0)
   %16 = add i32 %2, 2
   %17 = load i32, ptr @hf_bssap_extension, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef 1, i32 noundef 0) #2
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef 1, i32 noundef 0)
   %19 = load i32, ptr @hf_bssap_type_of_number, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %19, ptr noundef %0, i32 noundef %16, i32 noundef 1, i32 noundef 0) #2
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %19, ptr noundef %0, i32 noundef %16, i32 noundef 1, i32 noundef 0)
   %21 = load i32, ptr @hf_bssap_numbering_plan_id, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %21, ptr noundef %0, i32 noundef %16, i32 noundef 1, i32 noundef 0) #2
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %21, ptr noundef %0, i32 noundef %16, i32 noundef 1, i32 noundef 0)
   %23 = add i32 %2, 3
   %24 = add nsw i32 %7, -1
-  %25 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %23, i32 noundef %24) #2
+  %25 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %23, i32 noundef %24)
   %26 = load i32, ptr @hf_bssap_sgsn_number, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %26, ptr noundef %25, i32 noundef 0, i32 noundef -1, i32 noundef -2147483580) #2
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %26, ptr noundef %25, i32 noundef 0, i32 noundef -1, i32 noundef -2147483580)
   %28 = add i32 %24, %23
   ret i32 %28
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_bssap_cell_global_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = add i32 %3, 1
-  %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #2
+  %6 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %5)
   %7 = load i32, ptr @hf_bssap_cell_global_id_ie, align 4
   %8 = zext i8 %6 to i32
   %9 = add nuw nsw i32 %8, 2
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef %9, i32 noundef 0) #2
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef %9, i32 noundef 0)
   %11 = load i32, ptr @ett_bssap_cell_global_id, align 4
-  %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #2
+  %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11)
   %13 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
   %15 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %15, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0) #2
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %15, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0)
   %17 = add i32 %3, 2
   %18 = load i32, ptr @hf_bssap_cell_global_id, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %18, ptr noundef %0, i32 noundef %17, i32 noundef %8, i32 noundef 0) #2
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %18, ptr noundef %0, i32 noundef %17, i32 noundef %8, i32 noundef 0)
   %20 = load i32, ptr @ett_bssap_cgi, align 4
-  %21 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %20) #2
-  %22 = tail call zeroext i16 @de_gmm_rai(ptr noundef %0, ptr noundef %21, ptr noundef %2, i32 noundef %17, i32 noundef %8, ptr noundef null, i32 noundef 0) #2
+  %21 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %20)
+  %22 = tail call zeroext i16 @de_gmm_rai(ptr noundef %0, ptr noundef %21, ptr noundef %2, i32 noundef %17, i32 noundef %8, ptr noundef null, i32 noundef 0)
   %23 = add i32 %3, 8
-  %24 = tail call zeroext i16 @de_cell_id(ptr noundef %0, ptr noundef %21, ptr noundef %2, i32 noundef %23, i32 noundef %8, ptr noundef null, i32 noundef 0) #2
+  %24 = tail call zeroext i16 @de_cell_id(ptr noundef %0, ptr noundef %21, ptr noundef %2, i32 noundef %23, i32 noundef %8, ptr noundef null, i32 noundef 0)
   %25 = add i32 %3, 10
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_bssap_tmsi_status(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = add i32 %2, 1
-  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #2
+  %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %4)
   %6 = load i32, ptr @hf_bssap_tmsi_status_ie, align 4
   %7 = zext i8 %5 to i32
   %8 = add nuw nsw i32 %7, 2
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef %8, i32 noundef 0) #2
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef %8, i32 noundef 0)
   %10 = load i32, ptr @ett_bssap_tmsi_status, align 4
-  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #2
+  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10)
   %12 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0) #2
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
   %14 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0) #2
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0)
   %16 = add i32 %2, 2
   %17 = load i32, ptr @hf_bssap_tmsi_status, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef %7, i32 noundef 0) #2
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef %7, i32 noundef 0)
   %19 = add i32 %16, %7
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_bssap_service_area_id(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = add i32 %2, 1
-  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #2
+  %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %4)
   %6 = load i32, ptr @hf_bssap_service_area_id_ie, align 4
   %7 = zext i8 %5 to i32
   %8 = add nuw nsw i32 %7, 2
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef %8, i32 noundef 0) #2
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef %8, i32 noundef 0)
   %10 = load i32, ptr @ett_bssap_service_area_id, align 4
-  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #2
+  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10)
   %12 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0) #2
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
   %14 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0) #2
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0)
   %16 = add i32 %2, 2
   %17 = load i32, ptr @hf_bssap_plus_ie_data, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef %7, i32 noundef 0) #2
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef %7, i32 noundef 0)
   %19 = add i32 %16, %7
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_bssap_imeisv(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = add i32 %2, 1
-  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #2
+  %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %4)
   %6 = load i32, ptr @hf_bssap_imeisv_ie, align 4
   %7 = zext i8 %5 to i32
   %8 = add nuw nsw i32 %7, 2
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef %8, i32 noundef 0) #2
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef %8, i32 noundef 0)
   %10 = load i32, ptr @ett_bassp_imeisv, align 4
-  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #2
+  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10)
   %12 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0) #2
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
   %14 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0) #2
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0)
   %16 = add i32 %2, 2
-  %17 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %16, i32 noundef %7) #2
+  %17 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %16, i32 noundef %7)
   %18 = load i32, ptr @hf_bssap_imeisv, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %18, ptr noundef %17, i32 noundef 0, i32 noundef -1, i32 noundef -2147483580) #2
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %18, ptr noundef %17, i32 noundef 0, i32 noundef -1, i32 noundef -2147483580)
   %20 = add i32 %16, %7
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_bssap_mobile_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = add i32 %3, 1
-  %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #2
+  %6 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %5)
   %7 = zext i8 %6 to i32
   %8 = load i32, ptr @hf_bssap_mobile_id_ie, align 4
   %9 = add nuw nsw i32 %7, 2
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef %9, i32 noundef 0) #2
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef %9, i32 noundef 0)
   %11 = load i32, ptr @ett_bssap_mobile_id, align 4
-  %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #2
+  %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11)
   %13 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
   %15 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %15, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0) #2
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %15, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0)
   %17 = add i32 %3, 2
-  %18 = tail call zeroext i16 @de_mid(ptr noundef %0, ptr noundef %12, ptr noundef %2, i32 noundef %17, i32 noundef %7, ptr noundef null, i32 noundef 0) #2
+  %18 = tail call zeroext i16 @de_mid(ptr noundef %0, ptr noundef %12, ptr noundef %2, i32 noundef %17, i32 noundef %7, ptr noundef null, i32 noundef 0)
   %19 = add i32 %17, %7
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_bssap_location_information_age(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = add i32 %2, 1
-  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #2
+  %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %4)
   %6 = load i32, ptr @hf_bssap_loc_inf_age_ie, align 4
   %7 = zext i8 %5 to i32
   %8 = add nuw nsw i32 %7, 2
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef %8, i32 noundef 0) #2
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef %8, i32 noundef 0)
   %10 = load i32, ptr @ett_bssap_loc_inf_age, align 4
-  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #2
+  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10)
   %12 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0) #2
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
   %14 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0) #2
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0)
   %16 = add i32 %2, 2
   %17 = load i32, ptr @hf_bssap_loc_inf_age, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef %7, i32 noundef 0) #2
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef %7, i32 noundef 0)
   %19 = add i32 %16, %7
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_bssap_ptmsi(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = add i32 %2, 1
-  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #2
+  %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %4)
   %6 = load i32, ptr @hf_bssap_ptmsi_ie, align 4
   %7 = zext i8 %5 to i32
   %8 = add nuw nsw i32 %7, 2
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef %8, i32 noundef 0) #2
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef %8, i32 noundef 0)
   %10 = load i32, ptr @ett_bssap_ptmsi, align 4
-  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #2
+  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10)
   %12 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0) #2
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
   %14 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0) #2
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0)
   %16 = add i32 %2, 2
   %17 = load i32, ptr @hf_bssap_ptmsi, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef %7, i32 noundef 0) #2
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef %7, i32 noundef 0)
   %19 = add i32 %16, %7
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_bssap_mobile_station_state(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = add i32 %2, 1
-  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #2
+  %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %4)
   %6 = load i32, ptr @hf_bssap_mobile_station_state_ie, align 4
   %7 = zext i8 %5 to i32
   %8 = add nuw nsw i32 %7, 2
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef %8, i32 noundef 0) #2
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef %8, i32 noundef 0)
   %10 = load i32, ptr @ett_bssap_mobile_station_state, align 4
-  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #2
+  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10)
   %12 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0) #2
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
   %14 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0) #2
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0)
   %16 = add i32 %2, 2
   %17 = load i32, ptr @hf_bssap_mobile_station_state, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef %7, i32 noundef 0) #2
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef %7, i32 noundef 0)
   %19 = add i32 %16, %7
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_bssap_MM_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = add i32 %3, 1
-  %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #2
+  %6 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %5)
   %7 = load i32, ptr @hf_bssap_mm_information_ie, align 4
   %8 = zext i8 %6 to i32
   %9 = add nuw nsw i32 %8, 2
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef %9, i32 noundef 0) #2
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef %9, i32 noundef 0)
   %11 = load i32, ptr @ett_bssap_mm_information, align 4
-  %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #2
+  %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11)
   %13 = load i32, ptr @hf_bssap_plus_ie, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
   %15 = load i32, ptr @hf_bssap_plus_ie_len, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %15, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0) #2
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %15, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0)
   %17 = add i32 %3, 2
-  tail call void @dtap_mm_mm_info(ptr noundef %0, ptr noundef %12, ptr noundef %2, i32 noundef %17, i32 noundef %8) #2
+  tail call void @dtap_mm_mm_info(ptr noundef %0, ptr noundef %12, ptr noundef %2, i32 noundef %17, i32 noundef %8)
   %18 = add i32 %17, %8
   ret i32 %18
 }
 
-declare ptr @dissect_e212_imsi(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @dissect_e212_imsi(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @de_lai(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @de_rr_chnl_needed(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @dissect_e212_mcc_mnc(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_e212_mcc_mnc(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @de_gmm_rai(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @de_cell_id(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @de_ms_cm_1(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @de_mid(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @de_rej_cause(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @dtap_mm_mm_info(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}

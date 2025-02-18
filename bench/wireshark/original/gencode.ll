@@ -1,7 +1,7 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.dfwork_t = type { ptr, i32, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.dfwork_t = type { ptr, i32, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
 %struct.dfvm_insn_t = type { i32, i32, ptr, ptr, ptr }
 %struct._GPtrArray = type { ptr, i32 }
 %struct.dfvm_value_t = type { i32, %union.anon, i32 }
@@ -20,47 +20,49 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.gen_entity = private unnamed_addr constant [11 x i8] c"gen_entity\00", align 1
 @.str.4 = private unnamed_addr constant [19 x i8] c"Invalid sttype: %s\00", align 1
 @.str.5 = private unnamed_addr constant [4 x i8] c"len\00", align 1
+@.str.6 = private unnamed_addr constant [5 x i8] c"vals\00", align 1
 @__func__.gen_arithmetic = private unnamed_addr constant [15 x i8] c"gen_arithmetic\00", align 1
 @__func__.select_opcode = private unnamed_addr constant [14 x i8] c"select_opcode\00", align 1
-@.str.6 = private unnamed_addr constant [26 x i8] c"Invalid dfvm opcode '%s'.\00", align 1
+@.str.7 = private unnamed_addr constant [26 x i8] c"Invalid dfvm opcode '%s'.\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dfw_gencode(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %4 = call ptr @g_ptr_array_new()
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.dfwork_t, ptr %5, i32 0, i32 4
+  %6 = getelementptr inbounds nuw %struct.dfwork_t, ptr %5, i32 0, i32 4
   store ptr %4, ptr %6, align 8
   %7 = call ptr @g_hash_table_new(ptr noundef @g_direct_hash, ptr noundef @g_direct_equal)
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.dfwork_t, ptr %8, i32 0, i32 5
+  %9 = getelementptr inbounds nuw %struct.dfwork_t, ptr %8, i32 0, i32 5
   store ptr %7, ptr %9, align 8
   %10 = call ptr @g_hash_table_new(ptr noundef @g_direct_hash, ptr noundef @g_direct_equal)
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.dfwork_t, ptr %11, i32 0, i32 6
+  %12 = getelementptr inbounds nuw %struct.dfwork_t, ptr %11, i32 0, i32 6
   store ptr %10, ptr %12, align 8
   %13 = call ptr @g_hash_table_new(ptr noundef @g_int_hash, ptr noundef @g_int_equal)
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.dfwork_t, ptr %14, i32 0, i32 7
+  %15 = getelementptr inbounds nuw %struct.dfwork_t, ptr %14, i32 0, i32 7
   store ptr %13, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
   %16 = call ptr @dfvm_insn_new(i32 noundef 6)
   store ptr %16, ptr %3, align 8
   %17 = load ptr, ptr %2, align 8
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct.dfwork_t, ptr %18, i32 0, i32 2
+  %19 = getelementptr inbounds nuw %struct.dfwork_t, ptr %18, i32 0, i32 2
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @gencode(ptr noundef %17, ptr noundef %20)
   %22 = call ptr @dfvm_value_ref(ptr noundef %21)
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.dfvm_insn_t, ptr %23, i32 0, i32 2
+  %24 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %23, i32 0, i32 2
   store ptr %22, ptr %24, align 8
   %25 = load ptr, ptr %2, align 8
   %26 = load ptr, ptr %3, align 8
   call void @dfw_append_insn(ptr noundef %25, ptr noundef %26)
   %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds %struct.dfwork_t, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct.dfwork_t, ptr %27, i32 0, i32 1
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 4
   %31 = icmp ne i32 %30, 0
@@ -72,28 +74,38 @@ define hidden void @dfw_gencode(ptr noundef %0) #0 {
   br label %34
 
 34:                                               ; preds = %32, %1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @g_ptr_array_new() #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @g_hash_table_new(ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind willreturn memory(none)
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(none)
 declare i32 @g_direct_hash(ptr noundef) #2
 
-; Function Attrs: nounwind willreturn memory(none)
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(none)
 declare i32 @g_direct_equal(ptr noundef, ptr noundef) #2
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @g_int_hash(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @g_int_equal(ptr noundef, ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @dfvm_insn_new(i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @dfvm_value_ref(ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @gencode(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -101,16 +113,18 @@ define internal ptr @gencode(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca i8, align 1
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
   store ptr null, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #10
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.dfwork_t, ptr %7, i32 0, i32 1
+  %8 = getelementptr inbounds nuw %struct.dfwork_t, ptr %7, i32 0, i32 1
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 32
   %11 = icmp ne i32 %10, 0
   %12 = zext i1 %11 to i8
   store i8 %12, ptr %6, align 1
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.dfwork_t, ptr %13, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct.dfwork_t, ptr %13, i32 0, i32 1
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, -33
   store i32 %16, ptr %14, align 8
@@ -131,7 +145,7 @@ define internal ptr @gencode(ptr noundef %0, ptr noundef %1) #0 {
   br label %45
 
 22:                                               ; preds = %2
-  %23 = load i8, ptr %6, align 1
+  %23 = load i8, ptr %6, align 1, !range !6, !noundef !7
   %24 = trunc i8 %23 to i1
   br i1 %24, label %25, label %29
 
@@ -169,40 +183,42 @@ define internal ptr @gencode(ptr noundef %0, ptr noundef %1) #0 {
   %42 = load ptr, ptr %4, align 8
   %43 = call i32 @stnode_type_id(ptr noundef %42)
   %44 = call ptr @sttype_name(i32 noundef %43)
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef @.str, i32 noundef 7, ptr noundef @.str.1, i64 noundef 845, ptr noundef @__func__.gencode, ptr noundef @.str.2, ptr noundef %44) #6
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef @.str, i32 noundef 7, ptr noundef @.str.1, i64 noundef 862, ptr noundef @__func__.gencode, ptr noundef @.str.2, ptr noundef %44) #11
   unreachable
 
 45:                                               ; preds = %37, %33, %32, %19
   %46 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
   ret ptr %46
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dfw_append_insn(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.dfwork_t, ptr %5, i32 0, i32 8
+  %6 = getelementptr inbounds nuw %struct.dfwork_t, ptr %5, i32 0, i32 8
   %7 = load i32, ptr %6, align 8
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.dfvm_insn_t, ptr %8, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %8, i32 0, i32 0
   store i32 %7, ptr %9, align 8
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.dfwork_t, ptr %10, i32 0, i32 8
+  %11 = getelementptr inbounds nuw %struct.dfwork_t, ptr %10, i32 0, i32 8
   %12 = load i32, ptr %11, align 8
   %13 = add i32 %12, 1
   store i32 %13, ptr %11, align 8
   %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.dfwork_t, ptr %14, i32 0, i32 4
+  %15 = getelementptr inbounds nuw %struct.dfwork_t, ptr %14, i32 0, i32 4
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %4, align 8
   call void @g_ptr_array_add(ptr noundef %16, ptr noundef %17)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @optimize(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
@@ -214,10 +230,17 @@ define internal void @optimize(ptr noundef %0) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.dfwork_t, ptr %11, i32 0, i32 4
+  %12 = getelementptr inbounds nuw %struct.dfwork_t, ptr %11, i32 0, i32 4
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds %struct._GPtrArray, ptr %13, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct._GPtrArray, ptr %13, i32 0, i32 1
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %5, align 4
   store i32 0, ptr %3, align 4
@@ -232,9 +255,9 @@ define internal void @optimize(ptr noundef %0) #0 {
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %struct.dfwork_t, ptr %21, i32 0, i32 4
+  %22 = getelementptr inbounds nuw %struct.dfwork_t, ptr %21, i32 0, i32 4
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds %struct._GPtrArray, ptr %23, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %struct._GPtrArray, ptr %23, i32 0, i32 0
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %3, align 4
   %27 = sext i32 %26 to i64
@@ -242,25 +265,25 @@ define internal void @optimize(ptr noundef %0) #0 {
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %6, align 8
   %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds %struct.dfvm_insn_t, ptr %30, i32 0, i32 2
+  %31 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %30, i32 0, i32 2
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %9, align 8
   %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds %struct.dfvm_insn_t, ptr %33, i32 0, i32 1
+  %34 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %33, i32 0, i32 1
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, 1
   br i1 %36, label %42, label %37
 
 37:                                               ; preds = %20
   %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds %struct.dfvm_insn_t, ptr %38, i32 0, i32 1
+  %39 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %38, i32 0, i32 1
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, 2
   br i1 %41, label %42, label %127
 
 42:                                               ; preds = %37, %20
   %43 = load ptr, ptr %9, align 8
-  %44 = getelementptr inbounds %struct.dfvm_value_t, ptr %43, i32 0, i32 1
+  %44 = getelementptr inbounds nuw %struct.dfvm_value_t, ptr %43, i32 0, i32 1
   %45 = load i32, ptr %44, align 8
   store i32 %45, ptr %4, align 4
   %46 = load i32, ptr %4, align 4
@@ -275,8 +298,9 @@ define internal void @optimize(ptr noundef %0) #0 {
   br label %128
 
 52:                                               ; preds = %42
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
   %53 = load ptr, ptr %6, align 8
-  %54 = getelementptr inbounds %struct.dfvm_insn_t, ptr %53, i32 0, i32 1
+  %54 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %53, i32 0, i32 1
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, 2
   %57 = select i1 %56, i32 1, i32 2
@@ -285,9 +309,9 @@ define internal void @optimize(ptr noundef %0) #0 {
 
 58:                                               ; preds = %112, %101, %73, %52
   %59 = load ptr, ptr %2, align 8
-  %60 = getelementptr inbounds %struct.dfwork_t, ptr %59, i32 0, i32 4
+  %60 = getelementptr inbounds nuw %struct.dfwork_t, ptr %59, i32 0, i32 4
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds %struct._GPtrArray, ptr %61, i32 0, i32 0
+  %62 = getelementptr inbounds nuw %struct._GPtrArray, ptr %61, i32 0, i32 0
   %63 = load ptr, ptr %62, align 8
   %64 = load i32, ptr %4, align 4
   %65 = sext i32 %64 to i64
@@ -295,7 +319,7 @@ define internal void @optimize(ptr noundef %0) #0 {
   %67 = load ptr, ptr %66, align 8
   store ptr %67, ptr %7, align 8
   %68 = load ptr, ptr %7, align 8
-  %69 = getelementptr inbounds %struct.dfvm_insn_t, ptr %68, i32 0, i32 1
+  %69 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %68, i32 0, i32 1
   %70 = load i32, ptr %69, align 4
   %71 = load i32, ptr %10, align 4
   %72 = icmp eq i32 %70, %71
@@ -309,7 +333,7 @@ define internal void @optimize(ptr noundef %0) #0 {
 
 76:                                               ; preds = %58
   %77 = load ptr, ptr %7, align 8
-  %78 = getelementptr inbounds %struct.dfvm_insn_t, ptr %77, i32 0, i32 1
+  %78 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %77, i32 0, i32 1
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %79, 7
   br i1 %80, label %81, label %104
@@ -321,21 +345,21 @@ define internal void @optimize(ptr noundef %0) #0 {
 
 84:                                               ; preds = %81
   %85 = load ptr, ptr %8, align 8
-  %86 = getelementptr inbounds %struct.dfvm_insn_t, ptr %85, i32 0, i32 1
+  %86 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %85, i32 0, i32 1
   %87 = load i32, ptr %86, align 4
   %88 = icmp eq i32 %87, 7
   br i1 %88, label %89, label %104
 
 89:                                               ; preds = %84
   %90 = load ptr, ptr %8, align 8
-  %91 = getelementptr inbounds %struct.dfvm_insn_t, ptr %90, i32 0, i32 3
+  %91 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %90, i32 0, i32 3
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds %struct.dfvm_value_t, ptr %92, i32 0, i32 1
+  %93 = getelementptr inbounds nuw %struct.dfvm_value_t, ptr %92, i32 0, i32 1
   %94 = load i32, ptr %93, align 8
   %95 = load ptr, ptr %7, align 8
-  %96 = getelementptr inbounds %struct.dfvm_insn_t, ptr %95, i32 0, i32 3
+  %96 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %95, i32 0, i32 3
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds %struct.dfvm_value_t, ptr %97, i32 0, i32 1
+  %98 = getelementptr inbounds nuw %struct.dfvm_value_t, ptr %97, i32 0, i32 1
   %99 = load i32, ptr %98, align 8
   %100 = icmp eq i32 %94, %99
   br i1 %100, label %101, label %104
@@ -348,37 +372,38 @@ define internal void @optimize(ptr noundef %0) #0 {
 
 104:                                              ; preds = %89, %84, %81, %76
   %105 = load ptr, ptr %7, align 8
-  %106 = getelementptr inbounds %struct.dfvm_insn_t, ptr %105, i32 0, i32 1
+  %106 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %105, i32 0, i32 1
   %107 = load i32, ptr %106, align 4
   %108 = load ptr, ptr %6, align 8
-  %109 = getelementptr inbounds %struct.dfvm_insn_t, ptr %108, i32 0, i32 1
+  %109 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %108, i32 0, i32 1
   %110 = load i32, ptr %109, align 4
   %111 = icmp eq i32 %107, %110
   br i1 %111, label %112, label %119
 
 112:                                              ; preds = %104
   %113 = load ptr, ptr %7, align 8
-  %114 = getelementptr inbounds %struct.dfvm_insn_t, ptr %113, i32 0, i32 2
+  %114 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %113, i32 0, i32 2
   %115 = load ptr, ptr %114, align 8
   store ptr %115, ptr %9, align 8
   %116 = load ptr, ptr %9, align 8
-  %117 = getelementptr inbounds %struct.dfvm_value_t, ptr %116, i32 0, i32 1
+  %117 = getelementptr inbounds nuw %struct.dfvm_value_t, ptr %116, i32 0, i32 1
   %118 = load i32, ptr %117, align 8
   store i32 %118, ptr %4, align 4
   br label %58
 
 119:                                              ; preds = %104
   %120 = load ptr, ptr %6, align 8
-  %121 = getelementptr inbounds %struct.dfvm_insn_t, ptr %120, i32 0, i32 2
+  %121 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %120, i32 0, i32 2
   %122 = load ptr, ptr %121, align 8
   store ptr %122, ptr %9, align 8
   %123 = load i32, ptr %4, align 4
   %124 = load ptr, ptr %9, align 8
-  %125 = getelementptr inbounds %struct.dfvm_value_t, ptr %124, i32 0, i32 1
+  %125 = getelementptr inbounds nuw %struct.dfvm_value_t, ptr %124, i32 0, i32 1
   store i32 %123, ptr %125, align 8
   br label %126
 
 126:                                              ; preds = %119
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
   br label %127
 
 127:                                              ; preds = %126, %37
@@ -390,70 +415,155 @@ define internal void @optimize(ptr noundef %0) #0 {
   %130 = load i32, ptr %3, align 4
   %131 = add i32 %130, 1
   store i32 %131, ptr %3, align 4
-  br label %16, !llvm.loop !4
+  br label %16, !llvm.loop !8
 
 132:                                              ; preds = %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #10
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @dfw_interesting_fields(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca %struct.hash_key_iterator, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.dfwork_t, ptr %8, i32 0, i32 7
-  %10 = load ptr, ptr %9, align 8
-  %11 = call i32 @g_hash_table_size(ptr noundef %10)
-  store i32 %11, ptr %6, align 4
-  %12 = load i32, ptr %6, align 4
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %16
-
-14:                                               ; preds = %2
-  %15 = load ptr, ptr %5, align 8
-  store i32 0, ptr %15, align 4
-  store ptr null, ptr %3, align 8
-  br label %29
-
-16:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds nuw %struct.dfwork_t, ptr %13, i32 0, i32 7
+  %15 = load ptr, ptr %14, align 8
+  %16 = call i32 @g_hash_table_size(ptr noundef %15)
+  store i32 %16, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #10
   %17 = load i32, ptr %6, align 4
-  %18 = sext i32 %17 to i64
-  %19 = call noalias ptr @g_malloc_n(i64 noundef %18, i64 noundef 4) #7
-  %20 = getelementptr inbounds %struct.hash_key_iterator, ptr %7, i32 0, i32 1
-  store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds %struct.hash_key_iterator, ptr %7, i32 0, i32 0
-  store i32 0, ptr %21, align 8
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %struct.dfwork_t, ptr %22, i32 0, i32 7
-  %24 = load ptr, ptr %23, align 8
-  call void @g_hash_table_foreach(ptr noundef %24, ptr noundef @get_hash_key, ptr noundef %7)
-  %25 = load i32, ptr %6, align 4
-  %26 = load ptr, ptr %5, align 8
-  store i32 %25, ptr %26, align 4
-  %27 = getelementptr inbounds %struct.hash_key_iterator, ptr %7, i32 0, i32 1
-  %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr %3, align 8
-  br label %29
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %21
 
-29:                                               ; preds = %16, %14
-  %30 = load ptr, ptr %3, align 8
-  ret ptr %30
+19:                                               ; preds = %2
+  %20 = load ptr, ptr %5, align 8
+  store i32 0, ptr %20, align 4
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %62
+
+21:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  %22 = load i32, ptr %6, align 4
+  %23 = sext i32 %22 to i64
+  store i64 %23, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  store i64 4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  %24 = load i64, ptr %10, align 8
+  %25 = icmp eq i64 %24, 1
+  br i1 %25, label %26, label %29
+
+26:                                               ; preds = %21
+  %27 = load i64, ptr %9, align 8
+  %28 = call noalias ptr @g_malloc(i64 noundef %27) #12
+  store ptr %28, ptr %11, align 8
+  br label %50
+
+29:                                               ; preds = %21
+  %30 = load i64, ptr %9, align 8
+  %31 = call i1 @llvm.is.constant.i64(i64 %30)
+  br i1 %31, label %32, label %45
+
+32:                                               ; preds = %29
+  %33 = load i64, ptr %10, align 8
+  %34 = icmp eq i64 %33, 0
+  br i1 %34, label %40, label %35
+
+35:                                               ; preds = %32
+  %36 = load i64, ptr %9, align 8
+  %37 = load i64, ptr %10, align 8
+  %38 = udiv i64 -1, %37
+  %39 = icmp ule i64 %36, %38
+  br i1 %39, label %40, label %45
+
+40:                                               ; preds = %35, %32
+  %41 = load i64, ptr %9, align 8
+  %42 = load i64, ptr %10, align 8
+  %43 = mul i64 %41, %42
+  %44 = call noalias ptr @g_malloc(i64 noundef %43) #12
+  store ptr %44, ptr %11, align 8
+  br label %49
+
+45:                                               ; preds = %35, %29
+  %46 = load i64, ptr %9, align 8
+  %47 = load i64, ptr %10, align 8
+  %48 = call noalias ptr @g_malloc_n(i64 noundef %46, i64 noundef %47) #13
+  store ptr %48, ptr %11, align 8
+  br label %49
+
+49:                                               ; preds = %45, %40
+  br label %50
+
+50:                                               ; preds = %49, %26
+  %51 = load ptr, ptr %11, align 8
+  store ptr %51, ptr %12, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  %52 = load ptr, ptr %12, align 8
+  %53 = getelementptr inbounds nuw %struct.hash_key_iterator, ptr %7, i32 0, i32 1
+  store ptr %52, ptr %53, align 8
+  %54 = getelementptr inbounds nuw %struct.hash_key_iterator, ptr %7, i32 0, i32 0
+  store i32 0, ptr %54, align 8
+  %55 = load ptr, ptr %4, align 8
+  %56 = getelementptr inbounds nuw %struct.dfwork_t, ptr %55, i32 0, i32 7
+  %57 = load ptr, ptr %56, align 8
+  call void @g_hash_table_foreach(ptr noundef %57, ptr noundef @get_hash_key, ptr noundef %7)
+  %58 = load i32, ptr %6, align 4
+  %59 = load ptr, ptr %5, align 8
+  store i32 %58, ptr %59, align 4
+  %60 = getelementptr inbounds nuw %struct.hash_key_iterator, ptr %7, i32 0, i32 1
+  %61 = load ptr, ptr %60, align 8
+  store ptr %61, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %62
+
+62:                                               ; preds = %50, %19
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  %63 = load ptr, ptr %3, align 8
+  ret ptr %63
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @g_hash_table_size(ptr noundef) #1
 
-; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) #3
+; Function Attrs: null_pointer_is_valid allocsize(0)
+declare noalias ptr @g_malloc(i64 noundef) #4
 
+; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
+declare i1 @llvm.is.constant.i64(i64) #5
+
+; Function Attrs: null_pointer_is_valid allocsize(0,1)
+declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) #6
+
+; Function Attrs: null_pointer_is_valid
 declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal void @get_hash_key(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @get_hash_key(ptr noundef %0, ptr noundef %1, ptr noundef %2) #7 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -462,32 +572,37 @@ define internal void @get_hash_key(ptr noundef %0, ptr noundef %1, ptr noundef %
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
   %9 = load ptr, ptr %4, align 8
   %10 = load i32, ptr %9, align 4
   store i32 %10, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
   %11 = load ptr, ptr %6, align 8
   store ptr %11, ptr %8, align 8
   %12 = load i32, ptr %7, align 4
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds %struct.hash_key_iterator, ptr %13, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct.hash_key_iterator, ptr %13, i32 0, i32 1
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %8, align 8
-  %17 = getelementptr inbounds %struct.hash_key_iterator, ptr %16, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %struct.hash_key_iterator, ptr %16, i32 0, i32 0
   %18 = load i32, ptr %17, align 8
   %19 = sext i32 %18 to i64
   %20 = getelementptr i32, ptr %15, i64 %19
   store i32 %12, ptr %20, align 4
   %21 = load ptr, ptr %8, align 8
-  %22 = getelementptr inbounds %struct.hash_key_iterator, ptr %21, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct.hash_key_iterator, ptr %21, i32 0, i32 0
   %23 = load i32, ptr %22, align 8
   %24 = add i32 %23, 1
   store i32 %24, ptr %22, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @stnode_type_id(ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @gen_test(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -499,6 +614,12 @@ define internal void @gen_test(ptr noundef %0, ptr noundef %1) #0 {
   %10 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
   %11 = load ptr, ptr %4, align 8
   call void @sttype_oper_get(ptr noundef %11, ptr noundef %5, ptr noundef %7, ptr noundef %8)
   %12 = load ptr, ptr %4, align 8
@@ -553,7 +674,7 @@ define internal void @gen_test(ptr noundef %0, ptr noundef %1) #0 {
   %28 = load ptr, ptr %10, align 8
   %29 = call ptr @dfvm_value_ref(ptr noundef %28)
   %30 = load ptr, ptr %9, align 8
-  %31 = getelementptr inbounds %struct.dfvm_insn_t, ptr %30, i32 0, i32 2
+  %31 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %30, i32 0, i32 2
   store ptr %29, ptr %31, align 8
   %32 = load ptr, ptr %3, align 8
   %33 = load ptr, ptr %9, align 8
@@ -562,10 +683,10 @@ define internal void @gen_test(ptr noundef %0, ptr noundef %1) #0 {
   %35 = load ptr, ptr %8, align 8
   %36 = call ptr @gencode(ptr noundef %34, ptr noundef %35)
   %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr inbounds %struct.dfwork_t, ptr %37, i32 0, i32 8
+  %38 = getelementptr inbounds nuw %struct.dfwork_t, ptr %37, i32 0, i32 8
   %39 = load i32, ptr %38, align 8
   %40 = load ptr, ptr %10, align 8
-  %41 = getelementptr inbounds %struct.dfvm_value_t, ptr %40, i32 0, i32 1
+  %41 = getelementptr inbounds nuw %struct.dfvm_value_t, ptr %40, i32 0, i32 1
   store i32 %39, ptr %41, align 8
   br label %125
 
@@ -580,7 +701,7 @@ define internal void @gen_test(ptr noundef %0, ptr noundef %1) #0 {
   %48 = load ptr, ptr %10, align 8
   %49 = call ptr @dfvm_value_ref(ptr noundef %48)
   %50 = load ptr, ptr %9, align 8
-  %51 = getelementptr inbounds %struct.dfvm_insn_t, ptr %50, i32 0, i32 2
+  %51 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %50, i32 0, i32 2
   store ptr %49, ptr %51, align 8
   %52 = load ptr, ptr %3, align 8
   %53 = load ptr, ptr %9, align 8
@@ -589,10 +710,10 @@ define internal void @gen_test(ptr noundef %0, ptr noundef %1) #0 {
   %55 = load ptr, ptr %8, align 8
   %56 = call ptr @gencode(ptr noundef %54, ptr noundef %55)
   %57 = load ptr, ptr %3, align 8
-  %58 = getelementptr inbounds %struct.dfwork_t, ptr %57, i32 0, i32 8
+  %58 = getelementptr inbounds nuw %struct.dfwork_t, ptr %57, i32 0, i32 8
   %59 = load i32, ptr %58, align 8
   %60 = load ptr, ptr %10, align 8
-  %61 = getelementptr inbounds %struct.dfvm_value_t, ptr %60, i32 0, i32 1
+  %61 = getelementptr inbounds nuw %struct.dfvm_value_t, ptr %60, i32 0, i32 1
   store i32 %59, ptr %61, align 8
   br label %125
 
@@ -695,14 +816,20 @@ define internal void @gen_test(ptr noundef %0, ptr noundef %1) #0 {
 122:                                              ; preds = %2, %2, %2, %2, %2, %2, %2, %2
   %123 = load i32, ptr %5, align 4
   %124 = call ptr @stnode_op_name(i32 noundef %123)
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef @.str, i32 noundef 7, ptr noundef @.str.1, i64 noundef 812, ptr noundef @__func__.gen_test, ptr noundef @.str.3, ptr noundef %124) #6
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef @.str, i32 noundef 7, ptr noundef @.str.1, i64 noundef 829, ptr noundef @__func__.gen_test, ptr noundef @.str.3, ptr noundef %124) #11
   unreachable
 
-125:                                              ; preds = %117, %112, %107, %102, %97, %92, %87, %82, %77, %72, %67, %62, %42, %22, %15, %2
+125:                                              ; preds = %2, %117, %112, %107, %102, %97, %92, %87, %82, %77, %72, %67, %62, %42, %22, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @gen_field(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -710,6 +837,8 @@ define internal ptr @gen_field(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
   store ptr null, ptr %6, align 8
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
@@ -721,10 +850,12 @@ define internal ptr @gen_field(ptr noundef %0, ptr noundef %1) #0 {
   %12 = load ptr, ptr %6, align 8
   call void @g_slist_free(ptr noundef %12)
   %13 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
   ret ptr %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @gen_exists(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -735,7 +866,12 @@ define internal void @gen_exists(ptr noundef %0, ptr noundef %1) #0 {
   %9 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
   store ptr null, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
   store ptr null, ptr %9, align 8
   %10 = load ptr, ptr %4, align 8
   %11 = call ptr @sttype_field_hfinfo(ptr noundef %10)
@@ -747,18 +883,18 @@ define internal void @gen_exists(ptr noundef %0, ptr noundef %1) #0 {
 
 14:                                               ; preds = %19, %2
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds %struct._header_field_info, ptr %15, i32 0, i32 10
+  %16 = getelementptr inbounds nuw %struct._header_field_info, ptr %15, i32 0, i32 10
   %17 = load i32, ptr %16, align 4
   %18 = icmp ne i32 %17, -1
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr inbounds %struct._header_field_info, ptr %20, i32 0, i32 10
+  %21 = getelementptr inbounds nuw %struct._header_field_info, ptr %20, i32 0, i32 10
   %22 = load i32, ptr %21, align 4
   %23 = call ptr @proto_registrar_get_nth(i32 noundef %22)
   store ptr %23, ptr %8, align 8
-  br label %14, !llvm.loop !6
+  br label %14, !llvm.loop !10
 
 24:                                               ; preds = %14
   %25 = load ptr, ptr %8, align 8
@@ -785,12 +921,12 @@ define internal void @gen_exists(ptr noundef %0, ptr noundef %1) #0 {
   %37 = load ptr, ptr %6, align 8
   %38 = call ptr @dfvm_value_ref(ptr noundef %37)
   %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds %struct.dfvm_insn_t, ptr %39, i32 0, i32 2
+  %40 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %39, i32 0, i32 2
   store ptr %38, ptr %40, align 8
   %41 = load ptr, ptr %7, align 8
   %42 = call ptr @dfvm_value_ref(ptr noundef %41)
   %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds %struct.dfvm_insn_t, ptr %43, i32 0, i32 3
+  %44 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %43, i32 0, i32 3
   store ptr %42, ptr %44, align 8
   br label %51
 
@@ -800,7 +936,7 @@ define internal void @gen_exists(ptr noundef %0, ptr noundef %1) #0 {
   %47 = load ptr, ptr %6, align 8
   %48 = call ptr @dfvm_value_ref(ptr noundef %47)
   %49 = load ptr, ptr %5, align 8
-  %50 = getelementptr inbounds %struct.dfvm_insn_t, ptr %49, i32 0, i32 2
+  %50 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %49, i32 0, i32 2
   store ptr %48, ptr %50, align 8
   br label %51
 
@@ -817,22 +953,27 @@ define internal void @gen_exists(ptr noundef %0, ptr noundef %1) #0 {
 
 57:                                               ; preds = %54
   %58 = load ptr, ptr %3, align 8
-  %59 = getelementptr inbounds %struct.dfwork_t, ptr %58, i32 0, i32 7
+  %59 = getelementptr inbounds nuw %struct.dfwork_t, ptr %58, i32 0, i32 7
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %8, align 8
-  %62 = getelementptr inbounds %struct._header_field_info, ptr %61, i32 0, i32 7
+  %62 = getelementptr inbounds nuw %struct._header_field_info, ptr %61, i32 0, i32 7
   %63 = call i32 @g_hash_table_add(ptr noundef %60, ptr noundef %62)
   %64 = load ptr, ptr %8, align 8
-  %65 = getelementptr inbounds %struct._header_field_info, ptr %64, i32 0, i32 11
+  %65 = getelementptr inbounds nuw %struct._header_field_info, ptr %64, i32 0, i32 11
   %66 = load ptr, ptr %65, align 8
   store ptr %66, ptr %8, align 8
-  br label %54, !llvm.loop !7
+  br label %54, !llvm.loop !11
 
 67:                                               ; preds = %54
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @gen_notzero(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -841,6 +982,9 @@ define internal ptr @gen_notzero(ptr noundef %0, ptr noundef %1) #0 {
   %7 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
   store ptr null, ptr %7, align 8
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
@@ -851,7 +995,7 @@ define internal ptr @gen_notzero(ptr noundef %0, ptr noundef %1) #0 {
   %12 = load ptr, ptr %6, align 8
   %13 = call ptr @dfvm_value_ref(ptr noundef %12)
   %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds %struct.dfvm_insn_t, ptr %14, i32 0, i32 2
+  %15 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %14, i32 0, i32 2
   store ptr %13, ptr %15, align 8
   %16 = load ptr, ptr %3, align 8
   %17 = load ptr, ptr %5, align 8
@@ -862,10 +1006,13 @@ define internal ptr @gen_notzero(ptr noundef %0, ptr noundef %1) #0 {
   %20 = load ptr, ptr %7, align 8
   call void @g_slist_free(ptr noundef %20)
   %21 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
   ret ptr %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @gen_notzero_slice(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -875,6 +1022,10 @@ define internal ptr @gen_notzero_slice(ptr noundef %0, ptr noundef %1) #0 {
   %8 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
   store ptr null, ptr %8, align 8
   %9 = load ptr, ptr %3, align 8
   %10 = load ptr, ptr %4, align 8
@@ -885,10 +1036,10 @@ define internal ptr @gen_notzero_slice(ptr noundef %0, ptr noundef %1) #0 {
   %13 = load ptr, ptr %6, align 8
   %14 = call ptr @dfvm_value_ref(ptr noundef %13)
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds %struct.dfvm_insn_t, ptr %15, i32 0, i32 2
+  %16 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %15, i32 0, i32 2
   store ptr %14, ptr %16, align 8
   %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.dfwork_t, ptr %17, i32 0, i32 9
+  %18 = getelementptr inbounds nuw %struct.dfwork_t, ptr %17, i32 0, i32 9
   %19 = load i32, ptr %18, align 4
   %20 = add i32 %19, 1
   store i32 %20, ptr %18, align 4
@@ -897,7 +1048,7 @@ define internal ptr @gen_notzero_slice(ptr noundef %0, ptr noundef %1) #0 {
   %22 = load ptr, ptr %7, align 8
   %23 = call ptr @dfvm_value_ref(ptr noundef %22)
   %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct.dfvm_insn_t, ptr %24, i32 0, i32 3
+  %25 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %24, i32 0, i32 3
   store ptr %23, ptr %25, align 8
   %26 = load ptr, ptr %3, align 8
   %27 = load ptr, ptr %5, align 8
@@ -907,7 +1058,7 @@ define internal ptr @gen_notzero_slice(ptr noundef %0, ptr noundef %1) #0 {
   %29 = load ptr, ptr %7, align 8
   %30 = call ptr @dfvm_value_ref(ptr noundef %29)
   %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.dfvm_insn_t, ptr %31, i32 0, i32 2
+  %32 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %31, i32 0, i32 2
   store ptr %30, ptr %32, align 8
   %33 = load ptr, ptr %3, align 8
   %34 = load ptr, ptr %5, align 8
@@ -918,21 +1069,29 @@ define internal ptr @gen_notzero_slice(ptr noundef %0, ptr noundef %1) #0 {
   %37 = load ptr, ptr %8, align 8
   call void @g_slist_free(ptr noundef %37)
   %38 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
   ret ptr %38
 }
 
-; Function Attrs: noreturn
-declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) #4
+; Function Attrs: noreturn null_pointer_is_valid
+declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) #8
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @sttype_name(i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @sttype_oper_get(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @sttype_test_get_match(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @dfvm_value_new(i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @gen_relation(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -947,7 +1106,10 @@ define internal void @gen_relation(ptr noundef %0, i32 noundef %1, i32 noundef %
   store i32 %2, ptr %8, align 4
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
   store ptr null, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
   %14 = load ptr, ptr %6, align 8
   %15 = load ptr, ptr %9, align 8
   %16 = call ptr @gen_entity(ptr noundef %14, ptr noundef %15, ptr noundef %11)
@@ -971,10 +1133,13 @@ define internal void @gen_relation(ptr noundef %0, i32 noundef %1, i32 noundef %
   %29 = load ptr, ptr %11, align 8
   call void @g_slist_free(ptr noundef %29)
   store ptr null, ptr %11, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @gen_relation_in(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -996,8 +1161,18 @@ define internal void @gen_relation_in(ptr noundef %0, i32 noundef %1, i32 nounde
   store i32 %2, ptr %8, align 4
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
   store ptr null, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
   store ptr null, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #10
   %21 = load ptr, ptr %6, align 8
   %22 = load ptr, ptr %9, align 8
   %23 = call ptr @gen_entity(ptr noundef %21, ptr noundef %22, ptr noundef %12)
@@ -1015,7 +1190,7 @@ define internal void @gen_relation_in(ptr noundef %0, i32 noundef %1, i32 nounde
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr %20, align 8
-  %31 = getelementptr inbounds %struct._GSList, ptr %30, i32 0, i32 0
+  %31 = getelementptr inbounds nuw %struct._GSList, ptr %30, i32 0, i32 0
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %17, align 8
   %33 = load ptr, ptr %20, align 8
@@ -1024,7 +1199,7 @@ define internal void @gen_relation_in(ptr noundef %0, i32 noundef %1, i32 nounde
 
 35:                                               ; preds = %29
   %36 = load ptr, ptr %20, align 8
-  %37 = getelementptr inbounds %struct._GSList, ptr %36, i32 0, i32 1
+  %37 = getelementptr inbounds nuw %struct._GSList, ptr %36, i32 0, i32 1
   %38 = load ptr, ptr %37, align 8
   br label %40
 
@@ -1035,7 +1210,7 @@ define internal void @gen_relation_in(ptr noundef %0, i32 noundef %1, i32 nounde
   %41 = phi ptr [ %38, %35 ], [ null, %39 ]
   store ptr %41, ptr %20, align 8
   %42 = load ptr, ptr %20, align 8
-  %43 = getelementptr inbounds %struct._GSList, ptr %42, i32 0, i32 0
+  %43 = getelementptr inbounds nuw %struct._GSList, ptr %42, i32 0, i32 0
   %44 = load ptr, ptr %43, align 8
   store ptr %44, ptr %18, align 8
   %45 = load ptr, ptr %20, align 8
@@ -1044,7 +1219,7 @@ define internal void @gen_relation_in(ptr noundef %0, i32 noundef %1, i32 nounde
 
 47:                                               ; preds = %40
   %48 = load ptr, ptr %20, align 8
-  %49 = getelementptr inbounds %struct._GSList, ptr %48, i32 0, i32 1
+  %49 = getelementptr inbounds nuw %struct._GSList, ptr %48, i32 0, i32 1
   %50 = load ptr, ptr %49, align 8
   br label %52
 
@@ -1090,7 +1265,7 @@ define internal void @gen_relation_in(ptr noundef %0, i32 noundef %1, i32 nounde
   %75 = load ptr, ptr %13, align 8
   call void @g_slist_free(ptr noundef %75)
   store ptr null, ptr %13, align 8
-  br label %26, !llvm.loop !8
+  br label %26, !llvm.loop !12
 
 76:                                               ; preds = %26
   %77 = load ptr, ptr %19, align 8
@@ -1103,7 +1278,7 @@ define internal void @gen_relation_in(ptr noundef %0, i32 noundef %1, i32 nounde
   %82 = load ptr, ptr %14, align 8
   %83 = call ptr @dfvm_value_ref(ptr noundef %82)
   %84 = load ptr, ptr %11, align 8
-  %85 = getelementptr inbounds %struct.dfvm_insn_t, ptr %84, i32 0, i32 2
+  %85 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %84, i32 0, i32 2
   store ptr %83, ptr %85, align 8
   %86 = load ptr, ptr %6, align 8
   %87 = load ptr, ptr %11, align 8
@@ -1119,12 +1294,23 @@ define internal void @gen_relation_in(ptr noundef %0, i32 noundef %1, i32 nounde
   %93 = load ptr, ptr %12, align 8
   call void @g_slist_free(ptr noundef %93)
   store ptr null, ptr %12, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @stnode_op_name(i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @gen_entity(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1137,7 +1323,12 @@ define internal ptr @gen_entity(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
   store ptr null, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #10
   %12 = load ptr, ptr %5, align 8
   %13 = call i32 @stnode_type_id(ptr noundef %12)
   store i32 %13, ptr %7, align 4
@@ -1159,7 +1350,7 @@ define internal ptr @gen_entity(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %24 = load ptr, ptr %4, align 8
   %25 = load ptr, ptr %9, align 8
   %26 = load ptr, ptr %10, align 8
-  %27 = load i8, ptr %11, align 1
+  %27 = load i8, ptr %11, align 1, !range !6, !noundef !7
   %28 = trunc i8 %27 to i1
   %29 = call ptr @dfw_append_read_tree(ptr noundef %24, ptr noundef %25, ptr noundef %26, i1 noundef zeroext %28)
   store ptr %29, ptr %8, align 8
@@ -1227,7 +1418,7 @@ define internal ptr @gen_entity(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %69 = load ptr, ptr %4, align 8
   %70 = load ptr, ptr %9, align 8
   %71 = load ptr, ptr %10, align 8
-  %72 = load i8, ptr %11, align 1
+  %72 = load i8, ptr %11, align 1, !range !6, !noundef !7
   %73 = trunc i8 %72 to i1
   %74 = call ptr @dfw_append_read_reference(ptr noundef %69, ptr noundef %70, ptr noundef %71, i1 noundef zeroext %73)
   store ptr %74, ptr %8, align 8
@@ -1342,7 +1533,7 @@ define internal ptr @gen_entity(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 141:                                              ; preds = %133
   %142 = load ptr, ptr %5, align 8
   %143 = call ptr @stnode_type_name(ptr noundef %142)
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef @.str, i32 noundef 7, ptr noundef @.str.1, i64 noundef 615, ptr noundef @__func__.gen_entity, ptr noundef @.str.4, ptr noundef %143) #6
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef @.str, i32 noundef 7, ptr noundef @.str.1, i64 noundef 632, ptr noundef @__func__.gen_entity, ptr noundef @.str.4, ptr noundef %143) #11
   unreachable
 
 144:                                              ; preds = %136
@@ -1365,10 +1556,15 @@ define internal ptr @gen_entity(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 
 150:                                              ; preds = %149, %57
   %151 = load ptr, ptr %8, align 8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
   ret ptr %151
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @select_opcode(i32 noundef %0, i32 noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -1450,7 +1646,7 @@ define internal i32 @select_opcode(i32 noundef %0, i32 noundef %1) #0 {
 32:                                               ; preds = %10
   %33 = load i32, ptr %4, align 4
   %34 = call ptr @dfvm_opcode_tostr(i32 noundef %33)
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef @.str, i32 noundef 7, ptr noundef @.str.1, i64 noundef 61, ptr noundef @__func__.select_opcode, ptr noundef @.str.6, ptr noundef %34) #6
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef @.str, i32 noundef 7, ptr noundef @.str.1, i64 noundef 61, ptr noundef @__func__.select_opcode, ptr noundef @.str.7, ptr noundef %34) #11
   unreachable
 
 35:                                               ; preds = %30, %20, %8
@@ -1458,7 +1654,7 @@ define internal i32 @select_opcode(i32 noundef %0, i32 noundef %1) #0 {
   ret i32 %36
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @gen_relation_insn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1471,42 +1667,47 @@ define internal void @gen_relation_insn(ptr noundef %0, i32 noundef %1, ptr noun
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
   %12 = load i32, ptr %7, align 4
   %13 = call ptr @dfvm_insn_new(i32 noundef %12)
   store ptr %13, ptr %11, align 8
   %14 = load ptr, ptr %8, align 8
   %15 = call ptr @dfvm_value_ref(ptr noundef %14)
   %16 = load ptr, ptr %11, align 8
-  %17 = getelementptr inbounds %struct.dfvm_insn_t, ptr %16, i32 0, i32 2
+  %17 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %16, i32 0, i32 2
   store ptr %15, ptr %17, align 8
   %18 = load ptr, ptr %9, align 8
   %19 = call ptr @dfvm_value_ref(ptr noundef %18)
   %20 = load ptr, ptr %11, align 8
-  %21 = getelementptr inbounds %struct.dfvm_insn_t, ptr %20, i32 0, i32 3
+  %21 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %20, i32 0, i32 3
   store ptr %19, ptr %21, align 8
   %22 = load ptr, ptr %10, align 8
   %23 = call ptr @dfvm_value_ref(ptr noundef %22)
   %24 = load ptr, ptr %11, align 8
-  %25 = getelementptr inbounds %struct.dfvm_insn_t, ptr %24, i32 0, i32 4
+  %25 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %24, i32 0, i32 4
   store ptr %23, ptr %25, align 8
   %26 = load ptr, ptr %6, align 8
   %27 = load ptr, ptr %11, align 8
   call void @dfw_append_insn(ptr noundef %26, ptr noundef %27)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal void @fixup_jumps(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @fixup_jumps(ptr noundef %0, ptr noundef %1) #7 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
   %7 = load ptr, ptr %3, align 8
   store ptr %7, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
   %8 = load ptr, ptr %4, align 8
   store ptr %8, ptr %6, align 8
   %9 = load ptr, ptr %5, align 8
@@ -1515,26 +1716,32 @@ define internal void @fixup_jumps(ptr noundef %0, ptr noundef %1) #0 {
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.dfwork_t, ptr %12, i32 0, i32 8
+  %13 = getelementptr inbounds nuw %struct.dfwork_t, ptr %12, i32 0, i32 8
   %14 = load i32, ptr %13, align 8
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds %struct.dfvm_value_t, ptr %15, i32 0, i32 1
+  %16 = getelementptr inbounds nuw %struct.dfvm_value_t, ptr %15, i32 0, i32 1
   store i32 %14, ptr %16, align 8
   br label %17
 
 17:                                               ; preds = %11, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @g_slist_free(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @sttype_field_hfinfo(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @sttype_field_drange_steal(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i1 @sttype_field_raw(ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @dfw_append_read_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1553,40 +1760,48 @@ define internal ptr @dfw_append_read_tree(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %2, ptr %7, align 8
   %17 = zext i1 %3 to i8
   store i8 %17, ptr %8, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
   store i32 -1, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #10
   store i8 0, ptr %14, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #10
   br label %18
 
 18:                                               ; preds = %23, %4
   %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct._header_field_info, ptr %19, i32 0, i32 10
+  %20 = getelementptr inbounds nuw %struct._header_field_info, ptr %19, i32 0, i32 10
   %21 = load i32, ptr %20, align 4
   %22 = icmp ne i32 %21, -1
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %18
   %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct._header_field_info, ptr %24, i32 0, i32 10
+  %25 = getelementptr inbounds nuw %struct._header_field_info, ptr %24, i32 0, i32 10
   %26 = load i32, ptr %25, align 4
   %27 = call ptr @proto_registrar_get_nth(i32 noundef %26)
   store ptr %27, ptr %6, align 8
-  br label %18, !llvm.loop !9
+  br label %18, !llvm.loop !13
 
 28:                                               ; preds = %18
-  %29 = load i8, ptr %8, align 1
+  %29 = load i8, ptr %8, align 1, !range !6, !noundef !7
   %30 = trunc i8 %29 to i1
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %28
   %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %struct.dfwork_t, ptr %32, i32 0, i32 6
+  %33 = getelementptr inbounds nuw %struct.dfwork_t, ptr %32, i32 0, i32 6
   %34 = load ptr, ptr %33, align 8
   store ptr %34, ptr %15, align 8
   br label %39
 
 35:                                               ; preds = %28
   %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds %struct.dfwork_t, ptr %36, i32 0, i32 5
+  %37 = getelementptr inbounds nuw %struct.dfwork_t, ptr %36, i32 0, i32 5
   %38 = load ptr, ptr %37, align 8
   store ptr %38, ptr %15, align 8
   br label %39
@@ -1615,7 +1830,7 @@ define internal ptr @dfw_append_read_tree(ptr noundef %0, ptr noundef %1, ptr no
 
 53:                                               ; preds = %45
   %54 = load ptr, ptr %5, align 8
-  %55 = getelementptr inbounds %struct.dfwork_t, ptr %54, i32 0, i32 9
+  %55 = getelementptr inbounds nuw %struct.dfwork_t, ptr %54, i32 0, i32 9
   %56 = load i32, ptr %55, align 4
   %57 = add i32 %56, 1
   store i32 %57, ptr %55, align 4
@@ -1627,7 +1842,7 @@ define internal ptr @dfw_append_read_tree(ptr noundef %0, ptr noundef %1, ptr no
 
 59:                                               ; preds = %39
   %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds %struct.dfwork_t, ptr %60, i32 0, i32 9
+  %61 = getelementptr inbounds nuw %struct.dfwork_t, ptr %60, i32 0, i32 9
   %62 = load i32, ptr %61, align 4
   %63 = add i32 %62, 1
   store i32 %63, ptr %61, align 4
@@ -1644,7 +1859,7 @@ define internal ptr @dfw_append_read_tree(ptr noundef %0, ptr noundef %1, ptr no
 
 71:                                               ; preds = %59, %58
   %72 = load ptr, ptr %6, align 8
-  %73 = load i8, ptr %8, align 1
+  %73 = load i8, ptr %8, align 1, !range !6, !noundef !7
   %74 = trunc i8 %73 to i1
   %75 = call ptr @dfvm_value_new_hfinfo(ptr noundef %72, i1 noundef zeroext %74)
   store ptr %75, ptr %12, align 8
@@ -1673,22 +1888,22 @@ define internal ptr @dfw_append_read_tree(ptr noundef %0, ptr noundef %1, ptr no
   %87 = load ptr, ptr %12, align 8
   %88 = call ptr @dfvm_value_ref(ptr noundef %87)
   %89 = load ptr, ptr %9, align 8
-  %90 = getelementptr inbounds %struct.dfvm_insn_t, ptr %89, i32 0, i32 2
+  %90 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %89, i32 0, i32 2
   store ptr %88, ptr %90, align 8
   %91 = load ptr, ptr %11, align 8
   %92 = call ptr @dfvm_value_ref(ptr noundef %91)
   %93 = load ptr, ptr %9, align 8
-  %94 = getelementptr inbounds %struct.dfvm_insn_t, ptr %93, i32 0, i32 3
+  %94 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %93, i32 0, i32 3
   store ptr %92, ptr %94, align 8
   %95 = load ptr, ptr %13, align 8
   %96 = call ptr @dfvm_value_ref(ptr noundef %95)
   %97 = load ptr, ptr %9, align 8
-  %98 = getelementptr inbounds %struct.dfvm_insn_t, ptr %97, i32 0, i32 4
+  %98 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %97, i32 0, i32 4
   store ptr %96, ptr %98, align 8
   %99 = load ptr, ptr %5, align 8
   %100 = load ptr, ptr %9, align 8
   call void @dfw_append_insn(ptr noundef %99, ptr noundef %100)
-  %101 = load i8, ptr %14, align 1
+  %101 = load i8, ptr %14, align 1, !range !6, !noundef !7
   %102 = trunc i8 %101 to i1
   br i1 %102, label %103, label %118
 
@@ -1702,33 +1917,44 @@ define internal ptr @dfw_append_read_tree(ptr noundef %0, ptr noundef %1, ptr no
 
 107:                                              ; preds = %104
   %108 = load ptr, ptr %5, align 8
-  %109 = getelementptr inbounds %struct.dfwork_t, ptr %108, i32 0, i32 7
+  %109 = getelementptr inbounds nuw %struct.dfwork_t, ptr %108, i32 0, i32 7
   %110 = load ptr, ptr %109, align 8
   %111 = load ptr, ptr %6, align 8
-  %112 = getelementptr inbounds %struct._header_field_info, ptr %111, i32 0, i32 7
+  %112 = getelementptr inbounds nuw %struct._header_field_info, ptr %111, i32 0, i32 7
   %113 = call i32 @g_hash_table_add(ptr noundef %110, ptr noundef %112)
   %114 = load ptr, ptr %6, align 8
-  %115 = getelementptr inbounds %struct._header_field_info, ptr %114, i32 0, i32 11
+  %115 = getelementptr inbounds nuw %struct._header_field_info, ptr %114, i32 0, i32 11
   %116 = load ptr, ptr %115, align 8
   store ptr %116, ptr %6, align 8
-  br label %104, !llvm.loop !10
+  br label %104, !llvm.loop !14
 
 117:                                              ; preds = %104
   br label %118
 
 118:                                              ; preds = %117, %86
   %119 = load ptr, ptr %11, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
   ret ptr %119
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @g_slist_prepend(ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @dfw_append_jump(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
   %5 = call ptr @dfvm_insn_new(i32 noundef 2)
   store ptr %5, ptr %3, align 8
   %6 = call ptr @dfvm_value_new(i32 noundef 4)
@@ -1736,18 +1962,21 @@ define internal ptr @dfw_append_jump(ptr noundef %0) #0 {
   %7 = load ptr, ptr %4, align 8
   %8 = call ptr @dfvm_value_ref(ptr noundef %7)
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.dfvm_insn_t, ptr %9, i32 0, i32 2
+  %10 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %9, i32 0, i32 2
   store ptr %8, ptr %10, align 8
   %11 = load ptr, ptr %2, align 8
   %12 = load ptr, ptr %3, align 8
   call void @dfw_append_insn(ptr noundef %11, ptr noundef %12)
   %13 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret ptr %13
 }
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i1 @sttype_field_value_string(ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @dfw_append_mk_value_string(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1758,6 +1987,9 @@ define internal ptr @dfw_append_mk_value_string(ptr noundef %0, ptr noundef %1, 
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
   %10 = call ptr @dfvm_insn_new(i32 noundef 37)
   store ptr %10, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -1767,15 +1999,15 @@ define internal ptr @dfw_append_mk_value_string(ptr noundef %0, ptr noundef %1, 
   %14 = load ptr, ptr %9, align 8
   %15 = call ptr @dfvm_value_ref(ptr noundef %14)
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds %struct.dfvm_insn_t, ptr %16, i32 0, i32 2
+  %17 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %16, i32 0, i32 2
   store ptr %15, ptr %17, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call ptr @dfvm_value_ref(ptr noundef %18)
   %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds %struct.dfvm_insn_t, ptr %20, i32 0, i32 3
+  %21 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %20, i32 0, i32 3
   store ptr %19, ptr %21, align 8
   %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %struct.dfwork_t, ptr %22, i32 0, i32 9
+  %23 = getelementptr inbounds nuw %struct.dfwork_t, ptr %22, i32 0, i32 9
   %24 = load i32, ptr %23, align 4
   %25 = add i32 %24, 1
   store i32 %25, ptr %23, align 4
@@ -1784,16 +2016,19 @@ define internal ptr @dfw_append_mk_value_string(ptr noundef %0, ptr noundef %1, 
   %27 = load ptr, ptr %8, align 8
   %28 = call ptr @dfvm_value_ref(ptr noundef %27)
   %29 = load ptr, ptr %7, align 8
-  %30 = getelementptr inbounds %struct.dfvm_insn_t, ptr %29, i32 0, i32 4
+  %30 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %29, i32 0, i32 4
   store ptr %28, ptr %30, align 8
   %31 = load ptr, ptr %4, align 8
   %32 = load ptr, ptr %7, align 8
   call void @dfw_append_insn(ptr noundef %31, ptr noundef %32)
   %33 = load ptr, ptr %8, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
   ret ptr %33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @dfw_append_read_reference(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1809,31 +2044,36 @@ define internal ptr @dfw_append_read_reference(ptr noundef %0, ptr noundef %1, p
   store ptr %2, ptr %7, align 8
   %14 = zext i1 %3 to i8
   store i8 %14, ptr %8, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
   br label %15
 
 15:                                               ; preds = %20, %4
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %struct._header_field_info, ptr %16, i32 0, i32 10
+  %17 = getelementptr inbounds nuw %struct._header_field_info, ptr %16, i32 0, i32 10
   %18 = load i32, ptr %17, align 4
   %19 = icmp ne i32 %18, -1
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct._header_field_info, ptr %21, i32 0, i32 10
+  %22 = getelementptr inbounds nuw %struct._header_field_info, ptr %21, i32 0, i32 10
   %23 = load i32, ptr %22, align 4
   %24 = call ptr @proto_registrar_get_nth(i32 noundef %23)
   store ptr %24, ptr %6, align 8
-  br label %15, !llvm.loop !11
+  br label %15, !llvm.loop !15
 
 25:                                               ; preds = %15
   %26 = load ptr, ptr %6, align 8
-  %27 = load i8, ptr %8, align 1
+  %27 = load i8, ptr %8, align 1, !range !6, !noundef !7
   %28 = trunc i8 %27 to i1
   %29 = call ptr @dfvm_value_new_hfinfo(ptr noundef %26, i1 noundef zeroext %28)
   store ptr %29, ptr %11, align 8
   %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %struct.dfwork_t, ptr %30, i32 0, i32 9
+  %31 = getelementptr inbounds nuw %struct.dfwork_t, ptr %30, i32 0, i32 9
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %32, 1
   store i32 %33, ptr %31, align 4
@@ -1861,30 +2101,30 @@ define internal ptr @dfw_append_read_reference(ptr noundef %0, ptr noundef %1, p
   %44 = load ptr, ptr %11, align 8
   %45 = call ptr @dfvm_value_ref(ptr noundef %44)
   %46 = load ptr, ptr %9, align 8
-  %47 = getelementptr inbounds %struct.dfvm_insn_t, ptr %46, i32 0, i32 2
+  %47 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %46, i32 0, i32 2
   store ptr %45, ptr %47, align 8
   %48 = load ptr, ptr %10, align 8
   %49 = call ptr @dfvm_value_ref(ptr noundef %48)
   %50 = load ptr, ptr %9, align 8
-  %51 = getelementptr inbounds %struct.dfvm_insn_t, ptr %50, i32 0, i32 3
+  %51 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %50, i32 0, i32 3
   store ptr %49, ptr %51, align 8
   %52 = load ptr, ptr %12, align 8
   %53 = call ptr @dfvm_value_ref(ptr noundef %52)
   %54 = load ptr, ptr %9, align 8
-  %55 = getelementptr inbounds %struct.dfvm_insn_t, ptr %54, i32 0, i32 4
+  %55 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %54, i32 0, i32 4
   store ptr %53, ptr %55, align 8
   %56 = load ptr, ptr %5, align 8
   %57 = load ptr, ptr %9, align 8
   call void @dfw_append_insn(ptr noundef %56, ptr noundef %57)
   %58 = call ptr @g_ptr_array_new_with_free_func(ptr noundef @reference_free)
   store ptr %58, ptr %13, align 8
-  %59 = load i8, ptr %8, align 1
+  %59 = load i8, ptr %8, align 1, !range !6, !noundef !7
   %60 = trunc i8 %59 to i1
   br i1 %60, label %61, label %68
 
 61:                                               ; preds = %43
   %62 = load ptr, ptr %5, align 8
-  %63 = getelementptr inbounds %struct.dfwork_t, ptr %62, i32 0, i32 12
+  %63 = getelementptr inbounds nuw %struct.dfwork_t, ptr %62, i32 0, i32 12
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %6, align 8
   %66 = load ptr, ptr %13, align 8
@@ -1893,7 +2133,7 @@ define internal ptr @dfw_append_read_reference(ptr noundef %0, ptr noundef %1, p
 
 68:                                               ; preds = %43
   %69 = load ptr, ptr %5, align 8
-  %70 = getelementptr inbounds %struct.dfwork_t, ptr %69, i32 0, i32 11
+  %70 = getelementptr inbounds nuw %struct.dfwork_t, ptr %69, i32 0, i32 11
   %71 = load ptr, ptr %70, align 8
   %72 = load ptr, ptr %6, align 8
   %73 = load ptr, ptr %13, align 8
@@ -1910,27 +2150,34 @@ define internal ptr @dfw_append_read_reference(ptr noundef %0, ptr noundef %1, p
 
 79:                                               ; preds = %76
   %80 = load ptr, ptr %5, align 8
-  %81 = getelementptr inbounds %struct.dfwork_t, ptr %80, i32 0, i32 7
+  %81 = getelementptr inbounds nuw %struct.dfwork_t, ptr %80, i32 0, i32 7
   %82 = load ptr, ptr %81, align 8
   %83 = load ptr, ptr %6, align 8
-  %84 = getelementptr inbounds %struct._header_field_info, ptr %83, i32 0, i32 7
+  %84 = getelementptr inbounds nuw %struct._header_field_info, ptr %83, i32 0, i32 7
   %85 = call i32 @g_hash_table_add(ptr noundef %82, ptr noundef %84)
   %86 = load ptr, ptr %6, align 8
-  %87 = getelementptr inbounds %struct._header_field_info, ptr %86, i32 0, i32 11
+  %87 = getelementptr inbounds nuw %struct._header_field_info, ptr %86, i32 0, i32 11
   %88 = load ptr, ptr %87, align 8
   store ptr %88, ptr %6, align 8
-  br label %76, !llvm.loop !12
+  br label %76, !llvm.loop !16
 
 89:                                               ; preds = %76
   %90 = load ptr, ptr %10, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
   ret ptr %90
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @dfvm_value_new_fvalue(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @stnode_steal_data(ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @dfw_append_mk_slice(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1943,6 +2190,11 @@ define internal ptr @dfw_append_mk_slice(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
   %12 = load ptr, ptr %5, align 8
   %13 = call ptr @sttype_slice_entity(ptr noundef %12)
   store ptr %13, ptr %7, align 8
@@ -1956,10 +2208,10 @@ define internal ptr @dfw_append_mk_slice(ptr noundef %0, ptr noundef %1, ptr nou
   %19 = load ptr, ptr %10, align 8
   %20 = call ptr @dfvm_value_ref(ptr noundef %19)
   %21 = load ptr, ptr %8, align 8
-  %22 = getelementptr inbounds %struct.dfvm_insn_t, ptr %21, i32 0, i32 2
+  %22 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %21, i32 0, i32 2
   store ptr %20, ptr %22, align 8
   %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %struct.dfwork_t, ptr %23, i32 0, i32 9
+  %24 = getelementptr inbounds nuw %struct.dfwork_t, ptr %23, i32 0, i32 9
   %25 = load i32, ptr %24, align 4
   %26 = add i32 %25, 1
   store i32 %26, ptr %24, align 4
@@ -1968,7 +2220,7 @@ define internal ptr @dfw_append_mk_slice(ptr noundef %0, ptr noundef %1, ptr nou
   %28 = load ptr, ptr %9, align 8
   %29 = call ptr @dfvm_value_ref(ptr noundef %28)
   %30 = load ptr, ptr %8, align 8
-  %31 = getelementptr inbounds %struct.dfvm_insn_t, ptr %30, i32 0, i32 3
+  %31 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %30, i32 0, i32 3
   store ptr %29, ptr %31, align 8
   %32 = load ptr, ptr %5, align 8
   %33 = call ptr @sttype_slice_drange_steal(ptr noundef %32)
@@ -1977,7 +2229,7 @@ define internal ptr @dfw_append_mk_slice(ptr noundef %0, ptr noundef %1, ptr nou
   %35 = load ptr, ptr %11, align 8
   %36 = call ptr @dfvm_value_ref(ptr noundef %35)
   %37 = load ptr, ptr %8, align 8
-  %38 = getelementptr inbounds %struct.dfvm_insn_t, ptr %37, i32 0, i32 4
+  %38 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %37, i32 0, i32 4
   store ptr %36, ptr %38, align 8
   %39 = load ptr, ptr %5, align 8
   call void @sttype_slice_remove_drange(ptr noundef %39)
@@ -1985,10 +2237,15 @@ define internal ptr @dfw_append_mk_slice(ptr noundef %0, ptr noundef %1, ptr nou
   %41 = load ptr, ptr %8, align 8
   call void @dfw_append_insn(ptr noundef %40, ptr noundef %41)
   %42 = load ptr, ptr %9, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
   ret ptr %42
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @dfw_append_function(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2004,138 +2261,182 @@ define internal ptr @dfw_append_function(ptr noundef %0, ptr noundef %1, ptr nou
   %15 = alloca i32, align 4
   %16 = alloca ptr, align 8
   %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #10
   store ptr null, ptr %17, align 8
-  %18 = load ptr, ptr %6, align 8
-  %19 = call ptr @sttype_function_funcdef(ptr noundef %18)
-  store ptr %19, ptr %16, align 8
-  %20 = load ptr, ptr %16, align 8
-  %21 = getelementptr inbounds %struct.df_func_def_t, ptr %20, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
-  %23 = call i32 @strcmp(ptr noundef %22, ptr noundef @.str.5) #8
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %30
+  %19 = load ptr, ptr %6, align 8
+  %20 = call ptr @sttype_function_funcdef(ptr noundef %19)
+  store ptr %20, ptr %16, align 8
+  %21 = load ptr, ptr %16, align 8
+  %22 = getelementptr inbounds nuw %struct.df_func_def_t, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8
+  %24 = call i32 @strcmp(ptr noundef %23, ptr noundef @.str.5) #14
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %31
 
-25:                                               ; preds = %3
-  %26 = load ptr, ptr %5, align 8
-  %27 = load ptr, ptr %6, align 8
-  %28 = load ptr, ptr %7, align 8
-  %29 = call ptr @dfw_append_length(ptr noundef %26, ptr noundef %27, ptr noundef %28)
-  store ptr %29, ptr %4, align 8
-  br label %95
+26:                                               ; preds = %3
+  %27 = load ptr, ptr %5, align 8
+  %28 = load ptr, ptr %6, align 8
+  %29 = load ptr, ptr %7, align 8
+  %30 = call ptr @dfw_append_length(ptr noundef %27, ptr noundef %28, ptr noundef %29)
+  store ptr %30, ptr %4, align 8
+  store i32 1, ptr %18, align 4
+  br label %108
 
-30:                                               ; preds = %3
-  %31 = call ptr @dfvm_insn_new(i32 noundef 45)
-  store ptr %31, ptr %10, align 8
+31:                                               ; preds = %3
   %32 = load ptr, ptr %16, align 8
-  %33 = call ptr @dfvm_value_new_funcdef(ptr noundef %32)
-  store ptr %33, ptr %12, align 8
-  %34 = load ptr, ptr %12, align 8
-  %35 = call ptr @dfvm_value_ref(ptr noundef %34)
-  %36 = load ptr, ptr %10, align 8
-  %37 = getelementptr inbounds %struct.dfvm_insn_t, ptr %36, i32 0, i32 2
-  store ptr %35, ptr %37, align 8
+  %33 = getelementptr inbounds nuw %struct.df_func_def_t, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  %35 = call i32 @strcmp(ptr noundef %34, ptr noundef @.str.6) #14
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %42
+
+37:                                               ; preds = %31
   %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct.dfwork_t, ptr %38, i32 0, i32 9
-  %40 = load i32, ptr %39, align 4
-  %41 = add i32 %40, 1
-  store i32 %41, ptr %39, align 4
-  %42 = call ptr @dfvm_value_new_register(i32 noundef %40)
-  store ptr %42, ptr %11, align 8
-  %43 = load ptr, ptr %11, align 8
-  %44 = call ptr @dfvm_value_ref(ptr noundef %43)
-  %45 = load ptr, ptr %10, align 8
-  %46 = getelementptr inbounds %struct.dfvm_insn_t, ptr %45, i32 0, i32 3
-  store ptr %44, ptr %46, align 8
-  %47 = load ptr, ptr %6, align 8
-  %48 = call ptr @sttype_function_params(ptr noundef %47)
-  store ptr %48, ptr %8, align 8
-  br label %49
+  %39 = load ptr, ptr %6, align 8
+  %40 = load ptr, ptr %7, align 8
+  %41 = call ptr @dfw_append_value_string(ptr noundef %38, ptr noundef %39, ptr noundef %40)
+  store ptr %41, ptr %4, align 8
+  store i32 1, ptr %18, align 4
+  br label %108
 
-49:                                               ; preds = %30
-  br label %50
+42:                                               ; preds = %31
+  %43 = call ptr @dfvm_insn_new(i32 noundef 45)
+  store ptr %43, ptr %10, align 8
+  %44 = load ptr, ptr %16, align 8
+  %45 = call ptr @dfvm_value_new_funcdef(ptr noundef %44)
+  store ptr %45, ptr %12, align 8
+  %46 = load ptr, ptr %12, align 8
+  %47 = call ptr @dfvm_value_ref(ptr noundef %46)
+  %48 = load ptr, ptr %10, align 8
+  %49 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %48, i32 0, i32 2
+  store ptr %47, ptr %49, align 8
+  %50 = load ptr, ptr %5, align 8
+  %51 = getelementptr inbounds nuw %struct.dfwork_t, ptr %50, i32 0, i32 9
+  %52 = load i32, ptr %51, align 4
+  %53 = add i32 %52, 1
+  store i32 %53, ptr %51, align 4
+  %54 = call ptr @dfvm_value_new_register(i32 noundef %52)
+  store ptr %54, ptr %11, align 8
+  %55 = load ptr, ptr %11, align 8
+  %56 = call ptr @dfvm_value_ref(ptr noundef %55)
+  %57 = load ptr, ptr %10, align 8
+  %58 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %57, i32 0, i32 3
+  store ptr %56, ptr %58, align 8
+  %59 = load ptr, ptr %6, align 8
+  %60 = call ptr @sttype_function_params(ptr noundef %59)
+  store ptr %60, ptr %8, align 8
+  br label %61
 
-50:                                               ; preds = %49
+61:                                               ; preds = %42
+  br label %62
+
+62:                                               ; preds = %61
+  br label %63
+
+63:                                               ; preds = %62
   store i32 0, ptr %15, align 4
-  br label %51
+  br label %64
 
-51:                                               ; preds = %54, %50
-  %52 = load ptr, ptr %8, align 8
-  %53 = icmp ne ptr %52, null
-  br i1 %53, label %54, label %70
+64:                                               ; preds = %67, %63
+  %65 = load ptr, ptr %8, align 8
+  %66 = icmp ne ptr %65, null
+  br i1 %66, label %67, label %83
 
-54:                                               ; preds = %51
-  %55 = load ptr, ptr %5, align 8
-  %56 = load ptr, ptr %8, align 8
-  %57 = getelementptr inbounds %struct._GSList, ptr %56, i32 0, i32 0
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr @gen_entity(ptr noundef %55, ptr noundef %58, ptr noundef %17)
-  store ptr %59, ptr %14, align 8
-  %60 = load ptr, ptr %17, align 8
-  %61 = load ptr, ptr %5, align 8
-  call void @g_slist_foreach(ptr noundef %60, ptr noundef @fixup_jumps, ptr noundef %61)
-  %62 = load ptr, ptr %17, align 8
-  call void @g_slist_free(ptr noundef %62)
+67:                                               ; preds = %64
+  %68 = load ptr, ptr %5, align 8
+  %69 = load ptr, ptr %8, align 8
+  %70 = getelementptr inbounds nuw %struct._GSList, ptr %69, i32 0, i32 0
+  %71 = load ptr, ptr %70, align 8
+  %72 = call ptr @gen_entity(ptr noundef %68, ptr noundef %71, ptr noundef %17)
+  store ptr %72, ptr %14, align 8
+  %73 = load ptr, ptr %17, align 8
+  %74 = load ptr, ptr %5, align 8
+  call void @g_slist_foreach(ptr noundef %73, ptr noundef @fixup_jumps, ptr noundef %74)
+  %75 = load ptr, ptr %17, align 8
+  call void @g_slist_free(ptr noundef %75)
   store ptr null, ptr %17, align 8
-  %63 = load ptr, ptr %5, align 8
-  %64 = load ptr, ptr %14, align 8
-  call void @dfw_append_stack_push(ptr noundef %63, ptr noundef %64)
-  %65 = load i32, ptr %15, align 4
-  %66 = add i32 %65, 1
-  store i32 %66, ptr %15, align 4
-  %67 = load ptr, ptr %8, align 8
-  %68 = getelementptr inbounds %struct._GSList, ptr %67, i32 0, i32 1
-  %69 = load ptr, ptr %68, align 8
-  store ptr %69, ptr %8, align 8
-  br label %51, !llvm.loop !13
+  %76 = load ptr, ptr %5, align 8
+  %77 = load ptr, ptr %14, align 8
+  call void @dfw_append_stack_push(ptr noundef %76, ptr noundef %77)
+  %78 = load i32, ptr %15, align 4
+  %79 = add i32 %78, 1
+  store i32 %79, ptr %15, align 4
+  %80 = load ptr, ptr %8, align 8
+  %81 = getelementptr inbounds nuw %struct._GSList, ptr %80, i32 0, i32 1
+  %82 = load ptr, ptr %81, align 8
+  store ptr %82, ptr %8, align 8
+  br label %64, !llvm.loop !17
 
-70:                                               ; preds = %51
-  %71 = load i32, ptr %15, align 4
-  %72 = call ptr @dfvm_value_new_guint(i32 noundef %71)
-  store ptr %72, ptr %13, align 8
-  %73 = load ptr, ptr %13, align 8
-  %74 = call ptr @dfvm_value_ref(ptr noundef %73)
-  %75 = load ptr, ptr %10, align 8
-  %76 = getelementptr inbounds %struct.dfvm_insn_t, ptr %75, i32 0, i32 4
-  store ptr %74, ptr %76, align 8
-  %77 = load ptr, ptr %5, align 8
-  %78 = load ptr, ptr %10, align 8
-  call void @dfw_append_insn(ptr noundef %77, ptr noundef %78)
-  %79 = load ptr, ptr %5, align 8
-  %80 = load i32, ptr %15, align 4
-  call void @dfw_append_stack_pop(ptr noundef %79, i32 noundef %80)
-  %81 = call ptr @dfvm_insn_new(i32 noundef 2)
-  store ptr %81, ptr %10, align 8
-  %82 = call ptr @dfvm_value_new(i32 noundef 4)
-  store ptr %82, ptr %9, align 8
-  %83 = load ptr, ptr %9, align 8
-  %84 = call ptr @dfvm_value_ref(ptr noundef %83)
-  %85 = load ptr, ptr %10, align 8
-  %86 = getelementptr inbounds %struct.dfvm_insn_t, ptr %85, i32 0, i32 2
-  store ptr %84, ptr %86, align 8
-  %87 = load ptr, ptr %5, align 8
+83:                                               ; preds = %64
+  %84 = load i32, ptr %15, align 4
+  %85 = call ptr @dfvm_value_new_uint(i32 noundef %84)
+  store ptr %85, ptr %13, align 8
+  %86 = load ptr, ptr %13, align 8
+  %87 = call ptr @dfvm_value_ref(ptr noundef %86)
   %88 = load ptr, ptr %10, align 8
-  call void @dfw_append_insn(ptr noundef %87, ptr noundef %88)
-  %89 = load ptr, ptr %7, align 8
-  %90 = load ptr, ptr %89, align 8
-  %91 = load ptr, ptr %9, align 8
-  %92 = call ptr @g_slist_prepend(ptr noundef %90, ptr noundef %91)
-  %93 = load ptr, ptr %7, align 8
-  store ptr %92, ptr %93, align 8
-  %94 = load ptr, ptr %11, align 8
-  store ptr %94, ptr %4, align 8
-  br label %95
+  %89 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %88, i32 0, i32 4
+  store ptr %87, ptr %89, align 8
+  %90 = load ptr, ptr %5, align 8
+  %91 = load ptr, ptr %10, align 8
+  call void @dfw_append_insn(ptr noundef %90, ptr noundef %91)
+  %92 = load ptr, ptr %5, align 8
+  %93 = load i32, ptr %15, align 4
+  call void @dfw_append_stack_pop(ptr noundef %92, i32 noundef %93)
+  %94 = call ptr @dfvm_insn_new(i32 noundef 2)
+  store ptr %94, ptr %10, align 8
+  %95 = call ptr @dfvm_value_new(i32 noundef 4)
+  store ptr %95, ptr %9, align 8
+  %96 = load ptr, ptr %9, align 8
+  %97 = call ptr @dfvm_value_ref(ptr noundef %96)
+  %98 = load ptr, ptr %10, align 8
+  %99 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %98, i32 0, i32 2
+  store ptr %97, ptr %99, align 8
+  %100 = load ptr, ptr %5, align 8
+  %101 = load ptr, ptr %10, align 8
+  call void @dfw_append_insn(ptr noundef %100, ptr noundef %101)
+  %102 = load ptr, ptr %7, align 8
+  %103 = load ptr, ptr %102, align 8
+  %104 = load ptr, ptr %9, align 8
+  %105 = call ptr @g_slist_prepend(ptr noundef %103, ptr noundef %104)
+  %106 = load ptr, ptr %7, align 8
+  store ptr %105, ptr %106, align 8
+  %107 = load ptr, ptr %11, align 8
+  store ptr %107, ptr %4, align 8
+  store i32 1, ptr %18, align 4
+  br label %108
 
-95:                                               ; preds = %70, %25
-  %96 = load ptr, ptr %4, align 8
-  ret ptr %96
+108:                                              ; preds = %83, %37, %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  %109 = load ptr, ptr %4, align 8
+  ret ptr %109
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @dfvm_value_new_pcre(ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @gen_arithmetic(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2148,161 +2449,192 @@ define internal ptr @gen_arithmetic(ptr noundef %0, ptr noundef %1, ptr noundef 
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
   %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
   store ptr null, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #10
   store i32 0, ptr %14, align 4
-  %15 = load ptr, ptr %6, align 8
-  call void @sttype_oper_get(ptr noundef %15, ptr noundef %10, ptr noundef %8, ptr noundef %9)
-  %16 = load i32, ptr %10, align 4
-  switch i32 %16, label %27 [
-    i32 17, label %17
-    i32 18, label %18
-    i32 19, label %19
-    i32 20, label %20
-    i32 21, label %21
-    i32 22, label %22
-    i32 16, label %23
-    i32 1, label %24
-    i32 2, label %24
-    i32 3, label %24
-    i32 4, label %24
-    i32 5, label %24
-    i32 6, label %24
-    i32 7, label %24
-    i32 8, label %24
-    i32 9, label %24
-    i32 10, label %24
-    i32 11, label %24
-    i32 12, label %24
-    i32 13, label %24
-    i32 14, label %24
-    i32 15, label %24
-    i32 0, label %24
+  %16 = load ptr, ptr %6, align 8
+  call void @sttype_oper_get(ptr noundef %16, ptr noundef %10, ptr noundef %8, ptr noundef %9)
+  %17 = load i32, ptr %10, align 4
+  switch i32 %17, label %28 [
+    i32 17, label %18
+    i32 18, label %19
+    i32 19, label %20
+    i32 20, label %21
+    i32 21, label %22
+    i32 22, label %23
+    i32 16, label %24
+    i32 1, label %25
+    i32 2, label %25
+    i32 3, label %25
+    i32 4, label %25
+    i32 5, label %25
+    i32 6, label %25
+    i32 7, label %25
+    i32 8, label %25
+    i32 9, label %25
+    i32 10, label %25
+    i32 11, label %25
+    i32 12, label %25
+    i32 13, label %25
+    i32 14, label %25
+    i32 15, label %25
+    i32 0, label %25
   ]
 
-17:                                               ; preds = %3
-  store i32 39, ptr %14, align 4
-  br label %27
-
 18:                                               ; preds = %3
-  store i32 40, ptr %14, align 4
-  br label %27
+  store i32 39, ptr %14, align 4
+  br label %28
 
 19:                                               ; preds = %3
-  store i32 41, ptr %14, align 4
-  br label %27
+  store i32 40, ptr %14, align 4
+  br label %28
 
 20:                                               ; preds = %3
-  store i32 42, ptr %14, align 4
-  br label %27
+  store i32 41, ptr %14, align 4
+  br label %28
 
 21:                                               ; preds = %3
-  store i32 43, ptr %14, align 4
-  br label %27
+  store i32 42, ptr %14, align 4
+  br label %28
 
 22:                                               ; preds = %3
-  store i32 44, ptr %14, align 4
-  br label %27
+  store i32 43, ptr %14, align 4
+  br label %28
 
 23:                                               ; preds = %3
-  store i32 38, ptr %14, align 4
-  br label %27
+  store i32 44, ptr %14, align 4
+  br label %28
 
-24:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
-  %25 = load i32, ptr %10, align 4
-  %26 = call ptr @stnode_op_name(i32 noundef %25)
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef @.str, i32 noundef 7, ptr noundef @.str.1, i64 noundef 538, ptr noundef @__func__.gen_arithmetic, ptr noundef @.str.3, ptr noundef %26) #6
+24:                                               ; preds = %3
+  store i32 38, ptr %14, align 4
+  br label %28
+
+25:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
+  %26 = load i32, ptr %10, align 4
+  %27 = call ptr @stnode_op_name(i32 noundef %26)
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef @.str, i32 noundef 7, ptr noundef @.str.1, i64 noundef 555, ptr noundef @__func__.gen_arithmetic, ptr noundef @.str.3, ptr noundef %27) #11
   unreachable
 
-27:                                               ; preds = %23, %22, %21, %20, %19, %18, %17, %3
-  %28 = load ptr, ptr %5, align 8
-  %29 = load ptr, ptr %8, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = call ptr @gen_entity(ptr noundef %28, ptr noundef %29, ptr noundef %30)
-  store ptr %31, ptr %12, align 8
-  %32 = load ptr, ptr %9, align 8
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %34, label %45
+28:                                               ; preds = %3, %24, %23, %22, %21, %20, %19, %18
+  %29 = load ptr, ptr %5, align 8
+  %30 = load ptr, ptr %8, align 8
+  %31 = load ptr, ptr %7, align 8
+  %32 = call ptr @gen_entity(ptr noundef %29, ptr noundef %30, ptr noundef %31)
+  store ptr %32, ptr %12, align 8
+  %33 = load ptr, ptr %9, align 8
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %46
 
-34:                                               ; preds = %27
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds %struct.dfwork_t, ptr %35, i32 0, i32 9
-  %37 = load i32, ptr %36, align 4
-  %38 = add i32 %37, 1
-  store i32 %38, ptr %36, align 4
-  %39 = call ptr @dfvm_value_new_register(i32 noundef %37)
-  store ptr %39, ptr %11, align 8
-  %40 = load ptr, ptr %5, align 8
-  %41 = load i32, ptr %14, align 4
-  %42 = load ptr, ptr %12, align 8
-  %43 = load ptr, ptr %11, align 8
-  call void @gen_relation_insn(ptr noundef %40, i32 noundef %41, ptr noundef %42, ptr noundef %43, ptr noundef null)
+35:                                               ; preds = %28
+  %36 = load ptr, ptr %5, align 8
+  %37 = getelementptr inbounds nuw %struct.dfwork_t, ptr %36, i32 0, i32 9
+  %38 = load i32, ptr %37, align 4
+  %39 = add i32 %38, 1
+  store i32 %39, ptr %37, align 4
+  %40 = call ptr @dfvm_value_new_register(i32 noundef %38)
+  store ptr %40, ptr %11, align 8
+  %41 = load ptr, ptr %5, align 8
+  %42 = load i32, ptr %14, align 4
+  %43 = load ptr, ptr %12, align 8
   %44 = load ptr, ptr %11, align 8
-  store ptr %44, ptr %4, align 8
-  br label %61
+  call void @gen_relation_insn(ptr noundef %41, i32 noundef %42, ptr noundef %43, ptr noundef %44, ptr noundef null)
+  %45 = load ptr, ptr %11, align 8
+  store ptr %45, ptr %4, align 8
+  store i32 1, ptr %15, align 4
+  br label %62
 
-45:                                               ; preds = %27
-  %46 = load ptr, ptr %5, align 8
-  %47 = load ptr, ptr %9, align 8
-  %48 = load ptr, ptr %7, align 8
-  %49 = call ptr @gen_entity(ptr noundef %46, ptr noundef %47, ptr noundef %48)
-  store ptr %49, ptr %13, align 8
-  %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds %struct.dfwork_t, ptr %50, i32 0, i32 9
-  %52 = load i32, ptr %51, align 4
-  %53 = add i32 %52, 1
-  store i32 %53, ptr %51, align 4
-  %54 = call ptr @dfvm_value_new_register(i32 noundef %52)
-  store ptr %54, ptr %11, align 8
-  %55 = load ptr, ptr %5, align 8
-  %56 = load i32, ptr %14, align 4
-  %57 = load ptr, ptr %12, align 8
-  %58 = load ptr, ptr %13, align 8
-  %59 = load ptr, ptr %11, align 8
-  call void @gen_relation_insn(ptr noundef %55, i32 noundef %56, ptr noundef %57, ptr noundef %58, ptr noundef %59)
+46:                                               ; preds = %28
+  %47 = load ptr, ptr %5, align 8
+  %48 = load ptr, ptr %9, align 8
+  %49 = load ptr, ptr %7, align 8
+  %50 = call ptr @gen_entity(ptr noundef %47, ptr noundef %48, ptr noundef %49)
+  store ptr %50, ptr %13, align 8
+  %51 = load ptr, ptr %5, align 8
+  %52 = getelementptr inbounds nuw %struct.dfwork_t, ptr %51, i32 0, i32 9
+  %53 = load i32, ptr %52, align 4
+  %54 = add i32 %53, 1
+  store i32 %54, ptr %52, align 4
+  %55 = call ptr @dfvm_value_new_register(i32 noundef %53)
+  store ptr %55, ptr %11, align 8
+  %56 = load ptr, ptr %5, align 8
+  %57 = load i32, ptr %14, align 4
+  %58 = load ptr, ptr %12, align 8
+  %59 = load ptr, ptr %13, align 8
   %60 = load ptr, ptr %11, align 8
-  store ptr %60, ptr %4, align 8
-  br label %61
+  call void @gen_relation_insn(ptr noundef %56, i32 noundef %57, ptr noundef %58, ptr noundef %59, ptr noundef %60)
+  %61 = load ptr, ptr %11, align 8
+  store ptr %61, ptr %4, align 8
+  store i32 1, ptr %15, align 4
+  br label %62
 
-61:                                               ; preds = %45, %34
-  %62 = load ptr, ptr %4, align 8
-  ret ptr %62
+62:                                               ; preds = %46, %35
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  %63 = load ptr, ptr %4, align 8
+  ret ptr %63
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @stnode_type_name(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_registrar_get_nth(i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @dfvm_value_new_hfinfo(ptr noundef, i1 noundef zeroext) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @dfvm_value_new_register(i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @dfvm_value_new_drange(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @g_hash_table_add(ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @g_ptr_array_new_with_free_func(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @reference_free(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @sttype_slice_entity(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @sttype_slice_drange_steal(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @sttype_slice_remove_drange(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @sttype_function_funcdef(ptr noundef) #1
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #5
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i32 @strcmp(ptr noundef, ptr noundef) #9
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @dfw_append_length(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2314,6 +2646,10 @@ define internal ptr @dfw_append_length(ptr noundef %0, ptr noundef %1, ptr nound
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
   %11 = call ptr @dfvm_insn_new(i32 noundef 36)
   store ptr %11, ptr %8, align 8
   %12 = load ptr, ptr %5, align 8
@@ -2331,64 +2667,120 @@ define internal ptr @dfw_append_length(ptr noundef %0, ptr noundef %1, ptr nound
   br label %17
 
 17:                                               ; preds = %16
-  %18 = load ptr, ptr %4, align 8
-  %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr inbounds %struct._GSList, ptr %19, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %6, align 8
-  %23 = call ptr @gen_entity(ptr noundef %18, ptr noundef %21, ptr noundef %22)
-  store ptr %23, ptr %10, align 8
-  %24 = load ptr, ptr %10, align 8
-  %25 = call ptr @dfvm_value_ref(ptr noundef %24)
-  %26 = load ptr, ptr %8, align 8
-  %27 = getelementptr inbounds %struct.dfvm_insn_t, ptr %26, i32 0, i32 2
-  store ptr %25, ptr %27, align 8
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct.dfwork_t, ptr %28, i32 0, i32 9
-  %30 = load i32, ptr %29, align 4
-  %31 = add i32 %30, 1
-  store i32 %31, ptr %29, align 4
-  %32 = call ptr @dfvm_value_new_register(i32 noundef %30)
-  store ptr %32, ptr %9, align 8
-  %33 = load ptr, ptr %9, align 8
-  %34 = call ptr @dfvm_value_ref(ptr noundef %33)
-  %35 = load ptr, ptr %8, align 8
-  %36 = getelementptr inbounds %struct.dfvm_insn_t, ptr %35, i32 0, i32 3
-  store ptr %34, ptr %36, align 8
-  %37 = load ptr, ptr %4, align 8
-  %38 = load ptr, ptr %8, align 8
-  call void @dfw_append_insn(ptr noundef %37, ptr noundef %38)
-  %39 = load ptr, ptr %9, align 8
-  ret ptr %39
+  br label %18
+
+18:                                               ; preds = %17
+  br label %19
+
+19:                                               ; preds = %18
+  %20 = load ptr, ptr %4, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds nuw %struct._GSList, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %6, align 8
+  %25 = call ptr @gen_entity(ptr noundef %20, ptr noundef %23, ptr noundef %24)
+  store ptr %25, ptr %10, align 8
+  %26 = load ptr, ptr %10, align 8
+  %27 = call ptr @dfvm_value_ref(ptr noundef %26)
+  %28 = load ptr, ptr %8, align 8
+  %29 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %28, i32 0, i32 2
+  store ptr %27, ptr %29, align 8
+  %30 = load ptr, ptr %4, align 8
+  %31 = getelementptr inbounds nuw %struct.dfwork_t, ptr %30, i32 0, i32 9
+  %32 = load i32, ptr %31, align 4
+  %33 = add i32 %32, 1
+  store i32 %33, ptr %31, align 4
+  %34 = call ptr @dfvm_value_new_register(i32 noundef %32)
+  store ptr %34, ptr %9, align 8
+  %35 = load ptr, ptr %9, align 8
+  %36 = call ptr @dfvm_value_ref(ptr noundef %35)
+  %37 = load ptr, ptr %8, align 8
+  %38 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %37, i32 0, i32 3
+  store ptr %36, ptr %38, align 8
+  %39 = load ptr, ptr %4, align 8
+  %40 = load ptr, ptr %8, align 8
+  call void @dfw_append_insn(ptr noundef %39, ptr noundef %40)
+  %41 = load ptr, ptr %9, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  ret ptr %41
 }
 
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal ptr @dfw_append_value_string(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  %8 = load ptr, ptr %5, align 8
+  %9 = call ptr @sttype_function_params(ptr noundef %8)
+  store ptr %9, ptr %7, align 8
+  br label %10
+
+10:                                               ; preds = %3
+  br label %11
+
+11:                                               ; preds = %10
+  br label %12
+
+12:                                               ; preds = %11
+  br label %13
+
+13:                                               ; preds = %12
+  br label %14
+
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %4, align 8
+  %17 = load ptr, ptr %7, align 8
+  %18 = getelementptr inbounds nuw %struct._GSList, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr %6, align 8
+  %21 = call ptr @gen_entity(ptr noundef %16, ptr noundef %19, ptr noundef %20)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  ret ptr %21
+}
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @dfvm_value_new_funcdef(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @sttype_function_params(ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dfw_append_stack_push(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
   %6 = call ptr @dfvm_insn_new(i32 noundef 46)
   store ptr %6, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = call ptr @dfvm_value_ref(ptr noundef %7)
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.dfvm_insn_t, ptr %9, i32 0, i32 2
+  %10 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %9, i32 0, i32 2
   store ptr %8, ptr %10, align 8
   %11 = load ptr, ptr %3, align 8
   %12 = load ptr, ptr %5, align 8
   call void @dfw_append_insn(ptr noundef %11, ptr noundef %12)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
   ret void
 }
 
-declare ptr @dfvm_value_new_guint(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @dfvm_value_new_uint(i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dfw_append_stack_pop(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -2396,25 +2788,30 @@ define internal void @dfw_append_stack_pop(ptr noundef %0, i32 noundef %1) #0 {
   %6 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
   %7 = call ptr @dfvm_insn_new(i32 noundef 47)
   store ptr %7, ptr %5, align 8
   %8 = load i32, ptr %4, align 4
-  %9 = call ptr @dfvm_value_new_guint(i32 noundef %8)
+  %9 = call ptr @dfvm_value_new_uint(i32 noundef %8)
   store ptr %9, ptr %6, align 8
   %10 = load ptr, ptr %6, align 8
   %11 = call ptr @dfvm_value_ref(ptr noundef %10)
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds %struct.dfvm_insn_t, ptr %12, i32 0, i32 2
+  %13 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %12, i32 0, i32 2
   store ptr %11, ptr %13, align 8
   %14 = load ptr, ptr %3, align 8
   %15 = load ptr, ptr %5, align 8
   call void @dfw_append_insn(ptr noundef %14, ptr noundef %15)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @dfvm_opcode_tostr(i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dfw_append_set_add_range(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2423,73 +2820,90 @@ define internal void @dfw_append_set_add_range(ptr noundef %0, ptr noundef %1, p
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
   %8 = call ptr @dfvm_insn_new(i32 noundef 33)
   store ptr %8, ptr %7, align 8
   %9 = load ptr, ptr %5, align 8
   %10 = call ptr @dfvm_value_ref(ptr noundef %9)
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds %struct.dfvm_insn_t, ptr %11, i32 0, i32 2
+  %12 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %11, i32 0, i32 2
   store ptr %10, ptr %12, align 8
   %13 = load ptr, ptr %6, align 8
   %14 = call ptr @dfvm_value_ref(ptr noundef %13)
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds %struct.dfvm_insn_t, ptr %15, i32 0, i32 3
+  %16 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %15, i32 0, i32 3
   store ptr %14, ptr %16, align 8
   %17 = load ptr, ptr %4, align 8
   %18 = load ptr, ptr %7, align 8
   call void @dfw_append_insn(ptr noundef %17, ptr noundef %18)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dfw_append_set_add(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
   %6 = call ptr @dfvm_insn_new(i32 noundef 32)
   store ptr %6, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = call ptr @dfvm_value_ref(ptr noundef %7)
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.dfvm_insn_t, ptr %9, i32 0, i32 2
+  %10 = getelementptr inbounds nuw %struct.dfvm_insn_t, ptr %9, i32 0, i32 2
   store ptr %8, ptr %10, align 8
   %11 = load ptr, ptr %3, align 8
   %12 = load ptr, ptr %5, align 8
   call void @dfw_append_insn(ptr noundef %11, ptr noundef %12)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @set_nodelist_free(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @g_ptr_array_add(ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @dfvm_insn_replace_no_op(ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn }
-attributes #7 = { allocsize(0,1) }
-attributes #8 = { nounwind willreturn memory(read) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #6 = { null_pointer_is_valid allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn }
+attributes #12 = { allocsize(0) }
+attributes #13 = { allocsize(0,1) }
+attributes #14 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}

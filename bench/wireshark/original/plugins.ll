@@ -2,168 +2,130 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct._plugin = type { ptr, ptr, ptr, i32 }
-%struct.ws_module = type { i32, ptr, ptr, ptr, ptr, ptr }
 %struct._GHashTableIter = type { ptr, ptr, ptr, i32, i32, ptr }
 %struct._GSList = type { ptr, ptr }
 %struct._GPtrArray = type { ptr, i32 }
 
-@.str = private unnamed_addr constant [8 x i8] c"Plugins\00", align 1
-@.str.1 = private unnamed_addr constant [84 x i8] c"Skipping the personal plugin folder because we were started with special privileges\00", align 1
-@.str.2 = private unnamed_addr constant [17 x i8] c"wsutil/plugins.c\00", align 1
-@__func__.plugins_init = private unnamed_addr constant [13 x i8] c"plugins_init\00", align 1
-@.str.3 = private unnamed_addr constant [85 x i8] c"Skipping the global plugin folder because it is the same path as the personal folder\00", align 1
 @plugins_module_list = internal global ptr null, align 8
-@.str.4 = private unnamed_addr constant [16 x i8] c"%-16s\09%s\09%s\09%s\0A\00", align 1
-@.str.5 = private unnamed_addr constant [23 x i8] c"Couldn't load file: %s\00", align 1
-@.str.6 = private unnamed_addr constant [22 x i8] c"wireshark_load_module\00", align 1
-@.str.7 = private unnamed_addr constant [52 x i8] c"The file '%s' has no \22wireshark_load_module\22 symbol\00", align 1
-@.str.8 = private unnamed_addr constant [6 x i8] c"%s.%d\00", align 1
-@.str.9 = private unnamed_addr constant [4 x i8] c".so\00", align 1
-@.str.10 = private unnamed_addr constant [67 x i8] c"The plugin name '%s' is already registered, ignoring the file \22%s\22\00", align 1
-@.str.11 = private unnamed_addr constant [30 x i8] c"Couldn't load plugin '%s': %s\00", align 1
-@.str.12 = private unnamed_addr constant [54 x i8] c"The plugin '%s' has no \22wireshark_load_module\22 symbol\00", align 1
-@.str.13 = private unnamed_addr constant [55 x i8] c"The plugin '%s' has invalid type, expected %s, have %s\00", align 1
-@g_ascii_table = external constant ptr, align 8
-@.str.14 = private unnamed_addr constant [27 x i8] c"Registered plugin: %s (%s)\00", align 1
-@.str.15 = private unnamed_addr constant [5 x i8] c"epan\00", align 1
-@.str.16 = private unnamed_addr constant [8 x i8] c"wiretap\00", align 1
-@.str.17 = private unnamed_addr constant [6 x i8] c"codec\00", align 1
-@.str.18 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
-@.str.19 = private unnamed_addr constant [10 x i8] c"dissector\00", align 1
-@.str.20 = private unnamed_addr constant [10 x i8] c"file type\00", align 1
-@.str.21 = private unnamed_addr constant [13 x i8] c"tap listener\00", align 1
-@.str.22 = private unnamed_addr constant [10 x i8] c"dfunction\00", align 1
-@.str.23 = private unnamed_addr constant [67 x i8] c"The plugin '%s' has incompatible ABI, have version %d, expected %d\00", align 1
-@.str.24 = private unnamed_addr constant [47 x i8] c"The plugin '%s' requires API level %d, have %d\00", align 1
-@.str.25 = private unnamed_addr constant [7 x i8] c"codecs\00", align 1
+@.str = private unnamed_addr constant [4 x i8] c".so\00", align 1
+@.str.1 = private unnamed_addr constant [50 x i8] c"The plugin '%s' was found in multiple directories\00", align 1
+@.str.2 = private unnamed_addr constant [30 x i8] c"Couldn't load plugin '%s': %s\00", align 1
+@.str.3 = private unnamed_addr constant [15 x i8] c"plugin_version\00", align 1
+@.str.4 = private unnamed_addr constant [47 x i8] c"The plugin '%s' has no \22plugin_version\22 symbol\00", align 1
+@.str.5 = private unnamed_addr constant [16 x i8] c"plugin_register\00", align 1
+@.str.6 = private unnamed_addr constant [48 x i8] c"The plugin '%s' has no \22plugin_register\22 symbol\00", align 1
+@.str.7 = private unnamed_addr constant [16 x i8] c"plugin_describe\00", align 1
+@.str.8 = private unnamed_addr constant [8 x i8] c"Plugins\00", align 1
+@.str.9 = private unnamed_addr constant [27 x i8] c"Registered plugin: %s (%s)\00", align 1
+@.str.10 = private unnamed_addr constant [5 x i8] c"epan\00", align 1
+@.str.11 = private unnamed_addr constant [8 x i8] c"wiretap\00", align 1
+@.str.12 = private unnamed_addr constant [7 x i8] c"codecs\00", align 1
+@.str.13 = private unnamed_addr constant [17 x i8] c"wsutil/plugins.c\00", align 1
 @__func__.type_to_dir = private unnamed_addr constant [12 x i8] c"type_to_dir\00", align 1
-@.str.26 = private unnamed_addr constant [35 x i8] c"Unknown plugin type: %u. Aborting.\00", align 1
+@.str.14 = private unnamed_addr constant [35 x i8] c"Unknown plugin type: %u. Aborting.\00", align 1
+@.str.15 = private unnamed_addr constant [18 x i8] c"plugin_want_major\00", align 1
+@.str.16 = private unnamed_addr constant [50 x i8] c"The plugin '%s' has no \22plugin_want_major\22 symbol\00", align 1
+@.str.17 = private unnamed_addr constant [18 x i8] c"plugin_want_minor\00", align 1
+@.str.18 = private unnamed_addr constant [50 x i8] c"The plugin '%s' has no \22plugin_want_minor\22 symbol\00", align 1
+@.str.19 = private unnamed_addr constant [57 x i8] c"The plugin '%s' was compiled for Wireshark version %d.%d\00", align 1
+@.str.20 = private unnamed_addr constant [16 x i8] c"%-16s\09%s\09%s\09%s\0A\00", align 1
+@.str.21 = private unnamed_addr constant [10 x i8] c"dissector\00", align 1
+@.str.22 = private unnamed_addr constant [10 x i8] c"file type\00", align 1
+@.str.23 = private unnamed_addr constant [6 x i8] c"codec\00", align 1
+@.str.24 = private unnamed_addr constant [13 x i8] c"tap listener\00", align 1
+@.str.25 = private unnamed_addr constant [8 x i8] c"dfilter\00", align 1
+@.str.26 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @plugins_init(i32 noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
-  %7 = call zeroext i1 @plugins_supported()
-  br i1 %7, label %9, label %8
+  %5 = call i32 @g_module_supported() #11
+  %6 = icmp ne i32 %5, 0
+  br i1 %6, label %8, label %7
+
+7:                                                ; preds = %1
+  store ptr null, ptr %2, align 8
+  br label %23
 
 8:                                                ; preds = %1
-  store ptr null, ptr %2, align 8
-  br label %38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #12
+  %9 = call ptr @g_hash_table_new_full(ptr noundef @g_str_hash, ptr noundef @g_str_equal, ptr noundef null, ptr noundef @free_plugin)
+  store ptr %9, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = call ptr @get_plugins_dir_with_version()
+  %12 = load i32, ptr %3, align 4
+  call void @scan_plugins_dir(ptr noundef %10, ptr noundef %11, i32 noundef %12, i1 noundef zeroext true)
+  %13 = call zeroext i1 @started_with_special_privs()
+  br i1 %13, label %18, label %14
 
-9:                                                ; preds = %1
-  %10 = call ptr @g_hash_table_new_full(ptr noundef @g_str_hash, ptr noundef @g_str_equal, ptr noundef @g_free, ptr noundef @free_plugin)
-  store ptr %10, ptr %4, align 8
-  %11 = call ptr @get_plugins_pers_dir()
-  store ptr %11, ptr %5, align 8
-  %12 = call zeroext i1 @started_with_special_privs()
-  br i1 %12, label %17, label %13
-
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %4, align 8
-  %15 = load ptr, ptr %5, align 8
-  %16 = load i32, ptr %3, align 4
-  call void @scan_plugins_dir(ptr noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef 1)
-  br label %20
-
-17:                                               ; preds = %9
+14:                                               ; preds = %8
+  %15 = load ptr, ptr %4, align 8
+  %16 = call ptr @get_plugins_pers_dir_with_version()
+  %17 = load i32, ptr %3, align 4
+  call void @scan_plugins_dir(ptr noundef %15, ptr noundef %16, i32 noundef %17, i1 noundef zeroext true)
   br label %18
 
-18:                                               ; preds = %17
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 3, ptr noundef null, i64 noundef -1, ptr noundef null, ptr noundef @.str.1)
-  br label %19
+18:                                               ; preds = %14, %8
+  %19 = load ptr, ptr @plugins_module_list, align 8
+  %20 = load ptr, ptr %4, align 8
+  %21 = call ptr @g_slist_prepend(ptr noundef %19, ptr noundef %20)
+  store ptr %21, ptr @plugins_module_list, align 8
+  %22 = load ptr, ptr %4, align 8
+  store ptr %22, ptr %2, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #12
+  br label %23
 
-19:                                               ; preds = %18
-  br label %20
-
-20:                                               ; preds = %19, %13
-  %21 = call ptr @get_plugins_dir()
-  store ptr %21, ptr %6, align 8
-  %22 = load ptr, ptr %6, align 8
-  %23 = load ptr, ptr %5, align 8
-  %24 = call i32 @strcmp(ptr noundef %22, ptr noundef %23) #6
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %30
-
-26:                                               ; preds = %20
-  %27 = load ptr, ptr %4, align 8
-  %28 = load ptr, ptr %6, align 8
-  %29 = load i32, ptr %3, align 4
-  call void @scan_plugins_dir(ptr noundef %27, ptr noundef %28, i32 noundef %29, i32 noundef 2)
-  br label %33
-
-30:                                               ; preds = %20
-  br label %31
-
-31:                                               ; preds = %30
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 5, ptr noundef @.str.2, i64 noundef 289, ptr noundef @__func__.plugins_init, ptr noundef @.str.3)
-  br label %32
-
-32:                                               ; preds = %31
-  br label %33
-
-33:                                               ; preds = %32, %26
-  %34 = load ptr, ptr @plugins_module_list, align 8
-  %35 = load ptr, ptr %4, align 8
-  %36 = call ptr @g_slist_prepend(ptr noundef %34, ptr noundef %35)
-  store ptr %36, ptr @plugins_module_list, align 8
-  %37 = load ptr, ptr %4, align 8
-  store ptr %37, ptr %2, align 8
-  br label %38
-
-38:                                               ; preds = %33, %8
-  %39 = load ptr, ptr %2, align 8
-  ret ptr %39
+23:                                               ; preds = %18, %7
+  %24 = load ptr, ptr %2, align 8
+  ret ptr %24
 }
 
-; Function Attrs: nounwind uwtable
-define zeroext i1 @plugins_supported() #0 {
-  %1 = call i32 @g_module_supported() #7
-  %2 = icmp ne i32 %1, 0
-  ret i1 %2
-}
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(none)
+declare i32 @g_module_supported() #1
 
-declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
-declare i32 @g_str_hash(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-declare i32 @g_str_equal(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_str_hash(ptr noundef) #3
 
-declare void @g_free(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_str_equal(ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @free_plugin(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #12
   %4 = load ptr, ptr %2, align 8
   store ptr %4, ptr %3, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct._plugin, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct._plugin, ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %6, align 8
   %8 = call i32 @g_module_close(ptr noundef %7)
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct._plugin, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._plugin, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
   call void @g_free(ptr noundef %11)
   %12 = load ptr, ptr %3, align 8
   call void @g_free(ptr noundef %12)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #12
   ret void
 }
 
-declare ptr @get_plugins_pers_dir() #1
-
-declare zeroext i1 @started_with_special_privs() #1
-
-; Function Attrs: nounwind uwtable
-define internal void @scan_plugins_dir(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @scan_plugins_dir(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  %8 = alloca i32, align 4
+  %8 = alloca i8, align 1
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
@@ -171,256 +133,329 @@ define internal void @scan_plugins_dir(ptr noundef %0, ptr noundef %1, i32 nound
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
-  %16 = alloca ptr, align 8
-  %17 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
   %18 = alloca i32, align 4
-  %19 = alloca i32, align 4
-  %20 = alloca ptr, align 8
+  %19 = alloca i64, align 8
+  %20 = alloca i64, align 8
   %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
-  store i32 %3, ptr %8, align 4
-  %22 = load ptr, ptr %6, align 8
-  %23 = load i32, ptr %7, align 4
-  %24 = call ptr @type_to_dir(i32 noundef %23)
-  %25 = call noalias ptr (ptr, ...) @g_build_filename(ptr noundef %22, ptr noundef %24, ptr noundef null)
-  store ptr %25, ptr %11, align 8
-  %26 = load ptr, ptr %11, align 8
-  %27 = call ptr @g_dir_open(ptr noundef %26, i32 noundef 0, ptr noundef null)
-  store ptr %27, ptr %9, align 8
-  %28 = load ptr, ptr %9, align 8
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %32
+  %23 = zext i1 %3 to i8
+  store i8 %23, ptr %8, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #12
+  %24 = load i8, ptr %8, align 1, !range !6, !noundef !7
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %31
 
-30:                                               ; preds = %4
-  %31 = load ptr, ptr %11, align 8
-  call void @g_free(ptr noundef %31)
-  br label %160
+26:                                               ; preds = %4
+  %27 = load ptr, ptr %6, align 8
+  %28 = load i32, ptr %7, align 4
+  %29 = call ptr @type_to_dir(i32 noundef %28)
+  %30 = call noalias ptr (ptr, ...) @g_build_filename(ptr noundef %27, ptr noundef %29, ptr noundef null)
+  store ptr %30, ptr %11, align 8
+  br label %34
 
-32:                                               ; preds = %4
-  %33 = load i32, ptr %7, align 4
-  %34 = call ptr @plugins_file_suffix(i32 noundef %33)
-  store ptr %34, ptr %13, align 8
-  br label %35
+31:                                               ; preds = %4
+  %32 = load ptr, ptr %6, align 8
+  %33 = call noalias ptr @g_strdup(ptr noundef %32)
+  store ptr %33, ptr %11, align 8
+  br label %34
 
-35:                                               ; preds = %32
-  br label %36
+34:                                               ; preds = %31, %26
+  %35 = load ptr, ptr %11, align 8
+  %36 = call ptr @g_dir_open(ptr noundef %35, i32 noundef 0, ptr noundef null)
+  store ptr %36, ptr %9, align 8
+  %37 = load ptr, ptr %9, align 8
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %41
 
-36:                                               ; preds = %35
-  br label %37
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %11, align 8
+  call void @g_free(ptr noundef %40)
+  store i32 1, ptr %18, align 4
+  br label %169
 
-37:                                               ; preds = %154, %100, %85, %74, %66, %59, %46, %36
-  %38 = load ptr, ptr %9, align 8
-  %39 = call ptr @g_dir_read_name(ptr noundef %38)
-  store ptr %39, ptr %10, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %41, label %156
+41:                                               ; preds = %34
+  br label %42
 
-41:                                               ; preds = %37
-  %42 = load ptr, ptr %10, align 8
-  %43 = load ptr, ptr %13, align 8
-  %44 = call i32 @g_str_has_suffix(ptr noundef %42, ptr noundef %43)
-  %45 = icmp ne i32 %44, 0
-  br i1 %45, label %47, label %46
+42:                                               ; preds = %41
+  br label %43
 
-46:                                               ; preds = %41
-  br label %37, !llvm.loop !4
+43:                                               ; preds = %42
+  br label %44
 
-47:                                               ; preds = %41
-  %48 = load ptr, ptr %11, align 8
-  %49 = load ptr, ptr %10, align 8
-  %50 = call noalias ptr (ptr, ...) @g_build_filename(ptr noundef %48, ptr noundef %49, ptr noundef null)
-  store ptr %50, ptr %12, align 8
-  %51 = load ptr, ptr %5, align 8
-  %52 = load ptr, ptr %10, align 8
-  %53 = call ptr @g_hash_table_lookup(ptr noundef %51, ptr noundef %52)
-  %54 = icmp ne ptr %53, null
-  br i1 %54, label %55, label %61
+44:                                               ; preds = %43
+  br label %45
 
-55:                                               ; preds = %47
-  br label %56
+45:                                               ; preds = %164, %95, %87, %77, %69, %59, %53, %44
+  %46 = load ptr, ptr %9, align 8
+  %47 = call ptr @g_dir_read_name(ptr noundef %46)
+  store ptr %47, ptr %10, align 8
+  %48 = icmp ne ptr %47, null
+  br i1 %48, label %49, label %166
 
-56:                                               ; preds = %55
-  %57 = load ptr, ptr %10, align 8
-  %58 = load ptr, ptr %12, align 8
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 4, ptr noundef null, i64 noundef -1, ptr noundef null, ptr noundef @.str.10, ptr noundef %57, ptr noundef %58)
-  br label %59
+49:                                               ; preds = %45
+  %50 = load ptr, ptr %10, align 8
+  %51 = call i32 @g_str_has_suffix(ptr noundef %50, ptr noundef @.str)
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %54, label %53
 
-59:                                               ; preds = %56
-  %60 = load ptr, ptr %12, align 8
-  call void @g_free(ptr noundef %60)
-  br label %37, !llvm.loop !4
+53:                                               ; preds = %49
+  br label %45, !llvm.loop !8
 
-61:                                               ; preds = %47
-  %62 = load ptr, ptr %12, align 8
-  %63 = call ptr @g_module_open(ptr noundef %62, i32 noundef 2)
-  store ptr %63, ptr %14, align 8
-  %64 = load ptr, ptr %14, align 8
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %66, label %70
+54:                                               ; preds = %49
+  %55 = load ptr, ptr %5, align 8
+  %56 = load ptr, ptr %10, align 8
+  %57 = call ptr @g_hash_table_lookup(ptr noundef %55, ptr noundef %56)
+  %58 = icmp ne ptr %57, null
+  br i1 %58, label %59, label %61
 
-66:                                               ; preds = %61
-  %67 = load ptr, ptr %10, align 8
-  %68 = call ptr @g_module_error()
-  call void (ptr, ...) @report_failure(ptr noundef @.str.11, ptr noundef %67, ptr noundef %68)
-  %69 = load ptr, ptr %12, align 8
-  call void @g_free(ptr noundef %69)
-  br label %37, !llvm.loop !4
+59:                                               ; preds = %54
+  %60 = load ptr, ptr %10, align 8
+  call void (ptr, ...) @report_warning(ptr noundef @.str.1, ptr noundef %60)
+  br label %45, !llvm.loop !8
 
-70:                                               ; preds = %61
-  %71 = load ptr, ptr %14, align 8
-  %72 = call i32 @g_module_symbol(ptr noundef %71, ptr noundef @.str.6, ptr noundef %15)
-  %73 = icmp ne i32 %72, 0
-  br i1 %73, label %79, label %74
+61:                                               ; preds = %54
+  %62 = load ptr, ptr %11, align 8
+  %63 = load ptr, ptr %10, align 8
+  %64 = call noalias ptr (ptr, ...) @g_build_filename(ptr noundef %62, ptr noundef %63, ptr noundef null)
+  store ptr %64, ptr %12, align 8
+  %65 = load ptr, ptr %12, align 8
+  %66 = call ptr @g_module_open(ptr noundef %65, i32 noundef 2)
+  store ptr %66, ptr %13, align 8
+  %67 = load ptr, ptr %13, align 8
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %69, label %73
 
-74:                                               ; preds = %70
-  %75 = load ptr, ptr %10, align 8
-  call void (ptr, ...) @report_failure(ptr noundef @.str.12, ptr noundef %75)
-  %76 = load ptr, ptr %14, align 8
-  %77 = call i32 @g_module_close(ptr noundef %76)
-  %78 = load ptr, ptr %12, align 8
-  call void @g_free(ptr noundef %78)
-  br label %37, !llvm.loop !4
+69:                                               ; preds = %61
+  %70 = load ptr, ptr %10, align 8
+  %71 = call ptr @g_module_error()
+  call void (ptr, ...) @report_failure(ptr noundef @.str.2, ptr noundef %70, ptr noundef %71)
+  %72 = load ptr, ptr %12, align 8
+  call void @g_free(ptr noundef %72)
+  br label %45, !llvm.loop !8
 
-79:                                               ; preds = %70
-  %80 = load ptr, ptr %15, align 8
-  %81 = call i32 %80(ptr noundef %18, ptr noundef %19, ptr noundef %20)
-  store i32 %81, ptr %17, align 4
-  %82 = load i32, ptr %17, align 4
-  %83 = load i32, ptr %7, align 4
-  %84 = icmp ne i32 %82, %83
-  br i1 %84, label %85, label %94
+73:                                               ; preds = %61
+  %74 = load ptr, ptr %13, align 8
+  %75 = call i32 @g_module_symbol(ptr noundef %74, ptr noundef @.str.3, ptr noundef %14)
+  %76 = icmp ne i32 %75, 0
+  br i1 %76, label %82, label %77
 
-85:                                               ; preds = %79
-  %86 = load ptr, ptr %10, align 8
-  %87 = load i32, ptr %7, align 4
-  %88 = call ptr @type_to_name(i32 noundef %87)
-  %89 = load i32, ptr %17, align 4
-  %90 = call ptr @type_to_name(i32 noundef %89)
-  call void (ptr, ...) @report_failure(ptr noundef @.str.13, ptr noundef %86, ptr noundef %88, ptr noundef %90)
-  %91 = load ptr, ptr %14, align 8
-  %92 = call i32 @g_module_close(ptr noundef %91)
-  %93 = load ptr, ptr %12, align 8
-  call void @g_free(ptr noundef %93)
-  br label %37, !llvm.loop !4
+77:                                               ; preds = %73
+  %78 = load ptr, ptr %10, align 8
+  call void (ptr, ...) @report_failure(ptr noundef @.str.4, ptr noundef %78)
+  %79 = load ptr, ptr %13, align 8
+  %80 = call i32 @g_module_close(ptr noundef %79)
+  %81 = load ptr, ptr %12, align 8
+  call void @g_free(ptr noundef %81)
+  br label %45, !llvm.loop !8
 
-94:                                               ; preds = %79
-  %95 = load ptr, ptr %10, align 8
-  %96 = load i32, ptr %7, align 4
-  %97 = load i32, ptr %18, align 4
-  %98 = load i32, ptr %19, align 4
-  %99 = call zeroext i1 @pass_plugin_compatibility(ptr noundef %95, i32 noundef %96, i32 noundef %97, i32 noundef %98)
-  br i1 %99, label %104, label %100
+82:                                               ; preds = %73
+  %83 = load ptr, ptr %14, align 8
+  store ptr %83, ptr %15, align 8
+  %84 = load ptr, ptr %13, align 8
+  %85 = load ptr, ptr %10, align 8
+  %86 = call zeroext i1 @pass_plugin_version_compatibility(ptr noundef %84, ptr noundef %85)
+  br i1 %86, label %91, label %87
 
-100:                                              ; preds = %94
+87:                                               ; preds = %82
+  %88 = load ptr, ptr %13, align 8
+  %89 = call i32 @g_module_close(ptr noundef %88)
+  %90 = load ptr, ptr %12, align 8
+  call void @g_free(ptr noundef %90)
+  br label %45, !llvm.loop !8
+
+91:                                               ; preds = %82
+  %92 = load ptr, ptr %13, align 8
+  %93 = call i32 @g_module_symbol(ptr noundef %92, ptr noundef @.str.5, ptr noundef %14)
+  %94 = icmp ne i32 %93, 0
+  br i1 %94, label %100, label %95
+
+95:                                               ; preds = %91
+  %96 = load ptr, ptr %10, align 8
+  call void (ptr, ...) @report_failure(ptr noundef @.str.6, ptr noundef %96)
+  %97 = load ptr, ptr %13, align 8
+  %98 = call i32 @g_module_close(ptr noundef %97)
+  %99 = load ptr, ptr %12, align 8
+  call void @g_free(ptr noundef %99)
+  br label %45, !llvm.loop !8
+
+100:                                              ; preds = %91
   %101 = load ptr, ptr %14, align 8
-  %102 = call i32 @g_module_close(ptr noundef %101)
-  %103 = load ptr, ptr %12, align 8
-  call void @g_free(ptr noundef %103)
-  br label %37, !llvm.loop !4
+  call void %101()
+  %102 = load ptr, ptr %13, align 8
+  %103 = call i32 @g_module_symbol(ptr noundef %102, ptr noundef @.str.7, ptr noundef %14)
+  %104 = icmp ne i32 %103, 0
+  br i1 %104, label %105, label %108
 
-104:                                              ; preds = %94
-  %105 = load ptr, ptr %20, align 8
-  %106 = getelementptr inbounds %struct.ws_module, ptr %105, i32 0, i32 5
-  %107 = load ptr, ptr %106, align 8
-  call void %107()
-  %108 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #8
-  store ptr %108, ptr %16, align 8
-  %109 = load ptr, ptr %14, align 8
-  %110 = load ptr, ptr %16, align 8
-  %111 = getelementptr inbounds %struct._plugin, ptr %110, i32 0, i32 0
-  store ptr %109, ptr %111, align 8
-  %112 = load ptr, ptr %10, align 8
-  %113 = call noalias ptr @g_strdup(ptr noundef %112)
-  %114 = load ptr, ptr %16, align 8
-  %115 = getelementptr inbounds %struct._plugin, ptr %114, i32 0, i32 1
-  store ptr %113, ptr %115, align 8
-  %116 = load ptr, ptr %20, align 8
-  %117 = load ptr, ptr %16, align 8
-  %118 = getelementptr inbounds %struct._plugin, ptr %117, i32 0, i32 2
-  store ptr %116, ptr %118, align 8
-  %119 = load i32, ptr %8, align 4
-  %120 = load ptr, ptr %16, align 8
-  %121 = getelementptr inbounds %struct._plugin, ptr %120, i32 0, i32 3
-  store i32 %119, ptr %121, align 8
-  %122 = load ptr, ptr %16, align 8
-  %123 = getelementptr inbounds %struct._plugin, ptr %122, i32 0, i32 1
-  %124 = load ptr, ptr %123, align 8
-  %125 = call ptr @strrchr(ptr noundef %124, i32 noundef 46) #6
-  store ptr %125, ptr %21, align 8
-  %126 = load ptr, ptr %21, align 8
-  %127 = icmp ne ptr %126, null
-  br i1 %127, label %128, label %141
+105:                                              ; preds = %100
+  %106 = load ptr, ptr %14, align 8
+  %107 = call i32 %106()
+  store i32 %107, ptr %16, align 4
+  br label %109
 
-128:                                              ; preds = %104
-  %129 = load ptr, ptr @g_ascii_table, align 8
-  %130 = load ptr, ptr %21, align 8
-  %131 = getelementptr i8, ptr %130, i64 1
-  %132 = load i8, ptr %131, align 1
-  %133 = zext i8 %132 to i64
-  %134 = getelementptr i16, ptr %129, i64 %133
-  %135 = load i16, ptr %134, align 2
-  %136 = zext i16 %135 to i32
-  %137 = and i32 %136, 8
-  %138 = icmp ne i32 %137, 0
-  br i1 %138, label %139, label %141
+108:                                              ; preds = %100
+  store i32 0, ptr %16, align 4
+  br label %109
 
-139:                                              ; preds = %128
-  %140 = load ptr, ptr %21, align 8
-  store i8 0, ptr %140, align 1
-  br label %141
+109:                                              ; preds = %108, %105
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #12
+  store i64 1, ptr %19, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #12
+  store i64 32, ptr %20, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #12
+  %110 = load i64, ptr %20, align 8
+  %111 = icmp eq i64 %110, 1
+  br i1 %111, label %112, label %115
 
-141:                                              ; preds = %139, %128, %104
-  %142 = load ptr, ptr %5, align 8
-  %143 = load ptr, ptr %10, align 8
-  %144 = call noalias ptr @g_strdup(ptr noundef %143)
-  %145 = load ptr, ptr %16, align 8
-  %146 = call i32 @g_hash_table_replace(ptr noundef %142, ptr noundef %144, ptr noundef %145)
-  br label %147
+112:                                              ; preds = %109
+  %113 = load i64, ptr %19, align 8
+  %114 = call noalias ptr @g_malloc(i64 noundef %113) #13
+  store ptr %114, ptr %21, align 8
+  br label %136
 
-147:                                              ; preds = %141
-  %148 = load ptr, ptr %16, align 8
-  %149 = getelementptr inbounds %struct._plugin, ptr %148, i32 0, i32 1
-  %150 = load ptr, ptr %149, align 8
-  %151 = load ptr, ptr %12, align 8
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str, i32 noundef 3, ptr noundef null, i64 noundef -1, ptr noundef null, ptr noundef @.str.14, ptr noundef %150, ptr noundef %151)
-  br label %152
+115:                                              ; preds = %109
+  %116 = load i64, ptr %19, align 8
+  %117 = call i1 @llvm.is.constant.i64(i64 %116)
+  br i1 %117, label %118, label %131
 
-152:                                              ; preds = %147
-  br label %153
+118:                                              ; preds = %115
+  %119 = load i64, ptr %20, align 8
+  %120 = icmp eq i64 %119, 0
+  br i1 %120, label %126, label %121
 
-153:                                              ; preds = %152
-  br label %154
+121:                                              ; preds = %118
+  %122 = load i64, ptr %19, align 8
+  %123 = load i64, ptr %20, align 8
+  %124 = udiv i64 -1, %123
+  %125 = icmp ule i64 %122, %124
+  br i1 %125, label %126, label %131
 
-154:                                              ; preds = %153
-  %155 = load ptr, ptr %12, align 8
-  call void @g_free(ptr noundef %155)
-  br label %37, !llvm.loop !4
+126:                                              ; preds = %121, %118
+  %127 = load i64, ptr %19, align 8
+  %128 = load i64, ptr %20, align 8
+  %129 = mul i64 %127, %128
+  %130 = call noalias ptr @g_malloc(i64 noundef %129) #13
+  store ptr %130, ptr %21, align 8
+  br label %135
 
-156:                                              ; preds = %37
-  %157 = load ptr, ptr %9, align 8
-  call void @g_dir_close(ptr noundef %157)
-  %158 = load ptr, ptr %13, align 8
-  call void @wmem_free(ptr noundef null, ptr noundef %158)
-  %159 = load ptr, ptr %11, align 8
-  call void @g_free(ptr noundef %159)
-  br label %160
+131:                                              ; preds = %121, %115
+  %132 = load i64, ptr %19, align 8
+  %133 = load i64, ptr %20, align 8
+  %134 = call noalias ptr @g_malloc_n(i64 noundef %132, i64 noundef %133) #14
+  store ptr %134, ptr %21, align 8
+  br label %135
 
-160:                                              ; preds = %156, %30
+135:                                              ; preds = %131, %126
+  br label %136
+
+136:                                              ; preds = %135, %112
+  %137 = load ptr, ptr %21, align 8
+  store ptr %137, ptr %22, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #12
+  %138 = load ptr, ptr %22, align 8
+  store ptr %138, ptr %17, align 8
+  %139 = load ptr, ptr %13, align 8
+  %140 = load ptr, ptr %17, align 8
+  %141 = getelementptr inbounds nuw %struct._plugin, ptr %140, i32 0, i32 0
+  store ptr %139, ptr %141, align 8
+  %142 = load ptr, ptr %10, align 8
+  %143 = call noalias ptr @g_strdup(ptr noundef %142)
+  %144 = load ptr, ptr %17, align 8
+  %145 = getelementptr inbounds nuw %struct._plugin, ptr %144, i32 0, i32 1
+  store ptr %143, ptr %145, align 8
+  %146 = load ptr, ptr %15, align 8
+  %147 = load ptr, ptr %17, align 8
+  %148 = getelementptr inbounds nuw %struct._plugin, ptr %147, i32 0, i32 2
+  store ptr %146, ptr %148, align 8
+  %149 = load i32, ptr %16, align 4
+  %150 = load ptr, ptr %17, align 8
+  %151 = getelementptr inbounds nuw %struct._plugin, ptr %150, i32 0, i32 3
+  store i32 %149, ptr %151, align 8
+  %152 = load ptr, ptr %5, align 8
+  %153 = load ptr, ptr %17, align 8
+  %154 = getelementptr inbounds nuw %struct._plugin, ptr %153, i32 0, i32 1
+  %155 = load ptr, ptr %154, align 8
+  %156 = load ptr, ptr %17, align 8
+  %157 = call i32 @g_hash_table_replace(ptr noundef %152, ptr noundef %155, ptr noundef %156)
+  br label %158
+
+158:                                              ; preds = %136
+  %159 = load ptr, ptr %17, align 8
+  %160 = getelementptr inbounds nuw %struct._plugin, ptr %159, i32 0, i32 1
+  %161 = load ptr, ptr %160, align 8
+  %162 = load ptr, ptr %12, align 8
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.8, i32 noundef 3, ptr noundef null, i64 noundef -1, ptr noundef null, ptr noundef @.str.9, ptr noundef %161, ptr noundef %162)
+  br label %163
+
+163:                                              ; preds = %158
+  br label %164
+
+164:                                              ; preds = %163
+  %165 = load ptr, ptr %12, align 8
+  call void @g_free(ptr noundef %165)
+  br label %45, !llvm.loop !8
+
+166:                                              ; preds = %45
+  %167 = load ptr, ptr %9, align 8
+  call void @g_dir_close(ptr noundef %167)
+  %168 = load ptr, ptr %11, align 8
+  call void @g_free(ptr noundef %168)
+  store i32 0, ptr %18, align 4
+  br label %169
+
+169:                                              ; preds = %166, %39
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  %170 = load i32, ptr %18, align 4
+  switch i32 %170, label %172 [
+    i32 0, label %171
+    i32 1, label %171
+  ]
+
+171:                                              ; preds = %169, %169
   ret void
+
+172:                                              ; preds = %169
+  unreachable
 }
 
-declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @get_plugins_dir_with_version() #3
 
-declare ptr @get_plugins_dir() #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @started_with_special_privs() #3
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @get_plugins_pers_dir_with_version() #3
 
-declare ptr @g_slist_prepend(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_slist_prepend(ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @plugins_get_descriptions(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -432,131 +467,132 @@ define void @plugins_get_descriptions(ptr noundef %0, ptr noundef %1) #0 {
   %10 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
   %11 = call ptr @g_ptr_array_new()
   store ptr %11, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr %6) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
   %12 = load ptr, ptr @plugins_module_list, align 8
   store ptr %12, ptr %8, align 8
   br label %13
 
-13:                                               ; preds = %27, %2
+13:                                               ; preds = %28, %2
   %14 = load ptr, ptr %8, align 8
   %15 = icmp ne ptr %14, null
-  br i1 %15, label %16, label %31
+  br i1 %15, label %17, label %16
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds %struct._GSList, ptr %17, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  call void @g_hash_table_iter_init(ptr noundef %6, ptr noundef %19)
-  br label %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  br label %32
 
-20:                                               ; preds = %23, %16
-  %21 = call i32 @g_hash_table_iter_next(ptr noundef %6, ptr noundef null, ptr noundef %7)
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %26
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %8, align 8
+  %19 = getelementptr inbounds nuw %struct._GSList, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  call void @g_hash_table_iter_init(ptr noundef %6, ptr noundef %20)
+  br label %21
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %5, align 8
-  %25 = load ptr, ptr %7, align 8
-  call void @g_ptr_array_add(ptr noundef %24, ptr noundef %25)
-  br label %20, !llvm.loop !6
+21:                                               ; preds = %24, %17
+  %22 = call i32 @g_hash_table_iter_next(ptr noundef %6, ptr noundef null, ptr noundef %7)
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %27
 
-26:                                               ; preds = %20
-  br label %27
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %5, align 8
+  %26 = load ptr, ptr %7, align 8
+  call void @g_ptr_array_add(ptr noundef %25, ptr noundef %26)
+  br label %21, !llvm.loop !10
 
-27:                                               ; preds = %26
-  %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds %struct._GSList, ptr %28, i32 0, i32 1
-  %30 = load ptr, ptr %29, align 8
-  store ptr %30, ptr %8, align 8
-  br label %13, !llvm.loop !7
+27:                                               ; preds = %21
+  br label %28
 
-31:                                               ; preds = %13
-  %32 = load ptr, ptr %5, align 8
-  call void @g_ptr_array_sort(ptr noundef %32, ptr noundef @compare_plugins)
+28:                                               ; preds = %27
+  %29 = load ptr, ptr %8, align 8
+  %30 = getelementptr inbounds nuw %struct._GSList, ptr %29, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8
+  store ptr %31, ptr %8, align 8
+  br label %13, !llvm.loop !11
+
+32:                                               ; preds = %16
+  %33 = load ptr, ptr %5, align 8
+  call void @g_ptr_array_sort(ptr noundef %33, ptr noundef @compare_plugins)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #12
   store i32 0, ptr %9, align 4
-  br label %33
+  br label %34
 
-33:                                               ; preds = %84, %31
-  %34 = load i32, ptr %9, align 4
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds %struct._GPtrArray, ptr %35, i32 0, i32 1
-  %37 = load i32, ptr %36, align 8
-  %38 = icmp ult i32 %34, %37
-  br i1 %38, label %39, label %87
+34:                                               ; preds = %64, %32
+  %35 = load i32, ptr %9, align 4
+  %36 = load ptr, ptr %5, align 8
+  %37 = getelementptr inbounds nuw %struct._GPtrArray, ptr %36, i32 0, i32 1
+  %38 = load i32, ptr %37, align 8
+  %39 = icmp ult i32 %35, %38
+  br i1 %39, label %41, label %40
 
-39:                                               ; preds = %33
-  %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds %struct._GPtrArray, ptr %40, i32 0, i32 0
-  %42 = load ptr, ptr %41, align 8
-  %43 = load i32, ptr %9, align 4
-  %44 = zext i32 %43 to i64
-  %45 = getelementptr ptr, ptr %42, i64 %44
-  %46 = load ptr, ptr %45, align 8
-  store ptr %46, ptr %10, align 8
-  %47 = load ptr, ptr %3, align 8
-  %48 = load ptr, ptr %10, align 8
-  %49 = getelementptr inbounds %struct._plugin, ptr %48, i32 0, i32 1
-  %50 = load ptr, ptr %49, align 8
-  %51 = load ptr, ptr %10, align 8
-  %52 = getelementptr inbounds %struct._plugin, ptr %51, i32 0, i32 2
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds %struct.ws_module, ptr %53, i32 0, i32 1
+40:                                               ; preds = %34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #12
+  br label %67
+
+41:                                               ; preds = %34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds nuw %struct._GPtrArray, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8
+  %45 = load i32, ptr %9, align 4
+  %46 = zext i32 %45 to i64
+  %47 = getelementptr ptr, ptr %44, i64 %46
+  %48 = load ptr, ptr %47, align 8
+  store ptr %48, ptr %10, align 8
+  %49 = load ptr, ptr %3, align 8
+  %50 = load ptr, ptr %10, align 8
+  %51 = getelementptr inbounds nuw %struct._plugin, ptr %50, i32 0, i32 1
+  %52 = load ptr, ptr %51, align 8
+  %53 = load ptr, ptr %10, align 8
+  %54 = getelementptr inbounds nuw %struct._plugin, ptr %53, i32 0, i32 2
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %10, align 8
-  %57 = getelementptr inbounds %struct._plugin, ptr %56, i32 0, i32 2
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds %struct.ws_module, ptr %58, i32 0, i32 0
-  %60 = load i32, ptr %59, align 8
-  %61 = load ptr, ptr %10, align 8
-  %62 = getelementptr inbounds %struct._plugin, ptr %61, i32 0, i32 2
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds %struct.ws_module, ptr %63, i32 0, i32 2
-  %65 = load ptr, ptr %64, align 8
-  %66 = load ptr, ptr %10, align 8
-  %67 = getelementptr inbounds %struct._plugin, ptr %66, i32 0, i32 2
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds %struct.ws_module, ptr %68, i32 0, i32 4
-  %70 = load ptr, ptr %69, align 8
-  %71 = load ptr, ptr %10, align 8
-  %72 = getelementptr inbounds %struct._plugin, ptr %71, i32 0, i32 2
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds %struct.ws_module, ptr %73, i32 0, i32 3
-  %75 = load ptr, ptr %74, align 8
-  %76 = load ptr, ptr %10, align 8
-  %77 = getelementptr inbounds %struct._plugin, ptr %76, i32 0, i32 0
-  %78 = load ptr, ptr %77, align 8
-  %79 = call ptr @g_module_name(ptr noundef %78)
-  %80 = load ptr, ptr %10, align 8
-  %81 = getelementptr inbounds %struct._plugin, ptr %80, i32 0, i32 3
-  %82 = load i32, ptr %81, align 8
-  %83 = load ptr, ptr %4, align 8
-  call void %47(ptr noundef %50, ptr noundef %55, i32 noundef %60, ptr noundef %65, ptr noundef %70, ptr noundef %75, ptr noundef %79, i32 noundef %82, ptr noundef %83)
-  br label %84
+  %57 = getelementptr inbounds nuw %struct._plugin, ptr %56, i32 0, i32 3
+  %58 = load i32, ptr %57, align 8
+  %59 = load ptr, ptr %10, align 8
+  %60 = getelementptr inbounds nuw %struct._plugin, ptr %59, i32 0, i32 0
+  %61 = load ptr, ptr %60, align 8
+  %62 = call ptr @g_module_name(ptr noundef %61)
+  %63 = load ptr, ptr %4, align 8
+  call void %49(ptr noundef %52, ptr noundef %55, i32 noundef %58, ptr noundef %62, ptr noundef %63)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  br label %64
 
-84:                                               ; preds = %39
-  %85 = load i32, ptr %9, align 4
-  %86 = add i32 %85, 1
-  store i32 %86, ptr %9, align 4
-  br label %33, !llvm.loop !8
+64:                                               ; preds = %41
+  %65 = load i32, ptr %9, align 4
+  %66 = add i32 %65, 1
+  store i32 %66, ptr %9, align 4
+  br label %34, !llvm.loop !12
 
-87:                                               ; preds = %33
-  %88 = load ptr, ptr %5, align 8
-  %89 = call ptr @g_ptr_array_free(ptr noundef %88, i32 noundef 1)
+67:                                               ; preds = %40
+  %68 = load ptr, ptr %5, align 8
+  %69 = call ptr @g_ptr_array_free(ptr noundef %68, i32 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #12
+  call void @llvm.lifetime.end.p0(i64 40, ptr %6) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
   ret void
 }
 
-declare ptr @g_ptr_array_new() #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_ptr_array_new() #3
 
-declare void @g_hash_table_iter_init(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @g_hash_table_iter_init(ptr noundef, ptr noundef) #3
 
-declare i32 @g_hash_table_iter_next(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_hash_table_iter_next(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare void @g_ptr_array_add(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @g_ptr_array_add(ptr noundef, ptr noundef) #3
 
-declare void @g_ptr_array_sort(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @g_ptr_array_sort(ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @compare_plugins(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -564,175 +600,96 @@ define internal i32 @compare_plugins(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %struct._plugin, ptr %6, i32 0, i32 1
+  %7 = getelementptr inbounds nuw %struct._plugin, ptr %6, i32 0, i32 1
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds %struct._plugin, ptr %10, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %struct._plugin, ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %11, align 8
   %13 = call i32 @g_strcmp0(ptr noundef %8, ptr noundef %12)
   ret i32 %13
 }
 
-declare ptr @g_module_name(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_module_name(ptr noundef) #3
 
-declare ptr @g_ptr_array_free(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_ptr_array_free(ptr noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define void @plugins_print_description(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8) #0 {
-  %10 = alloca ptr, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca i32, align 4
-  %13 = alloca ptr, align 8
-  %14 = alloca ptr, align 8
-  %15 = alloca ptr, align 8
-  %16 = alloca ptr, align 8
-  %17 = alloca i32, align 4
-  %18 = alloca ptr, align 8
-  store ptr %0, ptr %10, align 8
-  store ptr %1, ptr %11, align 8
-  store i32 %2, ptr %12, align 4
-  store ptr %3, ptr %13, align 8
-  store ptr %4, ptr %14, align 8
-  store ptr %5, ptr %15, align 8
-  store ptr %6, ptr %16, align 8
-  store i32 %7, ptr %17, align 4
-  store ptr %8, ptr %18, align 8
-  %19 = load ptr, ptr %10, align 8
-  %20 = load ptr, ptr %11, align 8
-  %21 = load i32, ptr %12, align 4
-  %22 = call ptr @flags_to_str(i32 noundef %21)
-  %23 = load ptr, ptr %16, align 8
-  %24 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %19, ptr noundef %20, ptr noundef %22, ptr noundef %23)
-  ret void
-}
-
-declare i32 @printf(ptr noundef, ...) #1
-
-; Function Attrs: nounwind uwtable
-define internal ptr @flags_to_str(i32 noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
-  %5 = zext i32 %4 to i64
-  %6 = and i64 %5, 1
-  %7 = icmp ne i64 %6, 0
-  br i1 %7, label %8, label %9
-
-8:                                                ; preds = %1
-  store ptr @.str.19, ptr %2, align 8
-  br label %40
-
-9:                                                ; preds = %1
-  %10 = load i32, ptr %3, align 4
-  %11 = zext i32 %10 to i64
-  %12 = and i64 %11, 2
-  %13 = icmp ne i64 %12, 0
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %9
-  store ptr @.str.20, ptr %2, align 8
-  br label %40
-
-15:                                               ; preds = %9
-  %16 = load i32, ptr %3, align 4
-  %17 = zext i32 %16 to i64
-  %18 = and i64 %17, 4
-  %19 = icmp ne i64 %18, 0
-  br i1 %19, label %20, label %21
-
-20:                                               ; preds = %15
-  store ptr @.str.17, ptr %2, align 8
-  br label %40
-
-21:                                               ; preds = %15
-  %22 = load i32, ptr %3, align 4
-  %23 = zext i32 %22 to i64
-  %24 = and i64 %23, 8
-  %25 = icmp ne i64 %24, 0
-  br i1 %25, label %26, label %27
-
-26:                                               ; preds = %21
-  store ptr @.str.15, ptr %2, align 8
-  br label %40
-
-27:                                               ; preds = %21
-  %28 = load i32, ptr %3, align 4
-  %29 = zext i32 %28 to i64
-  %30 = and i64 %29, 16
-  %31 = icmp ne i64 %30, 0
-  br i1 %31, label %32, label %33
-
-32:                                               ; preds = %27
-  store ptr @.str.21, ptr %2, align 8
-  br label %40
-
-33:                                               ; preds = %27
-  %34 = load i32, ptr %3, align 4
-  %35 = zext i32 %34 to i64
-  %36 = and i64 %35, 32
-  %37 = icmp ne i64 %36, 0
-  br i1 %37, label %38, label %39
-
-38:                                               ; preds = %33
-  store ptr @.str.22, ptr %2, align 8
-  br label %40
-
-39:                                               ; preds = %33
-  store ptr @.str.18, ptr %2, align 8
-  br label %40
-
-40:                                               ; preds = %39, %38, %32, %26, %20, %14, %8
-  %41 = load ptr, ptr %2, align 8
-  ret ptr %41
-}
-
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @plugins_dump_all() #0 {
-  call void @plugins_get_descriptions(ptr noundef @plugins_print_description, ptr noundef null)
+  call void @plugins_get_descriptions(ptr noundef @print_plugin_description, ptr noundef null)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @print_plugin_description(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store i32 %2, ptr %8, align 4
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = load ptr, ptr %7, align 8
+  %13 = load i32, ptr %8, align 4
+  %14 = call ptr @flags_to_str(i32 noundef %13)
+  %15 = load ptr, ptr %9, align 8
+  %16 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef @.str.20, ptr noundef %11, ptr noundef %12, ptr noundef %14, ptr noundef %15)
+  ret void
+}
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define i32 @plugins_get_count() #0 {
   %1 = alloca i32, align 4
   %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #12
   store i32 0, ptr %1, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #12
   %3 = load ptr, ptr @plugins_module_list, align 8
   store ptr %3, ptr %2, align 8
   br label %4
 
-4:                                                ; preds = %14, %0
+4:                                                ; preds = %15, %0
   %5 = load ptr, ptr %2, align 8
   %6 = icmp ne ptr %5, null
-  br i1 %6, label %7, label %18
+  br i1 %6, label %8, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct._GSList, ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
-  %11 = call i32 @g_hash_table_size(ptr noundef %10)
-  %12 = load i32, ptr %1, align 4
-  %13 = add i32 %12, %11
-  store i32 %13, ptr %1, align 4
-  br label %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #12
+  br label %19
 
-14:                                               ; preds = %7
-  %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds %struct._GSList, ptr %15, i32 0, i32 1
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %2, align 8
-  br label %4, !llvm.loop !9
+8:                                                ; preds = %4
+  %9 = load ptr, ptr %2, align 8
+  %10 = getelementptr inbounds nuw %struct._GSList, ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  %12 = call i32 @g_hash_table_size(ptr noundef %11)
+  %13 = load i32, ptr %1, align 4
+  %14 = add i32 %13, %12
+  store i32 %14, ptr %1, align 4
+  br label %15
 
-18:                                               ; preds = %4
-  %19 = load i32, ptr %1, align 4
-  ret i32 %19
+15:                                               ; preds = %8
+  %16 = load ptr, ptr %2, align 8
+  %17 = getelementptr inbounds nuw %struct._GSList, ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %2, align 8
+  br label %4, !llvm.loop !13
+
+19:                                               ; preds = %7
+  %20 = load i32, ptr %1, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #12
+  ret i32 %20
 }
 
-declare i32 @g_hash_table_size(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_hash_table_size(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @plugins_cleanup(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
@@ -756,193 +713,55 @@ define void @plugins_cleanup(ptr noundef %0) #0 {
   ret void
 }
 
-declare ptr @g_slist_remove(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_slist_remove(ptr noundef, ptr noundef) #3
 
-declare void @g_hash_table_destroy(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @g_hash_table_destroy(ptr noundef) #3
 
-; Function Attrs: nounwind willreturn memory(none)
-declare i32 @g_module_supported() #3
-
-; Function Attrs: nounwind uwtable
-define i32 @plugins_check_file(ptr noundef %0) #0 {
-  %2 = alloca i32, align 4
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca i32, align 4
-  %9 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  %10 = load ptr, ptr %3, align 8
-  %11 = call ptr @g_module_open(ptr noundef %10, i32 noundef 1)
-  store ptr %11, ptr %5, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %16
-
-14:                                               ; preds = %1
-  %15 = call ptr @g_module_error()
-  call void (ptr, ...) @report_failure(ptr noundef @.str.5, ptr noundef %15)
-  store i32 0, ptr %2, align 4
-  br label %41
-
-16:                                               ; preds = %1
-  %17 = load ptr, ptr %5, align 8
-  %18 = call i32 @g_module_symbol(ptr noundef %17, ptr noundef @.str.6, ptr noundef %6)
-  %19 = icmp ne i32 %18, 0
-  br i1 %19, label %22, label %20
-
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %3, align 8
-  call void (ptr, ...) @report_failure(ptr noundef @.str.7, ptr noundef %21)
-  store i32 0, ptr %2, align 4
-  br label %41
-
-22:                                               ; preds = %16
-  %23 = load ptr, ptr %6, align 8
-  %24 = call i32 %23(ptr noundef %8, ptr noundef %9, ptr noundef null)
-  store i32 %24, ptr %7, align 4
-  %25 = load ptr, ptr %3, align 8
-  %26 = call noalias ptr @g_path_get_basename(ptr noundef %25)
-  store ptr %26, ptr %4, align 8
-  %27 = load ptr, ptr %4, align 8
-  %28 = load i32, ptr %7, align 4
-  %29 = load i32, ptr %8, align 4
-  %30 = load i32, ptr %9, align 4
-  %31 = call zeroext i1 @pass_plugin_compatibility(ptr noundef %27, i32 noundef %28, i32 noundef %29, i32 noundef %30)
-  br i1 %31, label %36, label %32
-
-32:                                               ; preds = %22
-  %33 = load ptr, ptr %5, align 8
-  %34 = call i32 @g_module_close(ptr noundef %33)
-  %35 = load ptr, ptr %4, align 8
-  call void @g_free(ptr noundef %35)
-  store i32 0, ptr %2, align 4
-  br label %41
-
-36:                                               ; preds = %22
-  %37 = load ptr, ptr %5, align 8
-  %38 = call i32 @g_module_close(ptr noundef %37)
-  %39 = load ptr, ptr %4, align 8
-  call void @g_free(ptr noundef %39)
-  %40 = load i32, ptr %7, align 4
-  store i32 %40, ptr %2, align 4
-  br label %41
-
-41:                                               ; preds = %36, %32, %20, %14
-  %42 = load i32, ptr %2, align 4
-  ret i32 %42
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define zeroext i1 @plugins_supported() #4 {
+  %1 = call i32 @g_module_supported() #11
+  %2 = icmp ne i32 %1, 0
+  ret i1 %2
 }
 
-declare ptr @g_module_open(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_module_close(ptr noundef) #3
 
-declare void @report_failure(ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @g_free(ptr noundef) #3
 
-declare ptr @g_module_error() #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @g_build_filename(ptr noundef, ...) #3
 
-declare i32 @g_module_symbol(ptr noundef, ptr noundef, ptr noundef) #1
-
-declare noalias ptr @g_path_get_basename(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @pass_plugin_compatibility(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
-  %5 = alloca i1, align 1
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca i32, align 4
-  %9 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store i32 %3, ptr %9, align 4
-  %10 = load i32, ptr %8, align 4
-  %11 = load i32, ptr %7, align 4
-  %12 = call i32 @plugins_abi_version(i32 noundef %11)
-  %13 = icmp ne i32 %10, %12
-  br i1 %13, label %14, label %19
-
-14:                                               ; preds = %4
-  %15 = load ptr, ptr %6, align 8
-  %16 = load i32, ptr %8, align 4
-  %17 = load i32, ptr %7, align 4
-  %18 = call i32 @plugins_abi_version(i32 noundef %17)
-  call void (ptr, ...) @report_failure(ptr noundef @.str.23, ptr noundef %15, i32 noundef %16, i32 noundef %18)
-  store i1 false, ptr %5, align 1
-  br label %33
-
-19:                                               ; preds = %4
-  %20 = load i32, ptr %9, align 4
-  %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %22, label %32
-
-22:                                               ; preds = %19
-  %23 = load i32, ptr %9, align 4
-  %24 = load i32, ptr %7, align 4
-  %25 = call i32 @plugins_api_max_level(i32 noundef %24)
-  %26 = icmp sgt i32 %23, %25
-  br i1 %26, label %27, label %32
-
-27:                                               ; preds = %22
-  %28 = load ptr, ptr %6, align 8
-  %29 = load i32, ptr %9, align 4
-  %30 = load i32, ptr %7, align 4
-  %31 = call i32 @plugins_api_max_level(i32 noundef %30)
-  call void (ptr, ...) @report_failure(ptr noundef @.str.24, ptr noundef %28, i32 noundef %29, i32 noundef %31)
-  store i1 false, ptr %5, align 1
-  br label %33
-
-32:                                               ; preds = %22, %19
-  store i1 true, ptr %5, align 1
-  br label %33
-
-33:                                               ; preds = %32, %27, %14
-  %34 = load i1, ptr %5, align 1
-  ret i1 %34
-}
-
-declare i32 @g_module_close(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define ptr @plugins_pers_type_folder(i32 noundef %0) #0 {
-  %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = call ptr @get_plugins_pers_dir()
-  %4 = load i32, ptr %2, align 4
-  %5 = call ptr @type_to_dir(i32 noundef %4)
-  %6 = call noalias ptr (ptr, ...) @g_build_filename(ptr noundef %3, ptr noundef %5, ptr noundef null)
-  ret ptr %6
-}
-
-declare noalias ptr @g_build_filename(ptr noundef, ...) #1
-
-; Function Attrs: nounwind uwtable
-define internal ptr @type_to_dir(i32 noundef %0) #0 {
+; Function Attrs: inlinehint null_pointer_is_valid sspstrong uwtable
+define internal ptr @type_to_dir(i32 noundef %0) #5 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %8 [
-    i32 1, label %5
-    i32 2, label %6
-    i32 3, label %7
+    i32 0, label %5
+    i32 1, label %6
+    i32 2, label %7
   ]
 
 5:                                                ; preds = %1
-  store ptr @.str.15, ptr %2, align 8
+  store ptr @.str.10, ptr %2, align 8
   br label %10
 
 6:                                                ; preds = %1
-  store ptr @.str.16, ptr %2, align 8
+  store ptr @.str.11, ptr %2, align 8
   br label %10
 
 7:                                                ; preds = %1
-  store ptr @.str.25, ptr %2, align 8
+  store ptr @.str.12, ptr %2, align 8
   br label %10
 
 8:                                                ; preds = %1
   %9 = load i32, ptr %3, align 4
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef @.str, i32 noundef 7, ptr noundef @.str.2, i64 noundef 54, ptr noundef @__func__.type_to_dir, ptr noundef @.str.26, i32 noundef %9) #9
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef @.str.8, i32 noundef 7, ptr noundef @.str.13, i64 noundef 54, ptr noundef @__func__.type_to_dir, ptr noundef @.str.14, i32 noundef %9) #15
   unreachable
 
 10:                                               ; preds = %7, %6, %5
@@ -950,154 +769,249 @@ define internal ptr @type_to_dir(i32 noundef %0) #0 {
   ret ptr %11
 }
 
-; Function Attrs: nounwind uwtable
-define ptr @plugins_file_suffix(i32 noundef %0) #0 {
-  %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
-  %4 = call i32 @plugins_abi_version(i32 noundef %3)
-  %5 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.8, ptr noundef @.str.9, i32 noundef %4)
-  ret ptr %5
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @g_strdup(ptr noundef) #3
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_dir_open(ptr noundef, i32 noundef, ptr noundef) #3
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_dir_read_name(ptr noundef) #3
+
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_str_has_suffix(ptr noundef, ptr noundef) #3
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) #3
+
+; Function Attrs: null_pointer_is_valid
+declare void @report_warning(ptr noundef, ...) #3
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_module_open(ptr noundef, i32 noundef) #3
+
+; Function Attrs: null_pointer_is_valid
+declare void @report_failure(ptr noundef, ...) #3
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_module_error() #3
+
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_module_symbol(ptr noundef, ptr noundef, ptr noundef) #3
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @pass_plugin_version_compatibility(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #12
+  %10 = load ptr, ptr %4, align 8
+  %11 = call i32 @g_module_symbol(ptr noundef %10, ptr noundef @.str.15, ptr noundef %6)
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %15, label %13
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %5, align 8
+  call void (ptr, ...) @report_failure(ptr noundef @.str.16, ptr noundef %14)
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %9, align 4
+  br label %36
+
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i32, ptr %16, align 4
+  store i32 %17, ptr %7, align 4
+  %18 = load ptr, ptr %4, align 8
+  %19 = call i32 @g_module_symbol(ptr noundef %18, ptr noundef @.str.17, ptr noundef %6)
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %23, label %21
+
+21:                                               ; preds = %15
+  %22 = load ptr, ptr %5, align 8
+  call void (ptr, ...) @report_failure(ptr noundef @.str.18, ptr noundef %22)
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %9, align 4
+  br label %36
+
+23:                                               ; preds = %15
+  %24 = load ptr, ptr %6, align 8
+  %25 = load i32, ptr %24, align 4
+  store i32 %25, ptr %8, align 4
+  %26 = load i32, ptr %7, align 4
+  %27 = icmp ne i32 %26, 4
+  br i1 %27, label %31, label %28
+
+28:                                               ; preds = %23
+  %29 = load i32, ptr %8, align 4
+  %30 = icmp ne i32 %29, 5
+  br i1 %30, label %31, label %35
+
+31:                                               ; preds = %28, %23
+  %32 = load ptr, ptr %5, align 8
+  %33 = load i32, ptr %7, align 4
+  %34 = load i32, ptr %8, align 4
+  call void (ptr, ...) @report_failure(ptr noundef @.str.19, ptr noundef %32, i32 noundef %33, i32 noundef %34)
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %9, align 4
+  br label %36
+
+35:                                               ; preds = %28
+  store i1 true, ptr %3, align 1
+  store i32 1, ptr %9, align 4
+  br label %36
+
+36:                                               ; preds = %35, %31, %21, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #12
+  %37 = load i1, ptr %3, align 1
+  ret i1 %37
 }
 
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid allocsize(0)
+declare noalias ptr @g_malloc(i64 noundef) #6
 
-; Function Attrs: nounwind uwtable
-define i32 @plugins_abi_version(i32 noundef %0) #0 {
-  %2 = alloca i32, align 4
-  %3 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
-  switch i32 %4, label %8 [
-    i32 1, label %5
-    i32 2, label %6
-    i32 3, label %7
-  ]
+; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
+declare i1 @llvm.is.constant.i64(i64) #7
 
-5:                                                ; preds = %1
-  store i32 1, ptr %2, align 4
-  br label %9
+; Function Attrs: null_pointer_is_valid allocsize(0,1)
+declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) #8
 
-6:                                                ; preds = %1
-  store i32 1, ptr %2, align 4
-  br label %9
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_hash_table_replace(ptr noundef, ptr noundef, ptr noundef) #3
 
-7:                                                ; preds = %1
-  store i32 1, ptr %2, align 4
-  br label %9
+; Function Attrs: null_pointer_is_valid
+declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) #3
 
-8:                                                ; preds = %1
-  store i32 -1, ptr %2, align 4
-  br label %9
+; Function Attrs: null_pointer_is_valid
+declare void @g_dir_close(ptr noundef) #3
 
-9:                                                ; preds = %8, %7, %6, %5
-  %10 = load i32, ptr %2, align 4
-  ret i32 %10
-}
+; Function Attrs: noreturn null_pointer_is_valid
+declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) #9
 
-; Function Attrs: nounwind uwtable
-define i32 @plugins_api_max_level(i32 noundef %0) #0 {
-  %2 = alloca i32, align 4
-  %3 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
-  switch i32 %4, label %6 [
-    i32 3, label %5
-  ]
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_strcmp0(ptr noundef, ptr noundef) #3
 
-5:                                                ; preds = %1
-  store i32 1, ptr %2, align 4
-  br label %7
+; Function Attrs: null_pointer_is_valid
+declare i32 @__printf_chk(i32 noundef, ptr noundef, ...) #3
 
-6:                                                ; preds = %1
-  store i32 0, ptr %2, align 4
-  br label %7
-
-7:                                                ; preds = %6, %5
-  %8 = load i32, ptr %2, align 4
-  ret i32 %8
-}
-
-declare ptr @g_dir_open(ptr noundef, i32 noundef, ptr noundef) #1
-
-declare ptr @g_dir_read_name(ptr noundef) #1
-
-declare i32 @g_str_has_suffix(ptr noundef, ptr noundef) #1
-
-declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal ptr @type_to_name(i32 noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal ptr @flags_to_str(i32 noundef %0) #10 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
   %4 = load i32, ptr %3, align 4
-  switch i32 %4, label %8 [
-    i32 1, label %5
-    i32 2, label %6
-    i32 3, label %7
-  ]
-
-5:                                                ; preds = %1
-  store ptr @.str.15, ptr %2, align 8
-  br label %9
-
-6:                                                ; preds = %1
-  store ptr @.str.16, ptr %2, align 8
-  br label %9
-
-7:                                                ; preds = %1
-  store ptr @.str.17, ptr %2, align 8
-  br label %9
+  %5 = zext i32 %4 to i64
+  %6 = and i64 %5, 1
+  %7 = icmp ne i64 %6, 0
+  br i1 %7, label %8, label %9
 
 8:                                                ; preds = %1
-  store ptr @.str.18, ptr %2, align 8
-  br label %9
+  store ptr @.str.21, ptr %2, align 8
+  br label %40
 
-9:                                                ; preds = %8, %7, %6, %5
-  %10 = load ptr, ptr %2, align 8
-  ret ptr %10
+9:                                                ; preds = %1
+  %10 = load i32, ptr %3, align 4
+  %11 = zext i32 %10 to i64
+  %12 = and i64 %11, 2
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %9
+  store ptr @.str.22, ptr %2, align 8
+  br label %40
+
+15:                                               ; preds = %9
+  %16 = load i32, ptr %3, align 4
+  %17 = zext i32 %16 to i64
+  %18 = and i64 %17, 4
+  %19 = icmp ne i64 %18, 0
+  br i1 %19, label %20, label %21
+
+20:                                               ; preds = %15
+  store ptr @.str.23, ptr %2, align 8
+  br label %40
+
+21:                                               ; preds = %15
+  %22 = load i32, ptr %3, align 4
+  %23 = zext i32 %22 to i64
+  %24 = and i64 %23, 8
+  %25 = icmp ne i64 %24, 0
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %21
+  store ptr @.str.10, ptr %2, align 8
+  br label %40
+
+27:                                               ; preds = %21
+  %28 = load i32, ptr %3, align 4
+  %29 = zext i32 %28 to i64
+  %30 = and i64 %29, 16
+  %31 = icmp ne i64 %30, 0
+  br i1 %31, label %32, label %33
+
+32:                                               ; preds = %27
+  store ptr @.str.24, ptr %2, align 8
+  br label %40
+
+33:                                               ; preds = %27
+  %34 = load i32, ptr %3, align 4
+  %35 = zext i32 %34 to i64
+  %36 = and i64 %35, 32
+  %37 = icmp ne i64 %36, 0
+  br i1 %37, label %38, label %39
+
+38:                                               ; preds = %33
+  store ptr @.str.25, ptr %2, align 8
+  br label %40
+
+39:                                               ; preds = %33
+  store ptr @.str.26, ptr %2, align 8
+  br label %40
+
+40:                                               ; preds = %39, %38, %32, %26, %20, %14, %8
+  %41 = load ptr, ptr %2, align 8
+  ret ptr %41
 }
 
-; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) #4
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #8 = { null_pointer_is_valid allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { allocsize(0) }
+attributes #14 = { allocsize(0,1) }
+attributes #15 = { noreturn }
 
-declare noalias ptr @g_strdup(ptr noundef) #1
-
-; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strrchr(ptr noundef, i32 noundef) #2
-
-declare i32 @g_hash_table_replace(ptr noundef, ptr noundef, ptr noundef) #1
-
-declare void @g_dir_close(ptr noundef) #1
-
-declare void @wmem_free(ptr noundef, ptr noundef) #1
-
-declare i32 @g_strcmp0(ptr noundef, ptr noundef) #1
-
-; Function Attrs: noreturn
-declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) #5
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind willreturn memory(read) }
-attributes #7 = { nounwind willreturn memory(none) }
-attributes #8 = { allocsize(0,1) }
-attributes #9 = { noreturn }
-
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}

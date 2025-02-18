@@ -3,16 +3,15 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct._zebra_header_t = type { i16, i16, i8 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
-%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr }
+%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.field_info = type { ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32 }
 
-@proto_register_zebra.hf = internal global [93 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_zebra_len, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 5, i32 1, ptr null, i64 0, ptr @.str.2, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_version, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 4, i32 1, ptr null, i64 0, ptr @.str.5, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_marker, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 2, ptr null, i64 0, ptr @.str.8, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_request, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 2, i32 0, ptr null, i64 0, ptr @.str.11, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_command, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 5, i32 1, ptr @messages, i64 0, ptr @.str.14, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_interface, %struct._header_field_info { ptr @.str.15, ptr @.str.16, i32 26, i32 0, ptr null, i64 0, ptr @.str.17, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_index, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 7, i32 1, ptr null, i64 0, ptr @.str.20, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_intstatus, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 4, i32 1, ptr null, i64 0, ptr @.str.23, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_indexnum, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 4, i32 1, ptr null, i64 0, ptr @.str.26, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_intflags, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 11, i32 1, ptr null, i64 0, ptr @.str.29, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_rtflags, %struct._header_field_info { ptr @.str.27, ptr @.str.30, i32 4, i32 1, ptr null, i64 0, ptr @.str.31, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_message, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 4, i32 1, ptr null, i64 0, ptr @.str.34, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_route_safi, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 5, i32 1, ptr @safi, i64 0, ptr @.str.37, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg_nexthop, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 2, i32 8, ptr null, i64 1, ptr @.str.40, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg_index, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 2, i32 8, ptr null, i64 2, ptr @.str.43, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg_distance, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 2, i32 8, ptr null, i64 4, ptr @.str.46, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg_metric, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 2, i32 8, ptr null, i64 8, ptr @.str.49, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_type_v0, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 4, i32 1, ptr @routes_v0, i64 0, ptr @.str.52, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_type_v1, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 4, i32 1, ptr @routes_v1, i64 0, ptr @.str.52, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_distance, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 4, i32 1, ptr null, i64 0, ptr @.str.55, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_metric, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 7, i32 1, ptr null, i64 0, ptr @.str.58, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_mtu, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 7, i32 1, ptr null, i64 0, ptr @.str.61, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_mtu6, %struct._header_field_info { ptr @.str.62, ptr @.str.63, i32 7, i32 1, ptr null, i64 0, ptr @.str.64, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_bandwidth, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 7, i32 1, ptr null, i64 0, ptr @.str.67, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_family, %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 5, i32 1, ptr @families, i64 0, ptr @.str.70, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_flags, %struct._header_field_info { ptr @.str.27, ptr @.str.71, i32 4, i32 1, ptr null, i64 0, ptr @.str.72, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_dest4, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 32, i32 0, ptr null, i64 0, ptr @.str.75, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_dest6, %struct._header_field_info { ptr @.str.73, ptr @.str.76, i32 33, i32 0, ptr null, i64 0, ptr @.str.77, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_nexthopnum, %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 4, i32 1, ptr null, i64 0, ptr @.str.80, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_nexthop4, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 32, i32 0, ptr null, i64 0, ptr @.str.83, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_nexthop6, %struct._header_field_info { ptr @.str.81, ptr @.str.84, i32 33, i32 0, ptr null, i64 0, ptr @.str.85, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_prefixlen, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_prefix4, %struct._header_field_info { ptr @.str.88, ptr @.str.89, i32 32, i32 0, ptr null, i64 0, ptr @.str.90, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_prefix6, %struct._header_field_info { ptr @.str.88, ptr @.str.91, i32 33, i32 0, ptr null, i64 0, ptr @.str.92, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_routeridaddress, %struct._header_field_info { ptr @.str.93, ptr @.str.94, i32 32, i32 0, ptr null, i64 0, ptr @.str.95, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_routeridmask, %struct._header_field_info { ptr @.str.96, ptr @.str.97, i32 4, i32 1, ptr null, i64 0, ptr @.str.98, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_mac, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 29, i32 0, ptr null, i64 0, ptr @.str.101, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_redist_default, %struct._header_field_info { ptr @.str.102, ptr @.str.103, i32 2, i32 0, ptr null, i64 0, ptr @.str.104, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_vrfid, %struct._header_field_info { ptr @.str.105, ptr @.str.106, i32 7, i32 2, ptr null, i64 0, ptr @.str.107, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_routeridfamily, %struct._header_field_info { ptr @.str.108, ptr @.str.109, i32 4, i32 1, ptr @families, i64 0, ptr @.str.110, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_nexthoptype, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 4, i32 1, ptr @zebra_nht, i64 0, ptr @.str.113, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg_mtu, %struct._header_field_info { ptr @.str.114, ptr @.str.115, i32 2, i32 8, ptr null, i64 16, ptr @.str.116, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg_tag, %struct._header_field_info { ptr @.str.117, ptr @.str.118, i32 2, i32 8, ptr null, i64 32, ptr @.str.119, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_tag, %struct._header_field_info { ptr @.str.120, ptr @.str.121, i32 7, i32 1, ptr null, i64 0, ptr @.str.122, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_maclen, %struct._header_field_info { ptr @.str.123, ptr @.str.124, i32 7, i32 1, ptr null, i64 0, ptr @.str.125, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_haslinkparam, %struct._header_field_info { ptr @.str.126, ptr @.str.127, i32 2, i32 0, ptr null, i64 0, ptr @.str.128, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_command_v4, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 5, i32 1, ptr @frr_zapi4_messages, i64 0, ptr @.str.14, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_command_v5, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 5, i32 1, ptr @frr_zapi5_messages, i64 0, ptr @.str.14, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_command_v6, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 5, i32 1, ptr @frr_zapi6_messages, i64 0, ptr @.str.14, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_type_v4, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 4, i32 1, ptr @routes_v4, i64 0, ptr @.str.52, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_type_v5, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 4, i32 1, ptr @routes_v5, i64 0, ptr @.str.52, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_ptmenable, %struct._header_field_info { ptr @.str.129, ptr @.str.130, i32 4, i32 1, ptr null, i64 0, ptr @.str.131, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_ptmstatus, %struct._header_field_info { ptr @.str.132, ptr @.str.133, i32 4, i32 1, ptr null, i64 0, ptr @.str.134, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_instance, %struct._header_field_info { ptr @.str.135, ptr @.str.136, i32 5, i32 1, ptr null, i64 0, ptr @.str.137, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_rtflags_u32, %struct._header_field_info { ptr @.str.27, ptr @.str.30, i32 7, i32 1, ptr null, i64 0, ptr @.str.31, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_speed, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 7, i32 1, ptr null, i64 0, ptr @.str.140, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_lltype, %struct._header_field_info { ptr @.str.141, ptr @.str.142, i32 7, i32 1, ptr null, i64 0, ptr @.str.143, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_message4, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 4, i32 1, ptr null, i64 0, ptr @.str.34, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_message5, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 4, i32 1, ptr null, i64 0, ptr @.str.34, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_route_safi_u8, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 4, i32 1, ptr @safi, i64 0, ptr @.str.37, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_rmac, %struct._header_field_info { ptr @.str.144, ptr @.str.145, i32 29, i32 0, ptr null, i64 0, ptr @.str.146, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg4_tag, %struct._header_field_info { ptr @.str.117, ptr @.str.118, i32 2, i32 8, ptr null, i64 16, ptr @.str.119, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg4_mtu, %struct._header_field_info { ptr @.str.114, ptr @.str.115, i32 2, i32 8, ptr null, i64 32, ptr @.str.116, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg4_srcpfx, %struct._header_field_info { ptr @.str.147, ptr @.str.148, i32 2, i32 8, ptr null, i64 64, ptr @.str.149, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg5_distance, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 2, i32 8, ptr null, i64 2, ptr @.str.46, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg5_metric, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 2, i32 8, ptr null, i64 4, ptr @.str.49, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg5_tag, %struct._header_field_info { ptr @.str.117, ptr @.str.118, i32 2, i32 8, ptr null, i64 8, ptr @.str.119, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg5_mtu, %struct._header_field_info { ptr @.str.114, ptr @.str.115, i32 2, i32 8, ptr null, i64 16, ptr @.str.116, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg5_srcpfx, %struct._header_field_info { ptr @.str.147, ptr @.str.148, i32 2, i32 8, ptr null, i64 32, ptr @.str.149, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg_label, %struct._header_field_info { ptr @.str.150, ptr @.str.151, i32 2, i32 8, ptr null, i64 64, ptr @.str.152, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg_tableid, %struct._header_field_info { ptr @.str.153, ptr @.str.154, i32 2, i32 8, ptr null, i64 128, ptr @.str.155, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_nexthopnum_u16, %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 5, i32 1, ptr null, i64 0, ptr @.str.80, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_nexthoptype_frr, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 4, i32 1, ptr @frr_nht, i64 0, ptr @.str.113, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_bhtype, %struct._header_field_info { ptr @.str.156, ptr @.str.157, i32 4, i32 1, ptr @blackhole_type, i64 0, ptr @.str.158, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_srcprefixlen, %struct._header_field_info { ptr @.str.159, ptr @.str.160, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_srcprefix4, %struct._header_field_info { ptr @.str.161, ptr @.str.162, i32 32, i32 0, ptr null, i64 0, ptr @.str.163, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_srcprefix6, %struct._header_field_info { ptr @.str.161, ptr @.str.164, i32 33, i32 0, ptr null, i64 0, ptr @.str.165, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_tableid, %struct._header_field_info { ptr @.str.166, ptr @.str.167, i32 7, i32 1, ptr null, i64 0, ptr @.str.168, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_afi, %struct._header_field_info { ptr @.str.169, ptr @.str.170, i32 4, i32 1, ptr null, i64 0, ptr @.str.171, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_pid, %struct._header_field_info { ptr @.str.172, ptr @.str.173, i32 7, i32 1, ptr null, i64 0, ptr @.str.174, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_vrf_table_id, %struct._header_field_info { ptr @.str.175, ptr @.str.176, i32 7, i32 1, ptr null, i64 0, ptr @.str.177, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_vrf_netns_name, %struct._header_field_info { ptr @.str.178, ptr @.str.179, i32 26, i32 0, ptr null, i64 0, ptr @.str.180, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_vrf_name, %struct._header_field_info { ptr @.str.181, ptr @.str.182, i32 26, i32 0, ptr null, i64 0, ptr @.str.183, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_proto, %struct._header_field_info { ptr @.str.184, ptr @.str.185, i32 4, i32 1, ptr null, i64 0, ptr @.str.186, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_label_chunk_keep, %struct._header_field_info { ptr @.str.187, ptr @.str.188, i32 4, i32 1, ptr null, i64 0, ptr @.str.189, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_label_chunk_size, %struct._header_field_info { ptr @.str.190, ptr @.str.191, i32 7, i32 1, ptr null, i64 0, ptr @.str.192, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_label_chunk_start, %struct._header_field_info { ptr @.str.193, ptr @.str.194, i32 7, i32 1, ptr null, i64 0, ptr @.str.195, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_label_chunk_end, %struct._header_field_info { ptr @.str.196, ptr @.str.197, i32 7, i32 1, ptr null, i64 0, ptr @.str.198, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_mpls_enabled, %struct._header_field_info { ptr @.str.199, ptr @.str.200, i32 2, i32 0, ptr null, i64 0, ptr @.str.201, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_multipath_num, %struct._header_field_info { ptr @.str.202, ptr @.str.203, i32 7, i32 1, ptr null, i64 0, ptr @.str.204, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_labelnum, %struct._header_field_info { ptr @.str.205, ptr @.str.206, i32 4, i32 1, ptr null, i64 0, ptr @.str.207, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_label, %struct._header_field_info { ptr @.str.208, ptr @.str.209, i32 7, i32 1, ptr null, i64 0, ptr @.str.210, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_receive_notify, %struct._header_field_info { ptr @.str.211, ptr @.str.212, i32 2, i32 0, ptr null, i64 0, ptr @.str.213, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@proto_register_zebra.hf = internal global [93 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_zebra_len, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 5, i32 1, ptr null, i64 0, ptr @.str.2, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_version, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 4, i32 1, ptr null, i64 0, ptr @.str.5, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_marker, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 2, ptr null, i64 0, ptr @.str.8, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_request, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 2, i32 0, ptr null, i64 0, ptr @.str.11, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_command, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 5, i32 1, ptr @messages, i64 0, ptr @.str.14, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_interface, %struct._header_field_info { ptr @.str.15, ptr @.str.16, i32 26, i32 0, ptr null, i64 0, ptr @.str.17, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_index, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 7, i32 1, ptr null, i64 0, ptr @.str.20, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_intstatus, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 4, i32 1, ptr null, i64 0, ptr @.str.23, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_indexnum, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 4, i32 1, ptr null, i64 0, ptr @.str.26, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_intflags, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 11, i32 1, ptr null, i64 0, ptr @.str.29, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_rtflags, %struct._header_field_info { ptr @.str.27, ptr @.str.30, i32 4, i32 1, ptr null, i64 0, ptr @.str.31, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_message, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 4, i32 1, ptr null, i64 0, ptr @.str.34, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_route_safi, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 5, i32 1, ptr @safi, i64 0, ptr @.str.37, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg_nexthop, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 2, i32 8, ptr null, i64 1, ptr @.str.40, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg_index, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 2, i32 8, ptr null, i64 2, ptr @.str.43, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg_distance, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 2, i32 8, ptr null, i64 4, ptr @.str.46, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg_metric, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 2, i32 8, ptr null, i64 8, ptr @.str.49, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_type_v0, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 4, i32 1, ptr @routes_v0, i64 0, ptr @.str.52, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_type_v1, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 4, i32 1, ptr @routes_v1, i64 0, ptr @.str.52, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_distance, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 4, i32 1, ptr null, i64 0, ptr @.str.55, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_metric, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 7, i32 1, ptr null, i64 0, ptr @.str.58, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_mtu, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 7, i32 1, ptr null, i64 0, ptr @.str.61, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_mtu6, %struct._header_field_info { ptr @.str.62, ptr @.str.63, i32 7, i32 1, ptr null, i64 0, ptr @.str.64, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_bandwidth, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 7, i32 1, ptr null, i64 0, ptr @.str.67, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_family, %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 5, i32 1, ptr @families, i64 0, ptr @.str.70, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_flags, %struct._header_field_info { ptr @.str.27, ptr @.str.71, i32 4, i32 1, ptr null, i64 0, ptr @.str.72, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_dest4, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 32, i32 0, ptr null, i64 0, ptr @.str.75, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_dest6, %struct._header_field_info { ptr @.str.73, ptr @.str.76, i32 33, i32 0, ptr null, i64 0, ptr @.str.77, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_nexthopnum, %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 4, i32 1, ptr null, i64 0, ptr @.str.80, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_nexthop4, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 32, i32 0, ptr null, i64 0, ptr @.str.83, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_nexthop6, %struct._header_field_info { ptr @.str.81, ptr @.str.84, i32 33, i32 0, ptr null, i64 0, ptr @.str.85, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_prefixlen, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_prefix4, %struct._header_field_info { ptr @.str.88, ptr @.str.89, i32 32, i32 0, ptr null, i64 0, ptr @.str.90, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_prefix6, %struct._header_field_info { ptr @.str.88, ptr @.str.91, i32 33, i32 0, ptr null, i64 0, ptr @.str.92, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_routeridaddress, %struct._header_field_info { ptr @.str.93, ptr @.str.94, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_routeridmask, %struct._header_field_info { ptr @.str.95, ptr @.str.96, i32 4, i32 1, ptr null, i64 0, ptr @.str.97, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_mac, %struct._header_field_info { ptr @.str.98, ptr @.str.99, i32 29, i32 0, ptr null, i64 0, ptr @.str.100, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_redist_default, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 2, i32 0, ptr null, i64 0, ptr @.str.103, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_vrfid, %struct._header_field_info { ptr @.str.104, ptr @.str.105, i32 7, i32 2, ptr null, i64 0, ptr @.str.106, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_routeridfamily, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 4, i32 1, ptr @families, i64 0, ptr @.str.109, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_nexthoptype, %struct._header_field_info { ptr @.str.110, ptr @.str.111, i32 4, i32 1, ptr @zebra_nht, i64 0, ptr @.str.112, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg_mtu, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 2, i32 8, ptr null, i64 16, ptr @.str.115, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg_tag, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 2, i32 8, ptr null, i64 32, ptr @.str.118, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_tag, %struct._header_field_info { ptr @.str.119, ptr @.str.120, i32 7, i32 1, ptr null, i64 0, ptr @.str.121, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_maclen, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 7, i32 1, ptr null, i64 0, ptr @.str.124, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_haslinkparam, %struct._header_field_info { ptr @.str.125, ptr @.str.126, i32 2, i32 0, ptr null, i64 0, ptr @.str.127, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_command_v4, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 5, i32 1, ptr @frr_zapi4_messages, i64 0, ptr @.str.14, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_command_v5, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 5, i32 1, ptr @frr_zapi5_messages, i64 0, ptr @.str.14, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_command_v6, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 5, i32 1, ptr @frr_zapi6_messages, i64 0, ptr @.str.14, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_type_v4, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 4, i32 1, ptr @routes_v4, i64 0, ptr @.str.52, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_type_v5, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 4, i32 1, ptr @routes_v5, i64 0, ptr @.str.52, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_ptmenable, %struct._header_field_info { ptr @.str.128, ptr @.str.129, i32 4, i32 1, ptr null, i64 0, ptr @.str.130, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_ptmstatus, %struct._header_field_info { ptr @.str.131, ptr @.str.132, i32 4, i32 1, ptr null, i64 0, ptr @.str.133, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_instance, %struct._header_field_info { ptr @.str.134, ptr @.str.135, i32 5, i32 1, ptr null, i64 0, ptr @.str.136, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_rtflags_u32, %struct._header_field_info { ptr @.str.27, ptr @.str.30, i32 7, i32 1, ptr null, i64 0, ptr @.str.31, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_speed, %struct._header_field_info { ptr @.str.137, ptr @.str.138, i32 7, i32 1, ptr null, i64 0, ptr @.str.139, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_lltype, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 7, i32 1, ptr null, i64 0, ptr @.str.142, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_message4, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 4, i32 1, ptr null, i64 0, ptr @.str.34, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_message5, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 4, i32 1, ptr null, i64 0, ptr @.str.34, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_route_safi_u8, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 4, i32 1, ptr @safi, i64 0, ptr @.str.37, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_rmac, %struct._header_field_info { ptr @.str.143, ptr @.str.144, i32 29, i32 0, ptr null, i64 0, ptr @.str.145, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg4_tag, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 2, i32 8, ptr null, i64 16, ptr @.str.118, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg4_mtu, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 2, i32 8, ptr null, i64 32, ptr @.str.115, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg4_srcpfx, %struct._header_field_info { ptr @.str.146, ptr @.str.147, i32 2, i32 8, ptr null, i64 64, ptr @.str.148, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg5_distance, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 2, i32 8, ptr null, i64 2, ptr @.str.46, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg5_metric, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 2, i32 8, ptr null, i64 4, ptr @.str.49, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg5_tag, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 2, i32 8, ptr null, i64 8, ptr @.str.118, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg5_mtu, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 2, i32 8, ptr null, i64 16, ptr @.str.115, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg5_srcpfx, %struct._header_field_info { ptr @.str.146, ptr @.str.147, i32 2, i32 8, ptr null, i64 32, ptr @.str.148, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg_label, %struct._header_field_info { ptr @.str.149, ptr @.str.150, i32 2, i32 8, ptr null, i64 64, ptr @.str.151, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_msg_tableid, %struct._header_field_info { ptr @.str.152, ptr @.str.153, i32 2, i32 8, ptr null, i64 128, ptr @.str.154, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_nexthopnum_u16, %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 5, i32 1, ptr null, i64 0, ptr @.str.80, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_nexthoptype_frr, %struct._header_field_info { ptr @.str.110, ptr @.str.111, i32 4, i32 1, ptr @frr_nht, i64 0, ptr @.str.112, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_bhtype, %struct._header_field_info { ptr @.str.155, ptr @.str.156, i32 4, i32 1, ptr @blackhole_type, i64 0, ptr @.str.157, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_srcprefixlen, %struct._header_field_info { ptr @.str.158, ptr @.str.159, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_srcprefix4, %struct._header_field_info { ptr @.str.160, ptr @.str.161, i32 32, i32 0, ptr null, i64 0, ptr @.str.162, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_srcprefix6, %struct._header_field_info { ptr @.str.160, ptr @.str.163, i32 33, i32 0, ptr null, i64 0, ptr @.str.164, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_tableid, %struct._header_field_info { ptr @.str.165, ptr @.str.166, i32 7, i32 1, ptr null, i64 0, ptr @.str.167, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_afi, %struct._header_field_info { ptr @.str.168, ptr @.str.169, i32 4, i32 1, ptr null, i64 0, ptr @.str.170, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_pid, %struct._header_field_info { ptr @.str.171, ptr @.str.172, i32 7, i32 1, ptr null, i64 0, ptr @.str.173, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_vrf_table_id, %struct._header_field_info { ptr @.str.174, ptr @.str.175, i32 7, i32 1, ptr null, i64 0, ptr @.str.176, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_vrf_netns_name, %struct._header_field_info { ptr @.str.177, ptr @.str.178, i32 26, i32 0, ptr null, i64 0, ptr @.str.179, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_vrf_name, %struct._header_field_info { ptr @.str.180, ptr @.str.181, i32 26, i32 0, ptr null, i64 0, ptr @.str.182, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_proto, %struct._header_field_info { ptr @.str.183, ptr @.str.184, i32 4, i32 1, ptr null, i64 0, ptr @.str.185, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_label_chunk_keep, %struct._header_field_info { ptr @.str.186, ptr @.str.187, i32 4, i32 1, ptr null, i64 0, ptr @.str.188, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_label_chunk_size, %struct._header_field_info { ptr @.str.189, ptr @.str.190, i32 7, i32 1, ptr null, i64 0, ptr @.str.191, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_label_chunk_start, %struct._header_field_info { ptr @.str.192, ptr @.str.193, i32 7, i32 1, ptr null, i64 0, ptr @.str.194, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_label_chunk_end, %struct._header_field_info { ptr @.str.195, ptr @.str.196, i32 7, i32 1, ptr null, i64 0, ptr @.str.197, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_mpls_enabled, %struct._header_field_info { ptr @.str.198, ptr @.str.199, i32 2, i32 0, ptr null, i64 0, ptr @.str.200, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_multipath_num, %struct._header_field_info { ptr @.str.201, ptr @.str.202, i32 7, i32 1, ptr null, i64 0, ptr @.str.203, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_labelnum, %struct._header_field_info { ptr @.str.204, ptr @.str.205, i32 4, i32 1, ptr null, i64 0, ptr @.str.206, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_label, %struct._header_field_info { ptr @.str.207, ptr @.str.208, i32 7, i32 1, ptr null, i64 0, ptr @.str.209, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zebra_receive_notify, %struct._header_field_info { ptr @.str.210, ptr @.str.211, i32 2, i32 0, ptr null, i64 0, ptr @.str.212, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_zebra_len = internal global i32 0, align 4
 @.str = private unnamed_addr constant [7 x i8] c"Length\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"zebra.len\00", align 1
@@ -28,11 +27,10 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_zebra_request = internal global i32 0, align 4
 @.str.9 = private unnamed_addr constant [8 x i8] c"Request\00", align 1
 @.str.10 = private unnamed_addr constant [14 x i8] c"zebra.request\00", align 1
-@.str.11 = private unnamed_addr constant [22 x i8] c"TRUE if Zebra request\00", align 1
+@.str.11 = private unnamed_addr constant [22 x i8] c"true if Zebra request\00", align 1
 @hf_zebra_command = internal global i32 0, align 4
 @.str.12 = private unnamed_addr constant [8 x i8] c"Command\00", align 1
 @.str.13 = private unnamed_addr constant [14 x i8] c"zebra.command\00", align 1
-@messages = internal constant [30 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.218 }, %struct._value_string { i32 2, ptr @.str.219 }, %struct._value_string { i32 3, ptr @.str.220 }, %struct._value_string { i32 4, ptr @.str.221 }, %struct._value_string { i32 5, ptr @.str.222 }, %struct._value_string { i32 6, ptr @.str.223 }, %struct._value_string { i32 7, ptr @.str.224 }, %struct._value_string { i32 8, ptr @.str.225 }, %struct._value_string { i32 9, ptr @.str.226 }, %struct._value_string { i32 10, ptr @.str.227 }, %struct._value_string { i32 11, ptr @.str.228 }, %struct._value_string { i32 12, ptr @.str.229 }, %struct._value_string { i32 13, ptr @.str.230 }, %struct._value_string { i32 14, ptr @.str.231 }, %struct._value_string { i32 15, ptr @.str.232 }, %struct._value_string { i32 16, ptr @.str.233 }, %struct._value_string { i32 17, ptr @.str.234 }, %struct._value_string { i32 18, ptr @.str.235 }, %struct._value_string { i32 19, ptr @.str.236 }, %struct._value_string { i32 20, ptr @.str.237 }, %struct._value_string { i32 21, ptr @.str.238 }, %struct._value_string { i32 22, ptr @.str.239 }, %struct._value_string { i32 23, ptr @.str.240 }, %struct._value_string { i32 24, ptr @.str.241 }, %struct._value_string { i32 25, ptr @.str.242 }, %struct._value_string { i32 26, ptr @.str.243 }, %struct._value_string { i32 27, ptr @.str.244 }, %struct._value_string { i32 28, ptr @.str.245 }, %struct._value_string { i32 29, ptr @.str.246 }, %struct._value_string zeroinitializer], align 16
 @.str.14 = private unnamed_addr constant [14 x i8] c"Zebra command\00", align 1
 @hf_zebra_interface = internal global i32 0, align 4
 @.str.15 = private unnamed_addr constant [10 x i8] c"Interface\00", align 1
@@ -64,7 +62,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_zebra_route_safi = internal global i32 0, align 4
 @.str.35 = private unnamed_addr constant [5 x i8] c"SAFI\00", align 1
 @.str.36 = private unnamed_addr constant [11 x i8] c"zebra.safi\00", align 1
-@safi = internal constant [5 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.247 }, %struct._value_string { i32 2, ptr @.str.248 }, %struct._value_string { i32 3, ptr @.str.249 }, %struct._value_string { i32 4, ptr @.str.250 }, %struct._value_string zeroinitializer], align 16
 @.str.37 = private unnamed_addr constant [37 x i8] c"Subsequent Address Family Identifier\00", align 1
 @hf_zebra_msg_nexthop = internal global i32 0, align 4
 @.str.38 = private unnamed_addr constant [16 x i8] c"Message Nexthop\00", align 1
@@ -85,10 +82,8 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_zebra_type_v0 = internal global i32 0, align 4
 @.str.50 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
 @.str.51 = private unnamed_addr constant [11 x i8] c"zebra.type\00", align 1
-@routes_v0 = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.251 }, %struct._value_string { i32 1, ptr @.str.252 }, %struct._value_string { i32 2, ptr @.str.253 }, %struct._value_string { i32 3, ptr @.str.254 }, %struct._value_string { i32 4, ptr @.str.255 }, %struct._value_string { i32 5, ptr @.str.256 }, %struct._value_string { i32 6, ptr @.str.257 }, %struct._value_string { i32 7, ptr @.str.258 }, %struct._value_string { i32 8, ptr @.str.259 }, %struct._value_string zeroinitializer], align 16
 @.str.52 = private unnamed_addr constant [14 x i8] c"Type of route\00", align 1
 @hf_zebra_type_v1 = internal global i32 0, align 4
-@routes_v1 = internal constant [14 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.251 }, %struct._value_string { i32 1, ptr @.str.252 }, %struct._value_string { i32 2, ptr @.str.253 }, %struct._value_string { i32 3, ptr @.str.254 }, %struct._value_string { i32 4, ptr @.str.255 }, %struct._value_string { i32 5, ptr @.str.256 }, %struct._value_string { i32 6, ptr @.str.257 }, %struct._value_string { i32 7, ptr @.str.258 }, %struct._value_string { i32 8, ptr @.str.260 }, %struct._value_string { i32 9, ptr @.str.259 }, %struct._value_string { i32 10, ptr @.str.261 }, %struct._value_string { i32 11, ptr @.str.262 }, %struct._value_string { i32 12, ptr @.str.263 }, %struct._value_string zeroinitializer], align 16
 @hf_zebra_distance = internal global i32 0, align 4
 @.str.53 = private unnamed_addr constant [9 x i8] c"Distance\00", align 1
 @.str.54 = private unnamed_addr constant [15 x i8] c"zebra.distance\00", align 1
@@ -112,7 +107,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_zebra_family = internal global i32 0, align 4
 @.str.68 = private unnamed_addr constant [7 x i8] c"Family\00", align 1
 @.str.69 = private unnamed_addr constant [13 x i8] c"zebra.family\00", align 1
-@families = internal constant [3 x %struct._value_string] [%struct._value_string { i32 2, ptr @.str.264 }, %struct._value_string { i32 10, ptr @.str.265 }, %struct._value_string zeroinitializer], align 16
 @.str.70 = private unnamed_addr constant [21 x i8] c"Family of IP address\00", align 1
 @hf_zebra_flags = internal global i32 0, align 4
 @.str.71 = private unnamed_addr constant [12 x i8] c"zebra.flags\00", align 1
@@ -148,386 +142,394 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_zebra_routeridaddress = internal global i32 0, align 4
 @.str.93 = private unnamed_addr constant [18 x i8] c"Router ID address\00", align 1
 @.str.94 = private unnamed_addr constant [22 x i8] c"zebra.routerIDAddress\00", align 1
-@.str.95 = private unnamed_addr constant [10 x i8] c"Router ID\00", align 1
 @hf_zebra_routeridmask = internal global i32 0, align 4
-@.str.96 = private unnamed_addr constant [15 x i8] c"Router ID mask\00", align 1
-@.str.97 = private unnamed_addr constant [19 x i8] c"zebra.routerIDMask\00", align 1
-@.str.98 = private unnamed_addr constant [21 x i8] c"netmask of Router ID\00", align 1
+@.str.95 = private unnamed_addr constant [15 x i8] c"Router ID mask\00", align 1
+@.str.96 = private unnamed_addr constant [19 x i8] c"zebra.routerIDMask\00", align 1
+@.str.97 = private unnamed_addr constant [21 x i8] c"netmask of Router ID\00", align 1
 @hf_zebra_mac = internal global i32 0, align 4
-@.str.99 = private unnamed_addr constant [12 x i8] c"MAC address\00", align 1
-@.str.100 = private unnamed_addr constant [17 x i8] c"zebra.macaddress\00", align 1
-@.str.101 = private unnamed_addr constant [25 x i8] c"MAC address of interface\00", align 1
+@.str.98 = private unnamed_addr constant [12 x i8] c"MAC address\00", align 1
+@.str.99 = private unnamed_addr constant [17 x i8] c"zebra.macaddress\00", align 1
+@.str.100 = private unnamed_addr constant [25 x i8] c"MAC address of interface\00", align 1
 @hf_zebra_redist_default = internal global i32 0, align 4
-@.str.102 = private unnamed_addr constant [21 x i8] c"Redistribute default\00", align 1
-@.str.103 = private unnamed_addr constant [21 x i8] c"zebra.redist_default\00", align 1
-@.str.104 = private unnamed_addr constant [29 x i8] c"TRUE if redistribute default\00", align 1
+@.str.101 = private unnamed_addr constant [21 x i8] c"Redistribute default\00", align 1
+@.str.102 = private unnamed_addr constant [21 x i8] c"zebra.redist_default\00", align 1
+@.str.103 = private unnamed_addr constant [29 x i8] c"true if redistribute default\00", align 1
 @hf_zebra_vrfid = internal global i32 0, align 4
-@.str.105 = private unnamed_addr constant [7 x i8] c"VRF-ID\00", align 1
-@.str.106 = private unnamed_addr constant [12 x i8] c"zebra.vrfid\00", align 1
-@.str.107 = private unnamed_addr constant [7 x i8] c"VRF ID\00", align 1
+@.str.104 = private unnamed_addr constant [7 x i8] c"VRF-ID\00", align 1
+@.str.105 = private unnamed_addr constant [12 x i8] c"zebra.vrfid\00", align 1
+@.str.106 = private unnamed_addr constant [7 x i8] c"VRF ID\00", align 1
 @hf_zebra_routeridfamily = internal global i32 0, align 4
-@.str.108 = private unnamed_addr constant [17 x i8] c"Router ID Family\00", align 1
-@.str.109 = private unnamed_addr constant [21 x i8] c"zebra.routeridfamily\00", align 1
-@.str.110 = private unnamed_addr constant [20 x i8] c"Family of Router ID\00", align 1
+@.str.107 = private unnamed_addr constant [17 x i8] c"Router ID Family\00", align 1
+@.str.108 = private unnamed_addr constant [21 x i8] c"zebra.routeridfamily\00", align 1
+@.str.109 = private unnamed_addr constant [20 x i8] c"Family of Router ID\00", align 1
 @hf_zebra_nexthoptype = internal global i32 0, align 4
-@.str.111 = private unnamed_addr constant [13 x i8] c"Nexthop Type\00", align 1
-@.str.112 = private unnamed_addr constant [18 x i8] c"zebra.nexthoptype\00", align 1
-@zebra_nht = internal constant [10 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.266 }, %struct._value_string { i32 2, ptr @.str.267 }, %struct._value_string { i32 3, ptr @.str.264 }, %struct._value_string { i32 4, ptr @.str.268 }, %struct._value_string { i32 5, ptr @.str.269 }, %struct._value_string { i32 6, ptr @.str.270 }, %struct._value_string { i32 7, ptr @.str.271 }, %struct._value_string { i32 8, ptr @.str.272 }, %struct._value_string { i32 9, ptr @.str.273 }, %struct._value_string zeroinitializer], align 16
-@.str.113 = private unnamed_addr constant [16 x i8] c"Type of Nexthop\00", align 1
+@.str.110 = private unnamed_addr constant [13 x i8] c"Nexthop Type\00", align 1
+@.str.111 = private unnamed_addr constant [18 x i8] c"zebra.nexthoptype\00", align 1
+@.str.112 = private unnamed_addr constant [16 x i8] c"Type of Nexthop\00", align 1
 @hf_zebra_msg_mtu = internal global i32 0, align 4
-@.str.114 = private unnamed_addr constant [12 x i8] c"Message MTU\00", align 1
-@.str.115 = private unnamed_addr constant [18 x i8] c"zebra.message.mtu\00", align 1
-@.str.116 = private unnamed_addr constant [21 x i8] c"Message contains MTU\00", align 1
+@.str.113 = private unnamed_addr constant [12 x i8] c"Message MTU\00", align 1
+@.str.114 = private unnamed_addr constant [18 x i8] c"zebra.message.mtu\00", align 1
+@.str.115 = private unnamed_addr constant [21 x i8] c"Message contains MTU\00", align 1
 @hf_zebra_msg_tag = internal global i32 0, align 4
-@.str.117 = private unnamed_addr constant [12 x i8] c"Message TAG\00", align 1
-@.str.118 = private unnamed_addr constant [18 x i8] c"zebra.message.tag\00", align 1
-@.str.119 = private unnamed_addr constant [21 x i8] c"Message contains TAG\00", align 1
+@.str.116 = private unnamed_addr constant [12 x i8] c"Message TAG\00", align 1
+@.str.117 = private unnamed_addr constant [18 x i8] c"zebra.message.tag\00", align 1
+@.str.118 = private unnamed_addr constant [21 x i8] c"Message contains TAG\00", align 1
 @hf_zebra_tag = internal global i32 0, align 4
-@.str.120 = private unnamed_addr constant [4 x i8] c"Tag\00", align 1
-@.str.121 = private unnamed_addr constant [10 x i8] c"zebra.tag\00", align 1
-@.str.122 = private unnamed_addr constant [10 x i8] c"Route Tag\00", align 1
+@.str.119 = private unnamed_addr constant [4 x i8] c"Tag\00", align 1
+@.str.120 = private unnamed_addr constant [10 x i8] c"zebra.tag\00", align 1
+@.str.121 = private unnamed_addr constant [10 x i8] c"Route Tag\00", align 1
 @hf_zebra_maclen = internal global i32 0, align 4
-@.str.123 = private unnamed_addr constant [19 x i8] c"MAC address length\00", align 1
-@.str.124 = private unnamed_addr constant [13 x i8] c"zebra.maclen\00", align 1
-@.str.125 = private unnamed_addr constant [35 x i8] c"Length of MAC address of interface\00", align 1
+@.str.122 = private unnamed_addr constant [19 x i8] c"MAC address length\00", align 1
+@.str.123 = private unnamed_addr constant [13 x i8] c"zebra.maclen\00", align 1
+@.str.124 = private unnamed_addr constant [35 x i8] c"Length of MAC address of interface\00", align 1
 @hf_zebra_haslinkparam = internal global i32 0, align 4
-@.str.126 = private unnamed_addr constant [28 x i8] c"Message has link parameters\00", align 1
-@.str.127 = private unnamed_addr constant [19 x i8] c"zebra.haslinkparam\00", align 1
-@.str.128 = private unnamed_addr constant [38 x i8] c"Interface message has link parameters\00", align 1
+@.str.125 = private unnamed_addr constant [28 x i8] c"Message has link parameters\00", align 1
+@.str.126 = private unnamed_addr constant [19 x i8] c"zebra.haslinkparam\00", align 1
+@.str.127 = private unnamed_addr constant [38 x i8] c"Interface message has link parameters\00", align 1
 @hf_zebra_command_v4 = internal global i32 0, align 4
-@frr_zapi4_messages = internal constant [61 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.218 }, %struct._value_string { i32 1, ptr @.str.219 }, %struct._value_string { i32 2, ptr @.str.220 }, %struct._value_string { i32 3, ptr @.str.221 }, %struct._value_string { i32 4, ptr @.str.222 }, %struct._value_string { i32 5, ptr @.str.223 }, %struct._value_string { i32 6, ptr @.str.224 }, %struct._value_string { i32 7, ptr @.str.225 }, %struct._value_string { i32 8, ptr @.str.226 }, %struct._value_string { i32 9, ptr @.str.227 }, %struct._value_string { i32 10, ptr @.str.228 }, %struct._value_string { i32 11, ptr @.str.229 }, %struct._value_string { i32 12, ptr @.str.230 }, %struct._value_string { i32 13, ptr @.str.231 }, %struct._value_string { i32 14, ptr @.str.237 }, %struct._value_string { i32 15, ptr @.str.238 }, %struct._value_string { i32 16, ptr @.str.239 }, %struct._value_string { i32 17, ptr @.str.240 }, %struct._value_string { i32 18, ptr @.str.244 }, %struct._value_string { i32 19, ptr @.str.245 }, %struct._value_string { i32 20, ptr @.str.246 }, %struct._value_string { i32 21, ptr @.str.274 }, %struct._value_string { i32 22, ptr @.str.275 }, %struct._value_string { i32 23, ptr @.str.276 }, %struct._value_string { i32 24, ptr @.str.277 }, %struct._value_string { i32 25, ptr @.str.278 }, %struct._value_string { i32 26, ptr @.str.279 }, %struct._value_string { i32 27, ptr @.str.280 }, %struct._value_string { i32 28, ptr @.str.281 }, %struct._value_string { i32 29, ptr @.str.282 }, %struct._value_string { i32 30, ptr @.str.283 }, %struct._value_string { i32 31, ptr @.str.284 }, %struct._value_string { i32 32, ptr @.str.285 }, %struct._value_string { i32 33, ptr @.str.286 }, %struct._value_string { i32 34, ptr @.str.287 }, %struct._value_string { i32 35, ptr @.str.288 }, %struct._value_string { i32 36, ptr @.str.242 }, %struct._value_string { i32 37, ptr @.str.289 }, %struct._value_string { i32 38, ptr @.str.290 }, %struct._value_string { i32 39, ptr @.str.291 }, %struct._value_string { i32 40, ptr @.str.292 }, %struct._value_string { i32 41, ptr @.str.293 }, %struct._value_string { i32 42, ptr @.str.294 }, %struct._value_string { i32 43, ptr @.str.241 }, %struct._value_string { i32 44, ptr @.str.243 }, %struct._value_string { i32 45, ptr @.str.295 }, %struct._value_string { i32 46, ptr @.str.296 }, %struct._value_string { i32 47, ptr @.str.297 }, %struct._value_string { i32 48, ptr @.str.298 }, %struct._value_string { i32 49, ptr @.str.299 }, %struct._value_string { i32 50, ptr @.str.300 }, %struct._value_string { i32 51, ptr @.str.301 }, %struct._value_string { i32 52, ptr @.str.302 }, %struct._value_string { i32 53, ptr @.str.303 }, %struct._value_string { i32 54, ptr @.str.304 }, %struct._value_string { i32 55, ptr @.str.305 }, %struct._value_string { i32 56, ptr @.str.306 }, %struct._value_string { i32 57, ptr @.str.307 }, %struct._value_string { i32 58, ptr @.str.308 }, %struct._value_string { i32 59, ptr @.str.309 }, %struct._value_string zeroinitializer], align 16
 @hf_zebra_command_v5 = internal global i32 0, align 4
-@frr_zapi5_messages = internal constant [93 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.218 }, %struct._value_string { i32 1, ptr @.str.219 }, %struct._value_string { i32 2, ptr @.str.220 }, %struct._value_string { i32 3, ptr @.str.221 }, %struct._value_string { i32 4, ptr @.str.222 }, %struct._value_string { i32 5, ptr @.str.223 }, %struct._value_string { i32 7, ptr @.str.310 }, %struct._value_string { i32 8, ptr @.str.311 }, %struct._value_string { i32 10, ptr @.str.224 }, %struct._value_string { i32 11, ptr @.str.225 }, %struct._value_string { i32 12, ptr @.str.226 }, %struct._value_string { i32 13, ptr @.str.227 }, %struct._value_string { i32 14, ptr @.str.228 }, %struct._value_string { i32 15, ptr @.str.229 }, %struct._value_string { i32 16, ptr @.str.230 }, %struct._value_string { i32 17, ptr @.str.231 }, %struct._value_string { i32 18, ptr @.str.237 }, %struct._value_string { i32 19, ptr @.str.238 }, %struct._value_string { i32 20, ptr @.str.239 }, %struct._value_string { i32 21, ptr @.str.240 }, %struct._value_string { i32 22, ptr @.str.312 }, %struct._value_string { i32 23, ptr @.str.244 }, %struct._value_string { i32 24, ptr @.str.245 }, %struct._value_string { i32 25, ptr @.str.246 }, %struct._value_string { i32 26, ptr @.str.274 }, %struct._value_string { i32 27, ptr @.str.275 }, %struct._value_string { i32 28, ptr @.str.276 }, %struct._value_string { i32 29, ptr @.str.277 }, %struct._value_string { i32 30, ptr @.str.278 }, %struct._value_string { i32 31, ptr @.str.279 }, %struct._value_string { i32 32, ptr @.str.280 }, %struct._value_string { i32 33, ptr @.str.281 }, %struct._value_string { i32 34, ptr @.str.282 }, %struct._value_string { i32 35, ptr @.str.283 }, %struct._value_string { i32 36, ptr @.str.284 }, %struct._value_string { i32 37, ptr @.str.313 }, %struct._value_string { i32 38, ptr @.str.314 }, %struct._value_string { i32 39, ptr @.str.242 }, %struct._value_string { i32 40, ptr @.str.289 }, %struct._value_string { i32 41, ptr @.str.290 }, %struct._value_string { i32 42, ptr @.str.315 }, %struct._value_string { i32 43, ptr @.str.291 }, %struct._value_string { i32 44, ptr @.str.292 }, %struct._value_string { i32 45, ptr @.str.293 }, %struct._value_string { i32 46, ptr @.str.294 }, %struct._value_string { i32 47, ptr @.str.241 }, %struct._value_string { i32 48, ptr @.str.243 }, %struct._value_string { i32 49, ptr @.str.295 }, %struct._value_string { i32 50, ptr @.str.296 }, %struct._value_string { i32 51, ptr @.str.301 }, %struct._value_string { i32 52, ptr @.str.302 }, %struct._value_string { i32 53, ptr @.str.316 }, %struct._value_string { i32 54, ptr @.str.303 }, %struct._value_string { i32 55, ptr @.str.304 }, %struct._value_string { i32 56, ptr @.str.317 }, %struct._value_string { i32 57, ptr @.str.318 }, %struct._value_string { i32 58, ptr @.str.319 }, %struct._value_string { i32 59, ptr @.str.320 }, %struct._value_string { i32 60, ptr @.str.321 }, %struct._value_string { i32 61, ptr @.str.322 }, %struct._value_string { i32 62, ptr @.str.323 }, %struct._value_string { i32 63, ptr @.str.324 }, %struct._value_string { i32 64, ptr @.str.325 }, %struct._value_string { i32 65, ptr @.str.326 }, %struct._value_string { i32 66, ptr @.str.327 }, %struct._value_string { i32 67, ptr @.str.328 }, %struct._value_string { i32 68, ptr @.str.329 }, %struct._value_string { i32 69, ptr @.str.330 }, %struct._value_string { i32 70, ptr @.str.331 }, %struct._value_string { i32 71, ptr @.str.332 }, %struct._value_string { i32 72, ptr @.str.333 }, %struct._value_string { i32 73, ptr @.str.334 }, %struct._value_string { i32 74, ptr @.str.305 }, %struct._value_string { i32 75, ptr @.str.306 }, %struct._value_string { i32 76, ptr @.str.307 }, %struct._value_string { i32 77, ptr @.str.308 }, %struct._value_string { i32 78, ptr @.str.309 }, %struct._value_string { i32 79, ptr @.str.335 }, %struct._value_string { i32 80, ptr @.str.336 }, %struct._value_string { i32 81, ptr @.str.337 }, %struct._value_string { i32 82, ptr @.str.338 }, %struct._value_string { i32 83, ptr @.str.339 }, %struct._value_string { i32 84, ptr @.str.340 }, %struct._value_string { i32 85, ptr @.str.341 }, %struct._value_string { i32 86, ptr @.str.342 }, %struct._value_string { i32 87, ptr @.str.343 }, %struct._value_string { i32 88, ptr @.str.344 }, %struct._value_string { i32 89, ptr @.str.345 }, %struct._value_string { i32 90, ptr @.str.346 }, %struct._value_string { i32 91, ptr @.str.347 }, %struct._value_string { i32 92, ptr @.str.348 }, %struct._value_string { i32 93, ptr @.str.349 }, %struct._value_string zeroinitializer], align 16
 @hf_zebra_command_v6 = internal global i32 0, align 4
-@frr_zapi6_messages = internal constant [93 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.218 }, %struct._value_string { i32 1, ptr @.str.219 }, %struct._value_string { i32 2, ptr @.str.220 }, %struct._value_string { i32 3, ptr @.str.221 }, %struct._value_string { i32 4, ptr @.str.222 }, %struct._value_string { i32 5, ptr @.str.223 }, %struct._value_string { i32 7, ptr @.str.310 }, %struct._value_string { i32 8, ptr @.str.311 }, %struct._value_string { i32 10, ptr @.str.228 }, %struct._value_string { i32 11, ptr @.str.229 }, %struct._value_string { i32 12, ptr @.str.230 }, %struct._value_string { i32 13, ptr @.str.231 }, %struct._value_string { i32 14, ptr @.str.237 }, %struct._value_string { i32 15, ptr @.str.238 }, %struct._value_string { i32 16, ptr @.str.239 }, %struct._value_string { i32 17, ptr @.str.240 }, %struct._value_string { i32 18, ptr @.str.312 }, %struct._value_string { i32 19, ptr @.str.244 }, %struct._value_string { i32 20, ptr @.str.245 }, %struct._value_string { i32 21, ptr @.str.246 }, %struct._value_string { i32 22, ptr @.str.274 }, %struct._value_string { i32 23, ptr @.str.275 }, %struct._value_string { i32 24, ptr @.str.276 }, %struct._value_string { i32 25, ptr @.str.277 }, %struct._value_string { i32 26, ptr @.str.278 }, %struct._value_string { i32 27, ptr @.str.279 }, %struct._value_string { i32 28, ptr @.str.281 }, %struct._value_string { i32 29, ptr @.str.282 }, %struct._value_string { i32 30, ptr @.str.283 }, %struct._value_string { i32 31, ptr @.str.284 }, %struct._value_string { i32 32, ptr @.str.313 }, %struct._value_string { i32 33, ptr @.str.314 }, %struct._value_string { i32 34, ptr @.str.242 }, %struct._value_string { i32 35, ptr @.str.289 }, %struct._value_string { i32 36, ptr @.str.290 }, %struct._value_string { i32 37, ptr @.str.315 }, %struct._value_string { i32 38, ptr @.str.291 }, %struct._value_string { i32 39, ptr @.str.292 }, %struct._value_string { i32 40, ptr @.str.350 }, %struct._value_string { i32 41, ptr @.str.293 }, %struct._value_string { i32 42, ptr @.str.294 }, %struct._value_string { i32 43, ptr @.str.241 }, %struct._value_string { i32 44, ptr @.str.243 }, %struct._value_string { i32 45, ptr @.str.295 }, %struct._value_string { i32 46, ptr @.str.296 }, %struct._value_string { i32 47, ptr @.str.301 }, %struct._value_string { i32 48, ptr @.str.302 }, %struct._value_string { i32 49, ptr @.str.316 }, %struct._value_string { i32 50, ptr @.str.303 }, %struct._value_string { i32 51, ptr @.str.304 }, %struct._value_string { i32 52, ptr @.str.317 }, %struct._value_string { i32 53, ptr @.str.318 }, %struct._value_string { i32 54, ptr @.str.319 }, %struct._value_string { i32 55, ptr @.str.320 }, %struct._value_string { i32 56, ptr @.str.321 }, %struct._value_string { i32 57, ptr @.str.322 }, %struct._value_string { i32 58, ptr @.str.351 }, %struct._value_string { i32 59, ptr @.str.352 }, %struct._value_string { i32 60, ptr @.str.323 }, %struct._value_string { i32 61, ptr @.str.324 }, %struct._value_string { i32 62, ptr @.str.325 }, %struct._value_string { i32 63, ptr @.str.326 }, %struct._value_string { i32 64, ptr @.str.327 }, %struct._value_string { i32 65, ptr @.str.328 }, %struct._value_string { i32 66, ptr @.str.329 }, %struct._value_string { i32 67, ptr @.str.330 }, %struct._value_string { i32 68, ptr @.str.331 }, %struct._value_string { i32 69, ptr @.str.332 }, %struct._value_string { i32 70, ptr @.str.333 }, %struct._value_string { i32 71, ptr @.str.334 }, %struct._value_string { i32 72, ptr @.str.353 }, %struct._value_string { i32 73, ptr @.str.305 }, %struct._value_string { i32 74, ptr @.str.306 }, %struct._value_string { i32 75, ptr @.str.307 }, %struct._value_string { i32 76, ptr @.str.308 }, %struct._value_string { i32 77, ptr @.str.309 }, %struct._value_string { i32 78, ptr @.str.335 }, %struct._value_string { i32 79, ptr @.str.336 }, %struct._value_string { i32 80, ptr @.str.337 }, %struct._value_string { i32 81, ptr @.str.338 }, %struct._value_string { i32 82, ptr @.str.339 }, %struct._value_string { i32 83, ptr @.str.340 }, %struct._value_string { i32 84, ptr @.str.341 }, %struct._value_string { i32 85, ptr @.str.342 }, %struct._value_string { i32 86, ptr @.str.343 }, %struct._value_string { i32 87, ptr @.str.344 }, %struct._value_string { i32 88, ptr @.str.345 }, %struct._value_string { i32 89, ptr @.str.346 }, %struct._value_string { i32 90, ptr @.str.347 }, %struct._value_string { i32 91, ptr @.str.348 }, %struct._value_string { i32 92, ptr @.str.349 }, %struct._value_string { i32 93, ptr @.str.354 }, %struct._value_string zeroinitializer], align 16
 @hf_zebra_type_v4 = internal global i32 0, align 4
-@routes_v4 = internal constant [22 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.251 }, %struct._value_string { i32 1, ptr @.str.252 }, %struct._value_string { i32 2, ptr @.str.253 }, %struct._value_string { i32 3, ptr @.str.254 }, %struct._value_string { i32 4, ptr @.str.255 }, %struct._value_string { i32 5, ptr @.str.256 }, %struct._value_string { i32 6, ptr @.str.257 }, %struct._value_string { i32 7, ptr @.str.258 }, %struct._value_string { i32 8, ptr @.str.260 }, %struct._value_string { i32 9, ptr @.str.259 }, %struct._value_string { i32 10, ptr @.str.355 }, %struct._value_string { i32 11, ptr @.str.356 }, %struct._value_string { i32 12, ptr @.str.261 }, %struct._value_string { i32 13, ptr @.str.262 }, %struct._value_string { i32 14, ptr @.str.357 }, %struct._value_string { i32 15, ptr @.str.358 }, %struct._value_string { i32 16, ptr @.str.359 }, %struct._value_string { i32 17, ptr @.str.360 }, %struct._value_string { i32 18, ptr @.str.361 }, %struct._value_string { i32 19, ptr @.str.362 }, %struct._value_string { i32 20, ptr @.str.363 }, %struct._value_string zeroinitializer], align 16
 @hf_zebra_type_v5 = internal global i32 0, align 4
-@routes_v5 = internal constant [28 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.251 }, %struct._value_string { i32 1, ptr @.str.252 }, %struct._value_string { i32 2, ptr @.str.253 }, %struct._value_string { i32 3, ptr @.str.254 }, %struct._value_string { i32 4, ptr @.str.255 }, %struct._value_string { i32 5, ptr @.str.256 }, %struct._value_string { i32 6, ptr @.str.257 }, %struct._value_string { i32 7, ptr @.str.258 }, %struct._value_string { i32 8, ptr @.str.260 }, %struct._value_string { i32 9, ptr @.str.259 }, %struct._value_string { i32 10, ptr @.str.355 }, %struct._value_string { i32 11, ptr @.str.364 }, %struct._value_string { i32 12, ptr @.str.356 }, %struct._value_string { i32 13, ptr @.str.261 }, %struct._value_string { i32 14, ptr @.str.262 }, %struct._value_string { i32 15, ptr @.str.357 }, %struct._value_string { i32 16, ptr @.str.358 }, %struct._value_string { i32 17, ptr @.str.359 }, %struct._value_string { i32 18, ptr @.str.360 }, %struct._value_string { i32 19, ptr @.str.361 }, %struct._value_string { i32 20, ptr @.str.362 }, %struct._value_string { i32 21, ptr @.str.363 }, %struct._value_string { i32 22, ptr @.str.263 }, %struct._value_string { i32 23, ptr @.str.365 }, %struct._value_string { i32 24, ptr @.str.366 }, %struct._value_string { i32 25, ptr @.str.367 }, %struct._value_string { i32 26, ptr @.str.368 }, %struct._value_string zeroinitializer], align 16
 @hf_zebra_ptmenable = internal global i32 0, align 4
-@.str.129 = private unnamed_addr constant [11 x i8] c"PTM Enable\00", align 1
-@.str.130 = private unnamed_addr constant [16 x i8] c"zebra.ptmenable\00", align 1
-@.str.131 = private unnamed_addr constant [43 x i8] c"PTM (Prescriptive Topology Manager) Enable\00", align 1
+@.str.128 = private unnamed_addr constant [11 x i8] c"PTM Enable\00", align 1
+@.str.129 = private unnamed_addr constant [16 x i8] c"zebra.ptmenable\00", align 1
+@.str.130 = private unnamed_addr constant [43 x i8] c"PTM (Prescriptive Topology Manager) Enable\00", align 1
 @hf_zebra_ptmstatus = internal global i32 0, align 4
-@.str.132 = private unnamed_addr constant [11 x i8] c"PTM Status\00", align 1
-@.str.133 = private unnamed_addr constant [16 x i8] c"zebra.ptmstatus\00", align 1
-@.str.134 = private unnamed_addr constant [43 x i8] c"PTM (Prescriptive Topology Manager) Status\00", align 1
+@.str.131 = private unnamed_addr constant [11 x i8] c"PTM Status\00", align 1
+@.str.132 = private unnamed_addr constant [16 x i8] c"zebra.ptmstatus\00", align 1
+@.str.133 = private unnamed_addr constant [43 x i8] c"PTM (Prescriptive Topology Manager) Status\00", align 1
 @hf_zebra_instance = internal global i32 0, align 4
-@.str.135 = private unnamed_addr constant [9 x i8] c"Instance\00", align 1
-@.str.136 = private unnamed_addr constant [15 x i8] c"zebra.instance\00", align 1
-@.str.137 = private unnamed_addr constant [17 x i8] c"Routing Instance\00", align 1
+@.str.134 = private unnamed_addr constant [9 x i8] c"Instance\00", align 1
+@.str.135 = private unnamed_addr constant [15 x i8] c"zebra.instance\00", align 1
+@.str.136 = private unnamed_addr constant [17 x i8] c"Routing Instance\00", align 1
 @hf_zebra_rtflags_u32 = internal global i32 0, align 4
 @hf_zebra_speed = internal global i32 0, align 4
-@.str.138 = private unnamed_addr constant [6 x i8] c"Speed\00", align 1
-@.str.139 = private unnamed_addr constant [12 x i8] c"zebra.speed\00", align 1
-@.str.140 = private unnamed_addr constant [19 x i8] c"Speed of interface\00", align 1
+@.str.137 = private unnamed_addr constant [6 x i8] c"Speed\00", align 1
+@.str.138 = private unnamed_addr constant [12 x i8] c"zebra.speed\00", align 1
+@.str.139 = private unnamed_addr constant [19 x i8] c"Speed of interface\00", align 1
 @hf_zebra_lltype = internal global i32 0, align 4
-@.str.141 = private unnamed_addr constant [7 x i8] c"LLType\00", align 1
-@.str.142 = private unnamed_addr constant [13 x i8] c"zebra.lltype\00", align 1
-@.str.143 = private unnamed_addr constant [16 x i8] c"Link Layer Type\00", align 1
+@.str.140 = private unnamed_addr constant [7 x i8] c"LLType\00", align 1
+@.str.141 = private unnamed_addr constant [13 x i8] c"zebra.lltype\00", align 1
+@.str.142 = private unnamed_addr constant [16 x i8] c"Link Layer Type\00", align 1
 @hf_zebra_message4 = internal global i32 0, align 4
 @hf_zebra_message5 = internal global i32 0, align 4
 @hf_zebra_route_safi_u8 = internal global i32 0, align 4
 @hf_zebra_rmac = internal global i32 0, align 4
-@.str.144 = private unnamed_addr constant [5 x i8] c"RMAC\00", align 1
-@.str.145 = private unnamed_addr constant [11 x i8] c"zebra.rmac\00", align 1
-@.str.146 = private unnamed_addr constant [11 x i8] c"Remote MAC\00", align 1
+@.str.143 = private unnamed_addr constant [5 x i8] c"RMAC\00", align 1
+@.str.144 = private unnamed_addr constant [11 x i8] c"zebra.rmac\00", align 1
+@.str.145 = private unnamed_addr constant [11 x i8] c"Remote MAC\00", align 1
 @hf_zebra_msg4_tag = internal global i32 0, align 4
 @hf_zebra_msg4_mtu = internal global i32 0, align 4
 @hf_zebra_msg4_srcpfx = internal global i32 0, align 4
-@.str.147 = private unnamed_addr constant [22 x i8] c"Message Source Prefix\00", align 1
-@.str.148 = private unnamed_addr constant [21 x i8] c"zebra.message.srcpfx\00", align 1
-@.str.149 = private unnamed_addr constant [31 x i8] c"Message contains Source Prefix\00", align 1
+@.str.146 = private unnamed_addr constant [22 x i8] c"Message Source Prefix\00", align 1
+@.str.147 = private unnamed_addr constant [21 x i8] c"zebra.message.srcpfx\00", align 1
+@.str.148 = private unnamed_addr constant [31 x i8] c"Message contains Source Prefix\00", align 1
 @hf_zebra_msg5_distance = internal global i32 0, align 4
 @hf_zebra_msg5_metric = internal global i32 0, align 4
 @hf_zebra_msg5_tag = internal global i32 0, align 4
 @hf_zebra_msg5_mtu = internal global i32 0, align 4
 @hf_zebra_msg5_srcpfx = internal global i32 0, align 4
 @hf_zebra_msg_label = internal global i32 0, align 4
-@.str.150 = private unnamed_addr constant [14 x i8] c"Message Label\00", align 1
-@.str.151 = private unnamed_addr constant [20 x i8] c"zebra.message.label\00", align 1
-@.str.152 = private unnamed_addr constant [23 x i8] c"Message contains Label\00", align 1
+@.str.149 = private unnamed_addr constant [14 x i8] c"Message Label\00", align 1
+@.str.150 = private unnamed_addr constant [20 x i8] c"zebra.message.label\00", align 1
+@.str.151 = private unnamed_addr constant [23 x i8] c"Message contains Label\00", align 1
 @hf_zebra_msg_tableid = internal global i32 0, align 4
-@.str.153 = private unnamed_addr constant [17 x i8] c"Message Table ID\00", align 1
-@.str.154 = private unnamed_addr constant [22 x i8] c"zebra.message.tableid\00", align 1
-@.str.155 = private unnamed_addr constant [26 x i8] c"Message contains Table ID\00", align 1
+@.str.152 = private unnamed_addr constant [17 x i8] c"Message Table ID\00", align 1
+@.str.153 = private unnamed_addr constant [22 x i8] c"zebra.message.tableid\00", align 1
+@.str.154 = private unnamed_addr constant [26 x i8] c"Message contains Table ID\00", align 1
 @hf_zebra_nexthopnum_u16 = internal global i32 0, align 4
 @hf_zebra_nexthoptype_frr = internal global i32 0, align 4
-@frr_nht = internal constant [7 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.266 }, %struct._value_string { i32 2, ptr @.str.264 }, %struct._value_string { i32 3, ptr @.str.268 }, %struct._value_string { i32 4, ptr @.str.265 }, %struct._value_string { i32 5, ptr @.str.271 }, %struct._value_string { i32 6, ptr @.str.273 }, %struct._value_string zeroinitializer], align 16
 @hf_zebra_bhtype = internal global i32 0, align 4
-@.str.156 = private unnamed_addr constant [7 x i8] c"BHType\00", align 1
-@.str.157 = private unnamed_addr constant [13 x i8] c"zebra.bhtype\00", align 1
-@blackhole_type = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.369 }, %struct._value_string { i32 1, ptr @.str.370 }, %struct._value_string { i32 2, ptr @.str.371 }, %struct._value_string { i32 3, ptr @.str.372 }, %struct._value_string zeroinitializer], align 16
-@.str.158 = private unnamed_addr constant [15 x i8] c"Blackhole Type\00", align 1
+@.str.155 = private unnamed_addr constant [7 x i8] c"BHType\00", align 1
+@.str.156 = private unnamed_addr constant [13 x i8] c"zebra.bhtype\00", align 1
+@.str.157 = private unnamed_addr constant [15 x i8] c"Blackhole Type\00", align 1
 @hf_zebra_srcprefixlen = internal global i32 0, align 4
-@.str.159 = private unnamed_addr constant [21 x i8] c"Source Prefix length\00", align 1
-@.str.160 = private unnamed_addr constant [19 x i8] c"zebra.srcprefixlen\00", align 1
+@.str.158 = private unnamed_addr constant [21 x i8] c"Source Prefix length\00", align 1
+@.str.159 = private unnamed_addr constant [19 x i8] c"zebra.srcprefixlen\00", align 1
 @hf_zebra_srcprefix4 = internal global i32 0, align 4
-@.str.161 = private unnamed_addr constant [14 x i8] c"Source Prefix\00", align 1
-@.str.162 = private unnamed_addr constant [17 x i8] c"zebra.srcprefix4\00", align 1
-@.str.163 = private unnamed_addr constant [19 x i8] c"Source Prefix IPv4\00", align 1
+@.str.160 = private unnamed_addr constant [14 x i8] c"Source Prefix\00", align 1
+@.str.161 = private unnamed_addr constant [17 x i8] c"zebra.srcprefix4\00", align 1
+@.str.162 = private unnamed_addr constant [19 x i8] c"Source Prefix IPv4\00", align 1
 @hf_zebra_srcprefix6 = internal global i32 0, align 4
-@.str.164 = private unnamed_addr constant [17 x i8] c"zebra.srcprefix6\00", align 1
-@.str.165 = private unnamed_addr constant [19 x i8] c"Source Prefix IPv6\00", align 1
+@.str.163 = private unnamed_addr constant [17 x i8] c"zebra.srcprefix6\00", align 1
+@.str.164 = private unnamed_addr constant [19 x i8] c"Source Prefix IPv6\00", align 1
 @hf_zebra_tableid = internal global i32 0, align 4
-@.str.166 = private unnamed_addr constant [9 x i8] c"Table ID\00", align 1
-@.str.167 = private unnamed_addr constant [14 x i8] c"zebra.tableid\00", align 1
-@.str.168 = private unnamed_addr constant [17 x i8] c"Routing Table ID\00", align 1
+@.str.165 = private unnamed_addr constant [9 x i8] c"Table ID\00", align 1
+@.str.166 = private unnamed_addr constant [14 x i8] c"zebra.tableid\00", align 1
+@.str.167 = private unnamed_addr constant [17 x i8] c"Routing Table ID\00", align 1
 @hf_zebra_afi = internal global i32 0, align 4
-@.str.169 = private unnamed_addr constant [4 x i8] c"AFI\00", align 1
-@.str.170 = private unnamed_addr constant [10 x i8] c"zebra.afi\00", align 1
-@.str.171 = private unnamed_addr constant [33 x i8] c"AFI (Address Family Identifiers)\00", align 1
+@.str.168 = private unnamed_addr constant [4 x i8] c"AFI\00", align 1
+@.str.169 = private unnamed_addr constant [10 x i8] c"zebra.afi\00", align 1
+@.str.170 = private unnamed_addr constant [33 x i8] c"AFI (Address Family Identifiers)\00", align 1
 @hf_zebra_pid = internal global i32 0, align 4
-@.str.172 = private unnamed_addr constant [4 x i8] c"PID\00", align 1
-@.str.173 = private unnamed_addr constant [10 x i8] c"zebra.pid\00", align 1
-@.str.174 = private unnamed_addr constant [11 x i8] c"Process ID\00", align 1
+@.str.171 = private unnamed_addr constant [4 x i8] c"PID\00", align 1
+@.str.172 = private unnamed_addr constant [10 x i8] c"zebra.pid\00", align 1
+@.str.173 = private unnamed_addr constant [11 x i8] c"Process ID\00", align 1
 @hf_zebra_vrf_table_id = internal global i32 0, align 4
-@.str.175 = private unnamed_addr constant [13 x i8] c"VRF Table ID\00", align 1
-@.str.176 = private unnamed_addr constant [17 x i8] c"zebra.vrftableid\00", align 1
-@.str.177 = private unnamed_addr constant [21 x i8] c"VRF Routing Table ID\00", align 1
+@.str.174 = private unnamed_addr constant [13 x i8] c"VRF Table ID\00", align 1
+@.str.175 = private unnamed_addr constant [17 x i8] c"zebra.vrftableid\00", align 1
+@.str.176 = private unnamed_addr constant [21 x i8] c"VRF Routing Table ID\00", align 1
 @hf_zebra_vrf_netns_name = internal global i32 0, align 4
-@.str.178 = private unnamed_addr constant [15 x i8] c"VRF NETNS Name\00", align 1
-@.str.179 = private unnamed_addr constant [19 x i8] c"zebra.vrfnetnsname\00", align 1
-@.str.180 = private unnamed_addr constant [60 x i8] c"VRF (Virtual Routing and Forwarding) Network Namespace Name\00", align 1
+@.str.177 = private unnamed_addr constant [15 x i8] c"VRF NETNS Name\00", align 1
+@.str.178 = private unnamed_addr constant [19 x i8] c"zebra.vrfnetnsname\00", align 1
+@.str.179 = private unnamed_addr constant [60 x i8] c"VRF (Virtual Routing and Forwarding) Network Namespace Name\00", align 1
 @hf_zebra_vrf_name = internal global i32 0, align 4
-@.str.181 = private unnamed_addr constant [9 x i8] c"VRF Name\00", align 1
-@.str.182 = private unnamed_addr constant [14 x i8] c"zebra.vrfname\00", align 1
-@.str.183 = private unnamed_addr constant [42 x i8] c"VRF (Virtual Routing and Forwarding) Name\00", align 1
+@.str.180 = private unnamed_addr constant [9 x i8] c"VRF Name\00", align 1
+@.str.181 = private unnamed_addr constant [14 x i8] c"zebra.vrfname\00", align 1
+@.str.182 = private unnamed_addr constant [42 x i8] c"VRF (Virtual Routing and Forwarding) Name\00", align 1
 @hf_zebra_proto = internal global i32 0, align 4
-@.str.184 = private unnamed_addr constant [9 x i8] c"Protocol\00", align 1
-@.str.185 = private unnamed_addr constant [12 x i8] c"zebra.proto\00", align 1
-@.str.186 = private unnamed_addr constant [19 x i8] c"Protocol of client\00", align 1
+@.str.183 = private unnamed_addr constant [9 x i8] c"Protocol\00", align 1
+@.str.184 = private unnamed_addr constant [12 x i8] c"zebra.proto\00", align 1
+@.str.185 = private unnamed_addr constant [19 x i8] c"Protocol of client\00", align 1
 @hf_zebra_label_chunk_keep = internal global i32 0, align 4
-@.str.187 = private unnamed_addr constant [17 x i8] c"Label Chunk Keep\00", align 1
-@.str.188 = private unnamed_addr constant [23 x i8] c"zebra.label_chunk_keep\00", align 1
-@.str.189 = private unnamed_addr constant [20 x i8] c"Keep of Label Chunk\00", align 1
+@.str.186 = private unnamed_addr constant [17 x i8] c"Label Chunk Keep\00", align 1
+@.str.187 = private unnamed_addr constant [23 x i8] c"zebra.label_chunk_keep\00", align 1
+@.str.188 = private unnamed_addr constant [20 x i8] c"Keep of Label Chunk\00", align 1
 @hf_zebra_label_chunk_size = internal global i32 0, align 4
-@.str.190 = private unnamed_addr constant [17 x i8] c"Label Chunk Size\00", align 1
-@.str.191 = private unnamed_addr constant [23 x i8] c"zebra.label_chunk_size\00", align 1
-@.str.192 = private unnamed_addr constant [20 x i8] c"Size of Label Chunk\00", align 1
+@.str.189 = private unnamed_addr constant [17 x i8] c"Label Chunk Size\00", align 1
+@.str.190 = private unnamed_addr constant [23 x i8] c"zebra.label_chunk_size\00", align 1
+@.str.191 = private unnamed_addr constant [20 x i8] c"Size of Label Chunk\00", align 1
 @hf_zebra_label_chunk_start = internal global i32 0, align 4
-@.str.193 = private unnamed_addr constant [18 x i8] c"Label Chunk Start\00", align 1
-@.str.194 = private unnamed_addr constant [24 x i8] c"zebra.label_chunk_start\00", align 1
-@.str.195 = private unnamed_addr constant [21 x i8] c"Start of Label Chunk\00", align 1
+@.str.192 = private unnamed_addr constant [18 x i8] c"Label Chunk Start\00", align 1
+@.str.193 = private unnamed_addr constant [24 x i8] c"zebra.label_chunk_start\00", align 1
+@.str.194 = private unnamed_addr constant [21 x i8] c"Start of Label Chunk\00", align 1
 @hf_zebra_label_chunk_end = internal global i32 0, align 4
-@.str.196 = private unnamed_addr constant [16 x i8] c"Label Chunk End\00", align 1
-@.str.197 = private unnamed_addr constant [22 x i8] c"zebra.label_chunk_end\00", align 1
-@.str.198 = private unnamed_addr constant [19 x i8] c"End of Label Chunk\00", align 1
+@.str.195 = private unnamed_addr constant [16 x i8] c"Label Chunk End\00", align 1
+@.str.196 = private unnamed_addr constant [22 x i8] c"zebra.label_chunk_end\00", align 1
+@.str.197 = private unnamed_addr constant [19 x i8] c"End of Label Chunk\00", align 1
 @hf_zebra_mpls_enabled = internal global i32 0, align 4
-@.str.199 = private unnamed_addr constant [13 x i8] c"MPLS Enabled\00", align 1
-@.str.200 = private unnamed_addr constant [19 x i8] c"zebra.mpls_enabled\00", align 1
-@.str.201 = private unnamed_addr constant [24 x i8] c"MPLS enabled capability\00", align 1
+@.str.198 = private unnamed_addr constant [13 x i8] c"MPLS Enabled\00", align 1
+@.str.199 = private unnamed_addr constant [19 x i8] c"zebra.mpls_enabled\00", align 1
+@.str.200 = private unnamed_addr constant [24 x i8] c"MPLS enabled capability\00", align 1
 @hf_zebra_multipath_num = internal global i32 0, align 4
-@.str.202 = private unnamed_addr constant [17 x i8] c"Multipath Number\00", align 1
-@.str.203 = private unnamed_addr constant [20 x i8] c"zebra.multipath_num\00", align 1
-@.str.204 = private unnamed_addr constant [20 x i8] c"Number of Multipath\00", align 1
+@.str.201 = private unnamed_addr constant [17 x i8] c"Multipath Number\00", align 1
+@.str.202 = private unnamed_addr constant [20 x i8] c"zebra.multipath_num\00", align 1
+@.str.203 = private unnamed_addr constant [20 x i8] c"Number of Multipath\00", align 1
 @hf_zebra_labelnum = internal global i32 0, align 4
-@.str.205 = private unnamed_addr constant [13 x i8] c"Label Number\00", align 1
-@.str.206 = private unnamed_addr constant [15 x i8] c"zebra.labelnum\00", align 1
-@.str.207 = private unnamed_addr constant [17 x i8] c"Number of Labels\00", align 1
+@.str.204 = private unnamed_addr constant [13 x i8] c"Label Number\00", align 1
+@.str.205 = private unnamed_addr constant [15 x i8] c"zebra.labelnum\00", align 1
+@.str.206 = private unnamed_addr constant [17 x i8] c"Number of Labels\00", align 1
 @hf_zebra_label = internal global i32 0, align 4
-@.str.208 = private unnamed_addr constant [6 x i8] c"Label\00", align 1
-@.str.209 = private unnamed_addr constant [12 x i8] c"zebra.label\00", align 1
-@.str.210 = private unnamed_addr constant [11 x i8] c"MPLS Label\00", align 1
+@.str.207 = private unnamed_addr constant [6 x i8] c"Label\00", align 1
+@.str.208 = private unnamed_addr constant [12 x i8] c"zebra.label\00", align 1
+@.str.209 = private unnamed_addr constant [11 x i8] c"MPLS Label\00", align 1
 @hf_zebra_receive_notify = internal global i32 0, align 4
-@.str.211 = private unnamed_addr constant [15 x i8] c"Receive Notify\00", align 1
-@.str.212 = private unnamed_addr constant [21 x i8] c"zebra.receive_notify\00", align 1
-@.str.213 = private unnamed_addr constant [23 x i8] c"TRUE if receive notify\00", align 1
+@.str.210 = private unnamed_addr constant [15 x i8] c"Receive Notify\00", align 1
+@.str.211 = private unnamed_addr constant [21 x i8] c"zebra.receive_notify\00", align 1
+@.str.212 = private unnamed_addr constant [23 x i8] c"true if receive notify\00", align 1
 @proto_register_zebra.ett = internal global [3 x ptr] [ptr @ett_zebra, ptr @ett_zebra_request, ptr @ett_message], align 16
 @ett_zebra = internal global i32 0, align 4
 @ett_zebra_request = internal global i32 0, align 4
 @ett_message = internal global i32 0, align 4
-@.str.214 = private unnamed_addr constant [15 x i8] c"Zebra Protocol\00", align 1
-@.str.215 = private unnamed_addr constant [6 x i8] c"ZEBRA\00", align 1
-@.str.216 = private unnamed_addr constant [6 x i8] c"zebra\00", align 1
+@.str.213 = private unnamed_addr constant [15 x i8] c"Zebra Protocol\00", align 1
+@.str.214 = private unnamed_addr constant [6 x i8] c"ZEBRA\00", align 1
+@.str.215 = private unnamed_addr constant [6 x i8] c"zebra\00", align 1
 @proto_zebra = internal global i32 0, align 4
 @zebra_handle = internal global ptr null, align 8
-@.str.217 = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
-@.str.218 = private unnamed_addr constant [14 x i8] c"Add Interface\00", align 1
-@.str.219 = private unnamed_addr constant [17 x i8] c"Delete Interface\00", align 1
-@.str.220 = private unnamed_addr constant [22 x i8] c"Add Interface Address\00", align 1
-@.str.221 = private unnamed_addr constant [25 x i8] c"Delete Interface Address\00", align 1
-@.str.222 = private unnamed_addr constant [13 x i8] c"Interface Up\00", align 1
-@.str.223 = private unnamed_addr constant [15 x i8] c"Interface Down\00", align 1
-@.str.224 = private unnamed_addr constant [15 x i8] c"Add IPv4 Route\00", align 1
-@.str.225 = private unnamed_addr constant [18 x i8] c"Delete IPv4 Route\00", align 1
-@.str.226 = private unnamed_addr constant [15 x i8] c"Add IPv6 Route\00", align 1
-@.str.227 = private unnamed_addr constant [18 x i8] c"Delete IPv6 Route\00", align 1
-@.str.228 = private unnamed_addr constant [17 x i8] c"Add Redistribute\00", align 1
-@.str.229 = private unnamed_addr constant [20 x i8] c"Delete Redistribute\00", align 1
-@.str.230 = private unnamed_addr constant [25 x i8] c"Add Default Redistribute\00", align 1
-@.str.231 = private unnamed_addr constant [28 x i8] c"Delete Default Redistribute\00", align 1
-@.str.232 = private unnamed_addr constant [20 x i8] c"IPv4 Nexthop Lookup\00", align 1
-@.str.233 = private unnamed_addr constant [20 x i8] c"IPv6 Nexthop Lookup\00", align 1
-@.str.234 = private unnamed_addr constant [19 x i8] c"IPv4 Import Lookup\00", align 1
-@.str.235 = private unnamed_addr constant [19 x i8] c"IPv6 Import Lookup\00", align 1
-@.str.236 = private unnamed_addr constant [17 x i8] c"Rename Interface\00", align 1
-@.str.237 = private unnamed_addr constant [14 x i8] c"Router ID Add\00", align 1
-@.str.238 = private unnamed_addr constant [17 x i8] c"Router ID Delete\00", align 1
-@.str.239 = private unnamed_addr constant [17 x i8] c"Router ID Update\00", align 1
-@.str.240 = private unnamed_addr constant [6 x i8] c"Hello\00", align 1
-@.str.241 = private unnamed_addr constant [34 x i8] c"IPv4 Nexthop Lookup Multicast RIB\00", align 1
-@.str.242 = private unnamed_addr constant [15 x i8] c"VRF Unregister\00", align 1
-@.str.243 = private unnamed_addr constant [26 x i8] c"Interface Link Parameters\00", align 1
-@.str.244 = private unnamed_addr constant [17 x i8] c"Nexthop Register\00", align 1
-@.str.245 = private unnamed_addr constant [19 x i8] c"Nexthop Unregister\00", align 1
-@.str.246 = private unnamed_addr constant [15 x i8] c"Nexthop Update\00", align 1
+@.str.216 = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
+@.str.217 = private unnamed_addr constant [14 x i8] c"Add Interface\00", align 1
+@.str.218 = private unnamed_addr constant [17 x i8] c"Delete Interface\00", align 1
+@.str.219 = private unnamed_addr constant [22 x i8] c"Add Interface Address\00", align 1
+@.str.220 = private unnamed_addr constant [25 x i8] c"Delete Interface Address\00", align 1
+@.str.221 = private unnamed_addr constant [13 x i8] c"Interface Up\00", align 1
+@.str.222 = private unnamed_addr constant [15 x i8] c"Interface Down\00", align 1
+@.str.223 = private unnamed_addr constant [15 x i8] c"Add IPv4 Route\00", align 1
+@.str.224 = private unnamed_addr constant [18 x i8] c"Delete IPv4 Route\00", align 1
+@.str.225 = private unnamed_addr constant [15 x i8] c"Add IPv6 Route\00", align 1
+@.str.226 = private unnamed_addr constant [18 x i8] c"Delete IPv6 Route\00", align 1
+@.str.227 = private unnamed_addr constant [17 x i8] c"Add Redistribute\00", align 1
+@.str.228 = private unnamed_addr constant [20 x i8] c"Delete Redistribute\00", align 1
+@.str.229 = private unnamed_addr constant [25 x i8] c"Add Default Redistribute\00", align 1
+@.str.230 = private unnamed_addr constant [28 x i8] c"Delete Default Redistribute\00", align 1
+@.str.231 = private unnamed_addr constant [20 x i8] c"IPv4 Nexthop Lookup\00", align 1
+@.str.232 = private unnamed_addr constant [20 x i8] c"IPv6 Nexthop Lookup\00", align 1
+@.str.233 = private unnamed_addr constant [19 x i8] c"IPv4 Import Lookup\00", align 1
+@.str.234 = private unnamed_addr constant [19 x i8] c"IPv6 Import Lookup\00", align 1
+@.str.235 = private unnamed_addr constant [17 x i8] c"Rename Interface\00", align 1
+@.str.236 = private unnamed_addr constant [14 x i8] c"Router ID Add\00", align 1
+@.str.237 = private unnamed_addr constant [17 x i8] c"Router ID Delete\00", align 1
+@.str.238 = private unnamed_addr constant [17 x i8] c"Router ID Update\00", align 1
+@.str.239 = private unnamed_addr constant [6 x i8] c"Hello\00", align 1
+@.str.240 = private unnamed_addr constant [34 x i8] c"IPv4 Nexthop Lookup Multicast RIB\00", align 1
+@.str.241 = private unnamed_addr constant [15 x i8] c"VRF Unregister\00", align 1
+@.str.242 = private unnamed_addr constant [26 x i8] c"Interface Link Parameters\00", align 1
+@.str.243 = private unnamed_addr constant [17 x i8] c"Nexthop Register\00", align 1
+@.str.244 = private unnamed_addr constant [19 x i8] c"Nexthop Unregister\00", align 1
+@.str.245 = private unnamed_addr constant [15 x i8] c"Nexthop Update\00", align 1
+@messages = internal constant [30 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.217 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.218 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.219 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.220 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.221 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.222 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.223 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.224 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.225 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.226 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.228 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.229 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.230 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.231 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.232 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.233 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.234 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.235 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.236 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.237 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.238 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.239 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.240 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.241 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.242 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.243 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.244 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.245 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @.str.247 = private unnamed_addr constant [8 x i8] c"Unicast\00", align 1
 @.str.248 = private unnamed_addr constant [10 x i8] c"Multicast\00", align 1
 @.str.249 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
 @.str.250 = private unnamed_addr constant [9 x i8] c"MPLS VPN\00", align 1
-@.str.251 = private unnamed_addr constant [13 x i8] c"System Route\00", align 1
-@.str.252 = private unnamed_addr constant [13 x i8] c"Kernel Route\00", align 1
-@.str.253 = private unnamed_addr constant [16 x i8] c"Connected Route\00", align 1
-@.str.254 = private unnamed_addr constant [13 x i8] c"Static Route\00", align 1
-@.str.255 = private unnamed_addr constant [10 x i8] c"RIP Route\00", align 1
-@.str.256 = private unnamed_addr constant [12 x i8] c"RIPnG Route\00", align 1
-@.str.257 = private unnamed_addr constant [11 x i8] c"OSPF Route\00", align 1
-@.str.258 = private unnamed_addr constant [12 x i8] c"OSPF6 Route\00", align 1
-@.str.259 = private unnamed_addr constant [10 x i8] c"BGP Route\00", align 1
-@.str.260 = private unnamed_addr constant [11 x i8] c"ISIS Route\00", align 1
-@.str.261 = private unnamed_addr constant [11 x i8] c"HSLS Route\00", align 1
-@.str.262 = private unnamed_addr constant [11 x i8] c"OLSR Route\00", align 1
-@.str.263 = private unnamed_addr constant [12 x i8] c"BABEL Route\00", align 1
-@.str.264 = private unnamed_addr constant [5 x i8] c"IPv4\00", align 1
-@.str.265 = private unnamed_addr constant [5 x i8] c"IPv6\00", align 1
-@.str.266 = private unnamed_addr constant [8 x i8] c"IFIndex\00", align 1
-@.str.267 = private unnamed_addr constant [7 x i8] c"IFName\00", align 1
-@.str.268 = private unnamed_addr constant [13 x i8] c"IPv4 IFIndex\00", align 1
-@.str.269 = private unnamed_addr constant [12 x i8] c"IPv4 IFName\00", align 1
-@.str.270 = private unnamed_addr constant [13 x i8] c"IPv6 Nexthop\00", align 1
-@.str.271 = private unnamed_addr constant [13 x i8] c"IPv6 IFIndex\00", align 1
-@.str.272 = private unnamed_addr constant [12 x i8] c"IPv6 IFName\00", align 1
-@.str.273 = private unnamed_addr constant [10 x i8] c"Blackhole\00", align 1
-@.str.274 = private unnamed_addr constant [31 x i8] c"Interface Neighbor Address Add\00", align 1
-@.str.275 = private unnamed_addr constant [34 x i8] c"Interface Neighbor Address Delete\00", align 1
-@.str.276 = private unnamed_addr constant [33 x i8] c"Interface BFD Destination Update\00", align 1
-@.str.277 = private unnamed_addr constant [22 x i8] c"Import Route Register\00", align 1
-@.str.278 = private unnamed_addr constant [24 x i8] c"Import Route Unregister\00", align 1
-@.str.279 = private unnamed_addr constant [20 x i8] c"Import Check Update\00", align 1
-@.str.280 = private unnamed_addr constant [32 x i8] c"Add IPv6 nexthop for IPv4 Route\00", align 1
-@.str.281 = private unnamed_addr constant [25 x i8] c"BFD Destination Register\00", align 1
-@.str.282 = private unnamed_addr constant [27 x i8] c"BFD Destination Deregister\00", align 1
-@.str.283 = private unnamed_addr constant [23 x i8] c"BFD Destination Update\00", align 1
-@.str.284 = private unnamed_addr constant [23 x i8] c"BFD Destination Replay\00", align 1
-@.str.285 = private unnamed_addr constant [28 x i8] c"Add Redistribute IPv4 Route\00", align 1
-@.str.286 = private unnamed_addr constant [31 x i8] c"Delete Redistribute IPv4 Route\00", align 1
-@.str.287 = private unnamed_addr constant [28 x i8] c"Add Redistribute IPv6 Route\00", align 1
-@.str.288 = private unnamed_addr constant [31 x i8] c"Delete Redistribute IPv6 Route\00", align 1
-@.str.289 = private unnamed_addr constant [8 x i8] c"VRF Add\00", align 1
-@.str.290 = private unnamed_addr constant [11 x i8] c"VRF Delete\00", align 1
-@.str.291 = private unnamed_addr constant [21 x i8] c"Interface VRF Update\00", align 1
-@.str.292 = private unnamed_addr constant [20 x i8] c"BFD Client Register\00", align 1
-@.str.293 = private unnamed_addr constant [38 x i8] c"Interface Enable Router Advertisement\00", align 1
-@.str.294 = private unnamed_addr constant [39 x i8] c"Interface Disable Router Advertisement\00", align 1
-@.str.295 = private unnamed_addr constant [16 x i8] c"MPLS Labels Add\00", align 1
-@.str.296 = private unnamed_addr constant [19 x i8] c"MPLS Labels Delete\00", align 1
-@.str.297 = private unnamed_addr constant [17 x i8] c"Add IPv4 Nexthop\00", align 1
-@.str.298 = private unnamed_addr constant [20 x i8] c"Delete IPv4 Nexthop\00", align 1
-@.str.299 = private unnamed_addr constant [17 x i8] c"Add IPv6 Nexthop\00", align 1
-@.str.300 = private unnamed_addr constant [20 x i8] c"Delete IPv6 Nexthop\00", align 1
-@.str.301 = private unnamed_addr constant [19 x i8] c"IPMR Route Statics\00", align 1
-@.str.302 = private unnamed_addr constant [22 x i8] c"Label Manager Connect\00", align 1
-@.str.303 = private unnamed_addr constant [16 x i8] c"Get Label Chunk\00", align 1
-@.str.304 = private unnamed_addr constant [20 x i8] c"Release Label Chunk\00", align 1
-@.str.305 = private unnamed_addr constant [15 x i8] c"PseudoWire Add\00", align 1
-@.str.306 = private unnamed_addr constant [18 x i8] c"PseudoWire Delete\00", align 1
-@.str.307 = private unnamed_addr constant [15 x i8] c"PseudoWire Set\00", align 1
-@.str.308 = private unnamed_addr constant [17 x i8] c"PseudoWire Unset\00", align 1
-@.str.309 = private unnamed_addr constant [25 x i8] c"PseudoWire Status Update\00", align 1
-@.str.310 = private unnamed_addr constant [10 x i8] c"Add Route\00", align 1
-@.str.311 = private unnamed_addr constant [13 x i8] c"Delete Route\00", align 1
-@.str.312 = private unnamed_addr constant [13 x i8] c"Capabilities\00", align 1
-@.str.313 = private unnamed_addr constant [23 x i8] c"Add Redistribute Route\00", align 1
-@.str.314 = private unnamed_addr constant [26 x i8] c"Delete Redistribute Route\00", align 1
-@.str.315 = private unnamed_addr constant [10 x i8] c"VRF Label\00", align 1
-@.str.316 = private unnamed_addr constant [35 x i8] c"Label Manager Connect Asynchronous\00", align 1
-@.str.317 = private unnamed_addr constant [13 x i8] c"FEC Register\00", align 1
-@.str.318 = private unnamed_addr constant [15 x i8] c"FEC Unregister\00", align 1
-@.str.319 = private unnamed_addr constant [11 x i8] c"FEC Update\00", align 1
-@.str.320 = private unnamed_addr constant [26 x i8] c"Advertise Default Gateway\00", align 1
-@.str.321 = private unnamed_addr constant [17 x i8] c"Advertise Subnet\00", align 1
-@.str.322 = private unnamed_addr constant [18 x i8] c"Advertise all VNI\00", align 1
-@.str.323 = private unnamed_addr constant [8 x i8] c"VNI Add\00", align 1
-@.str.324 = private unnamed_addr constant [11 x i8] c"VNI Delete\00", align 1
-@.str.325 = private unnamed_addr constant [10 x i8] c"L3VNI Add\00", align 1
-@.str.326 = private unnamed_addr constant [13 x i8] c"L3VNI Delete\00", align 1
-@.str.327 = private unnamed_addr constant [16 x i8] c"Remote VTEP Add\00", align 1
-@.str.328 = private unnamed_addr constant [19 x i8] c"Remote VTEP Delete\00", align 1
-@.str.329 = private unnamed_addr constant [11 x i8] c"MAC/IP Add\00", align 1
-@.str.330 = private unnamed_addr constant [14 x i8] c"MAC/IP Delete\00", align 1
-@.str.331 = private unnamed_addr constant [20 x i8] c"IP Prefix Route Add\00", align 1
-@.str.332 = private unnamed_addr constant [23 x i8] c"IP Prefix Route Delete\00", align 1
-@.str.333 = private unnamed_addr constant [18 x i8] c"Remote MAC/IP Add\00", align 1
-@.str.334 = private unnamed_addr constant [21 x i8] c"Remote MAC/IP Delete\00", align 1
-@.str.335 = private unnamed_addr constant [9 x i8] c"Rule Add\00", align 1
-@.str.336 = private unnamed_addr constant [12 x i8] c"Rule Delete\00", align 1
-@.str.337 = private unnamed_addr constant [18 x i8] c"Rule Notify Owner\00", align 1
-@.str.338 = private unnamed_addr constant [22 x i8] c"Table Manager Connect\00", align 1
-@.str.339 = private unnamed_addr constant [16 x i8] c"Get Table Chunk\00", align 1
-@.str.340 = private unnamed_addr constant [20 x i8] c"Release Table Chunk\00", align 1
-@.str.341 = private unnamed_addr constant [13 x i8] c"IPSet Create\00", align 1
-@.str.342 = private unnamed_addr constant [14 x i8] c"IPSet Destroy\00", align 1
-@.str.343 = private unnamed_addr constant [16 x i8] c"IPSet Entry Add\00", align 1
-@.str.344 = private unnamed_addr constant [19 x i8] c"IPSet Entry Delete\00", align 1
-@.str.345 = private unnamed_addr constant [18 x i8] c"IPSet Notify Oner\00", align 1
-@.str.346 = private unnamed_addr constant [25 x i8] c"IPSet Entry Notify Owner\00", align 1
-@.str.347 = private unnamed_addr constant [12 x i8] c"IPTable Add\00", align 1
-@.str.348 = private unnamed_addr constant [15 x i8] c"IPTable Delete\00", align 1
-@.str.349 = private unnamed_addr constant [21 x i8] c"IPTable Notify Owner\00", align 1
-@.str.350 = private unnamed_addr constant [22 x i8] c"BFD Client Deregister\00", align 1
-@.str.351 = private unnamed_addr constant [27 x i8] c"Local Ethernet Segment Add\00", align 1
-@.str.352 = private unnamed_addr constant [30 x i8] c"Local Ethernet Segment Delete\00", align 1
-@.str.353 = private unnamed_addr constant [28 x i8] c"Duplicate Address Detection\00", align 1
-@.str.354 = private unnamed_addr constant [20 x i8] c"VXLAN Flood Control\00", align 1
-@.str.355 = private unnamed_addr constant [10 x i8] c"PIM Route\00", align 1
-@.str.356 = private unnamed_addr constant [11 x i8] c"NHRP Route\00", align 1
-@.str.357 = private unnamed_addr constant [12 x i8] c"Table Route\00", align 1
-@.str.358 = private unnamed_addr constant [10 x i8] c"LDP Route\00", align 1
-@.str.359 = private unnamed_addr constant [10 x i8] c"VNC Route\00", align 1
-@.str.360 = private unnamed_addr constant [17 x i8] c"VNC Direct Route\00", align 1
-@.str.361 = private unnamed_addr constant [13 x i8] c"VNC RN Route\00", align 1
-@.str.362 = private unnamed_addr constant [17 x i8] c"BGP Direct Route\00", align 1
-@.str.363 = private unnamed_addr constant [31 x i8] c"BGP Direct to NVE groups Route\00", align 1
-@.str.364 = private unnamed_addr constant [12 x i8] c"EIGRP Route\00", align 1
-@.str.365 = private unnamed_addr constant [13 x i8] c"SHARPd Route\00", align 1
-@.str.366 = private unnamed_addr constant [10 x i8] c"PBR Route\00", align 1
-@.str.367 = private unnamed_addr constant [10 x i8] c"BFD Route\00", align 1
-@.str.368 = private unnamed_addr constant [17 x i8] c"OpenFabric Route\00", align 1
-@.str.369 = private unnamed_addr constant [7 x i8] c"Unspec\00", align 1
-@.str.370 = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
-@.str.371 = private unnamed_addr constant [7 x i8] c"Reject\00", align 1
-@.str.372 = private unnamed_addr constant [24 x i8] c"Administrative Prohibit\00", align 1
-@.str.373 = private unnamed_addr constant [14 x i8] c"Zebra Request\00", align 1
-@.str.374 = private unnamed_addr constant [12 x i8] c"Zebra Reply\00", align 1
-@.str.375 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
-@.str.376 = private unnamed_addr constant [20 x i8] c"Command Type 0x%02d\00", align 1
+@safi = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.247 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.248 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.249 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.250 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.252 = private unnamed_addr constant [13 x i8] c"System Route\00", align 1
+@.str.253 = private unnamed_addr constant [13 x i8] c"Kernel Route\00", align 1
+@.str.254 = private unnamed_addr constant [16 x i8] c"Connected Route\00", align 1
+@.str.255 = private unnamed_addr constant [13 x i8] c"Static Route\00", align 1
+@.str.256 = private unnamed_addr constant [10 x i8] c"RIP Route\00", align 1
+@.str.257 = private unnamed_addr constant [12 x i8] c"RIPnG Route\00", align 1
+@.str.258 = private unnamed_addr constant [11 x i8] c"OSPF Route\00", align 1
+@.str.259 = private unnamed_addr constant [12 x i8] c"OSPF6 Route\00", align 1
+@.str.260 = private unnamed_addr constant [10 x i8] c"BGP Route\00", align 1
+@routes_v0 = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.252 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.253 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.254 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.255 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.256 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.257 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.258 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.259 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.260 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.262 = private unnamed_addr constant [11 x i8] c"ISIS Route\00", align 1
+@.str.263 = private unnamed_addr constant [11 x i8] c"HSLS Route\00", align 1
+@.str.264 = private unnamed_addr constant [11 x i8] c"OLSR Route\00", align 1
+@.str.265 = private unnamed_addr constant [12 x i8] c"BABEL Route\00", align 1
+@routes_v1 = internal constant [14 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.252 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.253 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.254 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.255 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.256 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.257 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.258 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.259 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.262 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.260 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.263 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.264 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.265 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.267 = private unnamed_addr constant [5 x i8] c"IPv4\00", align 1
+@.str.268 = private unnamed_addr constant [5 x i8] c"IPv6\00", align 1
+@families = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.268 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.270 = private unnamed_addr constant [8 x i8] c"IFIndex\00", align 1
+@.str.271 = private unnamed_addr constant [7 x i8] c"IFName\00", align 1
+@.str.272 = private unnamed_addr constant [13 x i8] c"IPv4 IFIndex\00", align 1
+@.str.273 = private unnamed_addr constant [12 x i8] c"IPv4 IFName\00", align 1
+@.str.274 = private unnamed_addr constant [13 x i8] c"IPv6 Nexthop\00", align 1
+@.str.275 = private unnamed_addr constant [13 x i8] c"IPv6 IFIndex\00", align 1
+@.str.276 = private unnamed_addr constant [12 x i8] c"IPv6 IFName\00", align 1
+@.str.277 = private unnamed_addr constant [10 x i8] c"Blackhole\00", align 1
+@zebra_nht = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.270 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.271 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.272 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.273 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.274 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.276 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.277 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.279 = private unnamed_addr constant [31 x i8] c"Interface Neighbor Address Add\00", align 1
+@.str.280 = private unnamed_addr constant [34 x i8] c"Interface Neighbor Address Delete\00", align 1
+@.str.281 = private unnamed_addr constant [33 x i8] c"Interface BFD Destination Update\00", align 1
+@.str.282 = private unnamed_addr constant [22 x i8] c"Import Route Register\00", align 1
+@.str.283 = private unnamed_addr constant [24 x i8] c"Import Route Unregister\00", align 1
+@.str.284 = private unnamed_addr constant [20 x i8] c"Import Check Update\00", align 1
+@.str.285 = private unnamed_addr constant [32 x i8] c"Add IPv6 nexthop for IPv4 Route\00", align 1
+@.str.286 = private unnamed_addr constant [25 x i8] c"BFD Destination Register\00", align 1
+@.str.287 = private unnamed_addr constant [27 x i8] c"BFD Destination Deregister\00", align 1
+@.str.288 = private unnamed_addr constant [23 x i8] c"BFD Destination Update\00", align 1
+@.str.289 = private unnamed_addr constant [23 x i8] c"BFD Destination Replay\00", align 1
+@.str.290 = private unnamed_addr constant [28 x i8] c"Add Redistribute IPv4 Route\00", align 1
+@.str.291 = private unnamed_addr constant [31 x i8] c"Delete Redistribute IPv4 Route\00", align 1
+@.str.292 = private unnamed_addr constant [28 x i8] c"Add Redistribute IPv6 Route\00", align 1
+@.str.293 = private unnamed_addr constant [31 x i8] c"Delete Redistribute IPv6 Route\00", align 1
+@.str.294 = private unnamed_addr constant [8 x i8] c"VRF Add\00", align 1
+@.str.295 = private unnamed_addr constant [11 x i8] c"VRF Delete\00", align 1
+@.str.296 = private unnamed_addr constant [21 x i8] c"Interface VRF Update\00", align 1
+@.str.297 = private unnamed_addr constant [20 x i8] c"BFD Client Register\00", align 1
+@.str.298 = private unnamed_addr constant [38 x i8] c"Interface Enable Router Advertisement\00", align 1
+@.str.299 = private unnamed_addr constant [39 x i8] c"Interface Disable Router Advertisement\00", align 1
+@.str.300 = private unnamed_addr constant [16 x i8] c"MPLS Labels Add\00", align 1
+@.str.301 = private unnamed_addr constant [19 x i8] c"MPLS Labels Delete\00", align 1
+@.str.302 = private unnamed_addr constant [17 x i8] c"Add IPv4 Nexthop\00", align 1
+@.str.303 = private unnamed_addr constant [20 x i8] c"Delete IPv4 Nexthop\00", align 1
+@.str.304 = private unnamed_addr constant [17 x i8] c"Add IPv6 Nexthop\00", align 1
+@.str.305 = private unnamed_addr constant [20 x i8] c"Delete IPv6 Nexthop\00", align 1
+@.str.306 = private unnamed_addr constant [19 x i8] c"IPMR Route Statics\00", align 1
+@.str.307 = private unnamed_addr constant [22 x i8] c"Label Manager Connect\00", align 1
+@.str.308 = private unnamed_addr constant [16 x i8] c"Get Label Chunk\00", align 1
+@.str.309 = private unnamed_addr constant [20 x i8] c"Release Label Chunk\00", align 1
+@.str.310 = private unnamed_addr constant [15 x i8] c"PseudoWire Add\00", align 1
+@.str.311 = private unnamed_addr constant [18 x i8] c"PseudoWire Delete\00", align 1
+@.str.312 = private unnamed_addr constant [15 x i8] c"PseudoWire Set\00", align 1
+@.str.313 = private unnamed_addr constant [17 x i8] c"PseudoWire Unset\00", align 1
+@.str.314 = private unnamed_addr constant [25 x i8] c"PseudoWire Status Update\00", align 1
+@frr_zapi4_messages = internal constant [61 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.217 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.218 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.219 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.220 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.221 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.222 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.223 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.224 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.225 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.226 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.228 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.229 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.230 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.236 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.237 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.238 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.239 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.243 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.244 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.245 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.279 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.280 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.281 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.282 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.283 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.284 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.285 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.286 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.287 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.288 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.289 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.290 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.291 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.292 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.293 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.241 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.294 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.295 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.296 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.297 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.298 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.299 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.240 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.242 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.300 }, { i32, [4 x i8], ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.301 }, { i32, [4 x i8], ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.302 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.303 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.304 }, { i32, [4 x i8], ptr } { i32 50, [4 x i8] zeroinitializer, ptr @.str.305 }, { i32, [4 x i8], ptr } { i32 51, [4 x i8] zeroinitializer, ptr @.str.306 }, { i32, [4 x i8], ptr } { i32 52, [4 x i8] zeroinitializer, ptr @.str.307 }, { i32, [4 x i8], ptr } { i32 53, [4 x i8] zeroinitializer, ptr @.str.308 }, { i32, [4 x i8], ptr } { i32 54, [4 x i8] zeroinitializer, ptr @.str.309 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.310 }, { i32, [4 x i8], ptr } { i32 56, [4 x i8] zeroinitializer, ptr @.str.311 }, { i32, [4 x i8], ptr } { i32 57, [4 x i8] zeroinitializer, ptr @.str.312 }, { i32, [4 x i8], ptr } { i32 58, [4 x i8] zeroinitializer, ptr @.str.313 }, { i32, [4 x i8], ptr } { i32 59, [4 x i8] zeroinitializer, ptr @.str.314 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.316 = private unnamed_addr constant [10 x i8] c"Add Route\00", align 1
+@.str.317 = private unnamed_addr constant [13 x i8] c"Delete Route\00", align 1
+@.str.318 = private unnamed_addr constant [13 x i8] c"Capabilities\00", align 1
+@.str.319 = private unnamed_addr constant [23 x i8] c"Add Redistribute Route\00", align 1
+@.str.320 = private unnamed_addr constant [26 x i8] c"Delete Redistribute Route\00", align 1
+@.str.321 = private unnamed_addr constant [10 x i8] c"VRF Label\00", align 1
+@.str.322 = private unnamed_addr constant [35 x i8] c"Label Manager Connect Asynchronous\00", align 1
+@.str.323 = private unnamed_addr constant [13 x i8] c"FEC Register\00", align 1
+@.str.324 = private unnamed_addr constant [15 x i8] c"FEC Unregister\00", align 1
+@.str.325 = private unnamed_addr constant [11 x i8] c"FEC Update\00", align 1
+@.str.326 = private unnamed_addr constant [26 x i8] c"Advertise Default Gateway\00", align 1
+@.str.327 = private unnamed_addr constant [17 x i8] c"Advertise Subnet\00", align 1
+@.str.328 = private unnamed_addr constant [18 x i8] c"Advertise all VNI\00", align 1
+@.str.329 = private unnamed_addr constant [8 x i8] c"VNI Add\00", align 1
+@.str.330 = private unnamed_addr constant [11 x i8] c"VNI Delete\00", align 1
+@.str.331 = private unnamed_addr constant [10 x i8] c"L3VNI Add\00", align 1
+@.str.332 = private unnamed_addr constant [13 x i8] c"L3VNI Delete\00", align 1
+@.str.333 = private unnamed_addr constant [16 x i8] c"Remote VTEP Add\00", align 1
+@.str.334 = private unnamed_addr constant [19 x i8] c"Remote VTEP Delete\00", align 1
+@.str.335 = private unnamed_addr constant [11 x i8] c"MAC/IP Add\00", align 1
+@.str.336 = private unnamed_addr constant [14 x i8] c"MAC/IP Delete\00", align 1
+@.str.337 = private unnamed_addr constant [20 x i8] c"IP Prefix Route Add\00", align 1
+@.str.338 = private unnamed_addr constant [23 x i8] c"IP Prefix Route Delete\00", align 1
+@.str.339 = private unnamed_addr constant [18 x i8] c"Remote MAC/IP Add\00", align 1
+@.str.340 = private unnamed_addr constant [21 x i8] c"Remote MAC/IP Delete\00", align 1
+@.str.341 = private unnamed_addr constant [9 x i8] c"Rule Add\00", align 1
+@.str.342 = private unnamed_addr constant [12 x i8] c"Rule Delete\00", align 1
+@.str.343 = private unnamed_addr constant [18 x i8] c"Rule Notify Owner\00", align 1
+@.str.344 = private unnamed_addr constant [22 x i8] c"Table Manager Connect\00", align 1
+@.str.345 = private unnamed_addr constant [16 x i8] c"Get Table Chunk\00", align 1
+@.str.346 = private unnamed_addr constant [20 x i8] c"Release Table Chunk\00", align 1
+@.str.347 = private unnamed_addr constant [13 x i8] c"IPSet Create\00", align 1
+@.str.348 = private unnamed_addr constant [14 x i8] c"IPSet Destroy\00", align 1
+@.str.349 = private unnamed_addr constant [16 x i8] c"IPSet Entry Add\00", align 1
+@.str.350 = private unnamed_addr constant [19 x i8] c"IPSet Entry Delete\00", align 1
+@.str.351 = private unnamed_addr constant [18 x i8] c"IPSet Notify Oner\00", align 1
+@.str.352 = private unnamed_addr constant [25 x i8] c"IPSet Entry Notify Owner\00", align 1
+@.str.353 = private unnamed_addr constant [12 x i8] c"IPTable Add\00", align 1
+@.str.354 = private unnamed_addr constant [15 x i8] c"IPTable Delete\00", align 1
+@.str.355 = private unnamed_addr constant [21 x i8] c"IPTable Notify Owner\00", align 1
+@frr_zapi5_messages = internal constant [93 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.217 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.218 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.219 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.220 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.221 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.222 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.316 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.317 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.223 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.224 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.225 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.226 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.228 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.229 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.230 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.236 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.237 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.238 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.239 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.318 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.243 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.244 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.245 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.279 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.280 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.281 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.282 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.283 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.284 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.285 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.286 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.287 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.288 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.289 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.319 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.320 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.241 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.294 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.295 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.321 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.296 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.297 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.298 }, { i32, [4 x i8], ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.299 }, { i32, [4 x i8], ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.240 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.242 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.300 }, { i32, [4 x i8], ptr } { i32 50, [4 x i8] zeroinitializer, ptr @.str.301 }, { i32, [4 x i8], ptr } { i32 51, [4 x i8] zeroinitializer, ptr @.str.306 }, { i32, [4 x i8], ptr } { i32 52, [4 x i8] zeroinitializer, ptr @.str.307 }, { i32, [4 x i8], ptr } { i32 53, [4 x i8] zeroinitializer, ptr @.str.322 }, { i32, [4 x i8], ptr } { i32 54, [4 x i8] zeroinitializer, ptr @.str.308 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.309 }, { i32, [4 x i8], ptr } { i32 56, [4 x i8] zeroinitializer, ptr @.str.323 }, { i32, [4 x i8], ptr } { i32 57, [4 x i8] zeroinitializer, ptr @.str.324 }, { i32, [4 x i8], ptr } { i32 58, [4 x i8] zeroinitializer, ptr @.str.325 }, { i32, [4 x i8], ptr } { i32 59, [4 x i8] zeroinitializer, ptr @.str.326 }, { i32, [4 x i8], ptr } { i32 60, [4 x i8] zeroinitializer, ptr @.str.327 }, { i32, [4 x i8], ptr } { i32 61, [4 x i8] zeroinitializer, ptr @.str.328 }, { i32, [4 x i8], ptr } { i32 62, [4 x i8] zeroinitializer, ptr @.str.329 }, { i32, [4 x i8], ptr } { i32 63, [4 x i8] zeroinitializer, ptr @.str.330 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.331 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.332 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.333 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.334 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.335 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.336 }, { i32, [4 x i8], ptr } { i32 70, [4 x i8] zeroinitializer, ptr @.str.337 }, { i32, [4 x i8], ptr } { i32 71, [4 x i8] zeroinitializer, ptr @.str.338 }, { i32, [4 x i8], ptr } { i32 72, [4 x i8] zeroinitializer, ptr @.str.339 }, { i32, [4 x i8], ptr } { i32 73, [4 x i8] zeroinitializer, ptr @.str.340 }, { i32, [4 x i8], ptr } { i32 74, [4 x i8] zeroinitializer, ptr @.str.310 }, { i32, [4 x i8], ptr } { i32 75, [4 x i8] zeroinitializer, ptr @.str.311 }, { i32, [4 x i8], ptr } { i32 76, [4 x i8] zeroinitializer, ptr @.str.312 }, { i32, [4 x i8], ptr } { i32 77, [4 x i8] zeroinitializer, ptr @.str.313 }, { i32, [4 x i8], ptr } { i32 78, [4 x i8] zeroinitializer, ptr @.str.314 }, { i32, [4 x i8], ptr } { i32 79, [4 x i8] zeroinitializer, ptr @.str.341 }, { i32, [4 x i8], ptr } { i32 80, [4 x i8] zeroinitializer, ptr @.str.342 }, { i32, [4 x i8], ptr } { i32 81, [4 x i8] zeroinitializer, ptr @.str.343 }, { i32, [4 x i8], ptr } { i32 82, [4 x i8] zeroinitializer, ptr @.str.344 }, { i32, [4 x i8], ptr } { i32 83, [4 x i8] zeroinitializer, ptr @.str.345 }, { i32, [4 x i8], ptr } { i32 84, [4 x i8] zeroinitializer, ptr @.str.346 }, { i32, [4 x i8], ptr } { i32 85, [4 x i8] zeroinitializer, ptr @.str.347 }, { i32, [4 x i8], ptr } { i32 86, [4 x i8] zeroinitializer, ptr @.str.348 }, { i32, [4 x i8], ptr } { i32 87, [4 x i8] zeroinitializer, ptr @.str.349 }, { i32, [4 x i8], ptr } { i32 88, [4 x i8] zeroinitializer, ptr @.str.350 }, { i32, [4 x i8], ptr } { i32 89, [4 x i8] zeroinitializer, ptr @.str.351 }, { i32, [4 x i8], ptr } { i32 90, [4 x i8] zeroinitializer, ptr @.str.352 }, { i32, [4 x i8], ptr } { i32 91, [4 x i8] zeroinitializer, ptr @.str.353 }, { i32, [4 x i8], ptr } { i32 92, [4 x i8] zeroinitializer, ptr @.str.354 }, { i32, [4 x i8], ptr } { i32 93, [4 x i8] zeroinitializer, ptr @.str.355 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.357 = private unnamed_addr constant [22 x i8] c"BFD Client Deregister\00", align 1
+@.str.358 = private unnamed_addr constant [27 x i8] c"Local Ethernet Segment Add\00", align 1
+@.str.359 = private unnamed_addr constant [30 x i8] c"Local Ethernet Segment Delete\00", align 1
+@.str.360 = private unnamed_addr constant [28 x i8] c"Duplicate Address Detection\00", align 1
+@.str.361 = private unnamed_addr constant [20 x i8] c"VXLAN Flood Control\00", align 1
+@frr_zapi6_messages = internal constant [93 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.217 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.218 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.219 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.220 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.221 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.222 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.316 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.317 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.228 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.229 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.230 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.236 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.237 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.238 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.239 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.318 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.243 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.244 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.245 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.279 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.280 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.281 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.282 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.283 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.284 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.286 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.287 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.288 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.289 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.319 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.320 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.241 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.294 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.295 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.321 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.296 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.297 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.357 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.298 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.299 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.240 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.242 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.300 }, { i32, [4 x i8], ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.301 }, { i32, [4 x i8], ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.306 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.307 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.322 }, { i32, [4 x i8], ptr } { i32 50, [4 x i8] zeroinitializer, ptr @.str.308 }, { i32, [4 x i8], ptr } { i32 51, [4 x i8] zeroinitializer, ptr @.str.309 }, { i32, [4 x i8], ptr } { i32 52, [4 x i8] zeroinitializer, ptr @.str.323 }, { i32, [4 x i8], ptr } { i32 53, [4 x i8] zeroinitializer, ptr @.str.324 }, { i32, [4 x i8], ptr } { i32 54, [4 x i8] zeroinitializer, ptr @.str.325 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.326 }, { i32, [4 x i8], ptr } { i32 56, [4 x i8] zeroinitializer, ptr @.str.327 }, { i32, [4 x i8], ptr } { i32 57, [4 x i8] zeroinitializer, ptr @.str.328 }, { i32, [4 x i8], ptr } { i32 58, [4 x i8] zeroinitializer, ptr @.str.358 }, { i32, [4 x i8], ptr } { i32 59, [4 x i8] zeroinitializer, ptr @.str.359 }, { i32, [4 x i8], ptr } { i32 60, [4 x i8] zeroinitializer, ptr @.str.329 }, { i32, [4 x i8], ptr } { i32 61, [4 x i8] zeroinitializer, ptr @.str.330 }, { i32, [4 x i8], ptr } { i32 62, [4 x i8] zeroinitializer, ptr @.str.331 }, { i32, [4 x i8], ptr } { i32 63, [4 x i8] zeroinitializer, ptr @.str.332 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.333 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.334 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.335 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.336 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.337 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.338 }, { i32, [4 x i8], ptr } { i32 70, [4 x i8] zeroinitializer, ptr @.str.339 }, { i32, [4 x i8], ptr } { i32 71, [4 x i8] zeroinitializer, ptr @.str.340 }, { i32, [4 x i8], ptr } { i32 72, [4 x i8] zeroinitializer, ptr @.str.360 }, { i32, [4 x i8], ptr } { i32 73, [4 x i8] zeroinitializer, ptr @.str.310 }, { i32, [4 x i8], ptr } { i32 74, [4 x i8] zeroinitializer, ptr @.str.311 }, { i32, [4 x i8], ptr } { i32 75, [4 x i8] zeroinitializer, ptr @.str.312 }, { i32, [4 x i8], ptr } { i32 76, [4 x i8] zeroinitializer, ptr @.str.313 }, { i32, [4 x i8], ptr } { i32 77, [4 x i8] zeroinitializer, ptr @.str.314 }, { i32, [4 x i8], ptr } { i32 78, [4 x i8] zeroinitializer, ptr @.str.341 }, { i32, [4 x i8], ptr } { i32 79, [4 x i8] zeroinitializer, ptr @.str.342 }, { i32, [4 x i8], ptr } { i32 80, [4 x i8] zeroinitializer, ptr @.str.343 }, { i32, [4 x i8], ptr } { i32 81, [4 x i8] zeroinitializer, ptr @.str.344 }, { i32, [4 x i8], ptr } { i32 82, [4 x i8] zeroinitializer, ptr @.str.345 }, { i32, [4 x i8], ptr } { i32 83, [4 x i8] zeroinitializer, ptr @.str.346 }, { i32, [4 x i8], ptr } { i32 84, [4 x i8] zeroinitializer, ptr @.str.347 }, { i32, [4 x i8], ptr } { i32 85, [4 x i8] zeroinitializer, ptr @.str.348 }, { i32, [4 x i8], ptr } { i32 86, [4 x i8] zeroinitializer, ptr @.str.349 }, { i32, [4 x i8], ptr } { i32 87, [4 x i8] zeroinitializer, ptr @.str.350 }, { i32, [4 x i8], ptr } { i32 88, [4 x i8] zeroinitializer, ptr @.str.351 }, { i32, [4 x i8], ptr } { i32 89, [4 x i8] zeroinitializer, ptr @.str.352 }, { i32, [4 x i8], ptr } { i32 90, [4 x i8] zeroinitializer, ptr @.str.353 }, { i32, [4 x i8], ptr } { i32 91, [4 x i8] zeroinitializer, ptr @.str.354 }, { i32, [4 x i8], ptr } { i32 92, [4 x i8] zeroinitializer, ptr @.str.355 }, { i32, [4 x i8], ptr } { i32 93, [4 x i8] zeroinitializer, ptr @.str.361 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.363 = private unnamed_addr constant [10 x i8] c"PIM Route\00", align 1
+@.str.364 = private unnamed_addr constant [11 x i8] c"NHRP Route\00", align 1
+@.str.365 = private unnamed_addr constant [12 x i8] c"Table Route\00", align 1
+@.str.366 = private unnamed_addr constant [10 x i8] c"LDP Route\00", align 1
+@.str.367 = private unnamed_addr constant [10 x i8] c"VNC Route\00", align 1
+@.str.368 = private unnamed_addr constant [17 x i8] c"VNC Direct Route\00", align 1
+@.str.369 = private unnamed_addr constant [13 x i8] c"VNC RN Route\00", align 1
+@.str.370 = private unnamed_addr constant [17 x i8] c"BGP Direct Route\00", align 1
+@.str.371 = private unnamed_addr constant [31 x i8] c"BGP Direct to NVE groups Route\00", align 1
+@routes_v4 = internal constant [22 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.252 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.253 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.254 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.255 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.256 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.257 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.258 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.259 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.262 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.260 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.363 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.364 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.263 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.264 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.365 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.366 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.367 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.368 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.369 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.370 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.371 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.373 = private unnamed_addr constant [12 x i8] c"EIGRP Route\00", align 1
+@.str.374 = private unnamed_addr constant [13 x i8] c"SHARPd Route\00", align 1
+@.str.375 = private unnamed_addr constant [10 x i8] c"PBR Route\00", align 1
+@.str.376 = private unnamed_addr constant [10 x i8] c"BFD Route\00", align 1
+@.str.377 = private unnamed_addr constant [17 x i8] c"OpenFabric Route\00", align 1
+@routes_v5 = internal constant [28 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.252 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.253 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.254 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.255 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.256 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.257 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.258 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.259 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.262 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.260 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.363 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.373 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.364 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.263 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.264 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.365 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.366 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.367 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.368 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.369 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.370 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.371 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.265 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.374 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.375 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.376 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.377 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@frr_nht = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.270 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.272 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.268 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.277 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.380 = private unnamed_addr constant [7 x i8] c"Unspec\00", align 1
+@.str.381 = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
+@.str.382 = private unnamed_addr constant [7 x i8] c"Reject\00", align 1
+@.str.383 = private unnamed_addr constant [24 x i8] c"Administrative Prohibit\00", align 1
+@blackhole_type = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.380 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.381 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.382 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.383 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.385 = private unnamed_addr constant [14 x i8] c"Zebra Request\00", align 1
+@.str.386 = private unnamed_addr constant [12 x i8] c"Zebra Reply\00", align 1
+@.str.387 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
+@.str.388 = private unnamed_addr constant [20 x i8] c"Command Type 0x%02d\00", align 1
 @zebra_route_message.flags = internal constant [7 x ptr] [ptr @hf_zebra_msg_nexthop, ptr @hf_zebra_msg_index, ptr @hf_zebra_msg_distance, ptr @hf_zebra_msg_metric, ptr @hf_zebra_msg_mtu, ptr @hf_zebra_msg_tag, ptr null], align 16
 @zebra_route_message.flags4 = internal constant [8 x ptr] [ptr @hf_zebra_msg_nexthop, ptr @hf_zebra_msg_index, ptr @hf_zebra_msg_distance, ptr @hf_zebra_msg_metric, ptr @hf_zebra_msg4_tag, ptr @hf_zebra_msg4_mtu, ptr @hf_zebra_msg4_srcpfx, ptr null], align 16
 @zebra_route_message.flags5 = internal constant [9 x ptr] [ptr @hf_zebra_msg_nexthop, ptr @hf_zebra_msg5_distance, ptr @hf_zebra_msg5_metric, ptr @hf_zebra_msg5_tag, ptr @hf_zebra_msg5_mtu, ptr @hf_zebra_msg5_srcpfx, ptr @hf_zebra_msg_label, ptr @hf_zebra_msg_tableid, ptr null], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_zebra() #0 {
-  %1 = call i32 @proto_register_protocol(ptr noundef @.str.214, ptr noundef @.str.215, ptr noundef @.str.216)
+  %1 = call i32 @proto_register_protocol(ptr noundef @.str.213, ptr noundef @.str.214, ptr noundef @.str.215)
   store i32 %1, ptr @proto_zebra, align 4
   %2 = load i32, ptr @proto_zebra, align 4
   call void @proto_register_field_array(i32 noundef %2, ptr noundef @proto_register_zebra.hf, i32 noundef 93)
   call void @proto_register_subtree_array(ptr noundef @proto_register_zebra.ett, i32 noundef 3)
   %3 = load i32, ptr @proto_zebra, align 4
-  %4 = call ptr @register_dissector(ptr noundef @.str.216, ptr noundef @dissect_zebra, i32 noundef %3)
+  %4 = call ptr @register_dissector(ptr noundef @.str.215, ptr noundef @dissect_zebra, i32 noundef %3)
   store ptr %4, ptr @zebra_handle, align 8
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zebra(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -536,51 +538,57 @@ define internal i32 @dissect_zebra(ptr noundef %0, ptr noundef %1, ptr noundef %
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  %12 = alloca i32, align 4
+  %12 = alloca i8, align 1
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
-  %15 = alloca %struct._zebra_header_t, align 2
-  %16 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca %struct._zebra_header_t, align 2
+  %17 = alloca ptr, align 8
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
   store i32 0, ptr %14, align 4
-  %17 = load ptr, ptr %7, align 8
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %14, align 4
-  %20 = load ptr, ptr %9, align 8
-  %21 = call i32 @test_zebra(ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef %20)
-  %22 = icmp ne i32 %21, 0
+  %18 = load ptr, ptr %7, align 8
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %14, align 4
+  %21 = load ptr, ptr %9, align 8
+  %22 = call zeroext i1 @test_zebra(ptr noundef %18, ptr noundef %19, i32 noundef %20, ptr noundef %21)
   br i1 %22, label %24, label %23
 
 23:                                               ; preds = %4
   store i32 0, ptr %5, align 4
-  br label %188
+  store i32 1, ptr %15, align 4
+  br label %192
 
 24:                                               ; preds = %4
   %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds %struct._packet_info, ptr %25, i32 0, i32 1
+  %26 = getelementptr inbounds nuw %struct._packet_info, ptr %25, i32 0, i32 1
   %27 = load ptr, ptr %26, align 8
-  call void @col_set_str(ptr noundef %27, i32 noundef 34, ptr noundef @.str.215)
+  call void @col_set_str(ptr noundef %27, i32 noundef 35, ptr noundef @.str.214)
   %28 = load ptr, ptr %7, align 8
-  %29 = getelementptr inbounds %struct._packet_info, ptr %28, i32 0, i32 24
+  %29 = getelementptr inbounds nuw %struct._packet_info, ptr %28, i32 0, i32 25
   %30 = load i32, ptr %29, align 8
   %31 = load ptr, ptr %7, align 8
-  %32 = getelementptr inbounds %struct._packet_info, ptr %31, i32 0, i32 25
+  %32 = getelementptr inbounds nuw %struct._packet_info, ptr %31, i32 0, i32 26
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %30, %33
-  %35 = zext i1 %34 to i32
-  store i32 %35, ptr %12, align 4
+  %35 = zext i1 %34 to i8
+  store i8 %35, ptr %12, align 1
   %36 = load ptr, ptr %6, align 8
   %37 = call i32 @tvb_reported_length(ptr noundef %36)
   store i32 %37, ptr %13, align 4
   %38 = load ptr, ptr %7, align 8
-  %39 = getelementptr inbounds %struct._packet_info, ptr %38, i32 0, i32 1
+  %39 = getelementptr inbounds nuw %struct._packet_info, ptr %38, i32 0, i32 1
   %40 = load ptr, ptr %39, align 8
-  %41 = load i32, ptr %12, align 4
-  %42 = icmp ne i32 %41, 0
-  %43 = select i1 %42, ptr @.str.373, ptr @.str.374
+  %41 = load i8, ptr %12, align 1, !range !6, !noundef !7
+  %42 = trunc i8 %41 to i1
+  %43 = select i1 %42, ptr @.str.385, ptr @.str.386
   call void @col_set_str(ptr noundef %40, i32 noundef 25, ptr noundef %43)
   %44 = load ptr, ptr %8, align 8
   %45 = load i32, ptr @proto_zebra, align 4
@@ -596,26 +604,29 @@ define internal i32 @dissect_zebra(ptr noundef %0, ptr noundef %1, ptr noundef %
   %53 = load i32, ptr @hf_zebra_request, align 4
   %54 = load ptr, ptr %6, align 8
   %55 = load i32, ptr %14, align 4
-  %56 = load i32, ptr %12, align 4
-  %57 = sext i32 %56 to i64
-  %58 = call ptr @proto_tree_add_boolean(ptr noundef %52, i32 noundef %53, ptr noundef %54, i32 noundef %55, i32 noundef 0, i64 noundef %57)
-  store ptr %58, ptr %10, align 8
-  %59 = load ptr, ptr %10, align 8
-  call void @proto_item_set_hidden(ptr noundef %59)
-  br label %60
+  %56 = load i8, ptr %12, align 1, !range !6, !noundef !7
+  %57 = trunc i8 %56 to i1
+  %58 = zext i1 %57 to i64
+  %59 = call ptr @proto_tree_add_boolean(ptr noundef %52, i32 noundef %53, ptr noundef %54, i32 noundef %55, i32 noundef 0, i64 noundef %58)
+  store ptr %59, ptr %10, align 8
+  %60 = load ptr, ptr %10, align 8
+  call void @proto_item_set_hidden(ptr noundef %60)
+  br label %61
 
-60:                                               ; preds = %159, %24
-  %61 = load ptr, ptr %6, align 8
-  %62 = load i32, ptr %14, align 4
-  %63 = call i32 @zebra_get_header(ptr noundef %61, i32 noundef %62, ptr noundef %15)
-  %64 = icmp ne i32 %63, 0
+61:                                               ; preds = %188, %24
+  call void @llvm.lifetime.start.p0(i64 6, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  %62 = load ptr, ptr %6, align 8
+  %63 = load i32, ptr %14, align 4
+  %64 = call zeroext i1 @zebra_get_header(ptr noundef %62, i32 noundef %63, ptr noundef %16)
   br i1 %64, label %66, label %65
 
-65:                                               ; preds = %60
-  br label %185
+65:                                               ; preds = %61
+  store i32 2, ptr %15, align 4
+  br label %186
 
-66:                                               ; preds = %60
-  %67 = getelementptr inbounds %struct._zebra_header_t, ptr %15, i32 0, i32 2
+66:                                               ; preds = %61
+  %67 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %16, i32 0, i32 2
   %68 = load i8, ptr %67, align 2
   %69 = zext i8 %68 to i32
   %70 = icmp slt i32 %69, 4
@@ -623,21 +634,21 @@ define internal i32 @dissect_zebra(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 71:                                               ; preds = %66
   %72 = load ptr, ptr %7, align 8
-  %73 = getelementptr inbounds %struct._packet_info, ptr %72, i32 0, i32 1
+  %73 = getelementptr inbounds nuw %struct._packet_info, ptr %72, i32 0, i32 1
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds %struct._zebra_header_t, ptr %15, i32 0, i32 1
+  %75 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %16, i32 0, i32 1
   %76 = load i16, ptr %75, align 2
   %77 = zext i16 %76 to i32
-  %78 = call ptr @val_to_str(i32 noundef %77, ptr noundef @messages, ptr noundef @.str.376)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %74, i32 noundef 25, ptr noundef @.str.375, ptr noundef %78)
+  %78 = call ptr @val_to_str(i32 noundef %77, ptr noundef @messages, ptr noundef @.str.388)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %74, i32 noundef 25, ptr noundef @.str.387, ptr noundef %78)
   %79 = load ptr, ptr %11, align 8
   %80 = load i32, ptr @hf_zebra_command, align 4
   %81 = load ptr, ptr %6, align 8
   %82 = load i32, ptr %14, align 4
-  %83 = getelementptr inbounds %struct._zebra_header_t, ptr %15, i32 0, i32 0
+  %83 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %16, i32 0, i32 0
   %84 = load i16, ptr %83, align 2
   %85 = zext i16 %84 to i32
-  %86 = getelementptr inbounds %struct._zebra_header_t, ptr %15, i32 0, i32 1
+  %86 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %16, i32 0, i32 1
   %87 = load i16, ptr %86, align 2
   %88 = zext i16 %87 to i32
   %89 = call ptr @proto_tree_add_uint(ptr noundef %79, i32 noundef %80, ptr noundef %81, i32 noundef %82, i32 noundef %85, i32 noundef %88)
@@ -645,7 +656,7 @@ define internal i32 @dissect_zebra(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %159
 
 90:                                               ; preds = %66
-  %91 = getelementptr inbounds %struct._zebra_header_t, ptr %15, i32 0, i32 2
+  %91 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %16, i32 0, i32 2
   %92 = load i8, ptr %91, align 2
   %93 = zext i8 %92 to i32
   %94 = icmp eq i32 %93, 4
@@ -656,26 +667,26 @@ define internal i32 @dissect_zebra(ptr noundef %0, ptr noundef %1, ptr noundef %
   %97 = load i32, ptr @hf_zebra_command_v4, align 4
   %98 = load ptr, ptr %6, align 8
   %99 = load i32, ptr %14, align 4
-  %100 = getelementptr inbounds %struct._zebra_header_t, ptr %15, i32 0, i32 0
+  %100 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %16, i32 0, i32 0
   %101 = load i16, ptr %100, align 2
   %102 = zext i16 %101 to i32
-  %103 = getelementptr inbounds %struct._zebra_header_t, ptr %15, i32 0, i32 1
+  %103 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %16, i32 0, i32 1
   %104 = load i16, ptr %103, align 2
   %105 = zext i16 %104 to i32
   %106 = call ptr @proto_tree_add_uint(ptr noundef %96, i32 noundef %97, ptr noundef %98, i32 noundef %99, i32 noundef %102, i32 noundef %105)
   store ptr %106, ptr %10, align 8
   %107 = load ptr, ptr %7, align 8
-  %108 = getelementptr inbounds %struct._packet_info, ptr %107, i32 0, i32 1
+  %108 = getelementptr inbounds nuw %struct._packet_info, ptr %107, i32 0, i32 1
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds %struct._zebra_header_t, ptr %15, i32 0, i32 1
+  %110 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %16, i32 0, i32 1
   %111 = load i16, ptr %110, align 2
   %112 = zext i16 %111 to i32
-  %113 = call ptr @val_to_str(i32 noundef %112, ptr noundef @frr_zapi4_messages, ptr noundef @.str.376)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %109, i32 noundef 25, ptr noundef @.str.375, ptr noundef %113)
+  %113 = call ptr @val_to_str(i32 noundef %112, ptr noundef @frr_zapi4_messages, ptr noundef @.str.388)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %109, i32 noundef 25, ptr noundef @.str.387, ptr noundef %113)
   br label %158
 
 114:                                              ; preds = %90
-  %115 = getelementptr inbounds %struct._zebra_header_t, ptr %15, i32 0, i32 2
+  %115 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %16, i32 0, i32 2
   %116 = load i8, ptr %115, align 2
   %117 = zext i8 %116 to i32
   %118 = icmp eq i32 %117, 5
@@ -686,22 +697,22 @@ define internal i32 @dissect_zebra(ptr noundef %0, ptr noundef %1, ptr noundef %
   %121 = load i32, ptr @hf_zebra_command_v5, align 4
   %122 = load ptr, ptr %6, align 8
   %123 = load i32, ptr %14, align 4
-  %124 = getelementptr inbounds %struct._zebra_header_t, ptr %15, i32 0, i32 0
+  %124 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %16, i32 0, i32 0
   %125 = load i16, ptr %124, align 2
   %126 = zext i16 %125 to i32
-  %127 = getelementptr inbounds %struct._zebra_header_t, ptr %15, i32 0, i32 1
+  %127 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %16, i32 0, i32 1
   %128 = load i16, ptr %127, align 2
   %129 = zext i16 %128 to i32
   %130 = call ptr @proto_tree_add_uint(ptr noundef %120, i32 noundef %121, ptr noundef %122, i32 noundef %123, i32 noundef %126, i32 noundef %129)
   store ptr %130, ptr %10, align 8
   %131 = load ptr, ptr %7, align 8
-  %132 = getelementptr inbounds %struct._packet_info, ptr %131, i32 0, i32 1
+  %132 = getelementptr inbounds nuw %struct._packet_info, ptr %131, i32 0, i32 1
   %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds %struct._zebra_header_t, ptr %15, i32 0, i32 1
+  %134 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %16, i32 0, i32 1
   %135 = load i16, ptr %134, align 2
   %136 = zext i16 %135 to i32
-  %137 = call ptr @val_to_str(i32 noundef %136, ptr noundef @frr_zapi5_messages, ptr noundef @.str.376)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %133, i32 noundef 25, ptr noundef @.str.375, ptr noundef %137)
+  %137 = call ptr @val_to_str(i32 noundef %136, ptr noundef @frr_zapi5_messages, ptr noundef @.str.388)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %133, i32 noundef 25, ptr noundef @.str.387, ptr noundef %137)
   br label %157
 
 138:                                              ; preds = %114
@@ -709,22 +720,22 @@ define internal i32 @dissect_zebra(ptr noundef %0, ptr noundef %1, ptr noundef %
   %140 = load i32, ptr @hf_zebra_command_v6, align 4
   %141 = load ptr, ptr %6, align 8
   %142 = load i32, ptr %14, align 4
-  %143 = getelementptr inbounds %struct._zebra_header_t, ptr %15, i32 0, i32 0
+  %143 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %16, i32 0, i32 0
   %144 = load i16, ptr %143, align 2
   %145 = zext i16 %144 to i32
-  %146 = getelementptr inbounds %struct._zebra_header_t, ptr %15, i32 0, i32 1
+  %146 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %16, i32 0, i32 1
   %147 = load i16, ptr %146, align 2
   %148 = zext i16 %147 to i32
   %149 = call ptr @proto_tree_add_uint(ptr noundef %139, i32 noundef %140, ptr noundef %141, i32 noundef %142, i32 noundef %145, i32 noundef %148)
   store ptr %149, ptr %10, align 8
   %150 = load ptr, ptr %7, align 8
-  %151 = getelementptr inbounds %struct._packet_info, ptr %150, i32 0, i32 1
+  %151 = getelementptr inbounds nuw %struct._packet_info, ptr %150, i32 0, i32 1
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds %struct._zebra_header_t, ptr %15, i32 0, i32 1
+  %153 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %16, i32 0, i32 1
   %154 = load i16, ptr %153, align 2
   %155 = zext i16 %154 to i32
-  %156 = call ptr @val_to_str(i32 noundef %155, ptr noundef @frr_zapi6_messages, ptr noundef @.str.376)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %152, i32 noundef 25, ptr noundef @.str.375, ptr noundef %156)
+  %156 = call ptr @val_to_str(i32 noundef %155, ptr noundef @frr_zapi6_messages, ptr noundef @.str.388)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %152, i32 noundef 25, ptr noundef @.str.387, ptr noundef %156)
   br label %157
 
 157:                                              ; preds = %138, %119
@@ -737,95 +748,125 @@ define internal i32 @dissect_zebra(ptr noundef %0, ptr noundef %1, ptr noundef %
   %160 = load ptr, ptr %10, align 8
   %161 = load i32, ptr @ett_zebra_request, align 4
   %162 = call ptr @proto_item_add_subtree(ptr noundef %160, i32 noundef %161)
-  store ptr %162, ptr %16, align 8
-  %163 = load ptr, ptr %16, align 8
-  %164 = load i32, ptr %12, align 4
-  %165 = load ptr, ptr %6, align 8
-  %166 = load i32, ptr %14, align 4
-  %167 = load i32, ptr %13, align 4
-  %168 = getelementptr inbounds %struct._zebra_header_t, ptr %15, i32 0, i32 0
-  %169 = load i16, ptr %168, align 2
-  %170 = getelementptr inbounds %struct._zebra_header_t, ptr %15, i32 0, i32 1
-  %171 = load i16, ptr %170, align 2
-  %172 = getelementptr inbounds %struct._zebra_header_t, ptr %15, i32 0, i32 2
-  %173 = load i8, ptr %172, align 2
-  %174 = call i32 @dissect_zebra_request(ptr noundef %163, i32 noundef %164, ptr noundef %165, i32 noundef %166, i32 noundef %167, i16 noundef zeroext %169, i16 noundef zeroext %171, i8 noundef zeroext %173)
-  %175 = getelementptr inbounds %struct._zebra_header_t, ptr %15, i32 0, i32 0
-  %176 = load i16, ptr %175, align 2
-  %177 = zext i16 %176 to i32
-  %178 = load i32, ptr %14, align 4
-  %179 = add i32 %178, %177
-  store i32 %179, ptr %14, align 4
-  %180 = getelementptr inbounds %struct._zebra_header_t, ptr %15, i32 0, i32 0
-  %181 = load i16, ptr %180, align 2
-  %182 = zext i16 %181 to i32
-  %183 = load i32, ptr %13, align 4
-  %184 = sub i32 %183, %182
-  store i32 %184, ptr %13, align 4
-  br label %60
+  store ptr %162, ptr %17, align 8
+  %163 = load ptr, ptr %17, align 8
+  %164 = load i8, ptr %12, align 1, !range !6, !noundef !7
+  %165 = trunc i8 %164 to i1
+  %166 = load ptr, ptr %6, align 8
+  %167 = load i32, ptr %14, align 4
+  %168 = load i32, ptr %13, align 4
+  %169 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %16, i32 0, i32 0
+  %170 = load i16, ptr %169, align 2
+  %171 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %16, i32 0, i32 1
+  %172 = load i16, ptr %171, align 2
+  %173 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %16, i32 0, i32 2
+  %174 = load i8, ptr %173, align 2
+  %175 = call i32 @dissect_zebra_request(ptr noundef %163, i1 noundef zeroext %165, ptr noundef %166, i32 noundef %167, i32 noundef %168, i16 noundef zeroext %170, i16 noundef zeroext %172, i8 noundef zeroext %174)
+  %176 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %16, i32 0, i32 0
+  %177 = load i16, ptr %176, align 2
+  %178 = zext i16 %177 to i32
+  %179 = load i32, ptr %14, align 4
+  %180 = add i32 %179, %178
+  store i32 %180, ptr %14, align 4
+  %181 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %16, i32 0, i32 0
+  %182 = load i16, ptr %181, align 2
+  %183 = zext i16 %182 to i32
+  %184 = load i32, ptr %13, align 4
+  %185 = sub i32 %184, %183
+  store i32 %185, ptr %13, align 4
+  store i32 0, ptr %15, align 4
+  br label %186
 
-185:                                              ; preds = %65
-  %186 = load ptr, ptr %6, align 8
-  %187 = call i32 @tvb_captured_length(ptr noundef %186)
-  store i32 %187, ptr %5, align 4
-  br label %188
+186:                                              ; preds = %159, %65
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 6, ptr %16) #7
+  %187 = load i32, ptr %15, align 4
+  switch i32 %187, label %194 [
+    i32 0, label %188
+    i32 2, label %189
+  ]
 
-188:                                              ; preds = %185, %23
-  %189 = load i32, ptr %5, align 4
-  ret i32 %189
+188:                                              ; preds = %186
+  br label %61
+
+189:                                              ; preds = %186
+  %190 = load ptr, ptr %6, align 8
+  %191 = call i32 @tvb_captured_length(ptr noundef %190)
+  store i32 %191, ptr %5, align 4
+  store i32 1, ptr %15, align 4
+  br label %192
+
+192:                                              ; preds = %189, %23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %193 = load i32, ptr %5, align 4
+  ret i32 %193
+
+194:                                              ; preds = %186
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_zebra() #0 {
   %1 = load ptr, ptr @zebra_handle, align 8
-  call void @dissector_add_uint_with_preference(ptr noundef @.str.217, i32 noundef 2600, ptr noundef %1)
+  call void @dissector_add_uint_with_preference(ptr noundef @.str.216, i32 noundef 2600, ptr noundef %1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @test_zebra(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
-  %5 = alloca i32, align 4
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @test_zebra(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i1, align 1
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca %struct._zebra_header_t, align 2
+  %11 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store i32 %2, ptr %8, align 4
   store ptr %3, ptr %9, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = load i32, ptr %8, align 4
-  %13 = call i32 @zebra_get_header(ptr noundef %11, i32 noundef %12, ptr noundef %10)
-  %14 = icmp ne i32 %13, 0
+  call void @llvm.lifetime.start.p0(i64 6, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8
+  %13 = load i32, ptr %8, align 4
+  %14 = call zeroext i1 @zebra_get_header(ptr noundef %12, i32 noundef %13, ptr noundef %10)
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
   br label %72
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds %struct._zebra_header_t, ptr %10, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %10, i32 0, i32 0
   %18 = load i16, ptr %17, align 2
   %19 = zext i16 %18 to i32
   %20 = icmp sgt i32 %19, 1024
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %16
-  store i32 0, ptr %5, align 4
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
   br label %72
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds %struct._zebra_header_t, ptr %10, i32 0, i32 2
+  %23 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %10, i32 0, i32 2
   %24 = load i8, ptr %23, align 2
   %25 = zext i8 %24 to i32
   %26 = icmp slt i32 %25, 4
   br i1 %26, label %27, label %35
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds %struct._zebra_header_t, ptr %10, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %10, i32 0, i32 1
   %29 = load i16, ptr %28, align 2
   %30 = zext i16 %29 to i32
   %31 = call ptr @try_val_to_str(i32 noundef %30, ptr noundef @messages)
@@ -833,21 +874,22 @@ define internal i32 @test_zebra(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br i1 %32, label %34, label %33
 
 33:                                               ; preds = %27
-  store i32 0, ptr %5, align 4
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
   br label %72
 
 34:                                               ; preds = %27
   br label %71
 
 35:                                               ; preds = %22
-  %36 = getelementptr inbounds %struct._zebra_header_t, ptr %10, i32 0, i32 2
+  %36 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %10, i32 0, i32 2
   %37 = load i8, ptr %36, align 2
   %38 = zext i8 %37 to i32
   %39 = icmp eq i32 %38, 4
   br i1 %39, label %40, label %48
 
 40:                                               ; preds = %35
-  %41 = getelementptr inbounds %struct._zebra_header_t, ptr %10, i32 0, i32 1
+  %41 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %10, i32 0, i32 1
   %42 = load i16, ptr %41, align 2
   %43 = zext i16 %42 to i32
   %44 = call ptr @try_val_to_str(i32 noundef %43, ptr noundef @frr_zapi4_messages)
@@ -855,21 +897,22 @@ define internal i32 @test_zebra(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br i1 %45, label %47, label %46
 
 46:                                               ; preds = %40
-  store i32 0, ptr %5, align 4
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
   br label %72
 
 47:                                               ; preds = %40
   br label %70
 
 48:                                               ; preds = %35
-  %49 = getelementptr inbounds %struct._zebra_header_t, ptr %10, i32 0, i32 2
+  %49 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %10, i32 0, i32 2
   %50 = load i8, ptr %49, align 2
   %51 = zext i8 %50 to i32
   %52 = icmp eq i32 %51, 5
   br i1 %52, label %53, label %61
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds %struct._zebra_header_t, ptr %10, i32 0, i32 1
+  %54 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %10, i32 0, i32 1
   %55 = load i16, ptr %54, align 2
   %56 = zext i16 %55 to i32
   %57 = call ptr @try_val_to_str(i32 noundef %56, ptr noundef @frr_zapi5_messages)
@@ -877,14 +920,15 @@ define internal i32 @test_zebra(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br i1 %58, label %60, label %59
 
 59:                                               ; preds = %53
-  store i32 0, ptr %5, align 4
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
   br label %72
 
 60:                                               ; preds = %53
   br label %69
 
 61:                                               ; preds = %48
-  %62 = getelementptr inbounds %struct._zebra_header_t, ptr %10, i32 0, i32 1
+  %62 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %10, i32 0, i32 1
   %63 = load i16, ptr %62, align 2
   %64 = zext i16 %63 to i32
   %65 = call ptr @try_val_to_str(i32 noundef %64, ptr noundef @frr_zapi6_messages)
@@ -892,7 +936,8 @@ define internal i32 @test_zebra(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br i1 %66, label %68, label %67
 
 67:                                               ; preds = %61
-  store i32 0, ptr %5, align 4
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
   br label %72
 
 68:                                               ; preds = %61
@@ -905,26 +950,33 @@ define internal i32 @test_zebra(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br label %71
 
 71:                                               ; preds = %70, %34
-  store i32 1, ptr %5, align 4
+  store i1 true, ptr %5, align 1
+  store i32 1, ptr %11, align 4
   br label %72
 
 72:                                               ; preds = %71, %67, %59, %46, %33, %21, %15
-  %73 = load i32, ptr %5, align 4
-  ret i32 %73
+  call void @llvm.lifetime.end.p0(i64 6, ptr %10) #7
+  %73 = load i1, ptr %5, align 1
+  ret i1 %73
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal void @proto_item_set_hidden(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @proto_item_set_hidden(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -936,22 +988,22 @@ define internal void @proto_item_set_hidden(ptr noundef %0) #0 {
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._proto_node, ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct._proto_node, ptr %7, i32 0, i32 5
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct._proto_node, ptr %12, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct._proto_node, ptr %12, i32 0, i32 5
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.field_info, ptr %14, i32 0, i32 6
+  %15 = getelementptr inbounds nuw %struct.field_info, ptr %14, i32 0, i32 6
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 1
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct._proto_node, ptr %18, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct._proto_node, ptr %18, i32 0, i32 5
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.field_info, ptr %20, i32 0, i32 6
+  %21 = getelementptr inbounds nuw %struct.field_info, ptr %20, i32 0, i32 6
   store i32 %17, ptr %21, align 4
   br label %22
 
@@ -965,193 +1017,209 @@ define internal void @proto_item_set_hidden(ptr noundef %0) #0 {
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @zebra_get_header(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
-  %4 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @zebra_get_header(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i1, align 1
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i16, align 2
   %9 = alloca i16, align 2
   %10 = alloca i8, align 1
+  %11 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = load i32, ptr %6, align 4
-  %13 = call i32 @tvb_captured_length_remaining(ptr noundef %11, i32 noundef %12)
-  %14 = icmp slt i32 %13, 3
-  br i1 %14, label %15, label %16
-
-15:                                               ; preds = %3
-  store i32 0, ptr %4, align 4
-  br label %102
+  call void @llvm.lifetime.start.p0(i64 2, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #7
+  %12 = load ptr, ptr %5, align 8
+  %13 = load i32, ptr %6, align 4
+  %14 = call i32 @tvb_captured_length_remaining(ptr noundef %12, i32 noundef %13)
+  %15 = icmp slt i32 %14, 3
+  br i1 %15, label %16, label %17
 
 16:                                               ; preds = %3
-  %17 = load ptr, ptr %5, align 8
-  %18 = load i32, ptr %6, align 4
-  %19 = call zeroext i16 @tvb_get_ntohs(ptr noundef %17, i32 noundef %18)
-  store i16 %19, ptr %8, align 2
-  %20 = load i16, ptr %8, align 2
-  %21 = zext i16 %20 to i32
-  %22 = icmp slt i32 %21, 3
-  br i1 %22, label %23, label %24
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %11, align 4
+  br label %103
 
-23:                                               ; preds = %16
-  store i32 0, ptr %4, align 4
-  br label %102
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %5, align 8
+  %19 = load i32, ptr %6, align 4
+  %20 = call zeroext i16 @tvb_get_ntohs(ptr noundef %18, i32 noundef %19)
+  store i16 %20, ptr %8, align 2
+  %21 = load i16, ptr %8, align 2
+  %22 = zext i16 %21 to i32
+  %23 = icmp slt i32 %22, 3
+  br i1 %23, label %24, label %25
 
-24:                                               ; preds = %16
-  %25 = load i32, ptr %6, align 4
-  %26 = add i32 %25, 2
-  store i32 %26, ptr %6, align 4
-  %27 = load ptr, ptr %5, align 8
-  %28 = load i32, ptr %6, align 4
-  %29 = call zeroext i8 @tvb_get_guint8(ptr noundef %27, i32 noundef %28)
-  %30 = zext i8 %29 to i16
-  store i16 %30, ptr %9, align 2
-  %31 = load i16, ptr %9, align 2
-  %32 = zext i16 %31 to i32
-  %33 = icmp slt i32 %32, 254
-  br i1 %33, label %34, label %35
+24:                                               ; preds = %17
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %11, align 4
+  br label %103
 
-34:                                               ; preds = %24
+25:                                               ; preds = %17
+  %26 = load i32, ptr %6, align 4
+  %27 = add i32 %26, 2
+  store i32 %27, ptr %6, align 4
+  %28 = load ptr, ptr %5, align 8
+  %29 = load i32, ptr %6, align 4
+  %30 = call zeroext i8 @tvb_get_uint8(ptr noundef %28, i32 noundef %29)
+  %31 = zext i8 %30 to i16
+  store i16 %31, ptr %9, align 2
+  %32 = load i16, ptr %9, align 2
+  %33 = zext i16 %32 to i32
+  %34 = icmp slt i32 %33, 254
+  br i1 %34, label %35, label %36
+
+35:                                               ; preds = %25
   store i8 0, ptr %10, align 1
-  br label %88
+  br label %89
 
-35:                                               ; preds = %24
-  %36 = load i32, ptr %6, align 4
-  %37 = add i32 %36, 1
-  store i32 %37, ptr %6, align 4
-  %38 = load ptr, ptr %5, align 8
-  %39 = load i32, ptr %6, align 4
-  %40 = call i32 @tvb_captured_length_remaining(ptr noundef %38, i32 noundef %39)
-  %41 = icmp slt i32 %40, 3
-  br i1 %41, label %42, label %43
+36:                                               ; preds = %25
+  %37 = load i32, ptr %6, align 4
+  %38 = add i32 %37, 1
+  store i32 %38, ptr %6, align 4
+  %39 = load ptr, ptr %5, align 8
+  %40 = load i32, ptr %6, align 4
+  %41 = call i32 @tvb_captured_length_remaining(ptr noundef %39, i32 noundef %40)
+  %42 = icmp slt i32 %41, 3
+  br i1 %42, label %43, label %44
 
-42:                                               ; preds = %35
-  store i32 0, ptr %4, align 4
-  br label %102
+43:                                               ; preds = %36
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %11, align 4
+  br label %103
 
-43:                                               ; preds = %35
-  %44 = load ptr, ptr %5, align 8
-  %45 = load i32, ptr %6, align 4
-  %46 = call zeroext i8 @tvb_get_guint8(ptr noundef %44, i32 noundef %45)
-  store i8 %46, ptr %10, align 1
-  %47 = load i8, ptr %10, align 1
-  %48 = zext i8 %47 to i32
-  %49 = icmp eq i32 %48, 1
-  br i1 %49, label %54, label %50
+44:                                               ; preds = %36
+  %45 = load ptr, ptr %5, align 8
+  %46 = load i32, ptr %6, align 4
+  %47 = call zeroext i8 @tvb_get_uint8(ptr noundef %45, i32 noundef %46)
+  store i8 %47, ptr %10, align 1
+  %48 = load i8, ptr %10, align 1
+  %49 = zext i8 %48 to i32
+  %50 = icmp eq i32 %49, 1
+  br i1 %50, label %55, label %51
 
-50:                                               ; preds = %43
-  %51 = load i8, ptr %10, align 1
-  %52 = zext i8 %51 to i32
-  %53 = icmp eq i32 %52, 2
-  br i1 %53, label %54, label %57
+51:                                               ; preds = %44
+  %52 = load i8, ptr %10, align 1
+  %53 = zext i8 %52 to i32
+  %54 = icmp eq i32 %53, 2
+  br i1 %54, label %55, label %58
 
-54:                                               ; preds = %50, %43
-  %55 = load i32, ptr %6, align 4
-  %56 = add i32 %55, 1
-  store i32 %56, ptr %6, align 4
+55:                                               ; preds = %51, %44
+  %56 = load i32, ptr %6, align 4
+  %57 = add i32 %56, 1
+  store i32 %57, ptr %6, align 4
+  br label %79
+
+58:                                               ; preds = %51
+  %59 = load i8, ptr %10, align 1
+  %60 = zext i8 %59 to i32
+  %61 = icmp eq i32 %60, 3
+  br i1 %61, label %66, label %62
+
+62:                                               ; preds = %58
+  %63 = load i8, ptr %10, align 1
+  %64 = zext i8 %63 to i32
+  %65 = icmp eq i32 %64, 4
+  br i1 %65, label %66, label %69
+
+66:                                               ; preds = %62, %58
+  %67 = load i32, ptr %6, align 4
+  %68 = add i32 %67, 3
+  store i32 %68, ptr %6, align 4
   br label %78
 
-57:                                               ; preds = %50
-  %58 = load i8, ptr %10, align 1
-  %59 = zext i8 %58 to i32
-  %60 = icmp eq i32 %59, 3
-  br i1 %60, label %65, label %61
+69:                                               ; preds = %62
+  %70 = load i8, ptr %10, align 1
+  %71 = zext i8 %70 to i32
+  %72 = icmp slt i32 %71, 9
+  br i1 %72, label %73, label %76
 
-61:                                               ; preds = %57
-  %62 = load i8, ptr %10, align 1
-  %63 = zext i8 %62 to i32
-  %64 = icmp eq i32 %63, 4
-  br i1 %64, label %65, label %68
-
-65:                                               ; preds = %61, %57
-  %66 = load i32, ptr %6, align 4
-  %67 = add i32 %66, 3
-  store i32 %67, ptr %6, align 4
+73:                                               ; preds = %69
+  %74 = load i32, ptr %6, align 4
+  %75 = add i32 %74, 5
+  store i32 %75, ptr %6, align 4
   br label %77
 
-68:                                               ; preds = %61
-  %69 = load i8, ptr %10, align 1
-  %70 = zext i8 %69 to i32
-  %71 = icmp slt i32 %70, 9
-  br i1 %71, label %72, label %75
+76:                                               ; preds = %69
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %11, align 4
+  br label %103
 
-72:                                               ; preds = %68
-  %73 = load i32, ptr %6, align 4
-  %74 = add i32 %73, 5
-  store i32 %74, ptr %6, align 4
-  br label %76
-
-75:                                               ; preds = %68
-  store i32 0, ptr %4, align 4
-  br label %102
-
-76:                                               ; preds = %72
-  br label %77
-
-77:                                               ; preds = %76, %65
+77:                                               ; preds = %73
   br label %78
 
-78:                                               ; preds = %77, %54
-  %79 = load ptr, ptr %5, align 8
-  %80 = load i32, ptr %6, align 4
-  %81 = call i32 @tvb_captured_length_remaining(ptr noundef %79, i32 noundef %80)
-  %82 = icmp slt i32 %81, 2
-  br i1 %82, label %83, label %84
+78:                                               ; preds = %77, %66
+  br label %79
 
-83:                                               ; preds = %78
-  store i32 0, ptr %4, align 4
+79:                                               ; preds = %78, %55
+  %80 = load ptr, ptr %5, align 8
+  %81 = load i32, ptr %6, align 4
+  %82 = call i32 @tvb_captured_length_remaining(ptr noundef %80, i32 noundef %81)
+  %83 = icmp slt i32 %82, 2
+  br i1 %83, label %84, label %85
+
+84:                                               ; preds = %79
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %11, align 4
+  br label %103
+
+85:                                               ; preds = %79
+  %86 = load ptr, ptr %5, align 8
+  %87 = load i32, ptr %6, align 4
+  %88 = call zeroext i16 @tvb_get_ntohs(ptr noundef %86, i32 noundef %87)
+  store i16 %88, ptr %9, align 2
+  br label %89
+
+89:                                               ; preds = %85, %35
+  %90 = load ptr, ptr %7, align 8
+  %91 = icmp ne ptr %90, null
+  br i1 %91, label %92, label %102
+
+92:                                               ; preds = %89
+  %93 = load i16, ptr %8, align 2
+  %94 = load ptr, ptr %7, align 8
+  %95 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %94, i32 0, i32 0
+  store i16 %93, ptr %95, align 2
+  %96 = load i16, ptr %9, align 2
+  %97 = load ptr, ptr %7, align 8
+  %98 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %97, i32 0, i32 1
+  store i16 %96, ptr %98, align 2
+  %99 = load i8, ptr %10, align 1
+  %100 = load ptr, ptr %7, align 8
+  %101 = getelementptr inbounds nuw %struct._zebra_header_t, ptr %100, i32 0, i32 2
+  store i8 %99, ptr %101, align 2
   br label %102
 
-84:                                               ; preds = %78
-  %85 = load ptr, ptr %5, align 8
-  %86 = load i32, ptr %6, align 4
-  %87 = call zeroext i16 @tvb_get_ntohs(ptr noundef %85, i32 noundef %86)
-  store i16 %87, ptr %9, align 2
-  br label %88
+102:                                              ; preds = %92, %89
+  store i1 true, ptr %4, align 1
+  store i32 1, ptr %11, align 4
+  br label %103
 
-88:                                               ; preds = %84, %34
-  %89 = load ptr, ptr %7, align 8
-  %90 = icmp ne ptr %89, null
-  br i1 %90, label %91, label %101
-
-91:                                               ; preds = %88
-  %92 = load i16, ptr %8, align 2
-  %93 = load ptr, ptr %7, align 8
-  %94 = getelementptr inbounds %struct._zebra_header_t, ptr %93, i32 0, i32 0
-  store i16 %92, ptr %94, align 2
-  %95 = load i16, ptr %9, align 2
-  %96 = load ptr, ptr %7, align 8
-  %97 = getelementptr inbounds %struct._zebra_header_t, ptr %96, i32 0, i32 1
-  store i16 %95, ptr %97, align 2
-  %98 = load i8, ptr %10, align 1
-  %99 = load ptr, ptr %7, align 8
-  %100 = getelementptr inbounds %struct._zebra_header_t, ptr %99, i32 0, i32 2
-  store i8 %98, ptr %100, align 2
-  br label %101
-
-101:                                              ; preds = %91, %88
-  store i32 1, ptr %4, align 4
-  br label %102
-
-102:                                              ; preds = %101, %83, %75, %42, %23, %15
-  %103 = load i32, ptr %4, align 4
-  ret i32 %103
+103:                                              ; preds = %102, %84, %76, %43, %24, %16
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 2, ptr %8) #7
+  %104 = load i1, ptr %4, align 1
+  ret i1 %104
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zebra_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, i16 noundef zeroext %6, i8 noundef zeroext %7) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_zebra_request(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, i16 noundef zeroext %6, i8 noundef zeroext %7) #0 {
   %9 = alloca ptr, align 8
-  %10 = alloca i32, align 4
+  %10 = alloca i8, align 1
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
@@ -1160,1129 +1228,1152 @@ define internal i32 @dissect_zebra_request(ptr noundef %0, i32 noundef %1, ptr n
   %16 = alloca i8, align 1
   %17 = alloca i32, align 4
   store ptr %0, ptr %9, align 8
-  store i32 %1, ptr %10, align 4
+  %18 = zext i1 %1 to i8
+  store i8 %18, ptr %10, align 1
   store ptr %2, ptr %11, align 8
   store i32 %3, ptr %12, align 4
   store i32 %4, ptr %13, align 4
   store i16 %5, ptr %14, align 2
   store i16 %6, ptr %15, align 2
   store i8 %7, ptr %16, align 1
-  %18 = load i32, ptr %12, align 4
-  store i32 %18, ptr %17, align 4
-  %19 = load ptr, ptr %9, align 8
-  %20 = load i32, ptr @hf_zebra_len, align 4
-  %21 = load ptr, ptr %11, align 8
-  %22 = load i32, ptr %12, align 4
-  %23 = load i16, ptr %14, align 2
-  %24 = zext i16 %23 to i32
-  %25 = call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef 2, i32 noundef %24)
-  %26 = load i32, ptr %12, align 4
-  %27 = add i32 %26, 2
-  store i32 %27, ptr %12, align 4
-  %28 = load i8, ptr %16, align 1
-  %29 = zext i8 %28 to i32
-  %30 = icmp ne i32 %29, 0
-  br i1 %30, label %31, label %125
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #7
+  %19 = load i32, ptr %12, align 4
+  store i32 %19, ptr %17, align 4
+  %20 = load ptr, ptr %9, align 8
+  %21 = load i32, ptr @hf_zebra_len, align 4
+  %22 = load ptr, ptr %11, align 8
+  %23 = load i32, ptr %12, align 4
+  %24 = load i16, ptr %14, align 2
+  %25 = zext i16 %24 to i32
+  %26 = call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef 2, i32 noundef %25)
+  %27 = load i32, ptr %12, align 4
+  %28 = add i32 %27, 2
+  store i32 %28, ptr %12, align 4
+  %29 = load i8, ptr %16, align 1
+  %30 = zext i8 %29 to i32
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %32, label %126
 
-31:                                               ; preds = %8
-  %32 = load ptr, ptr %9, align 8
-  %33 = load i32, ptr @hf_zebra_marker, align 4
-  %34 = load ptr, ptr %11, align 8
-  %35 = load i32, ptr %12, align 4
-  %36 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef 1, i32 noundef 0)
-  %37 = load i32, ptr %12, align 4
-  %38 = add i32 %37, 1
-  store i32 %38, ptr %12, align 4
-  %39 = load ptr, ptr %9, align 8
-  %40 = load i32, ptr @hf_zebra_version, align 4
-  %41 = load ptr, ptr %11, align 8
-  %42 = load i32, ptr %12, align 4
-  %43 = load i8, ptr %16, align 1
-  %44 = zext i8 %43 to i32
-  %45 = call ptr @proto_tree_add_uint(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef %42, i32 noundef 1, i32 noundef %44)
-  %46 = load i32, ptr %12, align 4
-  %47 = add i32 %46, 1
-  store i32 %47, ptr %12, align 4
-  %48 = load i8, ptr %16, align 1
-  %49 = zext i8 %48 to i32
-  %50 = icmp eq i32 %49, 3
-  br i1 %50, label %55, label %51
+32:                                               ; preds = %8
+  %33 = load ptr, ptr %9, align 8
+  %34 = load i32, ptr @hf_zebra_marker, align 4
+  %35 = load ptr, ptr %11, align 8
+  %36 = load i32, ptr %12, align 4
+  %37 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %34, ptr noundef %35, i32 noundef %36, i32 noundef 1, i32 noundef 0)
+  %38 = load i32, ptr %12, align 4
+  %39 = add i32 %38, 1
+  store i32 %39, ptr %12, align 4
+  %40 = load ptr, ptr %9, align 8
+  %41 = load i32, ptr @hf_zebra_version, align 4
+  %42 = load ptr, ptr %11, align 8
+  %43 = load i32, ptr %12, align 4
+  %44 = load i8, ptr %16, align 1
+  %45 = zext i8 %44 to i32
+  %46 = call ptr @proto_tree_add_uint(ptr noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef %43, i32 noundef 1, i32 noundef %45)
+  %47 = load i32, ptr %12, align 4
+  %48 = add i32 %47, 1
+  store i32 %48, ptr %12, align 4
+  %49 = load i8, ptr %16, align 1
+  %50 = zext i8 %49 to i32
+  %51 = icmp eq i32 %50, 3
+  br i1 %51, label %56, label %52
 
-51:                                               ; preds = %31
-  %52 = load i8, ptr %16, align 1
-  %53 = zext i8 %52 to i32
-  %54 = icmp eq i32 %53, 4
-  br i1 %54, label %55, label %63
+52:                                               ; preds = %32
+  %53 = load i8, ptr %16, align 1
+  %54 = zext i8 %53 to i32
+  %55 = icmp eq i32 %54, 4
+  br i1 %55, label %56, label %64
 
-55:                                               ; preds = %51, %31
-  %56 = load ptr, ptr %9, align 8
-  %57 = load i32, ptr @hf_zebra_vrfid, align 4
-  %58 = load ptr, ptr %11, align 8
-  %59 = load i32, ptr %12, align 4
-  %60 = call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %57, ptr noundef %58, i32 noundef %59, i32 noundef 2, i32 noundef 0)
-  %61 = load i32, ptr %12, align 4
-  %62 = add i32 %61, 2
-  store i32 %62, ptr %12, align 4
+56:                                               ; preds = %52, %32
+  %57 = load ptr, ptr %9, align 8
+  %58 = load i32, ptr @hf_zebra_vrfid, align 4
+  %59 = load ptr, ptr %11, align 8
+  %60 = load i32, ptr %12, align 4
+  %61 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %58, ptr noundef %59, i32 noundef %60, i32 noundef 2, i32 noundef 0)
+  %62 = load i32, ptr %12, align 4
+  %63 = add i32 %62, 2
+  store i32 %63, ptr %12, align 4
+  br label %77
+
+64:                                               ; preds = %52
+  %65 = load i8, ptr %16, align 1
+  %66 = zext i8 %65 to i32
+  %67 = icmp sgt i32 %66, 4
+  br i1 %67, label %68, label %76
+
+68:                                               ; preds = %64
+  %69 = load ptr, ptr %9, align 8
+  %70 = load i32, ptr @hf_zebra_vrfid, align 4
+  %71 = load ptr, ptr %11, align 8
+  %72 = load i32, ptr %12, align 4
+  %73 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %70, ptr noundef %71, i32 noundef %72, i32 noundef 4, i32 noundef 0)
+  %74 = load i32, ptr %12, align 4
+  %75 = add i32 %74, 4
+  store i32 %75, ptr %12, align 4
   br label %76
 
-63:                                               ; preds = %51
-  %64 = load i8, ptr %16, align 1
-  %65 = zext i8 %64 to i32
-  %66 = icmp sgt i32 %65, 4
-  br i1 %66, label %67, label %75
+76:                                               ; preds = %68, %64
+  br label %77
 
-67:                                               ; preds = %63
-  %68 = load ptr, ptr %9, align 8
-  %69 = load i32, ptr @hf_zebra_vrfid, align 4
-  %70 = load ptr, ptr %11, align 8
-  %71 = load i32, ptr %12, align 4
-  %72 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %69, ptr noundef %70, i32 noundef %71, i32 noundef 4, i32 noundef 0)
-  %73 = load i32, ptr %12, align 4
-  %74 = add i32 %73, 4
-  store i32 %74, ptr %12, align 4
-  br label %75
+77:                                               ; preds = %76, %56
+  %78 = load i8, ptr %16, align 1
+  %79 = zext i8 %78 to i32
+  %80 = icmp slt i32 %79, 4
+  br i1 %80, label %81, label %89
 
-75:                                               ; preds = %67, %63
-  br label %76
+81:                                               ; preds = %77
+  %82 = load ptr, ptr %9, align 8
+  %83 = load i32, ptr @hf_zebra_command, align 4
+  %84 = load ptr, ptr %11, align 8
+  %85 = load i32, ptr %12, align 4
+  %86 = load i16, ptr %15, align 2
+  %87 = zext i16 %86 to i32
+  %88 = call ptr @proto_tree_add_uint(ptr noundef %82, i32 noundef %83, ptr noundef %84, i32 noundef %85, i32 noundef 2, i32 noundef %87)
+  br label %123
 
-76:                                               ; preds = %75, %55
-  %77 = load i8, ptr %16, align 1
-  %78 = zext i8 %77 to i32
-  %79 = icmp slt i32 %78, 4
-  br i1 %79, label %80, label %88
+89:                                               ; preds = %77
+  %90 = load i8, ptr %16, align 1
+  %91 = zext i8 %90 to i32
+  %92 = icmp eq i32 %91, 4
+  br i1 %92, label %93, label %101
 
-80:                                               ; preds = %76
-  %81 = load ptr, ptr %9, align 8
-  %82 = load i32, ptr @hf_zebra_command, align 4
-  %83 = load ptr, ptr %11, align 8
-  %84 = load i32, ptr %12, align 4
-  %85 = load i16, ptr %15, align 2
-  %86 = zext i16 %85 to i32
-  %87 = call ptr @proto_tree_add_uint(ptr noundef %81, i32 noundef %82, ptr noundef %83, i32 noundef %84, i32 noundef 2, i32 noundef %86)
+93:                                               ; preds = %89
+  %94 = load ptr, ptr %9, align 8
+  %95 = load i32, ptr @hf_zebra_command_v4, align 4
+  %96 = load ptr, ptr %11, align 8
+  %97 = load i32, ptr %12, align 4
+  %98 = load i16, ptr %15, align 2
+  %99 = zext i16 %98 to i32
+  %100 = call ptr @proto_tree_add_uint(ptr noundef %94, i32 noundef %95, ptr noundef %96, i32 noundef %97, i32 noundef 2, i32 noundef %99)
   br label %122
 
-88:                                               ; preds = %76
-  %89 = load i8, ptr %16, align 1
-  %90 = zext i8 %89 to i32
-  %91 = icmp eq i32 %90, 4
-  br i1 %91, label %92, label %100
+101:                                              ; preds = %89
+  %102 = load i8, ptr %16, align 1
+  %103 = zext i8 %102 to i32
+  %104 = icmp eq i32 %103, 5
+  br i1 %104, label %105, label %113
 
-92:                                               ; preds = %88
-  %93 = load ptr, ptr %9, align 8
-  %94 = load i32, ptr @hf_zebra_command_v4, align 4
-  %95 = load ptr, ptr %11, align 8
-  %96 = load i32, ptr %12, align 4
-  %97 = load i16, ptr %15, align 2
-  %98 = zext i16 %97 to i32
-  %99 = call ptr @proto_tree_add_uint(ptr noundef %93, i32 noundef %94, ptr noundef %95, i32 noundef %96, i32 noundef 2, i32 noundef %98)
+105:                                              ; preds = %101
+  %106 = load ptr, ptr %9, align 8
+  %107 = load i32, ptr @hf_zebra_command_v5, align 4
+  %108 = load ptr, ptr %11, align 8
+  %109 = load i32, ptr %12, align 4
+  %110 = load i16, ptr %15, align 2
+  %111 = zext i16 %110 to i32
+  %112 = call ptr @proto_tree_add_uint(ptr noundef %106, i32 noundef %107, ptr noundef %108, i32 noundef %109, i32 noundef 2, i32 noundef %111)
   br label %121
 
-100:                                              ; preds = %88
-  %101 = load i8, ptr %16, align 1
-  %102 = zext i8 %101 to i32
-  %103 = icmp eq i32 %102, 5
-  br i1 %103, label %104, label %112
-
-104:                                              ; preds = %100
-  %105 = load ptr, ptr %9, align 8
-  %106 = load i32, ptr @hf_zebra_command_v5, align 4
-  %107 = load ptr, ptr %11, align 8
-  %108 = load i32, ptr %12, align 4
-  %109 = load i16, ptr %15, align 2
-  %110 = zext i16 %109 to i32
-  %111 = call ptr @proto_tree_add_uint(ptr noundef %105, i32 noundef %106, ptr noundef %107, i32 noundef %108, i32 noundef 2, i32 noundef %110)
-  br label %120
-
-112:                                              ; preds = %100
-  %113 = load ptr, ptr %9, align 8
-  %114 = load i32, ptr @hf_zebra_command_v6, align 4
-  %115 = load ptr, ptr %11, align 8
-  %116 = load i32, ptr %12, align 4
-  %117 = load i16, ptr %15, align 2
-  %118 = zext i16 %117 to i32
-  %119 = call ptr @proto_tree_add_uint(ptr noundef %113, i32 noundef %114, ptr noundef %115, i32 noundef %116, i32 noundef 2, i32 noundef %118)
-  br label %120
-
-120:                                              ; preds = %112, %104
+113:                                              ; preds = %101
+  %114 = load ptr, ptr %9, align 8
+  %115 = load i32, ptr @hf_zebra_command_v6, align 4
+  %116 = load ptr, ptr %11, align 8
+  %117 = load i32, ptr %12, align 4
+  %118 = load i16, ptr %15, align 2
+  %119 = zext i16 %118 to i32
+  %120 = call ptr @proto_tree_add_uint(ptr noundef %114, i32 noundef %115, ptr noundef %116, i32 noundef %117, i32 noundef 2, i32 noundef %119)
   br label %121
 
-121:                                              ; preds = %120, %92
+121:                                              ; preds = %113, %105
   br label %122
 
-122:                                              ; preds = %121, %80
-  %123 = load i32, ptr %12, align 4
-  %124 = add i32 %123, 2
-  store i32 %124, ptr %12, align 4
-  br label %135
+122:                                              ; preds = %121, %93
+  br label %123
 
-125:                                              ; preds = %8
-  %126 = load ptr, ptr %9, align 8
-  %127 = load i32, ptr @hf_zebra_command, align 4
-  %128 = load ptr, ptr %11, align 8
-  %129 = load i32, ptr %12, align 4
-  %130 = load i16, ptr %15, align 2
-  %131 = zext i16 %130 to i32
-  %132 = call ptr @proto_tree_add_uint(ptr noundef %126, i32 noundef %127, ptr noundef %128, i32 noundef %129, i32 noundef 1, i32 noundef %131)
-  %133 = load i32, ptr %12, align 4
-  %134 = add i32 %133, 1
-  store i32 %134, ptr %12, align 4
-  br label %135
+123:                                              ; preds = %122, %81
+  %124 = load i32, ptr %12, align 4
+  %125 = add i32 %124, 2
+  store i32 %125, ptr %12, align 4
+  br label %136
 
-135:                                              ; preds = %125, %122
-  %136 = load i8, ptr %16, align 1
-  %137 = zext i8 %136 to i32
-  %138 = icmp slt i32 %137, 4
-  br i1 %138, label %139, label %239
+126:                                              ; preds = %8
+  %127 = load ptr, ptr %9, align 8
+  %128 = load i32, ptr @hf_zebra_command, align 4
+  %129 = load ptr, ptr %11, align 8
+  %130 = load i32, ptr %12, align 4
+  %131 = load i16, ptr %15, align 2
+  %132 = zext i16 %131 to i32
+  %133 = call ptr @proto_tree_add_uint(ptr noundef %127, i32 noundef %128, ptr noundef %129, i32 noundef %130, i32 noundef 1, i32 noundef %132)
+  %134 = load i32, ptr %12, align 4
+  %135 = add i32 %134, 1
+  store i32 %135, ptr %12, align 4
+  br label %136
 
-139:                                              ; preds = %135
-  %140 = load i16, ptr %15, align 2
-  %141 = zext i16 %140 to i32
-  switch i32 %141, label %238 [
-    i32 1, label %142
-    i32 2, label %142
-    i32 5, label %142
-    i32 6, label %142
-    i32 3, label %153
-    i32 4, label %153
-    i32 7, label %158
-    i32 8, label %158
-    i32 9, label %167
-    i32 10, label %167
-    i32 11, label %176
-    i32 13, label %176
-    i32 17, label %182
-    i32 15, label %182
-    i32 18, label %190
-    i32 16, label %190
-    i32 22, label %198
-    i32 20, label %203
-    i32 21, label %203
-    i32 14, label %203
-    i32 12, label %204
-    i32 23, label %215
-    i32 24, label %222
-    i32 25, label %222
-    i32 26, label %222
-    i32 27, label %223
-    i32 28, label %223
-    i32 29, label %232
+136:                                              ; preds = %126, %123
+  %137 = load i8, ptr %16, align 1
+  %138 = zext i8 %137 to i32
+  %139 = icmp slt i32 %138, 4
+  br i1 %139, label %140, label %244
+
+140:                                              ; preds = %136
+  %141 = load i16, ptr %15, align 2
+  %142 = zext i16 %141 to i32
+  switch i32 %142, label %243 [
+    i32 1, label %143
+    i32 2, label %143
+    i32 5, label %143
+    i32 6, label %143
+    i32 3, label %154
+    i32 4, label %154
+    i32 7, label %159
+    i32 8, label %159
+    i32 9, label %169
+    i32 10, label %169
+    i32 11, label %179
+    i32 13, label %179
+    i32 17, label %185
+    i32 15, label %185
+    i32 18, label %194
+    i32 16, label %194
+    i32 22, label %203
+    i32 20, label %208
+    i32 21, label %208
+    i32 14, label %208
+    i32 12, label %209
+    i32 23, label %220
+    i32 24, label %227
+    i32 25, label %227
+    i32 26, label %227
+    i32 27, label %228
+    i32 28, label %228
+    i32 29, label %237
   ]
 
-142:                                              ; preds = %139, %139, %139, %139
-  %143 = load i32, ptr %10, align 4
-  %144 = icmp ne i32 %143, 0
-  br i1 %144, label %145, label %146
+143:                                              ; preds = %140, %140, %140, %140
+  %144 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %145 = trunc i8 %144 to i1
+  br i1 %145, label %146, label %147
 
-145:                                              ; preds = %142
-  br label %238
+146:                                              ; preds = %143
+  br label %243
 
-146:                                              ; preds = %142
-  %147 = load ptr, ptr %9, align 8
-  %148 = load ptr, ptr %11, align 8
-  %149 = load i32, ptr %12, align 4
-  %150 = load i16, ptr %15, align 2
-  %151 = load i8, ptr %16, align 1
-  %152 = call i32 @zebra_interface(ptr noundef %147, ptr noundef %148, i32 noundef %149, i16 noundef zeroext %150, i8 noundef zeroext %151)
-  store i32 %152, ptr %12, align 4
-  br label %238
+147:                                              ; preds = %143
+  %148 = load ptr, ptr %9, align 8
+  %149 = load ptr, ptr %11, align 8
+  %150 = load i32, ptr %12, align 4
+  %151 = load i16, ptr %15, align 2
+  %152 = load i8, ptr %16, align 1
+  %153 = call i32 @zebra_interface(ptr noundef %148, ptr noundef %149, i32 noundef %150, i16 noundef zeroext %151, i8 noundef zeroext %152)
+  store i32 %153, ptr %12, align 4
+  br label %243
 
-153:                                              ; preds = %139, %139
-  %154 = load ptr, ptr %9, align 8
-  %155 = load ptr, ptr %11, align 8
-  %156 = load i32, ptr %12, align 4
-  %157 = call i32 @zebra_interface_address(ptr noundef %154, ptr noundef %155, i32 noundef %156)
-  store i32 %157, ptr %12, align 4
-  br label %238
+154:                                              ; preds = %140, %140
+  %155 = load ptr, ptr %9, align 8
+  %156 = load ptr, ptr %11, align 8
+  %157 = load i32, ptr %12, align 4
+  %158 = call i32 @zebra_interface_address(ptr noundef %155, ptr noundef %156, i32 noundef %157)
+  store i32 %158, ptr %12, align 4
+  br label %243
 
-158:                                              ; preds = %139, %139
-  %159 = load ptr, ptr %9, align 8
-  %160 = load i32, ptr %10, align 4
-  %161 = load ptr, ptr %11, align 8
-  %162 = load i32, ptr %12, align 4
-  %163 = load i16, ptr %14, align 2
-  %164 = load i16, ptr %15, align 2
-  %165 = load i8, ptr %16, align 1
-  %166 = call i32 @zebra_route(ptr noundef %159, i32 noundef %160, ptr noundef %161, i32 noundef %162, i16 noundef zeroext %163, i8 noundef zeroext 2, i16 noundef zeroext %164, i8 noundef zeroext %165)
-  store i32 %166, ptr %12, align 4
-  br label %238
+159:                                              ; preds = %140, %140
+  %160 = load ptr, ptr %9, align 8
+  %161 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %162 = trunc i8 %161 to i1
+  %163 = load ptr, ptr %11, align 8
+  %164 = load i32, ptr %12, align 4
+  %165 = load i16, ptr %14, align 2
+  %166 = load i16, ptr %15, align 2
+  %167 = load i8, ptr %16, align 1
+  %168 = call i32 @zebra_route(ptr noundef %160, i1 noundef zeroext %162, ptr noundef %163, i32 noundef %164, i16 noundef zeroext %165, i8 noundef zeroext 2, i16 noundef zeroext %166, i8 noundef zeroext %167)
+  store i32 %168, ptr %12, align 4
+  br label %243
 
-167:                                              ; preds = %139, %139
-  %168 = load ptr, ptr %9, align 8
-  %169 = load i32, ptr %10, align 4
-  %170 = load ptr, ptr %11, align 8
-  %171 = load i32, ptr %12, align 4
-  %172 = load i16, ptr %14, align 2
-  %173 = load i16, ptr %15, align 2
-  %174 = load i8, ptr %16, align 1
-  %175 = call i32 @zebra_route(ptr noundef %168, i32 noundef %169, ptr noundef %170, i32 noundef %171, i16 noundef zeroext %172, i8 noundef zeroext 10, i16 noundef zeroext %173, i8 noundef zeroext %174)
-  store i32 %175, ptr %12, align 4
-  br label %238
+169:                                              ; preds = %140, %140
+  %170 = load ptr, ptr %9, align 8
+  %171 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %172 = trunc i8 %171 to i1
+  %173 = load ptr, ptr %11, align 8
+  %174 = load i32, ptr %12, align 4
+  %175 = load i16, ptr %14, align 2
+  %176 = load i16, ptr %15, align 2
+  %177 = load i8, ptr %16, align 1
+  %178 = call i32 @zebra_route(ptr noundef %170, i1 noundef zeroext %172, ptr noundef %173, i32 noundef %174, i16 noundef zeroext %175, i8 noundef zeroext 10, i16 noundef zeroext %176, i8 noundef zeroext %177)
+  store i32 %178, ptr %12, align 4
+  br label %243
 
-176:                                              ; preds = %139, %139
-  %177 = load ptr, ptr %9, align 8
-  %178 = load ptr, ptr %11, align 8
-  %179 = load i32, ptr %12, align 4
-  %180 = load i8, ptr %16, align 1
-  %181 = call i32 @zebra_redistribute(ptr noundef %177, ptr noundef %178, i32 noundef %179, i8 noundef zeroext %180)
-  store i32 %181, ptr %12, align 4
-  br label %238
+179:                                              ; preds = %140, %140
+  %180 = load ptr, ptr %9, align 8
+  %181 = load ptr, ptr %11, align 8
+  %182 = load i32, ptr %12, align 4
+  %183 = load i8, ptr %16, align 1
+  %184 = call i32 @zebra_redistribute(ptr noundef %180, ptr noundef %181, i32 noundef %182, i8 noundef zeroext %183)
+  store i32 %184, ptr %12, align 4
+  br label %243
 
-182:                                              ; preds = %139, %139
-  %183 = load ptr, ptr %9, align 8
-  %184 = load i32, ptr %10, align 4
-  %185 = load ptr, ptr %11, align 8
-  %186 = load i32, ptr %12, align 4
-  %187 = load i16, ptr %14, align 2
-  %188 = load i8, ptr %16, align 1
-  %189 = call i32 @zebra_nexthop_lookup(ptr noundef %183, i32 noundef %184, ptr noundef %185, i32 noundef %186, i16 noundef zeroext %187, i8 noundef zeroext 2, i8 noundef zeroext %188)
-  store i32 %189, ptr %12, align 4
-  br label %238
+185:                                              ; preds = %140, %140
+  %186 = load ptr, ptr %9, align 8
+  %187 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %188 = trunc i8 %187 to i1
+  %189 = load ptr, ptr %11, align 8
+  %190 = load i32, ptr %12, align 4
+  %191 = load i16, ptr %14, align 2
+  %192 = load i8, ptr %16, align 1
+  %193 = call i32 @zebra_nexthop_lookup(ptr noundef %186, i1 noundef zeroext %188, ptr noundef %189, i32 noundef %190, i16 noundef zeroext %191, i8 noundef zeroext 2, i8 noundef zeroext %192)
+  store i32 %193, ptr %12, align 4
+  br label %243
 
-190:                                              ; preds = %139, %139
-  %191 = load ptr, ptr %9, align 8
-  %192 = load i32, ptr %10, align 4
-  %193 = load ptr, ptr %11, align 8
-  %194 = load i32, ptr %12, align 4
-  %195 = load i16, ptr %14, align 2
-  %196 = load i8, ptr %16, align 1
-  %197 = call i32 @zebra_nexthop_lookup(ptr noundef %191, i32 noundef %192, ptr noundef %193, i32 noundef %194, i16 noundef zeroext %195, i8 noundef zeroext 10, i8 noundef zeroext %196)
-  store i32 %197, ptr %12, align 4
-  br label %238
-
-198:                                              ; preds = %139
-  %199 = load ptr, ptr %9, align 8
-  %200 = load ptr, ptr %11, align 8
-  %201 = load i32, ptr %12, align 4
-  %202 = call i32 @zerba_router_update(ptr noundef %199, ptr noundef %200, i32 noundef %201)
+194:                                              ; preds = %140, %140
+  %195 = load ptr, ptr %9, align 8
+  %196 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %197 = trunc i8 %196 to i1
+  %198 = load ptr, ptr %11, align 8
+  %199 = load i32, ptr %12, align 4
+  %200 = load i16, ptr %14, align 2
+  %201 = load i8, ptr %16, align 1
+  %202 = call i32 @zebra_nexthop_lookup(ptr noundef %195, i1 noundef zeroext %197, ptr noundef %198, i32 noundef %199, i16 noundef zeroext %200, i8 noundef zeroext 10, i8 noundef zeroext %201)
   store i32 %202, ptr %12, align 4
-  br label %238
+  br label %243
 
-203:                                              ; preds = %139, %139, %139
-  br label %238
+203:                                              ; preds = %140
+  %204 = load ptr, ptr %9, align 8
+  %205 = load ptr, ptr %11, align 8
+  %206 = load i32, ptr %12, align 4
+  %207 = call i32 @zerba_router_update(ptr noundef %204, ptr noundef %205, i32 noundef %206)
+  store i32 %207, ptr %12, align 4
+  br label %243
 
-204:                                              ; preds = %139
-  %205 = load i8, ptr %16, align 1
-  %206 = zext i8 %205 to i32
-  %207 = icmp sgt i32 %206, 0
-  br i1 %207, label %208, label %214
+208:                                              ; preds = %140, %140, %140
+  br label %243
 
-208:                                              ; preds = %204
-  %209 = load ptr, ptr %9, align 8
-  %210 = load i32, ptr @hf_zebra_type_v1, align 4
-  %211 = load ptr, ptr %11, align 8
-  %212 = load i32, ptr %12, align 4
-  %213 = call ptr @proto_tree_add_item(ptr noundef %209, i32 noundef %210, ptr noundef %211, i32 noundef %212, i32 noundef 1, i32 noundef 0)
-  br label %214
+209:                                              ; preds = %140
+  %210 = load i8, ptr %16, align 1
+  %211 = zext i8 %210 to i32
+  %212 = icmp sgt i32 %211, 0
+  br i1 %212, label %213, label %219
 
-214:                                              ; preds = %208, %204
-  br label %238
+213:                                              ; preds = %209
+  %214 = load ptr, ptr %9, align 8
+  %215 = load i32, ptr @hf_zebra_type_v1, align 4
+  %216 = load ptr, ptr %11, align 8
+  %217 = load i32, ptr %12, align 4
+  %218 = call ptr @proto_tree_add_item(ptr noundef %214, i32 noundef %215, ptr noundef %216, i32 noundef %217, i32 noundef 1, i32 noundef 0)
+  br label %219
 
-215:                                              ; preds = %139
-  %216 = load ptr, ptr %9, align 8
-  %217 = load ptr, ptr %11, align 8
-  %218 = load i32, ptr %12, align 4
-  %219 = load i32, ptr %13, align 4
-  %220 = load i8, ptr %16, align 1
-  %221 = call i32 @zebra_hello(ptr noundef %216, ptr noundef %217, i32 noundef %218, i32 noundef %219, i8 noundef zeroext %220)
-  store i32 %221, ptr %12, align 4
-  br label %238
+219:                                              ; preds = %213, %209
+  br label %243
 
-222:                                              ; preds = %139, %139, %139
-  br label %238
+220:                                              ; preds = %140
+  %221 = load ptr, ptr %9, align 8
+  %222 = load ptr, ptr %11, align 8
+  %223 = load i32, ptr %12, align 4
+  %224 = load i32, ptr %13, align 4
+  %225 = load i8, ptr %16, align 1
+  %226 = call i32 @zebra_hello(ptr noundef %221, ptr noundef %222, i32 noundef %223, i32 noundef %224, i8 noundef zeroext %225)
+  store i32 %226, ptr %12, align 4
+  br label %243
 
-223:                                              ; preds = %139, %139
-  %224 = load ptr, ptr %9, align 8
-  %225 = load ptr, ptr %11, align 8
-  %226 = load i32, ptr %12, align 4
-  %227 = load i16, ptr %14, align 2
-  %228 = load i32, ptr %12, align 4
-  %229 = load i32, ptr %17, align 4
-  %230 = sub i32 %228, %229
-  %231 = call i32 @zebra_nexthop_register(ptr noundef %224, ptr noundef %225, i32 noundef %226, i16 noundef zeroext %227, i32 noundef %230)
-  store i32 %231, ptr %12, align 4
-  br label %238
+227:                                              ; preds = %140, %140, %140
+  br label %243
 
-232:                                              ; preds = %139
-  %233 = load ptr, ptr %9, align 8
-  %234 = load ptr, ptr %11, align 8
-  %235 = load i32, ptr %12, align 4
-  %236 = load i8, ptr %16, align 1
-  %237 = call i32 @zebra_nexthop_update(ptr noundef %233, ptr noundef %234, i32 noundef %235, i8 noundef zeroext %236)
-  store i32 %237, ptr %12, align 4
-  br label %238
+228:                                              ; preds = %140, %140
+  %229 = load ptr, ptr %9, align 8
+  %230 = load ptr, ptr %11, align 8
+  %231 = load i32, ptr %12, align 4
+  %232 = load i16, ptr %14, align 2
+  %233 = load i32, ptr %12, align 4
+  %234 = load i32, ptr %17, align 4
+  %235 = sub i32 %233, %234
+  %236 = call i32 @zebra_nexthop_register(ptr noundef %229, ptr noundef %230, i32 noundef %231, i16 noundef zeroext %232, i32 noundef %235)
+  store i32 %236, ptr %12, align 4
+  br label %243
 
-238:                                              ; preds = %232, %223, %222, %215, %214, %203, %198, %190, %182, %176, %167, %158, %153, %146, %145, %139
-  br label %565
+237:                                              ; preds = %140
+  %238 = load ptr, ptr %9, align 8
+  %239 = load ptr, ptr %11, align 8
+  %240 = load i32, ptr %12, align 4
+  %241 = load i8, ptr %16, align 1
+  %242 = call i32 @zebra_nexthop_update(ptr noundef %238, ptr noundef %239, i32 noundef %240, i8 noundef zeroext %241)
+  store i32 %242, ptr %12, align 4
+  br label %243
 
-239:                                              ; preds = %135
-  %240 = load i8, ptr %16, align 1
-  %241 = zext i8 %240 to i32
-  %242 = icmp eq i32 %241, 4
-  br i1 %242, label %243, label %333
+243:                                              ; preds = %140, %237, %228, %227, %220, %219, %208, %203, %194, %185, %179, %169, %159, %154, %147, %146
+  br label %578
 
-243:                                              ; preds = %239
-  %244 = load i16, ptr %15, align 2
-  %245 = zext i16 %244 to i32
-  switch i32 %245, label %332 [
-    i32 0, label %246
-    i32 4, label %246
-    i32 5, label %246
-    i32 1, label %246
-    i32 2, label %257
-    i32 3, label %257
-    i32 6, label %262
-    i32 7, label %262
-    i32 32, label %262
-    i32 33, label %262
-    i32 8, label %271
-    i32 9, label %271
-    i32 34, label %271
-    i32 35, label %271
-    i32 10, label %280
-    i32 12, label %280
-    i32 16, label %286
-    i32 14, label %291
-    i32 15, label %291
-    i32 13, label %291
-    i32 11, label %292
-    i32 17, label %300
-    i32 18, label %307
-    i32 19, label %307
-    i32 20, label %316
-    i32 21, label %322
-    i32 22, label %322
-    i32 23, label %322
-    i32 24, label %322
-    i32 25, label %322
-    i32 26, label %322
-    i32 27, label %322
-    i32 28, label %322
-    i32 29, label %322
-    i32 30, label %322
-    i32 31, label %322
-    i32 36, label %322
-    i32 37, label %322
-    i32 38, label %322
-    i32 39, label %322
-    i32 40, label %323
-    i32 41, label %331
-    i32 42, label %331
-    i32 43, label %331
-    i32 44, label %331
-    i32 45, label %331
-    i32 46, label %331
-    i32 47, label %331
-    i32 48, label %331
-    i32 49, label %331
-    i32 50, label %331
-    i32 51, label %331
-    i32 52, label %331
-    i32 53, label %331
-    i32 54, label %331
-    i32 55, label %331
-    i32 56, label %331
-    i32 57, label %331
-    i32 58, label %331
-    i32 59, label %331
+244:                                              ; preds = %136
+  %245 = load i8, ptr %16, align 1
+  %246 = zext i8 %245 to i32
+  %247 = icmp eq i32 %246, 4
+  br i1 %247, label %248, label %340
+
+248:                                              ; preds = %244
+  %249 = load i16, ptr %15, align 2
+  %250 = zext i16 %249 to i32
+  switch i32 %250, label %339 [
+    i32 0, label %251
+    i32 4, label %251
+    i32 5, label %251
+    i32 1, label %251
+    i32 2, label %262
+    i32 3, label %262
+    i32 6, label %267
+    i32 7, label %267
+    i32 32, label %267
+    i32 33, label %267
+    i32 8, label %277
+    i32 9, label %277
+    i32 34, label %277
+    i32 35, label %277
+    i32 10, label %287
+    i32 12, label %287
+    i32 16, label %293
+    i32 14, label %298
+    i32 15, label %298
+    i32 13, label %298
+    i32 11, label %299
+    i32 17, label %307
+    i32 18, label %314
+    i32 19, label %314
+    i32 20, label %323
+    i32 21, label %329
+    i32 22, label %329
+    i32 23, label %329
+    i32 24, label %329
+    i32 25, label %329
+    i32 26, label %329
+    i32 27, label %329
+    i32 28, label %329
+    i32 29, label %329
+    i32 30, label %329
+    i32 31, label %329
+    i32 36, label %329
+    i32 37, label %329
+    i32 38, label %329
+    i32 39, label %329
+    i32 40, label %330
+    i32 41, label %338
+    i32 42, label %338
+    i32 43, label %338
+    i32 44, label %338
+    i32 45, label %338
+    i32 46, label %338
+    i32 47, label %338
+    i32 48, label %338
+    i32 49, label %338
+    i32 50, label %338
+    i32 51, label %338
+    i32 52, label %338
+    i32 53, label %338
+    i32 54, label %338
+    i32 55, label %338
+    i32 56, label %338
+    i32 57, label %338
+    i32 58, label %338
+    i32 59, label %338
   ]
 
-246:                                              ; preds = %243, %243, %243, %243
-  %247 = load i32, ptr %10, align 4
-  %248 = icmp ne i32 %247, 0
-  br i1 %248, label %249, label %250
+251:                                              ; preds = %248, %248, %248, %248
+  %252 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %253 = trunc i8 %252 to i1
+  br i1 %253, label %254, label %255
 
-249:                                              ; preds = %246
-  br label %332
+254:                                              ; preds = %251
+  br label %339
 
-250:                                              ; preds = %246
-  %251 = load ptr, ptr %9, align 8
-  %252 = load ptr, ptr %11, align 8
-  %253 = load i32, ptr %12, align 4
-  %254 = load i16, ptr %15, align 2
-  %255 = load i8, ptr %16, align 1
-  %256 = call i32 @zebra_interface(ptr noundef %251, ptr noundef %252, i32 noundef %253, i16 noundef zeroext %254, i8 noundef zeroext %255)
-  store i32 %256, ptr %12, align 4
-  br label %332
-
-257:                                              ; preds = %243, %243
-  %258 = load ptr, ptr %9, align 8
-  %259 = load ptr, ptr %11, align 8
-  %260 = load i32, ptr %12, align 4
-  %261 = call i32 @zebra_interface_address(ptr noundef %258, ptr noundef %259, i32 noundef %260)
+255:                                              ; preds = %251
+  %256 = load ptr, ptr %9, align 8
+  %257 = load ptr, ptr %11, align 8
+  %258 = load i32, ptr %12, align 4
+  %259 = load i16, ptr %15, align 2
+  %260 = load i8, ptr %16, align 1
+  %261 = call i32 @zebra_interface(ptr noundef %256, ptr noundef %257, i32 noundef %258, i16 noundef zeroext %259, i8 noundef zeroext %260)
   store i32 %261, ptr %12, align 4
-  br label %332
+  br label %339
 
-262:                                              ; preds = %243, %243, %243, %243
+262:                                              ; preds = %248, %248
   %263 = load ptr, ptr %9, align 8
-  %264 = load i32, ptr %10, align 4
-  %265 = load ptr, ptr %11, align 8
-  %266 = load i32, ptr %12, align 4
-  %267 = load i16, ptr %14, align 2
-  %268 = load i16, ptr %15, align 2
-  %269 = load i8, ptr %16, align 1
-  %270 = call i32 @zebra_route(ptr noundef %263, i32 noundef %264, ptr noundef %265, i32 noundef %266, i16 noundef zeroext %267, i8 noundef zeroext 2, i16 noundef zeroext %268, i8 noundef zeroext %269)
-  store i32 %270, ptr %12, align 4
-  br label %332
+  %264 = load ptr, ptr %11, align 8
+  %265 = load i32, ptr %12, align 4
+  %266 = call i32 @zebra_interface_address(ptr noundef %263, ptr noundef %264, i32 noundef %265)
+  store i32 %266, ptr %12, align 4
+  br label %339
 
-271:                                              ; preds = %243, %243, %243, %243
-  %272 = load ptr, ptr %9, align 8
-  %273 = load i32, ptr %10, align 4
-  %274 = load ptr, ptr %11, align 8
-  %275 = load i32, ptr %12, align 4
-  %276 = load i16, ptr %14, align 2
-  %277 = load i16, ptr %15, align 2
-  %278 = load i8, ptr %16, align 1
-  %279 = call i32 @zebra_route(ptr noundef %272, i32 noundef %273, ptr noundef %274, i32 noundef %275, i16 noundef zeroext %276, i8 noundef zeroext 10, i16 noundef zeroext %277, i8 noundef zeroext %278)
-  store i32 %279, ptr %12, align 4
-  br label %332
+267:                                              ; preds = %248, %248, %248, %248
+  %268 = load ptr, ptr %9, align 8
+  %269 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %270 = trunc i8 %269 to i1
+  %271 = load ptr, ptr %11, align 8
+  %272 = load i32, ptr %12, align 4
+  %273 = load i16, ptr %14, align 2
+  %274 = load i16, ptr %15, align 2
+  %275 = load i8, ptr %16, align 1
+  %276 = call i32 @zebra_route(ptr noundef %268, i1 noundef zeroext %270, ptr noundef %271, i32 noundef %272, i16 noundef zeroext %273, i8 noundef zeroext 2, i16 noundef zeroext %274, i8 noundef zeroext %275)
+  store i32 %276, ptr %12, align 4
+  br label %339
 
-280:                                              ; preds = %243, %243
-  %281 = load ptr, ptr %9, align 8
-  %282 = load ptr, ptr %11, align 8
-  %283 = load i32, ptr %12, align 4
-  %284 = load i8, ptr %16, align 1
-  %285 = call i32 @zebra_redistribute(ptr noundef %281, ptr noundef %282, i32 noundef %283, i8 noundef zeroext %284)
-  store i32 %285, ptr %12, align 4
-  br label %332
+277:                                              ; preds = %248, %248, %248, %248
+  %278 = load ptr, ptr %9, align 8
+  %279 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %280 = trunc i8 %279 to i1
+  %281 = load ptr, ptr %11, align 8
+  %282 = load i32, ptr %12, align 4
+  %283 = load i16, ptr %14, align 2
+  %284 = load i16, ptr %15, align 2
+  %285 = load i8, ptr %16, align 1
+  %286 = call i32 @zebra_route(ptr noundef %278, i1 noundef zeroext %280, ptr noundef %281, i32 noundef %282, i16 noundef zeroext %283, i8 noundef zeroext 10, i16 noundef zeroext %284, i8 noundef zeroext %285)
+  store i32 %286, ptr %12, align 4
+  br label %339
 
-286:                                              ; preds = %243
-  %287 = load ptr, ptr %9, align 8
-  %288 = load ptr, ptr %11, align 8
-  %289 = load i32, ptr %12, align 4
-  %290 = call i32 @zerba_router_update(ptr noundef %287, ptr noundef %288, i32 noundef %289)
-  store i32 %290, ptr %12, align 4
-  br label %332
+287:                                              ; preds = %248, %248
+  %288 = load ptr, ptr %9, align 8
+  %289 = load ptr, ptr %11, align 8
+  %290 = load i32, ptr %12, align 4
+  %291 = load i8, ptr %16, align 1
+  %292 = call i32 @zebra_redistribute(ptr noundef %288, ptr noundef %289, i32 noundef %290, i8 noundef zeroext %291)
+  store i32 %292, ptr %12, align 4
+  br label %339
 
-291:                                              ; preds = %243, %243, %243
-  br label %332
-
-292:                                              ; preds = %243
-  %293 = load ptr, ptr %9, align 8
-  %294 = load i32, ptr @hf_zebra_type_v4, align 4
+293:                                              ; preds = %248
+  %294 = load ptr, ptr %9, align 8
   %295 = load ptr, ptr %11, align 8
   %296 = load i32, ptr %12, align 4
-  %297 = call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %294, ptr noundef %295, i32 noundef %296, i32 noundef 1, i32 noundef 0)
-  %298 = load i32, ptr %12, align 4
-  %299 = add i32 %298, 1
-  store i32 %299, ptr %12, align 4
-  br label %332
+  %297 = call i32 @zerba_router_update(ptr noundef %294, ptr noundef %295, i32 noundef %296)
+  store i32 %297, ptr %12, align 4
+  br label %339
 
-300:                                              ; preds = %243
-  %301 = load ptr, ptr %9, align 8
+298:                                              ; preds = %248, %248, %248
+  br label %339
+
+299:                                              ; preds = %248
+  %300 = load ptr, ptr %9, align 8
+  %301 = load i32, ptr @hf_zebra_type_v4, align 4
   %302 = load ptr, ptr %11, align 8
   %303 = load i32, ptr %12, align 4
-  %304 = load i32, ptr %13, align 4
-  %305 = load i8, ptr %16, align 1
-  %306 = call i32 @zebra_hello(ptr noundef %301, ptr noundef %302, i32 noundef %303, i32 noundef %304, i8 noundef zeroext %305)
+  %304 = call ptr @proto_tree_add_item(ptr noundef %300, i32 noundef %301, ptr noundef %302, i32 noundef %303, i32 noundef 1, i32 noundef 0)
+  %305 = load i32, ptr %12, align 4
+  %306 = add i32 %305, 1
   store i32 %306, ptr %12, align 4
-  br label %332
+  br label %339
 
-307:                                              ; preds = %243, %243
+307:                                              ; preds = %248
   %308 = load ptr, ptr %9, align 8
   %309 = load ptr, ptr %11, align 8
   %310 = load i32, ptr %12, align 4
-  %311 = load i16, ptr %14, align 2
-  %312 = load i32, ptr %12, align 4
-  %313 = load i32, ptr %17, align 4
-  %314 = sub i32 %312, %313
-  %315 = call i32 @zebra_nexthop_register(ptr noundef %308, ptr noundef %309, i32 noundef %310, i16 noundef zeroext %311, i32 noundef %314)
-  store i32 %315, ptr %12, align 4
-  br label %332
+  %311 = load i32, ptr %13, align 4
+  %312 = load i8, ptr %16, align 1
+  %313 = call i32 @zebra_hello(ptr noundef %308, ptr noundef %309, i32 noundef %310, i32 noundef %311, i8 noundef zeroext %312)
+  store i32 %313, ptr %12, align 4
+  br label %339
 
-316:                                              ; preds = %243
-  %317 = load ptr, ptr %9, align 8
-  %318 = load ptr, ptr %11, align 8
+314:                                              ; preds = %248, %248
+  %315 = load ptr, ptr %9, align 8
+  %316 = load ptr, ptr %11, align 8
+  %317 = load i32, ptr %12, align 4
+  %318 = load i16, ptr %14, align 2
   %319 = load i32, ptr %12, align 4
-  %320 = load i8, ptr %16, align 1
-  %321 = call i32 @zebra_nexthop_update(ptr noundef %317, ptr noundef %318, i32 noundef %319, i8 noundef zeroext %320)
-  store i32 %321, ptr %12, align 4
-  br label %332
+  %320 = load i32, ptr %17, align 4
+  %321 = sub i32 %319, %320
+  %322 = call i32 @zebra_nexthop_register(ptr noundef %315, ptr noundef %316, i32 noundef %317, i16 noundef zeroext %318, i32 noundef %321)
+  store i32 %322, ptr %12, align 4
+  br label %339
 
-322:                                              ; preds = %243, %243, %243, %243, %243, %243, %243, %243, %243, %243, %243, %243, %243, %243, %243
-  br label %332
-
-323:                                              ; preds = %243
+323:                                              ; preds = %248
   %324 = load ptr, ptr %9, align 8
-  %325 = load i32, ptr @hf_zebra_pid, align 4
-  %326 = load ptr, ptr %11, align 8
-  %327 = load i32, ptr %12, align 4
-  %328 = call ptr @proto_tree_add_item(ptr noundef %324, i32 noundef %325, ptr noundef %326, i32 noundef %327, i32 noundef 4, i32 noundef 0)
-  %329 = load i32, ptr %12, align 4
-  %330 = add i32 %329, 4
-  store i32 %330, ptr %12, align 4
-  br label %332
+  %325 = load ptr, ptr %11, align 8
+  %326 = load i32, ptr %12, align 4
+  %327 = load i8, ptr %16, align 1
+  %328 = call i32 @zebra_nexthop_update(ptr noundef %324, ptr noundef %325, i32 noundef %326, i8 noundef zeroext %327)
+  store i32 %328, ptr %12, align 4
+  br label %339
 
-331:                                              ; preds = %243, %243, %243, %243, %243, %243, %243, %243, %243, %243, %243, %243, %243, %243, %243, %243, %243, %243, %243
-  br label %332
+329:                                              ; preds = %248, %248, %248, %248, %248, %248, %248, %248, %248, %248, %248, %248, %248, %248, %248
+  br label %339
 
-332:                                              ; preds = %331, %323, %322, %316, %307, %300, %292, %291, %286, %280, %271, %262, %257, %250, %249, %243
-  br label %564
+330:                                              ; preds = %248
+  %331 = load ptr, ptr %9, align 8
+  %332 = load i32, ptr @hf_zebra_pid, align 4
+  %333 = load ptr, ptr %11, align 8
+  %334 = load i32, ptr %12, align 4
+  %335 = call ptr @proto_tree_add_item(ptr noundef %331, i32 noundef %332, ptr noundef %333, i32 noundef %334, i32 noundef 4, i32 noundef 0)
+  %336 = load i32, ptr %12, align 4
+  %337 = add i32 %336, 4
+  store i32 %337, ptr %12, align 4
+  br label %339
 
-333:                                              ; preds = %239
-  %334 = load i8, ptr %16, align 1
-  %335 = zext i8 %334 to i32
-  %336 = icmp eq i32 %335, 5
-  br i1 %336, label %337, label %459
+338:                                              ; preds = %248, %248, %248, %248, %248, %248, %248, %248, %248, %248, %248, %248, %248, %248, %248, %248, %248, %248, %248
+  br label %339
 
-337:                                              ; preds = %333
-  %338 = load i16, ptr %15, align 2
-  %339 = zext i16 %338 to i32
-  switch i32 %339, label %458 [
-    i32 0, label %340
-    i32 4, label %340
-    i32 5, label %340
-    i32 1, label %340
-    i32 2, label %351
-    i32 3, label %351
-    i32 10, label %356
-    i32 11, label %356
-    i32 12, label %365
-    i32 13, label %365
-    i32 7, label %374
-    i32 8, label %374
-    i32 37, label %374
-    i32 38, label %374
-    i32 14, label %383
-    i32 16, label %383
-    i32 20, label %389
-    i32 18, label %394
-    i32 19, label %394
-    i32 17, label %394
-    i32 15, label %395
-    i32 21, label %403
-    i32 22, label %410
-    i32 23, label %415
-    i32 24, label %415
-    i32 25, label %424
-    i32 26, label %430
-    i32 27, label %430
-    i32 28, label %430
-    i32 29, label %430
-    i32 30, label %430
-    i32 31, label %430
-    i32 32, label %430
-    i32 33, label %430
-    i32 34, label %430
-    i32 35, label %430
-    i32 36, label %430
-    i32 39, label %430
-    i32 40, label %431
-    i32 41, label %436
-    i32 42, label %436
-    i32 43, label %436
-    i32 44, label %437
-    i32 45, label %445
-    i32 46, label %445
-    i32 47, label %445
-    i32 48, label %445
-    i32 49, label %445
-    i32 50, label %445
-    i32 51, label %445
-    i32 52, label %446
-    i32 53, label %446
-    i32 54, label %451
-    i32 55, label %457
-    i32 56, label %457
-    i32 57, label %457
-    i32 58, label %457
-    i32 59, label %457
-    i32 60, label %457
-    i32 61, label %457
-    i32 62, label %457
-    i32 63, label %457
-    i32 64, label %457
-    i32 65, label %457
-    i32 66, label %457
-    i32 67, label %457
-    i32 68, label %457
-    i32 69, label %457
-    i32 70, label %457
-    i32 71, label %457
-    i32 72, label %457
-    i32 73, label %457
-    i32 74, label %457
-    i32 75, label %457
-    i32 76, label %457
-    i32 77, label %457
-    i32 78, label %457
-    i32 79, label %457
-    i32 80, label %457
-    i32 81, label %457
-    i32 82, label %457
-    i32 83, label %457
-    i32 84, label %457
-    i32 85, label %457
-    i32 86, label %457
-    i32 87, label %457
-    i32 88, label %457
-    i32 89, label %457
-    i32 90, label %457
-    i32 91, label %457
-    i32 92, label %457
-    i32 93, label %457
-  ]
+339:                                              ; preds = %248, %338, %330, %329, %323, %314, %307, %299, %298, %293, %287, %277, %267, %262, %255, %254
+  br label %577
 
-340:                                              ; preds = %337, %337, %337, %337
-  %341 = load i32, ptr %10, align 4
-  %342 = icmp ne i32 %341, 0
-  br i1 %342, label %343, label %344
-
-343:                                              ; preds = %340
-  br label %458
+340:                                              ; preds = %244
+  %341 = load i8, ptr %16, align 1
+  %342 = zext i8 %341 to i32
+  %343 = icmp eq i32 %342, 5
+  br i1 %343, label %344, label %470
 
 344:                                              ; preds = %340
-  %345 = load ptr, ptr %9, align 8
-  %346 = load ptr, ptr %11, align 8
-  %347 = load i32, ptr %12, align 4
-  %348 = load i16, ptr %15, align 2
-  %349 = load i8, ptr %16, align 1
-  %350 = call i32 @zebra_interface(ptr noundef %345, ptr noundef %346, i32 noundef %347, i16 noundef zeroext %348, i8 noundef zeroext %349)
-  store i32 %350, ptr %12, align 4
-  br label %458
+  %345 = load i16, ptr %15, align 2
+  %346 = zext i16 %345 to i32
+  switch i32 %346, label %469 [
+    i32 0, label %347
+    i32 4, label %347
+    i32 5, label %347
+    i32 1, label %347
+    i32 2, label %358
+    i32 3, label %358
+    i32 10, label %363
+    i32 11, label %363
+    i32 12, label %373
+    i32 13, label %373
+    i32 7, label %383
+    i32 8, label %383
+    i32 37, label %383
+    i32 38, label %383
+    i32 14, label %393
+    i32 16, label %393
+    i32 20, label %399
+    i32 18, label %404
+    i32 19, label %404
+    i32 17, label %404
+    i32 15, label %405
+    i32 21, label %413
+    i32 22, label %420
+    i32 23, label %425
+    i32 24, label %425
+    i32 25, label %434
+    i32 26, label %440
+    i32 27, label %440
+    i32 28, label %440
+    i32 29, label %440
+    i32 30, label %440
+    i32 31, label %440
+    i32 32, label %440
+    i32 33, label %440
+    i32 34, label %440
+    i32 35, label %440
+    i32 36, label %440
+    i32 39, label %440
+    i32 40, label %441
+    i32 41, label %446
+    i32 42, label %446
+    i32 43, label %446
+    i32 44, label %447
+    i32 45, label %455
+    i32 46, label %455
+    i32 47, label %455
+    i32 48, label %455
+    i32 49, label %455
+    i32 50, label %455
+    i32 51, label %455
+    i32 52, label %456
+    i32 53, label %456
+    i32 54, label %461
+    i32 55, label %468
+    i32 56, label %468
+    i32 57, label %468
+    i32 58, label %468
+    i32 59, label %468
+    i32 60, label %468
+    i32 61, label %468
+    i32 62, label %468
+    i32 63, label %468
+    i32 64, label %468
+    i32 65, label %468
+    i32 66, label %468
+    i32 67, label %468
+    i32 68, label %468
+    i32 69, label %468
+    i32 70, label %468
+    i32 71, label %468
+    i32 72, label %468
+    i32 73, label %468
+    i32 74, label %468
+    i32 75, label %468
+    i32 76, label %468
+    i32 77, label %468
+    i32 78, label %468
+    i32 79, label %468
+    i32 80, label %468
+    i32 81, label %468
+    i32 82, label %468
+    i32 83, label %468
+    i32 84, label %468
+    i32 85, label %468
+    i32 86, label %468
+    i32 87, label %468
+    i32 88, label %468
+    i32 89, label %468
+    i32 90, label %468
+    i32 91, label %468
+    i32 92, label %468
+    i32 93, label %468
+  ]
 
-351:                                              ; preds = %337, %337
+347:                                              ; preds = %344, %344, %344, %344
+  %348 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %349 = trunc i8 %348 to i1
+  br i1 %349, label %350, label %351
+
+350:                                              ; preds = %347
+  br label %469
+
+351:                                              ; preds = %347
   %352 = load ptr, ptr %9, align 8
   %353 = load ptr, ptr %11, align 8
   %354 = load i32, ptr %12, align 4
-  %355 = call i32 @zebra_interface_address(ptr noundef %352, ptr noundef %353, i32 noundef %354)
-  store i32 %355, ptr %12, align 4
-  br label %458
+  %355 = load i16, ptr %15, align 2
+  %356 = load i8, ptr %16, align 1
+  %357 = call i32 @zebra_interface(ptr noundef %352, ptr noundef %353, i32 noundef %354, i16 noundef zeroext %355, i8 noundef zeroext %356)
+  store i32 %357, ptr %12, align 4
+  br label %469
 
-356:                                              ; preds = %337, %337
-  %357 = load ptr, ptr %9, align 8
-  %358 = load i32, ptr %10, align 4
-  %359 = load ptr, ptr %11, align 8
-  %360 = load i32, ptr %12, align 4
-  %361 = load i16, ptr %14, align 2
-  %362 = load i16, ptr %15, align 2
-  %363 = load i8, ptr %16, align 1
-  %364 = call i32 @zebra_route(ptr noundef %357, i32 noundef %358, ptr noundef %359, i32 noundef %360, i16 noundef zeroext %361, i8 noundef zeroext 2, i16 noundef zeroext %362, i8 noundef zeroext %363)
-  store i32 %364, ptr %12, align 4
-  br label %458
+358:                                              ; preds = %344, %344
+  %359 = load ptr, ptr %9, align 8
+  %360 = load ptr, ptr %11, align 8
+  %361 = load i32, ptr %12, align 4
+  %362 = call i32 @zebra_interface_address(ptr noundef %359, ptr noundef %360, i32 noundef %361)
+  store i32 %362, ptr %12, align 4
+  br label %469
 
-365:                                              ; preds = %337, %337
-  %366 = load ptr, ptr %9, align 8
-  %367 = load i32, ptr %10, align 4
-  %368 = load ptr, ptr %11, align 8
-  %369 = load i32, ptr %12, align 4
-  %370 = load i16, ptr %14, align 2
-  %371 = load i16, ptr %15, align 2
-  %372 = load i8, ptr %16, align 1
-  %373 = call i32 @zebra_route(ptr noundef %366, i32 noundef %367, ptr noundef %368, i32 noundef %369, i16 noundef zeroext %370, i8 noundef zeroext 10, i16 noundef zeroext %371, i8 noundef zeroext %372)
-  store i32 %373, ptr %12, align 4
-  br label %458
+363:                                              ; preds = %344, %344
+  %364 = load ptr, ptr %9, align 8
+  %365 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %366 = trunc i8 %365 to i1
+  %367 = load ptr, ptr %11, align 8
+  %368 = load i32, ptr %12, align 4
+  %369 = load i16, ptr %14, align 2
+  %370 = load i16, ptr %15, align 2
+  %371 = load i8, ptr %16, align 1
+  %372 = call i32 @zebra_route(ptr noundef %364, i1 noundef zeroext %366, ptr noundef %367, i32 noundef %368, i16 noundef zeroext %369, i8 noundef zeroext 2, i16 noundef zeroext %370, i8 noundef zeroext %371)
+  store i32 %372, ptr %12, align 4
+  br label %469
 
-374:                                              ; preds = %337, %337, %337, %337
-  %375 = load ptr, ptr %9, align 8
-  %376 = load i32, ptr %10, align 4
+373:                                              ; preds = %344, %344
+  %374 = load ptr, ptr %9, align 8
+  %375 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %376 = trunc i8 %375 to i1
   %377 = load ptr, ptr %11, align 8
   %378 = load i32, ptr %12, align 4
   %379 = load i16, ptr %14, align 2
   %380 = load i16, ptr %15, align 2
   %381 = load i8, ptr %16, align 1
-  %382 = call i32 @zebra_route(ptr noundef %375, i32 noundef %376, ptr noundef %377, i32 noundef %378, i16 noundef zeroext %379, i8 noundef zeroext 0, i16 noundef zeroext %380, i8 noundef zeroext %381)
+  %382 = call i32 @zebra_route(ptr noundef %374, i1 noundef zeroext %376, ptr noundef %377, i32 noundef %378, i16 noundef zeroext %379, i8 noundef zeroext 10, i16 noundef zeroext %380, i8 noundef zeroext %381)
   store i32 %382, ptr %12, align 4
-  br label %458
+  br label %469
 
-383:                                              ; preds = %337, %337
+383:                                              ; preds = %344, %344, %344, %344
   %384 = load ptr, ptr %9, align 8
-  %385 = load ptr, ptr %11, align 8
-  %386 = load i32, ptr %12, align 4
-  %387 = load i8, ptr %16, align 1
-  %388 = call i32 @zebra_redistribute(ptr noundef %384, ptr noundef %385, i32 noundef %386, i8 noundef zeroext %387)
-  store i32 %388, ptr %12, align 4
-  br label %458
+  %385 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %386 = trunc i8 %385 to i1
+  %387 = load ptr, ptr %11, align 8
+  %388 = load i32, ptr %12, align 4
+  %389 = load i16, ptr %14, align 2
+  %390 = load i16, ptr %15, align 2
+  %391 = load i8, ptr %16, align 1
+  %392 = call i32 @zebra_route(ptr noundef %384, i1 noundef zeroext %386, ptr noundef %387, i32 noundef %388, i16 noundef zeroext %389, i8 noundef zeroext 0, i16 noundef zeroext %390, i8 noundef zeroext %391)
+  store i32 %392, ptr %12, align 4
+  br label %469
 
-389:                                              ; preds = %337
-  %390 = load ptr, ptr %9, align 8
-  %391 = load ptr, ptr %11, align 8
-  %392 = load i32, ptr %12, align 4
-  %393 = call i32 @zerba_router_update(ptr noundef %390, ptr noundef %391, i32 noundef %392)
-  store i32 %393, ptr %12, align 4
-  br label %458
+393:                                              ; preds = %344, %344
+  %394 = load ptr, ptr %9, align 8
+  %395 = load ptr, ptr %11, align 8
+  %396 = load i32, ptr %12, align 4
+  %397 = load i8, ptr %16, align 1
+  %398 = call i32 @zebra_redistribute(ptr noundef %394, ptr noundef %395, i32 noundef %396, i8 noundef zeroext %397)
+  store i32 %398, ptr %12, align 4
+  br label %469
 
-394:                                              ; preds = %337, %337, %337
-  br label %458
+399:                                              ; preds = %344
+  %400 = load ptr, ptr %9, align 8
+  %401 = load ptr, ptr %11, align 8
+  %402 = load i32, ptr %12, align 4
+  %403 = call i32 @zerba_router_update(ptr noundef %400, ptr noundef %401, i32 noundef %402)
+  store i32 %403, ptr %12, align 4
+  br label %469
 
-395:                                              ; preds = %337
-  %396 = load ptr, ptr %9, align 8
-  %397 = load i32, ptr @hf_zebra_type_v5, align 4
-  %398 = load ptr, ptr %11, align 8
-  %399 = load i32, ptr %12, align 4
-  %400 = call ptr @proto_tree_add_item(ptr noundef %396, i32 noundef %397, ptr noundef %398, i32 noundef %399, i32 noundef 1, i32 noundef 0)
-  %401 = load i32, ptr %12, align 4
-  %402 = add i32 %401, 1
-  store i32 %402, ptr %12, align 4
-  br label %458
+404:                                              ; preds = %344, %344, %344
+  br label %469
 
-403:                                              ; preds = %337
-  %404 = load ptr, ptr %9, align 8
-  %405 = load ptr, ptr %11, align 8
-  %406 = load i32, ptr %12, align 4
-  %407 = load i32, ptr %13, align 4
-  %408 = load i8, ptr %16, align 1
-  %409 = call i32 @zebra_hello(ptr noundef %404, ptr noundef %405, i32 noundef %406, i32 noundef %407, i8 noundef zeroext %408)
-  store i32 %409, ptr %12, align 4
-  br label %458
+405:                                              ; preds = %344
+  %406 = load ptr, ptr %9, align 8
+  %407 = load i32, ptr @hf_zebra_type_v5, align 4
+  %408 = load ptr, ptr %11, align 8
+  %409 = load i32, ptr %12, align 4
+  %410 = call ptr @proto_tree_add_item(ptr noundef %406, i32 noundef %407, ptr noundef %408, i32 noundef %409, i32 noundef 1, i32 noundef 0)
+  %411 = load i32, ptr %12, align 4
+  %412 = add i32 %411, 1
+  store i32 %412, ptr %12, align 4
+  br label %469
 
-410:                                              ; preds = %337
-  %411 = load ptr, ptr %9, align 8
-  %412 = load ptr, ptr %11, align 8
-  %413 = load i32, ptr %12, align 4
-  %414 = call i32 @zebra_capabilties(ptr noundef %411, ptr noundef %412, i32 noundef %413)
-  store i32 %414, ptr %12, align 4
-  br label %458
+413:                                              ; preds = %344
+  %414 = load ptr, ptr %9, align 8
+  %415 = load ptr, ptr %11, align 8
+  %416 = load i32, ptr %12, align 4
+  %417 = load i32, ptr %13, align 4
+  %418 = load i8, ptr %16, align 1
+  %419 = call i32 @zebra_hello(ptr noundef %414, ptr noundef %415, i32 noundef %416, i32 noundef %417, i8 noundef zeroext %418)
+  store i32 %419, ptr %12, align 4
+  br label %469
 
-415:                                              ; preds = %337, %337
-  %416 = load ptr, ptr %9, align 8
-  %417 = load ptr, ptr %11, align 8
-  %418 = load i32, ptr %12, align 4
-  %419 = load i16, ptr %14, align 2
-  %420 = load i32, ptr %12, align 4
-  %421 = load i32, ptr %17, align 4
-  %422 = sub i32 %420, %421
-  %423 = call i32 @zebra_nexthop_register(ptr noundef %416, ptr noundef %417, i32 noundef %418, i16 noundef zeroext %419, i32 noundef %422)
-  store i32 %423, ptr %12, align 4
-  br label %458
+420:                                              ; preds = %344
+  %421 = load ptr, ptr %9, align 8
+  %422 = load ptr, ptr %11, align 8
+  %423 = load i32, ptr %12, align 4
+  %424 = call i32 @zebra_capabilties(ptr noundef %421, ptr noundef %422, i32 noundef %423)
+  store i32 %424, ptr %12, align 4
+  br label %469
 
-424:                                              ; preds = %337
-  %425 = load ptr, ptr %9, align 8
-  %426 = load ptr, ptr %11, align 8
-  %427 = load i32, ptr %12, align 4
-  %428 = load i8, ptr %16, align 1
-  %429 = call i32 @zebra_nexthop_update(ptr noundef %425, ptr noundef %426, i32 noundef %427, i8 noundef zeroext %428)
-  store i32 %429, ptr %12, align 4
-  br label %458
+425:                                              ; preds = %344, %344
+  %426 = load ptr, ptr %9, align 8
+  %427 = load ptr, ptr %11, align 8
+  %428 = load i32, ptr %12, align 4
+  %429 = load i16, ptr %14, align 2
+  %430 = load i32, ptr %12, align 4
+  %431 = load i32, ptr %17, align 4
+  %432 = sub i32 %430, %431
+  %433 = call i32 @zebra_nexthop_register(ptr noundef %426, ptr noundef %427, i32 noundef %428, i16 noundef zeroext %429, i32 noundef %432)
+  store i32 %433, ptr %12, align 4
+  br label %469
 
-430:                                              ; preds = %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337
-  br label %458
+434:                                              ; preds = %344
+  %435 = load ptr, ptr %9, align 8
+  %436 = load ptr, ptr %11, align 8
+  %437 = load i32, ptr %12, align 4
+  %438 = load i8, ptr %16, align 1
+  %439 = call i32 @zebra_nexthop_update(ptr noundef %435, ptr noundef %436, i32 noundef %437, i8 noundef zeroext %438)
+  store i32 %439, ptr %12, align 4
+  br label %469
 
-431:                                              ; preds = %337
-  %432 = load ptr, ptr %9, align 8
-  %433 = load ptr, ptr %11, align 8
-  %434 = load i32, ptr %12, align 4
-  %435 = call i32 @zebra_vrf(ptr noundef %432, ptr noundef %433, i32 noundef %434)
-  store i32 %435, ptr %12, align 4
-  br label %458
+440:                                              ; preds = %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344
+  br label %469
 
-436:                                              ; preds = %337, %337, %337
-  br label %458
+441:                                              ; preds = %344
+  %442 = load ptr, ptr %9, align 8
+  %443 = load ptr, ptr %11, align 8
+  %444 = load i32, ptr %12, align 4
+  %445 = call i32 @zebra_vrf(ptr noundef %442, ptr noundef %443, i32 noundef %444)
+  store i32 %445, ptr %12, align 4
+  br label %469
 
-437:                                              ; preds = %337
-  %438 = load ptr, ptr %9, align 8
-  %439 = load i32, ptr @hf_zebra_pid, align 4
-  %440 = load ptr, ptr %11, align 8
-  %441 = load i32, ptr %12, align 4
-  %442 = call ptr @proto_tree_add_item(ptr noundef %438, i32 noundef %439, ptr noundef %440, i32 noundef %441, i32 noundef 4, i32 noundef 0)
-  %443 = load i32, ptr %12, align 4
-  %444 = add i32 %443, 4
-  store i32 %444, ptr %12, align 4
-  br label %458
+446:                                              ; preds = %344, %344, %344
+  br label %469
 
-445:                                              ; preds = %337, %337, %337, %337, %337, %337, %337
-  br label %458
+447:                                              ; preds = %344
+  %448 = load ptr, ptr %9, align 8
+  %449 = load i32, ptr @hf_zebra_pid, align 4
+  %450 = load ptr, ptr %11, align 8
+  %451 = load i32, ptr %12, align 4
+  %452 = call ptr @proto_tree_add_item(ptr noundef %448, i32 noundef %449, ptr noundef %450, i32 noundef %451, i32 noundef 4, i32 noundef 0)
+  %453 = load i32, ptr %12, align 4
+  %454 = add i32 %453, 4
+  store i32 %454, ptr %12, align 4
+  br label %469
 
-446:                                              ; preds = %337, %337
-  %447 = load ptr, ptr %9, align 8
-  %448 = load ptr, ptr %11, align 8
-  %449 = load i32, ptr %12, align 4
-  %450 = call i32 @zebra_label_manager_connect(ptr noundef %447, ptr noundef %448, i32 noundef %449)
-  store i32 %450, ptr %12, align 4
-  br label %458
+455:                                              ; preds = %344, %344, %344, %344, %344, %344, %344
+  br label %469
 
-451:                                              ; preds = %337
-  %452 = load ptr, ptr %9, align 8
-  %453 = load i32, ptr %10, align 4
-  %454 = load ptr, ptr %11, align 8
-  %455 = load i32, ptr %12, align 4
-  %456 = call i32 @zebra_get_label_chunk(ptr noundef %452, i32 noundef %453, ptr noundef %454, i32 noundef %455)
-  store i32 %456, ptr %12, align 4
-  br label %458
+456:                                              ; preds = %344, %344
+  %457 = load ptr, ptr %9, align 8
+  %458 = load ptr, ptr %11, align 8
+  %459 = load i32, ptr %12, align 4
+  %460 = call i32 @zebra_label_manager_connect(ptr noundef %457, ptr noundef %458, i32 noundef %459)
+  store i32 %460, ptr %12, align 4
+  br label %469
 
-457:                                              ; preds = %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337, %337
-  br label %458
+461:                                              ; preds = %344
+  %462 = load ptr, ptr %9, align 8
+  %463 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %464 = trunc i8 %463 to i1
+  %465 = load ptr, ptr %11, align 8
+  %466 = load i32, ptr %12, align 4
+  %467 = call i32 @zebra_get_label_chunk(ptr noundef %462, i1 noundef zeroext %464, ptr noundef %465, i32 noundef %466)
+  store i32 %467, ptr %12, align 4
+  br label %469
 
-458:                                              ; preds = %457, %451, %446, %445, %437, %436, %431, %430, %424, %415, %410, %403, %395, %394, %389, %383, %374, %365, %356, %351, %344, %343, %337
-  br label %563
+468:                                              ; preds = %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344, %344
+  br label %469
 
-459:                                              ; preds = %333
-  %460 = load i16, ptr %15, align 2
-  %461 = zext i16 %460 to i32
-  switch i32 %461, label %562 [
-    i32 0, label %462
-    i32 4, label %462
-    i32 5, label %462
-    i32 1, label %462
-    i32 2, label %473
-    i32 3, label %473
-    i32 7, label %478
-    i32 8, label %478
-    i32 32, label %478
-    i32 33, label %478
-    i32 10, label %487
-    i32 12, label %487
-    i32 16, label %493
-    i32 14, label %498
-    i32 15, label %498
-    i32 13, label %498
-    i32 11, label %499
-    i32 17, label %507
-    i32 18, label %514
-    i32 19, label %519
-    i32 20, label %519
-    i32 21, label %528
-    i32 22, label %534
-    i32 23, label %534
-    i32 24, label %534
-    i32 25, label %534
-    i32 26, label %534
-    i32 27, label %534
-    i32 28, label %534
-    i32 29, label %534
-    i32 30, label %534
-    i32 31, label %534
-    i32 34, label %534
-    i32 35, label %535
-    i32 36, label %540
-    i32 37, label %540
-    i32 38, label %540
-    i32 39, label %541
-    i32 40, label %549
-    i32 41, label %549
-    i32 42, label %549
-    i32 43, label %549
-    i32 44, label %549
-    i32 45, label %549
-    i32 46, label %549
-    i32 47, label %549
-    i32 48, label %550
-    i32 49, label %550
-    i32 50, label %555
-    i32 51, label %561
-    i32 52, label %561
-    i32 53, label %561
-    i32 54, label %561
-    i32 55, label %561
-    i32 56, label %561
-    i32 57, label %561
-    i32 58, label %561
-    i32 59, label %561
-    i32 60, label %561
-    i32 61, label %561
-    i32 62, label %561
-    i32 63, label %561
-    i32 64, label %561
-    i32 65, label %561
-    i32 66, label %561
-    i32 67, label %561
-    i32 68, label %561
-    i32 69, label %561
-    i32 70, label %561
-    i32 71, label %561
-    i32 73, label %561
-    i32 74, label %561
-    i32 75, label %561
-    i32 76, label %561
-    i32 77, label %561
-    i32 78, label %561
-    i32 79, label %561
-    i32 80, label %561
-    i32 81, label %561
-    i32 82, label %561
-    i32 83, label %561
-    i32 84, label %561
-    i32 85, label %561
-    i32 86, label %561
-    i32 87, label %561
-    i32 88, label %561
-    i32 89, label %561
-    i32 90, label %561
-    i32 91, label %561
-    i32 92, label %561
-    i32 93, label %561
+469:                                              ; preds = %344, %468, %461, %456, %455, %447, %446, %441, %440, %434, %425, %420, %413, %405, %404, %399, %393, %383, %373, %363, %358, %351, %350
+  br label %576
+
+470:                                              ; preds = %340
+  %471 = load i16, ptr %15, align 2
+  %472 = zext i16 %471 to i32
+  switch i32 %472, label %575 [
+    i32 0, label %473
+    i32 4, label %473
+    i32 5, label %473
+    i32 1, label %473
+    i32 2, label %484
+    i32 3, label %484
+    i32 7, label %489
+    i32 8, label %489
+    i32 32, label %489
+    i32 33, label %489
+    i32 10, label %499
+    i32 12, label %499
+    i32 16, label %505
+    i32 14, label %510
+    i32 15, label %510
+    i32 13, label %510
+    i32 11, label %511
+    i32 17, label %519
+    i32 18, label %526
+    i32 19, label %531
+    i32 20, label %531
+    i32 21, label %540
+    i32 22, label %546
+    i32 23, label %546
+    i32 24, label %546
+    i32 25, label %546
+    i32 26, label %546
+    i32 27, label %546
+    i32 28, label %546
+    i32 29, label %546
+    i32 30, label %546
+    i32 31, label %546
+    i32 34, label %546
+    i32 35, label %547
+    i32 36, label %552
+    i32 37, label %552
+    i32 38, label %552
+    i32 39, label %553
+    i32 40, label %561
+    i32 41, label %561
+    i32 42, label %561
+    i32 43, label %561
+    i32 44, label %561
+    i32 45, label %561
+    i32 46, label %561
+    i32 47, label %561
+    i32 48, label %562
+    i32 49, label %562
+    i32 50, label %567
+    i32 51, label %574
+    i32 52, label %574
+    i32 53, label %574
+    i32 54, label %574
+    i32 55, label %574
+    i32 56, label %574
+    i32 57, label %574
+    i32 58, label %574
+    i32 59, label %574
+    i32 60, label %574
+    i32 61, label %574
+    i32 62, label %574
+    i32 63, label %574
+    i32 64, label %574
+    i32 65, label %574
+    i32 66, label %574
+    i32 67, label %574
+    i32 68, label %574
+    i32 69, label %574
+    i32 70, label %574
+    i32 71, label %574
+    i32 73, label %574
+    i32 74, label %574
+    i32 75, label %574
+    i32 76, label %574
+    i32 77, label %574
+    i32 78, label %574
+    i32 79, label %574
+    i32 80, label %574
+    i32 81, label %574
+    i32 82, label %574
+    i32 83, label %574
+    i32 84, label %574
+    i32 85, label %574
+    i32 86, label %574
+    i32 87, label %574
+    i32 88, label %574
+    i32 89, label %574
+    i32 90, label %574
+    i32 91, label %574
+    i32 92, label %574
+    i32 93, label %574
   ]
 
-462:                                              ; preds = %459, %459, %459, %459
-  %463 = load i32, ptr %10, align 4
-  %464 = icmp ne i32 %463, 0
-  br i1 %464, label %465, label %466
+473:                                              ; preds = %470, %470, %470, %470
+  %474 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %475 = trunc i8 %474 to i1
+  br i1 %475, label %476, label %477
 
-465:                                              ; preds = %462
-  br label %562
+476:                                              ; preds = %473
+  br label %575
 
-466:                                              ; preds = %462
-  %467 = load ptr, ptr %9, align 8
-  %468 = load ptr, ptr %11, align 8
-  %469 = load i32, ptr %12, align 4
-  %470 = load i16, ptr %15, align 2
-  %471 = load i8, ptr %16, align 1
-  %472 = call i32 @zebra_interface(ptr noundef %467, ptr noundef %468, i32 noundef %469, i16 noundef zeroext %470, i8 noundef zeroext %471)
-  store i32 %472, ptr %12, align 4
-  br label %562
+477:                                              ; preds = %473
+  %478 = load ptr, ptr %9, align 8
+  %479 = load ptr, ptr %11, align 8
+  %480 = load i32, ptr %12, align 4
+  %481 = load i16, ptr %15, align 2
+  %482 = load i8, ptr %16, align 1
+  %483 = call i32 @zebra_interface(ptr noundef %478, ptr noundef %479, i32 noundef %480, i16 noundef zeroext %481, i8 noundef zeroext %482)
+  store i32 %483, ptr %12, align 4
+  br label %575
 
-473:                                              ; preds = %459, %459
-  %474 = load ptr, ptr %9, align 8
-  %475 = load ptr, ptr %11, align 8
-  %476 = load i32, ptr %12, align 4
-  %477 = call i32 @zebra_interface_address(ptr noundef %474, ptr noundef %475, i32 noundef %476)
-  store i32 %477, ptr %12, align 4
-  br label %562
+484:                                              ; preds = %470, %470
+  %485 = load ptr, ptr %9, align 8
+  %486 = load ptr, ptr %11, align 8
+  %487 = load i32, ptr %12, align 4
+  %488 = call i32 @zebra_interface_address(ptr noundef %485, ptr noundef %486, i32 noundef %487)
+  store i32 %488, ptr %12, align 4
+  br label %575
 
-478:                                              ; preds = %459, %459, %459, %459
-  %479 = load ptr, ptr %9, align 8
-  %480 = load i32, ptr %10, align 4
-  %481 = load ptr, ptr %11, align 8
-  %482 = load i32, ptr %12, align 4
-  %483 = load i16, ptr %14, align 2
-  %484 = load i16, ptr %15, align 2
-  %485 = load i8, ptr %16, align 1
-  %486 = call i32 @zebra_route(ptr noundef %479, i32 noundef %480, ptr noundef %481, i32 noundef %482, i16 noundef zeroext %483, i8 noundef zeroext 0, i16 noundef zeroext %484, i8 noundef zeroext %485)
-  store i32 %486, ptr %12, align 4
-  br label %562
+489:                                              ; preds = %470, %470, %470, %470
+  %490 = load ptr, ptr %9, align 8
+  %491 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %492 = trunc i8 %491 to i1
+  %493 = load ptr, ptr %11, align 8
+  %494 = load i32, ptr %12, align 4
+  %495 = load i16, ptr %14, align 2
+  %496 = load i16, ptr %15, align 2
+  %497 = load i8, ptr %16, align 1
+  %498 = call i32 @zebra_route(ptr noundef %490, i1 noundef zeroext %492, ptr noundef %493, i32 noundef %494, i16 noundef zeroext %495, i8 noundef zeroext 0, i16 noundef zeroext %496, i8 noundef zeroext %497)
+  store i32 %498, ptr %12, align 4
+  br label %575
 
-487:                                              ; preds = %459, %459
-  %488 = load ptr, ptr %9, align 8
-  %489 = load ptr, ptr %11, align 8
-  %490 = load i32, ptr %12, align 4
-  %491 = load i8, ptr %16, align 1
-  %492 = call i32 @zebra_redistribute(ptr noundef %488, ptr noundef %489, i32 noundef %490, i8 noundef zeroext %491)
-  store i32 %492, ptr %12, align 4
-  br label %562
-
-493:                                              ; preds = %459
-  %494 = load ptr, ptr %9, align 8
-  %495 = load ptr, ptr %11, align 8
-  %496 = load i32, ptr %12, align 4
-  %497 = call i32 @zerba_router_update(ptr noundef %494, ptr noundef %495, i32 noundef %496)
-  store i32 %497, ptr %12, align 4
-  br label %562
-
-498:                                              ; preds = %459, %459, %459
-  br label %562
-
-499:                                              ; preds = %459
+499:                                              ; preds = %470, %470
   %500 = load ptr, ptr %9, align 8
-  %501 = load i32, ptr @hf_zebra_type_v5, align 4
-  %502 = load ptr, ptr %11, align 8
-  %503 = load i32, ptr %12, align 4
-  %504 = call ptr @proto_tree_add_item(ptr noundef %500, i32 noundef %501, ptr noundef %502, i32 noundef %503, i32 noundef 1, i32 noundef 0)
-  %505 = load i32, ptr %12, align 4
-  %506 = add i32 %505, 1
-  store i32 %506, ptr %12, align 4
-  br label %562
+  %501 = load ptr, ptr %11, align 8
+  %502 = load i32, ptr %12, align 4
+  %503 = load i8, ptr %16, align 1
+  %504 = call i32 @zebra_redistribute(ptr noundef %500, ptr noundef %501, i32 noundef %502, i8 noundef zeroext %503)
+  store i32 %504, ptr %12, align 4
+  br label %575
 
-507:                                              ; preds = %459
-  %508 = load ptr, ptr %9, align 8
-  %509 = load ptr, ptr %11, align 8
-  %510 = load i32, ptr %12, align 4
-  %511 = load i32, ptr %13, align 4
-  %512 = load i8, ptr %16, align 1
-  %513 = call i32 @zebra_hello(ptr noundef %508, ptr noundef %509, i32 noundef %510, i32 noundef %511, i8 noundef zeroext %512)
-  store i32 %513, ptr %12, align 4
-  br label %562
+505:                                              ; preds = %470
+  %506 = load ptr, ptr %9, align 8
+  %507 = load ptr, ptr %11, align 8
+  %508 = load i32, ptr %12, align 4
+  %509 = call i32 @zerba_router_update(ptr noundef %506, ptr noundef %507, i32 noundef %508)
+  store i32 %509, ptr %12, align 4
+  br label %575
 
-514:                                              ; preds = %459
-  %515 = load ptr, ptr %9, align 8
-  %516 = load ptr, ptr %11, align 8
+510:                                              ; preds = %470, %470, %470
+  br label %575
+
+511:                                              ; preds = %470
+  %512 = load ptr, ptr %9, align 8
+  %513 = load i32, ptr @hf_zebra_type_v5, align 4
+  %514 = load ptr, ptr %11, align 8
+  %515 = load i32, ptr %12, align 4
+  %516 = call ptr @proto_tree_add_item(ptr noundef %512, i32 noundef %513, ptr noundef %514, i32 noundef %515, i32 noundef 1, i32 noundef 0)
   %517 = load i32, ptr %12, align 4
-  %518 = call i32 @zebra_capabilties(ptr noundef %515, ptr noundef %516, i32 noundef %517)
+  %518 = add i32 %517, 1
   store i32 %518, ptr %12, align 4
-  br label %562
+  br label %575
 
-519:                                              ; preds = %459, %459
+519:                                              ; preds = %470
   %520 = load ptr, ptr %9, align 8
   %521 = load ptr, ptr %11, align 8
   %522 = load i32, ptr %12, align 4
-  %523 = load i16, ptr %14, align 2
-  %524 = load i32, ptr %12, align 4
-  %525 = load i32, ptr %17, align 4
-  %526 = sub i32 %524, %525
-  %527 = call i32 @zebra_nexthop_register(ptr noundef %520, ptr noundef %521, i32 noundef %522, i16 noundef zeroext %523, i32 noundef %526)
-  store i32 %527, ptr %12, align 4
-  br label %562
+  %523 = load i32, ptr %13, align 4
+  %524 = load i8, ptr %16, align 1
+  %525 = call i32 @zebra_hello(ptr noundef %520, ptr noundef %521, i32 noundef %522, i32 noundef %523, i8 noundef zeroext %524)
+  store i32 %525, ptr %12, align 4
+  br label %575
 
-528:                                              ; preds = %459
-  %529 = load ptr, ptr %9, align 8
-  %530 = load ptr, ptr %11, align 8
-  %531 = load i32, ptr %12, align 4
-  %532 = load i8, ptr %16, align 1
-  %533 = call i32 @zebra_nexthop_update(ptr noundef %529, ptr noundef %530, i32 noundef %531, i8 noundef zeroext %532)
-  store i32 %533, ptr %12, align 4
-  br label %562
+526:                                              ; preds = %470
+  %527 = load ptr, ptr %9, align 8
+  %528 = load ptr, ptr %11, align 8
+  %529 = load i32, ptr %12, align 4
+  %530 = call i32 @zebra_capabilties(ptr noundef %527, ptr noundef %528, i32 noundef %529)
+  store i32 %530, ptr %12, align 4
+  br label %575
 
-534:                                              ; preds = %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459
-  br label %562
-
-535:                                              ; preds = %459
-  %536 = load ptr, ptr %9, align 8
-  %537 = load ptr, ptr %11, align 8
-  %538 = load i32, ptr %12, align 4
-  %539 = call i32 @zebra_vrf(ptr noundef %536, ptr noundef %537, i32 noundef %538)
+531:                                              ; preds = %470, %470
+  %532 = load ptr, ptr %9, align 8
+  %533 = load ptr, ptr %11, align 8
+  %534 = load i32, ptr %12, align 4
+  %535 = load i16, ptr %14, align 2
+  %536 = load i32, ptr %12, align 4
+  %537 = load i32, ptr %17, align 4
+  %538 = sub i32 %536, %537
+  %539 = call i32 @zebra_nexthop_register(ptr noundef %532, ptr noundef %533, i32 noundef %534, i16 noundef zeroext %535, i32 noundef %538)
   store i32 %539, ptr %12, align 4
-  br label %562
+  br label %575
 
-540:                                              ; preds = %459, %459, %459
-  br label %562
+540:                                              ; preds = %470
+  %541 = load ptr, ptr %9, align 8
+  %542 = load ptr, ptr %11, align 8
+  %543 = load i32, ptr %12, align 4
+  %544 = load i8, ptr %16, align 1
+  %545 = call i32 @zebra_nexthop_update(ptr noundef %541, ptr noundef %542, i32 noundef %543, i8 noundef zeroext %544)
+  store i32 %545, ptr %12, align 4
+  br label %575
 
-541:                                              ; preds = %459
-  %542 = load ptr, ptr %9, align 8
-  %543 = load i32, ptr @hf_zebra_pid, align 4
-  %544 = load ptr, ptr %11, align 8
-  %545 = load i32, ptr %12, align 4
-  %546 = call ptr @proto_tree_add_item(ptr noundef %542, i32 noundef %543, ptr noundef %544, i32 noundef %545, i32 noundef 4, i32 noundef 0)
-  %547 = load i32, ptr %12, align 4
-  %548 = add i32 %547, 4
-  store i32 %548, ptr %12, align 4
-  br label %562
+546:                                              ; preds = %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470
+  br label %575
 
-549:                                              ; preds = %459, %459, %459, %459, %459, %459, %459, %459
-  br label %562
+547:                                              ; preds = %470
+  %548 = load ptr, ptr %9, align 8
+  %549 = load ptr, ptr %11, align 8
+  %550 = load i32, ptr %12, align 4
+  %551 = call i32 @zebra_vrf(ptr noundef %548, ptr noundef %549, i32 noundef %550)
+  store i32 %551, ptr %12, align 4
+  br label %575
 
-550:                                              ; preds = %459, %459
-  %551 = load ptr, ptr %9, align 8
-  %552 = load ptr, ptr %11, align 8
-  %553 = load i32, ptr %12, align 4
-  %554 = call i32 @zebra_label_manager_connect(ptr noundef %551, ptr noundef %552, i32 noundef %553)
-  store i32 %554, ptr %12, align 4
-  br label %562
+552:                                              ; preds = %470, %470, %470
+  br label %575
 
-555:                                              ; preds = %459
-  %556 = load ptr, ptr %9, align 8
-  %557 = load i32, ptr %10, align 4
-  %558 = load ptr, ptr %11, align 8
+553:                                              ; preds = %470
+  %554 = load ptr, ptr %9, align 8
+  %555 = load i32, ptr @hf_zebra_pid, align 4
+  %556 = load ptr, ptr %11, align 8
+  %557 = load i32, ptr %12, align 4
+  %558 = call ptr @proto_tree_add_item(ptr noundef %554, i32 noundef %555, ptr noundef %556, i32 noundef %557, i32 noundef 4, i32 noundef 0)
   %559 = load i32, ptr %12, align 4
-  %560 = call i32 @zebra_get_label_chunk(ptr noundef %556, i32 noundef %557, ptr noundef %558, i32 noundef %559)
+  %560 = add i32 %559, 4
   store i32 %560, ptr %12, align 4
-  br label %562
+  br label %575
 
-561:                                              ; preds = %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459, %459
-  br label %562
+561:                                              ; preds = %470, %470, %470, %470, %470, %470, %470, %470
+  br label %575
 
-562:                                              ; preds = %561, %555, %550, %549, %541, %540, %535, %534, %528, %519, %514, %507, %499, %498, %493, %487, %478, %473, %466, %465, %459
-  br label %563
+562:                                              ; preds = %470, %470
+  %563 = load ptr, ptr %9, align 8
+  %564 = load ptr, ptr %11, align 8
+  %565 = load i32, ptr %12, align 4
+  %566 = call i32 @zebra_label_manager_connect(ptr noundef %563, ptr noundef %564, i32 noundef %565)
+  store i32 %566, ptr %12, align 4
+  br label %575
 
-563:                                              ; preds = %562, %458
-  br label %564
+567:                                              ; preds = %470
+  %568 = load ptr, ptr %9, align 8
+  %569 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %570 = trunc i8 %569 to i1
+  %571 = load ptr, ptr %11, align 8
+  %572 = load i32, ptr %12, align 4
+  %573 = call i32 @zebra_get_label_chunk(ptr noundef %568, i1 noundef zeroext %570, ptr noundef %571, i32 noundef %572)
+  store i32 %573, ptr %12, align 4
+  br label %575
 
-564:                                              ; preds = %563, %332
-  br label %565
+574:                                              ; preds = %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470, %470
+  br label %575
 
-565:                                              ; preds = %564, %238
-  %566 = load i32, ptr %12, align 4
-  ret i32 %566
+575:                                              ; preds = %470, %574, %567, %562, %561, %553, %552, %547, %546, %540, %531, %526, %519, %511, %510, %505, %499, %489, %484, %477, %476
+  br label %576
+
+576:                                              ; preds = %575, %469
+  br label %577
+
+577:                                              ; preds = %576, %339
+  br label %578
+
+578:                                              ; preds = %577, %243
+  %579 = load i32, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #7
+  ret i32 %579
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @try_val_to_str(i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @zebra_interface(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i8 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2295,6 +2386,7 @@ define internal i32 @zebra_interface(ptr noundef %0, ptr noundef %1, i32 noundef
   store i32 %2, ptr %8, align 4
   store i16 %3, ptr %9, align 2
   store i8 %4, ptr %10, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
   %12 = load ptr, ptr %6, align 8
   %13 = load i32, ptr @hf_zebra_interface, align 4
   %14 = load ptr, ptr %7, align 8
@@ -2525,147 +2617,153 @@ define internal i32 @zebra_interface(ptr noundef %0, ptr noundef %1, i32 noundef
 
 181:                                              ; preds = %180, %124, %120
   %182 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
   ret i32 %182
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @zebra_interface_address(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
+  %9 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i32, ptr @hf_zebra_index, align 4
-  %11 = load ptr, ptr %6, align 8
-  %12 = load i32, ptr %7, align 4
-  %13 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %10, ptr noundef %11, i32 noundef %12, i32 noundef 4, i32 noundef 0)
-  %14 = load i32, ptr %7, align 4
-  %15 = add i32 %14, 4
-  store i32 %15, ptr %7, align 4
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr @hf_zebra_flags, align 4
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef 1, i32 noundef 0)
-  %21 = load i32, ptr %7, align 4
-  %22 = add i32 %21, 1
-  store i32 %22, ptr %7, align 4
-  %23 = load ptr, ptr %5, align 8
-  %24 = load i32, ptr @hf_zebra_family, align 4
-  %25 = load ptr, ptr %6, align 8
-  %26 = load i32, ptr %7, align 4
-  %27 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %24, ptr noundef %25, i32 noundef %26, i32 noundef 1, i32 noundef 0)
-  %28 = load ptr, ptr %6, align 8
-  %29 = load i32, ptr %7, align 4
-  %30 = call zeroext i8 @tvb_get_guint8(ptr noundef %28, i32 noundef %29)
-  store i8 %30, ptr %8, align 1
-  %31 = load i32, ptr %7, align 4
-  %32 = add i32 %31, 1
-  store i32 %32, ptr %7, align 4
-  %33 = load i8, ptr %8, align 1
-  %34 = zext i8 %33 to i32
-  %35 = icmp eq i32 %34, 2
-  br i1 %35, label %36, label %44
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #7
+  %10 = load ptr, ptr %5, align 8
+  %11 = load i32, ptr @hf_zebra_index, align 4
+  %12 = load ptr, ptr %6, align 8
+  %13 = load i32, ptr %7, align 4
+  %14 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %12, i32 noundef %13, i32 noundef 4, i32 noundef 0)
+  %15 = load i32, ptr %7, align 4
+  %16 = add i32 %15, 4
+  store i32 %16, ptr %7, align 4
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr @hf_zebra_flags, align 4
+  %19 = load ptr, ptr %6, align 8
+  %20 = load i32, ptr %7, align 4
+  %21 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef 1, i32 noundef 0)
+  %22 = load i32, ptr %7, align 4
+  %23 = add i32 %22, 1
+  store i32 %23, ptr %7, align 4
+  %24 = load ptr, ptr %5, align 8
+  %25 = load i32, ptr @hf_zebra_family, align 4
+  %26 = load ptr, ptr %6, align 8
+  %27 = load i32, ptr %7, align 4
+  %28 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef 1, i32 noundef 0)
+  %29 = load ptr, ptr %6, align 8
+  %30 = load i32, ptr %7, align 4
+  %31 = call zeroext i8 @tvb_get_uint8(ptr noundef %29, i32 noundef %30)
+  store i8 %31, ptr %8, align 1
+  %32 = load i32, ptr %7, align 4
+  %33 = add i32 %32, 1
+  store i32 %33, ptr %7, align 4
+  %34 = load i8, ptr %8, align 1
+  %35 = zext i8 %34 to i32
+  %36 = icmp eq i32 %35, 2
+  br i1 %36, label %37, label %45
 
-36:                                               ; preds = %3
-  %37 = load ptr, ptr %5, align 8
-  %38 = load i32, ptr @hf_zebra_prefix4, align 4
-  %39 = load ptr, ptr %6, align 8
-  %40 = load i32, ptr %7, align 4
-  %41 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %39, i32 noundef %40, i32 noundef 4, i32 noundef 0)
-  %42 = load i32, ptr %7, align 4
-  %43 = add i32 %42, 4
-  store i32 %43, ptr %7, align 4
+37:                                               ; preds = %3
+  %38 = load ptr, ptr %5, align 8
+  %39 = load i32, ptr @hf_zebra_prefix4, align 4
+  %40 = load ptr, ptr %6, align 8
+  %41 = load i32, ptr %7, align 4
+  %42 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %39, ptr noundef %40, i32 noundef %41, i32 noundef 4, i32 noundef 0)
+  %43 = load i32, ptr %7, align 4
+  %44 = add i32 %43, 4
+  store i32 %44, ptr %7, align 4
+  br label %60
+
+45:                                               ; preds = %3
+  %46 = load i8, ptr %8, align 1
+  %47 = zext i8 %46 to i32
+  %48 = icmp eq i32 %47, 10
+  br i1 %48, label %49, label %57
+
+49:                                               ; preds = %45
+  %50 = load ptr, ptr %5, align 8
+  %51 = load i32, ptr @hf_zebra_prefix6, align 4
+  %52 = load ptr, ptr %6, align 8
+  %53 = load i32, ptr %7, align 4
+  %54 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %51, ptr noundef %52, i32 noundef %53, i32 noundef 16, i32 noundef 0)
+  %55 = load i32, ptr %7, align 4
+  %56 = add i32 %55, 16
+  store i32 %56, ptr %7, align 4
   br label %59
 
-44:                                               ; preds = %3
-  %45 = load i8, ptr %8, align 1
-  %46 = zext i8 %45 to i32
-  %47 = icmp eq i32 %46, 10
-  br i1 %47, label %48, label %56
+57:                                               ; preds = %45
+  %58 = load i32, ptr %7, align 4
+  store i32 %58, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %94
 
-48:                                               ; preds = %44
-  %49 = load ptr, ptr %5, align 8
-  %50 = load i32, ptr @hf_zebra_prefix6, align 4
-  %51 = load ptr, ptr %6, align 8
-  %52 = load i32, ptr %7, align 4
-  %53 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %50, ptr noundef %51, i32 noundef %52, i32 noundef 16, i32 noundef 0)
-  %54 = load i32, ptr %7, align 4
-  %55 = add i32 %54, 16
-  store i32 %55, ptr %7, align 4
-  br label %58
+59:                                               ; preds = %49
+  br label %60
 
-56:                                               ; preds = %44
-  %57 = load i32, ptr %7, align 4
-  store i32 %57, ptr %4, align 4
-  br label %93
+60:                                               ; preds = %59, %37
+  %61 = load ptr, ptr %5, align 8
+  %62 = load i32, ptr @hf_zebra_prefixlen, align 4
+  %63 = load ptr, ptr %6, align 8
+  %64 = load i32, ptr %7, align 4
+  %65 = call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %62, ptr noundef %63, i32 noundef %64, i32 noundef 1, i32 noundef 0)
+  %66 = load i32, ptr %7, align 4
+  %67 = add i32 %66, 1
+  store i32 %67, ptr %7, align 4
+  %68 = load i8, ptr %8, align 1
+  %69 = zext i8 %68 to i32
+  %70 = icmp eq i32 %69, 2
+  br i1 %70, label %71, label %79
 
-58:                                               ; preds = %48
-  br label %59
+71:                                               ; preds = %60
+  %72 = load ptr, ptr %5, align 8
+  %73 = load i32, ptr @hf_zebra_dest4, align 4
+  %74 = load ptr, ptr %6, align 8
+  %75 = load i32, ptr %7, align 4
+  %76 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %73, ptr noundef %74, i32 noundef %75, i32 noundef 4, i32 noundef 0)
+  %77 = load i32, ptr %7, align 4
+  %78 = add i32 %77, 4
+  store i32 %78, ptr %7, align 4
+  br label %92
 
-59:                                               ; preds = %58, %36
-  %60 = load ptr, ptr %5, align 8
-  %61 = load i32, ptr @hf_zebra_prefixlen, align 4
-  %62 = load ptr, ptr %6, align 8
-  %63 = load i32, ptr %7, align 4
-  %64 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %61, ptr noundef %62, i32 noundef %63, i32 noundef 1, i32 noundef 0)
-  %65 = load i32, ptr %7, align 4
-  %66 = add i32 %65, 1
-  store i32 %66, ptr %7, align 4
-  %67 = load i8, ptr %8, align 1
-  %68 = zext i8 %67 to i32
-  %69 = icmp eq i32 %68, 2
-  br i1 %69, label %70, label %78
+79:                                               ; preds = %60
+  %80 = load i8, ptr %8, align 1
+  %81 = zext i8 %80 to i32
+  %82 = icmp eq i32 %81, 10
+  br i1 %82, label %83, label %91
 
-70:                                               ; preds = %59
-  %71 = load ptr, ptr %5, align 8
-  %72 = load i32, ptr @hf_zebra_dest4, align 4
-  %73 = load ptr, ptr %6, align 8
-  %74 = load i32, ptr %7, align 4
-  %75 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %72, ptr noundef %73, i32 noundef %74, i32 noundef 4, i32 noundef 0)
-  %76 = load i32, ptr %7, align 4
-  %77 = add i32 %76, 4
-  store i32 %77, ptr %7, align 4
+83:                                               ; preds = %79
+  %84 = load ptr, ptr %5, align 8
+  %85 = load i32, ptr @hf_zebra_dest6, align 4
+  %86 = load ptr, ptr %6, align 8
+  %87 = load i32, ptr %7, align 4
+  %88 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %85, ptr noundef %86, i32 noundef %87, i32 noundef 16, i32 noundef 0)
+  %89 = load i32, ptr %7, align 4
+  %90 = add i32 %89, 16
+  store i32 %90, ptr %7, align 4
   br label %91
 
-78:                                               ; preds = %59
-  %79 = load i8, ptr %8, align 1
-  %80 = zext i8 %79 to i32
-  %81 = icmp eq i32 %80, 10
-  br i1 %81, label %82, label %90
+91:                                               ; preds = %83, %79
+  br label %92
 
-82:                                               ; preds = %78
-  %83 = load ptr, ptr %5, align 8
-  %84 = load i32, ptr @hf_zebra_dest6, align 4
-  %85 = load ptr, ptr %6, align 8
-  %86 = load i32, ptr %7, align 4
-  %87 = call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %84, ptr noundef %85, i32 noundef %86, i32 noundef 16, i32 noundef 0)
-  %88 = load i32, ptr %7, align 4
-  %89 = add i32 %88, 16
-  store i32 %89, ptr %7, align 4
-  br label %90
+92:                                               ; preds = %91, %71
+  %93 = load i32, ptr %7, align 4
+  store i32 %93, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %94
 
-90:                                               ; preds = %82, %78
-  br label %91
-
-91:                                               ; preds = %90, %70
-  %92 = load i32, ptr %7, align 4
-  store i32 %92, ptr %4, align 4
-  br label %93
-
-93:                                               ; preds = %91, %56
-  %94 = load i32, ptr %4, align 4
-  ret i32 %94
+94:                                               ; preds = %92, %57
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #7
+  %95 = load i32, ptr %4, align 4
+  ret i32 %95
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @zebra_route(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i16 noundef zeroext %6, i8 noundef zeroext %7) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @zebra_route(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i16 noundef zeroext %6, i8 noundef zeroext %7) #0 {
   %9 = alloca ptr, align 8
-  %10 = alloca i32, align 4
+  %10 = alloca i8, align 1
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
   %13 = alloca i16, align 2
@@ -2681,850 +2779,868 @@ define internal i32 @zebra_route(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   %23 = alloca i8, align 1
   %24 = alloca [16 x i8], align 16
   store ptr %0, ptr %9, align 8
-  store i32 %1, ptr %10, align 4
+  %25 = zext i1 %1 to i8
+  store i8 %25, ptr %10, align 1
   store ptr %2, ptr %11, align 8
   store i32 %3, ptr %12, align 4
   store i16 %4, ptr %13, align 2
   store i8 %5, ptr %14, align 1
   store i16 %6, ptr %15, align 2
   store i8 %7, ptr %16, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #7
   store i32 0, ptr %19, align 4
-  %25 = load i8, ptr %16, align 1
-  %26 = zext i8 %25 to i32
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %34
+  call void @llvm.lifetime.start.p0(i64 1, ptr %20) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %21) #7
+  call void @llvm.lifetime.start.p0(i64 16, ptr %22) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %23) #7
+  call void @llvm.lifetime.start.p0(i64 16, ptr %24) #7
+  %26 = load i8, ptr %16, align 1
+  %27 = zext i8 %26 to i32
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %35
 
-28:                                               ; preds = %8
-  %29 = load ptr, ptr %9, align 8
-  %30 = load i32, ptr @hf_zebra_type_v0, align 4
-  %31 = load ptr, ptr %11, align 8
-  %32 = load i32, ptr %12, align 4
-  %33 = call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef 1, i32 noundef 0)
+29:                                               ; preds = %8
+  %30 = load ptr, ptr %9, align 8
+  %31 = load i32, ptr @hf_zebra_type_v0, align 4
+  %32 = load ptr, ptr %11, align 8
+  %33 = load i32, ptr %12, align 4
+  %34 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %31, ptr noundef %32, i32 noundef %33, i32 noundef 1, i32 noundef 0)
+  br label %63
+
+35:                                               ; preds = %8
+  %36 = load i8, ptr %16, align 1
+  %37 = zext i8 %36 to i32
+  %38 = icmp slt i32 %37, 4
+  br i1 %38, label %39, label %45
+
+39:                                               ; preds = %35
+  %40 = load ptr, ptr %9, align 8
+  %41 = load i32, ptr @hf_zebra_type_v1, align 4
+  %42 = load ptr, ptr %11, align 8
+  %43 = load i32, ptr %12, align 4
+  %44 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef %43, i32 noundef 1, i32 noundef 0)
   br label %62
 
-34:                                               ; preds = %8
-  %35 = load i8, ptr %16, align 1
-  %36 = zext i8 %35 to i32
-  %37 = icmp slt i32 %36, 4
-  br i1 %37, label %38, label %44
+45:                                               ; preds = %35
+  %46 = load i8, ptr %16, align 1
+  %47 = zext i8 %46 to i32
+  %48 = icmp eq i32 %47, 4
+  br i1 %48, label %49, label %55
 
-38:                                               ; preds = %34
-  %39 = load ptr, ptr %9, align 8
-  %40 = load i32, ptr @hf_zebra_type_v1, align 4
-  %41 = load ptr, ptr %11, align 8
-  %42 = load i32, ptr %12, align 4
-  %43 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef %42, i32 noundef 1, i32 noundef 0)
+49:                                               ; preds = %45
+  %50 = load ptr, ptr %9, align 8
+  %51 = load i32, ptr @hf_zebra_type_v4, align 4
+  %52 = load ptr, ptr %11, align 8
+  %53 = load i32, ptr %12, align 4
+  %54 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %51, ptr noundef %52, i32 noundef %53, i32 noundef 1, i32 noundef 0)
   br label %61
 
-44:                                               ; preds = %34
-  %45 = load i8, ptr %16, align 1
-  %46 = zext i8 %45 to i32
-  %47 = icmp eq i32 %46, 4
-  br i1 %47, label %48, label %54
-
-48:                                               ; preds = %44
-  %49 = load ptr, ptr %9, align 8
-  %50 = load i32, ptr @hf_zebra_type_v4, align 4
-  %51 = load ptr, ptr %11, align 8
-  %52 = load i32, ptr %12, align 4
-  %53 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %50, ptr noundef %51, i32 noundef %52, i32 noundef 1, i32 noundef 0)
-  br label %60
-
-54:                                               ; preds = %44
-  %55 = load ptr, ptr %9, align 8
-  %56 = load i32, ptr @hf_zebra_type_v5, align 4
-  %57 = load ptr, ptr %11, align 8
-  %58 = load i32, ptr %12, align 4
-  %59 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %56, ptr noundef %57, i32 noundef %58, i32 noundef 1, i32 noundef 0)
-  br label %60
-
-60:                                               ; preds = %54, %48
+55:                                               ; preds = %45
+  %56 = load ptr, ptr %9, align 8
+  %57 = load i32, ptr @hf_zebra_type_v5, align 4
+  %58 = load ptr, ptr %11, align 8
+  %59 = load i32, ptr %12, align 4
+  %60 = call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %57, ptr noundef %58, i32 noundef %59, i32 noundef 1, i32 noundef 0)
   br label %61
 
-61:                                               ; preds = %60, %38
+61:                                               ; preds = %55, %49
   br label %62
 
-62:                                               ; preds = %61, %28
-  %63 = load i32, ptr %12, align 4
-  %64 = add i32 %63, 1
-  store i32 %64, ptr %12, align 4
-  %65 = load i8, ptr %16, align 1
-  %66 = zext i8 %65 to i32
-  %67 = icmp sgt i32 %66, 3
-  br i1 %67, label %68, label %86
+62:                                               ; preds = %61, %39
+  br label %63
 
-68:                                               ; preds = %62
-  %69 = load ptr, ptr %9, align 8
-  %70 = load i32, ptr @hf_zebra_instance, align 4
-  %71 = load ptr, ptr %11, align 8
-  %72 = load i32, ptr %12, align 4
-  %73 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %70, ptr noundef %71, i32 noundef %72, i32 noundef 2, i32 noundef 0)
-  %74 = load i32, ptr %12, align 4
-  %75 = add i32 %74, 2
-  store i32 %75, ptr %12, align 4
-  %76 = load ptr, ptr %11, align 8
-  %77 = load i32, ptr %12, align 4
-  %78 = call i32 @tvb_get_ntohl(ptr noundef %76, i32 noundef %77)
-  store i32 %78, ptr %19, align 4
-  %79 = load ptr, ptr %9, align 8
-  %80 = load i32, ptr @hf_zebra_rtflags_u32, align 4
-  %81 = load ptr, ptr %11, align 8
-  %82 = load i32, ptr %12, align 4
-  %83 = call ptr @proto_tree_add_item(ptr noundef %79, i32 noundef %80, ptr noundef %81, i32 noundef %82, i32 noundef 4, i32 noundef 0)
-  %84 = load i32, ptr %12, align 4
-  %85 = add i32 %84, 4
-  store i32 %85, ptr %12, align 4
-  br label %94
+63:                                               ; preds = %62, %29
+  %64 = load i32, ptr %12, align 4
+  %65 = add i32 %64, 1
+  store i32 %65, ptr %12, align 4
+  %66 = load i8, ptr %16, align 1
+  %67 = zext i8 %66 to i32
+  %68 = icmp sgt i32 %67, 3
+  br i1 %68, label %69, label %87
 
-86:                                               ; preds = %62
-  %87 = load ptr, ptr %9, align 8
-  %88 = load i32, ptr @hf_zebra_rtflags, align 4
-  %89 = load ptr, ptr %11, align 8
-  %90 = load i32, ptr %12, align 4
-  %91 = call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %88, ptr noundef %89, i32 noundef %90, i32 noundef 1, i32 noundef 0)
-  %92 = load i32, ptr %12, align 4
-  %93 = add i32 %92, 1
-  store i32 %93, ptr %12, align 4
-  br label %94
+69:                                               ; preds = %63
+  %70 = load ptr, ptr %9, align 8
+  %71 = load i32, ptr @hf_zebra_instance, align 4
+  %72 = load ptr, ptr %11, align 8
+  %73 = load i32, ptr %12, align 4
+  %74 = call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %71, ptr noundef %72, i32 noundef %73, i32 noundef 2, i32 noundef 0)
+  %75 = load i32, ptr %12, align 4
+  %76 = add i32 %75, 2
+  store i32 %76, ptr %12, align 4
+  %77 = load ptr, ptr %11, align 8
+  %78 = load i32, ptr %12, align 4
+  %79 = call i32 @tvb_get_ntohl(ptr noundef %77, i32 noundef %78)
+  store i32 %79, ptr %19, align 4
+  %80 = load ptr, ptr %9, align 8
+  %81 = load i32, ptr @hf_zebra_rtflags_u32, align 4
+  %82 = load ptr, ptr %11, align 8
+  %83 = load i32, ptr %12, align 4
+  %84 = call ptr @proto_tree_add_item(ptr noundef %80, i32 noundef %81, ptr noundef %82, i32 noundef %83, i32 noundef 4, i32 noundef 0)
+  %85 = load i32, ptr %12, align 4
+  %86 = add i32 %85, 4
+  store i32 %86, ptr %12, align 4
+  br label %95
 
-94:                                               ; preds = %86, %68
-  %95 = load ptr, ptr %11, align 8
-  %96 = load i32, ptr %12, align 4
-  %97 = call zeroext i8 @tvb_get_guint8(ptr noundef %95, i32 noundef %96)
-  store i8 %97, ptr %20, align 1
-  %98 = load ptr, ptr %9, align 8
-  %99 = load ptr, ptr %11, align 8
-  %100 = load i32, ptr %12, align 4
-  %101 = load i8, ptr %16, align 1
-  %102 = call i32 @zebra_route_message(ptr noundef %98, ptr noundef %99, i32 noundef %100, i8 noundef zeroext %101)
-  store i32 %102, ptr %12, align 4
-  %103 = load i8, ptr %16, align 1
-  %104 = zext i8 %103 to i32
-  %105 = icmp sgt i32 %104, 1
-  br i1 %105, label %106, label %150
+87:                                               ; preds = %63
+  %88 = load ptr, ptr %9, align 8
+  %89 = load i32, ptr @hf_zebra_rtflags, align 4
+  %90 = load ptr, ptr %11, align 8
+  %91 = load i32, ptr %12, align 4
+  %92 = call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %89, ptr noundef %90, i32 noundef %91, i32 noundef 1, i32 noundef 0)
+  %93 = load i32, ptr %12, align 4
+  %94 = add i32 %93, 1
+  store i32 %94, ptr %12, align 4
+  br label %95
 
-106:                                              ; preds = %94
-  %107 = load i8, ptr %16, align 1
-  %108 = zext i8 %107 to i32
-  %109 = icmp slt i32 %108, 5
-  br i1 %109, label %110, label %150
+95:                                               ; preds = %87, %69
+  %96 = load ptr, ptr %11, align 8
+  %97 = load i32, ptr %12, align 4
+  %98 = call zeroext i8 @tvb_get_uint8(ptr noundef %96, i32 noundef %97)
+  store i8 %98, ptr %20, align 1
+  %99 = load ptr, ptr %9, align 8
+  %100 = load ptr, ptr %11, align 8
+  %101 = load i32, ptr %12, align 4
+  %102 = load i8, ptr %16, align 1
+  %103 = call i32 @zebra_route_message(ptr noundef %99, ptr noundef %100, i32 noundef %101, i8 noundef zeroext %102)
+  store i32 %103, ptr %12, align 4
+  %104 = load i8, ptr %16, align 1
+  %105 = zext i8 %104 to i32
+  %106 = icmp sgt i32 %105, 1
+  br i1 %106, label %107, label %151
 
-110:                                              ; preds = %106
-  %111 = load i8, ptr %16, align 1
-  %112 = zext i8 %111 to i32
-  %113 = icmp eq i32 %112, 2
-  br i1 %113, label %118, label %114
+107:                                              ; preds = %95
+  %108 = load i8, ptr %16, align 1
+  %109 = zext i8 %108 to i32
+  %110 = icmp slt i32 %109, 5
+  br i1 %110, label %111, label %151
 
-114:                                              ; preds = %110
-  %115 = load i8, ptr %16, align 1
-  %116 = zext i8 %115 to i32
-  %117 = icmp eq i32 %116, 3
-  br i1 %117, label %118, label %121
+111:                                              ; preds = %107
+  %112 = load i8, ptr %16, align 1
+  %113 = zext i8 %112 to i32
+  %114 = icmp eq i32 %113, 2
+  br i1 %114, label %119, label %115
 
-118:                                              ; preds = %114, %110
-  %119 = load i32, ptr %10, align 4
-  %120 = icmp ne i32 %119, 0
-  br i1 %120, label %141, label %121
+115:                                              ; preds = %111
+  %116 = load i8, ptr %16, align 1
+  %117 = zext i8 %116 to i32
+  %118 = icmp eq i32 %117, 3
+  br i1 %118, label %119, label %122
 
-121:                                              ; preds = %118, %114
-  %122 = load i8, ptr %16, align 1
-  %123 = zext i8 %122 to i32
-  %124 = icmp eq i32 %123, 4
-  br i1 %124, label %125, label %149
+119:                                              ; preds = %115, %111
+  %120 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %121 = trunc i8 %120 to i1
+  br i1 %121, label %142, label %122
 
-125:                                              ; preds = %121
-  %126 = load i16, ptr %15, align 2
-  %127 = zext i16 %126 to i32
-  %128 = icmp eq i32 %127, 6
-  br i1 %128, label %141, label %129
+122:                                              ; preds = %119, %115
+  %123 = load i8, ptr %16, align 1
+  %124 = zext i8 %123 to i32
+  %125 = icmp eq i32 %124, 4
+  br i1 %125, label %126, label %150
 
-129:                                              ; preds = %125
-  %130 = load i16, ptr %15, align 2
-  %131 = zext i16 %130 to i32
-  %132 = icmp eq i32 %131, 7
-  br i1 %132, label %141, label %133
+126:                                              ; preds = %122
+  %127 = load i16, ptr %15, align 2
+  %128 = zext i16 %127 to i32
+  %129 = icmp eq i32 %128, 6
+  br i1 %129, label %142, label %130
 
-133:                                              ; preds = %129
-  %134 = load i16, ptr %15, align 2
-  %135 = zext i16 %134 to i32
-  %136 = icmp eq i32 %135, 8
-  br i1 %136, label %141, label %137
+130:                                              ; preds = %126
+  %131 = load i16, ptr %15, align 2
+  %132 = zext i16 %131 to i32
+  %133 = icmp eq i32 %132, 7
+  br i1 %133, label %142, label %134
 
-137:                                              ; preds = %133
-  %138 = load i16, ptr %15, align 2
-  %139 = zext i16 %138 to i32
-  %140 = icmp eq i32 %139, 9
-  br i1 %140, label %141, label %149
+134:                                              ; preds = %130
+  %135 = load i16, ptr %15, align 2
+  %136 = zext i16 %135 to i32
+  %137 = icmp eq i32 %136, 8
+  br i1 %137, label %142, label %138
 
-141:                                              ; preds = %137, %133, %129, %125, %118
-  %142 = load ptr, ptr %9, align 8
-  %143 = load i32, ptr @hf_zebra_route_safi, align 4
-  %144 = load ptr, ptr %11, align 8
-  %145 = load i32, ptr %12, align 4
-  %146 = call ptr @proto_tree_add_item(ptr noundef %142, i32 noundef %143, ptr noundef %144, i32 noundef %145, i32 noundef 2, i32 noundef 0)
-  %147 = load i32, ptr %12, align 4
-  %148 = add i32 %147, 2
-  store i32 %148, ptr %12, align 4
-  br label %149
+138:                                              ; preds = %134
+  %139 = load i16, ptr %15, align 2
+  %140 = zext i16 %139 to i32
+  %141 = icmp eq i32 %140, 9
+  br i1 %141, label %142, label %150
 
-149:                                              ; preds = %141, %137, %121
+142:                                              ; preds = %138, %134, %130, %126, %119
+  %143 = load ptr, ptr %9, align 8
+  %144 = load i32, ptr @hf_zebra_route_safi, align 4
+  %145 = load ptr, ptr %11, align 8
+  %146 = load i32, ptr %12, align 4
+  %147 = call ptr @proto_tree_add_item(ptr noundef %143, i32 noundef %144, ptr noundef %145, i32 noundef %146, i32 noundef 2, i32 noundef 0)
+  %148 = load i32, ptr %12, align 4
+  %149 = add i32 %148, 2
+  store i32 %149, ptr %12, align 4
+  br label %150
+
+150:                                              ; preds = %142, %138, %122
+  br label %198
+
+151:                                              ; preds = %107, %95
+  %152 = load i8, ptr %16, align 1
+  %153 = zext i8 %152 to i32
+  %154 = icmp sge i32 %153, 5
+  br i1 %154, label %155, label %197
+
+155:                                              ; preds = %151
+  %156 = load ptr, ptr %9, align 8
+  %157 = load i32, ptr @hf_zebra_route_safi_u8, align 4
+  %158 = load ptr, ptr %11, align 8
+  %159 = load i32, ptr %12, align 4
+  %160 = call ptr @proto_tree_add_item(ptr noundef %156, i32 noundef %157, ptr noundef %158, i32 noundef %159, i32 noundef 1, i32 noundef 0)
+  %161 = load i32, ptr %12, align 4
+  %162 = add i32 %161, 1
+  store i32 %162, ptr %12, align 4
+  %163 = load i8, ptr %16, align 1
+  %164 = zext i8 %163 to i32
+  %165 = icmp eq i32 %164, 5
+  br i1 %165, label %166, label %170
+
+166:                                              ; preds = %155
+  %167 = load i32, ptr %19, align 4
+  %168 = and i32 %167, 1024
+  %169 = icmp ne i32 %168, 0
+  br i1 %169, label %178, label %170
+
+170:                                              ; preds = %166, %155
+  %171 = load i8, ptr %16, align 1
+  %172 = zext i8 %171 to i32
+  %173 = icmp sgt i32 %172, 5
+  br i1 %173, label %174, label %186
+
+174:                                              ; preds = %170
+  %175 = load i32, ptr %19, align 4
+  %176 = and i32 %175, 32
+  %177 = icmp ne i32 %176, 0
+  br i1 %177, label %178, label %186
+
+178:                                              ; preds = %174, %166
+  %179 = load ptr, ptr %9, align 8
+  %180 = load i32, ptr @hf_zebra_rmac, align 4
+  %181 = load ptr, ptr %11, align 8
+  %182 = load i32, ptr %12, align 4
+  %183 = call ptr @proto_tree_add_item(ptr noundef %179, i32 noundef %180, ptr noundef %181, i32 noundef %182, i32 noundef 6, i32 noundef 0)
+  %184 = load i32, ptr %12, align 4
+  %185 = add i32 %184, 6
+  store i32 %185, ptr %12, align 4
+  br label %186
+
+186:                                              ; preds = %178, %174, %170
+  %187 = load ptr, ptr %11, align 8
+  %188 = load i32, ptr %12, align 4
+  %189 = call zeroext i8 @tvb_get_uint8(ptr noundef %187, i32 noundef %188)
+  store i8 %189, ptr %14, align 1
+  %190 = load ptr, ptr %9, align 8
+  %191 = load i32, ptr @hf_zebra_family, align 4
+  %192 = load ptr, ptr %11, align 8
+  %193 = load i32, ptr %12, align 4
+  %194 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %191, ptr noundef %192, i32 noundef %193, i32 noundef 1, i32 noundef 0)
+  %195 = load i32, ptr %12, align 4
+  %196 = add i32 %195, 1
+  store i32 %196, ptr %12, align 4
   br label %197
 
-150:                                              ; preds = %106, %94
-  %151 = load i8, ptr %16, align 1
-  %152 = zext i8 %151 to i32
-  %153 = icmp sge i32 %152, 5
-  br i1 %153, label %154, label %196
+197:                                              ; preds = %186, %151
+  br label %198
 
-154:                                              ; preds = %150
-  %155 = load ptr, ptr %9, align 8
-  %156 = load i32, ptr @hf_zebra_route_safi_u8, align 4
-  %157 = load ptr, ptr %11, align 8
-  %158 = load i32, ptr %12, align 4
-  %159 = call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %156, ptr noundef %157, i32 noundef %158, i32 noundef 1, i32 noundef 0)
-  %160 = load i32, ptr %12, align 4
-  %161 = add i32 %160, 1
-  store i32 %161, ptr %12, align 4
-  %162 = load i8, ptr %16, align 1
-  %163 = zext i8 %162 to i32
-  %164 = icmp eq i32 %163, 5
-  br i1 %164, label %165, label %169
+198:                                              ; preds = %197, %150
+  %199 = load ptr, ptr %11, align 8
+  %200 = load i32, ptr %12, align 4
+  %201 = call zeroext i8 @tvb_get_uint8(ptr noundef %199, i32 noundef %200)
+  store i8 %201, ptr %21, align 1
+  %202 = load ptr, ptr %9, align 8
+  %203 = load i32, ptr @hf_zebra_prefixlen, align 4
+  %204 = load ptr, ptr %11, align 8
+  %205 = load i32, ptr %12, align 4
+  %206 = load i8, ptr %21, align 1
+  %207 = zext i8 %206 to i32
+  %208 = call ptr @proto_tree_add_uint(ptr noundef %202, i32 noundef %203, ptr noundef %204, i32 noundef %205, i32 noundef 1, i32 noundef %207)
+  %209 = load i32, ptr %12, align 4
+  %210 = add i32 %209, 1
+  store i32 %210, ptr %12, align 4
+  %211 = load i8, ptr %14, align 1
+  %212 = zext i8 %211 to i32
+  %213 = icmp eq i32 %212, 10
+  br i1 %213, label %214, label %246
 
-165:                                              ; preds = %154
-  %166 = load i32, ptr %19, align 4
-  %167 = and i32 %166, 1024
-  %168 = icmp ne i32 %167, 0
-  br i1 %168, label %177, label %169
+214:                                              ; preds = %198
+  %215 = getelementptr inbounds [16 x i8], ptr %22, i64 0, i64 0
+  %216 = call ptr @memset.inline(ptr noundef %215, i32 noundef 0, i64 noundef 16) #7
+  %217 = load ptr, ptr %11, align 8
+  %218 = getelementptr inbounds [16 x i8], ptr %22, i64 0, i64 0
+  %219 = load i32, ptr %12, align 4
+  %220 = load i8, ptr %21, align 1
+  %221 = zext i8 %220 to i32
+  %222 = add i32 %221, 7
+  %223 = sdiv i32 %222, 8
+  %224 = zext i32 %223 to i64
+  %225 = icmp ult i64 %224, 16
+  br i1 %225, label %226, label %232
 
-169:                                              ; preds = %165, %154
-  %170 = load i8, ptr %16, align 1
-  %171 = zext i8 %170 to i32
-  %172 = icmp sgt i32 %171, 5
-  br i1 %172, label %173, label %185
+226:                                              ; preds = %214
+  %227 = load i8, ptr %21, align 1
+  %228 = zext i8 %227 to i32
+  %229 = add i32 %228, 7
+  %230 = sdiv i32 %229, 8
+  %231 = zext i32 %230 to i64
+  br label %233
 
-173:                                              ; preds = %169
-  %174 = load i32, ptr %19, align 4
-  %175 = and i32 %174, 32
-  %176 = icmp ne i32 %175, 0
-  br i1 %176, label %177, label %185
+232:                                              ; preds = %214
+  br label %233
 
-177:                                              ; preds = %173, %165
-  %178 = load ptr, ptr %9, align 8
-  %179 = load i32, ptr @hf_zebra_rmac, align 4
-  %180 = load ptr, ptr %11, align 8
-  %181 = load i32, ptr %12, align 4
-  %182 = call ptr @proto_tree_add_item(ptr noundef %178, i32 noundef %179, ptr noundef %180, i32 noundef %181, i32 noundef 6, i32 noundef 0)
-  %183 = load i32, ptr %12, align 4
-  %184 = add i32 %183, 6
-  store i32 %184, ptr %12, align 4
-  br label %185
+233:                                              ; preds = %232, %226
+  %234 = phi i64 [ %231, %226 ], [ 16, %232 ]
+  %235 = call ptr @tvb_memcpy(ptr noundef %217, ptr noundef %218, i32 noundef %219, i64 noundef %234)
+  %236 = load ptr, ptr %9, align 8
+  %237 = load i32, ptr @hf_zebra_prefix6, align 4
+  %238 = load ptr, ptr %11, align 8
+  %239 = load i32, ptr %12, align 4
+  %240 = load i8, ptr %21, align 1
+  %241 = zext i8 %240 to i32
+  %242 = add i32 %241, 7
+  %243 = sdiv i32 %242, 8
+  %244 = getelementptr inbounds [16 x i8], ptr %22, i64 0, i64 0
+  %245 = call ptr @proto_tree_add_ipv6(ptr noundef %236, i32 noundef %237, ptr noundef %238, i32 noundef %239, i32 noundef %243, ptr noundef %244)
+  br label %280
 
-185:                                              ; preds = %177, %173, %169
-  %186 = load ptr, ptr %11, align 8
-  %187 = load i32, ptr %12, align 4
-  %188 = call zeroext i8 @tvb_get_guint8(ptr noundef %186, i32 noundef %187)
-  store i8 %188, ptr %14, align 1
-  %189 = load ptr, ptr %9, align 8
-  %190 = load i32, ptr @hf_zebra_family, align 4
-  %191 = load ptr, ptr %11, align 8
-  %192 = load i32, ptr %12, align 4
-  %193 = call ptr @proto_tree_add_item(ptr noundef %189, i32 noundef %190, ptr noundef %191, i32 noundef %192, i32 noundef 1, i32 noundef 0)
-  %194 = load i32, ptr %12, align 4
-  %195 = add i32 %194, 1
-  store i32 %195, ptr %12, align 4
-  br label %196
+246:                                              ; preds = %198
+  %247 = load i8, ptr %14, align 1
+  %248 = zext i8 %247 to i32
+  %249 = icmp eq i32 %248, 2
+  br i1 %249, label %250, label %279
 
-196:                                              ; preds = %185, %150
-  br label %197
-
-197:                                              ; preds = %196, %149
-  %198 = load ptr, ptr %11, align 8
-  %199 = load i32, ptr %12, align 4
-  %200 = call zeroext i8 @tvb_get_guint8(ptr noundef %198, i32 noundef %199)
-  store i8 %200, ptr %21, align 1
-  %201 = load ptr, ptr %9, align 8
-  %202 = load i32, ptr @hf_zebra_prefixlen, align 4
-  %203 = load ptr, ptr %11, align 8
-  %204 = load i32, ptr %12, align 4
-  %205 = load i8, ptr %21, align 1
-  %206 = zext i8 %205 to i32
-  %207 = call ptr @proto_tree_add_uint(ptr noundef %201, i32 noundef %202, ptr noundef %203, i32 noundef %204, i32 noundef 1, i32 noundef %206)
-  %208 = load i32, ptr %12, align 4
-  %209 = add i32 %208, 1
-  store i32 %209, ptr %12, align 4
-  %210 = load i8, ptr %14, align 1
-  %211 = zext i8 %210 to i32
-  %212 = icmp eq i32 %211, 10
-  br i1 %212, label %213, label %244
-
-213:                                              ; preds = %197
-  %214 = getelementptr inbounds [16 x i8], ptr %22, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 16 %214, i8 0, i64 16, i1 false)
-  %215 = load ptr, ptr %11, align 8
-  %216 = getelementptr inbounds [16 x i8], ptr %22, i64 0, i64 0
-  %217 = load i32, ptr %12, align 4
-  %218 = load i8, ptr %21, align 1
-  %219 = zext i8 %218 to i32
-  %220 = add i32 %219, 7
-  %221 = sdiv i32 %220, 8
-  %222 = zext i32 %221 to i64
-  %223 = icmp ult i64 %222, 16
-  br i1 %223, label %224, label %230
-
-224:                                              ; preds = %213
-  %225 = load i8, ptr %21, align 1
-  %226 = zext i8 %225 to i32
-  %227 = add i32 %226, 7
-  %228 = sdiv i32 %227, 8
-  %229 = zext i32 %228 to i64
-  br label %231
-
-230:                                              ; preds = %213
-  br label %231
-
-231:                                              ; preds = %230, %224
-  %232 = phi i64 [ %229, %224 ], [ 16, %230 ]
-  %233 = call ptr @tvb_memcpy(ptr noundef %215, ptr noundef %216, i32 noundef %217, i64 noundef %232)
-  %234 = load ptr, ptr %9, align 8
-  %235 = load i32, ptr @hf_zebra_prefix6, align 4
-  %236 = load ptr, ptr %11, align 8
-  %237 = load i32, ptr %12, align 4
-  %238 = load i8, ptr %21, align 1
-  %239 = zext i8 %238 to i32
-  %240 = add i32 %239, 7
-  %241 = sdiv i32 %240, 8
-  %242 = getelementptr inbounds [16 x i8], ptr %22, i64 0, i64 0
-  %243 = call ptr @proto_tree_add_ipv6(ptr noundef %234, i32 noundef %235, ptr noundef %236, i32 noundef %237, i32 noundef %241, ptr noundef %242)
-  br label %278
-
-244:                                              ; preds = %197
-  %245 = load i8, ptr %14, align 1
-  %246 = zext i8 %245 to i32
-  %247 = icmp eq i32 %246, 2
-  br i1 %247, label %248, label %277
-
-248:                                              ; preds = %244
+250:                                              ; preds = %246
   store i32 0, ptr %17, align 4
-  %249 = load ptr, ptr %11, align 8
-  %250 = load i32, ptr %12, align 4
-  %251 = load i8, ptr %21, align 1
-  %252 = zext i8 %251 to i32
-  %253 = add i32 %252, 7
-  %254 = sdiv i32 %253, 8
-  %255 = zext i32 %254 to i64
-  %256 = icmp ult i64 %255, 4
-  br i1 %256, label %257, label %263
+  %251 = load ptr, ptr %11, align 8
+  %252 = load i32, ptr %12, align 4
+  %253 = load i8, ptr %21, align 1
+  %254 = zext i8 %253 to i32
+  %255 = add i32 %254, 7
+  %256 = sdiv i32 %255, 8
+  %257 = zext i32 %256 to i64
+  %258 = icmp ult i64 %257, 4
+  br i1 %258, label %259, label %265
 
-257:                                              ; preds = %248
-  %258 = load i8, ptr %21, align 1
-  %259 = zext i8 %258 to i32
-  %260 = add i32 %259, 7
-  %261 = sdiv i32 %260, 8
-  %262 = zext i32 %261 to i64
-  br label %264
+259:                                              ; preds = %250
+  %260 = load i8, ptr %21, align 1
+  %261 = zext i8 %260 to i32
+  %262 = add i32 %261, 7
+  %263 = sdiv i32 %262, 8
+  %264 = zext i32 %263 to i64
+  br label %266
 
-263:                                              ; preds = %248
-  br label %264
+265:                                              ; preds = %250
+  br label %266
 
-264:                                              ; preds = %263, %257
-  %265 = phi i64 [ %262, %257 ], [ 4, %263 ]
-  %266 = call ptr @tvb_memcpy(ptr noundef %249, ptr noundef %17, i32 noundef %250, i64 noundef %265)
-  %267 = load ptr, ptr %9, align 8
-  %268 = load i32, ptr @hf_zebra_prefix4, align 4
-  %269 = load ptr, ptr %11, align 8
-  %270 = load i32, ptr %12, align 4
-  %271 = load i8, ptr %21, align 1
-  %272 = zext i8 %271 to i32
-  %273 = add i32 %272, 7
-  %274 = sdiv i32 %273, 8
-  %275 = load i32, ptr %17, align 4
-  %276 = call ptr @proto_tree_add_ipv4(ptr noundef %267, i32 noundef %268, ptr noundef %269, i32 noundef %270, i32 noundef %274, i32 noundef %275)
-  br label %277
+266:                                              ; preds = %265, %259
+  %267 = phi i64 [ %264, %259 ], [ 4, %265 ]
+  %268 = call ptr @tvb_memcpy(ptr noundef %251, ptr noundef %17, i32 noundef %252, i64 noundef %267)
+  %269 = load ptr, ptr %9, align 8
+  %270 = load i32, ptr @hf_zebra_prefix4, align 4
+  %271 = load ptr, ptr %11, align 8
+  %272 = load i32, ptr %12, align 4
+  %273 = load i8, ptr %21, align 1
+  %274 = zext i8 %273 to i32
+  %275 = add i32 %274, 7
+  %276 = sdiv i32 %275, 8
+  %277 = load i32, ptr %17, align 4
+  %278 = call ptr @proto_tree_add_ipv4(ptr noundef %269, i32 noundef %270, ptr noundef %271, i32 noundef %272, i32 noundef %276, i32 noundef %277)
+  br label %279
 
-277:                                              ; preds = %264, %244
-  br label %278
+279:                                              ; preds = %266, %246
+  br label %280
 
-278:                                              ; preds = %277, %231
-  %279 = load i8, ptr %21, align 1
-  %280 = zext i8 %279 to i32
-  %281 = add i32 %280, 7
-  %282 = sdiv i32 %281, 8
-  %283 = load i32, ptr %12, align 4
-  %284 = add i32 %283, %282
-  store i32 %284, ptr %12, align 4
-  %285 = load i8, ptr %16, align 1
-  %286 = zext i8 %285 to i32
-  %287 = icmp eq i32 %286, 4
-  br i1 %287, label %288, label %297
+280:                                              ; preds = %279, %233
+  %281 = load i8, ptr %21, align 1
+  %282 = zext i8 %281 to i32
+  %283 = add i32 %282, 7
+  %284 = sdiv i32 %283, 8
+  %285 = load i32, ptr %12, align 4
+  %286 = add i32 %285, %284
+  store i32 %286, ptr %12, align 4
+  %287 = load i8, ptr %16, align 1
+  %288 = zext i8 %287 to i32
+  %289 = icmp eq i32 %288, 4
+  br i1 %289, label %290, label %299
 
-288:                                              ; preds = %278
-  %289 = load i8, ptr %14, align 1
-  %290 = zext i8 %289 to i32
-  %291 = icmp eq i32 %290, 10
-  br i1 %291, label %292, label %297
+290:                                              ; preds = %280
+  %291 = load i8, ptr %14, align 1
+  %292 = zext i8 %291 to i32
+  %293 = icmp eq i32 %292, 10
+  br i1 %293, label %294, label %299
 
-292:                                              ; preds = %288
-  %293 = load i8, ptr %20, align 1
-  %294 = zext i8 %293 to i32
-  %295 = and i32 %294, 64
-  %296 = icmp ne i32 %295, 0
-  br i1 %296, label %306, label %297
+294:                                              ; preds = %290
+  %295 = load i8, ptr %20, align 1
+  %296 = zext i8 %295 to i32
+  %297 = and i32 %296, 64
+  %298 = icmp ne i32 %297, 0
+  br i1 %298, label %308, label %299
 
-297:                                              ; preds = %292, %288, %278
-  %298 = load i8, ptr %16, align 1
-  %299 = zext i8 %298 to i32
-  %300 = icmp sgt i32 %299, 4
-  br i1 %300, label %301, label %394
+299:                                              ; preds = %294, %290, %280
+  %300 = load i8, ptr %16, align 1
+  %301 = zext i8 %300 to i32
+  %302 = icmp sgt i32 %301, 4
+  br i1 %302, label %303, label %397
 
-301:                                              ; preds = %297
-  %302 = load i8, ptr %20, align 1
-  %303 = zext i8 %302 to i32
-  %304 = and i32 %303, 32
-  %305 = icmp ne i32 %304, 0
-  br i1 %305, label %306, label %394
+303:                                              ; preds = %299
+  %304 = load i8, ptr %20, align 1
+  %305 = zext i8 %304 to i32
+  %306 = and i32 %305, 32
+  %307 = icmp ne i32 %306, 0
+  br i1 %307, label %308, label %397
 
-306:                                              ; preds = %301, %292
-  %307 = load ptr, ptr %11, align 8
-  %308 = load i32, ptr %12, align 4
-  %309 = call zeroext i8 @tvb_get_guint8(ptr noundef %307, i32 noundef %308)
-  store i8 %309, ptr %23, align 1
-  %310 = load ptr, ptr %9, align 8
-  %311 = load i32, ptr @hf_zebra_srcprefixlen, align 4
-  %312 = load ptr, ptr %11, align 8
-  %313 = load i32, ptr %12, align 4
-  %314 = load i8, ptr %23, align 1
-  %315 = zext i8 %314 to i32
-  %316 = call ptr @proto_tree_add_uint(ptr noundef %310, i32 noundef %311, ptr noundef %312, i32 noundef %313, i32 noundef 1, i32 noundef %315)
-  %317 = load i32, ptr %12, align 4
-  %318 = add i32 %317, 1
-  store i32 %318, ptr %12, align 4
-  %319 = load i8, ptr %14, align 1
-  %320 = zext i8 %319 to i32
-  %321 = icmp eq i32 %320, 10
-  br i1 %321, label %322, label %353
+308:                                              ; preds = %303, %294
+  %309 = load ptr, ptr %11, align 8
+  %310 = load i32, ptr %12, align 4
+  %311 = call zeroext i8 @tvb_get_uint8(ptr noundef %309, i32 noundef %310)
+  store i8 %311, ptr %23, align 1
+  %312 = load ptr, ptr %9, align 8
+  %313 = load i32, ptr @hf_zebra_srcprefixlen, align 4
+  %314 = load ptr, ptr %11, align 8
+  %315 = load i32, ptr %12, align 4
+  %316 = load i8, ptr %23, align 1
+  %317 = zext i8 %316 to i32
+  %318 = call ptr @proto_tree_add_uint(ptr noundef %312, i32 noundef %313, ptr noundef %314, i32 noundef %315, i32 noundef 1, i32 noundef %317)
+  %319 = load i32, ptr %12, align 4
+  %320 = add i32 %319, 1
+  store i32 %320, ptr %12, align 4
+  %321 = load i8, ptr %14, align 1
+  %322 = zext i8 %321 to i32
+  %323 = icmp eq i32 %322, 10
+  br i1 %323, label %324, label %356
 
-322:                                              ; preds = %306
-  %323 = getelementptr inbounds [16 x i8], ptr %24, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 16 %323, i8 0, i64 16, i1 false)
-  %324 = load ptr, ptr %11, align 8
+324:                                              ; preds = %308
   %325 = getelementptr inbounds [16 x i8], ptr %24, i64 0, i64 0
-  %326 = load i32, ptr %12, align 4
-  %327 = load i8, ptr %23, align 1
-  %328 = zext i8 %327 to i32
-  %329 = add i32 %328, 7
-  %330 = sdiv i32 %329, 8
-  %331 = zext i32 %330 to i64
-  %332 = icmp ult i64 %331, 16
-  br i1 %332, label %333, label %339
+  %326 = call ptr @memset.inline(ptr noundef %325, i32 noundef 0, i64 noundef 16) #7
+  %327 = load ptr, ptr %11, align 8
+  %328 = getelementptr inbounds [16 x i8], ptr %24, i64 0, i64 0
+  %329 = load i32, ptr %12, align 4
+  %330 = load i8, ptr %23, align 1
+  %331 = zext i8 %330 to i32
+  %332 = add i32 %331, 7
+  %333 = sdiv i32 %332, 8
+  %334 = zext i32 %333 to i64
+  %335 = icmp ult i64 %334, 16
+  br i1 %335, label %336, label %342
 
-333:                                              ; preds = %322
-  %334 = load i8, ptr %23, align 1
-  %335 = zext i8 %334 to i32
-  %336 = add i32 %335, 7
-  %337 = sdiv i32 %336, 8
-  %338 = zext i32 %337 to i64
-  br label %340
+336:                                              ; preds = %324
+  %337 = load i8, ptr %23, align 1
+  %338 = zext i8 %337 to i32
+  %339 = add i32 %338, 7
+  %340 = sdiv i32 %339, 8
+  %341 = zext i32 %340 to i64
+  br label %343
 
-339:                                              ; preds = %322
-  br label %340
+342:                                              ; preds = %324
+  br label %343
 
-340:                                              ; preds = %339, %333
-  %341 = phi i64 [ %338, %333 ], [ 16, %339 ]
-  %342 = call ptr @tvb_memcpy(ptr noundef %324, ptr noundef %325, i32 noundef %326, i64 noundef %341)
-  %343 = load ptr, ptr %9, align 8
-  %344 = load i32, ptr @hf_zebra_srcprefix6, align 4
-  %345 = load ptr, ptr %11, align 8
-  %346 = load i32, ptr %12, align 4
-  %347 = load i8, ptr %23, align 1
-  %348 = zext i8 %347 to i32
-  %349 = add i32 %348, 7
-  %350 = sdiv i32 %349, 8
-  %351 = getelementptr inbounds [16 x i8], ptr %24, i64 0, i64 0
-  %352 = call ptr @proto_tree_add_ipv6(ptr noundef %343, i32 noundef %344, ptr noundef %345, i32 noundef %346, i32 noundef %350, ptr noundef %351)
-  br label %387
+343:                                              ; preds = %342, %336
+  %344 = phi i64 [ %341, %336 ], [ 16, %342 ]
+  %345 = call ptr @tvb_memcpy(ptr noundef %327, ptr noundef %328, i32 noundef %329, i64 noundef %344)
+  %346 = load ptr, ptr %9, align 8
+  %347 = load i32, ptr @hf_zebra_srcprefix6, align 4
+  %348 = load ptr, ptr %11, align 8
+  %349 = load i32, ptr %12, align 4
+  %350 = load i8, ptr %23, align 1
+  %351 = zext i8 %350 to i32
+  %352 = add i32 %351, 7
+  %353 = sdiv i32 %352, 8
+  %354 = getelementptr inbounds [16 x i8], ptr %24, i64 0, i64 0
+  %355 = call ptr @proto_tree_add_ipv6(ptr noundef %346, i32 noundef %347, ptr noundef %348, i32 noundef %349, i32 noundef %353, ptr noundef %354)
+  br label %390
 
-353:                                              ; preds = %306
-  %354 = load i8, ptr %14, align 1
-  %355 = zext i8 %354 to i32
-  %356 = icmp eq i32 %355, 2
-  br i1 %356, label %357, label %386
+356:                                              ; preds = %308
+  %357 = load i8, ptr %14, align 1
+  %358 = zext i8 %357 to i32
+  %359 = icmp eq i32 %358, 2
+  br i1 %359, label %360, label %389
 
-357:                                              ; preds = %353
+360:                                              ; preds = %356
   store i32 0, ptr %17, align 4
-  %358 = load ptr, ptr %11, align 8
-  %359 = load i32, ptr %12, align 4
-  %360 = load i8, ptr %23, align 1
-  %361 = zext i8 %360 to i32
-  %362 = add i32 %361, 7
-  %363 = sdiv i32 %362, 8
-  %364 = zext i32 %363 to i64
-  %365 = icmp ult i64 %364, 4
-  br i1 %365, label %366, label %372
+  %361 = load ptr, ptr %11, align 8
+  %362 = load i32, ptr %12, align 4
+  %363 = load i8, ptr %23, align 1
+  %364 = zext i8 %363 to i32
+  %365 = add i32 %364, 7
+  %366 = sdiv i32 %365, 8
+  %367 = zext i32 %366 to i64
+  %368 = icmp ult i64 %367, 4
+  br i1 %368, label %369, label %375
 
-366:                                              ; preds = %357
-  %367 = load i8, ptr %23, align 1
-  %368 = zext i8 %367 to i32
-  %369 = add i32 %368, 7
-  %370 = sdiv i32 %369, 8
-  %371 = zext i32 %370 to i64
-  br label %373
+369:                                              ; preds = %360
+  %370 = load i8, ptr %23, align 1
+  %371 = zext i8 %370 to i32
+  %372 = add i32 %371, 7
+  %373 = sdiv i32 %372, 8
+  %374 = zext i32 %373 to i64
+  br label %376
 
-372:                                              ; preds = %357
-  br label %373
+375:                                              ; preds = %360
+  br label %376
 
-373:                                              ; preds = %372, %366
-  %374 = phi i64 [ %371, %366 ], [ 4, %372 ]
-  %375 = call ptr @tvb_memcpy(ptr noundef %358, ptr noundef %18, i32 noundef %359, i64 noundef %374)
-  %376 = load ptr, ptr %9, align 8
-  %377 = load i32, ptr @hf_zebra_srcprefix4, align 4
-  %378 = load ptr, ptr %11, align 8
-  %379 = load i32, ptr %12, align 4
-  %380 = load i8, ptr %23, align 1
-  %381 = zext i8 %380 to i32
-  %382 = add i32 %381, 7
-  %383 = sdiv i32 %382, 8
-  %384 = load i32, ptr %18, align 4
-  %385 = call ptr @proto_tree_add_ipv4(ptr noundef %376, i32 noundef %377, ptr noundef %378, i32 noundef %379, i32 noundef %383, i32 noundef %384)
-  br label %386
+376:                                              ; preds = %375, %369
+  %377 = phi i64 [ %374, %369 ], [ 4, %375 ]
+  %378 = call ptr @tvb_memcpy(ptr noundef %361, ptr noundef %18, i32 noundef %362, i64 noundef %377)
+  %379 = load ptr, ptr %9, align 8
+  %380 = load i32, ptr @hf_zebra_srcprefix4, align 4
+  %381 = load ptr, ptr %11, align 8
+  %382 = load i32, ptr %12, align 4
+  %383 = load i8, ptr %23, align 1
+  %384 = zext i8 %383 to i32
+  %385 = add i32 %384, 7
+  %386 = sdiv i32 %385, 8
+  %387 = load i32, ptr %18, align 4
+  %388 = call ptr @proto_tree_add_ipv4(ptr noundef %379, i32 noundef %380, ptr noundef %381, i32 noundef %382, i32 noundef %386, i32 noundef %387)
+  br label %389
 
-386:                                              ; preds = %373, %353
-  br label %387
+389:                                              ; preds = %376, %356
+  br label %390
 
-387:                                              ; preds = %386, %340
-  %388 = load i8, ptr %23, align 1
-  %389 = zext i8 %388 to i32
-  %390 = add i32 %389, 7
-  %391 = sdiv i32 %390, 8
-  %392 = load i32, ptr %12, align 4
-  %393 = add i32 %392, %391
-  store i32 %393, ptr %12, align 4
-  br label %394
+390:                                              ; preds = %389, %343
+  %391 = load i8, ptr %23, align 1
+  %392 = zext i8 %391 to i32
+  %393 = add i32 %392, 7
+  %394 = sdiv i32 %393, 8
+  %395 = load i32, ptr %12, align 4
+  %396 = add i32 %395, %394
+  store i32 %396, ptr %12, align 4
+  br label %397
 
-394:                                              ; preds = %387, %301, %297
-  %395 = load i8, ptr %20, align 1
-  %396 = zext i8 %395 to i32
-  %397 = and i32 %396, 1
-  %398 = icmp ne i32 %397, 0
-  br i1 %398, label %399, label %464
+397:                                              ; preds = %390, %303, %299
+  %398 = load i8, ptr %20, align 1
+  %399 = zext i8 %398 to i32
+  %400 = and i32 %399, 1
+  %401 = icmp ne i32 %400, 0
+  br i1 %401, label %402, label %468
 
-399:                                              ; preds = %394
-  %400 = load i8, ptr %16, align 1
-  %401 = zext i8 %400 to i32
-  %402 = icmp eq i32 %401, 4
-  br i1 %402, label %403, label %426
+402:                                              ; preds = %397
+  %403 = load i8, ptr %16, align 1
+  %404 = zext i8 %403 to i32
+  %405 = icmp eq i32 %404, 4
+  br i1 %405, label %406, label %429
 
-403:                                              ; preds = %399
-  %404 = load i16, ptr %15, align 2
-  %405 = zext i16 %404 to i32
-  %406 = icmp eq i32 %405, 32
-  br i1 %406, label %411, label %407
+406:                                              ; preds = %402
+  %407 = load i16, ptr %15, align 2
+  %408 = zext i16 %407 to i32
+  %409 = icmp eq i32 %408, 32
+  br i1 %409, label %414, label %410
 
-407:                                              ; preds = %403
-  %408 = load i16, ptr %15, align 2
-  %409 = zext i16 %408 to i32
-  %410 = icmp eq i32 %409, 33
-  br i1 %410, label %411, label %426
+410:                                              ; preds = %406
+  %411 = load i16, ptr %15, align 2
+  %412 = zext i16 %411 to i32
+  %413 = icmp eq i32 %412, 33
+  br i1 %413, label %414, label %429
 
-411:                                              ; preds = %407, %403
-  %412 = load ptr, ptr %9, align 8
-  %413 = load i32, ptr @hf_zebra_nexthopnum, align 4
-  %414 = load ptr, ptr %11, align 8
-  %415 = load i32, ptr %12, align 4
-  %416 = call ptr @proto_tree_add_item(ptr noundef %412, i32 noundef %413, ptr noundef %414, i32 noundef %415, i32 noundef 1, i32 noundef 0)
-  %417 = load i32, ptr %12, align 4
-  %418 = add i32 %417, 1
-  store i32 %418, ptr %12, align 4
-  %419 = load ptr, ptr %9, align 8
-  %420 = load i32, ptr @hf_zebra_nexthop4, align 4
-  %421 = load ptr, ptr %11, align 8
-  %422 = load i32, ptr %12, align 4
-  %423 = call ptr @proto_tree_add_item(ptr noundef %419, i32 noundef %420, ptr noundef %421, i32 noundef %422, i32 noundef 4, i32 noundef 0)
-  %424 = load i32, ptr %12, align 4
-  %425 = add i32 %424, 4
-  store i32 %425, ptr %12, align 4
-  br label %463
+414:                                              ; preds = %410, %406
+  %415 = load ptr, ptr %9, align 8
+  %416 = load i32, ptr @hf_zebra_nexthopnum, align 4
+  %417 = load ptr, ptr %11, align 8
+  %418 = load i32, ptr %12, align 4
+  %419 = call ptr @proto_tree_add_item(ptr noundef %415, i32 noundef %416, ptr noundef %417, i32 noundef %418, i32 noundef 1, i32 noundef 0)
+  %420 = load i32, ptr %12, align 4
+  %421 = add i32 %420, 1
+  store i32 %421, ptr %12, align 4
+  %422 = load ptr, ptr %9, align 8
+  %423 = load i32, ptr @hf_zebra_nexthop4, align 4
+  %424 = load ptr, ptr %11, align 8
+  %425 = load i32, ptr %12, align 4
+  %426 = call ptr @proto_tree_add_item(ptr noundef %422, i32 noundef %423, ptr noundef %424, i32 noundef %425, i32 noundef 4, i32 noundef 0)
+  %427 = load i32, ptr %12, align 4
+  %428 = add i32 %427, 4
+  store i32 %428, ptr %12, align 4
+  br label %467
 
-426:                                              ; preds = %407, %399
-  %427 = load i8, ptr %16, align 1
-  %428 = zext i8 %427 to i32
-  %429 = icmp eq i32 %428, 4
-  br i1 %429, label %430, label %453
+429:                                              ; preds = %410, %402
+  %430 = load i8, ptr %16, align 1
+  %431 = zext i8 %430 to i32
+  %432 = icmp eq i32 %431, 4
+  br i1 %432, label %433, label %456
 
-430:                                              ; preds = %426
-  %431 = load i16, ptr %15, align 2
-  %432 = zext i16 %431 to i32
-  %433 = icmp eq i32 %432, 34
-  br i1 %433, label %438, label %434
+433:                                              ; preds = %429
+  %434 = load i16, ptr %15, align 2
+  %435 = zext i16 %434 to i32
+  %436 = icmp eq i32 %435, 34
+  br i1 %436, label %441, label %437
 
-434:                                              ; preds = %430
-  %435 = load i16, ptr %15, align 2
-  %436 = zext i16 %435 to i32
-  %437 = icmp eq i32 %436, 35
-  br i1 %437, label %438, label %453
+437:                                              ; preds = %433
+  %438 = load i16, ptr %15, align 2
+  %439 = zext i16 %438 to i32
+  %440 = icmp eq i32 %439, 35
+  br i1 %440, label %441, label %456
 
-438:                                              ; preds = %434, %430
-  %439 = load ptr, ptr %9, align 8
-  %440 = load i32, ptr @hf_zebra_nexthopnum, align 4
-  %441 = load ptr, ptr %11, align 8
-  %442 = load i32, ptr %12, align 4
-  %443 = call ptr @proto_tree_add_item(ptr noundef %439, i32 noundef %440, ptr noundef %441, i32 noundef %442, i32 noundef 1, i32 noundef 0)
-  %444 = load i32, ptr %12, align 4
-  %445 = add i32 %444, 1
-  store i32 %445, ptr %12, align 4
-  %446 = load ptr, ptr %9, align 8
-  %447 = load i32, ptr @hf_zebra_nexthop6, align 4
-  %448 = load ptr, ptr %11, align 8
-  %449 = load i32, ptr %12, align 4
-  %450 = call ptr @proto_tree_add_item(ptr noundef %446, i32 noundef %447, ptr noundef %448, i32 noundef %449, i32 noundef 16, i32 noundef 0)
-  %451 = load i32, ptr %12, align 4
-  %452 = add i32 %451, 16
-  store i32 %452, ptr %12, align 4
-  br label %462
+441:                                              ; preds = %437, %433
+  %442 = load ptr, ptr %9, align 8
+  %443 = load i32, ptr @hf_zebra_nexthopnum, align 4
+  %444 = load ptr, ptr %11, align 8
+  %445 = load i32, ptr %12, align 4
+  %446 = call ptr @proto_tree_add_item(ptr noundef %442, i32 noundef %443, ptr noundef %444, i32 noundef %445, i32 noundef 1, i32 noundef 0)
+  %447 = load i32, ptr %12, align 4
+  %448 = add i32 %447, 1
+  store i32 %448, ptr %12, align 4
+  %449 = load ptr, ptr %9, align 8
+  %450 = load i32, ptr @hf_zebra_nexthop6, align 4
+  %451 = load ptr, ptr %11, align 8
+  %452 = load i32, ptr %12, align 4
+  %453 = call ptr @proto_tree_add_item(ptr noundef %449, i32 noundef %450, ptr noundef %451, i32 noundef %452, i32 noundef 16, i32 noundef 0)
+  %454 = load i32, ptr %12, align 4
+  %455 = add i32 %454, 16
+  store i32 %455, ptr %12, align 4
+  br label %466
 
-453:                                              ; preds = %434, %426
-  %454 = load ptr, ptr %9, align 8
-  %455 = load i32, ptr %10, align 4
-  %456 = load ptr, ptr %11, align 8
-  %457 = load i32, ptr %12, align 4
-  %458 = load i16, ptr %13, align 2
-  %459 = load i8, ptr %14, align 1
-  %460 = load i8, ptr %16, align 1
-  %461 = call i32 @zebra_route_nexthop(ptr noundef %454, i32 noundef %455, ptr noundef %456, i32 noundef %457, i16 noundef zeroext %458, i8 noundef zeroext %459, i8 noundef zeroext %460)
-  store i32 %461, ptr %12, align 4
-  br label %462
+456:                                              ; preds = %437, %429
+  %457 = load ptr, ptr %9, align 8
+  %458 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %459 = trunc i8 %458 to i1
+  %460 = load ptr, ptr %11, align 8
+  %461 = load i32, ptr %12, align 4
+  %462 = load i16, ptr %13, align 2
+  %463 = load i8, ptr %14, align 1
+  %464 = load i8, ptr %16, align 1
+  %465 = call i32 @zebra_route_nexthop(ptr noundef %457, i1 noundef zeroext %459, ptr noundef %460, i32 noundef %461, i16 noundef zeroext %462, i8 noundef zeroext %463, i8 noundef zeroext %464)
+  store i32 %465, ptr %12, align 4
+  br label %466
 
-462:                                              ; preds = %453, %438
-  br label %463
+466:                                              ; preds = %456, %441
+  br label %467
 
-463:                                              ; preds = %462, %411
-  br label %464
+467:                                              ; preds = %466, %414
+  br label %468
 
-464:                                              ; preds = %463, %394
-  %465 = load i8, ptr %16, align 1
-  %466 = zext i8 %465 to i32
-  %467 = icmp slt i32 %466, 5
-  br i1 %467, label %468, label %479
-
-468:                                              ; preds = %464
-  %469 = load i8, ptr %20, align 1
+468:                                              ; preds = %467, %397
+  %469 = load i8, ptr %16, align 1
   %470 = zext i8 %469 to i32
-  %471 = and i32 %470, 2
-  %472 = icmp ne i32 %471, 0
-  br i1 %472, label %473, label %479
+  %471 = icmp slt i32 %470, 5
+  br i1 %471, label %472, label %483
 
-473:                                              ; preds = %468
-  %474 = load ptr, ptr %9, align 8
-  %475 = load ptr, ptr %11, align 8
-  %476 = load i32, ptr %12, align 4
-  %477 = load i16, ptr %13, align 2
-  %478 = call i32 @zebra_route_ifindex(ptr noundef %474, ptr noundef %475, i32 noundef %476, i16 noundef zeroext %477)
-  store i32 %478, ptr %12, align 4
-  br label %479
+472:                                              ; preds = %468
+  %473 = load i8, ptr %20, align 1
+  %474 = zext i8 %473 to i32
+  %475 = and i32 %474, 2
+  %476 = icmp ne i32 %475, 0
+  br i1 %476, label %477, label %483
 
-479:                                              ; preds = %473, %468, %464
-  %480 = load i8, ptr %16, align 1
-  %481 = zext i8 %480 to i32
-  %482 = icmp slt i32 %481, 5
-  br i1 %482, label %483, label %488
+477:                                              ; preds = %472
+  %478 = load ptr, ptr %9, align 8
+  %479 = load ptr, ptr %11, align 8
+  %480 = load i32, ptr %12, align 4
+  %481 = load i16, ptr %13, align 2
+  %482 = call i32 @zebra_route_ifindex(ptr noundef %478, ptr noundef %479, i32 noundef %480, i16 noundef zeroext %481)
+  store i32 %482, ptr %12, align 4
+  br label %483
 
-483:                                              ; preds = %479
-  %484 = load i8, ptr %20, align 1
+483:                                              ; preds = %477, %472, %468
+  %484 = load i8, ptr %16, align 1
   %485 = zext i8 %484 to i32
-  %486 = and i32 %485, 4
-  %487 = icmp ne i32 %486, 0
-  br i1 %487, label %497, label %488
+  %486 = icmp slt i32 %485, 5
+  br i1 %486, label %487, label %492
 
-488:                                              ; preds = %483, %479
-  %489 = load i8, ptr %16, align 1
-  %490 = zext i8 %489 to i32
-  %491 = icmp sge i32 %490, 5
-  br i1 %491, label %492, label %505
+487:                                              ; preds = %483
+  %488 = load i8, ptr %20, align 1
+  %489 = zext i8 %488 to i32
+  %490 = and i32 %489, 4
+  %491 = icmp ne i32 %490, 0
+  br i1 %491, label %501, label %492
 
-492:                                              ; preds = %488
-  %493 = load i8, ptr %20, align 1
+492:                                              ; preds = %487, %483
+  %493 = load i8, ptr %16, align 1
   %494 = zext i8 %493 to i32
-  %495 = and i32 %494, 2
-  %496 = icmp ne i32 %495, 0
-  br i1 %496, label %497, label %505
+  %495 = icmp sge i32 %494, 5
+  br i1 %495, label %496, label %509
 
-497:                                              ; preds = %492, %483
-  %498 = load ptr, ptr %9, align 8
-  %499 = load i32, ptr @hf_zebra_distance, align 4
-  %500 = load ptr, ptr %11, align 8
-  %501 = load i32, ptr %12, align 4
-  %502 = call ptr @proto_tree_add_item(ptr noundef %498, i32 noundef %499, ptr noundef %500, i32 noundef %501, i32 noundef 1, i32 noundef 0)
-  %503 = load i32, ptr %12, align 4
-  %504 = add i32 %503, 1
-  store i32 %504, ptr %12, align 4
-  br label %505
+496:                                              ; preds = %492
+  %497 = load i8, ptr %20, align 1
+  %498 = zext i8 %497 to i32
+  %499 = and i32 %498, 2
+  %500 = icmp ne i32 %499, 0
+  br i1 %500, label %501, label %509
 
-505:                                              ; preds = %497, %492, %488
-  %506 = load i8, ptr %16, align 1
-  %507 = zext i8 %506 to i32
-  %508 = icmp slt i32 %507, 5
-  br i1 %508, label %509, label %514
+501:                                              ; preds = %496, %487
+  %502 = load ptr, ptr %9, align 8
+  %503 = load i32, ptr @hf_zebra_distance, align 4
+  %504 = load ptr, ptr %11, align 8
+  %505 = load i32, ptr %12, align 4
+  %506 = call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %503, ptr noundef %504, i32 noundef %505, i32 noundef 1, i32 noundef 0)
+  %507 = load i32, ptr %12, align 4
+  %508 = add i32 %507, 1
+  store i32 %508, ptr %12, align 4
+  br label %509
 
-509:                                              ; preds = %505
-  %510 = load i8, ptr %20, align 1
+509:                                              ; preds = %501, %496, %492
+  %510 = load i8, ptr %16, align 1
   %511 = zext i8 %510 to i32
-  %512 = and i32 %511, 8
-  %513 = icmp ne i32 %512, 0
-  br i1 %513, label %523, label %514
+  %512 = icmp slt i32 %511, 5
+  br i1 %512, label %513, label %518
 
-514:                                              ; preds = %509, %505
-  %515 = load i8, ptr %16, align 1
-  %516 = zext i8 %515 to i32
-  %517 = icmp sge i32 %516, 5
-  br i1 %517, label %518, label %531
+513:                                              ; preds = %509
+  %514 = load i8, ptr %20, align 1
+  %515 = zext i8 %514 to i32
+  %516 = and i32 %515, 8
+  %517 = icmp ne i32 %516, 0
+  br i1 %517, label %527, label %518
 
-518:                                              ; preds = %514
-  %519 = load i8, ptr %20, align 1
+518:                                              ; preds = %513, %509
+  %519 = load i8, ptr %16, align 1
   %520 = zext i8 %519 to i32
-  %521 = and i32 %520, 4
-  %522 = icmp ne i32 %521, 0
-  br i1 %522, label %523, label %531
+  %521 = icmp sge i32 %520, 5
+  br i1 %521, label %522, label %535
 
-523:                                              ; preds = %518, %509
-  %524 = load ptr, ptr %9, align 8
-  %525 = load i32, ptr @hf_zebra_metric, align 4
-  %526 = load ptr, ptr %11, align 8
-  %527 = load i32, ptr %12, align 4
-  %528 = call ptr @proto_tree_add_item(ptr noundef %524, i32 noundef %525, ptr noundef %526, i32 noundef %527, i32 noundef 4, i32 noundef 0)
-  %529 = load i32, ptr %12, align 4
-  %530 = add i32 %529, 4
-  store i32 %530, ptr %12, align 4
-  br label %531
+522:                                              ; preds = %518
+  %523 = load i8, ptr %20, align 1
+  %524 = zext i8 %523 to i32
+  %525 = and i32 %524, 4
+  %526 = icmp ne i32 %525, 0
+  br i1 %526, label %527, label %535
 
-531:                                              ; preds = %523, %518, %514
-  %532 = load i8, ptr %16, align 1
-  %533 = zext i8 %532 to i32
-  %534 = icmp slt i32 %533, 4
-  br i1 %534, label %535, label %540
+527:                                              ; preds = %522, %513
+  %528 = load ptr, ptr %9, align 8
+  %529 = load i32, ptr @hf_zebra_metric, align 4
+  %530 = load ptr, ptr %11, align 8
+  %531 = load i32, ptr %12, align 4
+  %532 = call ptr @proto_tree_add_item(ptr noundef %528, i32 noundef %529, ptr noundef %530, i32 noundef %531, i32 noundef 4, i32 noundef 0)
+  %533 = load i32, ptr %12, align 4
+  %534 = add i32 %533, 4
+  store i32 %534, ptr %12, align 4
+  br label %535
 
-535:                                              ; preds = %531
-  %536 = load i8, ptr %20, align 1
+535:                                              ; preds = %527, %522, %518
+  %536 = load i8, ptr %16, align 1
   %537 = zext i8 %536 to i32
-  %538 = and i32 %537, 16
-  %539 = icmp ne i32 %538, 0
-  br i1 %539, label %558, label %540
+  %538 = icmp slt i32 %537, 4
+  br i1 %538, label %539, label %544
 
-540:                                              ; preds = %535, %531
-  %541 = load i8, ptr %16, align 1
-  %542 = zext i8 %541 to i32
-  %543 = icmp eq i32 %542, 4
-  br i1 %543, label %544, label %549
+539:                                              ; preds = %535
+  %540 = load i8, ptr %20, align 1
+  %541 = zext i8 %540 to i32
+  %542 = and i32 %541, 16
+  %543 = icmp ne i32 %542, 0
+  br i1 %543, label %562, label %544
 
-544:                                              ; preds = %540
-  %545 = load i8, ptr %20, align 1
+544:                                              ; preds = %539, %535
+  %545 = load i8, ptr %16, align 1
   %546 = zext i8 %545 to i32
-  %547 = and i32 %546, 32
-  %548 = icmp ne i32 %547, 0
-  br i1 %548, label %558, label %549
+  %547 = icmp eq i32 %546, 4
+  br i1 %547, label %548, label %553
 
-549:                                              ; preds = %544, %540
-  %550 = load i8, ptr %16, align 1
-  %551 = zext i8 %550 to i32
-  %552 = icmp sgt i32 %551, 4
-  br i1 %552, label %553, label %566
+548:                                              ; preds = %544
+  %549 = load i8, ptr %20, align 1
+  %550 = zext i8 %549 to i32
+  %551 = and i32 %550, 32
+  %552 = icmp ne i32 %551, 0
+  br i1 %552, label %562, label %553
 
-553:                                              ; preds = %549
-  %554 = load i8, ptr %20, align 1
+553:                                              ; preds = %548, %544
+  %554 = load i8, ptr %16, align 1
   %555 = zext i8 %554 to i32
-  %556 = and i32 %555, 16
-  %557 = icmp ne i32 %556, 0
-  br i1 %557, label %558, label %566
+  %556 = icmp sgt i32 %555, 4
+  br i1 %556, label %557, label %570
 
-558:                                              ; preds = %553, %544, %535
-  %559 = load ptr, ptr %9, align 8
-  %560 = load i32, ptr @hf_zebra_mtu, align 4
-  %561 = load ptr, ptr %11, align 8
-  %562 = load i32, ptr %12, align 4
-  %563 = call ptr @proto_tree_add_item(ptr noundef %559, i32 noundef %560, ptr noundef %561, i32 noundef %562, i32 noundef 4, i32 noundef 0)
-  %564 = load i32, ptr %12, align 4
-  %565 = add i32 %564, 4
-  store i32 %565, ptr %12, align 4
-  br label %566
+557:                                              ; preds = %553
+  %558 = load i8, ptr %20, align 1
+  %559 = zext i8 %558 to i32
+  %560 = and i32 %559, 16
+  %561 = icmp ne i32 %560, 0
+  br i1 %561, label %562, label %570
 
-566:                                              ; preds = %558, %553, %549
-  %567 = load i8, ptr %16, align 1
-  %568 = zext i8 %567 to i32
-  %569 = icmp slt i32 %568, 4
-  br i1 %569, label %570, label %575
+562:                                              ; preds = %557, %548, %539
+  %563 = load ptr, ptr %9, align 8
+  %564 = load i32, ptr @hf_zebra_mtu, align 4
+  %565 = load ptr, ptr %11, align 8
+  %566 = load i32, ptr %12, align 4
+  %567 = call ptr @proto_tree_add_item(ptr noundef %563, i32 noundef %564, ptr noundef %565, i32 noundef %566, i32 noundef 4, i32 noundef 0)
+  %568 = load i32, ptr %12, align 4
+  %569 = add i32 %568, 4
+  store i32 %569, ptr %12, align 4
+  br label %570
 
-570:                                              ; preds = %566
-  %571 = load i8, ptr %20, align 1
+570:                                              ; preds = %562, %557, %553
+  %571 = load i8, ptr %16, align 1
   %572 = zext i8 %571 to i32
-  %573 = and i32 %572, 32
-  %574 = icmp ne i32 %573, 0
-  br i1 %574, label %593, label %575
+  %573 = icmp slt i32 %572, 4
+  br i1 %573, label %574, label %579
 
-575:                                              ; preds = %570, %566
-  %576 = load i8, ptr %16, align 1
-  %577 = zext i8 %576 to i32
-  %578 = icmp eq i32 %577, 4
-  br i1 %578, label %579, label %584
+574:                                              ; preds = %570
+  %575 = load i8, ptr %20, align 1
+  %576 = zext i8 %575 to i32
+  %577 = and i32 %576, 32
+  %578 = icmp ne i32 %577, 0
+  br i1 %578, label %597, label %579
 
-579:                                              ; preds = %575
-  %580 = load i8, ptr %20, align 1
+579:                                              ; preds = %574, %570
+  %580 = load i8, ptr %16, align 1
   %581 = zext i8 %580 to i32
-  %582 = and i32 %581, 16
-  %583 = icmp ne i32 %582, 0
-  br i1 %583, label %593, label %584
+  %582 = icmp eq i32 %581, 4
+  br i1 %582, label %583, label %588
 
-584:                                              ; preds = %579, %575
-  %585 = load i8, ptr %16, align 1
-  %586 = zext i8 %585 to i32
-  %587 = icmp sgt i32 %586, 4
-  br i1 %587, label %588, label %601
+583:                                              ; preds = %579
+  %584 = load i8, ptr %20, align 1
+  %585 = zext i8 %584 to i32
+  %586 = and i32 %585, 16
+  %587 = icmp ne i32 %586, 0
+  br i1 %587, label %597, label %588
 
-588:                                              ; preds = %584
-  %589 = load i8, ptr %20, align 1
+588:                                              ; preds = %583, %579
+  %589 = load i8, ptr %16, align 1
   %590 = zext i8 %589 to i32
-  %591 = and i32 %590, 8
-  %592 = icmp ne i32 %591, 0
-  br i1 %592, label %593, label %601
+  %591 = icmp sgt i32 %590, 4
+  br i1 %591, label %592, label %605
 
-593:                                              ; preds = %588, %579, %570
-  %594 = load ptr, ptr %9, align 8
-  %595 = load i32, ptr @hf_zebra_tag, align 4
-  %596 = load ptr, ptr %11, align 8
-  %597 = load i32, ptr %12, align 4
-  %598 = call ptr @proto_tree_add_item(ptr noundef %594, i32 noundef %595, ptr noundef %596, i32 noundef %597, i32 noundef 4, i32 noundef 0)
-  %599 = load i32, ptr %12, align 4
-  %600 = add i32 %599, 4
-  store i32 %600, ptr %12, align 4
-  br label %601
+592:                                              ; preds = %588
+  %593 = load i8, ptr %20, align 1
+  %594 = zext i8 %593 to i32
+  %595 = and i32 %594, 8
+  %596 = icmp ne i32 %595, 0
+  br i1 %596, label %597, label %605
 
-601:                                              ; preds = %593, %588, %584
-  %602 = load i8, ptr %16, align 1
-  %603 = zext i8 %602 to i32
-  %604 = icmp sgt i32 %603, 4
-  br i1 %604, label %605, label %618
+597:                                              ; preds = %592, %583, %574
+  %598 = load ptr, ptr %9, align 8
+  %599 = load i32, ptr @hf_zebra_tag, align 4
+  %600 = load ptr, ptr %11, align 8
+  %601 = load i32, ptr %12, align 4
+  %602 = call ptr @proto_tree_add_item(ptr noundef %598, i32 noundef %599, ptr noundef %600, i32 noundef %601, i32 noundef 4, i32 noundef 0)
+  %603 = load i32, ptr %12, align 4
+  %604 = add i32 %603, 4
+  store i32 %604, ptr %12, align 4
+  br label %605
 
-605:                                              ; preds = %601
-  %606 = load i8, ptr %20, align 1
+605:                                              ; preds = %597, %592, %588
+  %606 = load i8, ptr %16, align 1
   %607 = zext i8 %606 to i32
-  %608 = and i32 %607, 128
-  %609 = icmp ne i32 %608, 0
-  br i1 %609, label %610, label %618
+  %608 = icmp sgt i32 %607, 4
+  br i1 %608, label %609, label %622
 
-610:                                              ; preds = %605
-  %611 = load ptr, ptr %9, align 8
-  %612 = load i32, ptr @hf_zebra_tableid, align 4
-  %613 = load ptr, ptr %11, align 8
-  %614 = load i32, ptr %12, align 4
-  %615 = call ptr @proto_tree_add_item(ptr noundef %611, i32 noundef %612, ptr noundef %613, i32 noundef %614, i32 noundef 4, i32 noundef 0)
-  %616 = load i32, ptr %12, align 4
-  %617 = add i32 %616, 4
-  store i32 %617, ptr %12, align 4
-  br label %618
+609:                                              ; preds = %605
+  %610 = load i8, ptr %20, align 1
+  %611 = zext i8 %610 to i32
+  %612 = and i32 %611, 128
+  %613 = icmp ne i32 %612, 0
+  br i1 %613, label %614, label %622
 
-618:                                              ; preds = %610, %605, %601
-  %619 = load i32, ptr %12, align 4
-  ret i32 %619
+614:                                              ; preds = %609
+  %615 = load ptr, ptr %9, align 8
+  %616 = load i32, ptr @hf_zebra_tableid, align 4
+  %617 = load ptr, ptr %11, align 8
+  %618 = load i32, ptr %12, align 4
+  %619 = call ptr @proto_tree_add_item(ptr noundef %615, i32 noundef %616, ptr noundef %617, i32 noundef %618, i32 noundef 4, i32 noundef 0)
+  %620 = load i32, ptr %12, align 4
+  %621 = add i32 %620, 4
+  store i32 %621, ptr %12, align 4
+  br label %622
+
+622:                                              ; preds = %614, %609, %605
+  %623 = load i32, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %24) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %23) #7
+  call void @llvm.lifetime.end.p0(i64 16, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #7
+  ret i32 %623
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @zebra_redistribute(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3631,80 +3747,82 @@ define internal i32 @zebra_redistribute(ptr noundef %0, ptr noundef %1, i32 noun
   ret i32 %73
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @zebra_nexthop_lookup(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @zebra_nexthop_lookup(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6) #0 {
   %8 = alloca ptr, align 8
-  %9 = alloca i32, align 4
+  %9 = alloca i8, align 1
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
   %12 = alloca i16, align 2
   %13 = alloca i8, align 1
   %14 = alloca i8, align 1
   store ptr %0, ptr %8, align 8
-  store i32 %1, ptr %9, align 4
+  %15 = zext i1 %1 to i8
+  store i8 %15, ptr %9, align 1
   store ptr %2, ptr %10, align 8
   store i32 %3, ptr %11, align 4
   store i16 %4, ptr %12, align 2
   store i8 %5, ptr %13, align 1
   store i8 %6, ptr %14, align 1
-  %15 = load i8, ptr %13, align 1
-  %16 = zext i8 %15 to i32
-  %17 = icmp eq i32 %16, 10
-  br i1 %17, label %18, label %26
+  %16 = load i8, ptr %13, align 1
+  %17 = zext i8 %16 to i32
+  %18 = icmp eq i32 %17, 10
+  br i1 %18, label %19, label %27
 
-18:                                               ; preds = %7
-  %19 = load ptr, ptr %8, align 8
-  %20 = load i32, ptr @hf_zebra_dest6, align 4
-  %21 = load ptr, ptr %10, align 8
-  %22 = load i32, ptr %11, align 4
-  %23 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef 16, i32 noundef 0)
-  %24 = load i32, ptr %11, align 4
-  %25 = add i32 %24, 16
-  store i32 %25, ptr %11, align 4
-  br label %34
+19:                                               ; preds = %7
+  %20 = load ptr, ptr %8, align 8
+  %21 = load i32, ptr @hf_zebra_dest6, align 4
+  %22 = load ptr, ptr %10, align 8
+  %23 = load i32, ptr %11, align 4
+  %24 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef 16, i32 noundef 0)
+  %25 = load i32, ptr %11, align 4
+  %26 = add i32 %25, 16
+  store i32 %26, ptr %11, align 4
+  br label %35
 
-26:                                               ; preds = %7
-  %27 = load ptr, ptr %8, align 8
-  %28 = load i32, ptr @hf_zebra_dest4, align 4
-  %29 = load ptr, ptr %10, align 8
-  %30 = load i32, ptr %11, align 4
-  %31 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef %30, i32 noundef 4, i32 noundef 0)
-  %32 = load i32, ptr %11, align 4
-  %33 = add i32 %32, 4
-  store i32 %33, ptr %11, align 4
-  br label %34
+27:                                               ; preds = %7
+  %28 = load ptr, ptr %8, align 8
+  %29 = load i32, ptr @hf_zebra_dest4, align 4
+  %30 = load ptr, ptr %10, align 8
+  %31 = load i32, ptr %11, align 4
+  %32 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %29, ptr noundef %30, i32 noundef %31, i32 noundef 4, i32 noundef 0)
+  %33 = load i32, ptr %11, align 4
+  %34 = add i32 %33, 4
+  store i32 %34, ptr %11, align 4
+  br label %35
 
-34:                                               ; preds = %26, %18
-  %35 = load i32, ptr %9, align 4
-  %36 = icmp ne i32 %35, 0
-  br i1 %36, label %53, label %37
+35:                                               ; preds = %27, %19
+  %36 = load i8, ptr %9, align 1, !range !6, !noundef !7
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %55, label %38
 
-37:                                               ; preds = %34
-  %38 = load ptr, ptr %8, align 8
-  %39 = load i32, ptr @hf_zebra_metric, align 4
-  %40 = load ptr, ptr %10, align 8
-  %41 = load i32, ptr %11, align 4
-  %42 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %39, ptr noundef %40, i32 noundef %41, i32 noundef 4, i32 noundef 0)
-  %43 = load i32, ptr %11, align 4
-  %44 = add i32 %43, 4
-  store i32 %44, ptr %11, align 4
-  %45 = load ptr, ptr %8, align 8
-  %46 = load i32, ptr %9, align 4
-  %47 = load ptr, ptr %10, align 8
-  %48 = load i32, ptr %11, align 4
-  %49 = load i16, ptr %12, align 2
-  %50 = load i8, ptr %13, align 1
-  %51 = load i8, ptr %14, align 1
-  %52 = call i32 @zebra_route_nexthop(ptr noundef %45, i32 noundef %46, ptr noundef %47, i32 noundef %48, i16 noundef zeroext %49, i8 noundef zeroext %50, i8 noundef zeroext %51)
-  store i32 %52, ptr %11, align 4
-  br label %53
+38:                                               ; preds = %35
+  %39 = load ptr, ptr %8, align 8
+  %40 = load i32, ptr @hf_zebra_metric, align 4
+  %41 = load ptr, ptr %10, align 8
+  %42 = load i32, ptr %11, align 4
+  %43 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef %42, i32 noundef 4, i32 noundef 0)
+  %44 = load i32, ptr %11, align 4
+  %45 = add i32 %44, 4
+  store i32 %45, ptr %11, align 4
+  %46 = load ptr, ptr %8, align 8
+  %47 = load i8, ptr %9, align 1, !range !6, !noundef !7
+  %48 = trunc i8 %47 to i1
+  %49 = load ptr, ptr %10, align 8
+  %50 = load i32, ptr %11, align 4
+  %51 = load i16, ptr %12, align 2
+  %52 = load i8, ptr %13, align 1
+  %53 = load i8, ptr %14, align 1
+  %54 = call i32 @zebra_route_nexthop(ptr noundef %46, i1 noundef zeroext %48, ptr noundef %49, i32 noundef %50, i16 noundef zeroext %51, i8 noundef zeroext %52, i8 noundef zeroext %53)
+  store i32 %54, ptr %11, align 4
+  br label %55
 
-53:                                               ; preds = %37, %34
-  %54 = load i32, ptr %11, align 4
-  ret i32 %54
+55:                                               ; preds = %38, %35
+  %56 = load i32, ptr %11, align 4
+  ret i32 %56
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @zerba_router_update(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -3740,7 +3858,7 @@ define internal i32 @zerba_router_update(ptr noundef %0, ptr noundef %1, i32 nou
   ret i32 %28
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @zebra_hello(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3804,7 +3922,7 @@ define internal i32 @zebra_hello(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   ret i32 %46
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @zebra_nexthop_register(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3819,13 +3937,16 @@ define internal i32 @zebra_nexthop_register(ptr noundef %0, ptr noundef %1, i32 
   store i32 %2, ptr %8, align 4
   store i16 %3, ptr %9, align 2
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
   %14 = load i32, ptr %8, align 4
   store i32 %14, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
   %15 = load i16, ptr %9, align 2
   %16 = zext i16 %15 to i32
   %17 = load i32, ptr %10, align 4
   %18 = sub i32 %16, %17
   store i32 %18, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #7
   store i16 0, ptr %13, align 2
   br label %19
 
@@ -3903,14 +4024,17 @@ define internal i32 @zebra_nexthop_register(ptr noundef %0, ptr noundef %1, i32 
   br label %74
 
 74:                                               ; preds = %73, %53
-  br label %19, !llvm.loop !4
+  br label %19, !llvm.loop !8
 
 75:                                               ; preds = %19
   %76 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
   ret i32 %76
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @zebra_nexthop_update(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3925,10 +4049,15 @@ define internal i32 @zebra_nexthop_update(ptr noundef %0, ptr noundef %1, i32 no
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i8 %3, ptr %8, align 1
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #7
   %14 = load ptr, ptr %6, align 8
   %15 = load i32, ptr %7, align 4
   %16 = call zeroext i16 @tvb_get_ntohs(ptr noundef %14, i32 noundef %15)
   store i16 %16, ptr %9, align 2
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #7
   %17 = load ptr, ptr %5, align 8
   %18 = load i32, ptr @hf_zebra_family, align 4
   %19 = load ptr, ptr %6, align 8
@@ -3939,7 +4068,7 @@ define internal i32 @zebra_nexthop_update(ptr noundef %0, ptr noundef %1, i32 no
   store i32 %23, ptr %7, align 4
   %24 = load ptr, ptr %6, align 8
   %25 = load i32, ptr %7, align 4
-  %26 = call zeroext i8 @tvb_get_guint8(ptr noundef %24, i32 noundef %25)
+  %26 = call zeroext i8 @tvb_get_uint8(ptr noundef %24, i32 noundef %25)
   store i8 %26, ptr %10, align 1
   %27 = load ptr, ptr %5, align 8
   %28 = load i32, ptr @hf_zebra_prefixlen, align 4
@@ -4049,7 +4178,7 @@ define internal i32 @zebra_nexthop_update(ptr noundef %0, ptr noundef %1, i32 no
   store i32 %103, ptr %7, align 4
   %104 = load ptr, ptr %6, align 8
   %105 = load i32, ptr %7, align 4
-  %106 = call zeroext i8 @tvb_get_guint8(ptr noundef %104, i32 noundef %105)
+  %106 = call zeroext i8 @tvb_get_uint8(ptr noundef %104, i32 noundef %105)
   store i8 %106, ptr %11, align 1
   %107 = load ptr, ptr %5, align 8
   %108 = load i32, ptr @hf_zebra_nexthopnum, align 4
@@ -4073,7 +4202,7 @@ define internal i32 @zebra_nexthop_update(ptr noundef %0, ptr noundef %1, i32 no
 120:                                              ; preds = %116
   %121 = load ptr, ptr %6, align 8
   %122 = load i32, ptr %7, align 4
-  %123 = call zeroext i8 @tvb_get_guint8(ptr noundef %121, i32 noundef %122)
+  %123 = call zeroext i8 @tvb_get_uint8(ptr noundef %121, i32 noundef %122)
   store i8 %123, ptr %12, align 1
   %124 = load i8, ptr %8, align 1
   %125 = zext i8 %124 to i32
@@ -4297,7 +4426,7 @@ define internal i32 @zebra_nexthop_update(ptr noundef %0, ptr noundef %1, i32 no
 273:                                              ; preds = %269
   %274 = load ptr, ptr %6, align 8
   %275 = load i32, ptr %7, align 4
-  %276 = call zeroext i8 @tvb_get_guint8(ptr noundef %274, i32 noundef %275)
+  %276 = call zeroext i8 @tvb_get_uint8(ptr noundef %274, i32 noundef %275)
   store i8 %276, ptr %13, align 1
   %277 = load ptr, ptr %5, align 8
   %278 = load i32, ptr @hf_zebra_labelnum, align 4
@@ -4327,20 +4456,25 @@ define internal i32 @zebra_nexthop_update(ptr noundef %0, ptr noundef %1, i32 no
   %296 = load i32, ptr %7, align 4
   %297 = add i32 %296, 4
   store i32 %297, ptr %7, align 4
-  br label %286, !llvm.loop !6
+  br label %286, !llvm.loop !10
 
 298:                                              ; preds = %286
   br label %299
 
 299:                                              ; preds = %298, %269
-  br label %116, !llvm.loop !7
+  br label %116, !llvm.loop !11
 
 300:                                              ; preds = %116
   %301 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #7
   ret i32 %301
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @zebra_capabilties(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -4368,7 +4502,7 @@ define internal i32 @zebra_capabilties(ptr noundef %0, ptr noundef %1, i32 nound
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @zebra_vrf(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -4404,7 +4538,7 @@ define internal i32 @zebra_vrf(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   ret i32 %28
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @zebra_label_manager_connect(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -4432,82 +4566,84 @@ define internal i32 @zebra_label_manager_connect(ptr noundef %0, ptr noundef %1,
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @zebra_get_label_chunk(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @zebra_get_label_chunk(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
+  %6 = alloca i8, align 1
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
+  %9 = zext i1 %1 to i8
+  store i8 %9, ptr %6, align 1
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i32, ptr @hf_zebra_proto, align 4
-  %11 = load ptr, ptr %7, align 8
-  %12 = load i32, ptr %8, align 4
-  %13 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %10, ptr noundef %11, i32 noundef %12, i32 noundef 1, i32 noundef 0)
-  %14 = load i32, ptr %8, align 4
-  %15 = add i32 %14, 1
-  store i32 %15, ptr %8, align 4
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr @hf_zebra_instance, align 4
-  %18 = load ptr, ptr %7, align 8
-  %19 = load i32, ptr %8, align 4
-  %20 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef 2, i32 noundef 0)
-  %21 = load i32, ptr %8, align 4
-  %22 = add i32 %21, 2
-  store i32 %22, ptr %8, align 4
-  %23 = load ptr, ptr %5, align 8
-  %24 = load i32, ptr @hf_zebra_label_chunk_keep, align 4
-  %25 = load ptr, ptr %7, align 8
-  %26 = load i32, ptr %8, align 4
-  %27 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %24, ptr noundef %25, i32 noundef %26, i32 noundef 1, i32 noundef 0)
-  %28 = load i32, ptr %8, align 4
-  %29 = add i32 %28, 1
-  store i32 %29, ptr %8, align 4
-  %30 = load i32, ptr %6, align 4
-  %31 = icmp ne i32 %30, 0
-  br i1 %31, label %32, label %40
+  %10 = load ptr, ptr %5, align 8
+  %11 = load i32, ptr @hf_zebra_proto, align 4
+  %12 = load ptr, ptr %7, align 8
+  %13 = load i32, ptr %8, align 4
+  %14 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %12, i32 noundef %13, i32 noundef 1, i32 noundef 0)
+  %15 = load i32, ptr %8, align 4
+  %16 = add i32 %15, 1
+  store i32 %16, ptr %8, align 4
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr @hf_zebra_instance, align 4
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i32, ptr %8, align 4
+  %21 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef 2, i32 noundef 0)
+  %22 = load i32, ptr %8, align 4
+  %23 = add i32 %22, 2
+  store i32 %23, ptr %8, align 4
+  %24 = load ptr, ptr %5, align 8
+  %25 = load i32, ptr @hf_zebra_label_chunk_keep, align 4
+  %26 = load ptr, ptr %7, align 8
+  %27 = load i32, ptr %8, align 4
+  %28 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef 1, i32 noundef 0)
+  %29 = load i32, ptr %8, align 4
+  %30 = add i32 %29, 1
+  store i32 %30, ptr %8, align 4
+  %31 = load i8, ptr %6, align 1, !range !6, !noundef !7
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %33, label %41
 
-32:                                               ; preds = %4
-  %33 = load ptr, ptr %5, align 8
-  %34 = load i32, ptr @hf_zebra_label_chunk_size, align 4
-  %35 = load ptr, ptr %7, align 8
-  %36 = load i32, ptr %8, align 4
-  %37 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %34, ptr noundef %35, i32 noundef %36, i32 noundef 4, i32 noundef 0)
-  %38 = load i32, ptr %8, align 4
-  %39 = add i32 %38, 4
-  store i32 %39, ptr %8, align 4
-  br label %55
+33:                                               ; preds = %4
+  %34 = load ptr, ptr %5, align 8
+  %35 = load i32, ptr @hf_zebra_label_chunk_size, align 4
+  %36 = load ptr, ptr %7, align 8
+  %37 = load i32, ptr %8, align 4
+  %38 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %35, ptr noundef %36, i32 noundef %37, i32 noundef 4, i32 noundef 0)
+  %39 = load i32, ptr %8, align 4
+  %40 = add i32 %39, 4
+  store i32 %40, ptr %8, align 4
+  br label %56
 
-40:                                               ; preds = %4
-  %41 = load ptr, ptr %5, align 8
-  %42 = load i32, ptr @hf_zebra_label_chunk_start, align 4
-  %43 = load ptr, ptr %7, align 8
-  %44 = load i32, ptr %8, align 4
-  %45 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef %44, i32 noundef 4, i32 noundef 0)
-  %46 = load i32, ptr %8, align 4
-  %47 = add i32 %46, 4
-  store i32 %47, ptr %8, align 4
-  %48 = load ptr, ptr %5, align 8
-  %49 = load i32, ptr @hf_zebra_label_chunk_end, align 4
-  %50 = load ptr, ptr %7, align 8
-  %51 = load i32, ptr %8, align 4
-  %52 = call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %49, ptr noundef %50, i32 noundef %51, i32 noundef 4, i32 noundef 0)
-  %53 = load i32, ptr %8, align 4
-  %54 = add i32 %53, 4
-  store i32 %54, ptr %8, align 4
-  br label %55
+41:                                               ; preds = %4
+  %42 = load ptr, ptr %5, align 8
+  %43 = load i32, ptr @hf_zebra_label_chunk_start, align 4
+  %44 = load ptr, ptr %7, align 8
+  %45 = load i32, ptr %8, align 4
+  %46 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %45, i32 noundef 4, i32 noundef 0)
+  %47 = load i32, ptr %8, align 4
+  %48 = add i32 %47, 4
+  store i32 %48, ptr %8, align 4
+  %49 = load ptr, ptr %5, align 8
+  %50 = load i32, ptr @hf_zebra_label_chunk_end, align 4
+  %51 = load ptr, ptr %7, align 8
+  %52 = load i32, ptr %8, align 4
+  %53 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %50, ptr noundef %51, i32 noundef %52, i32 noundef 4, i32 noundef 0)
+  %54 = load i32, ptr %8, align 4
+  %55 = add i32 %54, 4
+  store i32 %55, ptr %8, align 4
+  br label %56
 
-55:                                               ; preds = %40, %32
-  %56 = load i32, ptr %8, align 4
-  ret i32 %56
+56:                                               ; preds = %41, %33
+  %57 = load i32, ptr %8, align 4
+  ret i32 %57
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @zebra_route_message(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4566,20 +4702,37 @@ define internal i32 @zebra_route_message(ptr noundef %0, ptr noundef %1, i32 nou
   ret i32 %41
 }
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+; Function Attrs: alwaysinline nounwind
+define internal ptr @memset.inline(ptr %0, i32 %1, i64 %2) #4 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i32, ptr %5, align 4
+  %9 = load i64, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = call i64 @llvm.objectsize.i64.p0(ptr %10, i1 false, i1 true, i1 true)
+  %12 = call ptr @__memset_chk(ptr noundef %7, i32 noundef %8, i64 noundef %9, i64 noundef %11) #7
+  ret ptr %12
+}
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_ipv6(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_ipv4(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @zebra_route_nexthop(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @zebra_route_nexthop(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6) #0 {
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
-  %10 = alloca i32, align 4
+  %10 = alloca i8, align 1
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
   %13 = alloca i16, align 2
@@ -4588,418 +4741,428 @@ define internal i32 @zebra_route_nexthop(ptr noundef %0, i32 noundef %1, ptr nou
   %16 = alloca i8, align 1
   %17 = alloca i8, align 1
   %18 = alloca i16, align 2
+  %19 = alloca i32, align 4
   store ptr %0, ptr %9, align 8
-  store i32 %1, ptr %10, align 4
+  %20 = zext i1 %1 to i8
+  store i8 %20, ptr %10, align 1
   store ptr %2, ptr %11, align 8
   store i32 %3, ptr %12, align 4
   store i16 %4, ptr %13, align 2
   store i8 %5, ptr %14, align 1
   store i8 %6, ptr %15, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #7
   store i8 0, ptr %16, align 1
-  %19 = load i8, ptr %15, align 1
-  %20 = zext i8 %19 to i32
-  %21 = icmp slt i32 %20, 5
-  br i1 %21, label %22, label %36
+  call void @llvm.lifetime.start.p0(i64 1, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 2, ptr %18) #7
+  %21 = load i8, ptr %15, align 1
+  %22 = zext i8 %21 to i32
+  %23 = icmp slt i32 %22, 5
+  br i1 %23, label %24, label %38
 
-22:                                               ; preds = %7
-  %23 = load ptr, ptr %11, align 8
-  %24 = load i32, ptr %12, align 4
-  %25 = call zeroext i8 @tvb_get_guint8(ptr noundef %23, i32 noundef %24)
-  %26 = zext i8 %25 to i16
-  store i16 %26, ptr %18, align 2
-  %27 = load ptr, ptr %9, align 8
-  %28 = load i32, ptr @hf_zebra_nexthopnum, align 4
-  %29 = load ptr, ptr %11, align 8
-  %30 = load i32, ptr %12, align 4
-  %31 = load i16, ptr %18, align 2
-  %32 = zext i16 %31 to i32
-  %33 = call ptr @proto_tree_add_uint(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef %30, i32 noundef 1, i32 noundef %32)
-  %34 = load i32, ptr %12, align 4
-  %35 = add i32 %34, 1
-  store i32 %35, ptr %12, align 4
-  br label %49
+24:                                               ; preds = %7
+  %25 = load ptr, ptr %11, align 8
+  %26 = load i32, ptr %12, align 4
+  %27 = call zeroext i8 @tvb_get_uint8(ptr noundef %25, i32 noundef %26)
+  %28 = zext i8 %27 to i16
+  store i16 %28, ptr %18, align 2
+  %29 = load ptr, ptr %9, align 8
+  %30 = load i32, ptr @hf_zebra_nexthopnum, align 4
+  %31 = load ptr, ptr %11, align 8
+  %32 = load i32, ptr %12, align 4
+  %33 = load i16, ptr %18, align 2
+  %34 = zext i16 %33 to i32
+  %35 = call ptr @proto_tree_add_uint(ptr noundef %29, i32 noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef 1, i32 noundef %34)
+  %36 = load i32, ptr %12, align 4
+  %37 = add i32 %36, 1
+  store i32 %37, ptr %12, align 4
+  br label %51
 
-36:                                               ; preds = %7
-  %37 = load ptr, ptr %11, align 8
-  %38 = load i32, ptr %12, align 4
-  %39 = call zeroext i16 @tvb_get_ntohs(ptr noundef %37, i32 noundef %38)
-  store i16 %39, ptr %18, align 2
-  %40 = load ptr, ptr %9, align 8
-  %41 = load i32, ptr @hf_zebra_nexthopnum_u16, align 4
-  %42 = load ptr, ptr %11, align 8
-  %43 = load i32, ptr %12, align 4
-  %44 = load i16, ptr %18, align 2
-  %45 = zext i16 %44 to i32
-  %46 = call ptr @proto_tree_add_uint(ptr noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef %43, i32 noundef 2, i32 noundef %45)
-  %47 = load i32, ptr %12, align 4
-  %48 = add i32 %47, 2
-  store i32 %48, ptr %12, align 4
-  br label %49
+38:                                               ; preds = %7
+  %39 = load ptr, ptr %11, align 8
+  %40 = load i32, ptr %12, align 4
+  %41 = call zeroext i16 @tvb_get_ntohs(ptr noundef %39, i32 noundef %40)
+  store i16 %41, ptr %18, align 2
+  %42 = load ptr, ptr %9, align 8
+  %43 = load i32, ptr @hf_zebra_nexthopnum_u16, align 4
+  %44 = load ptr, ptr %11, align 8
+  %45 = load i32, ptr %12, align 4
+  %46 = load i16, ptr %18, align 2
+  %47 = zext i16 %46 to i32
+  %48 = call ptr @proto_tree_add_uint(ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %45, i32 noundef 2, i32 noundef %47)
+  %49 = load i32, ptr %12, align 4
+  %50 = add i32 %49, 2
+  store i32 %50, ptr %12, align 4
+  br label %51
 
-49:                                               ; preds = %36, %22
-  %50 = load i16, ptr %18, align 2
-  %51 = zext i16 %50 to i32
-  %52 = load i16, ptr %13, align 2
+51:                                               ; preds = %38, %24
+  %52 = load i16, ptr %18, align 2
   %53 = zext i16 %52 to i32
-  %54 = icmp sgt i32 %51, %53
-  br i1 %54, label %55, label %57
+  %54 = load i16, ptr %13, align 2
+  %55 = zext i16 %54 to i32
+  %56 = icmp sgt i32 %53, %55
+  br i1 %56, label %57, label %59
 
-55:                                               ; preds = %49
-  %56 = load i32, ptr %12, align 4
-  store i32 %56, ptr %8, align 4
-  br label %288
+57:                                               ; preds = %51
+  %58 = load i32, ptr %12, align 4
+  store i32 %58, ptr %8, align 4
+  store i32 1, ptr %19, align 4
+  br label %290
 
-57:                                               ; preds = %49
-  br label %58
+59:                                               ; preds = %51
+  br label %60
 
-58:                                               ; preds = %285, %57
-  %59 = load i16, ptr %18, align 2
-  %60 = add i16 %59, -1
-  store i16 %60, ptr %18, align 2
-  %61 = icmp ne i16 %59, 0
-  br i1 %61, label %62, label %286
+60:                                               ; preds = %287, %59
+  %61 = load i16, ptr %18, align 2
+  %62 = add i16 %61, -1
+  store i16 %62, ptr %18, align 2
+  %63 = icmp ne i16 %61, 0
+  br i1 %63, label %64, label %288
 
-62:                                               ; preds = %58
-  %63 = load i8, ptr %15, align 1
-  %64 = zext i8 %63 to i32
-  %65 = icmp sgt i32 %64, 4
-  br i1 %65, label %66, label %74
+64:                                               ; preds = %60
+  %65 = load i8, ptr %15, align 1
+  %66 = zext i8 %65 to i32
+  %67 = icmp sgt i32 %66, 4
+  br i1 %67, label %68, label %76
 
-66:                                               ; preds = %62
-  %67 = load ptr, ptr %9, align 8
-  %68 = load i32, ptr @hf_zebra_vrfid, align 4
-  %69 = load ptr, ptr %11, align 8
-  %70 = load i32, ptr %12, align 4
-  %71 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %68, ptr noundef %69, i32 noundef %70, i32 noundef 4, i32 noundef 0)
+68:                                               ; preds = %64
+  %69 = load ptr, ptr %9, align 8
+  %70 = load i32, ptr @hf_zebra_vrfid, align 4
+  %71 = load ptr, ptr %11, align 8
   %72 = load i32, ptr %12, align 4
-  %73 = add i32 %72, 4
-  store i32 %73, ptr %12, align 4
-  br label %74
+  %73 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %70, ptr noundef %71, i32 noundef %72, i32 noundef 4, i32 noundef 0)
+  %74 = load i32, ptr %12, align 4
+  %75 = add i32 %74, 4
+  store i32 %75, ptr %12, align 4
+  br label %76
 
-74:                                               ; preds = %66, %62
-  %75 = load i8, ptr %15, align 1
-  %76 = zext i8 %75 to i32
-  %77 = icmp slt i32 %76, 4
-  br i1 %77, label %78, label %92
+76:                                               ; preds = %68, %64
+  %77 = load i8, ptr %15, align 1
+  %78 = zext i8 %77 to i32
+  %79 = icmp slt i32 %78, 4
+  br i1 %79, label %80, label %94
 
-78:                                               ; preds = %74
-  %79 = load i32, ptr %10, align 4
-  %80 = icmp ne i32 %79, 0
-  br i1 %80, label %81, label %92
+80:                                               ; preds = %76
+  %81 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %83, label %94
 
-81:                                               ; preds = %78
-  %82 = load ptr, ptr %11, align 8
-  %83 = load i32, ptr %12, align 4
-  %84 = call zeroext i8 @tvb_get_guint8(ptr noundef %82, i32 noundef %83)
-  store i8 %84, ptr %16, align 1
-  %85 = load ptr, ptr %9, align 8
-  %86 = load i32, ptr @hf_zebra_nexthoptype, align 4
-  %87 = load ptr, ptr %11, align 8
-  %88 = load i32, ptr %12, align 4
-  %89 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %86, ptr noundef %87, i32 noundef %88, i32 noundef 1, i32 noundef 0)
+83:                                               ; preds = %80
+  %84 = load ptr, ptr %11, align 8
+  %85 = load i32, ptr %12, align 4
+  %86 = call zeroext i8 @tvb_get_uint8(ptr noundef %84, i32 noundef %85)
+  store i8 %86, ptr %16, align 1
+  %87 = load ptr, ptr %9, align 8
+  %88 = load i32, ptr @hf_zebra_nexthoptype, align 4
+  %89 = load ptr, ptr %11, align 8
   %90 = load i32, ptr %12, align 4
-  %91 = add i32 %90, 1
-  store i32 %91, ptr %12, align 4
-  br label %108
+  %91 = call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %88, ptr noundef %89, i32 noundef %90, i32 noundef 1, i32 noundef 0)
+  %92 = load i32, ptr %12, align 4
+  %93 = add i32 %92, 1
+  store i32 %93, ptr %12, align 4
+  br label %110
 
-92:                                               ; preds = %78, %74
-  %93 = load i8, ptr %15, align 1
-  %94 = zext i8 %93 to i32
-  %95 = icmp sge i32 %94, 4
-  br i1 %95, label %96, label %107
+94:                                               ; preds = %80, %76
+  %95 = load i8, ptr %15, align 1
+  %96 = zext i8 %95 to i32
+  %97 = icmp sge i32 %96, 4
+  br i1 %97, label %98, label %109
 
-96:                                               ; preds = %92
-  %97 = load ptr, ptr %11, align 8
-  %98 = load i32, ptr %12, align 4
-  %99 = call zeroext i8 @tvb_get_guint8(ptr noundef %97, i32 noundef %98)
-  store i8 %99, ptr %16, align 1
-  %100 = load ptr, ptr %9, align 8
-  %101 = load i32, ptr @hf_zebra_nexthoptype_frr, align 4
-  %102 = load ptr, ptr %11, align 8
-  %103 = load i32, ptr %12, align 4
-  %104 = call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %101, ptr noundef %102, i32 noundef %103, i32 noundef 1, i32 noundef 0)
+98:                                               ; preds = %94
+  %99 = load ptr, ptr %11, align 8
+  %100 = load i32, ptr %12, align 4
+  %101 = call zeroext i8 @tvb_get_uint8(ptr noundef %99, i32 noundef %100)
+  store i8 %101, ptr %16, align 1
+  %102 = load ptr, ptr %9, align 8
+  %103 = load i32, ptr @hf_zebra_nexthoptype_frr, align 4
+  %104 = load ptr, ptr %11, align 8
   %105 = load i32, ptr %12, align 4
-  %106 = add i32 %105, 1
-  store i32 %106, ptr %12, align 4
-  br label %107
+  %106 = call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %103, ptr noundef %104, i32 noundef %105, i32 noundef 1, i32 noundef 0)
+  %107 = load i32, ptr %12, align 4
+  %108 = add i32 %107, 1
+  store i32 %108, ptr %12, align 4
+  br label %109
 
-107:                                              ; preds = %96, %92
-  br label %108
+109:                                              ; preds = %98, %94
+  br label %110
 
-108:                                              ; preds = %107, %81
-  %109 = load i8, ptr %15, align 1
-  %110 = zext i8 %109 to i32
-  %111 = icmp slt i32 %110, 4
-  br i1 %111, label %112, label %134
+110:                                              ; preds = %109, %83
+  %111 = load i8, ptr %15, align 1
+  %112 = zext i8 %111 to i32
+  %113 = icmp slt i32 %112, 4
+  br i1 %113, label %114, label %136
 
-112:                                              ; preds = %108
-  %113 = load i32, ptr %10, align 4
-  %114 = icmp ne i32 %113, 0
-  br i1 %114, label %115, label %127
+114:                                              ; preds = %110
+  %115 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %116 = trunc i8 %115 to i1
+  br i1 %116, label %117, label %129
 
-115:                                              ; preds = %112
-  %116 = load i8, ptr %16, align 1
-  %117 = zext i8 %116 to i32
-  %118 = icmp eq i32 %117, 3
-  br i1 %118, label %146, label %119
+117:                                              ; preds = %114
+  %118 = load i8, ptr %16, align 1
+  %119 = zext i8 %118 to i32
+  %120 = icmp eq i32 %119, 3
+  br i1 %120, label %148, label %121
 
-119:                                              ; preds = %115
-  %120 = load i8, ptr %16, align 1
-  %121 = zext i8 %120 to i32
-  %122 = icmp eq i32 %121, 4
-  br i1 %122, label %146, label %123
+121:                                              ; preds = %117
+  %122 = load i8, ptr %16, align 1
+  %123 = zext i8 %122 to i32
+  %124 = icmp eq i32 %123, 4
+  br i1 %124, label %148, label %125
 
-123:                                              ; preds = %119
-  %124 = load i8, ptr %16, align 1
-  %125 = zext i8 %124 to i32
-  %126 = icmp eq i32 %125, 5
-  br i1 %126, label %146, label %127
+125:                                              ; preds = %121
+  %126 = load i8, ptr %16, align 1
+  %127 = zext i8 %126 to i32
+  %128 = icmp eq i32 %127, 5
+  br i1 %128, label %148, label %129
 
-127:                                              ; preds = %123, %112
-  %128 = load i32, ptr %10, align 4
-  %129 = icmp ne i32 %128, 0
-  br i1 %129, label %134, label %130
+129:                                              ; preds = %125, %114
+  %130 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %131 = trunc i8 %130 to i1
+  br i1 %131, label %136, label %132
 
-130:                                              ; preds = %127
-  %131 = load i8, ptr %14, align 1
-  %132 = zext i8 %131 to i32
-  %133 = icmp eq i32 %132, 2
-  br i1 %133, label %146, label %134
+132:                                              ; preds = %129
+  %133 = load i8, ptr %14, align 1
+  %134 = zext i8 %133 to i32
+  %135 = icmp eq i32 %134, 2
+  br i1 %135, label %148, label %136
 
-134:                                              ; preds = %130, %127, %108
-  %135 = load i8, ptr %15, align 1
-  %136 = zext i8 %135 to i32
-  %137 = icmp sge i32 %136, 4
-  br i1 %137, label %138, label %154
+136:                                              ; preds = %132, %129, %110
+  %137 = load i8, ptr %15, align 1
+  %138 = zext i8 %137 to i32
+  %139 = icmp sge i32 %138, 4
+  br i1 %139, label %140, label %156
 
-138:                                              ; preds = %134
-  %139 = load i8, ptr %16, align 1
-  %140 = zext i8 %139 to i32
-  %141 = icmp eq i32 %140, 2
-  br i1 %141, label %146, label %142
+140:                                              ; preds = %136
+  %141 = load i8, ptr %16, align 1
+  %142 = zext i8 %141 to i32
+  %143 = icmp eq i32 %142, 2
+  br i1 %143, label %148, label %144
 
-142:                                              ; preds = %138
-  %143 = load i8, ptr %16, align 1
-  %144 = zext i8 %143 to i32
-  %145 = icmp eq i32 %144, 3
-  br i1 %145, label %146, label %154
+144:                                              ; preds = %140
+  %145 = load i8, ptr %16, align 1
+  %146 = zext i8 %145 to i32
+  %147 = icmp eq i32 %146, 3
+  br i1 %147, label %148, label %156
 
-146:                                              ; preds = %142, %138, %130, %123, %119, %115
-  %147 = load ptr, ptr %9, align 8
-  %148 = load i32, ptr @hf_zebra_nexthop4, align 4
-  %149 = load ptr, ptr %11, align 8
-  %150 = load i32, ptr %12, align 4
-  %151 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %148, ptr noundef %149, i32 noundef %150, i32 noundef 4, i32 noundef 0)
+148:                                              ; preds = %144, %140, %132, %125, %121, %117
+  %149 = load ptr, ptr %9, align 8
+  %150 = load i32, ptr @hf_zebra_nexthop4, align 4
+  %151 = load ptr, ptr %11, align 8
   %152 = load i32, ptr %12, align 4
-  %153 = add i32 %152, 4
-  store i32 %153, ptr %12, align 4
-  br label %154
+  %153 = call ptr @proto_tree_add_item(ptr noundef %149, i32 noundef %150, ptr noundef %151, i32 noundef %152, i32 noundef 4, i32 noundef 0)
+  %154 = load i32, ptr %12, align 4
+  %155 = add i32 %154, 4
+  store i32 %155, ptr %12, align 4
+  br label %156
 
-154:                                              ; preds = %146, %142, %134
-  %155 = load i8, ptr %15, align 1
-  %156 = zext i8 %155 to i32
-  %157 = icmp slt i32 %156, 4
-  br i1 %157, label %158, label %180
+156:                                              ; preds = %148, %144, %136
+  %157 = load i8, ptr %15, align 1
+  %158 = zext i8 %157 to i32
+  %159 = icmp slt i32 %158, 4
+  br i1 %159, label %160, label %182
 
-158:                                              ; preds = %154
-  %159 = load i32, ptr %10, align 4
-  %160 = icmp ne i32 %159, 0
-  br i1 %160, label %161, label %173
+160:                                              ; preds = %156
+  %161 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %162 = trunc i8 %161 to i1
+  br i1 %162, label %163, label %175
 
-161:                                              ; preds = %158
-  %162 = load i8, ptr %16, align 1
-  %163 = zext i8 %162 to i32
-  %164 = icmp eq i32 %163, 6
-  br i1 %164, label %192, label %165
+163:                                              ; preds = %160
+  %164 = load i8, ptr %16, align 1
+  %165 = zext i8 %164 to i32
+  %166 = icmp eq i32 %165, 6
+  br i1 %166, label %194, label %167
 
-165:                                              ; preds = %161
-  %166 = load i8, ptr %16, align 1
-  %167 = zext i8 %166 to i32
-  %168 = icmp eq i32 %167, 7
-  br i1 %168, label %192, label %169
+167:                                              ; preds = %163
+  %168 = load i8, ptr %16, align 1
+  %169 = zext i8 %168 to i32
+  %170 = icmp eq i32 %169, 7
+  br i1 %170, label %194, label %171
 
-169:                                              ; preds = %165
-  %170 = load i8, ptr %16, align 1
-  %171 = zext i8 %170 to i32
-  %172 = icmp eq i32 %171, 8
-  br i1 %172, label %192, label %173
+171:                                              ; preds = %167
+  %172 = load i8, ptr %16, align 1
+  %173 = zext i8 %172 to i32
+  %174 = icmp eq i32 %173, 8
+  br i1 %174, label %194, label %175
 
-173:                                              ; preds = %169, %158
-  %174 = load i32, ptr %10, align 4
-  %175 = icmp ne i32 %174, 0
-  br i1 %175, label %180, label %176
+175:                                              ; preds = %171, %160
+  %176 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %177 = trunc i8 %176 to i1
+  br i1 %177, label %182, label %178
 
-176:                                              ; preds = %173
-  %177 = load i8, ptr %14, align 1
-  %178 = zext i8 %177 to i32
-  %179 = icmp eq i32 %178, 10
-  br i1 %179, label %192, label %180
+178:                                              ; preds = %175
+  %179 = load i8, ptr %14, align 1
+  %180 = zext i8 %179 to i32
+  %181 = icmp eq i32 %180, 10
+  br i1 %181, label %194, label %182
 
-180:                                              ; preds = %176, %173, %154
-  %181 = load i8, ptr %15, align 1
-  %182 = zext i8 %181 to i32
-  %183 = icmp sge i32 %182, 4
-  br i1 %183, label %184, label %200
+182:                                              ; preds = %178, %175, %156
+  %183 = load i8, ptr %15, align 1
+  %184 = zext i8 %183 to i32
+  %185 = icmp sge i32 %184, 4
+  br i1 %185, label %186, label %202
 
-184:                                              ; preds = %180
-  %185 = load i8, ptr %16, align 1
-  %186 = zext i8 %185 to i32
-  %187 = icmp eq i32 %186, 4
-  br i1 %187, label %192, label %188
+186:                                              ; preds = %182
+  %187 = load i8, ptr %16, align 1
+  %188 = zext i8 %187 to i32
+  %189 = icmp eq i32 %188, 4
+  br i1 %189, label %194, label %190
 
-188:                                              ; preds = %184
-  %189 = load i8, ptr %16, align 1
-  %190 = zext i8 %189 to i32
-  %191 = icmp eq i32 %190, 5
-  br i1 %191, label %192, label %200
+190:                                              ; preds = %186
+  %191 = load i8, ptr %16, align 1
+  %192 = zext i8 %191 to i32
+  %193 = icmp eq i32 %192, 5
+  br i1 %193, label %194, label %202
 
-192:                                              ; preds = %188, %184, %176, %169, %165, %161
-  %193 = load ptr, ptr %9, align 8
-  %194 = load i32, ptr @hf_zebra_nexthop6, align 4
-  %195 = load ptr, ptr %11, align 8
-  %196 = load i32, ptr %12, align 4
-  %197 = call ptr @proto_tree_add_item(ptr noundef %193, i32 noundef %194, ptr noundef %195, i32 noundef %196, i32 noundef 16, i32 noundef 0)
+194:                                              ; preds = %190, %186, %178, %171, %167, %163
+  %195 = load ptr, ptr %9, align 8
+  %196 = load i32, ptr @hf_zebra_nexthop6, align 4
+  %197 = load ptr, ptr %11, align 8
   %198 = load i32, ptr %12, align 4
-  %199 = add i32 %198, 16
-  store i32 %199, ptr %12, align 4
-  br label %200
+  %199 = call ptr @proto_tree_add_item(ptr noundef %195, i32 noundef %196, ptr noundef %197, i32 noundef %198, i32 noundef 16, i32 noundef 0)
+  %200 = load i32, ptr %12, align 4
+  %201 = add i32 %200, 16
+  store i32 %201, ptr %12, align 4
+  br label %202
 
-200:                                              ; preds = %192, %188, %180
-  %201 = load i8, ptr %16, align 1
-  %202 = zext i8 %201 to i32
-  %203 = icmp eq i32 %202, 1
-  br i1 %203, label %228, label %204
+202:                                              ; preds = %194, %190, %182
+  %203 = load i8, ptr %16, align 1
+  %204 = zext i8 %203 to i32
+  %205 = icmp eq i32 %204, 1
+  br i1 %205, label %230, label %206
 
-204:                                              ; preds = %200
-  %205 = load i8, ptr %15, align 1
-  %206 = zext i8 %205 to i32
-  %207 = icmp slt i32 %206, 4
-  br i1 %207, label %208, label %216
+206:                                              ; preds = %202
+  %207 = load i8, ptr %15, align 1
+  %208 = zext i8 %207 to i32
+  %209 = icmp slt i32 %208, 4
+  br i1 %209, label %210, label %218
 
-208:                                              ; preds = %204
-  %209 = load i8, ptr %16, align 1
-  %210 = zext i8 %209 to i32
-  %211 = icmp eq i32 %210, 4
-  br i1 %211, label %228, label %212
+210:                                              ; preds = %206
+  %211 = load i8, ptr %16, align 1
+  %212 = zext i8 %211 to i32
+  %213 = icmp eq i32 %212, 4
+  br i1 %213, label %230, label %214
 
-212:                                              ; preds = %208
-  %213 = load i8, ptr %16, align 1
-  %214 = zext i8 %213 to i32
-  %215 = icmp eq i32 %214, 7
-  br i1 %215, label %228, label %216
+214:                                              ; preds = %210
+  %215 = load i8, ptr %16, align 1
+  %216 = zext i8 %215 to i32
+  %217 = icmp eq i32 %216, 7
+  br i1 %217, label %230, label %218
 
-216:                                              ; preds = %212, %204
-  %217 = load i8, ptr %15, align 1
-  %218 = zext i8 %217 to i32
-  %219 = icmp sge i32 %218, 4
-  br i1 %219, label %220, label %236
+218:                                              ; preds = %214, %206
+  %219 = load i8, ptr %15, align 1
+  %220 = zext i8 %219 to i32
+  %221 = icmp sge i32 %220, 4
+  br i1 %221, label %222, label %238
 
-220:                                              ; preds = %216
-  %221 = load i8, ptr %16, align 1
-  %222 = zext i8 %221 to i32
-  %223 = icmp eq i32 %222, 3
-  br i1 %223, label %228, label %224
+222:                                              ; preds = %218
+  %223 = load i8, ptr %16, align 1
+  %224 = zext i8 %223 to i32
+  %225 = icmp eq i32 %224, 3
+  br i1 %225, label %230, label %226
 
-224:                                              ; preds = %220
-  %225 = load i8, ptr %16, align 1
-  %226 = zext i8 %225 to i32
-  %227 = icmp eq i32 %226, 5
-  br i1 %227, label %228, label %236
+226:                                              ; preds = %222
+  %227 = load i8, ptr %16, align 1
+  %228 = zext i8 %227 to i32
+  %229 = icmp eq i32 %228, 5
+  br i1 %229, label %230, label %238
 
-228:                                              ; preds = %224, %220, %212, %208, %200
-  %229 = load ptr, ptr %9, align 8
-  %230 = load i32, ptr @hf_zebra_index, align 4
-  %231 = load ptr, ptr %11, align 8
-  %232 = load i32, ptr %12, align 4
-  %233 = call ptr @proto_tree_add_item(ptr noundef %229, i32 noundef %230, ptr noundef %231, i32 noundef %232, i32 noundef 4, i32 noundef 0)
+230:                                              ; preds = %226, %222, %214, %210, %202
+  %231 = load ptr, ptr %9, align 8
+  %232 = load i32, ptr @hf_zebra_index, align 4
+  %233 = load ptr, ptr %11, align 8
   %234 = load i32, ptr %12, align 4
-  %235 = add i32 %234, 4
-  store i32 %235, ptr %12, align 4
-  br label %236
+  %235 = call ptr @proto_tree_add_item(ptr noundef %231, i32 noundef %232, ptr noundef %233, i32 noundef %234, i32 noundef 4, i32 noundef 0)
+  %236 = load i32, ptr %12, align 4
+  %237 = add i32 %236, 4
+  store i32 %237, ptr %12, align 4
+  br label %238
 
-236:                                              ; preds = %228, %224, %216
-  %237 = load i8, ptr %15, align 1
-  %238 = zext i8 %237 to i32
-  %239 = icmp slt i32 %238, 4
-  br i1 %239, label %240, label %269
+238:                                              ; preds = %230, %226, %218
+  %239 = load i8, ptr %15, align 1
+  %240 = zext i8 %239 to i32
+  %241 = icmp slt i32 %240, 4
+  br i1 %241, label %242, label %271
 
-240:                                              ; preds = %236
-  %241 = load i8, ptr %16, align 1
-  %242 = zext i8 %241 to i32
-  %243 = icmp eq i32 %242, 2
-  br i1 %243, label %252, label %244
+242:                                              ; preds = %238
+  %243 = load i8, ptr %16, align 1
+  %244 = zext i8 %243 to i32
+  %245 = icmp eq i32 %244, 2
+  br i1 %245, label %254, label %246
 
-244:                                              ; preds = %240
-  %245 = load i8, ptr %16, align 1
-  %246 = zext i8 %245 to i32
-  %247 = icmp eq i32 %246, 5
-  br i1 %247, label %252, label %248
+246:                                              ; preds = %242
+  %247 = load i8, ptr %16, align 1
+  %248 = zext i8 %247 to i32
+  %249 = icmp eq i32 %248, 5
+  br i1 %249, label %254, label %250
 
-248:                                              ; preds = %244
-  %249 = load i8, ptr %16, align 1
-  %250 = zext i8 %249 to i32
-  %251 = icmp eq i32 %250, 8
-  br i1 %251, label %252, label %269
+250:                                              ; preds = %246
+  %251 = load i8, ptr %16, align 1
+  %252 = zext i8 %251 to i32
+  %253 = icmp eq i32 %252, 8
+  br i1 %253, label %254, label %271
 
-252:                                              ; preds = %248, %244, %240
-  %253 = load ptr, ptr %11, align 8
-  %254 = load i32, ptr %12, align 4
-  %255 = call zeroext i8 @tvb_get_guint8(ptr noundef %253, i32 noundef %254)
-  store i8 %255, ptr %17, align 1
+254:                                              ; preds = %250, %246, %242
+  %255 = load ptr, ptr %11, align 8
   %256 = load i32, ptr %12, align 4
-  %257 = add i32 %256, 1
-  store i32 %257, ptr %12, align 4
-  %258 = load ptr, ptr %9, align 8
-  %259 = load i32, ptr @hf_zebra_interface, align 4
-  %260 = load ptr, ptr %11, align 8
-  %261 = load i32, ptr %12, align 4
-  %262 = load i8, ptr %17, align 1
-  %263 = zext i8 %262 to i32
-  %264 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %259, ptr noundef %260, i32 noundef %261, i32 noundef %263, i32 noundef 0)
-  %265 = load i8, ptr %17, align 1
-  %266 = zext i8 %265 to i32
-  %267 = load i32, ptr %12, align 4
-  %268 = add i32 %267, %266
-  store i32 %268, ptr %12, align 4
-  br label %269
+  %257 = call zeroext i8 @tvb_get_uint8(ptr noundef %255, i32 noundef %256)
+  store i8 %257, ptr %17, align 1
+  %258 = load i32, ptr %12, align 4
+  %259 = add i32 %258, 1
+  store i32 %259, ptr %12, align 4
+  %260 = load ptr, ptr %9, align 8
+  %261 = load i32, ptr @hf_zebra_interface, align 4
+  %262 = load ptr, ptr %11, align 8
+  %263 = load i32, ptr %12, align 4
+  %264 = load i8, ptr %17, align 1
+  %265 = zext i8 %264 to i32
+  %266 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %261, ptr noundef %262, i32 noundef %263, i32 noundef %265, i32 noundef 0)
+  %267 = load i8, ptr %17, align 1
+  %268 = zext i8 %267 to i32
+  %269 = load i32, ptr %12, align 4
+  %270 = add i32 %269, %268
+  store i32 %270, ptr %12, align 4
+  br label %271
 
-269:                                              ; preds = %252, %248, %236
-  %270 = load i8, ptr %15, align 1
-  %271 = zext i8 %270 to i32
-  %272 = icmp sgt i32 %271, 4
-  br i1 %272, label %273, label %285
+271:                                              ; preds = %254, %250, %238
+  %272 = load i8, ptr %15, align 1
+  %273 = zext i8 %272 to i32
+  %274 = icmp sgt i32 %273, 4
+  br i1 %274, label %275, label %287
 
-273:                                              ; preds = %269
-  %274 = load i8, ptr %16, align 1
-  %275 = zext i8 %274 to i32
-  %276 = icmp eq i32 %275, 6
-  br i1 %276, label %277, label %285
+275:                                              ; preds = %271
+  %276 = load i8, ptr %16, align 1
+  %277 = zext i8 %276 to i32
+  %278 = icmp eq i32 %277, 6
+  br i1 %278, label %279, label %287
 
-277:                                              ; preds = %273
-  %278 = load ptr, ptr %9, align 8
-  %279 = load i32, ptr @hf_zebra_bhtype, align 4
-  %280 = load ptr, ptr %11, align 8
-  %281 = load i32, ptr %12, align 4
-  %282 = call ptr @proto_tree_add_item(ptr noundef %278, i32 noundef %279, ptr noundef %280, i32 noundef %281, i32 noundef 1, i32 noundef 0)
+279:                                              ; preds = %275
+  %280 = load ptr, ptr %9, align 8
+  %281 = load i32, ptr @hf_zebra_bhtype, align 4
+  %282 = load ptr, ptr %11, align 8
   %283 = load i32, ptr %12, align 4
-  %284 = add i32 %283, 1
-  store i32 %284, ptr %12, align 4
-  br label %285
+  %284 = call ptr @proto_tree_add_item(ptr noundef %280, i32 noundef %281, ptr noundef %282, i32 noundef %283, i32 noundef 1, i32 noundef 0)
+  %285 = load i32, ptr %12, align 4
+  %286 = add i32 %285, 1
+  store i32 %286, ptr %12, align 4
+  br label %287
 
-285:                                              ; preds = %277, %273, %269
-  br label %58, !llvm.loop !8
+287:                                              ; preds = %279, %275, %271
+  br label %60, !llvm.loop !12
 
-286:                                              ; preds = %58
-  %287 = load i32, ptr %12, align 4
-  store i32 %287, ptr %8, align 4
-  br label %288
+288:                                              ; preds = %60
+  %289 = load i32, ptr %12, align 4
+  store i32 %289, ptr %8, align 4
+  store i32 1, ptr %19, align 4
+  br label %290
 
-288:                                              ; preds = %286, %55
-  %289 = load i32, ptr %8, align 4
-  ret i32 %289
+290:                                              ; preds = %288, %57
+  call void @llvm.lifetime.end.p0(i64 2, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #7
+  %291 = load i32, ptr %8, align 4
+  ret i32 %291
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @zebra_route_ifindex(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -5007,83 +5170,104 @@ define internal i32 @zebra_route_ifindex(ptr noundef %0, ptr noundef %1, i32 nou
   %8 = alloca i32, align 4
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2
+  %11 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store i32 %2, ptr %8, align 4
   store i16 %3, ptr %9, align 2
-  %11 = load ptr, ptr %7, align 8
-  %12 = load i32, ptr %8, align 4
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef %12)
-  %14 = zext i8 %13 to i16
-  store i16 %14, ptr %10, align 2
-  %15 = load ptr, ptr %6, align 8
-  %16 = load i32, ptr @hf_zebra_indexnum, align 4
-  %17 = load ptr, ptr %7, align 8
-  %18 = load i32, ptr %8, align 4
-  %19 = load i16, ptr %10, align 2
-  %20 = zext i16 %19 to i32
-  %21 = call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef 1, i32 noundef %20)
-  %22 = load i32, ptr %8, align 4
-  %23 = add i32 %22, 1
-  store i32 %23, ptr %8, align 4
-  %24 = load i16, ptr %10, align 2
-  %25 = zext i16 %24 to i32
-  %26 = load i16, ptr %9, align 2
-  %27 = zext i16 %26 to i32
-  %28 = icmp sgt i32 %25, %27
-  br i1 %28, label %29, label %31
+  call void @llvm.lifetime.start.p0(i64 2, ptr %10) #7
+  %12 = load ptr, ptr %7, align 8
+  %13 = load i32, ptr %8, align 4
+  %14 = call zeroext i8 @tvb_get_uint8(ptr noundef %12, i32 noundef %13)
+  %15 = zext i8 %14 to i16
+  store i16 %15, ptr %10, align 2
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i32, ptr @hf_zebra_indexnum, align 4
+  %18 = load ptr, ptr %7, align 8
+  %19 = load i32, ptr %8, align 4
+  %20 = load i16, ptr %10, align 2
+  %21 = zext i16 %20 to i32
+  %22 = call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef 1, i32 noundef %21)
+  %23 = load i32, ptr %8, align 4
+  %24 = add i32 %23, 1
+  store i32 %24, ptr %8, align 4
+  %25 = load i16, ptr %10, align 2
+  %26 = zext i16 %25 to i32
+  %27 = load i16, ptr %9, align 2
+  %28 = zext i16 %27 to i32
+  %29 = icmp sgt i32 %26, %28
+  br i1 %29, label %30, label %32
 
-29:                                               ; preds = %4
-  %30 = load i32, ptr %8, align 4
-  store i32 %30, ptr %5, align 4
-  br label %46
+30:                                               ; preds = %4
+  %31 = load i32, ptr %8, align 4
+  store i32 %31, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %47
 
-31:                                               ; preds = %4
-  br label %32
+32:                                               ; preds = %4
+  br label %33
 
-32:                                               ; preds = %36, %31
-  %33 = load i16, ptr %10, align 2
-  %34 = add i16 %33, -1
-  store i16 %34, ptr %10, align 2
-  %35 = icmp ne i16 %33, 0
-  br i1 %35, label %36, label %44
+33:                                               ; preds = %37, %32
+  %34 = load i16, ptr %10, align 2
+  %35 = add i16 %34, -1
+  store i16 %35, ptr %10, align 2
+  %36 = icmp ne i16 %34, 0
+  br i1 %36, label %37, label %45
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %6, align 8
-  %38 = load i32, ptr @hf_zebra_index, align 4
-  %39 = load ptr, ptr %7, align 8
-  %40 = load i32, ptr %8, align 4
-  %41 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %39, i32 noundef %40, i32 noundef 4, i32 noundef 0)
-  %42 = load i32, ptr %8, align 4
-  %43 = add i32 %42, 4
-  store i32 %43, ptr %8, align 4
-  br label %32, !llvm.loop !9
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %6, align 8
+  %39 = load i32, ptr @hf_zebra_index, align 4
+  %40 = load ptr, ptr %7, align 8
+  %41 = load i32, ptr %8, align 4
+  %42 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %39, ptr noundef %40, i32 noundef %41, i32 noundef 4, i32 noundef 0)
+  %43 = load i32, ptr %8, align 4
+  %44 = add i32 %43, 4
+  store i32 %44, ptr %8, align 4
+  br label %33, !llvm.loop !13
 
-44:                                               ; preds = %32
-  %45 = load i32, ptr %8, align 4
-  store i32 %45, ptr %5, align 4
-  br label %46
+45:                                               ; preds = %33
+  %46 = load i32, ptr %8, align 4
+  store i32 %46, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %47
 
-46:                                               ; preds = %44, %29
-  %47 = load i32, ptr %5, align 4
-  ret i32 %47
+47:                                               ; preds = %45, %30
+  call void @llvm.lifetime.end.p0(i64 2, ptr %10) #7
+  %48 = load i32, ptr %5, align 4
+  ret i32 %48
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+; Function Attrs: nounwind null_pointer_is_valid
+declare ptr @__memset_chk(ptr noundef, i32 noundef, i64 noundef, i64 noundef) #5
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.objectsize.i64.p0(ptr, i1 immarg, i1 immarg, i1 immarg) #6
+
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { alwaysinline nounwind "min-legal-vector-width"="0" }
+attributes #5 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}

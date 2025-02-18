@@ -74,305 +74,325 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.42 = private unnamed_addr constant [65 x i8] c"http://opcfoundation.org/UA/SecurityPolicy#Aes128_Sha256_RsaOaep\00", align 1
 @.str.43 = private unnamed_addr constant [64 x i8] c"http://opcfoundation.org/UA/SecurityPolicy#Aes256_Sha256_RsaPss\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @registerTransportLayerTypes(i32 noundef %0) local_unnamed_addr #0 {
-  tail call void @proto_register_field_array(i32 noundef %0, ptr noundef nonnull @registerTransportLayerTypes.hf, i32 noundef 18) #3
+  tail call void @proto_register_field_array(i32 noundef %0, ptr noundef nonnull @registerTransportLayerTypes.hf, i32 noundef 18)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @parseMessageHeader(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2, ptr noundef captures(none) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr @hf_opcua_transport_type, align 4
   %7 = load i32, ptr %3, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef 0) #3
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef 0)
   %9 = load i32, ptr %3, align 4
   %10 = add i32 %9, 3
   store i32 %10, ptr %3, align 4
   %11 = load i32, ptr @hf_opcua_transport_chunk, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef %10, i32 noundef 1, i32 noundef 0) #3
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef %10, i32 noundef 1, i32 noundef 0)
   %13 = load i32, ptr %3, align 4
   %14 = add i32 %13, 1
   store i32 %14, ptr %3, align 4
   %15 = load i32, ptr @hf_opcua_transport_size, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %15, ptr noundef %1, i32 noundef %14, i32 noundef 4, i32 noundef -2147483648) #3
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %15, ptr noundef %1, i32 noundef %14, i32 noundef 4, i32 noundef -2147483648)
   %17 = load i32, ptr %3, align 4
   %18 = add i32 %17, 4
   store i32 %18, ptr %3, align 4
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @parseHello(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr @hf_opcua_transport_type, align 4
   %7 = load i32, ptr %3, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef 0) #3
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef 0)
   %9 = load i32, ptr %3, align 4
   %10 = add i32 %9, 3
   store i32 %10, ptr %3, align 4
   %11 = load i32, ptr @hf_opcua_transport_chunk, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef %10, i32 noundef 1, i32 noundef 0) #3
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef %10, i32 noundef 1, i32 noundef 0)
   %13 = load i32, ptr %3, align 4
   %14 = add i32 %13, 1
   store i32 %14, ptr %3, align 4
   %15 = load i32, ptr @hf_opcua_transport_size, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %15, ptr noundef %1, i32 noundef %14, i32 noundef 4, i32 noundef -2147483648) #3
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %15, ptr noundef %1, i32 noundef %14, i32 noundef 4, i32 noundef -2147483648)
   %17 = load i32, ptr %3, align 4
   %18 = add i32 %17, 4
   store i32 %18, ptr %3, align 4
   %19 = load i32, ptr @hf_opcua_transport_ver, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %19, ptr noundef %1, i32 noundef %18, i32 noundef 4, i32 noundef -2147483648) #3
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %19, ptr noundef %1, i32 noundef %18, i32 noundef 4, i32 noundef -2147483648)
   %21 = load i32, ptr %3, align 4
   %22 = add i32 %21, 4
   store i32 %22, ptr %3, align 4
   %23 = load i32, ptr @hf_opcua_transport_rbs, align 4
-  %24 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %23, ptr noundef %1, i32 noundef %22, i32 noundef 4, i32 noundef -2147483648) #3
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %23, ptr noundef %1, i32 noundef %22, i32 noundef 4, i32 noundef -2147483648)
   %25 = load i32, ptr %3, align 4
   %26 = add i32 %25, 4
   store i32 %26, ptr %3, align 4
   %27 = load i32, ptr @hf_opcua_transport_sbs, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %27, ptr noundef %1, i32 noundef %26, i32 noundef 4, i32 noundef -2147483648) #3
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %27, ptr noundef %1, i32 noundef %26, i32 noundef 4, i32 noundef -2147483648)
   %29 = load i32, ptr %3, align 4
   %30 = add i32 %29, 4
   store i32 %30, ptr %3, align 4
   %31 = load i32, ptr @hf_opcua_transport_mms, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %31, ptr noundef %1, i32 noundef %30, i32 noundef 4, i32 noundef -2147483648) #3
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %31, ptr noundef %1, i32 noundef %30, i32 noundef 4, i32 noundef -2147483648)
   %33 = load i32, ptr %3, align 4
   %34 = add i32 %33, 4
   store i32 %34, ptr %3, align 4
   %35 = load i32, ptr @hf_opcua_transport_mcc, align 4
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %35, ptr noundef %1, i32 noundef %34, i32 noundef 4, i32 noundef -2147483648) #3
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %35, ptr noundef %1, i32 noundef %34, i32 noundef 4, i32 noundef -2147483648)
   %37 = load i32, ptr %3, align 4
   %38 = add i32 %37, 4
   store i32 %38, ptr %3, align 4
   %39 = load i32, ptr @hf_opcua_transport_endpoint, align 4
-  %40 = tail call ptr @parseString(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %39) #3
+  %40 = tail call ptr @parseString(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %39)
   ret i32 -1
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @parseString(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @parseAcknowledge(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2, ptr noundef captures(none) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr @hf_opcua_transport_type, align 4
   %7 = load i32, ptr %3, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef 0) #3
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef 0)
   %9 = load i32, ptr %3, align 4
   %10 = add i32 %9, 3
   store i32 %10, ptr %3, align 4
   %11 = load i32, ptr @hf_opcua_transport_chunk, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef %10, i32 noundef 1, i32 noundef 0) #3
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef %10, i32 noundef 1, i32 noundef 0)
   %13 = load i32, ptr %3, align 4
   %14 = add i32 %13, 1
   store i32 %14, ptr %3, align 4
   %15 = load i32, ptr @hf_opcua_transport_size, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %15, ptr noundef %1, i32 noundef %14, i32 noundef 4, i32 noundef -2147483648) #3
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %15, ptr noundef %1, i32 noundef %14, i32 noundef 4, i32 noundef -2147483648)
   %17 = load i32, ptr %3, align 4
   %18 = add i32 %17, 4
   store i32 %18, ptr %3, align 4
   %19 = load i32, ptr @hf_opcua_transport_ver, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %19, ptr noundef %1, i32 noundef %18, i32 noundef 4, i32 noundef -2147483648) #3
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %19, ptr noundef %1, i32 noundef %18, i32 noundef 4, i32 noundef -2147483648)
   %21 = load i32, ptr %3, align 4
   %22 = add i32 %21, 4
   store i32 %22, ptr %3, align 4
   %23 = load i32, ptr @hf_opcua_transport_rbs, align 4
-  %24 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %23, ptr noundef %1, i32 noundef %22, i32 noundef 4, i32 noundef -2147483648) #3
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %23, ptr noundef %1, i32 noundef %22, i32 noundef 4, i32 noundef -2147483648)
   %25 = load i32, ptr %3, align 4
   %26 = add i32 %25, 4
   store i32 %26, ptr %3, align 4
   %27 = load i32, ptr @hf_opcua_transport_sbs, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %27, ptr noundef %1, i32 noundef %26, i32 noundef 4, i32 noundef -2147483648) #3
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %27, ptr noundef %1, i32 noundef %26, i32 noundef 4, i32 noundef -2147483648)
   %29 = load i32, ptr %3, align 4
   %30 = add i32 %29, 4
   store i32 %30, ptr %3, align 4
   %31 = load i32, ptr @hf_opcua_transport_mms, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %31, ptr noundef %1, i32 noundef %30, i32 noundef 4, i32 noundef -2147483648) #3
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %31, ptr noundef %1, i32 noundef %30, i32 noundef 4, i32 noundef -2147483648)
   %33 = load i32, ptr %3, align 4
   %34 = add i32 %33, 4
   store i32 %34, ptr %3, align 4
   %35 = load i32, ptr @hf_opcua_transport_mcc, align 4
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %35, ptr noundef %1, i32 noundef %34, i32 noundef 4, i32 noundef -2147483648) #3
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %35, ptr noundef %1, i32 noundef %34, i32 noundef 4, i32 noundef -2147483648)
   %37 = load i32, ptr %3, align 4
   %38 = add i32 %37, 4
   store i32 %38, ptr %3, align 4
   ret i32 -1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @parseError(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr @hf_opcua_transport_type, align 4
   %7 = load i32, ptr %3, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef 0) #3
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef 0)
   %9 = load i32, ptr %3, align 4
   %10 = add i32 %9, 3
   store i32 %10, ptr %3, align 4
   %11 = load i32, ptr @hf_opcua_transport_chunk, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef %10, i32 noundef 1, i32 noundef 0) #3
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef %10, i32 noundef 1, i32 noundef 0)
   %13 = load i32, ptr %3, align 4
   %14 = add i32 %13, 1
   store i32 %14, ptr %3, align 4
   %15 = load i32, ptr @hf_opcua_transport_size, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %15, ptr noundef %1, i32 noundef %14, i32 noundef 4, i32 noundef -2147483648) #3
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %15, ptr noundef %1, i32 noundef %14, i32 noundef 4, i32 noundef -2147483648)
   %17 = load i32, ptr %3, align 4
   %18 = add i32 %17, 4
   store i32 %18, ptr %3, align 4
   %19 = load i32, ptr @hf_opcua_transport_error, align 4
-  %20 = tail call ptr @parseStatusCode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %19) #3
+  %20 = tail call ptr @parseStatusCode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %19)
   %21 = load i32, ptr @hf_opcua_transport_reason, align 4
-  %22 = tail call ptr @parseString(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %21) #3
+  %22 = tail call ptr @parseString(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %21)
   ret i32 -1
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @parseStatusCode(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @parseReverseHello(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr @hf_opcua_transport_type, align 4
   %7 = load i32, ptr %3, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef 0) #3
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef 0)
   %9 = load i32, ptr %3, align 4
   %10 = add i32 %9, 3
   store i32 %10, ptr %3, align 4
   %11 = load i32, ptr @hf_opcua_transport_chunk, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef %10, i32 noundef 1, i32 noundef 0) #3
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef %10, i32 noundef 1, i32 noundef 0)
   %13 = load i32, ptr %3, align 4
   %14 = add i32 %13, 1
   store i32 %14, ptr %3, align 4
   %15 = load i32, ptr @hf_opcua_transport_size, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %15, ptr noundef %1, i32 noundef %14, i32 noundef 4, i32 noundef -2147483648) #3
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %15, ptr noundef %1, i32 noundef %14, i32 noundef 4, i32 noundef -2147483648)
   %17 = load i32, ptr %3, align 4
   %18 = add i32 %17, 4
   store i32 %18, ptr %3, align 4
   %19 = load i32, ptr @hf_opcua_transport_suri, align 4
-  %20 = tail call ptr @parseString(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %19) #3
+  %20 = tail call ptr @parseString(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %19)
   %21 = load i32, ptr @hf_opcua_transport_endpoint, align 4
-  %22 = tail call ptr @parseString(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %21) #3
+  %22 = tail call ptr @parseString(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %21)
   ret i32 -1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @parseMessage(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2, ptr noundef captures(none) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr @hf_opcua_transport_type, align 4
   %7 = load i32, ptr %3, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef 0) #3
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef 0)
   %9 = load i32, ptr %3, align 4
   %10 = add i32 %9, 3
   store i32 %10, ptr %3, align 4
   %11 = load i32, ptr @hf_opcua_transport_chunk, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef %10, i32 noundef 1, i32 noundef 0) #3
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef %10, i32 noundef 1, i32 noundef 0)
   %13 = load i32, ptr %3, align 4
   %14 = add i32 %13, 1
   store i32 %14, ptr %3, align 4
   %15 = load i32, ptr @hf_opcua_transport_size, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %15, ptr noundef %1, i32 noundef %14, i32 noundef 4, i32 noundef -2147483648) #3
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %15, ptr noundef %1, i32 noundef %14, i32 noundef 4, i32 noundef -2147483648)
   %17 = load i32, ptr %3, align 4
   %18 = add i32 %17, 4
   store i32 %18, ptr %3, align 4
   %19 = load i32, ptr @hf_opcua_transport_scid, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %19, ptr noundef %1, i32 noundef %18, i32 noundef 4, i32 noundef -2147483648) #3
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %19, ptr noundef %1, i32 noundef %18, i32 noundef 4, i32 noundef -2147483648)
   %21 = load i32, ptr %3, align 4
   %22 = add i32 %21, 4
   store i32 %22, ptr %3, align 4
   ret i32 -1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @parseAbort(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr @hf_opcua_transport_type, align 4
   %7 = load i32, ptr %3, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef 0) #3
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef 0)
   %9 = load i32, ptr %3, align 4
   %10 = add i32 %9, 3
   store i32 %10, ptr %3, align 4
   %11 = load i32, ptr @hf_opcua_transport_chunk, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef %10, i32 noundef 1, i32 noundef 0) #3
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef %10, i32 noundef 1, i32 noundef 0)
   %13 = load i32, ptr %3, align 4
   %14 = add i32 %13, 1
   store i32 %14, ptr %3, align 4
   %15 = load i32, ptr @hf_opcua_transport_size, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %15, ptr noundef %1, i32 noundef %14, i32 noundef 4, i32 noundef -2147483648) #3
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %15, ptr noundef %1, i32 noundef %14, i32 noundef 4, i32 noundef -2147483648)
   %17 = load i32, ptr %3, align 4
   %18 = add i32 %17, 4
   store i32 %18, ptr %3, align 4
   %19 = load i32, ptr @hf_opcua_transport_error, align 4
-  %20 = tail call ptr @parseStatusCode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %19) #3
+  %20 = tail call ptr @parseStatusCode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %19)
   %21 = load i32, ptr @hf_opcua_transport_reason, align 4
-  %22 = tail call ptr @parseString(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %21) #3
+  %22 = tail call ptr @parseString(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %21)
   ret i32 -1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @parseService(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   %8 = load i32, ptr %3, align 4
   %9 = load i32, ptr @ett_opcua_extensionobject, align 4
-  %10 = call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %8, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.36) #3
+  %10 = call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %8, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.36)
   %11 = load i32, ptr %3, align 4
   %12 = load i32, ptr @ett_opcua_nodeid, align 4
-  %13 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef %1, i32 noundef %11, i32 noundef -1, i32 noundef %12, ptr noundef nonnull %7, ptr noundef nonnull @.str.37) #3
-  %14 = call i32 @parseServiceNodeId(ptr noundef %13, ptr noundef %1, ptr noundef nonnull %3) #3
+  %13 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef %1, i32 noundef %11, i32 noundef -1, i32 noundef %12, ptr noundef nonnull %7, ptr noundef nonnull @.str.37)
+  %14 = call i32 @parseServiceNodeId(ptr noundef %13, ptr noundef %1, ptr noundef %3)
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %3, align 4
-  call void @proto_item_set_end(ptr noundef %15, ptr noundef %1, i32 noundef %16) #3
+  call void @proto_item_set_end(ptr noundef %15, ptr noundef %1, i32 noundef %16)
   %17 = icmp sgt i32 %14, -1
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %5
-  call void @dispatchService(ptr noundef %10, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %14) #3
+  call void @dispatchService(ptr noundef %10, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %14)
   br label %19
 
 19:                                               ; preds = %18, %5
   %20 = load ptr, ptr %6, align 8
   %21 = load i32, ptr %3, align 4
-  call void @proto_item_set_end(ptr noundef %20, ptr noundef %1, i32 noundef %21) #3
+  call void @proto_item_set_end(ptr noundef %20, ptr noundef %1, i32 noundef %21)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
   ret i32 %14
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @parseServiceNodeId(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_end(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @dispatchService(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @store_encryption_info(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @find_conversation_pinfo(ptr noundef %0, i32 noundef 0) #3
+  %4 = tail call ptr @find_conversation_pinfo(ptr noundef %0, i32 noundef 0)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %3
-  %6 = zext i32 %1 to i64
-  %7 = zext i8 %2 to i64
-  %8 = shl nuw nsw i64 %7, 8
-  %9 = or i64 %8, %6
+  %6 = zext i8 %2 to i64
+  %7 = shl nuw nsw i64 %6, 8
+  %8 = zext i32 %1 to i64
+  %9 = or i64 %7, %8
   %10 = load i32, ptr @proto_opcua, align 4
   %11 = inttoptr i64 %9 to ptr
-  tail call void @conversation_add_proto_data(ptr noundef nonnull %4, i32 noundef %10, ptr noundef %11) #3
+  tail call void @conversation_add_proto_data(ptr noundef nonnull %4, i32 noundef %10, ptr noundef %11)
   br label %12
 
 12:                                               ; preds = %5, %3
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @find_conversation_pinfo(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @get_encryption_info(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @find_conversation_pinfo(ptr noundef %0, i32 noundef 0) #3
+  %4 = tail call ptr @find_conversation_pinfo(ptr noundef %0, i32 noundef 0)
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %20, label %5
+  br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %3
   %6 = load i32, ptr @proto_opcua, align 4
-  %7 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %4, i32 noundef %6) #3
+  %7 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %4, i32 noundef %6)
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %14
 
@@ -383,7 +403,7 @@ define hidden void @get_encryption_info(ptr noundef %0, ptr noundef writeonly ca
   store i32 %11, ptr %1, align 4
   %12 = load i32, ptr @g_opcua_default_sig_len, align 4
   %13 = trunc i32 %12 to i8
-  br label %.sink.split
+  br label %20
 
 14:                                               ; preds = %5
   %15 = ptrtoint ptr %7 to i64
@@ -392,52 +412,55 @@ define hidden void @get_encryption_info(ptr noundef %0, ptr noundef writeonly ca
   store i32 %17, ptr %1, align 4
   %18 = lshr i64 %15, 8
   %19 = trunc i64 %18 to i8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %14, %9
-  %.sink = phi i8 [ %13, %9 ], [ %19, %14 ]
-  store i8 %.sink, ptr %2, align 1
   br label %20
 
-20:                                               ; preds = %.sink.split, %3
+20:                                               ; preds = %14, %9
+  %storemerge = phi i8 [ %19, %14 ], [ %13, %9 ]
+  store i8 %storemerge, ptr %2, align 1
+  br label %21
+
+21:                                               ; preds = %20, %3
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @parseOpenSecureChannel(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((0, 1)) %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   store ptr null, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
   store i32 0, ptr %7, align 4
   %8 = load i32, ptr @hf_opcua_transport_type, align 4
   %9 = load i32, ptr %3, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %9, i32 noundef 3, i32 noundef 0) #3
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %9, i32 noundef 3, i32 noundef 0)
   %11 = load i32, ptr %3, align 4
   %12 = add i32 %11, 3
   store i32 %12, ptr %3, align 4
   %13 = load i32, ptr @hf_opcua_transport_chunk, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %13, ptr noundef %1, i32 noundef %12, i32 noundef 1, i32 noundef 0) #3
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %13, ptr noundef %1, i32 noundef %12, i32 noundef 1, i32 noundef 0)
   %15 = load i32, ptr %3, align 4
   %16 = add i32 %15, 1
   store i32 %16, ptr %3, align 4
   %17 = load i32, ptr @hf_opcua_transport_size, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %17, ptr noundef %1, i32 noundef %16, i32 noundef 4, i32 noundef -2147483648) #3
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %17, ptr noundef %1, i32 noundef %16, i32 noundef 4, i32 noundef -2147483648)
   %19 = load i32, ptr %3, align 4
   %20 = add i32 %19, 4
   store i32 %20, ptr %3, align 4
   %21 = load i32, ptr @hf_opcua_transport_scid, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %21, ptr noundef %1, i32 noundef %20, i32 noundef 4, i32 noundef -2147483648) #3
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %21, ptr noundef %1, i32 noundef %20, i32 noundef 4, i32 noundef -2147483648)
   %23 = load i32, ptr %3, align 4
   %24 = add i32 %23, 4
   store i32 %24, ptr %3, align 4
   %25 = load i32, ptr @hf_opcua_transport_spu, align 4
-  %26 = call ptr @parseString_ret_string_and_length(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %25, ptr noundef nonnull %6, ptr noundef nonnull %7) #3
+  %26 = call ptr @parseString_ret_string_and_length(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %25, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %27 = load i32, ptr @hf_opcua_transport_scert, align 4
-  call void @parseCertificate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %27) #3
+  call void @parseCertificate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %27)
   %28 = load i32, ptr @hf_opcua_transport_rcthumb, align 4
-  %29 = call ptr @parseByteString(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %28) #3
+  %29 = call ptr @parseByteString(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %28)
   %30 = load ptr, ptr %6, align 8
   %31 = load i32, ptr %7, align 4
   switch i32 %31, label %opcua_string_compare.exit64 [
@@ -450,60 +473,60 @@ define hidden i32 @parseOpenSecureChannel(ptr noundef %0, ptr noundef %1, ptr no
   ]
 
 32:                                               ; preds = %5
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(47) %30, ptr noundef nonnull dereferenceable(47) @.str.38, i64 47)
+  %bcmp.i = call i32 @bcmp(ptr noundef readonly dereferenceable(47) %30, ptr noundef nonnull dereferenceable(47) @.str.38, i64 47)
   %33 = icmp eq i32 %bcmp.i, 0
   br i1 %33, label %opcua_string_compare.exit, label %opcua_string_compare.exit64
 
 opcua_string_compare.exit:                        ; preds = %32
-  %34 = call ptr @find_conversation_pinfo(ptr noundef %2, i32 noundef 0) #3
+  %34 = call ptr @find_conversation_pinfo(ptr noundef %2, i32 noundef 0)
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %52, label %35
 
 35:                                               ; preds = %opcua_string_compare.exit
   %36 = load i32, ptr @proto_opcua, align 4
-  call void @conversation_add_proto_data(ptr noundef nonnull %34, i32 noundef %36, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
+  call void @conversation_add_proto_data(ptr noundef nonnull %34, i32 noundef %36, ptr noundef nonnull inttoptr (i64 1 to ptr))
   br label %52
 
 37:                                               ; preds = %5
-  %bcmp.i47 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(56) %30, ptr noundef nonnull dereferenceable(56) @.str.39, i64 56)
+  %bcmp.i47 = call i32 @bcmp(ptr noundef readonly dereferenceable(56) %30, ptr noundef nonnull dereferenceable(56) @.str.39, i64 56)
   %38 = icmp eq i32 %bcmp.i47, 0
   %spec.select = select i1 %38, i64 5124, i64 4
   br label %opcua_string_compare.exit64
 
 39:                                               ; preds = %5
-  %bcmp.i51 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(51) %30, ptr noundef nonnull dereferenceable(51) @.str.40, i64 51)
+  %bcmp.i51 = call i32 @bcmp(ptr noundef readonly dereferenceable(51) %30, ptr noundef nonnull dereferenceable(51) @.str.40, i64 51)
   %40 = icmp eq i32 %bcmp.i51, 0
   %spec.select73 = select i1 %40, i64 5124, i64 4
   br label %opcua_string_compare.exit64
 
 41:                                               ; preds = %5
-  %bcmp.i55 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(57) %30, ptr noundef nonnull dereferenceable(57) @.str.41, i64 57)
+  %bcmp.i55 = call i32 @bcmp(ptr noundef readonly dereferenceable(57) %30, ptr noundef nonnull dereferenceable(57) @.str.41, i64 57)
   %42 = icmp eq i32 %bcmp.i55, 0
   %spec.select74 = select i1 %42, i64 8196, i64 4
   br label %opcua_string_compare.exit64
 
 43:                                               ; preds = %5
-  %bcmp.i59 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(64) %30, ptr noundef nonnull dereferenceable(64) @.str.42, i64 64)
+  %bcmp.i59 = call i32 @bcmp(ptr noundef readonly dereferenceable(64) %30, ptr noundef nonnull dereferenceable(64) @.str.42, i64 64)
   %44 = icmp eq i32 %bcmp.i59, 0
   %spec.select75 = select i1 %44, i64 8196, i64 4
   br label %opcua_string_compare.exit64
 
 45:                                               ; preds = %5
-  %bcmp.i63 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(63) %30, ptr noundef nonnull dereferenceable(63) @.str.43, i64 63)
+  %bcmp.i63 = call i32 @bcmp(ptr noundef readonly dereferenceable(63) %30, ptr noundef nonnull dereferenceable(63) @.str.43, i64 63)
   %46 = icmp eq i32 %bcmp.i63, 0
   %47 = select i1 %46, i64 8196, i64 4
   br label %opcua_string_compare.exit64
 
 opcua_string_compare.exit64:                      ; preds = %43, %41, %39, %37, %32, %5, %45
   %.0 = phi i64 [ %47, %45 ], [ 4, %5 ], [ 4, %32 ], [ %spec.select, %37 ], [ %spec.select73, %39 ], [ %spec.select74, %41 ], [ %spec.select75, %43 ]
-  %48 = call ptr @find_conversation_pinfo(ptr noundef %2, i32 noundef 0) #3
+  %48 = call ptr @find_conversation_pinfo(ptr noundef %2, i32 noundef 0)
   %.not.i65 = icmp eq ptr %48, null
   br i1 %.not.i65, label %store_encryption_info.exit.thread, label %49
 
 49:                                               ; preds = %opcua_string_compare.exit64
   %50 = load i32, ptr @proto_opcua, align 4
   %51 = inttoptr i64 %.0 to ptr
-  call void @conversation_add_proto_data(ptr noundef nonnull %48, i32 noundef %50, ptr noundef nonnull %51) #3
+  call void @conversation_add_proto_data(ptr noundef nonnull %48, i32 noundef %50, ptr noundef nonnull %51)
   br label %store_encryption_info.exit.thread
 
 store_encryption_info.exit.thread:                ; preds = %opcua_string_compare.exit64, %49
@@ -512,43 +535,49 @@ store_encryption_info.exit.thread:                ; preds = %opcua_string_compar
 
 52:                                               ; preds = %opcua_string_compare.exit, %35
   store i8 0, ptr %4, align 1
-  call void @parseSequenceHeader(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #3
-  %53 = call i32 @parseService(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr nonnull poison)
+  call void @parseSequenceHeader(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %4)
+  %53 = call i32 @parseService(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr poison)
   br label %54
 
 54:                                               ; preds = %store_encryption_info.exit.thread, %52
   %.044 = phi i32 [ %53, %52 ], [ -1, %store_encryption_info.exit.thread ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
   ret i32 %.044
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @parseString_ret_string_and_length(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @parseCertificate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @parseByteString(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @parseSequenceHeader(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @parseCloseSecureChannel(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2, ptr noundef captures(none) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr @hf_opcua_transport_type, align 4
   %7 = load i32, ptr %3, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef 0) #3
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 3, i32 noundef 0)
   %9 = load i32, ptr %3, align 4
   %10 = add i32 %9, 3
   store i32 %10, ptr %3, align 4
   %11 = load i32, ptr @hf_opcua_transport_chunk, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef %10, i32 noundef 1, i32 noundef 0) #3
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef %10, i32 noundef 1, i32 noundef 0)
   %13 = load i32, ptr %3, align 4
   %14 = add i32 %13, 1
   store i32 %14, ptr %3, align 4
   %15 = load i32, ptr @hf_opcua_transport_size, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %15, ptr noundef %1, i32 noundef %14, i32 noundef 4, i32 noundef -2147483648) #3
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %15, ptr noundef %1, i32 noundef %14, i32 noundef 4, i32 noundef -2147483648)
   %17 = load i32, ptr %3, align 4
   %18 = add i32 %17, 4
   store i32 %18, ptr %3, align 4
   %19 = load i32, ptr @hf_opcua_transport_scid, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %19, ptr noundef %1, i32 noundef %18, i32 noundef 4, i32 noundef -2147483648) #3
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %19, ptr noundef %1, i32 noundef %18, i32 noundef 4, i32 noundef -2147483648)
   %21 = load i32, ptr %3, align 4
   %22 = add i32 %21, 4
   store i32 %22, ptr %3, align 4
@@ -556,16 +585,19 @@ define hidden noundef i32 @parseCloseSecureChannel(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #2
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #3 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}

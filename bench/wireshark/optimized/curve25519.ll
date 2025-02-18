@@ -5,10 +5,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [11 x i8] c"Curve25519\00", align 1
 
-; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @crypto_scalarmult_curve25519(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define range(i32 -1, 1) i32 @crypto_scalarmult_curve25519(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [32 x i8], align 16
   %5 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
   br label %7
@@ -22,33 +24,44 @@ define range(i32 -1, 1) i32 @crypto_scalarmult_curve25519(ptr noundef writeonly 
   store i8 %9, ptr %11, align 1
   %12 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %12, 32
-  br i1 %exitcond.not.i, label %copy_and_reverse.exit, label %7, !llvm.loop !4
+  br i1 %exitcond.not.i, label %copy_and_reverse.exit, label %7, !llvm.loop !6
 
 copy_and_reverse.exit:                            ; preds = %7
   %13 = load i8, ptr %4, align 16
   %14 = and i8 %13, 127
   store i8 %14, ptr %4, align 16
-  %15 = call i32 @gcry_mpi_scan(ptr noundef nonnull %5, i32 noundef 5, ptr noundef nonnull %4, i64 noundef 32, ptr noundef null) #3
+  %15 = call i32 @gcry_mpi_scan(ptr noundef nonnull %5, i32 noundef 5, ptr noundef nonnull %4, i64 noundef 32, ptr noundef null)
   %16 = load ptr, ptr %5, align 8
   %17 = call fastcc i32 @x25519_mpi(ptr noundef %0, ptr noundef %1, ptr noundef %16)
   %18 = load ptr, ptr %5, align 8
-  call void @gcry_mpi_release(ptr noundef %18) #3
+  call void @gcry_mpi_release(ptr noundef %18)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #4
   ret i32 %17
 }
 
-declare i32 @gcry_mpi_scan(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @x25519_mpi(ptr noundef writeonly captures(none) initializes((0, 32)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
+; Function Attrs: null_pointer_is_valid
+declare i32 @gcry_mpi_scan(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal fastcc range(i32 -1, 1) i32 @x25519_mpi(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [32 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   store i64 0, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   store ptr null, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   store ptr null, ptr %8, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %0, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(32) %0, i8 noundef 0, i64 noundef 32, i1 noundef false) #4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   br label %10
 
@@ -61,7 +74,7 @@ define internal fastcc range(i32 -1, 1) i32 @x25519_mpi(ptr noundef writeonly ca
   store i8 %12, ptr %14, align 1
   %15 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %15, 32
-  br i1 %exitcond.not.i, label %copy_and_reverse.exit, label %10, !llvm.loop !4
+  br i1 %exitcond.not.i, label %copy_and_reverse.exit, label %10, !llvm.loop !6
 
 copy_and_reverse.exit:                            ; preds = %10
   %16 = load i8, ptr %4, align 16
@@ -72,27 +85,27 @@ copy_and_reverse.exit:                            ; preds = %10
   %20 = load i8, ptr %19, align 1
   %21 = and i8 %20, -8
   store i8 %21, ptr %19, align 1
-  %22 = call i32 @gcry_mpi_scan(ptr noundef nonnull %7, i32 noundef 5, ptr noundef nonnull %4, i64 noundef 32, ptr noundef null) #3
-  %23 = call i32 @gcry_mpi_ec_new(ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull @.str) #3
+  %22 = call i32 @gcry_mpi_scan(ptr noundef nonnull %7, i32 noundef 5, ptr noundef nonnull %4, i64 noundef 32, ptr noundef null)
+  %23 = call i32 @gcry_mpi_ec_new(ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull @.str)
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %24, label %copy_and_reverse.exit15
 
 24:                                               ; preds = %copy_and_reverse.exit
-  %25 = call ptr @gcry_mpi_point_new(i32 noundef 0) #3
-  %26 = call ptr @_gcry_mpi_get_const(i32 noundef 1) #3
-  %27 = call ptr @gcry_mpi_point_set(ptr noundef null, ptr noundef %2, ptr noundef null, ptr noundef %26) #3
+  %25 = call ptr @gcry_mpi_point_new(i32 noundef 0)
+  %26 = call ptr @_gcry_mpi_get_const(i32 noundef 1)
+  %27 = call ptr @gcry_mpi_point_set(ptr noundef null, ptr noundef %2, ptr noundef null, ptr noundef %26)
   %28 = load ptr, ptr %7, align 8
   %29 = load ptr, ptr %8, align 8
-  call void @gcry_mpi_ec_mul(ptr noundef %25, ptr noundef %28, ptr noundef %27, ptr noundef %29) #3
+  call void @gcry_mpi_ec_mul(ptr noundef %25, ptr noundef %28, ptr noundef %27, ptr noundef %29)
   %30 = load ptr, ptr %7, align 8
   %31 = load ptr, ptr %8, align 8
-  %32 = call i32 @gcry_mpi_ec_get_affine(ptr noundef %30, ptr noundef null, ptr noundef %25, ptr noundef %31) #3
+  %32 = call i32 @gcry_mpi_ec_get_affine(ptr noundef %30, ptr noundef null, ptr noundef %25, ptr noundef %31)
   %.not11 = icmp eq i32 %32, 0
   br i1 %.not11, label %33, label %copy_and_reverse.exit15
 
 33:                                               ; preds = %24
   %34 = load ptr, ptr %7, align 8
-  %35 = call i32 @gcry_mpi_print(i32 noundef 5, ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull %6, ptr noundef %34) #3
+  %35 = call i32 @gcry_mpi_print(i32 noundef 5, ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull %6, ptr noundef %34)
   %.not12 = icmp eq i32 %35, 0
   br i1 %.not12, label %36, label %copy_and_reverse.exit15
 
@@ -114,64 +127,86 @@ copy_and_reverse.exit:                            ; preds = %10
   store i8 %41, ptr %43, align 1
   %44 = add nuw i64 %.08.i13, 1
   %exitcond.not.i14 = icmp eq i64 %44, %37
-  br i1 %exitcond.not.i14, label %copy_and_reverse.exit15, label %39, !llvm.loop !4
+  br i1 %exitcond.not.i14, label %copy_and_reverse.exit15, label %39, !llvm.loop !6
 
 copy_and_reverse.exit15:                          ; preds = %39, %36, %33, %24, %copy_and_reverse.exit
   %.010 = phi ptr [ null, %copy_and_reverse.exit ], [ %27, %24 ], [ %27, %33 ], [ %27, %36 ], [ %27, %39 ]
   %.09 = phi ptr [ null, %copy_and_reverse.exit ], [ %25, %24 ], [ %25, %33 ], [ %25, %36 ], [ %25, %39 ]
   %.0 = phi i32 [ -1, %copy_and_reverse.exit ], [ -1, %24 ], [ -1, %33 ], [ 0, %36 ], [ 0, %39 ]
-  call void @gcry_mpi_point_release(ptr noundef %.010) #3
-  call void @gcry_mpi_point_release(ptr noundef %.09) #3
+  call void @gcry_mpi_point_release(ptr noundef %.010)
+  call void @gcry_mpi_point_release(ptr noundef %.09)
   %45 = load ptr, ptr %8, align 8
-  call void @gcry_ctx_release(ptr noundef %45) #3
+  call void @gcry_ctx_release(ptr noundef %45)
   %46 = load ptr, ptr %7, align 8
-  call void @gcry_mpi_release(ptr noundef %46) #3
+  call void @gcry_mpi_release(ptr noundef %46)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #4
   ret i32 %.0
 }
 
-declare void @gcry_mpi_release(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @gcry_mpi_release(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @crypto_scalarmult_curve25519_base(ptr noundef writeonly captures(none) initializes((0, 32)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @gcry_mpi_set_ui(ptr noundef null, i64 noundef 9) #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define range(i32 -1, 1) i32 @crypto_scalarmult_curve25519_base(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+  %3 = tail call ptr @gcry_mpi_set_ui(ptr noundef null, i64 noundef 9)
   %4 = tail call fastcc i32 @x25519_mpi(ptr noundef %0, ptr noundef %1, ptr noundef %3)
-  tail call void @gcry_mpi_release(ptr noundef %3) #3
+  tail call void @gcry_mpi_release(ptr noundef %3)
   ret i32 %4
 }
 
-declare ptr @gcry_mpi_set_ui(ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @gcry_mpi_set_ui(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @gcry_mpi_ec_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @gcry_mpi_ec_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @gcry_mpi_point_new(i32 noundef) local_unnamed_addr #2
 
-declare ptr @gcry_mpi_point_new(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @gcry_mpi_point_set(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @gcry_mpi_point_set(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @_gcry_mpi_get_const(i32 noundef) local_unnamed_addr #2
 
-declare ptr @_gcry_mpi_get_const(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @gcry_mpi_ec_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @gcry_mpi_ec_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @gcry_mpi_ec_get_affine(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @gcry_mpi_ec_get_affine(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @gcry_mpi_print(i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @gcry_mpi_print(i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @gcry_mpi_point_release(ptr noundef) local_unnamed_addr #2
 
-declare void @gcry_mpi_point_release(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @gcry_ctx_release(ptr noundef) local_unnamed_addr #2
 
-declare void @gcry_ctx_release(ptr noundef) local_unnamed_addr #1
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

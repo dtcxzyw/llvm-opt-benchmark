@@ -9,8 +9,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 
-@ftype_register_ieee_11073_float.sfloat_type = internal global %struct._ftype_t { i32 20, i32 2, ptr @sfloat_ieee_11073_fvalue_new, ptr null, ptr null, ptr @sfloat_ieee_11073_val_from_literal, ptr null, ptr null, ptr @sfloat_ieee_11073_val_from_uinteger64, ptr @sfloat_ieee_11073_val_from_sinteger64, ptr @sfloat_ieee_11073_val_from_double, ptr @sfloat_ieee_11073_val_to_repr, ptr null, ptr null, ptr null, %union.anon { ptr @sfloat_ieee_11073_value_set }, %union.anon.0 { ptr @sfloat_ieee_11073_value_get }, ptr @sfloat_ieee_11073_cmp_order, ptr null, ptr null, ptr @sfloat_ieee_11073_hash, ptr @sfloat_ieee_11073_is_zero, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
-@ftype_register_ieee_11073_float.float_type = internal global %struct._ftype_t { i32 21, i32 4, ptr @float_ieee_11073_fvalue_new, ptr null, ptr null, ptr @float_ieee_11073_val_from_literal, ptr null, ptr null, ptr @float_ieee_11073_val_from_uinteger64, ptr @float_ieee_11073_val_from_sinteger64, ptr @float_ieee_11073_val_from_double, ptr @float_ieee_11073_val_to_repr, ptr null, ptr null, ptr null, %union.anon { ptr @float_ieee_11073_value_set }, %union.anon.0 { ptr @float_ieee_11073_value_get }, ptr @float_ieee_11073_cmp_order, ptr null, ptr null, ptr @float_ieee_11073_hash, ptr @float_ieee_11073_is_zero, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
+@ftype_register_ieee_11073_float.sfloat_type = internal constant %struct._ftype_t { i32 20, i32 2, ptr @sfloat_ieee_11073_fvalue_new, ptr null, ptr null, ptr @sfloat_ieee_11073_val_from_literal, ptr null, ptr null, ptr @sfloat_ieee_11073_val_from_uinteger64, ptr @sfloat_ieee_11073_val_from_sinteger64, ptr @sfloat_ieee_11073_val_from_double, ptr @sfloat_ieee_11073_val_to_repr, ptr null, ptr null, ptr @sfloat_ieee_11073_val_to_double, %union.anon { ptr @sfloat_ieee_11073_value_set }, %union.anon.0 { ptr @sfloat_ieee_11073_value_get }, ptr @sfloat_ieee_11073_cmp_order, ptr null, ptr null, ptr @sfloat_ieee_11073_hash, ptr @sfloat_ieee_11073_is_zero, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
+@ftype_register_ieee_11073_float.float_type = internal constant %struct._ftype_t { i32 21, i32 4, ptr @float_ieee_11073_fvalue_new, ptr null, ptr null, ptr @float_ieee_11073_val_from_literal, ptr null, ptr null, ptr @float_ieee_11073_val_from_uinteger64, ptr @float_ieee_11073_val_from_sinteger64, ptr @float_ieee_11073_val_from_double, ptr @float_ieee_11073_val_to_repr, ptr null, ptr null, ptr @float_ieee_11073_val_to_double, %union.anon { ptr @float_ieee_11073_value_set }, %union.anon.0 { ptr @float_ieee_11073_value_get }, ptr @float_ieee_11073_cmp_order, ptr null, ptr null, ptr @float_ieee_11073_hash, ptr @float_ieee_11073_is_zero, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 @ftype_register_pseudofields_ieee_11073_float.hf_ft_ieee_11073_sfloat = internal global i32 0, align 4
 @ftype_register_pseudofields_ieee_11073_float.hf_ft_ieee_11073_float = internal global i32 0, align 4
 @ftype_register_pseudofields_ieee_11073_float.hf_ftypes = internal global [2 x %struct.hf_register_info] [%struct.hf_register_info { ptr @ftype_register_pseudofields_ieee_11073_float.hf_ft_ieee_11073_sfloat, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 20, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @ftype_register_pseudofields_ieee_11073_float.hf_ft_ieee_11073_float, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 21, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
@@ -26,22 +26,23 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [2 x i8] c"0\00", align 1
 @.str.10 = private unnamed_addr constant [3 x i8] c"%u\00", align 1
 @switch.table.float_ieee_11073_val_to_repr = private unnamed_addr constant [5 x ptr] [ptr @.str.8, ptr @.str.7, ptr @.str.6, ptr @.str.5, ptr @.str.4], align 8
+@switch.table.float_ieee_11073_val_to_double = private unnamed_addr constant [5 x double] [double 0x7FF0000000000000, double 0x7FF8000000000000, double 0x7FF8000000000000, double 0x7FF8000000000000, double 0xFFF0000000000000], align 8
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @ftype_register_ieee_11073_float() local_unnamed_addr #0 {
-  tail call void @ftype_register(i32 noundef 20, ptr noundef nonnull @ftype_register_ieee_11073_float.sfloat_type) #8
-  tail call void @ftype_register(i32 noundef 21, ptr noundef nonnull @ftype_register_ieee_11073_float.float_type) #8
+  tail call void @ftype_register(i32 noundef 20, ptr noundef nonnull @ftype_register_ieee_11073_float.sfloat_type)
+  tail call void @ftype_register(i32 noundef 21, ptr noundef nonnull @ftype_register_ieee_11073_float.float_type)
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
 define internal void @sfloat_ieee_11073_fvalue_new(ptr noundef writeonly captures(none) initializes((8, 10)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %2, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_literal(ptr noundef writeonly captures(none) %0, ptr noundef %1, i1 zeroext %2, ptr readnone captures(none) %3) #0 {
   %5 = load i8, ptr %1, align 1
   switch i8 %5, label %6 [
@@ -64,7 +65,7 @@ define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_literal(ptr nound
   ]
 
 10:                                               ; preds = %7, %7
-  %11 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.4) #8
+  %11 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.4)
   %.not138 = icmp eq i32 %11, 0
   br i1 %.not138, label %.loopexit147.sink.split, label %.loopexit147
 
@@ -76,17 +77,17 @@ define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_literal(ptr nound
   ]
 
 13:                                               ; preds = %.critedge140
-  %14 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.5) #8
+  %14 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.5)
   %.not137 = icmp eq i32 %14, 0
   br i1 %.not137, label %.loopexit147.sink.split, label %.loopexit147
 
 15:                                               ; preds = %.critedge140
-  %16 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.6) #8
+  %16 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.6)
   %.not135 = icmp eq i32 %16, 0
   br i1 %.not135, label %.loopexit147.sink.split, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.7) #8
+  %18 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.7)
   %.not136 = icmp eq i32 %18, 0
   br i1 %.not136, label %.loopexit147.sink.split, label %.loopexit147
 
@@ -95,7 +96,7 @@ define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_literal(ptr nound
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19
-  %22 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.8) #8
+  %22 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.8)
   %.not134 = icmp eq i32 %22, 0
   br i1 %.not134, label %.loopexit147.sink.split, label %.loopexit147
 
@@ -109,7 +110,7 @@ define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_literal(ptr nound
   %25 = load i8, ptr %.1115, align 1
   %26 = icmp eq i8 %25, 48
   %27 = getelementptr i8, ptr %.1115, i64 1
-  br i1 %26, label %24, label %.preheader146, !llvm.loop !4
+  br i1 %26, label %24, label %.preheader146, !llvm.loop !6
 
 .preheader146:                                    ; preds = %24, %70
   %.2116 = phi ptr [ %71, %70 ], [ %.1115, %24 ]
@@ -211,7 +212,7 @@ define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_literal(ptr nound
   %.4118 = getelementptr i8, ptr %.4118151, i64 1
   %67 = load i8, ptr %.4118, align 1
   %68 = icmp eq i8 %67, 48
-  br i1 %68, label %.lr.ph, label %.loopexit, !llvm.loop !6
+  br i1 %68, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %.preheader146, %28, %34, %40, %46, %52, %58, %55, %49, %43, %37, %31
   %.3117 = phi ptr [ %.2116, %31 ], [ %.2116, %34 ], [ %.2116, %37 ], [ %.2116, %40 ], [ %.2116, %43 ], [ %.2116, %46 ], [ %.2116, %49 ], [ %.2116, %52 ], [ %.2116, %55 ], [ %.2116, %58 ], [ %.2116, %28 ], [ %.2116, %.preheader146 ], [ %.2116, %.preheader ], [ %.4118151, %.lr.ph ]
@@ -228,7 +229,7 @@ define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_literal(ptr nound
   %71 = getelementptr i8, ptr %.3117, i64 1
   %72 = load i8, ptr %71, align 1
   %.not130 = icmp eq i8 %72, 0
-  br i1 %.not130, label %73, label %.preheader146, !llvm.loop !7
+  br i1 %.not130, label %73, label %.preheader146, !llvm.loop !9
 
 73:                                               ; preds = %70
   %74 = sub nsw i32 0, %.1107
@@ -250,7 +251,7 @@ define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_literal(ptr nound
 81:                                               ; preds = %.lr.ph157
   %82 = add nsw i8 %.6156, 1
   %.not133 = icmp ult i32 %.5111155, 10
-  br i1 %.not133, label %.critedge, label %.lr.ph157, !llvm.loop !8
+  br i1 %.not133, label %.critedge, label %.lr.ph157, !llvm.loop !10
 
 .critedge:                                        ; preds = %81, %.lr.ph157, %73
   %.5111.lcssa = phi i32 [ 0, %73 ], [ %.5111155, %.lr.ph157 ], [ %78, %81 ]
@@ -276,28 +277,29 @@ define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_literal(ptr nound
   ret i1 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i1 @sfloat_ieee_11073_val_from_literal(ptr noundef %0, ptr noundef %1, i1 zeroext poison, ptr poison)
   ret i1 %5
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i1 @sfloat_ieee_11073_val_from_literal(ptr noundef %0, ptr noundef %1, i1 zeroext poison, ptr poison)
   ret i1 %5
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_double(ptr noundef writeonly captures(none) %0, ptr noundef %1, double %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i1 @sfloat_ieee_11073_val_from_literal(ptr noundef %0, ptr noundef %1, i1 zeroext poison, ptr poison)
   ret i1 %5
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noalias ptr @sfloat_ieee_11073_val_to_repr(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 %2, i32 %3) #0 {
   %5 = alloca [5 x i8], align 1
   %6 = alloca [13 x i8], align 1
+  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %5) #11
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i16, ptr %7, align 8
   %9 = add i16 %8, -2046
@@ -309,31 +311,32 @@ switch.lookup:                                    ; preds = %4
   %10 = sext i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.float_ieee_11073_val_to_repr, i64 0, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %11 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %switch.load) #8
-  br label %89
+  %11 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %switch.load)
+  br label %113
 
 12:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %6) #11
   %13 = lshr i16 %8, 12
   %14 = trunc nuw nsw i16 %13 to i8
   %15 = or disjoint i8 %14, -16
-  %.not85 = icmp slt i16 %8, 0
-  %.071 = select i1 %.not85, i8 %15, i8 %14
+  %.not86 = icmp slt i16 %8, 0
+  %.071 = select i1 %.not86, i8 %15, i8 %14
   %16 = and i16 %8, 2047
   %17 = and i16 %8, 2048
-  %.not82 = icmp eq i16 %17, 0
+  %.not83 = icmp eq i16 %17, 0
   %18 = or i16 %8, -2048
   %19 = sub nsw i16 0, %18
-  %.073 = select i1 %.not82, i16 %16, i16 %19
-  %20 = zext nneg i16 %.073 to i32
-  %21 = icmp eq i16 %.073, 0
+  %.074 = select i1 %.not83, i16 %16, i16 %19
+  %20 = zext nneg i16 %.074 to i32
+  %21 = icmp eq i16 %.074, 0
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %12
-  %23 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull @.str.9) #8
-  br label %89
+  %23 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull @.str.9)
+  br label %112
 
 24:                                               ; preds = %12
-  br i1 %.not82, label %26, label %25
+  br i1 %.not83, label %26, label %25
 
 25:                                               ; preds = %24
   store i8 45, ptr %6, align 1
@@ -341,109 +344,176 @@ switch.lookup:                                    ; preds = %4
 
 26:                                               ; preds = %25, %24
   %.072 = phi i32 [ 1, %25 ], [ 0, %24 ]
-  %27 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 5, ptr noundef nonnull @.str.10, i32 noundef %20) #8
+  %27 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %5, i64 noundef 5, i32 noundef 2, i64 noundef 5, ptr noundef nonnull @.str.10, i32 noundef %20)
   %28 = sext i8 %.071 to i32
   %29 = icmp eq i8 %.071, 0
-  br i1 %29, label %30, label %35
+  br i1 %29, label %30, label %37
 
 30:                                               ; preds = %26
   %31 = zext nneg i32 %.072 to i64
   %32 = getelementptr i8, ptr %6, i64 %31
+  %.mask85 = and i32 %27, 255
+  %33 = zext nneg i32 %.mask85 to i64
+  %34 = sub nuw nsw i64 13, %31
+  %35 = call ptr @__memcpy_chk(ptr noundef %32, ptr noundef nonnull %5, i64 noundef range(i64 -127, 256) %33, i64 noundef %34) #11, !alias.scope !11
+  %36 = add nuw nsw i32 %.mask85, %.072
+  br label %108
+
+37:                                               ; preds = %26
+  %38 = icmp sgt i8 %.071, 0
+  br i1 %38, label %39, label %55
+
+39:                                               ; preds = %37
+  %40 = zext nneg i32 %.072 to i64
+  %41 = getelementptr i8, ptr %6, i64 %40
   %.mask84 = and i32 %27, 255
-  %33 = zext nneg i32 %.mask84 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr nonnull align 1 %5, i64 %33, i1 false)
-  %34 = add nuw nsw i32 %.mask84, %.072
-  br label %85
+  %42 = zext nneg i32 %.mask84 to i64
+  %43 = sub nuw nsw i64 13, %40
+  %44 = call ptr @__memcpy_chk(ptr noundef %41, ptr noundef nonnull %5, i64 noundef range(i64 -127, 256) %42, i64 noundef %43) #11, !alias.scope !15
+  %45 = add nuw nsw i32 %.mask84, %.072
+  %46 = zext nneg i32 %45 to i64
+  %47 = getelementptr i8, ptr %6, i64 %46
+  %48 = zext nneg i8 %.071 to i64
+  %49 = sub nsw i64 13, %46
+  %50 = icmp samesign ugt i32 %45, 13
+  %51 = select i1 %50, i64 0, i64 %49
+  %52 = icmp ne i64 %51, -1
+  call void @llvm.assume(i1 %52)
+  %53 = call ptr @__memset_chk(ptr noundef %47, i32 noundef 48, i64 noundef range(i64 -128, 129) %48, i64 noundef %51) #11
+  %54 = add nuw nsw i32 %45, %28
+  br label %108
 
-35:                                               ; preds = %26
-  %36 = icmp sgt i8 %.071, 0
-  br i1 %36, label %37, label %46
+55:                                               ; preds = %37
+  %56 = sub nsw i32 0, %28
+  %57 = and i32 %27, 255
+  %58 = icmp sgt i32 %57, %56
+  %59 = zext nneg i32 %.072 to i64
+  br i1 %58, label %60, label %83
 
-37:                                               ; preds = %35
-  %38 = zext nneg i32 %.072 to i64
-  %39 = getelementptr i8, ptr %6, i64 %38
-  %.mask83 = and i32 %27, 255
-  %40 = zext nneg i32 %.mask83 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %39, ptr nonnull align 1 %5, i64 %40, i1 false)
-  %41 = add nuw nsw i32 %.mask83, %.072
-  %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr i8, ptr %6, i64 %42
-  %44 = zext nneg i8 %.071 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %43, i8 48, i64 %44, i1 false)
-  %45 = add nuw nsw i32 %41, %28
-  br label %85
+60:                                               ; preds = %55
+  %61 = getelementptr i8, ptr %6, i64 %59
+  %62 = add nsw i32 %57, %28
+  %63 = sext i32 %62 to i64
+  %64 = sub nuw nsw i64 13, %59
+  %65 = call ptr @__memcpy_chk(ptr noundef %61, ptr noundef nonnull %5, i64 noundef range(i64 -127, 256) %63, i64 noundef %64) #11, !alias.scope !19
+  %66 = add nsw i32 %62, %.072
+  %67 = zext i32 %66 to i64
+  %68 = getelementptr [13 x i8], ptr %6, i64 0, i64 %67
+  store i8 46, ptr %68, align 1
+  %69 = add nsw i32 %66, 1
+  %70 = zext i32 %69 to i64
+  %71 = getelementptr i8, ptr %6, i64 %70
+  %72 = zext nneg i32 %57 to i64
+  %73 = getelementptr i8, ptr %5, i64 %72
+  %74 = sext i8 %.071 to i64
+  %75 = getelementptr i8, ptr %73, i64 %74
+  %76 = zext nneg i32 %56 to i64
+  %77 = sub nsw i64 13, %70
+  %78 = icmp ugt i32 %69, 13
+  %79 = select i1 %78, i64 0, i64 %77
+  %80 = icmp ne i64 %79, -1
+  call void @llvm.assume(i1 %80)
+  %81 = call ptr @__memcpy_chk(ptr noundef %71, ptr noundef %75, i64 noundef range(i64 -127, 256) %76, i64 noundef %79) #11, !alias.scope !23
+  %82 = sub nsw i32 %69, %28
+  br label %108
 
-46:                                               ; preds = %35
-  %47 = sub nsw i32 0, %28
-  %48 = and i32 %27, 255
-  %49 = icmp sgt i32 %48, %47
-  %50 = zext nneg i32 %.072 to i64
-  br i1 %49, label %51, label %67
-
-51:                                               ; preds = %46
-  %52 = getelementptr i8, ptr %6, i64 %50
-  %53 = add nsw i32 %48, %28
-  %54 = sext i32 %53 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr nonnull align 1 %5, i64 %54, i1 false)
-  %55 = add nsw i32 %53, %.072
-  %56 = zext i32 %55 to i64
-  %57 = getelementptr [13 x i8], ptr %6, i64 0, i64 %56
-  store i8 46, ptr %57, align 1
-  %58 = add nsw i32 %55, 1
-  %59 = zext i32 %58 to i64
-  %60 = getelementptr i8, ptr %6, i64 %59
-  %61 = zext nneg i32 %48 to i64
-  %62 = getelementptr i8, ptr %5, i64 %61
-  %63 = sext i8 %.071 to i64
-  %64 = getelementptr i8, ptr %62, i64 %63
-  %65 = zext nneg i32 %47 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr align 1 %64, i64 %65, i1 false)
-  %66 = sub nsw i32 %58, %28
-  br label %85
-
-67:                                               ; preds = %46
-  %68 = getelementptr [13 x i8], ptr %6, i64 0, i64 %50
-  store i8 48, ptr %68, align 1
-  %69 = add nuw nsw i32 %.072, 1
-  %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr [13 x i8], ptr %6, i64 0, i64 %70
-  store i8 46, ptr %71, align 1
-  %72 = or disjoint i32 %.072, 2
-  %73 = sub nsw i32 %47, %48
-  %74 = icmp sgt i32 %73, 0
-  br i1 %74, label %75, label %80
-
-75:                                               ; preds = %67
-  %76 = zext nneg i32 %72 to i64
-  %77 = getelementptr i8, ptr %6, i64 %76
-  %78 = zext nneg i32 %73 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %77, i8 48, i64 %78, i1 false)
-  %79 = add nuw nsw i32 %73, %72
-  br label %80
-
-80:                                               ; preds = %75, %67
-  %.2 = phi i32 [ %79, %75 ], [ %72, %67 ]
-  %81 = zext nneg i32 %.2 to i64
-  %82 = getelementptr i8, ptr %6, i64 %81
-  %83 = zext nneg i32 %48 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %82, ptr nonnull align 1 %5, i64 %83, i1 false)
-  %84 = add nuw nsw i32 %.2, %48
-  br label %85
-
-85:                                               ; preds = %37, %80, %51, %30
-  %.1 = phi i32 [ %34, %30 ], [ %45, %37 ], [ %66, %51 ], [ %84, %80 ]
-  %86 = zext i32 %.1 to i64
+83:                                               ; preds = %55
+  %84 = getelementptr [13 x i8], ptr %6, i64 0, i64 %59
+  store i8 48, ptr %84, align 1
+  %85 = add nuw nsw i32 %.072, 1
+  %86 = zext nneg i32 %85 to i64
   %87 = getelementptr [13 x i8], ptr %6, i64 0, i64 %86
-  store i8 0, ptr %87, align 1
-  %88 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %6) #8
-  br label %89
+  store i8 46, ptr %87, align 1
+  %88 = or disjoint i32 %.072, 2
+  %89 = sub nsw i32 %56, %57
+  %90 = icmp sgt i32 %89, 0
+  br i1 %90, label %91, label %98
 
-89:                                               ; preds = %85, %22, %switch.lookup
-  %.070 = phi ptr [ %11, %switch.lookup ], [ %23, %22 ], [ %88, %85 ]
+91:                                               ; preds = %83
+  %92 = zext nneg i32 %88 to i64
+  %93 = getelementptr i8, ptr %6, i64 %92
+  %94 = zext nneg i32 %89 to i64
+  %95 = sub nuw nsw i64 13, %92
+  %96 = call ptr @__memset_chk(ptr noundef %93, i32 noundef 48, i64 noundef range(i64 -128, 129) %94, i64 noundef %95) #11
+  %97 = add nuw nsw i32 %89, %88
+  br label %98
+
+98:                                               ; preds = %91, %83
+  %.2 = phi i32 [ %97, %91 ], [ %88, %83 ]
+  %99 = zext nneg i32 %.2 to i64
+  %100 = getelementptr i8, ptr %6, i64 %99
+  %101 = zext nneg i32 %57 to i64
+  %102 = sub nsw i64 13, %99
+  %103 = icmp samesign ugt i32 %.2, 13
+  %104 = select i1 %103, i64 0, i64 %102
+  %105 = icmp ne i64 %104, -1
+  call void @llvm.assume(i1 %105)
+  %106 = call ptr @__memcpy_chk(ptr noundef %100, ptr noundef nonnull %5, i64 noundef range(i64 -127, 256) %101, i64 noundef %104) #11, !alias.scope !27
+  %107 = add nuw nsw i32 %.2, %57
+  br label %108
+
+108:                                              ; preds = %39, %98, %60, %30
+  %.173 = phi i32 [ %36, %30 ], [ %54, %39 ], [ %82, %60 ], [ %107, %98 ]
+  %109 = zext i32 %.173 to i64
+  %110 = getelementptr [13 x i8], ptr %6, i64 0, i64 %109
+  store i8 0, ptr %110, align 1
+  %111 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %6)
+  br label %112
+
+112:                                              ; preds = %108, %22
+  %.1 = phi ptr [ %23, %22 ], [ %111, %108 ]
+  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %6) #11
+  br label %113
+
+113:                                              ; preds = %112, %switch.lookup
+  %.070 = phi ptr [ %11, %switch.lookup ], [ %.1, %112 ]
+  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5) #11
   ret ptr %.070
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: readwrite) uwtable
+define internal noundef i32 @sfloat_ieee_11073_val_to_double(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load i16, ptr %3, align 8
+  %switch.tableidx = add i16 %4, -2046
+  %5 = icmp ult i16 %switch.tableidx, 5
+  br i1 %5, label %switch.lookup, label %6
+
+6:                                                ; preds = %2
+  %7 = and i16 %4, 2047
+  %8 = icmp eq i16 %7, 0
+  br i1 %8, label %21, label %9
+
+9:                                                ; preds = %6
+  %10 = and i16 %4, 2048
+  %.not = icmp eq i16 %10, 0
+  %11 = or i16 %4, -2048
+  %12 = sub nsw i16 0, %11
+  %.016 = select i1 %.not, i16 %7, i16 %12
+  %13 = lshr i16 %4, 12
+  %14 = trunc nuw nsw i16 %13 to i8
+  %15 = or disjoint i8 %14, -16
+  %.not1819 = icmp slt i16 %4, 0
+  %.017 = select i1 %.not1819, i8 %15, i8 %14
+  %16 = uitofp nneg i16 %.016 to double
+  %17 = sitofp i8 %.017 to double
+  %18 = tail call double @pow(double noundef 1.000000e+01, double noundef %17) #11
+  %19 = fmul double %18, %16
+  br label %21
+
+switch.lookup:                                    ; preds = %2
+  %20 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [5 x double], ptr @switch.table.float_ieee_11073_val_to_double, i64 0, i64 %20
+  %switch.load = load double, ptr %switch.gep, align 8
+  br label %21
+
+21:                                               ; preds = %switch.lookup, %6, %9
+  %.sink = phi double [ %19, %9 ], [ 0.000000e+00, %6 ], [ %switch.load, %switch.lookup ]
+  store double %.sink, ptr %1, align 8
+  ret i32 0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
 define internal void @sfloat_ieee_11073_value_set(ptr noundef writeonly captures(none) initializes((8, 10)) %0, i32 noundef %1) #1 {
   %3 = trunc i32 %1 to i16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -451,16 +521,16 @@ define internal void @sfloat_ieee_11073_value_set(ptr noundef writeonly captures
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @sfloat_ieee_11073_value_get(ptr noundef readonly captures(none) %0) #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
+define internal range(i32 0, 65536) i32 @sfloat_ieee_11073_value_get(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i16, ptr %2, align 8
   %4 = zext i16 %3 to i32
   ret i32 %4
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @sfloat_ieee_11073_cmp_order(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #3 {
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable
+define internal noundef i32 @sfloat_ieee_11073_cmp_order(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #4 {
   %4 = getelementptr i8, ptr %0, i64 8
   %.val = load i16, ptr %4, align 8
   %5 = add i16 %.val, -2046
@@ -498,7 +568,7 @@ define internal noundef i32 @sfloat_ieee_11073_cmp_order(ptr noundef readonly ca
   %.not27.i.i = icmp eq i16 %21, 0
   %22 = icmp samesign ugt i16 %.132.i.i, 9
   %23 = and i1 %22, %.not27.i.i
-  br i1 %23, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !9
+  br i1 %23, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !31
 
 ._crit_edge.i.i:                                  ; preds = %19, %.lr.ph.i.i, %6
   %.123.lcssa.i.i = phi i8 [ %.022.i.i, %6 ], [ 7, %.lr.ph.i.i ], [ %20, %19 ]
@@ -518,61 +588,61 @@ sfloat_to_normal_form.exit.i:                     ; preds = %._crit_edge.i.i, %3
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load i16, ptr %32, align 8
   %34 = add i16 %33, -2046
-  %or.cond.i61.i = icmp ult i16 %34, 5
-  br i1 %or.cond.i61.i, label %sfloat_to_normal_form.exit75.i, label %35
+  %or.cond.i69.i = icmp ult i16 %34, 5
+  br i1 %or.cond.i69.i, label %sfloat_to_normal_form.exit83.i, label %35
 
 35:                                               ; preds = %sfloat_to_normal_form.exit.i
   %36 = and i16 %33, 2048
-  %.not.i62.i = icmp eq i16 %36, 0
+  %.not.i70.i = icmp eq i16 %36, 0
   %37 = or i16 %33, -2048
   %38 = sub nsw i16 0, %37
   %39 = and i16 %33, 2047
-  %.021.i63.i = select i1 %.not.i62.i, i16 %39, i16 %38
+  %.021.i71.i = select i1 %.not.i70.i, i16 %39, i16 %38
   %40 = lshr i16 %33, 12
   %41 = trunc nuw nsw i16 %40 to i8
   %42 = or disjoint i8 %41, -16
-  %.not2629.i64.i = icmp slt i16 %33, 0
-  %.022.i65.i = select i1 %.not2629.i64.i, i8 %42, i8 %41
-  %43 = urem i16 %.021.i63.i, 10
-  %.not2730.i66.i = icmp eq i16 %43, 0
-  %44 = icmp ne i16 %.021.i63.i, 0
-  %45 = and i1 %44, %.not2730.i66.i
-  br i1 %45, label %.lr.ph.i71.i, label %._crit_edge.i67.i
+  %.not2629.i72.i = icmp slt i16 %33, 0
+  %.022.i73.i = select i1 %.not2629.i72.i, i8 %42, i8 %41
+  %43 = urem i16 %.021.i71.i, 10
+  %.not2730.i74.i = icmp eq i16 %43, 0
+  %44 = icmp ne i16 %.021.i71.i, 0
+  %45 = and i1 %44, %.not2730.i74.i
+  br i1 %45, label %.lr.ph.i79.i, label %._crit_edge.i75.i
 
-.lr.ph.i71.i:                                     ; preds = %35, %48
-  %.132.i72.i = phi i16 [ %46, %48 ], [ %.021.i63.i, %35 ]
-  %.12331.i73.i = phi i8 [ %49, %48 ], [ %.022.i65.i, %35 ]
-  %46 = udiv i16 %.132.i72.i, 10
-  %47 = icmp eq i8 %.12331.i73.i, 7
-  br i1 %47, label %._crit_edge.i67.i, label %48
+.lr.ph.i79.i:                                     ; preds = %35, %48
+  %.132.i80.i = phi i16 [ %46, %48 ], [ %.021.i71.i, %35 ]
+  %.12331.i81.i = phi i8 [ %49, %48 ], [ %.022.i73.i, %35 ]
+  %46 = udiv i16 %.132.i80.i, 10
+  %47 = icmp eq i8 %.12331.i81.i, 7
+  br i1 %47, label %._crit_edge.i75.i, label %48
 
-48:                                               ; preds = %.lr.ph.i71.i
-  %49 = add i8 %.12331.i73.i, 1
+48:                                               ; preds = %.lr.ph.i79.i
+  %49 = add i8 %.12331.i81.i, 1
   %50 = urem i16 %46, 10
-  %.not27.i74.i = icmp eq i16 %50, 0
-  %51 = icmp samesign ugt i16 %.132.i72.i, 9
-  %52 = and i1 %51, %.not27.i74.i
-  br i1 %52, label %.lr.ph.i71.i, label %._crit_edge.i67.i, !llvm.loop !9
+  %.not27.i82.i = icmp eq i16 %50, 0
+  %51 = icmp samesign ugt i16 %.132.i80.i, 9
+  %52 = and i1 %51, %.not27.i82.i
+  br i1 %52, label %.lr.ph.i79.i, label %._crit_edge.i75.i, !llvm.loop !31
 
-._crit_edge.i67.i:                                ; preds = %48, %.lr.ph.i71.i, %35
-  %.123.lcssa.i68.i = phi i8 [ %.022.i65.i, %35 ], [ 7, %.lr.ph.i71.i ], [ %49, %48 ]
-  %.2.i69.i = phi i16 [ %.021.i63.i, %35 ], [ %46, %.lr.ph.i71.i ], [ %46, %48 ]
-  %53 = lshr i8 %.123.lcssa.i68.i, 4
+._crit_edge.i75.i:                                ; preds = %48, %.lr.ph.i79.i, %35
+  %.123.lcssa.i76.i = phi i8 [ %.022.i73.i, %35 ], [ 7, %.lr.ph.i79.i ], [ %49, %48 ]
+  %.2.i77.i = phi i16 [ %.021.i71.i, %35 ], [ %46, %.lr.ph.i79.i ], [ %46, %48 ]
+  %53 = lshr i8 %.123.lcssa.i76.i, 4
   %54 = and i8 %53, 8
-  %55 = and i8 %.123.lcssa.i68.i, 7
+  %55 = and i8 %.123.lcssa.i76.i, 7
   %56 = or disjoint i8 %54, %55
   %57 = zext nneg i8 %56 to i16
   %58 = shl nuw i16 %57, 12
-  %59 = or i16 %.2.i69.i, %58
+  %59 = or i16 %.2.i77.i, %58
   %60 = or i16 %59, %36
-  br label %sfloat_to_normal_form.exit75.i
+  br label %sfloat_to_normal_form.exit83.i
 
-sfloat_to_normal_form.exit75.i:                   ; preds = %._crit_edge.i67.i, %sfloat_to_normal_form.exit.i
-  %.024.i70.i = phi i16 [ %60, %._crit_edge.i67.i ], [ %33, %sfloat_to_normal_form.exit.i ]
-  %61 = icmp eq i16 %.024.i.i, %.024.i70.i
+sfloat_to_normal_form.exit83.i:                   ; preds = %._crit_edge.i75.i, %sfloat_to_normal_form.exit.i
+  %.024.i78.i = phi i16 [ %60, %._crit_edge.i75.i ], [ %33, %sfloat_to_normal_form.exit.i ]
+  %61 = icmp eq i16 %.024.i.i, %.024.i78.i
   br i1 %61, label %sfloat_ieee_11073_cmp_lt.exit.thread24, label %62
 
-62:                                               ; preds = %sfloat_to_normal_form.exit75.i
+62:                                               ; preds = %sfloat_to_normal_form.exit83.i
   switch i16 %.024.i.i, label %65 [
     i16 2047, label %sfloat_ieee_11073_cmp_lt.exit.thread24
     i16 2048, label %sfloat_ieee_11073_cmp_lt.exit.thread24
@@ -582,86 +652,86 @@ sfloat_to_normal_form.exit75.i:                   ; preds = %._crit_edge.i67.i, 
   ]
 
 63:                                               ; preds = %62
-  %64 = add i16 %.024.i70.i, -2051
+  %64 = add i16 %.024.i78.i, -2051
   %switch.i = icmp ult i16 %64, -4
   br i1 %switch.i, label %sfloat_ieee_11073_cmp_lt.exit.thread, label %sfloat_ieee_11073_cmp_lt.exit.thread24
 
 65:                                               ; preds = %62
   %66 = and i16 %.024.i.i, 4095
-  %67 = and i16 %.024.i70.i, 4095
+  %67 = and i16 %.024.i78.i, 4095
   %68 = and i16 %.024.i.i, 2048
   %.not.i = icmp eq i16 %68, 0
   %masksel.i = select i1 %.not.i, i16 0, i16 -4096
   %spec.select.i = or disjoint i16 %masksel.i, %66
-  %69 = and i16 %.024.i70.i, 2048
-  %.not54.i = icmp eq i16 %69, 0
-  %masksel1.i = select i1 %.not54.i, i16 0, i16 -4096
-  %.043.i = or disjoint i16 %masksel1.i, %67
+  %69 = and i16 %.024.i78.i, 2048
+  %.not62.i = icmp eq i16 %69, 0
+  %masksel4.i = select i1 %.not62.i, i16 0, i16 -4096
+  %.047.i = or disjoint i16 %masksel4.i, %67
   %70 = lshr i16 %.024.i.i, 12
   %71 = trunc nuw nsw i16 %70 to i8
-  %72 = lshr i16 %.024.i70.i, 12
+  %72 = lshr i16 %.024.i78.i, 12
   %73 = trunc nuw nsw i16 %72 to i8
   %74 = or disjoint i8 %71, -16
-  %.not552.i = icmp slt i16 %.024.i.i, 0
-  %.042.i = select i1 %.not552.i, i8 %74, i8 %71
+  %.not635.i = icmp slt i16 %.024.i.i, 0
+  %.046.i = select i1 %.not635.i, i8 %74, i8 %71
   %75 = or disjoint i8 %73, -16
-  %.not563.i = icmp slt i16 %.024.i70.i, 0
-  %.041.i = select i1 %.not563.i, i8 %75, i8 %73
-  %76 = icmp eq i16 %spec.select.i, %.043.i
-  %77 = icmp slt i8 %.042.i, %.041.i
+  %.not646.i = icmp slt i16 %.024.i78.i, 0
+  %.045.i = select i1 %.not646.i, i8 %75, i8 %73
+  %76 = icmp eq i16 %spec.select.i, %.047.i
+  %77 = icmp slt i8 %.046.i, %.045.i
   %or.cond.i = select i1 %76, i1 %77, i1 false
   br i1 %or.cond.i, label %sfloat_ieee_11073_cmp_lt.exit.thread, label %78
 
 78:                                               ; preds = %65
-  %79 = icmp eq i8 %.042.i, %.041.i
-  %80 = icmp slt i16 %spec.select.i, %.043.i
-  %or.cond59.i = and i1 %79, %80
-  br i1 %or.cond59.i, label %sfloat_ieee_11073_cmp_lt.exit.thread, label %81
+  %79 = icmp eq i8 %.046.i, %.045.i
+  %80 = icmp slt i16 %spec.select.i, %.047.i
+  %or.cond67.i = and i1 %79, %80
+  br i1 %or.cond67.i, label %sfloat_ieee_11073_cmp_lt.exit.thread, label %81
 
 81:                                               ; preds = %78
   br i1 %77, label %82, label %86
 
 82:                                               ; preds = %81
-  %narrow.i = sub nsw i8 %.041.i, %.042.i
-  %83 = icmp ugt i8 %narrow.i, 3
-  br i1 %83, label %sfloat_ieee_11073_cmp_lt.exit.thread, label %.preheader.i
+  %narrow.i = sub nsw i8 %.045.i, %.046.i
+  %83 = icmp ult i8 %narrow.i, 4
+  br i1 %83, label %.preheader.i, label %sfloat_ieee_11073_cmp_lt.exit.thread
 
 .preheader.i:                                     ; preds = %82
-  %.not5810.i = icmp eq i8 %narrow.i, 0
-  br i1 %.not5810.i, label %sfloat_ieee_11073_cmp_lt.exit, label %.lr.ph13.i
+  %.not6613.i = icmp eq i8 %narrow.i, 0
+  br i1 %.not6613.i, label %sfloat_ieee_11073_cmp_lt.exit, label %.lr.ph16.i
 
-.lr.ph13.i:                                       ; preds = %.preheader.i, %.lr.ph13.i
-  %.04012.i = phi i8 [ %84, %.lr.ph13.i ], [ %narrow.i, %.preheader.i ]
-  %.111.i = phi i16 [ %85, %.lr.ph13.i ], [ %.043.i, %.preheader.i ]
-  %84 = add i8 %.04012.i, -1
-  %85 = mul i16 %.111.i, 10
-  %.not58.i = icmp eq i8 %84, 0
-  br i1 %.not58.i, label %sfloat_ieee_11073_cmp_lt.exit, label %.lr.ph13.i, !llvm.loop !10
+.lr.ph16.i:                                       ; preds = %.preheader.i, %.lr.ph16.i
+  %.04315.i = phi i8 [ %84, %.lr.ph16.i ], [ %narrow.i, %.preheader.i ]
+  %.214.i = phi i16 [ %85, %.lr.ph16.i ], [ %.047.i, %.preheader.i ]
+  %84 = add i8 %.04315.i, -1
+  %85 = mul i16 %.214.i, 10
+  %.not66.i = icmp eq i8 %84, 0
+  br i1 %.not66.i, label %sfloat_ieee_11073_cmp_lt.exit, label %.lr.ph16.i, !llvm.loop !32
 
 86:                                               ; preds = %81
-  %87 = sub nsw i8 %.042.i, %.041.i
-  %88 = icmp ugt i8 %87, 3
-  br i1 %88, label %sfloat_ieee_11073_cmp_lt.exit.thread24, label %.preheader4.i
+  %87 = sub nsw i8 %.046.i, %.045.i
+  %88 = icmp ult i8 %87, 4
+  br i1 %88, label %.preheader7.i, label %sfloat_ieee_11073_cmp_lt.exit.thread24
 
-.preheader4.i:                                    ; preds = %86
-  %.not577.i = icmp eq i8 %87, 0
-  br i1 %.not577.i, label %sfloat_ieee_11073_cmp_lt.exit, label %.lr.ph.i
+.preheader7.i:                                    ; preds = %86
+  %.not6510.i = icmp eq i8 %87, 0
+  br i1 %.not6510.i, label %sfloat_ieee_11073_cmp_lt.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader4.i, %.lr.ph.i
-  %.09.i = phi i8 [ %89, %.lr.ph.i ], [ %87, %.preheader4.i ]
-  %.2468.i = phi i16 [ %90, %.lr.ph.i ], [ %spec.select.i, %.preheader4.i ]
-  %89 = add i8 %.09.i, -1
-  %90 = mul i16 %.2468.i, 10
-  %.not57.i = icmp eq i8 %89, 0
-  br i1 %.not57.i, label %sfloat_ieee_11073_cmp_lt.exit, label %.lr.ph.i, !llvm.loop !11
+.lr.ph.i:                                         ; preds = %.preheader7.i, %.lr.ph.i
+  %.012.i = phi i8 [ %89, %.lr.ph.i ], [ %87, %.preheader7.i ]
+  %.35211.i = phi i16 [ %90, %.lr.ph.i ], [ %spec.select.i, %.preheader7.i ]
+  %89 = add i8 %.012.i, -1
+  %90 = mul i16 %.35211.i, 10
+  %.not65.i = icmp eq i8 %89, 0
+  br i1 %.not65.i, label %sfloat_ieee_11073_cmp_lt.exit, label %.lr.ph.i, !llvm.loop !33
 
-sfloat_ieee_11073_cmp_lt.exit:                    ; preds = %.lr.ph.i, %.lr.ph13.i, %.preheader.i, %.preheader4.i
-  %.145.i = phi i16 [ %spec.select.i, %.preheader.i ], [ %spec.select.i, %.preheader4.i ], [ %spec.select.i, %.lr.ph13.i ], [ %90, %.lr.ph.i ]
-  %.2.i = phi i16 [ %.043.i, %.preheader.i ], [ %.043.i, %.preheader4.i ], [ %85, %.lr.ph13.i ], [ %.043.i, %.lr.ph.i ]
-  %91 = icmp slt i16 %.145.i, %.2.i
+sfloat_ieee_11073_cmp_lt.exit:                    ; preds = %.lr.ph.i, %.lr.ph16.i, %.preheader.i, %.preheader7.i
+  %.150.i = phi i16 [ %spec.select.i, %.preheader.i ], [ %spec.select.i, %.preheader7.i ], [ %spec.select.i, %.lr.ph16.i ], [ %90, %.lr.ph.i ]
+  %.3.i = phi i16 [ %.047.i, %.preheader.i ], [ %.047.i, %.preheader7.i ], [ %85, %.lr.ph16.i ], [ %.047.i, %.lr.ph.i ]
+  %91 = icmp slt i16 %.150.i, %.3.i
   br i1 %91, label %sfloat_ieee_11073_cmp_lt.exit.thread, label %sfloat_ieee_11073_cmp_lt.exit.thread24
 
-sfloat_ieee_11073_cmp_lt.exit.thread24:           ; preds = %86, %62, %62, %62, %62, %sfloat_to_normal_form.exit75.i, %63, %sfloat_ieee_11073_cmp_lt.exit
+sfloat_ieee_11073_cmp_lt.exit.thread24:           ; preds = %86, %62, %62, %62, %62, %sfloat_to_normal_form.exit83.i, %63, %sfloat_ieee_11073_cmp_lt.exit
   br i1 %or.cond.i.i, label %sfloat_to_normal_form.exit.i16, label %92
 
 92:                                               ; preds = %sfloat_ieee_11073_cmp_lt.exit.thread24
@@ -695,7 +765,7 @@ sfloat_ieee_11073_cmp_lt.exit.thread24:           ; preds = %86, %62, %62, %62, 
   %.not27.i.i21 = icmp eq i16 %107, 0
   %108 = icmp samesign ugt i16 %.132.i.i19, 9
   %109 = and i1 %108, %.not27.i.i21
-  br i1 %109, label %.lr.ph.i.i18, label %._crit_edge.i.i13, !llvm.loop !9
+  br i1 %109, label %.lr.ph.i.i18, label %._crit_edge.i.i13, !llvm.loop !31
 
 ._crit_edge.i.i13:                                ; preds = %105, %.lr.ph.i.i18, %92
   %.123.lcssa.i.i14 = phi i8 [ %.022.i.i11, %92 ], [ 7, %.lr.ph.i.i18 ], [ %106, %105 ]
@@ -712,7 +782,7 @@ sfloat_ieee_11073_cmp_lt.exit.thread24:           ; preds = %86, %62, %62, %62, 
 
 sfloat_to_normal_form.exit.i16:                   ; preds = %._crit_edge.i.i13, %sfloat_ieee_11073_cmp_lt.exit.thread24
   %.024.i.i17 = phi i16 [ %117, %._crit_edge.i.i13 ], [ %.val, %sfloat_ieee_11073_cmp_lt.exit.thread24 ]
-  br i1 %or.cond.i61.i, label %sfloat_ieee_11073_cmp_eq.exit, label %118
+  br i1 %or.cond.i69.i, label %sfloat_ieee_11073_cmp_eq.exit, label %118
 
 118:                                              ; preds = %sfloat_to_normal_form.exit.i16
   %119 = and i16 %33, 2048
@@ -745,7 +815,7 @@ sfloat_to_normal_form.exit.i16:                   ; preds = %._crit_edge.i.i13, 
   %.not27.i15.i = icmp eq i16 %133, 0
   %134 = icmp samesign ugt i16 %.132.i13.i, 9
   %135 = and i1 %134, %.not27.i15.i
-  br i1 %135, label %.lr.ph.i12.i, label %._crit_edge.i8.i, !llvm.loop !9
+  br i1 %135, label %.lr.ph.i12.i, label %._crit_edge.i8.i, !llvm.loop !31
 
 ._crit_edge.i8.i:                                 ; preds = %131, %.lr.ph.i12.i, %118
   %.123.lcssa.i9.i = phi i8 [ %.022.i6.i, %118 ], [ 7, %.lr.ph.i12.i ], [ %132, %131 ]
@@ -772,33 +842,35 @@ sfloat_ieee_11073_cmp_lt.exit.thread:             ; preds = %82, %78, %65, %63, 
   ret i32 0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @sfloat_ieee_11073_hash(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i16, ptr %3, align 8
   %5 = zext i16 %4 to i64
   store i64 %5, ptr %2, align 8
-  %6 = call i32 @g_int64_hash(ptr noundef nonnull %2) #8
+  %6 = call i32 @g_int64_hash(ptr noundef nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
   ret i32 %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @sfloat_ieee_11073_is_zero(ptr noundef readonly captures(none) %0) #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
+define internal zeroext i1 @sfloat_ieee_11073_is_zero(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i16, ptr %2, align 8
   %4 = icmp eq i16 %3, 0
   ret i1 %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
 define internal void @float_ieee_11073_fvalue_new(ptr noundef writeonly captures(none) initializes((8, 12)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @float_ieee_11073_val_from_literal(ptr noundef writeonly captures(none) %0, ptr noundef %1, i1 zeroext %2, ptr readnone captures(none) %3) #0 {
   %5 = load i8, ptr %1, align 1
   switch i8 %5, label %6 [
@@ -821,7 +893,7 @@ define internal noundef zeroext i1 @float_ieee_11073_val_from_literal(ptr nounde
   ]
 
 10:                                               ; preds = %7, %7
-  %11 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.4) #8
+  %11 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.4)
   %.not138 = icmp eq i32 %11, 0
   br i1 %.not138, label %.loopexit148.sink.split, label %.loopexit148
 
@@ -833,17 +905,17 @@ define internal noundef zeroext i1 @float_ieee_11073_val_from_literal(ptr nounde
   ]
 
 13:                                               ; preds = %.critedge140
-  %14 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.5) #8
+  %14 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.5)
   %.not137 = icmp eq i32 %14, 0
   br i1 %.not137, label %.loopexit148.sink.split, label %.loopexit148
 
 15:                                               ; preds = %.critedge140
-  %16 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.6) #8
+  %16 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.6)
   %.not135 = icmp eq i32 %16, 0
   br i1 %.not135, label %.loopexit148.sink.split, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.7) #8
+  %18 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.7)
   %.not136 = icmp eq i32 %18, 0
   br i1 %.not136, label %.loopexit148.sink.split, label %.loopexit148
 
@@ -852,7 +924,7 @@ define internal noundef zeroext i1 @float_ieee_11073_val_from_literal(ptr nounde
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19
-  %22 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.8) #8
+  %22 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.8)
   %.not134 = icmp eq i32 %22, 0
   br i1 %.not134, label %.loopexit148.sink.split, label %.loopexit148
 
@@ -866,7 +938,7 @@ define internal noundef zeroext i1 @float_ieee_11073_val_from_literal(ptr nounde
   %25 = load i8, ptr %.1115, align 1
   %26 = icmp eq i8 %25, 48
   %27 = getelementptr i8, ptr %.1115, i64 1
-  br i1 %26, label %24, label %.preheader147, !llvm.loop !12
+  br i1 %26, label %24, label %.preheader147, !llvm.loop !34
 
 .preheader147:                                    ; preds = %24, %70
   %.2116 = phi ptr [ %71, %70 ], [ %.1115, %24 ]
@@ -968,7 +1040,7 @@ define internal noundef zeroext i1 @float_ieee_11073_val_from_literal(ptr nounde
   %.4118 = getelementptr i8, ptr %.4118152, i64 1
   %67 = load i8, ptr %.4118, align 1
   %68 = icmp eq i8 %67, 48
-  br i1 %68, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %68, label %.lr.ph, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %.preheader147, %28, %34, %40, %46, %52, %58, %55, %49, %43, %37, %31
   %.3117 = phi ptr [ %.2116, %31 ], [ %.2116, %34 ], [ %.2116, %37 ], [ %.2116, %40 ], [ %.2116, %43 ], [ %.2116, %46 ], [ %.2116, %49 ], [ %.2116, %52 ], [ %.2116, %55 ], [ %.2116, %58 ], [ %.2116, %28 ], [ %.2116, %.preheader147 ], [ %.2116, %.preheader ], [ %.4118152, %.lr.ph ]
@@ -986,7 +1058,7 @@ define internal noundef zeroext i1 @float_ieee_11073_val_from_literal(ptr nounde
   %71 = getelementptr i8, ptr %.3117, i64 1
   %72 = load i8, ptr %71, align 1
   %.not130 = icmp eq i8 %72, 0
-  br i1 %.not130, label %73, label %.preheader147, !llvm.loop !14
+  br i1 %.not130, label %73, label %.preheader147, !llvm.loop !36
 
 73:                                               ; preds = %70
   %74 = sub nsw i32 0, %.1107
@@ -1008,7 +1080,7 @@ define internal noundef zeroext i1 @float_ieee_11073_val_from_literal(ptr nounde
 81:                                               ; preds = %.lr.ph158
   %82 = add nsw i16 %.6157, 1
   %.not133 = icmp ult i32 %.5111156, 10
-  br i1 %.not133, label %.critedge, label %.lr.ph158, !llvm.loop !15
+  br i1 %.not133, label %.critedge, label %.lr.ph158, !llvm.loop !37
 
 .critedge:                                        ; preds = %81, %.lr.ph158, %73
   %.5111.lcssa = phi i32 [ 0, %73 ], [ %.5111156, %.lr.ph158 ], [ %78, %81 ]
@@ -1034,28 +1106,29 @@ define internal noundef zeroext i1 @float_ieee_11073_val_from_literal(ptr nounde
   ret i1 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @float_ieee_11073_val_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i1 @float_ieee_11073_val_from_literal(ptr noundef %0, ptr noundef %1, i1 zeroext poison, ptr poison)
   ret i1 %5
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @float_ieee_11073_val_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i1 @float_ieee_11073_val_from_literal(ptr noundef %0, ptr noundef %1, i1 zeroext poison, ptr poison)
   ret i1 %5
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @float_ieee_11073_val_from_double(ptr noundef writeonly captures(none) %0, ptr noundef %1, double %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i1 @float_ieee_11073_val_from_literal(ptr noundef %0, ptr noundef %1, i1 zeroext poison, ptr poison)
   ret i1 %5
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noalias ptr @float_ieee_11073_val_to_repr(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 %2, i32 %3) #0 {
   %5 = alloca [8 x i8], align 1
   %6 = alloca [136 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, -8388606
@@ -1067,10 +1140,11 @@ switch.lookup:                                    ; preds = %4
   %10 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.float_ieee_11073_val_to_repr, i64 0, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %11 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %switch.load) #8
-  br label %84
+  %11 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %switch.load)
+  br label %105
 
 12:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %6) #11
   %13 = lshr i32 %8, 24
   %14 = zext nneg i32 %13 to i64
   %15 = and i32 %8, 8388607
@@ -1082,8 +1156,8 @@ switch.lookup:                                    ; preds = %4
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %12
-  %19 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull @.str.9) #8
-  br label %84
+  %19 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull @.str.9)
+  br label %104
 
 20:                                               ; preds = %12
   br i1 %.not, label %22, label %21
@@ -1094,125 +1168,180 @@ switch.lookup:                                    ; preds = %4
 
 22:                                               ; preds = %21, %20
   %.070 = phi i32 [ 1, %21 ], [ 0, %20 ]
-  %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 8, ptr noundef nonnull @.str.10, i32 noundef %spec.select) #8
+  %23 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %5, i64 noundef 8, i32 noundef 2, i64 noundef 8, ptr noundef nonnull @.str.10, i32 noundef %spec.select)
   %24 = ashr i32 %8, 24
   %25 = icmp ult i32 %8, 16777216
-  br i1 %25, label %26, label %31
+  br i1 %25, label %26, label %33
 
 26:                                               ; preds = %22
   %27 = zext nneg i32 %.070 to i64
   %28 = getelementptr i8, ptr %6, i64 %27
+  %.mask80 = and i32 %23, 255
+  %29 = zext nneg i32 %.mask80 to i64
+  %30 = sub nuw nsw i64 136, %27
+  %31 = call ptr @__memcpy_chk(ptr noundef %28, ptr noundef nonnull %5, i64 noundef range(i64 -127, 256) %29, i64 noundef %30) #11, !alias.scope !38
+  %32 = add nuw nsw i32 %.mask80, %.070
+  br label %100
+
+33:                                               ; preds = %22
+  %34 = icmp sgt i32 %24, 0
+  br i1 %34, label %35, label %51
+
+35:                                               ; preds = %33
+  %36 = zext nneg i32 %.070 to i64
+  %37 = getelementptr i8, ptr %6, i64 %36
   %.mask79 = and i32 %23, 255
-  %29 = zext nneg i32 %.mask79 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr nonnull align 1 %5, i64 %29, i1 false)
-  %30 = add nuw nsw i32 %.mask79, %.070
-  br label %80
-
-31:                                               ; preds = %22
-  %32 = icmp sgt i32 %24, 0
-  br i1 %32, label %33, label %42
-
-33:                                               ; preds = %31
-  %34 = zext nneg i32 %.070 to i64
-  %35 = getelementptr i8, ptr %6, i64 %34
-  %.mask78 = and i32 %23, 255
-  %36 = zext nneg i32 %.mask78 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr nonnull align 1 %5, i64 %36, i1 false)
-  %37 = add nuw nsw i32 %.mask78, %.070
-  %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr i8, ptr %6, i64 %38
+  %38 = zext nneg i32 %.mask79 to i64
+  %39 = sub nuw nsw i64 136, %36
+  %40 = call ptr @__memcpy_chk(ptr noundef %37, ptr noundef nonnull %5, i64 noundef range(i64 -127, 256) %38, i64 noundef %39) #11, !alias.scope !42
+  %41 = add nuw nsw i32 %.mask79, %.070
+  %42 = zext nneg i32 %41 to i64
+  %43 = getelementptr i8, ptr %6, i64 %42
   %sext = shl nuw i64 %14, 56
-  %40 = ashr exact i64 %sext, 56
-  call void @llvm.memset.p0.i64(ptr align 1 %39, i8 48, i64 %40, i1 false)
-  %41 = add nuw nsw i32 %37, %24
-  br label %80
+  %44 = ashr exact i64 %sext, 56
+  %45 = sub nsw i64 136, %42
+  %46 = icmp samesign ugt i32 %41, 136
+  %47 = select i1 %46, i64 0, i64 %45
+  %48 = icmp ne i64 %47, -1
+  call void @llvm.assume(i1 %48)
+  %49 = call ptr @__memset_chk(ptr noundef %43, i32 noundef 48, i64 noundef range(i64 -128, 129) %44, i64 noundef %47) #11
+  %50 = add nuw nsw i32 %41, %24
+  br label %100
 
-42:                                               ; preds = %31
-  %43 = sub nsw i32 0, %24
-  %44 = and i32 %23, 255
-  %45 = icmp samesign ugt i32 %44, %43
-  %46 = zext nneg i32 %.070 to i64
-  br i1 %45, label %47, label %63
+51:                                               ; preds = %33
+  %52 = sub nsw i32 0, %24
+  %53 = and i32 %23, 255
+  %54 = icmp samesign ugt i32 %53, %52
+  %55 = zext nneg i32 %.070 to i64
+  br i1 %54, label %56, label %79
 
-47:                                               ; preds = %42
-  %48 = getelementptr i8, ptr %6, i64 %46
-  %49 = add nsw i32 %44, %24
-  %50 = sext i32 %49 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr nonnull align 1 %5, i64 %50, i1 false)
-  %51 = add nsw i32 %49, %.070
-  %52 = zext i32 %51 to i64
-  %53 = getelementptr [136 x i8], ptr %6, i64 0, i64 %52
-  store i8 46, ptr %53, align 1
-  %54 = add nsw i32 %51, 1
-  %55 = zext i32 %54 to i64
-  %56 = getelementptr i8, ptr %6, i64 %55
-  %57 = zext nneg i32 %44 to i64
-  %58 = getelementptr i8, ptr %5, i64 %57
-  %59 = sext i32 %24 to i64
-  %60 = getelementptr i8, ptr %58, i64 %59
-  %61 = zext nneg i32 %43 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %56, ptr align 1 %60, i64 %61, i1 false)
-  %62 = sub nsw i32 %54, %24
-  br label %80
+56:                                               ; preds = %51
+  %57 = getelementptr i8, ptr %6, i64 %55
+  %58 = add nsw i32 %53, %24
+  %59 = sext i32 %58 to i64
+  %60 = sub nuw nsw i64 136, %55
+  %61 = call ptr @__memcpy_chk(ptr noundef %57, ptr noundef nonnull %5, i64 noundef range(i64 -127, 256) %59, i64 noundef %60) #11, !alias.scope !46
+  %62 = add nsw i32 %58, %.070
+  %63 = zext i32 %62 to i64
+  %64 = getelementptr [136 x i8], ptr %6, i64 0, i64 %63
+  store i8 46, ptr %64, align 1
+  %65 = add nsw i32 %62, 1
+  %66 = zext i32 %65 to i64
+  %67 = getelementptr i8, ptr %6, i64 %66
+  %68 = zext nneg i32 %53 to i64
+  %69 = getelementptr i8, ptr %5, i64 %68
+  %70 = sext i32 %24 to i64
+  %71 = getelementptr i8, ptr %69, i64 %70
+  %72 = zext nneg i32 %52 to i64
+  %73 = sub nsw i64 136, %66
+  %74 = icmp ugt i32 %65, 136
+  %75 = select i1 %74, i64 0, i64 %73
+  %76 = icmp ne i64 %75, -1
+  call void @llvm.assume(i1 %76)
+  %77 = call ptr @__memcpy_chk(ptr noundef %67, ptr noundef %71, i64 noundef range(i64 -127, 256) %72, i64 noundef %75) #11, !alias.scope !50
+  %78 = sub nsw i32 %65, %24
+  br label %100
 
-63:                                               ; preds = %42
-  %64 = getelementptr [136 x i8], ptr %6, i64 0, i64 %46
-  store i8 48, ptr %64, align 1
-  %65 = add nuw nsw i32 %.070, 1
-  %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr [136 x i8], ptr %6, i64 0, i64 %66
-  store i8 46, ptr %67, align 1
-  %68 = or disjoint i32 %.070, 2
-  %.not80 = icmp eq i32 %44, %43
-  br i1 %.not80, label %75, label %69
+79:                                               ; preds = %51
+  %80 = getelementptr [136 x i8], ptr %6, i64 0, i64 %55
+  store i8 48, ptr %80, align 1
+  %81 = add nuw nsw i32 %.070, 1
+  %82 = zext nneg i32 %81 to i64
+  %83 = getelementptr [136 x i8], ptr %6, i64 0, i64 %82
+  store i8 46, ptr %83, align 1
+  %84 = or disjoint i32 %.070, 2
+  %.not81 = icmp eq i32 %53, %52
+  br i1 %.not81, label %93, label %85
 
-69:                                               ; preds = %63
-  %70 = sub nuw nsw i32 %43, %44
-  %71 = zext nneg i32 %68 to i64
-  %72 = getelementptr i8, ptr %6, i64 %71
-  %73 = zext nneg i32 %70 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %72, i8 48, i64 %73, i1 false)
-  %74 = add nuw nsw i32 %70, %68
-  br label %75
+85:                                               ; preds = %79
+  %86 = sub nuw nsw i32 %52, %53
+  %87 = zext nneg i32 %84 to i64
+  %88 = getelementptr i8, ptr %6, i64 %87
+  %89 = zext nneg i32 %86 to i64
+  %90 = sub nuw nsw i64 136, %87
+  %91 = call ptr @__memset_chk(ptr noundef %88, i32 noundef 48, i64 noundef range(i64 -128, 129) %89, i64 noundef %90) #11
+  %92 = add nuw nsw i32 %86, %84
+  br label %93
 
-75:                                               ; preds = %69, %63
-  %.2 = phi i32 [ %74, %69 ], [ %68, %63 ]
-  %76 = zext nneg i32 %.2 to i64
-  %77 = getelementptr i8, ptr %6, i64 %76
-  %78 = zext nneg i32 %44 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %77, ptr nonnull align 1 %5, i64 %78, i1 false)
-  %79 = add nuw nsw i32 %.2, %44
-  br label %80
+93:                                               ; preds = %85, %79
+  %.2 = phi i32 [ %92, %85 ], [ %84, %79 ]
+  %94 = zext nneg i32 %.2 to i64
+  %95 = getelementptr i8, ptr %6, i64 %94
+  %96 = zext nneg i32 %53 to i64
+  %97 = sub nuw nsw i64 136, %94
+  %98 = call ptr @__memcpy_chk(ptr noundef %95, ptr noundef nonnull %5, i64 noundef range(i64 -127, 256) %96, i64 noundef %97) #11, !alias.scope !54
+  %99 = add nuw nsw i32 %.2, %53
+  br label %100
 
-80:                                               ; preds = %33, %75, %47, %26
-  %.1 = phi i32 [ %30, %26 ], [ %41, %33 ], [ %62, %47 ], [ %79, %75 ]
-  %81 = zext i32 %.1 to i64
-  %82 = getelementptr [136 x i8], ptr %6, i64 0, i64 %81
-  store i8 0, ptr %82, align 1
-  %83 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %6) #8
-  br label %84
+100:                                              ; preds = %35, %93, %56, %26
+  %.171 = phi i32 [ %32, %26 ], [ %50, %35 ], [ %78, %56 ], [ %99, %93 ]
+  %101 = zext i32 %.171 to i64
+  %102 = getelementptr [136 x i8], ptr %6, i64 0, i64 %101
+  store i8 0, ptr %102, align 1
+  %103 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %6)
+  br label %104
 
-84:                                               ; preds = %80, %18, %switch.lookup
-  %.068 = phi ptr [ %11, %switch.lookup ], [ %19, %18 ], [ %83, %80 ]
+104:                                              ; preds = %100, %18
+  %.1 = phi ptr [ %19, %18 ], [ %103, %100 ]
+  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %6) #11
+  br label %105
+
+105:                                              ; preds = %104, %switch.lookup
+  %.068 = phi ptr [ %11, %switch.lookup ], [ %.1, %104 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
   ret ptr %.068
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: readwrite) uwtable
+define internal noundef i32 @float_ieee_11073_val_to_double(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load i32, ptr %3, align 8
+  %switch.tableidx = add i32 %4, -8388606
+  %5 = icmp ult i32 %switch.tableidx, 5
+  br i1 %5, label %switch.lookup, label %6
+
+6:                                                ; preds = %2
+  %7 = and i32 %4, 65535
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %17, label %9
+
+9:                                                ; preds = %6
+  %10 = lshr i32 %4, 24
+  %11 = trunc nuw i32 %10 to i8
+  %12 = uitofp nneg i32 %7 to double
+  %13 = sitofp i8 %11 to double
+  %14 = tail call double @pow(double noundef 1.000000e+01, double noundef %13) #11
+  %15 = fmul double %14, %12
+  br label %17
+
+switch.lookup:                                    ; preds = %2
+  %16 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [5 x double], ptr @switch.table.float_ieee_11073_val_to_double, i64 0, i64 %16
+  %switch.load = load double, ptr %switch.gep, align 8
+  br label %17
+
+17:                                               ; preds = %switch.lookup, %6, %9
+  %.sink = phi double [ %15, %9 ], [ 0.000000e+00, %6 ], [ %switch.load, %switch.lookup ]
+  store double %.sink, ptr %1, align 8
+  ret i32 0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
 define internal void @float_ieee_11073_value_set(ptr noundef writeonly captures(none) initializes((8, 12)) %0, i32 noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @float_ieee_11073_value_get(ptr noundef readonly captures(none) %0) #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
+define internal i32 @float_ieee_11073_value_get(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @float_ieee_11073_cmp_order(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #3 {
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable
+define internal noundef i32 @float_ieee_11073_cmp_order(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #4 {
   %4 = getelementptr i8, ptr %0, i64 8
   %.val = load i32, ptr %4, align 8
   %5 = add i32 %.val, -8388606
@@ -1247,7 +1376,7 @@ define internal noundef i32 @float_ieee_11073_cmp_order(ptr noundef readonly cap
   %.not22.i.i = icmp eq i16 %19, 0
   %20 = icmp ugt i16 %.126.i.i, 9
   %21 = and i1 %20, %.not22.i.i
-  br i1 %21, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !16
+  br i1 %21, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !58
 
 ._crit_edge.i.i:                                  ; preds = %16, %.lr.ph.i.i, %6
   %.018.in.lcssa.i.i = phi i32 [ %10, %6 ], [ %.018.in25.i.i, %.lr.ph.i.i ], [ %18, %16 ]
@@ -1263,54 +1392,54 @@ float_to_normal_form.exit.i:                      ; preds = %._crit_edge.i.i, %3
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = add i32 %26, -8388606
-  %or.cond.i52.i = icmp ult i32 %27, 5
-  br i1 %or.cond.i52.i, label %float_to_normal_form.exit66.i, label %28
+  %or.cond.i60.i = icmp ult i32 %27, 5
+  br i1 %or.cond.i60.i, label %float_to_normal_form.exit74.i, label %28
 
 28:                                               ; preds = %float_to_normal_form.exit.i
   %29 = and i32 %26, 8388608
-  %.not.i53.i = icmp eq i32 %29, 0
+  %.not.i61.i = icmp eq i32 %29, 0
   %30 = trunc i32 %26 to i16
   %31 = sub i16 0, %30
-  %.017.i54.i = select i1 %.not.i53.i, i16 %30, i16 %31
+  %.017.i62.i = select i1 %.not.i61.i, i16 %30, i16 %31
   %32 = lshr i32 %26, 24
-  %33 = urem i16 %.017.i54.i, 10
-  %.not2224.i55.i = icmp eq i16 %33, 0
+  %33 = urem i16 %.017.i62.i, 10
+  %.not2224.i63.i = icmp eq i16 %33, 0
   %34 = icmp ne i16 %30, 0
-  %35 = and i1 %34, %.not2224.i55.i
-  br i1 %35, label %.lr.ph.i61.i, label %._crit_edge.i56.i
+  %35 = and i1 %34, %.not2224.i63.i
+  br i1 %35, label %.lr.ph.i69.i, label %._crit_edge.i64.i
 
-.lr.ph.i61.i:                                     ; preds = %28, %38
-  %.126.i62.i = phi i16 [ %36, %38 ], [ %.017.i54.i, %28 ]
-  %.018.in25.i63.i = phi i32 [ %40, %38 ], [ %32, %28 ]
-  %36 = udiv i16 %.126.i62.i, 10
-  %sext.i64.i = shl i32 %.018.in25.i63.i, 24
-  %37 = icmp eq i32 %sext.i64.i, 2130706432
-  br i1 %37, label %._crit_edge.i56.i, label %38
+.lr.ph.i69.i:                                     ; preds = %28, %38
+  %.126.i70.i = phi i16 [ %36, %38 ], [ %.017.i62.i, %28 ]
+  %.018.in25.i71.i = phi i32 [ %40, %38 ], [ %32, %28 ]
+  %36 = udiv i16 %.126.i70.i, 10
+  %sext.i72.i = shl i32 %.018.in25.i71.i, 24
+  %37 = icmp eq i32 %sext.i72.i, 2130706432
+  br i1 %37, label %._crit_edge.i64.i, label %38
 
-38:                                               ; preds = %.lr.ph.i61.i
-  %39 = ashr exact i32 %sext.i64.i, 24
+38:                                               ; preds = %.lr.ph.i69.i
+  %39 = ashr exact i32 %sext.i72.i, 24
   %40 = add nsw i32 %39, 1
   %41 = urem i16 %36, 10
-  %.not22.i65.i = icmp eq i16 %41, 0
-  %42 = icmp ugt i16 %.126.i62.i, 9
-  %43 = and i1 %42, %.not22.i65.i
-  br i1 %43, label %.lr.ph.i61.i, label %._crit_edge.i56.i, !llvm.loop !16
+  %.not22.i73.i = icmp eq i16 %41, 0
+  %42 = icmp ugt i16 %.126.i70.i, 9
+  %43 = and i1 %42, %.not22.i73.i
+  br i1 %43, label %.lr.ph.i69.i, label %._crit_edge.i64.i, !llvm.loop !58
 
-._crit_edge.i56.i:                                ; preds = %38, %.lr.ph.i61.i, %28
-  %.018.in.lcssa.i57.i = phi i32 [ %32, %28 ], [ %.018.in25.i63.i, %.lr.ph.i61.i ], [ %40, %38 ]
-  %.2.i58.i = phi i16 [ %.017.i54.i, %28 ], [ %36, %.lr.ph.i61.i ], [ %36, %38 ]
-  %sext23.i59.i = shl i32 %.018.in.lcssa.i57.i, 24
-  %44 = zext i16 %.2.i58.i to i32
-  %45 = or disjoint i32 %sext23.i59.i, %44
+._crit_edge.i64.i:                                ; preds = %38, %.lr.ph.i69.i, %28
+  %.018.in.lcssa.i65.i = phi i32 [ %32, %28 ], [ %.018.in25.i71.i, %.lr.ph.i69.i ], [ %40, %38 ]
+  %.2.i66.i = phi i16 [ %.017.i62.i, %28 ], [ %36, %.lr.ph.i69.i ], [ %36, %38 ]
+  %sext23.i67.i = shl i32 %.018.in.lcssa.i65.i, 24
+  %44 = zext i16 %.2.i66.i to i32
+  %45 = or disjoint i32 %sext23.i67.i, %44
   %46 = or disjoint i32 %45, %29
-  br label %float_to_normal_form.exit66.i
+  br label %float_to_normal_form.exit74.i
 
-float_to_normal_form.exit66.i:                    ; preds = %._crit_edge.i56.i, %float_to_normal_form.exit.i
-  %.019.i60.i = phi i32 [ %46, %._crit_edge.i56.i ], [ %26, %float_to_normal_form.exit.i ]
-  %47 = icmp eq i32 %.019.i.i, %.019.i60.i
+float_to_normal_form.exit74.i:                    ; preds = %._crit_edge.i64.i, %float_to_normal_form.exit.i
+  %.019.i68.i = phi i32 [ %46, %._crit_edge.i64.i ], [ %26, %float_to_normal_form.exit.i ]
+  %47 = icmp eq i32 %.019.i.i, %.019.i68.i
   br i1 %47, label %float_ieee_11073_cmp_lt.exit.thread24, label %48
 
-48:                                               ; preds = %float_to_normal_form.exit66.i
+48:                                               ; preds = %float_to_normal_form.exit74.i
   switch i32 %.019.i.i, label %51 [
     i32 8388607, label %float_ieee_11073_cmp_lt.exit.thread24
     i32 8388608, label %float_ieee_11073_cmp_lt.exit.thread24
@@ -1320,31 +1449,31 @@ float_to_normal_form.exit66.i:                    ; preds = %._crit_edge.i56.i, 
   ]
 
 49:                                               ; preds = %48
-  %50 = add i32 %.019.i60.i, -8388611
+  %50 = add i32 %.019.i68.i, -8388611
   %switch.i = icmp ult i32 %50, -4
   br i1 %switch.i, label %float_ieee_11073_cmp_lt.exit.thread, label %float_ieee_11073_cmp_lt.exit.thread24
 
 51:                                               ; preds = %48
   %52 = and i32 %.019.i.i, 16777215
-  %53 = and i32 %.019.i60.i, 16777215
+  %53 = and i32 %.019.i68.i, 16777215
   %54 = and i32 %.019.i.i, 8388608
   %.not.i = icmp eq i32 %54, 0
   %masksel.i = select i1 %.not.i, i32 0, i32 -16777216
   %spec.select.i = or disjoint i32 %masksel.i, %52
-  %55 = and i32 %.019.i60.i, 8388608
-  %.not48.i = icmp eq i32 %55, 0
-  %masksel1.i = select i1 %.not48.i, i32 0, i32 -16777216
-  %.039.i = or disjoint i32 %masksel1.i, %53
-  %56 = icmp eq i32 %spec.select.i, %.039.i
+  %55 = and i32 %.019.i68.i, 8388608
+  %.not56.i = icmp eq i32 %55, 0
+  %masksel4.i = select i1 %.not56.i, i32 0, i32 -16777216
+  %.046.i = or disjoint i32 %masksel4.i, %53
+  %56 = icmp eq i32 %spec.select.i, %.046.i
   %57 = ashr i32 %.019.i.i, 24
-  %58 = ashr i32 %.019.i60.i, 24
+  %58 = ashr i32 %.019.i68.i, 24
   %59 = icmp slt i32 %57, %58
-  %or.cond23.i = select i1 %56, i1 %59, i1 false
-  br i1 %or.cond23.i, label %float_ieee_11073_cmp_lt.exit.thread, label %._crit_edge.i
+  %or.cond26.i = select i1 %56, i1 %59, i1 false
+  br i1 %or.cond26.i, label %float_ieee_11073_cmp_lt.exit.thread, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %51
   %60 = icmp eq i32 %57, %58
-  %61 = icmp slt i32 %spec.select.i, %.039.i
+  %61 = icmp slt i32 %spec.select.i, %.046.i
   %or.cond.i = and i1 %60, %61
   br i1 %or.cond.i, label %float_ieee_11073_cmp_lt.exit.thread, label %62
 
@@ -1354,48 +1483,48 @@ float_to_normal_form.exit66.i:                    ; preds = %._crit_edge.i56.i, 
 63:                                               ; preds = %62
   %64 = sub nsw i32 %58, %57
   %65 = and i32 %64, 255
-  %66 = icmp samesign ugt i32 %65, 6
-  br i1 %66, label %float_ieee_11073_cmp_lt.exit.thread, label %.preheader.i
+  %66 = icmp samesign ult i32 %65, 7
+  br i1 %66, label %.preheader.i, label %float_ieee_11073_cmp_lt.exit.thread
 
 .preheader.i:                                     ; preds = %63
   %67 = trunc i32 %64 to i8
-  %.not508.i = icmp eq i8 %67, 0
-  br i1 %.not508.i, label %float_ieee_11073_cmp_lt.exit, label %.lr.ph11.i
+  %.not5811.i = icmp eq i8 %67, 0
+  br i1 %.not5811.i, label %float_ieee_11073_cmp_lt.exit, label %.lr.ph14.i
 
-.lr.ph11.i:                                       ; preds = %.preheader.i, %.lr.ph11.i
-  %.03610.i = phi i8 [ %68, %.lr.ph11.i ], [ %67, %.preheader.i ]
-  %.1409.i = phi i32 [ %69, %.lr.ph11.i ], [ %.039.i, %.preheader.i ]
-  %68 = add i8 %.03610.i, -1
-  %69 = mul i32 %.1409.i, 10
-  %.not50.i = icmp eq i8 %68, 0
-  br i1 %.not50.i, label %float_ieee_11073_cmp_lt.exit, label %.lr.ph11.i, !llvm.loop !17
+.lr.ph14.i:                                       ; preds = %.preheader.i, %.lr.ph14.i
+  %.03913.i = phi i8 [ %68, %.lr.ph14.i ], [ %67, %.preheader.i ]
+  %.24812.i = phi i32 [ %69, %.lr.ph14.i ], [ %.046.i, %.preheader.i ]
+  %68 = add i8 %.03913.i, -1
+  %69 = mul i32 %.24812.i, 10
+  %.not58.i = icmp eq i8 %68, 0
+  br i1 %.not58.i, label %float_ieee_11073_cmp_lt.exit, label %.lr.ph14.i, !llvm.loop !59
 
 70:                                               ; preds = %62
   %71 = sub nsw i32 %57, %58
   %72 = and i32 %71, 255
-  %73 = icmp samesign ugt i32 %72, 6
-  br i1 %73, label %float_ieee_11073_cmp_lt.exit.thread24, label %.preheader2.i
+  %73 = icmp samesign ult i32 %72, 7
+  br i1 %73, label %.preheader5.i, label %float_ieee_11073_cmp_lt.exit.thread24
 
-.preheader2.i:                                    ; preds = %70
+.preheader5.i:                                    ; preds = %70
   %74 = trunc i32 %71 to i8
-  %.not495.i = icmp eq i8 %74, 0
-  br i1 %.not495.i, label %float_ieee_11073_cmp_lt.exit, label %.lr.ph.i
+  %.not578.i = icmp eq i8 %74, 0
+  br i1 %.not578.i, label %float_ieee_11073_cmp_lt.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader2.i, %.lr.ph.i
-  %.07.i = phi i8 [ %75, %.lr.ph.i ], [ %74, %.preheader2.i ]
-  %.26.i = phi i32 [ %76, %.lr.ph.i ], [ %spec.select.i, %.preheader2.i ]
-  %75 = add i8 %.07.i, -1
-  %76 = mul i32 %.26.i, 10
-  %.not49.i = icmp eq i8 %75, 0
-  br i1 %.not49.i, label %float_ieee_11073_cmp_lt.exit, label %.lr.ph.i, !llvm.loop !18
+.lr.ph.i:                                         ; preds = %.preheader5.i, %.lr.ph.i
+  %.010.i = phi i8 [ %75, %.lr.ph.i ], [ %74, %.preheader5.i ]
+  %.39.i = phi i32 [ %76, %.lr.ph.i ], [ %spec.select.i, %.preheader5.i ]
+  %75 = add i8 %.010.i, -1
+  %76 = mul i32 %.39.i, 10
+  %.not57.i = icmp eq i8 %75, 0
+  br i1 %.not57.i, label %float_ieee_11073_cmp_lt.exit, label %.lr.ph.i, !llvm.loop !60
 
-float_ieee_11073_cmp_lt.exit:                     ; preds = %.lr.ph.i, %.lr.ph11.i, %.preheader.i, %.preheader2.i
-  %.241.i = phi i32 [ %.039.i, %.preheader.i ], [ %.039.i, %.preheader2.i ], [ %69, %.lr.ph11.i ], [ %.039.i, %.lr.ph.i ]
-  %.1.i = phi i32 [ %spec.select.i, %.preheader.i ], [ %spec.select.i, %.preheader2.i ], [ %spec.select.i, %.lr.ph11.i ], [ %76, %.lr.ph.i ]
-  %77 = icmp slt i32 %.1.i, %.241.i
+float_ieee_11073_cmp_lt.exit:                     ; preds = %.lr.ph.i, %.lr.ph14.i, %.preheader.i, %.preheader5.i
+  %.349.i = phi i32 [ %.046.i, %.preheader.i ], [ %.046.i, %.preheader5.i ], [ %69, %.lr.ph14.i ], [ %.046.i, %.lr.ph.i ]
+  %.144.i = phi i32 [ %spec.select.i, %.preheader.i ], [ %spec.select.i, %.preheader5.i ], [ %spec.select.i, %.lr.ph14.i ], [ %76, %.lr.ph.i ]
+  %77 = icmp slt i32 %.144.i, %.349.i
   br i1 %77, label %float_ieee_11073_cmp_lt.exit.thread, label %float_ieee_11073_cmp_lt.exit.thread24
 
-float_ieee_11073_cmp_lt.exit.thread24:            ; preds = %70, %48, %48, %48, %48, %float_to_normal_form.exit66.i, %49, %float_ieee_11073_cmp_lt.exit
+float_ieee_11073_cmp_lt.exit.thread24:            ; preds = %70, %48, %48, %48, %48, %float_to_normal_form.exit74.i, %49, %float_ieee_11073_cmp_lt.exit
   br i1 %or.cond.i.i, label %float_to_normal_form.exit.i15, label %78
 
 78:                                               ; preds = %float_ieee_11073_cmp_lt.exit.thread24
@@ -1426,7 +1555,7 @@ float_ieee_11073_cmp_lt.exit.thread24:            ; preds = %70, %48, %48, %48, 
   %.not22.i.i21 = icmp eq i16 %91, 0
   %92 = icmp ugt i16 %.126.i.i18, 9
   %93 = and i1 %92, %.not22.i.i21
-  br i1 %93, label %.lr.ph.i.i17, label %._crit_edge.i.i11, !llvm.loop !16
+  br i1 %93, label %.lr.ph.i.i17, label %._crit_edge.i.i11, !llvm.loop !58
 
 ._crit_edge.i.i11:                                ; preds = %88, %.lr.ph.i.i17, %78
   %.018.in.lcssa.i.i12 = phi i32 [ %82, %78 ], [ %.018.in25.i.i19, %.lr.ph.i.i17 ], [ %90, %88 ]
@@ -1439,7 +1568,7 @@ float_ieee_11073_cmp_lt.exit.thread24:            ; preds = %70, %48, %48, %48, 
 
 float_to_normal_form.exit.i15:                    ; preds = %._crit_edge.i.i11, %float_ieee_11073_cmp_lt.exit.thread24
   %.019.i.i16 = phi i32 [ %96, %._crit_edge.i.i11 ], [ %.val, %float_ieee_11073_cmp_lt.exit.thread24 ]
-  br i1 %or.cond.i52.i, label %float_ieee_11073_cmp_eq.exit, label %97
+  br i1 %or.cond.i60.i, label %float_ieee_11073_cmp_eq.exit, label %97
 
 97:                                               ; preds = %float_to_normal_form.exit.i15
   %98 = and i32 %26, 8388608
@@ -1469,7 +1598,7 @@ float_to_normal_form.exit.i15:                    ; preds = %._crit_edge.i.i11, 
   %.not22.i15.i = icmp eq i16 %110, 0
   %111 = icmp ugt i16 %.126.i12.i, 9
   %112 = and i1 %111, %.not22.i15.i
-  br i1 %112, label %.lr.ph.i11.i, label %._crit_edge.i6.i, !llvm.loop !16
+  br i1 %112, label %.lr.ph.i11.i, label %._crit_edge.i6.i, !llvm.loop !58
 
 ._crit_edge.i6.i:                                 ; preds = %107, %.lr.ph.i11.i, %97
   %.018.in.lcssa.i7.i = phi i32 [ %101, %97 ], [ %.018.in25.i13.i, %.lr.ph.i11.i ], [ %109, %107 ]
@@ -1492,78 +1621,142 @@ float_ieee_11073_cmp_lt.exit.thread:              ; preds = %51, %63, %._crit_ed
   ret i32 0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @float_ieee_11073_hash(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
   store i64 %5, ptr %2, align 8
-  %6 = call i32 @g_int64_hash(ptr noundef nonnull %2) #8
+  %6 = call i32 @g_int64_hash(ptr noundef nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
   ret i32 %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @float_ieee_11073_is_zero(ptr noundef readonly captures(none) %0) #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
+define internal zeroext i1 @float_ieee_11073_is_zero(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   ret i1 %4
 }
 
-declare void @ftype_register(i32 noundef, ptr noundef) local_unnamed_addr #4
+; Function Attrs: null_pointer_is_valid
+declare void @ftype_register(i32 noundef, ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @ftype_register_pseudofields_ieee_11073_float(i32 noundef %0) local_unnamed_addr #0 {
-  tail call void @proto_register_field_array(i32 noundef %0, ptr noundef nonnull @ftype_register_pseudofields_ieee_11073_float.hf_ftypes, i32 noundef 2) #8
+  tail call void @proto_register_field_array(i32 noundef %0, ptr noundef nonnull @ftype_register_pseudofields_ieee_11073_float.hf_ftypes, i32 noundef 2)
   ret void
 }
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
-declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #4
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+; Function Attrs: nofree null_pointer_is_valid
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #7
 
-declare i32 @g_int64_hash(ptr noundef) local_unnamed_addr #4
+; Function Attrs: nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
+declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #8
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nounwind }
+; Function Attrs: nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
+declare ptr @__memset_chk(ptr noundef writeonly, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(write)
+declare double @pow(double noundef, double noundef) local_unnamed_addr #9
+
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_int64_hash(ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #10
+
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #11 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = !{!12, !14}
+!12 = distinct !{!12, !13, !"memcpy.inline: argument 0"}
+!13 = distinct !{!13, !"memcpy.inline"}
+!14 = distinct !{!14, !13, !"memcpy.inline: argument 1"}
+!15 = !{!16, !18}
+!16 = distinct !{!16, !17, !"memcpy.inline: argument 0"}
+!17 = distinct !{!17, !"memcpy.inline"}
+!18 = distinct !{!18, !17, !"memcpy.inline: argument 1"}
+!19 = !{!20, !22}
+!20 = distinct !{!20, !21, !"memcpy.inline: argument 0"}
+!21 = distinct !{!21, !"memcpy.inline"}
+!22 = distinct !{!22, !21, !"memcpy.inline: argument 1"}
+!23 = !{!24, !26}
+!24 = distinct !{!24, !25, !"memcpy.inline: argument 0"}
+!25 = distinct !{!25, !"memcpy.inline"}
+!26 = distinct !{!26, !25, !"memcpy.inline: argument 1"}
+!27 = !{!28, !30}
+!28 = distinct !{!28, !29, !"memcpy.inline: argument 0"}
+!29 = distinct !{!29, !"memcpy.inline"}
+!30 = distinct !{!30, !29, !"memcpy.inline: argument 1"}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}
+!38 = !{!39, !41}
+!39 = distinct !{!39, !40, !"memcpy.inline: argument 0"}
+!40 = distinct !{!40, !"memcpy.inline"}
+!41 = distinct !{!41, !40, !"memcpy.inline: argument 1"}
+!42 = !{!43, !45}
+!43 = distinct !{!43, !44, !"memcpy.inline: argument 0"}
+!44 = distinct !{!44, !"memcpy.inline"}
+!45 = distinct !{!45, !44, !"memcpy.inline: argument 1"}
+!46 = !{!47, !49}
+!47 = distinct !{!47, !48, !"memcpy.inline: argument 0"}
+!48 = distinct !{!48, !"memcpy.inline"}
+!49 = distinct !{!49, !48, !"memcpy.inline: argument 1"}
+!50 = !{!51, !53}
+!51 = distinct !{!51, !52, !"memcpy.inline: argument 0"}
+!52 = distinct !{!52, !"memcpy.inline"}
+!53 = distinct !{!53, !52, !"memcpy.inline: argument 1"}
+!54 = !{!55, !57}
+!55 = distinct !{!55, !56, !"memcpy.inline: argument 0"}
+!56 = distinct !{!56, !"memcpy.inline"}
+!57 = distinct !{!57, !56, !"memcpy.inline: argument 1"}
+!58 = distinct !{!58, !7}
+!59 = distinct !{!59, !7}
+!60 = distinct !{!60, !7}

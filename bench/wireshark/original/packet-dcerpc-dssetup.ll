@@ -1,18 +1,18 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._value_string = type { i32, ptr }
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
+%struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 %struct._e_guid_t = type { i32, i16, i16, [8 x i8] }
-%struct._dcerpc_sub_dissector = type { i16, ptr, ptr, ptr }
-%struct._dcerpc_info = type { ptr, i32, i64, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr }
+%struct._dcerpc_info = type { ptr, i32, i64, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, %struct.anon }
+%struct.anon = type { i8, ptr, ptr, ptr, i8 }
 %struct._dcerpc_call_value = type { %struct._e_guid_t, i16, %struct._e_guid_t, i16, i32, %struct.nstime_t, i32, i32, ptr, ptr, ptr, i32 }
 %struct.nstime_t = type { i64, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon.0, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
-%struct.anon = type { i8, [3 x i8] }
+%struct.anon.0 = type { i8, [3 x i8] }
 
 @.str = private unnamed_addr constant [31 x i8] c"DS_ROLE_STANDALONE_WORKSTATION\00", align 1
 @.str.1 = private unnamed_addr constant [27 x i8] c"DS_ROLE_MEMBER_WORKSTATION\00", align 1
@@ -20,34 +20,34 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [22 x i8] c"DS_ROLE_MEMBER_SERVER\00", align 1
 @.str.4 = private unnamed_addr constant [18 x i8] c"DS_ROLE_BACKUP_DC\00", align 1
 @.str.5 = private unnamed_addr constant [19 x i8] c"DS_ROLE_PRIMARY_DC\00", align 1
-@dssetup_dssetup_DsRole_vals = hidden constant [7 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str }, %struct._value_string { i32 1, ptr @.str.1 }, %struct._value_string { i32 2, ptr @.str.2 }, %struct._value_string { i32 3, ptr @.str.3 }, %struct._value_string { i32 4, ptr @.str.4 }, %struct._value_string { i32 5, ptr @.str.5 }, %struct._value_string zeroinitializer], align 16
+@dssetup_dssetup_DsRole_vals = hidden constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.2 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.3 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.4 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.5 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @.str.6 = private unnamed_addr constant [22 x i8] c"DS_ROLE_NOT_UPGRADING\00", align 1
 @.str.7 = private unnamed_addr constant [18 x i8] c"DS_ROLE_UPGRADING\00", align 1
-@dssetup_dssetup_DsUpgrade_vals = hidden constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.6 }, %struct._value_string { i32 1, ptr @.str.7 }, %struct._value_string zeroinitializer], align 16
+@dssetup_dssetup_DsUpgrade_vals = hidden constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.6 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.7 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @.str.8 = private unnamed_addr constant [25 x i8] c"DS_ROLE_PREVIOUS_UNKNOWN\00", align 1
 @.str.9 = private unnamed_addr constant [25 x i8] c"DS_ROLE_PREVIOUS_PRIMARY\00", align 1
 @.str.10 = private unnamed_addr constant [24 x i8] c"DS_ROLE_PREVIOUS_BACKUP\00", align 1
-@dssetup_dssetup_DsPrevious_vals = hidden constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.8 }, %struct._value_string { i32 1, ptr @.str.9 }, %struct._value_string { i32 2, ptr @.str.10 }, %struct._value_string zeroinitializer], align 16
+@dssetup_dssetup_DsPrevious_vals = hidden constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.8 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.9 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.10 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @.str.11 = private unnamed_addr constant [16 x i8] c"DS_ROLE_OP_IDLE\00", align 1
 @.str.12 = private unnamed_addr constant [18 x i8] c"DS_ROLE_OP_ACTIVE\00", align 1
 @.str.13 = private unnamed_addr constant [24 x i8] c"DS_ROLE_OP_NEEDS_REBOOT\00", align 1
-@dssetup_dssetup_DsRoleOp_vals = hidden constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.11 }, %struct._value_string { i32 1, ptr @.str.12 }, %struct._value_string { i32 2, ptr @.str.13 }, %struct._value_string zeroinitializer], align 16
+@dssetup_dssetup_DsRoleOp_vals = hidden constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.11 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.12 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.13 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @.str.14 = private unnamed_addr constant [26 x i8] c"DS_ROLE_BASIC_INFORMATION\00", align 1
 @.str.15 = private unnamed_addr constant [23 x i8] c"DS_ROLE_UPGRADE_STATUS\00", align 1
 @.str.16 = private unnamed_addr constant [18 x i8] c"DS_ROLE_OP_STATUS\00", align 1
-@dssetup_dssetup_DsRoleInfoLevel_vals = hidden constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.14 }, %struct._value_string { i32 2, ptr @.str.15 }, %struct._value_string { i32 3, ptr @.str.16 }, %struct._value_string zeroinitializer], align 16
+@dssetup_dssetup_DsRoleInfoLevel_vals = hidden constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.14 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.15 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.16 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @dssetup_dissect_bitmap_DsRoleFlags.dssetup_dssetup_DsRoleFlags_fields = internal constant [5 x ptr] [ptr @hf_dssetup_dssetup_DsRoleFlags_DS_ROLE_PRIMARY_DS_RUNNING, ptr @hf_dssetup_dssetup_DsRoleFlags_DS_ROLE_PRIMARY_DS_MIXED_MODE, ptr @hf_dssetup_dssetup_DsRoleFlags_DS_ROLE_UPGRADE_IN_PROGRESS, ptr @hf_dssetup_dssetup_DsRoleFlags_DS_ROLE_PRIMARY_DOMAIN_GUID_PRESENT, ptr null], align 16
-@hf_dssetup_dssetup_DsRoleFlags_DS_ROLE_PRIMARY_DS_RUNNING = internal global i32 -1, align 4
-@hf_dssetup_dssetup_DsRoleFlags_DS_ROLE_PRIMARY_DS_MIXED_MODE = internal global i32 -1, align 4
-@hf_dssetup_dssetup_DsRoleFlags_DS_ROLE_UPGRADE_IN_PROGRESS = internal global i32 -1, align 4
-@hf_dssetup_dssetup_DsRoleFlags_DS_ROLE_PRIMARY_DOMAIN_GUID_PRESENT = internal global i32 -1, align 4
-@ett_dssetup_dssetup_DsRoleFlags = internal global i32 -1, align 4
+@hf_dssetup_dssetup_DsRoleFlags_DS_ROLE_PRIMARY_DS_RUNNING = internal global i32 0, align 4
+@hf_dssetup_dssetup_DsRoleFlags_DS_ROLE_PRIMARY_DS_MIXED_MODE = internal global i32 0, align 4
+@hf_dssetup_dssetup_DsRoleFlags_DS_ROLE_UPGRADE_IN_PROGRESS = internal global i32 0, align 4
+@hf_dssetup_dssetup_DsRoleFlags_DS_ROLE_PRIMARY_DOMAIN_GUID_PRESENT = internal global i32 0, align 4
+@ett_dssetup_dssetup_DsRoleFlags = internal global i32 0, align 4
 @.str.17 = private unnamed_addr constant [18 x i8] c": (No values set)\00", align 1
 @.str.18 = private unnamed_addr constant [26 x i8] c"Unknown bitmap value 0x%x\00", align 1
-@ett_dssetup_dssetup_DsRolePrimaryDomInfoBasic = internal global i32 -1, align 4
-@ett_dssetup_dssetup_DsRoleUpgradeStatus = internal global i32 -1, align 4
-@ett_dssetup_dssetup_DsRoleOpStatus = internal global i32 -1, align 4
-@proto_register_dcerpc_dssetup.hf = internal global [20 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRoleFlags_DS_ROLE_PRIMARY_DOMAIN_GUID_PRESENT, %struct._header_field_info { ptr @.str.19, ptr @.str.20, i32 2, i32 32, ptr @dssetup_DsRoleFlags_DS_ROLE_PRIMARY_DOMAIN_GUID_PRESENT_tfs, i64 16777216, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRoleFlags_DS_ROLE_PRIMARY_DS_MIXED_MODE, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 2, i32 32, ptr @dssetup_DsRoleFlags_DS_ROLE_PRIMARY_DS_MIXED_MODE_tfs, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRoleFlags_DS_ROLE_PRIMARY_DS_RUNNING, %struct._header_field_info { ptr @.str.23, ptr @.str.24, i32 2, i32 32, ptr @dssetup_DsRoleFlags_DS_ROLE_PRIMARY_DS_RUNNING_tfs, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRoleFlags_DS_ROLE_UPGRADE_IN_PROGRESS, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 2, i32 32, ptr @dssetup_DsRoleFlags_DS_ROLE_UPGRADE_IN_PROGRESS_tfs, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRoleGetPrimaryDomainInformation_info, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRoleGetPrimaryDomainInformation_level, %struct._header_field_info { ptr @.str.29, ptr @.str.30, i32 7, i32 1, ptr @dssetup_dssetup_DsRoleInfoLevel_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRoleInfo_basic, %struct._header_field_info { ptr @.str.31, ptr @.str.32, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRoleInfo_opstatus, %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRoleInfo_upgrade, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRoleOpStatus_status, %struct._header_field_info { ptr @.str.37, ptr @.str.38, i32 7, i32 1, ptr @dssetup_dssetup_DsRoleOp_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_dns_domain, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_domain, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_domain_guid, %struct._header_field_info { ptr @.str.43, ptr @.str.44, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_flags, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_forest, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_role, %struct._header_field_info { ptr @.str.49, ptr @.str.50, i32 7, i32 1, ptr @dssetup_dssetup_DsRole_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRoleUpgradeStatus_previous_role, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 7, i32 1, ptr @dssetup_dssetup_DsPrevious_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRoleUpgradeStatus_upgrading, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 7, i32 1, ptr @dssetup_dssetup_DsUpgrade_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_opnum, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_werror, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 7, i32 2, ptr @WERR_errors, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@ett_dssetup_dssetup_DsRolePrimaryDomInfoBasic = internal global i32 0, align 4
+@ett_dssetup_dssetup_DsRoleUpgradeStatus = internal global i32 0, align 4
+@ett_dssetup_dssetup_DsRoleOpStatus = internal global i32 0, align 4
+@proto_register_dcerpc_dssetup.hf = internal global [20 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRoleFlags_DS_ROLE_PRIMARY_DOMAIN_GUID_PRESENT, %struct._header_field_info { ptr @.str.19, ptr @.str.20, i32 2, i32 32, ptr @dssetup_DsRoleFlags_DS_ROLE_PRIMARY_DOMAIN_GUID_PRESENT_tfs, i64 16777216, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRoleFlags_DS_ROLE_PRIMARY_DS_MIXED_MODE, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 2, i32 32, ptr @dssetup_DsRoleFlags_DS_ROLE_PRIMARY_DS_MIXED_MODE_tfs, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRoleFlags_DS_ROLE_PRIMARY_DS_RUNNING, %struct._header_field_info { ptr @.str.23, ptr @.str.24, i32 2, i32 32, ptr @dssetup_DsRoleFlags_DS_ROLE_PRIMARY_DS_RUNNING_tfs, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRoleFlags_DS_ROLE_UPGRADE_IN_PROGRESS, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 2, i32 32, ptr @dssetup_DsRoleFlags_DS_ROLE_UPGRADE_IN_PROGRESS_tfs, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRoleGetPrimaryDomainInformation_info, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRoleGetPrimaryDomainInformation_level, %struct._header_field_info { ptr @.str.29, ptr @.str.30, i32 7, i32 1, ptr @dssetup_dssetup_DsRoleInfoLevel_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRoleInfo_basic, %struct._header_field_info { ptr @.str.31, ptr @.str.32, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRoleInfo_opstatus, %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRoleInfo_upgrade, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRoleOpStatus_status, %struct._header_field_info { ptr @.str.37, ptr @.str.38, i32 7, i32 1, ptr @dssetup_dssetup_DsRoleOp_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_dns_domain, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_domain, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_domain_guid, %struct._header_field_info { ptr @.str.43, ptr @.str.44, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_flags, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_forest, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_role, %struct._header_field_info { ptr @.str.49, ptr @.str.50, i32 7, i32 1, ptr @dssetup_dssetup_DsRole_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRoleUpgradeStatus_previous_role, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 7, i32 1, ptr @dssetup_dssetup_DsPrevious_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_dssetup_DsRoleUpgradeStatus_upgrading, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 7, i32 1, ptr @dssetup_dssetup_DsUpgrade_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_opnum, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dssetup_werror, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 7, i32 514, ptr @WERR_errors_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @.str.19 = private unnamed_addr constant [36 x i8] c"DS ROLE PRIMARY DOMAIN GUID PRESENT\00", align 1
 @.str.20 = private unnamed_addr constant [64 x i8] c"dssetup.dssetup_DsRoleFlags.DS_ROLE_PRIMARY_DOMAIN_GUID_PRESENT\00", align 1
 @dssetup_DsRoleFlags_DS_ROLE_PRIMARY_DOMAIN_GUID_PRESENT_tfs = internal constant %struct.true_false_string { ptr @.str.66, ptr @.str.67 }, align 8
@@ -60,65 +60,64 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.25 = private unnamed_addr constant [28 x i8] c"DS ROLE UPGRADE IN PROGRESS\00", align 1
 @.str.26 = private unnamed_addr constant [56 x i8] c"dssetup.dssetup_DsRoleFlags.DS_ROLE_UPGRADE_IN_PROGRESS\00", align 1
 @dssetup_DsRoleFlags_DS_ROLE_UPGRADE_IN_PROGRESS_tfs = internal constant %struct.true_false_string { ptr @.str.72, ptr @.str.73 }, align 8
-@hf_dssetup_dssetup_DsRoleGetPrimaryDomainInformation_info = internal global i32 -1, align 4
+@hf_dssetup_dssetup_DsRoleGetPrimaryDomainInformation_info = internal global i32 0, align 4
 @.str.27 = private unnamed_addr constant [5 x i8] c"Info\00", align 1
 @.str.28 = private unnamed_addr constant [55 x i8] c"dssetup.dssetup_DsRoleGetPrimaryDomainInformation.info\00", align 1
-@hf_dssetup_dssetup_DsRoleGetPrimaryDomainInformation_level = internal global i32 -1, align 4
+@hf_dssetup_dssetup_DsRoleGetPrimaryDomainInformation_level = internal global i32 0, align 4
 @.str.29 = private unnamed_addr constant [6 x i8] c"Level\00", align 1
 @.str.30 = private unnamed_addr constant [56 x i8] c"dssetup.dssetup_DsRoleGetPrimaryDomainInformation.level\00", align 1
-@hf_dssetup_dssetup_DsRoleInfo_basic = internal global i32 -1, align 4
+@hf_dssetup_dssetup_DsRoleInfo_basic = internal global i32 0, align 4
 @.str.31 = private unnamed_addr constant [6 x i8] c"Basic\00", align 1
 @.str.32 = private unnamed_addr constant [33 x i8] c"dssetup.dssetup_DsRoleInfo.basic\00", align 1
-@hf_dssetup_dssetup_DsRoleInfo_opstatus = internal global i32 -1, align 4
+@hf_dssetup_dssetup_DsRoleInfo_opstatus = internal global i32 0, align 4
 @.str.33 = private unnamed_addr constant [9 x i8] c"Opstatus\00", align 1
 @.str.34 = private unnamed_addr constant [36 x i8] c"dssetup.dssetup_DsRoleInfo.opstatus\00", align 1
-@hf_dssetup_dssetup_DsRoleInfo_upgrade = internal global i32 -1, align 4
+@hf_dssetup_dssetup_DsRoleInfo_upgrade = internal global i32 0, align 4
 @.str.35 = private unnamed_addr constant [8 x i8] c"Upgrade\00", align 1
 @.str.36 = private unnamed_addr constant [35 x i8] c"dssetup.dssetup_DsRoleInfo.upgrade\00", align 1
-@hf_dssetup_dssetup_DsRoleOpStatus_status = internal global i32 -1, align 4
+@hf_dssetup_dssetup_DsRoleOpStatus_status = internal global i32 0, align 4
 @.str.37 = private unnamed_addr constant [7 x i8] c"Status\00", align 1
 @.str.38 = private unnamed_addr constant [38 x i8] c"dssetup.dssetup_DsRoleOpStatus.status\00", align 1
-@hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_dns_domain = internal global i32 -1, align 4
+@hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_dns_domain = internal global i32 0, align 4
 @.str.39 = private unnamed_addr constant [11 x i8] c"Dns Domain\00", align 1
 @.str.40 = private unnamed_addr constant [53 x i8] c"dssetup.dssetup_DsRolePrimaryDomInfoBasic.dns_domain\00", align 1
-@hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_domain = internal global i32 -1, align 4
+@hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_domain = internal global i32 0, align 4
 @.str.41 = private unnamed_addr constant [7 x i8] c"Domain\00", align 1
 @.str.42 = private unnamed_addr constant [49 x i8] c"dssetup.dssetup_DsRolePrimaryDomInfoBasic.domain\00", align 1
-@hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_domain_guid = internal global i32 -1, align 4
+@hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_domain_guid = internal global i32 0, align 4
 @.str.43 = private unnamed_addr constant [12 x i8] c"Domain Guid\00", align 1
 @.str.44 = private unnamed_addr constant [54 x i8] c"dssetup.dssetup_DsRolePrimaryDomInfoBasic.domain_guid\00", align 1
-@hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_flags = internal global i32 -1, align 4
+@hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_flags = internal global i32 0, align 4
 @.str.45 = private unnamed_addr constant [6 x i8] c"Flags\00", align 1
 @.str.46 = private unnamed_addr constant [48 x i8] c"dssetup.dssetup_DsRolePrimaryDomInfoBasic.flags\00", align 1
-@hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_forest = internal global i32 -1, align 4
+@hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_forest = internal global i32 0, align 4
 @.str.47 = private unnamed_addr constant [7 x i8] c"Forest\00", align 1
 @.str.48 = private unnamed_addr constant [49 x i8] c"dssetup.dssetup_DsRolePrimaryDomInfoBasic.forest\00", align 1
-@hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_role = internal global i32 -1, align 4
+@hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_role = internal global i32 0, align 4
 @.str.49 = private unnamed_addr constant [5 x i8] c"Role\00", align 1
 @.str.50 = private unnamed_addr constant [47 x i8] c"dssetup.dssetup_DsRolePrimaryDomInfoBasic.role\00", align 1
-@hf_dssetup_dssetup_DsRoleUpgradeStatus_previous_role = internal global i32 -1, align 4
+@hf_dssetup_dssetup_DsRoleUpgradeStatus_previous_role = internal global i32 0, align 4
 @.str.51 = private unnamed_addr constant [14 x i8] c"Previous Role\00", align 1
 @.str.52 = private unnamed_addr constant [50 x i8] c"dssetup.dssetup_DsRoleUpgradeStatus.previous_role\00", align 1
-@hf_dssetup_dssetup_DsRoleUpgradeStatus_upgrading = internal global i32 -1, align 4
+@hf_dssetup_dssetup_DsRoleUpgradeStatus_upgrading = internal global i32 0, align 4
 @.str.53 = private unnamed_addr constant [10 x i8] c"Upgrading\00", align 1
 @.str.54 = private unnamed_addr constant [46 x i8] c"dssetup.dssetup_DsRoleUpgradeStatus.upgrading\00", align 1
-@hf_dssetup_opnum = internal global i32 -1, align 4
+@hf_dssetup_opnum = internal global i32 0, align 4
 @.str.55 = private unnamed_addr constant [10 x i8] c"Operation\00", align 1
 @.str.56 = private unnamed_addr constant [14 x i8] c"dssetup.opnum\00", align 1
-@hf_dssetup_werror = internal global i32 -1, align 4
+@hf_dssetup_werror = internal global i32 0, align 4
 @.str.57 = private unnamed_addr constant [14 x i8] c"Windows Error\00", align 1
 @.str.58 = private unnamed_addr constant [15 x i8] c"dssetup.werror\00", align 1
-@WERR_errors = external constant [0 x %struct._value_string], align 8
+@WERR_errors_ext = external global %struct._value_string_ext, align 8
 @proto_register_dcerpc_dssetup.ett = internal global [6 x ptr] [ptr @ett_dcerpc_dssetup, ptr @ett_dssetup_dssetup_DsRoleFlags, ptr @ett_dssetup_dssetup_DsRolePrimaryDomInfoBasic, ptr @ett_dssetup_dssetup_DsRoleUpgradeStatus, ptr @ett_dssetup_dssetup_DsRoleOpStatus, ptr @ett_dssetup_dssetup_DsRoleInfo], align 16
-@ett_dcerpc_dssetup = internal global i32 -1, align 4
-@ett_dssetup_dssetup_DsRoleInfo = internal global i32 -1, align 4
+@ett_dcerpc_dssetup = internal global i32 0, align 4
+@ett_dssetup_dssetup_DsRoleInfo = internal global i32 0, align 4
 @.str.59 = private unnamed_addr constant [23 x i8] c"Active Directory Setup\00", align 1
 @.str.60 = private unnamed_addr constant [8 x i8] c"DSSETUP\00", align 1
 @.str.61 = private unnamed_addr constant [8 x i8] c"dssetup\00", align 1
-@proto_dcerpc_dssetup = internal global i32 -1, align 4
+@proto_dcerpc_dssetup = internal global i32 0, align 4
 @uuid_dcerpc_dssetup = internal global %struct._e_guid_t { i32 957950058, i16 -20212, i16 4560, [8 x i8] c"\9B\A8\00\C0O\D9.\F5" }, align 4
 @ver_dcerpc_dssetup = internal global i16 0, align 2
-@dssetup_dissectors = internal global [12 x %struct._dcerpc_sub_dissector] [%struct._dcerpc_sub_dissector { i16 0, ptr @.str.74, ptr @dssetup_dissect_DsRoleGetPrimaryDomainInformation_request, ptr @dssetup_dissect_DsRoleGetPrimaryDomainInformation_response }, %struct._dcerpc_sub_dissector { i16 1, ptr @.str.75, ptr @dssetup_dissect_DsRoleDnsNameToFlatName_request, ptr @dssetup_dissect_DsRoleDnsNameToFlatName_response }, %struct._dcerpc_sub_dissector { i16 2, ptr @.str.76, ptr @dssetup_dissect_DsRoleDcAsDc_request, ptr @dssetup_dissect_DsRoleDcAsDc_response }, %struct._dcerpc_sub_dissector { i16 3, ptr @.str.77, ptr @dssetup_dissect_DsRoleDcAsReplica_request, ptr @dssetup_dissect_DsRoleDcAsReplica_response }, %struct._dcerpc_sub_dissector { i16 4, ptr @.str.78, ptr @dssetup_dissect_DsRoleDemoteDc_request, ptr @dssetup_dissect_DsRoleDemoteDc_response }, %struct._dcerpc_sub_dissector { i16 5, ptr @.str.79, ptr @dssetup_dissect_DsRoleGetDcOperationProgress_request, ptr @dssetup_dissect_DsRoleGetDcOperationProgress_response }, %struct._dcerpc_sub_dissector { i16 6, ptr @.str.80, ptr @dssetup_dissect_DsRoleGetDcOperationResults_request, ptr @dssetup_dissect_DsRoleGetDcOperationResults_response }, %struct._dcerpc_sub_dissector { i16 7, ptr @.str.81, ptr @dssetup_dissect_DsRoleCancel_request, ptr @dssetup_dissect_DsRoleCancel_response }, %struct._dcerpc_sub_dissector { i16 8, ptr @.str.82, ptr @dssetup_dissect_DsRoleServerSaveStateForUpgrade_request, ptr @dssetup_dissect_DsRoleServerSaveStateForUpgrade_response }, %struct._dcerpc_sub_dissector { i16 9, ptr @.str.83, ptr @dssetup_dissect_DsRoleUpgradeDownlevelServer_request, ptr @dssetup_dissect_DsRoleUpgradeDownlevelServer_response }, %struct._dcerpc_sub_dissector { i16 10, ptr @.str.84, ptr @dssetup_dissect_DsRoleAbortDownlevelServerUpgrade_request, ptr @dssetup_dissect_DsRoleAbortDownlevelServerUpgrade_response }, %struct._dcerpc_sub_dissector zeroinitializer], align 16
 @.str.62 = private unnamed_addr constant [27 x i8] c"Pointer to Domain (uint16)\00", align 1
 @.str.63 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
 @.str.64 = private unnamed_addr constant [31 x i8] c"Pointer to Dns Domain (uint16)\00", align 1
@@ -142,12 +141,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.82 = private unnamed_addr constant [32 x i8] c"DsRoleServerSaveStateForUpgrade\00", align 1
 @.str.83 = private unnamed_addr constant [29 x i8] c"DsRoleUpgradeDownlevelServer\00", align 1
 @.str.84 = private unnamed_addr constant [34 x i8] c"DsRoleAbortDownlevelServerUpgrade\00", align 1
-@.str.85 = private unnamed_addr constant [12 x i8] c", Error: %s\00", align 1
-@.str.86 = private unnamed_addr constant [25 x i8] c"Unknown DOS error 0x%08x\00", align 1
-@.str.87 = private unnamed_addr constant [37 x i8] c"Pointer to Info (dssetup_DsRoleInfo)\00", align 1
-@.str.88 = private unnamed_addr constant [19 x i8] c"dssetup_DsRoleInfo\00", align 1
+@dssetup_dissectors = internal constant [12 x { i16, [6 x i8], ptr, ptr, ptr }] [{ i16, [6 x i8], ptr, ptr, ptr } { i16 0, [6 x i8] zeroinitializer, ptr @.str.74, ptr @dssetup_dissect_DsRoleGetPrimaryDomainInformation_request, ptr @dssetup_dissect_DsRoleGetPrimaryDomainInformation_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 1, [6 x i8] zeroinitializer, ptr @.str.75, ptr @dssetup_dissect_DsRoleDnsNameToFlatName_request, ptr @dssetup_dissect_DsRoleDnsNameToFlatName_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 2, [6 x i8] zeroinitializer, ptr @.str.76, ptr @dssetup_dissect_DsRoleDcAsDc_request, ptr @dssetup_dissect_DsRoleDcAsDc_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 3, [6 x i8] zeroinitializer, ptr @.str.77, ptr @dssetup_dissect_DsRoleDcAsReplica_request, ptr @dssetup_dissect_DsRoleDcAsReplica_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 4, [6 x i8] zeroinitializer, ptr @.str.78, ptr @dssetup_dissect_DsRoleDemoteDc_request, ptr @dssetup_dissect_DsRoleDemoteDc_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 5, [6 x i8] zeroinitializer, ptr @.str.79, ptr @dssetup_dissect_DsRoleGetDcOperationProgress_request, ptr @dssetup_dissect_DsRoleGetDcOperationProgress_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 6, [6 x i8] zeroinitializer, ptr @.str.80, ptr @dssetup_dissect_DsRoleGetDcOperationResults_request, ptr @dssetup_dissect_DsRoleGetDcOperationResults_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 7, [6 x i8] zeroinitializer, ptr @.str.81, ptr @dssetup_dissect_DsRoleCancel_request, ptr @dssetup_dissect_DsRoleCancel_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 8, [6 x i8] zeroinitializer, ptr @.str.82, ptr @dssetup_dissect_DsRoleServerSaveStateForUpgrade_request, ptr @dssetup_dissect_DsRoleServerSaveStateForUpgrade_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 9, [6 x i8] zeroinitializer, ptr @.str.83, ptr @dssetup_dissect_DsRoleUpgradeDownlevelServer_request, ptr @dssetup_dissect_DsRoleUpgradeDownlevelServer_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 10, [6 x i8] zeroinitializer, ptr @.str.84, ptr @dssetup_dissect_DsRoleAbortDownlevelServerUpgrade_request, ptr @dssetup_dissect_DsRoleAbortDownlevelServerUpgrade_response }, { i16, [6 x i8], ptr, ptr, ptr } zeroinitializer], align 16
+@.str.86 = private unnamed_addr constant [12 x i8] c", Error: %s\00", align 1
+@.str.87 = private unnamed_addr constant [25 x i8] c"Unknown DOS error 0x%08x\00", align 1
+@.str.88 = private unnamed_addr constant [37 x i8] c"Pointer to Info (dssetup_DsRoleInfo)\00", align 1
+@.str.89 = private unnamed_addr constant [19 x i8] c"dssetup_DsRoleInfo\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dssetup_dissect_enum_DsRole(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -166,6 +166,7 @@ define hidden i32 @dssetup_dissect_enum_DsRole(ptr noundef %0, i32 noundef %1, p
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
   store i32 0, ptr %17, align 4
   %18 = load ptr, ptr %16, align 8
   %19 = icmp ne ptr %18, null
@@ -199,12 +200,20 @@ define hidden i32 @dssetup_dissect_enum_DsRole(ptr noundef %0, i32 noundef %1, p
 
 37:                                               ; preds = %34, %23
   %38 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
   ret i32 %38
 }
 
-declare i32 @dissect_ndr_uint1632(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_uint1632(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dssetup_dissect_bitmap_DsRoleFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -224,10 +233,12 @@ define hidden i32 @dssetup_dissect_bitmap_DsRoleFlags(ptr noundef %0, i32 nounde
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
   %19 = load ptr, ptr %13, align 8
-  %20 = getelementptr inbounds %struct._dcerpc_info, ptr %19, i32 0, i32 4
-  %21 = load i32, ptr %20, align 4
-  %22 = icmp ne i32 %21, 0
+  %20 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %19, i32 0, i32 4
+  %21 = load i8, ptr %20, align 1, !range !6, !noundef !7
+  %22 = trunc i8 %21 to i1
   br i1 %22, label %32, label %23
 
 23:                                               ; preds = %8
@@ -295,16 +306,21 @@ define hidden i32 @dssetup_dissect_bitmap_DsRoleFlags(ptr noundef %0, i32 nounde
 
 66:                                               ; preds = %61, %57
   %67 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %67
 }
 
-declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dssetup_dissect_struct_DsRolePrimaryDomInfoBasic(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -325,12 +341,15 @@ define hidden i32 @dssetup_dissect_struct_DsRolePrimaryDomInfoBasic(ptr noundef 
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 14
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 14
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %struct._dcerpc_call_value, ptr %22, i32 0, i32 11
+  %23 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %22, i32 0, i32 11
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, 1
   %26 = icmp ne i32 %25, 0
@@ -338,9 +357,9 @@ define hidden i32 @dssetup_dissect_struct_DsRolePrimaryDomInfoBasic(ptr noundef 
 
 27:                                               ; preds = %8
   %28 = load ptr, ptr %13, align 8
-  %29 = getelementptr inbounds %struct._dcerpc_info, ptr %28, i32 0, i32 4
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp ne i32 %30, 0
+  %29 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %28, i32 0, i32 4
+  %30 = load i8, ptr %29, align 1, !range !6, !noundef !7
+  %31 = trunc i8 %30 to i1
   br i1 %31, label %41, label %32
 
 32:                                               ; preds = %27
@@ -364,9 +383,9 @@ define hidden i32 @dssetup_dissect_struct_DsRolePrimaryDomInfoBasic(ptr noundef 
 
 42:                                               ; preds = %8
   %43 = load ptr, ptr %13, align 8
-  %44 = getelementptr inbounds %struct._dcerpc_info, ptr %43, i32 0, i32 4
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp ne i32 %45, 0
+  %44 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %43, i32 0, i32 4
+  %45 = load i8, ptr %44, align 1, !range !6, !noundef !7
+  %46 = trunc i8 %45 to i1
   br i1 %46, label %56, label %47
 
 47:                                               ; preds = %42
@@ -463,9 +482,9 @@ define hidden i32 @dssetup_dissect_struct_DsRolePrimaryDomInfoBasic(ptr noundef 
   %116 = sub i32 %114, %115
   call void @proto_item_set_len(ptr noundef %113, i32 noundef %116)
   %117 = load ptr, ptr %13, align 8
-  %118 = getelementptr inbounds %struct._dcerpc_info, ptr %117, i32 0, i32 14
+  %118 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %117, i32 0, i32 14
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds %struct._dcerpc_call_value, ptr %119, i32 0, i32 11
+  %120 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %119, i32 0, i32 11
   %121 = load i32, ptr %120, align 8
   %122 = and i32 %121, 1
   %123 = icmp ne i32 %122, 0
@@ -473,9 +492,9 @@ define hidden i32 @dssetup_dissect_struct_DsRolePrimaryDomInfoBasic(ptr noundef 
 
 124:                                              ; preds = %70
   %125 = load ptr, ptr %13, align 8
-  %126 = getelementptr inbounds %struct._dcerpc_info, ptr %125, i32 0, i32 14
+  %126 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %125, i32 0, i32 14
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds %struct._dcerpc_call_value, ptr %127, i32 0, i32 11
+  %128 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %127, i32 0, i32 11
   %129 = load i32, ptr %128, align 8
   %130 = and i32 %129, 1
   %131 = icmp ne i32 %130, 0
@@ -483,9 +502,9 @@ define hidden i32 @dssetup_dissect_struct_DsRolePrimaryDomInfoBasic(ptr noundef 
 
 132:                                              ; preds = %124
   %133 = load ptr, ptr %13, align 8
-  %134 = getelementptr inbounds %struct._dcerpc_info, ptr %133, i32 0, i32 4
-  %135 = load i32, ptr %134, align 4
-  %136 = icmp ne i32 %135, 0
+  %134 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %133, i32 0, i32 4
+  %135 = load i8, ptr %134, align 1, !range !6, !noundef !7
+  %136 = trunc i8 %135 to i1
   br i1 %136, label %146, label %137
 
 137:                                              ; preds = %132
@@ -509,9 +528,9 @@ define hidden i32 @dssetup_dissect_struct_DsRolePrimaryDomInfoBasic(ptr noundef 
 
 147:                                              ; preds = %124
   %148 = load ptr, ptr %13, align 8
-  %149 = getelementptr inbounds %struct._dcerpc_info, ptr %148, i32 0, i32 4
-  %150 = load i32, ptr %149, align 4
-  %151 = icmp ne i32 %150, 0
+  %149 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %148, i32 0, i32 4
+  %150 = load i8, ptr %149, align 1, !range !6, !noundef !7
+  %151 = trunc i8 %150 to i1
   br i1 %151, label %161, label %152
 
 152:                                              ; preds = %147
@@ -538,14 +557,19 @@ define hidden i32 @dssetup_dissect_struct_DsRolePrimaryDomInfoBasic(ptr noundef 
 
 163:                                              ; preds = %162, %70
   %164 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %164
 }
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_element_DsRolePrimaryDomInfoBasic_role(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -572,7 +596,7 @@ define internal i32 @dssetup_dissect_element_DsRolePrimaryDomInfoBasic_role(ptr 
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_element_DsRolePrimaryDomInfoBasic_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -599,7 +623,7 @@ define internal i32 @dssetup_dissect_element_DsRolePrimaryDomInfoBasic_flags(ptr
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_element_DsRolePrimaryDomInfoBasic_domain(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -626,7 +650,7 @@ define internal i32 @dssetup_dissect_element_DsRolePrimaryDomInfoBasic_domain(pt
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_element_DsRolePrimaryDomInfoBasic_dns_domain(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -653,7 +677,7 @@ define internal i32 @dssetup_dissect_element_DsRolePrimaryDomInfoBasic_dns_domai
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_element_DsRolePrimaryDomInfoBasic_forest(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -680,7 +704,7 @@ define internal i32 @dssetup_dissect_element_DsRolePrimaryDomInfoBasic_forest(pt
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_element_DsRolePrimaryDomInfoBasic_domain_guid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -707,9 +731,10 @@ define internal i32 @dssetup_dissect_element_DsRolePrimaryDomInfoBasic_domain_gu
   ret i32 %21
 }
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dssetup_dissect_enum_DsUpgrade(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -728,6 +753,7 @@ define hidden i32 @dssetup_dissect_enum_DsUpgrade(ptr noundef %0, i32 noundef %1
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
   store i32 0, ptr %17, align 4
   %18 = load ptr, ptr %16, align 8
   %19 = icmp ne ptr %18, null
@@ -761,10 +787,11 @@ define hidden i32 @dssetup_dissect_enum_DsUpgrade(ptr noundef %0, i32 noundef %1
 
 37:                                               ; preds = %34, %23
   %38 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
   ret i32 %38
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dssetup_dissect_enum_DsPrevious(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -783,6 +810,7 @@ define hidden i32 @dssetup_dissect_enum_DsPrevious(ptr noundef %0, i32 noundef %
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
   store i32 0, ptr %17, align 4
   %18 = load ptr, ptr %16, align 8
   %19 = icmp ne ptr %18, null
@@ -816,10 +844,11 @@ define hidden i32 @dssetup_dissect_enum_DsPrevious(ptr noundef %0, i32 noundef %
 
 37:                                               ; preds = %34, %23
   %38 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
   ret i32 %38
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dssetup_dissect_struct_DsRoleUpgradeStatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -840,12 +869,15 @@ define hidden i32 @dssetup_dissect_struct_DsRoleUpgradeStatus(ptr noundef %0, i3
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -907,9 +939,9 @@ define hidden i32 @dssetup_dissect_struct_DsRoleUpgradeStatus(ptr noundef %0, i3
   %64 = sub i32 %62, %63
   call void @proto_item_set_len(ptr noundef %61, i32 noundef %64)
   %65 = load ptr, ptr %13, align 8
-  %66 = getelementptr inbounds %struct._dcerpc_info, ptr %65, i32 0, i32 14
+  %66 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %65, i32 0, i32 14
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds %struct._dcerpc_call_value, ptr %67, i32 0, i32 11
+  %68 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %67, i32 0, i32 11
   %69 = load i32, ptr %68, align 8
   %70 = and i32 %69, 1
   %71 = icmp ne i32 %70, 0
@@ -917,9 +949,9 @@ define hidden i32 @dssetup_dissect_struct_DsRoleUpgradeStatus(ptr noundef %0, i3
 
 72:                                               ; preds = %46
   %73 = load ptr, ptr %13, align 8
-  %74 = getelementptr inbounds %struct._dcerpc_info, ptr %73, i32 0, i32 4
-  %75 = load i32, ptr %74, align 4
-  %76 = icmp ne i32 %75, 0
+  %74 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %73, i32 0, i32 4
+  %75 = load i8, ptr %74, align 1, !range !6, !noundef !7
+  %76 = trunc i8 %75 to i1
   br i1 %76, label %86, label %77
 
 77:                                               ; preds = %72
@@ -943,10 +975,13 @@ define hidden i32 @dssetup_dissect_struct_DsRoleUpgradeStatus(ptr noundef %0, i3
 
 87:                                               ; preds = %86, %46
   %88 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %88
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_element_DsRoleUpgradeStatus_upgrading(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -973,7 +1008,7 @@ define internal i32 @dssetup_dissect_element_DsRoleUpgradeStatus_upgrading(ptr n
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_element_DsRoleUpgradeStatus_previous_role(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1000,7 +1035,7 @@ define internal i32 @dssetup_dissect_element_DsRoleUpgradeStatus_previous_role(p
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dssetup_dissect_enum_DsRoleOp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1019,6 +1054,7 @@ define hidden i32 @dssetup_dissect_enum_DsRoleOp(ptr noundef %0, i32 noundef %1,
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
   store i32 0, ptr %17, align 4
   %18 = load ptr, ptr %16, align 8
   %19 = icmp ne ptr %18, null
@@ -1052,10 +1088,11 @@ define hidden i32 @dssetup_dissect_enum_DsRoleOp(ptr noundef %0, i32 noundef %1,
 
 37:                                               ; preds = %34, %23
   %38 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
   ret i32 %38
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dssetup_dissect_struct_DsRoleOpStatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1076,12 +1113,15 @@ define hidden i32 @dssetup_dissect_struct_DsRoleOpStatus(ptr noundef %0, i32 nou
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 14
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 14
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %struct._dcerpc_call_value, ptr %22, i32 0, i32 11
+  %23 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %22, i32 0, i32 11
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, 1
   %26 = icmp ne i32 %25, 0
@@ -1089,9 +1129,9 @@ define hidden i32 @dssetup_dissect_struct_DsRoleOpStatus(ptr noundef %0, i32 nou
 
 27:                                               ; preds = %8
   %28 = load ptr, ptr %13, align 8
-  %29 = getelementptr inbounds %struct._dcerpc_info, ptr %28, i32 0, i32 4
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp ne i32 %30, 0
+  %29 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %28, i32 0, i32 4
+  %30 = load i8, ptr %29, align 1, !range !6, !noundef !7
+  %31 = trunc i8 %30 to i1
   br i1 %31, label %41, label %32
 
 32:                                               ; preds = %27
@@ -1115,9 +1155,9 @@ define hidden i32 @dssetup_dissect_struct_DsRoleOpStatus(ptr noundef %0, i32 nou
 
 42:                                               ; preds = %8
   %43 = load ptr, ptr %13, align 8
-  %44 = getelementptr inbounds %struct._dcerpc_info, ptr %43, i32 0, i32 4
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp ne i32 %45, 0
+  %44 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %43, i32 0, i32 4
+  %45 = load i8, ptr %44, align 1, !range !6, !noundef !7
+  %46 = trunc i8 %45 to i1
   br i1 %46, label %56, label %47
 
 47:                                               ; preds = %42
@@ -1174,9 +1214,9 @@ define hidden i32 @dssetup_dissect_struct_DsRoleOpStatus(ptr noundef %0, i32 nou
   %81 = sub i32 %79, %80
   call void @proto_item_set_len(ptr noundef %78, i32 noundef %81)
   %82 = load ptr, ptr %13, align 8
-  %83 = getelementptr inbounds %struct._dcerpc_info, ptr %82, i32 0, i32 14
+  %83 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %82, i32 0, i32 14
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds %struct._dcerpc_call_value, ptr %84, i32 0, i32 11
+  %85 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %84, i32 0, i32 11
   %86 = load i32, ptr %85, align 8
   %87 = and i32 %86, 1
   %88 = icmp ne i32 %87, 0
@@ -1184,9 +1224,9 @@ define hidden i32 @dssetup_dissect_struct_DsRoleOpStatus(ptr noundef %0, i32 nou
 
 89:                                               ; preds = %70
   %90 = load ptr, ptr %13, align 8
-  %91 = getelementptr inbounds %struct._dcerpc_info, ptr %90, i32 0, i32 14
+  %91 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %90, i32 0, i32 14
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds %struct._dcerpc_call_value, ptr %92, i32 0, i32 11
+  %93 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %92, i32 0, i32 11
   %94 = load i32, ptr %93, align 8
   %95 = and i32 %94, 1
   %96 = icmp ne i32 %95, 0
@@ -1194,9 +1234,9 @@ define hidden i32 @dssetup_dissect_struct_DsRoleOpStatus(ptr noundef %0, i32 nou
 
 97:                                               ; preds = %89
   %98 = load ptr, ptr %13, align 8
-  %99 = getelementptr inbounds %struct._dcerpc_info, ptr %98, i32 0, i32 4
-  %100 = load i32, ptr %99, align 4
-  %101 = icmp ne i32 %100, 0
+  %99 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %98, i32 0, i32 4
+  %100 = load i8, ptr %99, align 1, !range !6, !noundef !7
+  %101 = trunc i8 %100 to i1
   br i1 %101, label %111, label %102
 
 102:                                              ; preds = %97
@@ -1220,9 +1260,9 @@ define hidden i32 @dssetup_dissect_struct_DsRoleOpStatus(ptr noundef %0, i32 nou
 
 112:                                              ; preds = %89
   %113 = load ptr, ptr %13, align 8
-  %114 = getelementptr inbounds %struct._dcerpc_info, ptr %113, i32 0, i32 4
-  %115 = load i32, ptr %114, align 4
-  %116 = icmp ne i32 %115, 0
+  %114 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %113, i32 0, i32 4
+  %115 = load i8, ptr %114, align 1, !range !6, !noundef !7
+  %116 = trunc i8 %115 to i1
   br i1 %116, label %126, label %117
 
 117:                                              ; preds = %112
@@ -1249,10 +1289,13 @@ define hidden i32 @dssetup_dissect_struct_DsRoleOpStatus(ptr noundef %0, i32 nou
 
 128:                                              ; preds = %127, %70
   %129 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %129
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_element_DsRoleOpStatus_status(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1279,7 +1322,7 @@ define internal i32 @dssetup_dissect_element_DsRoleOpStatus_status(ptr noundef %
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dssetup_dissect_enum_DsRoleInfoLevel(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1298,6 +1341,7 @@ define hidden i32 @dssetup_dissect_enum_DsRoleInfoLevel(ptr noundef %0, i32 noun
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
   store i32 0, ptr %17, align 4
   %18 = load ptr, ptr %16, align 8
   %19 = icmp ne ptr %18, null
@@ -1331,10 +1375,11 @@ define hidden i32 @dssetup_dissect_enum_DsRoleInfoLevel(ptr noundef %0, i32 noun
 
 37:                                               ; preds = %34, %23
   %38 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
   ret i32 %38
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_dcerpc_dssetup() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.59, ptr noundef @.str.60, ptr noundef @.str.61)
   store i32 %1, ptr @proto_dcerpc_dssetup, align 4
@@ -1344,13 +1389,16 @@ define hidden void @proto_register_dcerpc_dssetup() #0 {
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_dcerpc_dssetup() #0 {
   %1 = load i32, ptr @proto_dcerpc_dssetup, align 4
   %2 = load i32, ptr @ett_dcerpc_dssetup, align 4
@@ -1360,11 +1408,13 @@ define hidden void @proto_reg_handoff_dcerpc_dssetup() #0 {
   ret void
 }
 
-declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) #2
 
-declare i32 @dissect_ndr_embedded_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_embedded_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_element_DsRolePrimaryDomInfoBasic_domain_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1379,6 +1429,7 @@ define internal i32 @dssetup_dissect_element_DsRolePrimaryDomInfoBasic_domain_(p
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -1386,18 +1437,20 @@ define internal i32 @dssetup_dissect_element_DsRolePrimaryDomInfoBasic_domain_(p
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_domain, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.63, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-declare i32 @dissect_ndr_cvstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_cvstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_element_DsRolePrimaryDomInfoBasic_dns_domain_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1412,6 +1465,7 @@ define internal i32 @dssetup_dissect_element_DsRolePrimaryDomInfoBasic_dns_domai
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -1419,16 +1473,17 @@ define internal i32 @dssetup_dissect_element_DsRolePrimaryDomInfoBasic_dns_domai
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_dns_domain, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.63, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_element_DsRolePrimaryDomInfoBasic_forest_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1443,6 +1498,7 @@ define internal i32 @dssetup_dissect_element_DsRolePrimaryDomInfoBasic_forest_(p
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -1450,18 +1506,20 @@ define internal i32 @dssetup_dissect_element_DsRolePrimaryDomInfoBasic_forest_(p
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_forest, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.63, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-declare i32 @dissect_ndr_uuid_t(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_uuid_t(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_DsRoleGetPrimaryDomainInformation_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1476,7 +1534,7 @@ define internal i32 @dssetup_dissect_DsRoleGetPrimaryDomainInformation_request(p
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.74, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %8, align 4
@@ -1497,7 +1555,7 @@ define internal i32 @dssetup_dissect_DsRoleGetPrimaryDomainInformation_request(p
   ret i32 %28
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_DsRoleGetPrimaryDomainInformation_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1512,8 +1570,9 @@ define internal i32 @dssetup_dissect_DsRoleGetPrimaryDomainInformation_response(
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.74, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -1545,20 +1604,21 @@ define internal i32 @dssetup_dissect_DsRoleGetPrimaryDomainInformation_response(
 
 39:                                               ; preds = %6
   %40 = load ptr, ptr %9, align 8
-  %41 = getelementptr inbounds %struct._packet_info, ptr %40, i32 0, i32 1
+  %41 = getelementptr inbounds nuw %struct._packet_info, ptr %40, i32 0, i32 1
   %42 = load ptr, ptr %41, align 8
   %43 = load i32, ptr %13, align 4
-  %44 = call ptr @val_to_str(i32 noundef %43, ptr noundef @WERR_errors, ptr noundef @.str.86)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef @.str.85, ptr noundef %44)
+  %44 = call ptr @val_to_str_ext(i32 noundef %43, ptr noundef @WERR_errors_ext, ptr noundef @.str.87)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef @.str.86, ptr noundef %44)
   br label %45
 
 45:                                               ; preds = %39, %6
   %46 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %46
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dssetup_dissect_DsRoleDnsNameToFlatName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @dssetup_dissect_DsRoleDnsNameToFlatName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -1572,13 +1632,13 @@ define internal i32 @dssetup_dissect_DsRoleDnsNameToFlatName_request(ptr noundef
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.75, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_DsRoleDnsNameToFlatName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1593,8 +1653,9 @@ define internal i32 @dssetup_dissect_DsRoleDnsNameToFlatName_response(ptr nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.75, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -1611,20 +1672,21 @@ define internal i32 @dssetup_dissect_DsRoleDnsNameToFlatName_response(ptr nounde
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.86)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.85, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.87)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.86, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dssetup_dissect_DsRoleDcAsDc_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @dssetup_dissect_DsRoleDcAsDc_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -1638,13 +1700,13 @@ define internal i32 @dssetup_dissect_DsRoleDcAsDc_request(ptr noundef %0, i32 no
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.76, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_DsRoleDcAsDc_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1659,8 +1721,9 @@ define internal i32 @dssetup_dissect_DsRoleDcAsDc_response(ptr noundef %0, i32 n
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.76, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -1677,20 +1740,21 @@ define internal i32 @dssetup_dissect_DsRoleDcAsDc_response(ptr noundef %0, i32 n
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.86)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.85, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.87)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.86, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dssetup_dissect_DsRoleDcAsReplica_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @dssetup_dissect_DsRoleDcAsReplica_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -1704,13 +1768,13 @@ define internal i32 @dssetup_dissect_DsRoleDcAsReplica_request(ptr noundef %0, i
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.77, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_DsRoleDcAsReplica_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1725,8 +1789,9 @@ define internal i32 @dssetup_dissect_DsRoleDcAsReplica_response(ptr noundef %0, 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.77, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -1743,20 +1808,21 @@ define internal i32 @dssetup_dissect_DsRoleDcAsReplica_response(ptr noundef %0, 
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.86)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.85, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.87)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.86, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dssetup_dissect_DsRoleDemoteDc_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @dssetup_dissect_DsRoleDemoteDc_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -1770,13 +1836,13 @@ define internal i32 @dssetup_dissect_DsRoleDemoteDc_request(ptr noundef %0, i32 
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.78, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_DsRoleDemoteDc_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1791,8 +1857,9 @@ define internal i32 @dssetup_dissect_DsRoleDemoteDc_response(ptr noundef %0, i32
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.78, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -1809,20 +1876,21 @@ define internal i32 @dssetup_dissect_DsRoleDemoteDc_response(ptr noundef %0, i32
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.86)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.85, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.87)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.86, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dssetup_dissect_DsRoleGetDcOperationProgress_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @dssetup_dissect_DsRoleGetDcOperationProgress_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -1836,13 +1904,13 @@ define internal i32 @dssetup_dissect_DsRoleGetDcOperationProgress_request(ptr no
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.79, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_DsRoleGetDcOperationProgress_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1857,8 +1925,9 @@ define internal i32 @dssetup_dissect_DsRoleGetDcOperationProgress_response(ptr n
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.79, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -1875,20 +1944,21 @@ define internal i32 @dssetup_dissect_DsRoleGetDcOperationProgress_response(ptr n
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.86)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.85, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.87)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.86, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dssetup_dissect_DsRoleGetDcOperationResults_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @dssetup_dissect_DsRoleGetDcOperationResults_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -1902,13 +1972,13 @@ define internal i32 @dssetup_dissect_DsRoleGetDcOperationResults_request(ptr nou
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.80, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_DsRoleGetDcOperationResults_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1923,8 +1993,9 @@ define internal i32 @dssetup_dissect_DsRoleGetDcOperationResults_response(ptr no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.80, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -1941,20 +2012,21 @@ define internal i32 @dssetup_dissect_DsRoleGetDcOperationResults_response(ptr no
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.86)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.85, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.87)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.86, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dssetup_dissect_DsRoleCancel_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @dssetup_dissect_DsRoleCancel_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -1968,13 +2040,13 @@ define internal i32 @dssetup_dissect_DsRoleCancel_request(ptr noundef %0, i32 no
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.81, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_DsRoleCancel_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1989,8 +2061,9 @@ define internal i32 @dssetup_dissect_DsRoleCancel_response(ptr noundef %0, i32 n
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.81, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -2007,20 +2080,21 @@ define internal i32 @dssetup_dissect_DsRoleCancel_response(ptr noundef %0, i32 n
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.86)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.85, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.87)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.86, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dssetup_dissect_DsRoleServerSaveStateForUpgrade_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @dssetup_dissect_DsRoleServerSaveStateForUpgrade_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -2034,13 +2108,13 @@ define internal i32 @dssetup_dissect_DsRoleServerSaveStateForUpgrade_request(ptr
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.82, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_DsRoleServerSaveStateForUpgrade_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2055,8 +2129,9 @@ define internal i32 @dssetup_dissect_DsRoleServerSaveStateForUpgrade_response(pt
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.82, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -2073,20 +2148,21 @@ define internal i32 @dssetup_dissect_DsRoleServerSaveStateForUpgrade_response(pt
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.86)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.85, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.87)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.86, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dssetup_dissect_DsRoleUpgradeDownlevelServer_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @dssetup_dissect_DsRoleUpgradeDownlevelServer_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -2100,13 +2176,13 @@ define internal i32 @dssetup_dissect_DsRoleUpgradeDownlevelServer_request(ptr no
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.83, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_DsRoleUpgradeDownlevelServer_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2121,8 +2197,9 @@ define internal i32 @dssetup_dissect_DsRoleUpgradeDownlevelServer_response(ptr n
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.83, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -2139,20 +2216,21 @@ define internal i32 @dssetup_dissect_DsRoleUpgradeDownlevelServer_response(ptr n
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.86)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.85, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.87)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.86, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dssetup_dissect_DsRoleAbortDownlevelServerUpgrade_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @dssetup_dissect_DsRoleAbortDownlevelServerUpgrade_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -2166,13 +2244,13 @@ define internal i32 @dssetup_dissect_DsRoleAbortDownlevelServerUpgrade_request(p
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.84, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_DsRoleAbortDownlevelServerUpgrade_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2187,8 +2265,9 @@ define internal i32 @dssetup_dissect_DsRoleAbortDownlevelServerUpgrade_response(
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.84, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -2205,19 +2284,20 @@ define internal i32 @dssetup_dissect_DsRoleAbortDownlevelServerUpgrade_response(
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.86)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.85, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.87)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.86, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_element_DsRoleGetPrimaryDomainInformation_level(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2244,9 +2324,10 @@ define internal i32 @dssetup_dissect_element_DsRoleGetPrimaryDomainInformation_l
   ret i32 %21
 }
 
-declare i32 @dissect_deferred_pointers(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_deferred_pointers(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_element_DsRoleGetPrimaryDomainInformation_info(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2267,19 +2348,22 @@ define internal i32 @dssetup_dissect_element_DsRoleGetPrimaryDomainInformation_i
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_dssetup_dssetup_DsRoleGetPrimaryDomainInformation_info, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dssetup_dissect_element_DsRoleGetPrimaryDomainInformation_info_, i32 noundef 2, ptr noundef @.str.87, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dssetup_dissect_element_DsRoleGetPrimaryDomainInformation_info_, i32 noundef 2, ptr noundef @.str.88, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @dissect_ndr_toplevel_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_toplevel_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_element_DsRoleGetPrimaryDomainInformation_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2306,7 +2390,7 @@ define internal i32 @dssetup_dissect_element_DsRoleGetPrimaryDomainInformation_i
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_DsRoleInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -2328,8 +2412,12 @@ define internal i32 @dssetup_dissect_DsRoleInfo(ptr noundef %0, i32 noundef %1, 
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #4
   %21 = load i32, ptr %10, align 4
   store i32 %21, ptr %19, align 4
   %22 = load ptr, ptr %12, align 8
@@ -2341,7 +2429,7 @@ define internal i32 @dssetup_dissect_DsRoleInfo(ptr noundef %0, i32 noundef %1, 
   %26 = load ptr, ptr %9, align 8
   %27 = load i32, ptr %10, align 4
   %28 = load i32, ptr @ett_dssetup_dssetup_DsRoleInfo, align 4
-  %29 = call ptr @proto_tree_add_subtree(ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef -1, i32 noundef %28, ptr noundef %17, ptr noundef @.str.88)
+  %29 = call ptr @proto_tree_add_subtree(ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef -1, i32 noundef %28, ptr noundef %17, ptr noundef @.str.89)
   store ptr %29, ptr %18, align 8
   br label %30
 
@@ -2356,9 +2444,9 @@ define internal i32 @dssetup_dissect_DsRoleInfo(ptr noundef %0, i32 noundef %1, 
   %38 = call i32 @dissect_ndr_uint1632(ptr noundef %31, i32 noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36, i32 noundef %37, ptr noundef %20)
   store i32 %38, ptr %10, align 4
   %39 = load ptr, ptr %13, align 8
-  %40 = getelementptr inbounds %struct._dcerpc_info, ptr %39, i32 0, i32 14
+  %40 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %39, i32 0, i32 14
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds %struct._dcerpc_call_value, ptr %41, i32 0, i32 11
+  %42 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %41, i32 0, i32 11
   %43 = load i32, ptr %42, align 8
   %44 = and i32 %43, 1
   %45 = icmp ne i32 %44, 0
@@ -2366,9 +2454,9 @@ define internal i32 @dssetup_dissect_DsRoleInfo(ptr noundef %0, i32 noundef %1, 
 
 46:                                               ; preds = %30
   %47 = load ptr, ptr %13, align 8
-  %48 = getelementptr inbounds %struct._dcerpc_info, ptr %47, i32 0, i32 4
-  %49 = load i32, ptr %48, align 4
-  %50 = icmp ne i32 %49, 0
+  %48 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %47, i32 0, i32 4
+  %49 = load i8, ptr %48, align 1, !range !6, !noundef !7
+  %50 = trunc i8 %49 to i1
   br i1 %50, label %60, label %51
 
 51:                                               ; preds = %46
@@ -2392,9 +2480,9 @@ define internal i32 @dssetup_dissect_DsRoleInfo(ptr noundef %0, i32 noundef %1, 
 
 61:                                               ; preds = %30
   %62 = load ptr, ptr %13, align 8
-  %63 = getelementptr inbounds %struct._dcerpc_info, ptr %62, i32 0, i32 4
-  %64 = load i32, ptr %63, align 4
-  %65 = icmp ne i32 %64, 0
+  %63 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %62, i32 0, i32 4
+  %64 = load i8, ptr %63, align 1, !range !6, !noundef !7
+  %65 = trunc i8 %64 to i1
   br i1 %65, label %75, label %66
 
 66:                                               ; preds = %61
@@ -2457,19 +2545,24 @@ define internal i32 @dssetup_dissect_DsRoleInfo(ptr noundef %0, i32 noundef %1, 
   store i32 %101, ptr %10, align 4
   br label %102
 
-102:                                              ; preds = %94, %86, %78, %76
+102:                                              ; preds = %76, %94, %86, %78
   %103 = load ptr, ptr %17, align 8
   %104 = load i32, ptr %10, align 4
   %105 = load i32, ptr %19, align 4
   %106 = sub i32 %104, %105
   call void @proto_item_set_len(ptr noundef %103, i32 noundef %106)
   %107 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %107
 }
 
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_element_DsRoleInfo_basic(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2496,7 +2589,7 @@ define internal i32 @dssetup_dissect_element_DsRoleInfo_basic(ptr noundef %0, i3
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_element_DsRoleInfo_upgrade(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2523,7 +2616,7 @@ define internal i32 @dssetup_dissect_element_DsRoleInfo_upgrade(ptr noundef %0, 
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dssetup_dissect_element_DsRoleInfo_opstatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2550,12 +2643,19 @@ define internal i32 @dssetup_dissect_element_DsRoleInfo_opstatus(ptr noundef %0,
   ret i32 %21
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}

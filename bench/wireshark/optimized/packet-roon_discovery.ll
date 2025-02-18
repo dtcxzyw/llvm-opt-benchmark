@@ -118,269 +118,348 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.80 = private unnamed_addr constant [7 x i8] c"is_dev\00", align 1
 @.str.81 = private unnamed_addr constant [14 x i8] c"Devel Version\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_roon_discover() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46) #7
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46)
   store i32 %1, ptr @proto_roon_discover, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_roon_discover.hf, i32 noundef 22) #7
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_roon_discover.ett, i32 noundef 1) #7
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_roon_discover.hf, i32 noundef 22)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_roon_discover.ett, i32 noundef 1)
   %2 = load i32, ptr @proto_roon_discover, align 4
-  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.46, ptr noundef nonnull @dissect_roon_discover, i32 noundef %2) #7
+  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.46, ptr noundef nonnull @dissect_roon_discover, i32 noundef %2)
   store ptr %3, ptr @roon_discover_handle, align 8
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_roon_discover(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
-  %5 = alloca [1 x %struct.roon_map], align 16
-  %6 = alloca [1 x %struct.roon_map], align 16
-  %7 = alloca [1 x %struct.roon_map], align 16
-  %8 = alloca [1 x %struct.roon_map], align 16
-  %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
-  %10 = icmp ult i32 %9, 98
-  br i1 %10, label %81, label %11
+  %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %6 = icmp ult i32 %5, 98
+  br i1 %6, label %124, label %7
 
-11:                                               ; preds = %4
-  %12 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
-  %13 = icmp ult i32 %12, 6
-  br i1 %13, label %81, label %14
+7:                                                ; preds = %4
+  %8 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  %9 = icmp ult i32 %8, 6
+  br i1 %9, label %124, label %10
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call ptr @tvb_get_string_enc(ptr noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #7
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.48, ptr noundef nonnull dereferenceable(1) %17) #8
-  %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %19, label %81
+10:                                               ; preds = %7
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call ptr @tvb_get_string_enc(ptr noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0)
+  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.48, ptr noundef %13) #3
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %15, label %124
 
-19:                                               ; preds = %14
-  %20 = tail call signext i16 @tvb_get_gint16(ptr noundef %0, i32 noundef 4, i32 noundef 0) #7
-  switch i16 %20, label %81 [
-    i16 594, label %21
-    i16 593, label %22
+15:                                               ; preds = %10
+  %16 = tail call signext i16 @tvb_get_int16(ptr noundef %0, i32 noundef 4, i32 noundef 0)
+  switch i16 %16, label %124 [
+    i16 594, label %17
+    i16 593, label %18
   ]
 
-21:                                               ; preds = %19
-  br label %22
+17:                                               ; preds = %15
+  br label %18
 
-22:                                               ; preds = %19, %21
-  %.062 = phi i1 [ false, %19 ], [ true, %21 ]
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = load ptr, ptr %23, align 8
-  tail call void @col_set_str(ptr noundef %24, i32 noundef 34, ptr noundef nonnull @.str.45) #7
-  %25 = load ptr, ptr %23, align 8
-  tail call void @col_clear(ptr noundef %25, i32 noundef 25) #7
-  %26 = load i32, ptr @proto_roon_discover, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #7
-  %28 = load i32, ptr @ett_roon_discover, align 4
-  %29 = tail call ptr @proto_item_add_subtree(ptr noundef %27, i32 noundef %28) #7
-  %30 = load i32, ptr @hf_roon_disco_marker, align 4
-  %31 = tail call ptr @proto_tree_add_string(ptr noundef %29, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef 4, ptr noundef nonnull @.str.48) #7
-  %32 = load ptr, ptr %23, align 8
+18:                                               ; preds = %17, %15
+  %.062 = phi i1 [ false, %15 ], [ true, %17 ]
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %20 = load ptr, ptr %19, align 8
+  tail call void @col_set_str(ptr noundef %20, i32 noundef 35, ptr noundef nonnull @.str.45)
+  %21 = load ptr, ptr %19, align 8
+  tail call void @col_clear(ptr noundef %21, i32 noundef 25)
+  %22 = load i32, ptr @proto_roon_discover, align 4
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %24 = load i32, ptr @ett_roon_discover, align 4
+  %25 = tail call ptr @proto_item_add_subtree(ptr noundef %23, i32 noundef %24)
+  %26 = load i32, ptr @hf_roon_disco_marker, align 4
+  %27 = tail call ptr @proto_tree_add_string(ptr noundef %25, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef 4, ptr noundef nonnull @.str.48)
+  %28 = load ptr, ptr %19, align 8
   %.str.49..str.51 = select i1 %.062, ptr @.str.49, ptr @.str.51
   %.str.50..str.52 = select i1 %.062, ptr @.str.50, ptr @.str.52
-  tail call void @col_set_str(ptr noundef %32, i32 noundef 25, ptr noundef nonnull %.str.49..str.51) #7
-  %33 = load i32, ptr @hf_roon_disco_type, align 4
-  %34 = tail call ptr @proto_tree_add_string(ptr noundef %29, i32 noundef %33, ptr noundef %0, i32 noundef 4, i32 noundef 2, ptr noundef nonnull %.str.50..str.52) #7
-  %35 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
-  %36 = icmp ugt i32 %35, 6
-  br i1 %36, label %.lr.ph, label %._crit_edge
+  tail call void @col_set_str(ptr noundef %28, i32 noundef 25, ptr noundef nonnull %.str.49..str.51)
+  %29 = load i32, ptr @hf_roon_disco_type, align 4
+  %30 = tail call ptr @proto_tree_add_string(ptr noundef %25, i32 noundef %29, ptr noundef %0, i32 noundef 4, i32 noundef 2, ptr noundef nonnull %.str.50..str.52)
+  %31 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %32 = icmp ugt i32 %31, 6
+  br i1 %32, label %.lr.ph.i.i.preheader, label %._crit_edge
 
-.lr.ph:                                           ; preds = %22
-  %37 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br label %roon_map_length.exit.i
+._crit_edge:                                      ; preds = %roon_map_name.exit90.thread, %18
+  %33 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  br label %124
 
-roon_map_length.exit.i:                           ; preds = %.lr.ph, %76
-  %.06382 = phi i32 [ 6, %.lr.ph ], [ %77, %76 ]
-  %41 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.06382) #7
-  %42 = add nuw i32 %.06382, 1
-  %43 = load ptr, ptr %15, align 8
-  %44 = zext i8 %41 to i32
-  %45 = call ptr @tvb_get_string_enc(ptr noundef %43, ptr noundef %0, i32 noundef %42, i32 noundef %44, i32 noundef 0) #7
-  %.reass = add i32 %.06382, 2
-  %46 = add i32 %.reass, %44
-  %47 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %46) #7
-  %48 = add i32 %46, 1
-  %49 = load ptr, ptr %15, align 8
-  %50 = zext i8 %47 to i32
-  %51 = call ptr @tvb_get_string_enc(ptr noundef %49, ptr noundef %0, i32 noundef %48, i32 noundef %50, i32 noundef 0) #7
-  %52 = add nuw nsw i32 %44, 3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  %53 = add nuw nsw i32 %52, %50
-  store ptr %45, ptr %8, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
-  %54 = call ptr @bsearch(ptr noundef nonnull %8, ptr noundef nonnull @roon_disco_string_fields, i64 noundef 21, i64 noundef 24, ptr noundef nonnull @compare_keys) #7
-  %.not.i = icmp eq ptr %54, null
-  br i1 %.not.i, label %roon_map_name.exit.thread, label %roon_map_name.exit
+.lr.ph.i.i.preheader:                             ; preds = %18, %roon_map_name.exit90.thread
+  %.063117 = phi i32 [ %121, %roon_map_name.exit90.thread ], [ 6, %18 ]
+  %34 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.063117)
+  %35 = add nuw i32 %.063117, 1
+  %36 = load ptr, ptr %11, align 8
+  %37 = zext i8 %34 to i32
+  %38 = tail call ptr @tvb_get_string_enc(ptr noundef %36, ptr noundef %0, i32 noundef %35, i32 noundef %37, i32 noundef 0)
+  %.reass = add i32 %.063117, 2
+  %39 = add i32 %.reass, %37
+  %40 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %39)
+  %41 = add i32 %39, 1
+  %42 = load ptr, ptr %11, align 8
+  %43 = zext i8 %40 to i32
+  %44 = tail call ptr @tvb_get_string_enc(ptr noundef %42, ptr noundef %0, i32 noundef %41, i32 noundef %43, i32 noundef 0)
+  %45 = add nuw nsw i32 %37, 3
+  %46 = add nuw nsw i32 %45, %43
+  br label %.lr.ph.i.i
 
-roon_map_name.exit.thread:                        ; preds = %roon_map_length.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %roon_map_length.exit.i72
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %57
+  %.01621.i.i = phi i64 [ %.1.i.i, %57 ], [ 0, %.lr.ph.i.i.preheader ]
+  %.01720.i.i = phi i64 [ %.118.i.i, %57 ], [ 21, %.lr.ph.i.i.preheader ]
+  %47 = add i64 %.01720.i.i, %.01621.i.i
+  %48 = lshr i64 %47, 1
+  %49 = mul i64 %48, 24
+  %50 = getelementptr i8, ptr @roon_disco_string_fields, i64 %49
+  %51 = load ptr, ptr %50, align 8
+  %52 = tail call i32 @strcmp(ptr noundef readonly %38, ptr noundef %51) #3
+  %53 = icmp slt i32 %52, 0
+  br i1 %53, label %57, label %54
 
-roon_map_name.exit:                               ; preds = %roon_map_length.exit.i
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %56 = load ptr, ptr %55, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  %.not64 = icmp eq ptr %56, null
-  br i1 %.not64, label %roon_map_length.exit.i72, label %roon_map_length.exit.i68
+54:                                               ; preds = %.lr.ph.i.i
+  %.not.i5.i = icmp eq i32 %52, 0
+  br i1 %.not.i5.i, label %bsearch.exit.i, label %55
 
-roon_map_length.exit.i68:                         ; preds = %roon_map_name.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  store ptr %45, ptr %7, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
-  %57 = call ptr @bsearch(ptr noundef nonnull %7, ptr noundef nonnull @roon_disco_string_fields, i64 noundef 21, i64 noundef 24, ptr noundef nonnull @compare_keys) #7
-  %.not.i69 = icmp ne ptr %57, null
-  call void @llvm.assume(i1 %.not.i69)
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %59 = load ptr, ptr %58, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %60 = load i32, ptr %59, align 4
-  %61 = call ptr @proto_tree_add_string(ptr noundef %29, i32 noundef %60, ptr noundef %0, i32 noundef %.06382, i32 noundef %53, ptr noundef %51) #7
-  br label %76
+55:                                               ; preds = %54
+  %56 = add nuw i64 %48, 1
+  br label %57
 
-roon_map_length.exit.i72:                         ; preds = %roon_map_name.exit.thread, %roon_map_name.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  store ptr %45, ptr %6, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
-  %62 = call ptr @bsearch(ptr noundef nonnull %6, ptr noundef nonnull @roon_disco_bool_fields, i64 noundef 1, i64 noundef 24, ptr noundef nonnull @compare_keys) #7
-  %.not.i73 = icmp eq ptr %62, null
-  br i1 %.not.i73, label %roon_map_name.exit74.thread, label %roon_map_name.exit74
+57:                                               ; preds = %55, %.lr.ph.i.i
+  %.118.i.i = phi i64 [ %.01720.i.i, %55 ], [ %48, %.lr.ph.i.i ]
+  %.1.i.i = phi i64 [ %56, %55 ], [ %.01621.i.i, %.lr.ph.i.i ]
+  %58 = icmp ult i64 %.1.i.i, %.118.i.i
+  br i1 %58, label %.lr.ph.i.i, label %.lr.ph.i.i82.preheader, !llvm.loop !6
 
-roon_map_name.exit74.thread:                      ; preds = %roon_map_length.exit.i72
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  br label %76
+bsearch.exit.i:                                   ; preds = %54
+  %59 = getelementptr i8, ptr @roon_disco_string_fields, i64 %49
+  %.not.i = icmp eq ptr %59, null
+  br i1 %.not.i, label %.lr.ph.i.i82.preheader, label %roon_map_name.exit
 
-roon_map_name.exit74:                             ; preds = %roon_map_length.exit.i72
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %64 = load ptr, ptr %63, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %.not65 = icmp eq ptr %64, null
-  br i1 %.not65, label %76, label %roon_map_length.exit.i77
+.lr.ph.i.i82.preheader:                           ; preds = %57, %roon_map_name.exit, %bsearch.exit.i
+  br label %.lr.ph.i.i82
 
-roon_map_length.exit.i77:                         ; preds = %roon_map_name.exit74
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  store ptr %45, ptr %5, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
-  %65 = call ptr @bsearch(ptr noundef nonnull %5, ptr noundef nonnull @roon_disco_bool_fields, i64 noundef 1, i64 noundef 24, ptr noundef nonnull @compare_keys) #7
-  %.not.i78 = icmp ne ptr %65, null
-  call void @llvm.assume(i1 %.not.i78)
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  %67 = load ptr, ptr %66, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %68 = load i8, ptr %51, align 1
-  %.not84 = icmp eq i8 %68, 48
-  br i1 %.not84, label %sub_1, label %roon_map_length.exit.i77.tail
+roon_map_name.exit:                               ; preds = %bsearch.exit.i
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %61 = load ptr, ptr %60, align 8
+  %.not64 = icmp eq ptr %61, null
+  br i1 %.not64, label %.lr.ph.i.i82.preheader, label %.lr.ph.i.i70
 
-sub_1:                                            ; preds = %roon_map_length.exit.i77
-  %69 = getelementptr inbounds nuw i8, ptr %51, i64 1
-  %70 = load i8, ptr %69, align 1
-  %71 = icmp ne i8 %70, 0
-  %72 = zext i1 %71 to i64
-  br label %roon_map_length.exit.i77.tail
+.lr.ph.i.i70:                                     ; preds = %roon_map_name.exit, %72
+  %.01621.i.i71 = phi i64 [ %.1.i.i75, %72 ], [ 0, %roon_map_name.exit ]
+  %.01720.i.i72 = phi i64 [ %.118.i.i74, %72 ], [ 21, %roon_map_name.exit ]
+  %62 = add i64 %.01720.i.i72, %.01621.i.i71
+  %63 = lshr i64 %62, 1
+  %64 = mul i64 %63, 24
+  %65 = getelementptr i8, ptr @roon_disco_string_fields, i64 %64
+  %66 = load ptr, ptr %65, align 8
+  %67 = tail call i32 @strcmp(ptr noundef readonly %38, ptr noundef %66) #3
+  %68 = icmp slt i32 %67, 0
+  br i1 %68, label %72, label %69
 
-roon_map_length.exit.i77.tail:                    ; preds = %roon_map_length.exit.i77, %sub_1
-  %73 = phi i64 [ 1, %roon_map_length.exit.i77 ], [ %72, %sub_1 ]
-  %74 = load i32, ptr %67, align 4
-  %75 = call ptr @proto_tree_add_boolean(ptr noundef %29, i32 noundef %74, ptr noundef %0, i32 noundef %.06382, i32 noundef %53, i64 noundef %73) #7
-  br label %76
+69:                                               ; preds = %.lr.ph.i.i70
+  %.not.i5.i73 = icmp eq i32 %67, 0
+  br i1 %.not.i5.i73, label %bsearch.exit.i76, label %70
 
-76:                                               ; preds = %roon_map_name.exit74.thread, %roon_map_name.exit74, %roon_map_length.exit.i77.tail, %roon_map_length.exit.i68
-  %77 = add i32 %53, %.06382
-  %78 = call i32 @tvb_reported_length(ptr noundef %0) #7
-  %79 = icmp ult i32 %77, %78
-  br i1 %79, label %roon_map_length.exit.i, label %._crit_edge, !llvm.loop !4
+70:                                               ; preds = %69
+  %71 = add nuw i64 %63, 1
+  br label %72
 
-._crit_edge:                                      ; preds = %76, %22
-  %80 = call i32 @tvb_captured_length(ptr noundef %0) #7
-  br label %81
+72:                                               ; preds = %70, %.lr.ph.i.i70
+  %.118.i.i74 = phi i64 [ %.01720.i.i72, %70 ], [ %63, %.lr.ph.i.i70 ]
+  %.1.i.i75 = phi i64 [ %71, %70 ], [ %.01621.i.i71, %.lr.ph.i.i70 ]
+  %73 = icmp ult i64 %.1.i.i75, %.118.i.i74
+  br i1 %73, label %.lr.ph.i.i70, label %roon_map_value.exit, !llvm.loop !6
 
-81:                                               ; preds = %19, %14, %4, %11, %._crit_edge
-  %.0 = phi i32 [ %80, %._crit_edge ], [ 0, %11 ], [ 0, %4 ], [ 0, %14 ], [ 0, %19 ]
+bsearch.exit.i76:                                 ; preds = %69
+  %74 = getelementptr i8, ptr @roon_disco_string_fields, i64 %64
+  %.not.i77 = icmp eq ptr %74, null
+  br i1 %.not.i77, label %roon_map_value.exit, label %75
+
+75:                                               ; preds = %bsearch.exit.i76
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  %77 = load ptr, ptr %76, align 8
+  br label %roon_map_value.exit
+
+roon_map_value.exit:                              ; preds = %72, %bsearch.exit.i76, %75
+  %78 = phi ptr [ %77, %75 ], [ null, %bsearch.exit.i76 ], [ null, %72 ]
+  %79 = load i32, ptr %78, align 4
+  %80 = tail call ptr @proto_tree_add_string(ptr noundef %25, i32 noundef %79, ptr noundef %0, i32 noundef %.063117, i32 noundef %46, ptr noundef %44)
+  br label %roon_map_name.exit90.thread
+
+.lr.ph.i.i82:                                     ; preds = %.lr.ph.i.i82.preheader, %91
+  %.01621.i.i83 = phi i64 [ %.1.i.i87, %91 ], [ 0, %.lr.ph.i.i82.preheader ]
+  %.01720.i.i84 = phi i64 [ %.118.i.i86, %91 ], [ 1, %.lr.ph.i.i82.preheader ]
+  %81 = add nuw nsw i64 %.01720.i.i84, %.01621.i.i83
+  %82 = lshr i64 %81, 1
+  %83 = mul nuw nsw i64 %82, 24
+  %84 = getelementptr i8, ptr @roon_disco_bool_fields, i64 %83
+  %85 = load ptr, ptr %84, align 8
+  %86 = tail call i32 @strcmp(ptr noundef readonly %38, ptr noundef %85) #3
+  %87 = icmp slt i32 %86, 0
+  br i1 %87, label %91, label %88
+
+88:                                               ; preds = %.lr.ph.i.i82
+  %.not.i5.i85 = icmp eq i32 %86, 0
+  br i1 %.not.i5.i85, label %bsearch.exit.i88, label %89
+
+89:                                               ; preds = %88
+  %90 = add nuw nsw i64 %82, 1
+  br label %91
+
+91:                                               ; preds = %89, %.lr.ph.i.i82
+  %.118.i.i86 = phi i64 [ %.01720.i.i84, %89 ], [ %82, %.lr.ph.i.i82 ]
+  %.1.i.i87 = phi i64 [ %90, %89 ], [ %.01621.i.i83, %.lr.ph.i.i82 ]
+  %92 = icmp ult i64 %.1.i.i87, %.118.i.i86
+  br i1 %92, label %.lr.ph.i.i82, label %roon_map_name.exit90.thread, !llvm.loop !6
+
+bsearch.exit.i88:                                 ; preds = %88
+  %93 = getelementptr i8, ptr @roon_disco_bool_fields, i64 %83
+  %.not.i89 = icmp eq ptr %93, null
+  br i1 %.not.i89, label %roon_map_name.exit90.thread, label %roon_map_name.exit90
+
+roon_map_name.exit90:                             ; preds = %bsearch.exit.i88
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  %95 = load ptr, ptr %94, align 8
+  %.not65 = icmp eq ptr %95, null
+  br i1 %.not65, label %roon_map_name.exit90.thread, label %.lr.ph.i.i95
+
+.lr.ph.i.i95:                                     ; preds = %roon_map_name.exit90, %106
+  %.01621.i.i96 = phi i64 [ %.1.i.i100, %106 ], [ 0, %roon_map_name.exit90 ]
+  %.01720.i.i97 = phi i64 [ %.118.i.i99, %106 ], [ 1, %roon_map_name.exit90 ]
+  %96 = add nuw nsw i64 %.01720.i.i97, %.01621.i.i96
+  %97 = lshr i64 %96, 1
+  %98 = mul nuw nsw i64 %97, 24
+  %99 = getelementptr i8, ptr @roon_disco_bool_fields, i64 %98
+  %100 = load ptr, ptr %99, align 8
+  %101 = tail call i32 @strcmp(ptr noundef readonly %38, ptr noundef %100) #3
+  %102 = icmp slt i32 %101, 0
+  br i1 %102, label %106, label %103
+
+103:                                              ; preds = %.lr.ph.i.i95
+  %.not.i5.i98 = icmp eq i32 %101, 0
+  br i1 %.not.i5.i98, label %bsearch.exit.i101, label %104
+
+104:                                              ; preds = %103
+  %105 = add nuw nsw i64 %97, 1
+  br label %106
+
+106:                                              ; preds = %104, %.lr.ph.i.i95
+  %.118.i.i99 = phi i64 [ %.01720.i.i97, %104 ], [ %97, %.lr.ph.i.i95 ]
+  %.1.i.i100 = phi i64 [ %105, %104 ], [ %.01621.i.i96, %.lr.ph.i.i95 ]
+  %107 = icmp ult i64 %.1.i.i100, %.118.i.i99
+  br i1 %107, label %.lr.ph.i.i95, label %sub_0, !llvm.loop !6
+
+bsearch.exit.i101:                                ; preds = %103
+  %108 = getelementptr i8, ptr @roon_disco_bool_fields, i64 %98
+  %.not.i102 = icmp eq ptr %108, null
+  br i1 %.not.i102, label %sub_0, label %109
+
+109:                                              ; preds = %bsearch.exit.i101
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 16
+  %111 = load ptr, ptr %110, align 8
+  br label %sub_0
+
+sub_0:                                            ; preds = %106, %109, %bsearch.exit.i101
+  %112 = phi ptr [ %111, %109 ], [ null, %bsearch.exit.i101 ], [ null, %106 ]
+  %113 = load i8, ptr %44, align 1
+  %.not119 = icmp eq i8 %113, 48
+  br i1 %.not119, label %sub_1, label %roon_map_value.exit103.tail
+
+sub_1:                                            ; preds = %sub_0
+  %114 = getelementptr inbounds nuw i8, ptr %44, i64 1
+  %115 = load i8, ptr %114, align 1
+  %116 = icmp ne i8 %115, 0
+  %117 = zext i1 %116 to i64
+  br label %roon_map_value.exit103.tail
+
+roon_map_value.exit103.tail:                      ; preds = %sub_0, %sub_1
+  %118 = phi i64 [ 1, %sub_0 ], [ %117, %sub_1 ]
+  %119 = load i32, ptr %112, align 4
+  %120 = tail call ptr @proto_tree_add_boolean(ptr noundef %25, i32 noundef %119, ptr noundef %0, i32 noundef %.063117, i32 noundef %46, i64 noundef %118)
+  br label %roon_map_name.exit90.thread
+
+roon_map_name.exit90.thread:                      ; preds = %91, %bsearch.exit.i88, %roon_map_name.exit90, %roon_map_value.exit103.tail, %roon_map_value.exit
+  %121 = add i32 %46, %.063117
+  %122 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %123 = icmp ult i32 %121, %122
+  br i1 %123, label %.lr.ph.i.i.preheader, label %._crit_edge, !llvm.loop !8
+
+124:                                              ; preds = %._crit_edge, %10, %15, %4, %7
+  %.0 = phi i32 [ 0, %7 ], [ 0, %4 ], [ %33, %._crit_edge ], [ 0, %10 ], [ 0, %15 ]
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_roon_discover() local_unnamed_addr #0 {
   %1 = load ptr, ptr @roon_discover_handle, align 8
-  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.47, i32 noundef 9003, ptr noundef %1) #7
+  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.47, i32 noundef 9003, ptr noundef %1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
-declare signext i16 @tvb_get_gint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare signext i16 @tvb_get_int16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind willreturn memory(read) }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @compare_keys(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
-  %3 = load ptr, ptr %0, align 8
-  %4 = load ptr, ptr %1, align 8
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #8
-  ret i32 %5
-}
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
-
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

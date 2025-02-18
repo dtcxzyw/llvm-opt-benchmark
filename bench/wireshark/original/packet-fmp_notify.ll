@@ -3,19 +3,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct._rpc_proc_list = type { i32, ptr, ptr }
-%struct._vsff = type { i32, ptr, ptr, ptr }
 
 @proto_register_fmp_notify.hf = internal global [17 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_fmp_notify_procedure, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 7, i32 1, ptr @fmp_notify_proc_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_status, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 7, i32 1, ptr @fmp_status_vals, i64 0, ptr @.str.4, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_extentList_len, %struct._header_field_info { ptr @.str.5, ptr @.str.6, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_numBlks, %struct._header_field_info { ptr @.str.7, ptr @.str.8, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_volID, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_startOffset, %struct._header_field_info { ptr @.str.11, ptr @.str.12, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_extent_state, %struct._header_field_info { ptr @.str.13, ptr @.str.14, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_handleListLen, %struct._header_field_info { ptr @.str.15, ptr @.str.16, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_sessionHandle, %struct._header_field_info { ptr @.str.17, ptr @.str.18, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_fsID, %struct._header_field_info { ptr @.str.19, ptr @.str.20, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_numBlksReq, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_msgNum, %struct._header_field_info { ptr @.str.23, ptr @.str.24, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_cookie, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 7, i32 2, ptr null, i64 0, ptr @.str.27, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_firstLogBlk, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 7, i32 1, ptr null, i64 0, ptr @.str.30, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_fileSize, %struct._header_field_info { ptr @.str.31, ptr @.str.32, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_fmpFHandle, %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_revokeHandleListReason, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 7, i32 1, ptr @fmp_revokeHandleListReason_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_fmp_notify_procedure = internal global i32 0, align 4
 @.str = private unnamed_addr constant [10 x i8] c"Procedure\00", align 1
 @.str.1 = private unnamed_addr constant [28 x i8] c"fmp_notify.notify_procedure\00", align 1
-@fmp_notify_proc_vals = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.40 }, %struct._value_string { i32 1, ptr @.str.41 }, %struct._value_string { i32 2, ptr @.str.42 }, %struct._value_string { i32 3, ptr @.str.43 }, %struct._value_string { i32 4, ptr @.str.44 }, %struct._value_string { i32 5, ptr @.str.45 }, %struct._value_string { i32 6, ptr @.str.46 }, %struct._value_string { i32 7, ptr @.str.47 }, %struct._value_string zeroinitializer], align 16
 @hf_fmp_status = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [7 x i8] c"Status\00", align 1
 @.str.3 = private unnamed_addr constant [18 x i8] c"fmp_notify.status\00", align 1
-@fmp_status_vals = internal constant [22 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.48 }, %struct._value_string { i32 5, ptr @.str.49 }, %struct._value_string { i32 12, ptr @.str.50 }, %struct._value_string { i32 13, ptr @.str.51 }, %struct._value_string { i32 22, ptr @.str.52 }, %struct._value_string { i32 28, ptr @.str.53 }, %struct._value_string { i32 79, ptr @.str.54 }, %struct._value_string { i32 500, ptr @.str.55 }, %struct._value_string { i32 501, ptr @.str.56 }, %struct._value_string { i32 502, ptr @.str.57 }, %struct._value_string { i32 503, ptr @.str.58 }, %struct._value_string { i32 504, ptr @.str.59 }, %struct._value_string { i32 505, ptr @.str.60 }, %struct._value_string { i32 506, ptr @.str.61 }, %struct._value_string { i32 507, ptr @.str.62 }, %struct._value_string { i32 508, ptr @.str.63 }, %struct._value_string { i32 509, ptr @.str.64 }, %struct._value_string { i32 510, ptr @.str.65 }, %struct._value_string { i32 511, ptr @.str.66 }, %struct._value_string { i32 512, ptr @.str.67 }, %struct._value_string { i32 600, ptr @.str.68 }, %struct._value_string zeroinitializer], align 16
 @.str.4 = private unnamed_addr constant [13 x i8] c"Reply Status\00", align 1
 @hf_fmp_extentList_len = internal global i32 0, align 4
 @.str.5 = private unnamed_addr constant [19 x i8] c"Extent List length\00", align 1
@@ -64,7 +59,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_fmp_revokeHandleListReason = internal global i32 0, align 4
 @.str.35 = private unnamed_addr constant [7 x i8] c"Reason\00", align 1
 @.str.36 = private unnamed_addr constant [27 x i8] c"fmp.revokeHandleListReason\00", align 1
-@fmp_revokeHandleListReason_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.69 }, %struct._value_string { i32 1, ptr @.str.70 }, %struct._value_string { i32 2, ptr @.str.71 }, %struct._value_string zeroinitializer], align 16
 @proto_register_fmp_notify.ett = internal global [4 x ptr] [ptr @ett_fmp_notify, ptr @ett_fmp_notify_hlist, ptr @ett_fmp_extList, ptr @ett_fmp_ext], align 16
 @ett_fmp_notify = internal global i32 0, align 4
 @ett_fmp_notify_hlist = internal global i32 0, align 4
@@ -74,7 +68,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.38 = private unnamed_addr constant [11 x i8] c"FMP/NOTIFY\00", align 1
 @.str.39 = private unnamed_addr constant [11 x i8] c"fmp_notify\00", align 1
 @proto_fmp_notify = internal global i32 0, align 4
-@fmp_notify_vers_info = internal constant [1 x %struct._rpc_proc_list] [%struct._rpc_proc_list { i32 2, ptr @fmp_notify2_proc, ptr @hf_fmp_notify_procedure }], align 16
 @.str.40 = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
 @.str.41 = private unnamed_addr constant [10 x i8] c"DownGrade\00", align 1
 @.str.42 = private unnamed_addr constant [11 x i8] c"RevokeList\00", align 1
@@ -83,38 +76,42 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.45 = private unnamed_addr constant [12 x i8] c"RequestDone\00", align 1
 @.str.46 = private unnamed_addr constant [10 x i8] c"VolFreeze\00", align 1
 @.str.47 = private unnamed_addr constant [17 x i8] c"RevokeHandleList\00", align 1
-@.str.48 = private unnamed_addr constant [3 x i8] c"OK\00", align 1
-@.str.49 = private unnamed_addr constant [8 x i8] c"IOERROR\00", align 1
-@.str.50 = private unnamed_addr constant [6 x i8] c"NOMEM\00", align 1
-@.str.51 = private unnamed_addr constant [9 x i8] c"NOACCESS\00", align 1
-@.str.52 = private unnamed_addr constant [11 x i8] c"INVALIDARG\00", align 1
-@.str.53 = private unnamed_addr constant [7 x i8] c"FSFULL\00", align 1
-@.str.54 = private unnamed_addr constant [11 x i8] c"QUEUE_FULL\00", align 1
-@.str.55 = private unnamed_addr constant [14 x i8] c"WRONG_MSG_NUM\00", align 1
-@.str.56 = private unnamed_addr constant [13 x i8] c"SESSION_LOST\00", align 1
-@.str.57 = private unnamed_addr constant [12 x i8] c"HOT_SESSION\00", align 1
-@.str.58 = private unnamed_addr constant [13 x i8] c"COLD_SESSION\00", align 1
-@.str.59 = private unnamed_addr constant [18 x i8] c"CLIENT_TERMINATED\00", align 1
-@.str.60 = private unnamed_addr constant [16 x i8] c"WRITER_LOST_BLK\00", align 1
-@.str.61 = private unnamed_addr constant [19 x i8] c"FMP_REQUEST_QUEUED\00", align 1
-@.str.62 = private unnamed_addr constant [14 x i8] c"FMP_FALL_BACK\00", align 1
-@.str.63 = private unnamed_addr constant [18 x i8] c"REQUEST_CANCELLED\00", align 1
-@.str.64 = private unnamed_addr constant [18 x i8] c"WRITER_ZEROED_BLK\00", align 1
-@.str.65 = private unnamed_addr constant [13 x i8] c"NOTIFY_ERROR\00", align 1
-@.str.66 = private unnamed_addr constant [17 x i8] c"FMP_WRONG_HANDLE\00", align 1
-@.str.67 = private unnamed_addr constant [15 x i8] c"DUPLICATE_OPEN\00", align 1
-@.str.68 = private unnamed_addr constant [14 x i8] c"PLUGIN_NOFUNC\00", align 1
-@.str.69 = private unnamed_addr constant [25 x i8] c"LIST_USER_QUOTA_EXCEEDED\00", align 1
-@.str.70 = private unnamed_addr constant [26 x i8] c"LIST_GROUP_QUOTA_EXCEEDED\00", align 1
-@.str.71 = private unnamed_addr constant [25 x i8] c"LIST_SERVER_RESOURCE_LOW\00", align 1
-@fmp_notify2_proc = internal constant [9 x %struct._vsff] [%struct._vsff { i32 0, ptr @.str.40, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, %struct._vsff { i32 1, ptr @.str.41, ptr @dissect_FMP_NOTIFY_DownGrade_request, ptr @dissect_FMP_NOTIFY_DownGrade_reply }, %struct._vsff { i32 2, ptr @.str.42, ptr @dissect_FMP_NOTIFY_RevokeList_request, ptr @dissect_FMP_NOTIFY_RevokeList_reply }, %struct._vsff { i32 3, ptr @.str.43, ptr @dissect_FMP_NOTIFY_RevokeAll_request, ptr @dissect_FMP_NOTIFY_RevokeAll_reply }, %struct._vsff { i32 4, ptr @.str.44, ptr @dissect_FMP_NOTIFY_FileSetEof_request, ptr @dissect_FMP_NOTIFY_FileSetEof_reply }, %struct._vsff { i32 5, ptr @.str.45, ptr @dissect_FMP_NOTIFY_RequestDone_request, ptr @dissect_FMP_NOTIFY_RequestDone_reply }, %struct._vsff { i32 6, ptr @.str.72, ptr @dissect_FMP_NOTIFY_volFreeze_request, ptr @dissect_FMP_NOTIFY_volFreeze_reply }, %struct._vsff { i32 7, ptr @.str.73, ptr @dissect_FMP_NOTIFY_revokeHandleList_request, ptr @dissect_FMP_NOTIFY_revokeHandleList_reply }, %struct._vsff zeroinitializer], align 16
-@.str.72 = private unnamed_addr constant [10 x i8] c"volFreeze\00", align 1
-@.str.73 = private unnamed_addr constant [17 x i8] c"revokeHandleList\00", align 1
-@.str.74 = private unnamed_addr constant [12 x i8] c"Extent List\00", align 1
-@.str.75 = private unnamed_addr constant [12 x i8] c"Extent (%u)\00", align 1
-@.str.76 = private unnamed_addr constant [12 x i8] c"Handle List\00", align 1
+@fmp_notify_proc_vals = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.40 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.41 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.42 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.43 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.44 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.45 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.46 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.49 = private unnamed_addr constant [3 x i8] c"OK\00", align 1
+@.str.50 = private unnamed_addr constant [8 x i8] c"IOERROR\00", align 1
+@.str.51 = private unnamed_addr constant [6 x i8] c"NOMEM\00", align 1
+@.str.52 = private unnamed_addr constant [9 x i8] c"NOACCESS\00", align 1
+@.str.53 = private unnamed_addr constant [11 x i8] c"INVALIDARG\00", align 1
+@.str.54 = private unnamed_addr constant [7 x i8] c"FSFULL\00", align 1
+@.str.55 = private unnamed_addr constant [11 x i8] c"QUEUE_FULL\00", align 1
+@.str.56 = private unnamed_addr constant [14 x i8] c"WRONG_MSG_NUM\00", align 1
+@.str.57 = private unnamed_addr constant [13 x i8] c"SESSION_LOST\00", align 1
+@.str.58 = private unnamed_addr constant [12 x i8] c"HOT_SESSION\00", align 1
+@.str.59 = private unnamed_addr constant [13 x i8] c"COLD_SESSION\00", align 1
+@.str.60 = private unnamed_addr constant [18 x i8] c"CLIENT_TERMINATED\00", align 1
+@.str.61 = private unnamed_addr constant [16 x i8] c"WRITER_LOST_BLK\00", align 1
+@.str.62 = private unnamed_addr constant [19 x i8] c"FMP_REQUEST_QUEUED\00", align 1
+@.str.63 = private unnamed_addr constant [14 x i8] c"FMP_FALL_BACK\00", align 1
+@.str.64 = private unnamed_addr constant [18 x i8] c"REQUEST_CANCELLED\00", align 1
+@.str.65 = private unnamed_addr constant [18 x i8] c"WRITER_ZEROED_BLK\00", align 1
+@.str.66 = private unnamed_addr constant [13 x i8] c"NOTIFY_ERROR\00", align 1
+@.str.67 = private unnamed_addr constant [17 x i8] c"FMP_WRONG_HANDLE\00", align 1
+@.str.68 = private unnamed_addr constant [15 x i8] c"DUPLICATE_OPEN\00", align 1
+@.str.69 = private unnamed_addr constant [14 x i8] c"PLUGIN_NOFUNC\00", align 1
+@fmp_status_vals = internal constant [22 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.49 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.50 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.51 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.52 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.53 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.54 }, { i32, [4 x i8], ptr } { i32 79, [4 x i8] zeroinitializer, ptr @.str.55 }, { i32, [4 x i8], ptr } { i32 500, [4 x i8] zeroinitializer, ptr @.str.56 }, { i32, [4 x i8], ptr } { i32 501, [4 x i8] zeroinitializer, ptr @.str.57 }, { i32, [4 x i8], ptr } { i32 502, [4 x i8] zeroinitializer, ptr @.str.58 }, { i32, [4 x i8], ptr } { i32 503, [4 x i8] zeroinitializer, ptr @.str.59 }, { i32, [4 x i8], ptr } { i32 504, [4 x i8] zeroinitializer, ptr @.str.60 }, { i32, [4 x i8], ptr } { i32 505, [4 x i8] zeroinitializer, ptr @.str.61 }, { i32, [4 x i8], ptr } { i32 506, [4 x i8] zeroinitializer, ptr @.str.62 }, { i32, [4 x i8], ptr } { i32 507, [4 x i8] zeroinitializer, ptr @.str.63 }, { i32, [4 x i8], ptr } { i32 508, [4 x i8] zeroinitializer, ptr @.str.64 }, { i32, [4 x i8], ptr } { i32 509, [4 x i8] zeroinitializer, ptr @.str.65 }, { i32, [4 x i8], ptr } { i32 510, [4 x i8] zeroinitializer, ptr @.str.66 }, { i32, [4 x i8], ptr } { i32 511, [4 x i8] zeroinitializer, ptr @.str.67 }, { i32, [4 x i8], ptr } { i32 512, [4 x i8] zeroinitializer, ptr @.str.68 }, { i32, [4 x i8], ptr } { i32 600, [4 x i8] zeroinitializer, ptr @.str.69 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.71 = private unnamed_addr constant [25 x i8] c"LIST_USER_QUOTA_EXCEEDED\00", align 1
+@.str.72 = private unnamed_addr constant [26 x i8] c"LIST_GROUP_QUOTA_EXCEEDED\00", align 1
+@.str.73 = private unnamed_addr constant [25 x i8] c"LIST_SERVER_RESOURCE_LOW\00", align 1
+@fmp_revokeHandleListReason_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.71 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.72 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.73 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@fmp_notify_vers_info = internal constant [1 x { i32, [4 x i8], ptr, ptr }] [{ i32, [4 x i8], ptr, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @fmp_notify2_proc, ptr @hf_fmp_notify_procedure }], align 16
+@.str.76 = private unnamed_addr constant [10 x i8] c"volFreeze\00", align 1
+@.str.77 = private unnamed_addr constant [17 x i8] c"revokeHandleList\00", align 1
+@fmp_notify2_proc = internal constant [9 x { i32, [4 x i8], ptr, ptr, ptr }] [{ i32, [4 x i8], ptr, ptr, ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.40, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, { i32, [4 x i8], ptr, ptr, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.41, ptr @dissect_FMP_NOTIFY_DownGrade_request, ptr @dissect_FMP_NOTIFY_DownGrade_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.42, ptr @dissect_FMP_NOTIFY_RevokeList_request, ptr @dissect_FMP_NOTIFY_RevokeList_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.43, ptr @dissect_FMP_NOTIFY_RevokeAll_request, ptr @dissect_FMP_NOTIFY_RevokeAll_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.44, ptr @dissect_FMP_NOTIFY_FileSetEof_request, ptr @dissect_FMP_NOTIFY_FileSetEof_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.45, ptr @dissect_FMP_NOTIFY_RequestDone_request, ptr @dissect_FMP_NOTIFY_RequestDone_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.76, ptr @dissect_FMP_NOTIFY_volFreeze_request, ptr @dissect_FMP_NOTIFY_volFreeze_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.77, ptr @dissect_FMP_NOTIFY_revokeHandleList_request, ptr @dissect_FMP_NOTIFY_revokeHandleList_reply }, { i32, [4 x i8], ptr, ptr, ptr } zeroinitializer], align 16
+@.str.79 = private unnamed_addr constant [12 x i8] c"Extent List\00", align 1
+@.str.80 = private unnamed_addr constant [12 x i8] c"Extent (%u)\00", align 1
+@.str.81 = private unnamed_addr constant [12 x i8] c"Handle List\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_fmp_notify() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.37, ptr noundef @.str.38, ptr noundef @.str.39)
   store i32 %1, ptr @proto_fmp_notify, align 4
@@ -124,13 +121,16 @@ define hidden void @proto_register_fmp_notify() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_fmp_notify() #0 {
   %1 = load i32, ptr @proto_fmp_notify, align 4
   %2 = load i32, ptr @ett_fmp_notify, align 4
@@ -138,11 +138,13 @@ define hidden void @proto_reg_handoff_fmp_notify() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @rpc_init_prog(i32 noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_rpc_void(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_NOTIFY_DownGrade_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -153,6 +155,7 @@ define internal i32 @dissect_FMP_NOTIFY_DownGrade_request(ptr noundef %0, ptr no
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -185,10 +188,11 @@ define internal i32 @dissect_FMP_NOTIFY_DownGrade_request(ptr noundef %0, ptr no
   %34 = call i32 @dissect_rpc_uint32(ptr noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef %33)
   store i32 %34, ptr %9, align 4
   %35 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_NOTIFY_DownGrade_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -199,13 +203,15 @@ define internal i32 @dissect_FMP_NOTIFY_DownGrade_reply(ptr noundef %0, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = call i32 @dissect_fmp_notify_status(ptr noundef %10, i32 noundef 0, ptr noundef %11, ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_NOTIFY_RevokeList_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -216,6 +222,7 @@ define internal i32 @dissect_FMP_NOTIFY_RevokeList_request(ptr noundef %0, ptr n
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -248,10 +255,11 @@ define internal i32 @dissect_FMP_NOTIFY_RevokeList_request(ptr noundef %0, ptr n
   %34 = call i32 @dissect_rpc_uint32(ptr noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef %33)
   store i32 %34, ptr %9, align 4
   %35 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_NOTIFY_RevokeList_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -262,13 +270,15 @@ define internal i32 @dissect_FMP_NOTIFY_RevokeList_reply(ptr noundef %0, ptr nou
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = call i32 @dissect_fmp_notify_status(ptr noundef %10, i32 noundef 0, ptr noundef %11, ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_NOTIFY_RevokeAll_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -279,6 +289,7 @@ define internal i32 @dissect_FMP_NOTIFY_RevokeAll_request(ptr noundef %0, ptr no
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -299,10 +310,11 @@ define internal i32 @dissect_FMP_NOTIFY_RevokeAll_request(ptr noundef %0, ptr no
   %24 = call i32 @dissect_rpc_uint32(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23)
   store i32 %24, ptr %9, align 4
   %25 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_NOTIFY_RevokeAll_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -313,13 +325,15 @@ define internal i32 @dissect_FMP_NOTIFY_RevokeAll_reply(ptr noundef %0, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = call i32 @dissect_fmp_notify_status(ptr noundef %10, i32 noundef 0, ptr noundef %11, ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_NOTIFY_FileSetEof_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -330,6 +344,7 @@ define internal i32 @dissect_FMP_NOTIFY_FileSetEof_request(ptr noundef %0, ptr n
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -356,10 +371,11 @@ define internal i32 @dissect_FMP_NOTIFY_FileSetEof_request(ptr noundef %0, ptr n
   %29 = call i32 @dissect_rpc_uint64(ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef %28)
   store i32 %29, ptr %9, align 4
   %30 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %30
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_NOTIFY_FileSetEof_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -370,13 +386,15 @@ define internal i32 @dissect_FMP_NOTIFY_FileSetEof_reply(ptr noundef %0, ptr nou
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = call i32 @dissect_fmp_notify_status(ptr noundef %10, i32 noundef 0, ptr noundef %11, ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_NOTIFY_RequestDone_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -388,6 +406,8 @@ define internal i32 @dissect_FMP_NOTIFY_RequestDone_request(ptr noundef %0, ptr 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %10, align 4
@@ -433,10 +453,12 @@ define internal i32 @dissect_FMP_NOTIFY_RequestDone_request(ptr noundef %0, ptr 
 
 43:                                               ; preds = %17, %4
   %44 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %44
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_NOTIFY_RequestDone_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -447,13 +469,15 @@ define internal i32 @dissect_FMP_NOTIFY_RequestDone_reply(ptr noundef %0, ptr no
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = call i32 @dissect_fmp_notify_status(ptr noundef %10, i32 noundef 0, ptr noundef %11, ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_NOTIFY_volFreeze_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -464,6 +488,7 @@ define internal i32 @dissect_FMP_NOTIFY_volFreeze_request(ptr noundef %0, ptr no
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -478,10 +503,11 @@ define internal i32 @dissect_FMP_NOTIFY_volFreeze_request(ptr noundef %0, ptr no
   %19 = call i32 @dissect_rpc_uint32(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef %18)
   store i32 %19, ptr %9, align 4
   %20 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_NOTIFY_volFreeze_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -492,13 +518,15 @@ define internal i32 @dissect_FMP_NOTIFY_volFreeze_reply(ptr noundef %0, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = call i32 @dissect_fmp_notify_status(ptr noundef %10, i32 noundef 0, ptr noundef %11, ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_NOTIFY_revokeHandleList_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -509,6 +537,7 @@ define internal i32 @dissect_FMP_NOTIFY_revokeHandleList_request(ptr noundef %0,
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -528,10 +557,11 @@ define internal i32 @dissect_FMP_NOTIFY_revokeHandleList_request(ptr noundef %0,
   %23 = call i32 @dissect_handleList(ptr noundef %19, i32 noundef %20, ptr noundef %21, ptr noundef %22)
   store i32 %23, ptr %9, align 4
   %24 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_NOTIFY_revokeHandleList_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -542,17 +572,27 @@ define internal i32 @dissect_FMP_NOTIFY_revokeHandleList_reply(ptr noundef %0, p
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = call i32 @dissect_fmp_notify_status(ptr noundef %10, i32 noundef 0, ptr noundef %11, ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %12
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_rpc_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_rpc_uint32(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_fmp_notify_status(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -563,6 +603,7 @@ define internal i32 @dissect_fmp_notify_status(ptr noundef %0, i32 noundef %1, p
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %6, align 4
   %12 = call i32 @tvb_get_ntohl(ptr noundef %10, i32 noundef %11)
@@ -710,14 +751,17 @@ define internal i32 @dissect_fmp_notify_status(ptr noundef %0, i32 noundef %1, p
   %63 = call i32 @dissect_rpc_uint32(ptr noundef %59, ptr noundef %60, i32 noundef %61, i32 noundef %62)
   store i32 %63, ptr %6, align 4
   %64 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %64
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_rpc_uint64(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_fmp_notify_extentList(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -731,6 +775,10 @@ define internal i32 @dissect_fmp_notify_extentList(ptr noundef %0, i32 noundef %
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr %6, align 4
   %15 = call i32 @tvb_get_ntohl(ptr noundef %13, i32 noundef %14)
@@ -744,7 +792,7 @@ define internal i32 @dissect_fmp_notify_extentList(ptr noundef %0, i32 noundef %
   %21 = load i32, ptr %6, align 4
   %22 = load i32, ptr %10, align 4
   %23 = load i32, ptr @ett_fmp_extList, align 4
-  %24 = call ptr @proto_tree_add_subtree(ptr noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef %22, i32 noundef %23, ptr noundef null, ptr noundef @.str.74)
+  %24 = call ptr @proto_tree_add_subtree(ptr noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef %22, i32 noundef %23, ptr noundef null, ptr noundef @.str.79)
   store ptr %24, ptr %11, align 8
   %25 = load ptr, ptr %5, align 8
   %26 = load ptr, ptr %11, align 8
@@ -776,16 +824,21 @@ define internal i32 @dissect_fmp_notify_extentList(ptr noundef %0, i32 noundef %
   %43 = load i32, ptr %12, align 4
   %44 = add i32 %43, 1
   store i32 %44, ptr %12, align 4
-  br label %30, !llvm.loop !4
+  br label %30, !llvm.loop !6
 
 45:                                               ; preds = %30
   %46 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %46
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_fmp_notify_extent(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -798,12 +851,13 @@ define internal i32 @dissect_fmp_notify_extent(ptr noundef %0, i32 noundef %1, p
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
   %12 = load ptr, ptr %9, align 8
   %13 = load ptr, ptr %6, align 8
   %14 = load i32, ptr %7, align 4
   %15 = load i32, ptr @ett_fmp_ext, align 4
   %16 = load i32, ptr %10, align 4
-  %17 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef 20, i32 noundef %15, ptr noundef null, ptr noundef @.str.75, i32 noundef %16)
+  %17 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef 20, i32 noundef %15, ptr noundef null, ptr noundef @.str.80, i32 noundef %16)
   store ptr %17, ptr %11, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = load ptr, ptr %11, align 8
@@ -835,12 +889,14 @@ define internal i32 @dissect_fmp_notify_extent(ptr noundef %0, i32 noundef %1, p
   %41 = call i32 @dissect_fmp_notify_extentState(ptr noundef %38, i32 noundef %39, ptr noundef %40)
   store i32 %41, ptr %7, align 4
   %42 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
   ret i32 %42
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_fmp_notify_extentState(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -858,7 +914,7 @@ define internal i32 @dissect_fmp_notify_extentState(ptr noundef %0, i32 noundef 
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_revokeHandleListReason(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -878,7 +934,7 @@ define internal i32 @dissect_revokeHandleListReason(ptr noundef %0, i32 noundef 
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_handleList(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -892,6 +948,10 @@ define internal i32 @dissect_handleList(ptr noundef %0, i32 noundef %1, ptr noun
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr %6, align 4
   %15 = call i32 @tvb_get_ntohl(ptr noundef %13, i32 noundef %14)
@@ -922,7 +982,7 @@ define internal i32 @dissect_handleList(ptr noundef %0, i32 noundef %1, ptr noun
   %30 = load i32, ptr %11, align 4
   %31 = add i32 %30, 1
   store i32 %31, ptr %11, align 4
-  br label %16, !llvm.loop !6
+  br label %16, !llvm.loop !8
 
 32:                                               ; preds = %16
   %33 = load ptr, ptr %8, align 8
@@ -930,7 +990,7 @@ define internal i32 @dissect_handleList(ptr noundef %0, i32 noundef %1, ptr noun
   %35 = load i32, ptr %6, align 4
   %36 = load i32, ptr %10, align 4
   %37 = load i32, ptr @ett_fmp_notify_hlist, align 4
-  %38 = call ptr @proto_tree_add_subtree(ptr noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef %36, i32 noundef %37, ptr noundef null, ptr noundef @.str.76)
+  %38 = call ptr @proto_tree_add_subtree(ptr noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef %36, i32 noundef %37, ptr noundef null, ptr noundef @.str.81)
   store ptr %38, ptr %12, align 8
   %39 = load ptr, ptr %5, align 8
   %40 = load ptr, ptr %12, align 8
@@ -960,25 +1020,34 @@ define internal i32 @dissect_handleList(ptr noundef %0, i32 noundef %1, ptr noun
   %55 = load i32, ptr %11, align 4
   %56 = add i32 %55, 1
   store i32 %56, ptr %11, align 4
-  br label %44, !llvm.loop !7
+  br label %44, !llvm.loop !9
 
 57:                                               ; preds = %44
   %58 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %58
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

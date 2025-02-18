@@ -3,18 +3,15 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
 %struct.bmpv4_tlv_info = type { i16, i16, i16, i8 }
 
-@proto_register_bmp.hf = internal global [133 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_bmp_version, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmp_length, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmp_type, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 4, i32 1, ptr @bmp_typevals, i64 0, ptr @.str.6, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmp_unused, %struct._header_field_info { ptr @.str.7, ptr @.str.8, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_init_types, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_init_type, %struct._header_field_info { ptr @.str.4, ptr @.str.11, i32 5, i32 1, ptr @init_typevals, i64 0, ptr @.str.12, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_init_length, %struct._header_field_info { ptr @.str.2, ptr @.str.13, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_init_info, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_header, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_type, %struct._header_field_info { ptr @.str.4, ptr @.str.18, i32 4, i32 1, ptr @peer_typevals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_flags, %struct._header_field_info { ptr @.str.19, ptr @.str.20, i32 4, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_flags_ipv6, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 2, i32 8, ptr @tfs_set_notset, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_flags_post_policy, %struct._header_field_info { ptr @.str.23, ptr @.str.24, i32 2, i32 8, ptr @tfs_set_notset, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_flags_as_path, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 2, i32 8, ptr @tfs_set_notset, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_flags_adj_rib_out, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 2, i32 8, ptr @tfs_set_notset, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_flags_res, %struct._header_field_info { ptr @.str.29, ptr @.str.30, i32 2, i32 8, ptr @tfs_set_notset, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_flags_loc_rib, %struct._header_field_info { ptr @.str.31, ptr @.str.32, i32 2, i32 8, ptr @tfs_set_notset, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_flags_loc_rib_res, %struct._header_field_info { ptr @.str.29, ptr @.str.33, i32 2, i32 8, ptr @tfs_set_notset, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_distinguisher, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_ipv4_address, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_ipv6_address, %struct._header_field_info { ptr @.str.36, ptr @.str.38, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_asn, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_bgp_id, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_timestamp_sec, %struct._header_field_info { ptr @.str.43, ptr @.str.44, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_timestamp_msec, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_route_mirroring_type, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 5, i32 1, ptr @route_mirroring_typevals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_route_mirroring_length, %struct._header_field_info { ptr @.str.2, ptr @.str.49, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_route_mirroring_code, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 5, i32 1, ptr @route_mirroring_information_typevals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_up_ipv4_address, %struct._header_field_info { ptr @.str.52, ptr @.str.53, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_up_ipv6_address, %struct._header_field_info { ptr @.str.52, ptr @.str.54, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_up_local_port, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_up_remote_port, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_state_tlv, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_state_tlv_type, %struct._header_field_info { ptr @.str.4, ptr @.str.61, i32 5, i32 1, ptr @peer_up_tlv_typevals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_state_tlv_length, %struct._header_field_info { ptr @.str.2, ptr @.str.62, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_state_tlv_value, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_up_tlv_string, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_up_tlv_sys_descr, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_up_tlv_sys_name, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_state_tlv_vrf_table_name, %struct._header_field_info { ptr @.str.71, ptr @.str.72, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_up_tlv_admin_label, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_down_reason, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 4, i32 1, ptr @down_reason_typevals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_down_data, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stats_count, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_type, %struct._header_field_info { ptr @.str.4, ptr @.str.81, i32 5, i32 1, ptr @stat_typevals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_len, %struct._header_field_info { ptr @.str.2, ptr @.str.82, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data, %struct._header_field_info { ptr @.str.77, ptr @.str.83, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_prefix_rej, %struct._header_field_info { ptr @.str.84, ptr @.str.85, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_prefix_dup, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_withdraw_dup, %struct._header_field_info { ptr @.str.88, ptr @.str.89, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_cluster_loop, %struct._header_field_info { ptr @.str.90, ptr @.str.91, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_as_loop, %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_inv_originator, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_as_confed_loop, %struct._header_field_info { ptr @.str.96, ptr @.str.97, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_adj_rib_in, %struct._header_field_info { ptr @.str.98, ptr @.str.99, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_loc_rib, %struct._header_field_info { ptr @.str.100, ptr @.str.101, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_per_adj_rib_in_afi, %struct._header_field_info { ptr @.str.102, ptr @.str.103, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_per_adj_rib_in_safi, %struct._header_field_info { ptr @.str.104, ptr @.str.105, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_per_adj_rib_in, %struct._header_field_info { ptr @.str.106, ptr @.str.107, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_per_loc_rib_afi, %struct._header_field_info { ptr @.str.102, ptr @.str.108, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_per_loc_rib_safi, %struct._header_field_info { ptr @.str.104, ptr @.str.109, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_per_loc_rib, %struct._header_field_info { ptr @.str.106, ptr @.str.110, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_update_treat, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_prefixes_treat, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_duplicate_update, %struct._header_field_info { ptr @.str.115, ptr @.str.116, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_pre_adj_rib_out, %struct._header_field_info { ptr @.str.117, ptr @.str.118, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_post_adj_rib_out, %struct._header_field_info { ptr @.str.119, ptr @.str.120, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_pre_per_adj_rib_out_afi, %struct._header_field_info { ptr @.str.102, ptr @.str.121, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_pre_per_adj_rib_out_safi, %struct._header_field_info { ptr @.str.104, ptr @.str.122, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_pre_per_adj_rib_out, %struct._header_field_info { ptr @.str.123, ptr @.str.124, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_post_per_adj_rib_out_afi, %struct._header_field_info { ptr @.str.102, ptr @.str.125, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_post_per_adj_rib_out_safi, %struct._header_field_info { ptr @.str.104, ptr @.str.126, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_post_per_adj_rib_out, %struct._header_field_info { ptr @.str.127, ptr @.str.128, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_term_types, %struct._header_field_info { ptr @.str.129, ptr @.str.130, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_term_type, %struct._header_field_info { ptr @.str.4, ptr @.str.131, i32 5, i32 1, ptr @term_typevals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_term_len, %struct._header_field_info { ptr @.str.2, ptr @.str.132, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_term_info, %struct._header_field_info { ptr @.str.14, ptr @.str.133, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_term_reason, %struct._header_field_info { ptr @.str.75, ptr @.str.134, i32 5, i32 1, ptr @term_reason_typevals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_flags, %struct._header_field_info { ptr @.str.19, ptr @.str.135, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_flags_ipv6, %struct._header_field_info { ptr @.str.21, ptr @.str.136, i32 2, i32 8, ptr @tfs_set_notset, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_flags_res, %struct._header_field_info { ptr @.str.29, ptr @.str.137, i32 4, i32 2, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_rd, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 11, i32 5, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_prefix_length, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_prefix_ipv4, %struct._header_field_info { ptr @.str.142, ptr @.str.143, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_prefix_reserved, %struct._header_field_info { ptr @.str.144, ptr @.str.145, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_prefix_ipv6, %struct._header_field_info { ptr @.str.146, ptr @.str.147, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_route_origin, %struct._header_field_info { ptr @.str.148, ptr @.str.149, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_event_count, %struct._header_field_info { ptr @.str.150, ptr @.str.151, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_total_event_length, %struct._header_field_info { ptr @.str.152, ptr @.str.153, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_single_event_length, %struct._header_field_info { ptr @.str.154, ptr @.str.155, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_event_index, %struct._header_field_info { ptr @.str.150, ptr @.str.156, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_timestamp_sec, %struct._header_field_info { ptr @.str.43, ptr @.str.157, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_timestamp_msec, %struct._header_field_info { ptr @.str.45, ptr @.str.158, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_path_identifier, %struct._header_field_info { ptr @.str.159, ptr @.str.160, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_afi, %struct._header_field_info { ptr @.str.102, ptr @.str.161, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_safi, %struct._header_field_info { ptr @.str.104, ptr @.str.162, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv, %struct._header_field_info { ptr @.str.163, ptr @.str.164, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_type, %struct._header_field_info { ptr @.str.4, ptr @.str.165, i32 5, i32 1, ptr @route_policy_tlv_typevals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_length, %struct._header_field_info { ptr @.str.2, ptr @.str.166, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_value, %struct._header_field_info { ptr @.str.63, ptr @.str.167, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_vrf_table_id, %struct._header_field_info { ptr @.str.168, ptr @.str.169, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_vrf_table_name, %struct._header_field_info { ptr @.str.170, ptr @.str.171, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_flags, %struct._header_field_info { ptr @.str.19, ptr @.str.172, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_flags_m, %struct._header_field_info { ptr @.str.173, ptr @.str.174, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_flags_p, %struct._header_field_info { ptr @.str.175, ptr @.str.176, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_flags_d, %struct._header_field_info { ptr @.str.177, ptr @.str.178, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_flags_res, %struct._header_field_info { ptr @.str.29, ptr @.str.179, i32 4, i32 2, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_count, %struct._header_field_info { ptr @.str.180, ptr @.str.181, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_class, %struct._header_field_info { ptr @.str.182, ptr @.str.183, i32 4, i32 2, ptr @route_policy_tlv_policy_class_typevals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_peer_ipv4, %struct._header_field_info { ptr @.str.184, ptr @.str.185, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_peer_reserved, %struct._header_field_info { ptr @.str.186, ptr @.str.187, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_peer_ipv6, %struct._header_field_info { ptr @.str.188, ptr @.str.189, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_peer_router_id, %struct._header_field_info { ptr @.str.190, ptr @.str.191, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_peer_as, %struct._header_field_info { ptr @.str.192, ptr @.str.193, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy, %struct._header_field_info { ptr @.str.194, ptr @.str.195, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_name_length, %struct._header_field_info { ptr @.str.196, ptr @.str.197, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_item_id_length, %struct._header_field_info { ptr @.str.198, ptr @.str.199, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_name, %struct._header_field_info { ptr @.str.200, ptr @.str.201, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_item_id, %struct._header_field_info { ptr @.str.202, ptr @.str.203, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_flag, %struct._header_field_info { ptr @.str.204, ptr @.str.205, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_flag_c, %struct._header_field_info { ptr @.str.206, ptr @.str.207, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_flag_r, %struct._header_field_info { ptr @.str.208, ptr @.str.209, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_flag_res2, %struct._header_field_info { ptr @.str.29, ptr @.str.210, i32 4, i32 2, ptr null, i64 63, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_string, %struct._header_field_info { ptr @.str.65, ptr @.str.211, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmpv4_tlv, %struct._header_field_info { ptr @.str.212, ptr @.str.213, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmpv4_tlv_type, %struct._header_field_info { ptr @.str.4, ptr @.str.214, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmpv4_tlv_length, %struct._header_field_info { ptr @.str.2, ptr @.str.215, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmpv4_tlv_index, %struct._header_field_info { ptr @.str.216, ptr @.str.217, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmpv4_tlv_value_bytes, %struct._header_field_info { ptr @.str.63, ptr @.str.218, i32 30, i32 11, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmpv4_tlv_value_string, %struct._header_field_info { ptr @.str.63, ptr @.str.219, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmpv4_tlv_value_bool, %struct._header_field_info { ptr @.str.63, ptr @.str.220, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmpv4_tlv_value_index, %struct._header_field_info { ptr @.str.216, ptr @.str.221, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmpv4_tlv_group_id, %struct._header_field_info { ptr @.str.222, ptr @.str.223, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@proto_register_bmp.hf = internal global [146 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_bmp_version, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmp_length, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmp_type, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 4, i32 1, ptr @bmp_typevals, i64 0, ptr @.str.6, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmp_unused, %struct._header_field_info { ptr @.str.7, ptr @.str.8, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_init_types, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_init_type, %struct._header_field_info { ptr @.str.4, ptr @.str.11, i32 5, i32 1, ptr @init_typevals, i64 0, ptr @.str.12, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_init_length, %struct._header_field_info { ptr @.str.2, ptr @.str.13, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_init_info, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_header, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_type, %struct._header_field_info { ptr @.str.4, ptr @.str.18, i32 4, i32 1, ptr @peer_typevals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_flags, %struct._header_field_info { ptr @.str.19, ptr @.str.20, i32 4, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_flags_ipv6, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 2, i32 8, ptr @tfs_set_notset, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_flags_post_policy, %struct._header_field_info { ptr @.str.23, ptr @.str.24, i32 2, i32 8, ptr @tfs_set_notset, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_flags_as_path, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 2, i32 8, ptr @tfs_set_notset, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_flags_adj_rib_out, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 2, i32 8, ptr @tfs_set_notset, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_flags_res, %struct._header_field_info { ptr @.str.29, ptr @.str.30, i32 2, i32 8, ptr @tfs_set_notset, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_flags_loc_rib, %struct._header_field_info { ptr @.str.31, ptr @.str.32, i32 2, i32 8, ptr @tfs_set_notset, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_flags_loc_rib_res, %struct._header_field_info { ptr @.str.29, ptr @.str.33, i32 2, i32 8, ptr @tfs_set_notset, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_distinguisher, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_ipv4_address, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_ipv6_address, %struct._header_field_info { ptr @.str.36, ptr @.str.38, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_asn, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_bgp_id, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_timestamp_sec, %struct._header_field_info { ptr @.str.43, ptr @.str.44, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_timestamp_msec, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_route_mirroring_type, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 5, i32 1, ptr @route_mirroring_typevals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_route_mirroring_length, %struct._header_field_info { ptr @.str.2, ptr @.str.49, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_route_mirroring_code, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 5, i32 1, ptr @route_mirroring_information_typevals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_up_ipv4_address, %struct._header_field_info { ptr @.str.52, ptr @.str.53, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_up_ipv6_address, %struct._header_field_info { ptr @.str.52, ptr @.str.54, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_up_local_port, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_up_remote_port, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_state_tlv, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_state_tlv_type, %struct._header_field_info { ptr @.str.4, ptr @.str.61, i32 5, i32 1, ptr @peer_up_tlv_typevals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_state_tlv_length, %struct._header_field_info { ptr @.str.2, ptr @.str.62, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_state_tlv_value, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_up_tlv_string, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_up_tlv_sys_descr, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_up_tlv_sys_name, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_state_tlv_vrf_table_name, %struct._header_field_info { ptr @.str.71, ptr @.str.72, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_up_tlv_admin_label, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_down_reason, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 4, i32 1, ptr @down_reason_typevals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_peer_down_data, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stats_count, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_type, %struct._header_field_info { ptr @.str.4, ptr @.str.81, i32 5, i32 1, ptr @stat_typevals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_len, %struct._header_field_info { ptr @.str.2, ptr @.str.82, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data, %struct._header_field_info { ptr @.str.77, ptr @.str.83, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_prefix_rej, %struct._header_field_info { ptr @.str.84, ptr @.str.85, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_prefix_dup, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_withdraw_dup, %struct._header_field_info { ptr @.str.88, ptr @.str.89, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_cluster_loop, %struct._header_field_info { ptr @.str.90, ptr @.str.91, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_as_loop, %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_inv_originator, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_as_confed_loop, %struct._header_field_info { ptr @.str.96, ptr @.str.97, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_adj_rib_in, %struct._header_field_info { ptr @.str.98, ptr @.str.99, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_loc_rib, %struct._header_field_info { ptr @.str.100, ptr @.str.101, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_per_adj_rib_in_afi, %struct._header_field_info { ptr @.str.102, ptr @.str.103, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_per_adj_rib_in_safi, %struct._header_field_info { ptr @.str.104, ptr @.str.105, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_per_adj_rib_in, %struct._header_field_info { ptr @.str.106, ptr @.str.107, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_per_loc_rib_afi, %struct._header_field_info { ptr @.str.102, ptr @.str.108, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_per_loc_rib_safi, %struct._header_field_info { ptr @.str.104, ptr @.str.109, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_per_loc_rib, %struct._header_field_info { ptr @.str.106, ptr @.str.110, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_update_treat, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_prefixes_treat, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_duplicate_update, %struct._header_field_info { ptr @.str.115, ptr @.str.116, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_pre_adj_rib_out, %struct._header_field_info { ptr @.str.117, ptr @.str.118, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_post_adj_rib_out, %struct._header_field_info { ptr @.str.119, ptr @.str.120, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_pre_per_adj_rib_out_afi, %struct._header_field_info { ptr @.str.102, ptr @.str.121, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_pre_per_adj_rib_out_safi, %struct._header_field_info { ptr @.str.104, ptr @.str.122, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_pre_per_adj_rib_out, %struct._header_field_info { ptr @.str.123, ptr @.str.124, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_post_per_adj_rib_out_afi, %struct._header_field_info { ptr @.str.102, ptr @.str.125, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_post_per_adj_rib_out_safi, %struct._header_field_info { ptr @.str.104, ptr @.str.126, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stat_data_routes_post_per_adj_rib_out, %struct._header_field_info { ptr @.str.127, ptr @.str.128, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_term_types, %struct._header_field_info { ptr @.str.129, ptr @.str.130, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_term_type, %struct._header_field_info { ptr @.str.4, ptr @.str.131, i32 5, i32 1, ptr @term_typevals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_term_len, %struct._header_field_info { ptr @.str.2, ptr @.str.132, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_term_info, %struct._header_field_info { ptr @.str.14, ptr @.str.133, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_term_reason, %struct._header_field_info { ptr @.str.75, ptr @.str.134, i32 5, i32 1, ptr @term_reason_typevals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_flags, %struct._header_field_info { ptr @.str.19, ptr @.str.135, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_flags_ipv6, %struct._header_field_info { ptr @.str.21, ptr @.str.136, i32 2, i32 8, ptr @tfs_set_notset, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_flags_res, %struct._header_field_info { ptr @.str.29, ptr @.str.137, i32 4, i32 2, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_rd, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 11, i32 5, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_prefix_length, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_prefix_ipv4, %struct._header_field_info { ptr @.str.142, ptr @.str.143, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_prefix_reserved, %struct._header_field_info { ptr @.str.144, ptr @.str.145, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_prefix_ipv6, %struct._header_field_info { ptr @.str.146, ptr @.str.147, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_route_origin, %struct._header_field_info { ptr @.str.148, ptr @.str.149, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_event_count, %struct._header_field_info { ptr @.str.150, ptr @.str.151, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_total_event_length, %struct._header_field_info { ptr @.str.152, ptr @.str.153, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_single_event_length, %struct._header_field_info { ptr @.str.154, ptr @.str.155, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_event_index, %struct._header_field_info { ptr @.str.150, ptr @.str.156, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_timestamp_sec, %struct._header_field_info { ptr @.str.43, ptr @.str.157, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_timestamp_msec, %struct._header_field_info { ptr @.str.45, ptr @.str.158, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_path_identifier, %struct._header_field_info { ptr @.str.159, ptr @.str.160, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_afi, %struct._header_field_info { ptr @.str.102, ptr @.str.161, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_safi, %struct._header_field_info { ptr @.str.104, ptr @.str.162, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv, %struct._header_field_info { ptr @.str.163, ptr @.str.164, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_type, %struct._header_field_info { ptr @.str.4, ptr @.str.165, i32 5, i32 1, ptr @route_policy_tlv_typevals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_length, %struct._header_field_info { ptr @.str.2, ptr @.str.166, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_value, %struct._header_field_info { ptr @.str.63, ptr @.str.167, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_vrf_table_id, %struct._header_field_info { ptr @.str.168, ptr @.str.169, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_vrf_table_name, %struct._header_field_info { ptr @.str.170, ptr @.str.171, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_flags, %struct._header_field_info { ptr @.str.19, ptr @.str.172, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_flags_m, %struct._header_field_info { ptr @.str.173, ptr @.str.174, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_flags_p, %struct._header_field_info { ptr @.str.175, ptr @.str.176, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_flags_d, %struct._header_field_info { ptr @.str.177, ptr @.str.178, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_flags_res, %struct._header_field_info { ptr @.str.29, ptr @.str.179, i32 4, i32 2, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_count, %struct._header_field_info { ptr @.str.180, ptr @.str.181, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_class, %struct._header_field_info { ptr @.str.182, ptr @.str.183, i32 4, i32 2, ptr @route_policy_tlv_policy_class_typevals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_peer_ipv4, %struct._header_field_info { ptr @.str.184, ptr @.str.185, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_peer_reserved, %struct._header_field_info { ptr @.str.186, ptr @.str.187, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_peer_ipv6, %struct._header_field_info { ptr @.str.188, ptr @.str.189, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_peer_router_id, %struct._header_field_info { ptr @.str.190, ptr @.str.191, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_peer_as, %struct._header_field_info { ptr @.str.192, ptr @.str.193, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy, %struct._header_field_info { ptr @.str.194, ptr @.str.195, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_name_length, %struct._header_field_info { ptr @.str.196, ptr @.str.197, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_item_id_length, %struct._header_field_info { ptr @.str.198, ptr @.str.199, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_name, %struct._header_field_info { ptr @.str.200, ptr @.str.201, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_item_id, %struct._header_field_info { ptr @.str.202, ptr @.str.203, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_flag, %struct._header_field_info { ptr @.str.204, ptr @.str.205, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_flag_c, %struct._header_field_info { ptr @.str.206, ptr @.str.207, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_flag_r, %struct._header_field_info { ptr @.str.208, ptr @.str.209, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_policy_flag_res2, %struct._header_field_info { ptr @.str.29, ptr @.str.210, i32 4, i32 2, ptr null, i64 63, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_route_policy_tlv_string, %struct._header_field_info { ptr @.str.65, ptr @.str.211, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmpv4_tlv, %struct._header_field_info { ptr @.str.212, ptr @.str.213, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmpv4_tlv_type, %struct._header_field_info { ptr @.str.4, ptr @.str.214, i32 5, i32 1, ptr @bmpv4_tlv_typevals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmpv4_tlv_length, %struct._header_field_info { ptr @.str.2, ptr @.str.215, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmpv4_tlv_index, %struct._header_field_info { ptr @.str.216, ptr @.str.217, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmpv4_tlv_value_bytes, %struct._header_field_info { ptr @.str.63, ptr @.str.218, i32 30, i32 11, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmpv4_tlv_value_string, %struct._header_field_info { ptr @.str.63, ptr @.str.219, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmpv4_tlv_value_bool, %struct._header_field_info { ptr @.str.63, ptr @.str.220, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmpv4_tlv_value_index, %struct._header_field_info { ptr @.str.216, ptr @.str.221, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmpv4_tlv_group_id, %struct._header_field_info { ptr @.str.222, ptr @.str.223, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmpv4_tlv_path_status_status, %struct._header_field_info { ptr @.str.224, ptr @.str.225, i32 7, i32 2, ptr null, i64 2047, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmpv4_tlv_path_status_reason, %struct._header_field_info { ptr @.str.75, ptr @.str.226, i32 5, i32 2, ptr @bmpv4_tlv_path_status_reason_typevals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmp_path_status_invalid, %struct._header_field_info { ptr @.str.227, ptr @.str.228, i32 2, i32 32, ptr @tfs_set_notset, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmp_path_status_best, %struct._header_field_info { ptr @.str.229, ptr @.str.230, i32 2, i32 32, ptr @tfs_set_notset, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmp_path_status_non_selected, %struct._header_field_info { ptr @.str.231, ptr @.str.232, i32 2, i32 32, ptr @tfs_set_notset, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmp_path_status_primary, %struct._header_field_info { ptr @.str.233, ptr @.str.234, i32 2, i32 32, ptr @tfs_set_notset, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmp_path_status_backup, %struct._header_field_info { ptr @.str.235, ptr @.str.236, i32 2, i32 32, ptr @tfs_set_notset, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmp_path_status_non_installed, %struct._header_field_info { ptr @.str.237, ptr @.str.238, i32 2, i32 32, ptr @tfs_set_notset, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmp_path_status_best_external, %struct._header_field_info { ptr @.str.239, ptr @.str.240, i32 2, i32 32, ptr @tfs_set_notset, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmp_path_status_addpath, %struct._header_field_info { ptr @.str.241, ptr @.str.242, i32 2, i32 32, ptr @tfs_set_notset, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmp_path_status_filtered_in, %struct._header_field_info { ptr @.str.243, ptr @.str.244, i32 2, i32 32, ptr @tfs_set_notset, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmp_path_status_filtered_out, %struct._header_field_info { ptr @.str.245, ptr @.str.246, i32 2, i32 32, ptr @tfs_set_notset, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bmp_path_status_invalid_rov, %struct._header_field_info { ptr @.str.247, ptr @.str.248, i32 2, i32 32, ptr @tfs_set_notset, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_bmp_version = internal global i32 0, align 4
 @.str = private unnamed_addr constant [8 x i8] c"Version\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"bmp.version\00", align 1
@@ -24,7 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_bmp_type = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
 @.str.5 = private unnamed_addr constant [9 x i8] c"bmp.type\00", align 1
-@bmp_typevals = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.240 }, %struct._value_string { i32 1, ptr @.str.241 }, %struct._value_string { i32 2, ptr @.str.242 }, %struct._value_string { i32 3, ptr @.str.243 }, %struct._value_string { i32 4, ptr @.str.244 }, %struct._value_string { i32 5, ptr @.str.245 }, %struct._value_string { i32 6, ptr @.str.246 }, %struct._value_string { i32 100, ptr @.str.247 }, %struct._value_string zeroinitializer], align 16
 @.str.6 = private unnamed_addr constant [17 x i8] c"BMP message type\00", align 1
 @hf_bmp_unused = internal global i32 0, align 4
 @.str.7 = private unnamed_addr constant [7 x i8] c"Unused\00", align 1
@@ -34,7 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [15 x i8] c"bmp.init.types\00", align 1
 @hf_init_type = internal global i32 0, align 4
 @.str.11 = private unnamed_addr constant [14 x i8] c"bmp.init.type\00", align 1
-@init_typevals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.65 }, %struct._value_string { i32 1, ptr @.str.248 }, %struct._value_string { i32 2, ptr @.str.249 }, %struct._value_string { i32 3, ptr @.str.250 }, %struct._value_string { i32 4, ptr @.str.73 }, %struct._value_string zeroinitializer], align 16
 @.str.12 = private unnamed_addr constant [16 x i8] c"Initiation type\00", align 1
 @hf_init_length = internal global i32 0, align 4
 @.str.13 = private unnamed_addr constant [16 x i8] c"bmp.init.length\00", align 1
@@ -46,7 +41,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.17 = private unnamed_addr constant [16 x i8] c"bmp.peer.header\00", align 1
 @hf_peer_type = internal global i32 0, align 4
 @.str.18 = private unnamed_addr constant [14 x i8] c"bmp.peer.type\00", align 1
-@peer_typevals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.251 }, %struct._value_string { i32 1, ptr @.str.252 }, %struct._value_string { i32 2, ptr @.str.253 }, %struct._value_string { i32 3, ptr @.str.254 }, %struct._value_string zeroinitializer], align 16
 @hf_peer_flags = internal global i32 0, align 4
 @.str.19 = private unnamed_addr constant [6 x i8] c"Flags\00", align 1
 @.str.20 = private unnamed_addr constant [15 x i8] c"bmp.peer.flags\00", align 1
@@ -94,13 +88,11 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_peer_route_mirroring_type = internal global i32 0, align 4
 @.str.47 = private unnamed_addr constant [21 x i8] c"Route Mirroring Type\00", align 1
 @.str.48 = private unnamed_addr constant [30 x i8] c"bmp.peer.route_mirroring.type\00", align 1
-@route_mirroring_typevals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.255 }, %struct._value_string { i32 1, ptr @.str.14 }, %struct._value_string zeroinitializer], align 16
 @hf_peer_route_mirroring_length = internal global i32 0, align 4
 @.str.49 = private unnamed_addr constant [32 x i8] c"bmp.peer.route_mirroring.length\00", align 1
 @hf_peer_route_mirroring_code = internal global i32 0, align 4
 @.str.50 = private unnamed_addr constant [5 x i8] c"Code\00", align 1
 @.str.51 = private unnamed_addr constant [30 x i8] c"bmp.peer.route_mirroring.code\00", align 1
-@route_mirroring_information_typevals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.256 }, %struct._value_string { i32 1, ptr @.str.257 }, %struct._value_string zeroinitializer], align 16
 @hf_peer_up_ipv4_address = internal global i32 0, align 4
 @.str.52 = private unnamed_addr constant [14 x i8] c"Local Address\00", align 1
 @.str.53 = private unnamed_addr constant [20 x i8] c"bmp.peer.up.ip.addr\00", align 1
@@ -117,7 +109,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.60 = private unnamed_addr constant [19 x i8] c"bmp.peer_state.tlv\00", align 1
 @hf_peer_state_tlv_type = internal global i32 0, align 4
 @.str.61 = private unnamed_addr constant [24 x i8] c"bmp.peer_state.tlv.type\00", align 1
-@peer_up_tlv_typevals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.65 }, %struct._value_string { i32 1, ptr @.str.248 }, %struct._value_string { i32 2, ptr @.str.249 }, %struct._value_string { i32 3, ptr @.str.250 }, %struct._value_string { i32 4, ptr @.str.73 }, %struct._value_string zeroinitializer], align 16
 @hf_peer_state_tlv_length = internal global i32 0, align 4
 @.str.62 = private unnamed_addr constant [26 x i8] c"bmp.peer_state.tlv.length\00", align 1
 @hf_peer_state_tlv_value = internal global i32 0, align 4
@@ -141,7 +132,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_peer_down_reason = internal global i32 0, align 4
 @.str.75 = private unnamed_addr constant [7 x i8] c"Reason\00", align 1
 @.str.76 = private unnamed_addr constant [21 x i8] c"bmp.peer.down.reason\00", align 1
-@down_reason_typevals = internal constant [7 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.258 }, %struct._value_string { i32 2, ptr @.str.259 }, %struct._value_string { i32 3, ptr @.str.260 }, %struct._value_string { i32 4, ptr @.str.261 }, %struct._value_string { i32 5, ptr @.str.262 }, %struct._value_string { i32 6, ptr @.str.263 }, %struct._value_string zeroinitializer], align 16
 @hf_peer_down_data = internal global i32 0, align 4
 @.str.77 = private unnamed_addr constant [5 x i8] c"Data\00", align 1
 @.str.78 = private unnamed_addr constant [19 x i8] c"bmp.peer.down.data\00", align 1
@@ -150,7 +140,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.80 = private unnamed_addr constant [16 x i8] c"bmp.stats.count\00", align 1
 @hf_stat_type = internal global i32 0, align 4
 @.str.81 = private unnamed_addr constant [15 x i8] c"bmp.stats.type\00", align 1
-@stat_typevals = internal constant [19 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.264 }, %struct._value_string { i32 1, ptr @.str.265 }, %struct._value_string { i32 2, ptr @.str.266 }, %struct._value_string { i32 3, ptr @.str.267 }, %struct._value_string { i32 4, ptr @.str.268 }, %struct._value_string { i32 5, ptr @.str.269 }, %struct._value_string { i32 6, ptr @.str.270 }, %struct._value_string { i32 7, ptr @.str.271 }, %struct._value_string { i32 8, ptr @.str.272 }, %struct._value_string { i32 9, ptr @.str.273 }, %struct._value_string { i32 10, ptr @.str.274 }, %struct._value_string { i32 11, ptr @.str.275 }, %struct._value_string { i32 12, ptr @.str.276 }, %struct._value_string { i32 13, ptr @.str.277 }, %struct._value_string { i32 14, ptr @.str.278 }, %struct._value_string { i32 15, ptr @.str.279 }, %struct._value_string { i32 16, ptr @.str.280 }, %struct._value_string { i32 17, ptr @.str.281 }, %struct._value_string zeroinitializer], align 16
 @hf_stat_len = internal global i32 0, align 4
 @.str.82 = private unnamed_addr constant [17 x i8] c"bmp.stats.length\00", align 1
 @hf_stat_data = internal global i32 0, align 4
@@ -231,14 +220,12 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.130 = private unnamed_addr constant [15 x i8] c"bmp.term.types\00", align 1
 @hf_term_type = internal global i32 0, align 4
 @.str.131 = private unnamed_addr constant [14 x i8] c"bmp.term.type\00", align 1
-@term_typevals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.65 }, %struct._value_string { i32 1, ptr @.str.75 }, %struct._value_string zeroinitializer], align 16
 @hf_term_len = internal global i32 0, align 4
 @.str.132 = private unnamed_addr constant [16 x i8] c"bmp.term.length\00", align 1
 @hf_term_info = internal global i32 0, align 4
 @.str.133 = private unnamed_addr constant [14 x i8] c"bmp.term.info\00", align 1
 @hf_term_reason = internal global i32 0, align 4
 @.str.134 = private unnamed_addr constant [16 x i8] c"bmp.term.reason\00", align 1
-@term_reason_typevals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.282 }, %struct._value_string { i32 1, ptr @.str.283 }, %struct._value_string { i32 2, ptr @.str.284 }, %struct._value_string { i32 3, ptr @.str.285 }, %struct._value_string { i32 4, ptr @.str.286 }, %struct._value_string zeroinitializer], align 16
 @hf_route_policy_flags = internal global i32 0, align 4
 @.str.135 = private unnamed_addr constant [23 x i8] c"bmp.route_policy.flags\00", align 1
 @hf_route_policy_flags_ipv6 = internal global i32 0, align 4
@@ -290,7 +277,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.164 = private unnamed_addr constant [21 x i8] c"bmp.route_policy.tlv\00", align 1
 @hf_route_policy_tlv_type = internal global i32 0, align 4
 @.str.165 = private unnamed_addr constant [26 x i8] c"bmp.route_policy.tlv.type\00", align 1
-@route_policy_tlv_typevals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.250 }, %struct._value_string { i32 1, ptr @.str.287 }, %struct._value_string { i32 2, ptr @.str.288 }, %struct._value_string { i32 3, ptr @.str.289 }, %struct._value_string { i32 4, ptr @.str.65 }, %struct._value_string zeroinitializer], align 16
 @hf_route_policy_tlv_length = internal global i32 0, align 4
 @.str.166 = private unnamed_addr constant [28 x i8] c"bmp.route_policy.tlv.length\00", align 1
 @hf_route_policy_tlv_value = internal global i32 0, align 4
@@ -320,7 +306,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_route_policy_tlv_policy_class = internal global i32 0, align 4
 @.str.182 = private unnamed_addr constant [13 x i8] c"Policy Class\00", align 1
 @.str.183 = private unnamed_addr constant [34 x i8] c"bmp.route_policy.tlv.policy.class\00", align 1
-@route_policy_tlv_policy_class_typevals = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.290 }, %struct._value_string { i32 1, ptr @.str.291 }, %struct._value_string { i32 2, ptr @.str.292 }, %struct._value_string { i32 3, ptr @.str.293 }, %struct._value_string { i32 4, ptr @.str.294 }, %struct._value_string { i32 5, ptr @.str.295 }, %struct._value_string { i32 6, ptr @.str.296 }, %struct._value_string { i32 7, ptr @.str.297 }, %struct._value_string { i32 8, ptr @.str.298 }, %struct._value_string zeroinitializer], align 16
 @hf_route_policy_tlv_policy_peer_ipv4 = internal global i32 0, align 4
 @.str.184 = private unnamed_addr constant [12 x i8] c"Peer (IPv4)\00", align 1
 @.str.185 = private unnamed_addr constant [38 x i8] c"bmp.route_policy.tlv.policy.peer_ipv4\00", align 1
@@ -385,7 +370,45 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_bmpv4_tlv_group_id = internal global i32 0, align 4
 @.str.222 = private unnamed_addr constant [9 x i8] c"Group ID\00", align 1
 @.str.223 = private unnamed_addr constant [17 x i8] c"bmp.tlv.group_id\00", align 1
-@proto_register_bmp.ett = internal global [22 x ptr] [ptr @ett_bmp, ptr @ett_bmp_route_monitoring, ptr @ett_bmp_stat_report, ptr @ett_bmp_stat_type, ptr @ett_bmp_peer_down, ptr @ett_bmp_peer_up, ptr @ett_bmp_peer_state_tlv, ptr @ett_bmp_peer_header, ptr @ett_bmp_peer_flags, ptr @ett_bmp_init, ptr @ett_bmp_init_type, ptr @ett_bmp_init_types, ptr @ett_bmp_term, ptr @ett_bmp_term_type, ptr @ett_bmp_term_types, ptr @ett_bmp_route_mirroring, ptr @ett_bmp_route_policy_flags, ptr @ett_bmp_route_policy_tlv, ptr @ett_bmp_route_policy_tlv_policy_flags, ptr @ett_bmp_route_policy_tlv_policy, ptr @ett_bmpv4_tlv, ptr @ett_bmpv4_tlv_value], align 16
+@hf_bmpv4_tlv_path_status_status = internal global i32 -1, align 4
+@.str.224 = private unnamed_addr constant [7 x i8] c"Status\00", align 1
+@.str.225 = private unnamed_addr constant [33 x i8] c"bmp.tlv.value.path_status.status\00", align 1
+@hf_bmpv4_tlv_path_status_reason = internal global i32 -1, align 4
+@.str.226 = private unnamed_addr constant [33 x i8] c"bmp.tlv.value.path_status.reason\00", align 1
+@hf_bmp_path_status_invalid = internal global i32 -1, align 4
+@.str.227 = private unnamed_addr constant [8 x i8] c"invalid\00", align 1
+@.str.228 = private unnamed_addr constant [34 x i8] c"bmp.tlv.value.path_status.invalid\00", align 1
+@hf_bmp_path_status_best = internal global i32 -1, align 4
+@.str.229 = private unnamed_addr constant [5 x i8] c"best\00", align 1
+@.str.230 = private unnamed_addr constant [31 x i8] c"bmp.tlv.value.path_status.best\00", align 1
+@hf_bmp_path_status_non_selected = internal global i32 -1, align 4
+@.str.231 = private unnamed_addr constant [13 x i8] c"non_selected\00", align 1
+@.str.232 = private unnamed_addr constant [39 x i8] c"bmp.tlv.value.path_status.non_selected\00", align 1
+@hf_bmp_path_status_primary = internal global i32 -1, align 4
+@.str.233 = private unnamed_addr constant [8 x i8] c"primary\00", align 1
+@.str.234 = private unnamed_addr constant [34 x i8] c"bmp.tlv.value.path_status.primary\00", align 1
+@hf_bmp_path_status_backup = internal global i32 -1, align 4
+@.str.235 = private unnamed_addr constant [7 x i8] c"backup\00", align 1
+@.str.236 = private unnamed_addr constant [33 x i8] c"bmp.tlv.value.path_status.backup\00", align 1
+@hf_bmp_path_status_non_installed = internal global i32 -1, align 4
+@.str.237 = private unnamed_addr constant [14 x i8] c"non_installed\00", align 1
+@.str.238 = private unnamed_addr constant [40 x i8] c"bmp.tlv.value.path_status.non_installed\00", align 1
+@hf_bmp_path_status_best_external = internal global i32 -1, align 4
+@.str.239 = private unnamed_addr constant [14 x i8] c"best_external\00", align 1
+@.str.240 = private unnamed_addr constant [40 x i8] c"bmp.tlv.value.path_status.best_external\00", align 1
+@hf_bmp_path_status_addpath = internal global i32 -1, align 4
+@.str.241 = private unnamed_addr constant [8 x i8] c"addpath\00", align 1
+@.str.242 = private unnamed_addr constant [34 x i8] c"bmp.tlv.value.path_status.addpath\00", align 1
+@hf_bmp_path_status_filtered_in = internal global i32 -1, align 4
+@.str.243 = private unnamed_addr constant [12 x i8] c"filtered_in\00", align 1
+@.str.244 = private unnamed_addr constant [38 x i8] c"bmp.tlv.value.path_status.filtered_in\00", align 1
+@hf_bmp_path_status_filtered_out = internal global i32 -1, align 4
+@.str.245 = private unnamed_addr constant [13 x i8] c"filtered_out\00", align 1
+@.str.246 = private unnamed_addr constant [39 x i8] c"bmp.tlv.value.path_status.filtered_out\00", align 1
+@hf_bmp_path_status_invalid_rov = internal global i32 -1, align 4
+@.str.247 = private unnamed_addr constant [12 x i8] c"invalid_rov\00", align 1
+@.str.248 = private unnamed_addr constant [38 x i8] c"bmp.tlv.value.path_status.invalid_rov\00", align 1
+@proto_register_bmp.ett = internal global [23 x ptr] [ptr @ett_bmp, ptr @ett_bmp_route_monitoring, ptr @ett_bmp_stat_report, ptr @ett_bmp_stat_type, ptr @ett_bmp_peer_down, ptr @ett_bmp_peer_up, ptr @ett_bmp_peer_state_tlv, ptr @ett_bmp_peer_header, ptr @ett_bmp_peer_flags, ptr @ett_bmp_init, ptr @ett_bmp_init_type, ptr @ett_bmp_init_types, ptr @ett_bmp_term, ptr @ett_bmp_term_type, ptr @ett_bmp_term_types, ptr @ett_bmp_route_mirroring, ptr @ett_bmp_route_policy_flags, ptr @ett_bmp_route_policy_tlv, ptr @ett_bmp_route_policy_tlv_policy_flags, ptr @ett_bmp_route_policy_tlv_policy, ptr @ett_bmpv4_tlv, ptr @ett_bmpv4_tlv_value, ptr @ett_bmpv4_tlv_path_status], align 16
 @ett_bmp = internal global i32 0, align 4
 @ett_bmp_route_monitoring = internal global i32 0, align 4
 @ett_bmp_stat_report = internal global i32 0, align 4
@@ -408,127 +431,156 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_bmp_route_policy_tlv_policy = internal global i32 0, align 4
 @ett_bmpv4_tlv = internal global i32 0, align 4
 @ett_bmpv4_tlv_value = internal global i32 0, align 4
-@proto_register_bmp.ei = internal global [4 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_stat_data_unknown, %struct.expert_field_info { ptr @.str.224, i32 83886080, i32 4194304, ptr @.str.225, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_bmpv4_tlv_wrong_cap_size, %struct.expert_field_info { ptr @.str.226, i32 117440512, i32 8388608, ptr @.str.227, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_bmpv4_tlv_wrong_cap_value, %struct.expert_field_info { ptr @.str.228, i32 117440512, i32 8388608, ptr @.str.229, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_bmpv4_tlv_string_bad_length, %struct.expert_field_info { ptr @.str.230, i32 117440512, i32 4194304, ptr @.str.231, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@ett_bmpv4_tlv_path_status = internal global i32 -1, align 4
+@proto_register_bmp.ei = internal global [4 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_stat_data_unknown, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.249, i32 83886080, i32 4194304, ptr @.str.250, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_bmpv4_tlv_wrong_cap_size, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.251, i32 117440512, i32 8388608, ptr @.str.252, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_bmpv4_tlv_wrong_cap_value, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.253, i32 117440512, i32 8388608, ptr @.str.254, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_bmpv4_tlv_string_bad_length, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.255, i32 117440512, i32 4194304, ptr @.str.256, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_stat_data_unknown = internal global %struct.expert_field zeroinitializer, align 4
-@.str.224 = private unnamed_addr constant [23 x i8] c"bmp.stats.data.unknown\00", align 1
-@.str.225 = private unnamed_addr constant [27 x i8] c"Unknown stats type payload\00", align 1
+@.str.249 = private unnamed_addr constant [23 x i8] c"bmp.stats.data.unknown\00", align 1
+@.str.250 = private unnamed_addr constant [27 x i8] c"Unknown stats type payload\00", align 1
 @ei_bmpv4_tlv_wrong_cap_size = internal global %struct.expert_field zeroinitializer, align 4
-@.str.226 = private unnamed_addr constant [28 x i8] c"bmp.tlv.capability.bad_size\00", align 1
-@.str.227 = private unnamed_addr constant [36 x i8] c"Wrong capability size (should be 1)\00", align 1
+@.str.251 = private unnamed_addr constant [28 x i8] c"bmp.tlv.capability.bad_size\00", align 1
+@.str.252 = private unnamed_addr constant [36 x i8] c"Wrong capability size (should be 1)\00", align 1
 @ei_bmpv4_tlv_wrong_cap_value = internal global %struct.expert_field zeroinitializer, align 4
-@.str.228 = private unnamed_addr constant [29 x i8] c"bmp.tlv.capability.bad_value\00", align 1
-@.str.229 = private unnamed_addr constant [42 x i8] c"Wrong capability value (should be 0 or 1)\00", align 1
+@.str.253 = private unnamed_addr constant [29 x i8] c"bmp.tlv.capability.bad_value\00", align 1
+@.str.254 = private unnamed_addr constant [42 x i8] c"Wrong capability value (should be 0 or 1)\00", align 1
 @ei_bmpv4_tlv_string_bad_length = internal global %struct.expert_field zeroinitializer, align 4
-@.str.230 = private unnamed_addr constant [26 x i8] c"bmp.tlv.string.bad_length\00", align 1
-@.str.231 = private unnamed_addr constant [48 x i8] c"Bad string length (should be in range [1; 255])\00", align 1
-@.str.232 = private unnamed_addr constant [24 x i8] c"BGP Monitoring Protocol\00", align 1
-@.str.233 = private unnamed_addr constant [4 x i8] c"BMP\00", align 1
-@.str.234 = private unnamed_addr constant [4 x i8] c"bmp\00", align 1
+@.str.255 = private unnamed_addr constant [26 x i8] c"bmp.tlv.string.bad_length\00", align 1
+@.str.256 = private unnamed_addr constant [48 x i8] c"Bad string length (should be in range [1; 255])\00", align 1
+@.str.257 = private unnamed_addr constant [24 x i8] c"BGP Monitoring Protocol\00", align 1
+@.str.258 = private unnamed_addr constant [4 x i8] c"BMP\00", align 1
+@.str.259 = private unnamed_addr constant [4 x i8] c"bmp\00", align 1
 @proto_bmp = internal global i32 0, align 4
 @bmp_handle = internal global ptr null, align 8
-@.str.235 = private unnamed_addr constant [10 x i8] c"desegment\00", align 1
-@.str.236 = private unnamed_addr constant [55 x i8] c"Reassemble BMP messages spanning multiple TCP segments\00", align 1
-@.str.237 = private unnamed_addr constant [204 x i8] c"Whether the BMP dissector should reassemble messages spanning multiple TCP segments. To use this option, you must also enable \22Allow subdissectors to reassemble TCP streams\22 in the TCP protocol settings.\00", align 1
-@bmp_desegment = internal global i32 1, align 4
-@.str.238 = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
-@.str.239 = private unnamed_addr constant [8 x i8] c"bgp.pdu\00", align 1
+@.str.260 = private unnamed_addr constant [10 x i8] c"desegment\00", align 1
+@.str.261 = private unnamed_addr constant [55 x i8] c"Reassemble BMP messages spanning multiple TCP segments\00", align 1
+@.str.262 = private unnamed_addr constant [204 x i8] c"Whether the BMP dissector should reassemble messages spanning multiple TCP segments. To use this option, you must also enable \22Allow subdissectors to reassemble TCP streams\22 in the TCP protocol settings.\00", align 1
+@bmp_desegment = internal global i8 1, align 1
+@.str.263 = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
+@.str.264 = private unnamed_addr constant [8 x i8] c"bgp.pdu\00", align 1
 @dissector_bgp = internal global ptr null, align 8
-@.str.240 = private unnamed_addr constant [17 x i8] c"Route Monitoring\00", align 1
-@.str.241 = private unnamed_addr constant [18 x i8] c"Statistics Report\00", align 1
-@.str.242 = private unnamed_addr constant [23 x i8] c"Peer Down Notification\00", align 1
-@.str.243 = private unnamed_addr constant [21 x i8] c"Peer Up Notification\00", align 1
-@.str.244 = private unnamed_addr constant [19 x i8] c"Initiation Message\00", align 1
-@.str.245 = private unnamed_addr constant [20 x i8] c"Termination Message\00", align 1
-@.str.246 = private unnamed_addr constant [16 x i8] c"Route Mirroring\00", align 1
-@.str.247 = private unnamed_addr constant [41 x i8] c"Route Policy and Attribute Trace Message\00", align 1
-@.str.248 = private unnamed_addr constant [9 x i8] c"sysDescr\00", align 1
-@.str.249 = private unnamed_addr constant [8 x i8] c"sysName\00", align 1
-@.str.250 = private unnamed_addr constant [10 x i8] c"VRF/Table\00", align 1
-@.str.251 = private unnamed_addr constant [21 x i8] c"Global Instance Peer\00", align 1
-@.str.252 = private unnamed_addr constant [17 x i8] c"RD Instance Peer\00", align 1
-@.str.253 = private unnamed_addr constant [20 x i8] c"Local Instance Peer\00", align 1
-@.str.254 = private unnamed_addr constant [22 x i8] c"Loc-RIB Instance Peer\00", align 1
-@.str.255 = private unnamed_addr constant [12 x i8] c"BGP Message\00", align 1
-@.str.256 = private unnamed_addr constant [12 x i8] c"Errored PDU\00", align 1
-@.str.257 = private unnamed_addr constant [14 x i8] c"Messages Lost\00", align 1
-@.str.258 = private unnamed_addr constant [27 x i8] c"Local System, Notification\00", align 1
-@.str.259 = private unnamed_addr constant [30 x i8] c"Local System, No Notification\00", align 1
-@.str.260 = private unnamed_addr constant [28 x i8] c"Remote System, Notification\00", align 1
-@.str.261 = private unnamed_addr constant [31 x i8] c"Remote System, No Notification\00", align 1
-@.str.262 = private unnamed_addr constant [59 x i8] c"Peer no longer be sent Information (Configuration reasons)\00", align 1
-@.str.263 = private unnamed_addr constant [38 x i8] c"Local system closed, TLV data Follows\00", align 1
-@.str.264 = private unnamed_addr constant [18 x i8] c"Rejected Prefixes\00", align 1
-@.str.265 = private unnamed_addr constant [19 x i8] c"Duplicate Prefixes\00", align 1
-@.str.266 = private unnamed_addr constant [20 x i8] c"Duplicate Withdraws\00", align 1
-@.str.267 = private unnamed_addr constant [26 x i8] c"Invalid CLUSTER_LIST Loop\00", align 1
-@.str.268 = private unnamed_addr constant [21 x i8] c"Invalid AS_PATH Loop\00", align 1
-@.str.269 = private unnamed_addr constant [22 x i8] c"Invalid ORIGINATOR_ID\00", align 1
-@.str.270 = private unnamed_addr constant [23 x i8] c"Invalid AS_CONFED Loop\00", align 1
-@.str.271 = private unnamed_addr constant [21 x i8] c"Routes in Adj-RIB-In\00", align 1
-@.str.272 = private unnamed_addr constant [18 x i8] c"Routes in Loc-RIB\00", align 1
-@.str.273 = private unnamed_addr constant [33 x i8] c"Routes in per-AFI/SAF Adj-RIB-In\00", align 1
-@.str.274 = private unnamed_addr constant [29 x i8] c"Routes in per-AFI/SAFLoc-RIB\00", align 1
-@.str.275 = private unnamed_addr constant [49 x i8] c"Updates subjected to treat-as-withdraw treatment\00", align 1
-@.str.276 = private unnamed_addr constant [50 x i8] c"Prefixes subjected to treat-as-withdraw treatment\00", align 1
-@.str.277 = private unnamed_addr constant [35 x i8] c"Duplicate update messages received\00", align 1
-@.str.278 = private unnamed_addr constant [33 x i8] c"Routes in pre-policy Adj-RIB-Out\00", align 1
-@.str.279 = private unnamed_addr constant [34 x i8] c"Routes in post-policy Adj-RIB-Out\00", align 1
-@.str.280 = private unnamed_addr constant [46 x i8] c"Routes in per-AFI/SAFI pre-policy Adj-RIB-Out\00", align 1
-@.str.281 = private unnamed_addr constant [47 x i8] c"Routes in per-AFI/SAFI post-policy Adj RIB-Out\00", align 1
-@.str.282 = private unnamed_addr constant [32 x i8] c"Session administratively closed\00", align 1
-@.str.283 = private unnamed_addr constant [19 x i8] c"Unspecified reason\00", align 1
-@.str.284 = private unnamed_addr constant [17 x i8] c"Out of resources\00", align 1
-@.str.285 = private unnamed_addr constant [21 x i8] c"Redundant connection\00", align 1
-@.str.286 = private unnamed_addr constant [44 x i8] c"Session permanently administratively closed\00", align 1
-@.str.287 = private unnamed_addr constant [11 x i8] c"Policy TLV\00", align 1
-@.str.288 = private unnamed_addr constant [21 x i8] c"Pre Policy Attribute\00", align 1
-@.str.289 = private unnamed_addr constant [22 x i8] c"Post Policy Attribute\00", align 1
-@.str.290 = private unnamed_addr constant [15 x i8] c"Inbound policy\00", align 1
-@.str.291 = private unnamed_addr constant [16 x i8] c"Outbound policy\00", align 1
-@.str.292 = private unnamed_addr constant [28 x i8] c"Multi-protocol Redistribute\00", align 1
-@.str.293 = private unnamed_addr constant [23 x i8] c"Cross-VRF Redistribute\00", align 1
-@.str.294 = private unnamed_addr constant [11 x i8] c"VRF import\00", align 1
-@.str.295 = private unnamed_addr constant [11 x i8] c"VRF export\00", align 1
-@.str.296 = private unnamed_addr constant [8 x i8] c"Network\00", align 1
-@.str.297 = private unnamed_addr constant [12 x i8] c"Aggregation\00", align 1
-@.str.298 = private unnamed_addr constant [15 x i8] c"Route Withdraw\00", align 1
-@.str.299 = private unnamed_addr constant [9 x i8] c"Type: %s\00", align 1
-@.str.300 = private unnamed_addr constant [17 x i8] c"Unknown (0x%02x)\00", align 1
-@.str.301 = private unnamed_addr constant [10 x i8] c", Type %s\00", align 1
+@.str.265 = private unnamed_addr constant [17 x i8] c"Route Monitoring\00", align 1
+@.str.266 = private unnamed_addr constant [18 x i8] c"Statistics Report\00", align 1
+@.str.267 = private unnamed_addr constant [23 x i8] c"Peer Down Notification\00", align 1
+@.str.268 = private unnamed_addr constant [21 x i8] c"Peer Up Notification\00", align 1
+@.str.269 = private unnamed_addr constant [19 x i8] c"Initiation Message\00", align 1
+@.str.270 = private unnamed_addr constant [20 x i8] c"Termination Message\00", align 1
+@.str.271 = private unnamed_addr constant [16 x i8] c"Route Mirroring\00", align 1
+@.str.272 = private unnamed_addr constant [41 x i8] c"Route Policy and Attribute Trace Message\00", align 1
+@bmp_typevals = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.265 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.266 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.268 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.269 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.270 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.271 }, { i32, [4 x i8], ptr } { i32 100, [4 x i8] zeroinitializer, ptr @.str.272 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.274 = private unnamed_addr constant [9 x i8] c"sysDescr\00", align 1
+@.str.275 = private unnamed_addr constant [8 x i8] c"sysName\00", align 1
+@.str.276 = private unnamed_addr constant [10 x i8] c"VRF/Table\00", align 1
+@init_typevals = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.65 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.274 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.276 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.73 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.278 = private unnamed_addr constant [21 x i8] c"Global Instance Peer\00", align 1
+@.str.279 = private unnamed_addr constant [17 x i8] c"RD Instance Peer\00", align 1
+@.str.280 = private unnamed_addr constant [20 x i8] c"Local Instance Peer\00", align 1
+@.str.281 = private unnamed_addr constant [22 x i8] c"Loc-RIB Instance Peer\00", align 1
+@peer_typevals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.278 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.279 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.280 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.281 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.283 = private unnamed_addr constant [12 x i8] c"BGP Message\00", align 1
+@route_mirroring_typevals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.283 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.14 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.285 = private unnamed_addr constant [12 x i8] c"Errored PDU\00", align 1
+@.str.286 = private unnamed_addr constant [14 x i8] c"Messages Lost\00", align 1
+@route_mirroring_information_typevals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.285 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.286 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@peer_up_tlv_typevals = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.65 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.274 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.276 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.73 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.289 = private unnamed_addr constant [27 x i8] c"Local System, Notification\00", align 1
+@.str.290 = private unnamed_addr constant [30 x i8] c"Local System, No Notification\00", align 1
+@.str.291 = private unnamed_addr constant [28 x i8] c"Remote System, Notification\00", align 1
+@.str.292 = private unnamed_addr constant [31 x i8] c"Remote System, No Notification\00", align 1
+@.str.293 = private unnamed_addr constant [59 x i8] c"Peer no longer be sent Information (Configuration reasons)\00", align 1
+@.str.294 = private unnamed_addr constant [38 x i8] c"Local system closed, TLV data Follows\00", align 1
+@down_reason_typevals = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.289 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.290 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.291 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.292 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.293 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.294 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.296 = private unnamed_addr constant [18 x i8] c"Rejected Prefixes\00", align 1
+@.str.297 = private unnamed_addr constant [19 x i8] c"Duplicate Prefixes\00", align 1
+@.str.298 = private unnamed_addr constant [20 x i8] c"Duplicate Withdraws\00", align 1
+@.str.299 = private unnamed_addr constant [26 x i8] c"Invalid CLUSTER_LIST Loop\00", align 1
+@.str.300 = private unnamed_addr constant [21 x i8] c"Invalid AS_PATH Loop\00", align 1
+@.str.301 = private unnamed_addr constant [22 x i8] c"Invalid ORIGINATOR_ID\00", align 1
+@.str.302 = private unnamed_addr constant [23 x i8] c"Invalid AS_CONFED Loop\00", align 1
+@.str.303 = private unnamed_addr constant [21 x i8] c"Routes in Adj-RIB-In\00", align 1
+@.str.304 = private unnamed_addr constant [18 x i8] c"Routes in Loc-RIB\00", align 1
+@.str.305 = private unnamed_addr constant [33 x i8] c"Routes in per-AFI/SAF Adj-RIB-In\00", align 1
+@.str.306 = private unnamed_addr constant [29 x i8] c"Routes in per-AFI/SAFLoc-RIB\00", align 1
+@.str.307 = private unnamed_addr constant [49 x i8] c"Updates subjected to treat-as-withdraw treatment\00", align 1
+@.str.308 = private unnamed_addr constant [50 x i8] c"Prefixes subjected to treat-as-withdraw treatment\00", align 1
+@.str.309 = private unnamed_addr constant [35 x i8] c"Duplicate update messages received\00", align 1
+@.str.310 = private unnamed_addr constant [33 x i8] c"Routes in pre-policy Adj-RIB-Out\00", align 1
+@.str.311 = private unnamed_addr constant [34 x i8] c"Routes in post-policy Adj-RIB-Out\00", align 1
+@.str.312 = private unnamed_addr constant [46 x i8] c"Routes in per-AFI/SAFI pre-policy Adj-RIB-Out\00", align 1
+@.str.313 = private unnamed_addr constant [47 x i8] c"Routes in per-AFI/SAFI post-policy Adj RIB-Out\00", align 1
+@stat_typevals = internal constant [19 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.296 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.297 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.298 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.299 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.300 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.301 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.302 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.303 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.304 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.305 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.306 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.307 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.308 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.309 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.310 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.311 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.312 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.313 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@term_typevals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.65 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.75 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.316 = private unnamed_addr constant [32 x i8] c"Session administratively closed\00", align 1
+@.str.317 = private unnamed_addr constant [19 x i8] c"Unspecified reason\00", align 1
+@.str.318 = private unnamed_addr constant [17 x i8] c"Out of resources\00", align 1
+@.str.319 = private unnamed_addr constant [21 x i8] c"Redundant connection\00", align 1
+@.str.320 = private unnamed_addr constant [44 x i8] c"Session permanently administratively closed\00", align 1
+@term_reason_typevals = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.316 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.317 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.318 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.319 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.320 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.322 = private unnamed_addr constant [11 x i8] c"Policy TLV\00", align 1
+@.str.323 = private unnamed_addr constant [21 x i8] c"Pre Policy Attribute\00", align 1
+@.str.324 = private unnamed_addr constant [22 x i8] c"Post Policy Attribute\00", align 1
+@route_policy_tlv_typevals = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.276 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.322 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.323 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.324 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.65 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.326 = private unnamed_addr constant [15 x i8] c"Inbound policy\00", align 1
+@.str.327 = private unnamed_addr constant [16 x i8] c"Outbound policy\00", align 1
+@.str.328 = private unnamed_addr constant [28 x i8] c"Multi-protocol Redistribute\00", align 1
+@.str.329 = private unnamed_addr constant [23 x i8] c"Cross-VRF Redistribute\00", align 1
+@.str.330 = private unnamed_addr constant [11 x i8] c"VRF import\00", align 1
+@.str.331 = private unnamed_addr constant [11 x i8] c"VRF export\00", align 1
+@.str.332 = private unnamed_addr constant [8 x i8] c"Network\00", align 1
+@.str.333 = private unnamed_addr constant [12 x i8] c"Aggregation\00", align 1
+@.str.334 = private unnamed_addr constant [15 x i8] c"Route Withdraw\00", align 1
+@route_policy_tlv_policy_class_typevals = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.326 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.327 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.328 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.329 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.330 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.331 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.332 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.333 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.334 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.336 = private unnamed_addr constant [6 x i8] c"Group\00", align 1
+@.str.337 = private unnamed_addr constant [15 x i8] c"VRF/Table Name\00", align 1
+@.str.338 = private unnamed_addr constant [24 x i8] c"BGP Add-Path Capability\00", align 1
+@.str.339 = private unnamed_addr constant [27 x i8] c"BGP Multi-Label Capability\00", align 1
+@.str.340 = private unnamed_addr constant [16 x i8] c"BGP Path Status\00", align 1
+@bmpv4_tlv_typevals = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.283 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.336 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.337 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.338 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.339 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.340 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.342 = private unnamed_addr constant [20 x i8] c"Invalid for AS Loop\00", align 1
+@.str.343 = private unnamed_addr constant [33 x i8] c"Invalid for unresolvable nexthop\00", align 1
+@.str.344 = private unnamed_addr constant [35 x i8] c"Not Preferred for Local Preference\00", align 1
+@.str.345 = private unnamed_addr constant [33 x i8] c"Not Preferred for AS Path Length\00", align 1
+@.str.346 = private unnamed_addr constant [25 x i8] c"Not Preferred for Origin\00", align 1
+@.str.347 = private unnamed_addr constant [22 x i8] c"Not Preferred for MED\00", align 1
+@.str.348 = private unnamed_addr constant [28 x i8] c"Not Preferred for Peer Type\00", align 1
+@.str.349 = private unnamed_addr constant [27 x i8] c"Not Preferred for IGP Cost\00", align 1
+@.str.350 = private unnamed_addr constant [28 x i8] c"Not Preferred for Router ID\00", align 1
+@.str.351 = private unnamed_addr constant [31 x i8] c"Not Preferred for Peer Address\00", align 1
+@.str.352 = private unnamed_addr constant [23 x i8] c"Not Preferred for AIGP\00", align 1
+@bmpv4_tlv_path_status_reason_typevals = internal constant [13 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.29 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.342 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.343 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.344 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.345 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.346 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.347 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.348 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.349 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.350 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.351 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.352 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.354 = private unnamed_addr constant [9 x i8] c"Type: %s\00", align 1
+@.str.355 = private unnamed_addr constant [17 x i8] c"Unknown (0x%02x)\00", align 1
+@.str.356 = private unnamed_addr constant [10 x i8] c", Type %s\00", align 1
 @dissect_bmp_peer_header.peer_flags = internal constant [6 x ptr] [ptr @hf_peer_flags_ipv6, ptr @hf_peer_flags_post_policy, ptr @hf_peer_flags_as_path, ptr @hf_peer_flags_adj_rib_out, ptr @hf_peer_flags_res, ptr null], align 16
 @dissect_bmp_peer_header.peer_flags_loc_rib = internal constant [3 x ptr] [ptr @hf_peer_flags_loc_rib, ptr @hf_peer_flags_loc_rib_res, ptr null], align 16
-@.str.302 = private unnamed_addr constant [23 x i8] c"Peer Distinguisher: %s\00", align 1
-@.str.303 = private unnamed_addr constant [55 x i8] c"%s:%u: failed assertion \22DISSECTOR_ASSERT_NOT_REACHED\22\00", align 1
-@.str.304 = private unnamed_addr constant [29 x i8] c"epan/dissectors/packet-bmp.c\00", align 1
-@.str.305 = private unnamed_addr constant [17 x i8] c"Target Count: %d\00", align 1
-@.str.306 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
-@bmpv4_tlv_typevals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 4, ptr @.str.255 }, %struct._value_string { i32 5, ptr @.str.307 }, %struct._value_string { i32 3, ptr @.str.308 }, %struct._value_string { i32 6, ptr @.str.309 }, %struct._value_string { i32 7, ptr @.str.310 }, %struct._value_string zeroinitializer], align 16
-@.str.307 = private unnamed_addr constant [6 x i8] c"Group\00", align 1
-@.str.308 = private unnamed_addr constant [15 x i8] c"VRF/Table Name\00", align 1
-@.str.309 = private unnamed_addr constant [24 x i8] c"BGP Add-Path Capability\00", align 1
-@.str.310 = private unnamed_addr constant [27 x i8] c"BGP Multi-Label Capability\00", align 1
-@peer_down_tlv_typevals = internal constant [2 x %struct._value_string] [%struct._value_string { i32 3, ptr @.str.250 }, %struct._value_string zeroinitializer], align 16
-@.str.311 = private unnamed_addr constant [17 x i8] c": (t=%d,l=%d) %s\00", align 1
-@.str.312 = private unnamed_addr constant [24 x i8] c"Unknown TLV Type (%02d)\00", align 1
+@.str.357 = private unnamed_addr constant [23 x i8] c"Peer Distinguisher: %s\00", align 1
+@.str.358 = private unnamed_addr constant [55 x i8] c"%s:%u: failed assertion \22DISSECTOR_ASSERT_NOT_REACHED\22\00", align 1
+@.str.359 = private unnamed_addr constant [29 x i8] c"epan/dissectors/packet-bmp.c\00", align 1
+@.str.360 = private unnamed_addr constant [17 x i8] c"Target Count: %d\00", align 1
+@hf_bmpv4_tlv_path_status = internal constant [12 x ptr] [ptr @hf_bmp_path_status_invalid, ptr @hf_bmp_path_status_best, ptr @hf_bmp_path_status_non_selected, ptr @hf_bmp_path_status_primary, ptr @hf_bmp_path_status_backup, ptr @hf_bmp_path_status_non_installed, ptr @hf_bmp_path_status_best_external, ptr @hf_bmp_path_status_addpath, ptr @hf_bmp_path_status_filtered_in, ptr @hf_bmp_path_status_filtered_out, ptr @hf_bmp_path_status_invalid_rov, ptr null], align 16
+@.str.361 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
+@.str.362 = private unnamed_addr constant [17 x i8] c": (t=%d,l=%d) %s\00", align 1
+@.str.363 = private unnamed_addr constant [24 x i8] c"Unknown TLV Type (%02d)\00", align 1
+@peer_down_tlv_typevals = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.276 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @dissect_bmp_route_policy.route_policy_flags = internal constant [3 x ptr] [ptr @hf_route_policy_flags_ipv6, ptr @hf_route_policy_flags_res, ptr null], align 16
 @dissect_bmp_route_policy_event.route_policy_tlv_policy_flags = internal constant [5 x ptr] [ptr @hf_route_policy_tlv_policy_flags_m, ptr @hf_route_policy_tlv_policy_flags_p, ptr @hf_route_policy_tlv_policy_flags_d, ptr @hf_route_policy_tlv_policy_flags_res, ptr null], align 16
 @dissect_bmp_route_policy_event.route_policy_tlv_policy_flag = internal constant [4 x ptr] [ptr @hf_route_policy_tlv_policy_flag_c, ptr @hf_route_policy_tlv_policy_flag_r, ptr @hf_route_policy_tlv_policy_flag_res2, ptr null], align 16
-@.str.313 = private unnamed_addr constant [14 x i8] c": (t=%d,l=%d)\00", align 1
-@.str.314 = private unnamed_addr constant [10 x i8] c" name: %s\00", align 1
-@.str.315 = private unnamed_addr constant [8 x i8] c" id: %s\00", align 1
+@.str.365 = private unnamed_addr constant [14 x i8] c": (t=%d,l=%d)\00", align 1
+@.str.366 = private unnamed_addr constant [10 x i8] c" name: %s\00", align 1
+@.str.367 = private unnamed_addr constant [8 x i8] c" id: %s\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_bmp() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
-  %3 = call i32 @proto_register_protocol(ptr noundef @.str.232, ptr noundef @.str.233, ptr noundef @.str.234)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #6
+  %3 = call i32 @proto_register_protocol(ptr noundef @.str.257, ptr noundef @.str.258, ptr noundef @.str.259)
   store i32 %3, ptr @proto_bmp, align 4
   %4 = load i32, ptr @proto_bmp, align 4
-  %5 = call ptr @register_dissector(ptr noundef @.str.234, ptr noundef @dissect_bmp, i32 noundef %4)
+  %5 = call ptr @register_dissector(ptr noundef @.str.259, ptr noundef @dissect_bmp, i32 noundef %4)
   store ptr %5, ptr @bmp_handle, align 8
   %6 = load i32, ptr @proto_bmp, align 4
-  call void @proto_register_field_array(i32 noundef %6, ptr noundef @proto_register_bmp.hf, i32 noundef 133)
-  call void @proto_register_subtree_array(ptr noundef @proto_register_bmp.ett, i32 noundef 22)
+  call void @proto_register_field_array(i32 noundef %6, ptr noundef @proto_register_bmp.hf, i32 noundef 146)
+  call void @proto_register_subtree_array(ptr noundef @proto_register_bmp.ett, i32 noundef 23)
   %7 = load i32, ptr @proto_bmp, align 4
   %8 = call ptr @expert_register_protocol(i32 noundef %7)
   store ptr %8, ptr %1, align 8
@@ -538,15 +590,22 @@ define hidden void @proto_register_bmp() #0 {
   %11 = call ptr @prefs_register_protocol(i32 noundef %10, ptr noundef null)
   store ptr %11, ptr %2, align 8
   %12 = load ptr, ptr %2, align 8
-  call void @prefs_register_bool_preference(ptr noundef %12, ptr noundef @.str.235, ptr noundef @.str.236, ptr noundef @.str.237, ptr noundef @bmp_desegment)
+  call void @prefs_register_bool_preference(ptr noundef %12, ptr noundef @.str.260, ptr noundef @.str.261, ptr noundef @.str.262, ptr noundef @bmp_desegment)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #6
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_bmp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -559,43 +618,56 @@ define internal i32 @dissect_bmp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %9 = load ptr, ptr %5, align 8
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %7, align 8
-  %12 = load i32, ptr @bmp_desegment, align 4
-  %13 = load ptr, ptr %8, align 8
-  call void @tcp_dissect_pdus(ptr noundef %9, ptr noundef %10, ptr noundef %11, i32 noundef %12, i32 noundef 5, ptr noundef @get_bmp_pdu_len, ptr noundef @dissect_bmp_pdu, ptr noundef %13)
-  %14 = load ptr, ptr %5, align 8
-  %15 = call i32 @tvb_captured_length(ptr noundef %14)
-  ret i32 %15
+  %12 = load i8, ptr @bmp_desegment, align 1, !range !6, !noundef !7
+  %13 = trunc i8 %12 to i1
+  %14 = load ptr, ptr %8, align 8
+  call void @tcp_dissect_pdus(ptr noundef %9, ptr noundef %10, ptr noundef %11, i1 noundef zeroext %13, i32 noundef 5, ptr noundef @get_bmp_pdu_len, ptr noundef @dissect_bmp_pdu, ptr noundef %14)
+  %15 = load ptr, ptr %5, align 8
+  %16 = call i32 @tvb_captured_length(ptr noundef %15)
+  ret i32 %16
 }
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #2
 
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_bmp() #0 {
   %1 = load ptr, ptr @bmp_handle, align 8
-  call void @dissector_add_for_decode_as_with_preference(ptr noundef @.str.238, ptr noundef %1)
+  call void @dissector_add_for_decode_as_with_preference(ptr noundef @.str.263, ptr noundef %1)
   %2 = load i32, ptr @proto_bmp, align 4
-  %3 = call ptr @find_dissector_add_dependency(ptr noundef @.str.239, i32 noundef %2)
+  %3 = call ptr @find_dissector_add_dependency(ptr noundef @.str.264, i32 noundef %2)
   store ptr %3, ptr @dissector_bgp, align 8
   ret void
 }
 
-declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr noundef) #2
 
-declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) #2
 
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @get_bmp_pdu_len(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -612,7 +684,7 @@ define internal i32 @get_bmp_pdu_len(ptr noundef %0, ptr noundef %1, i32 noundef
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_bmp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -630,25 +702,31 @@ define internal i32 @dissect_bmp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
   store i32 0, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
   %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct._packet_info, ptr %17, i32 0, i32 1
+  %18 = getelementptr inbounds nuw %struct._packet_info, ptr %17, i32 0, i32 1
   %19 = load ptr, ptr %18, align 8
-  call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef @.str.233)
+  call void @col_set_str(ptr noundef %19, i32 noundef 35, ptr noundef @.str.258)
   %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct._packet_info, ptr %20, i32 0, i32 1
+  %21 = getelementptr inbounds nuw %struct._packet_info, ptr %20, i32 0, i32 1
   %22 = load ptr, ptr %21, align 8
   call void @col_clear(ptr noundef %22, i32 noundef 25)
   %23 = load ptr, ptr %5, align 8
-  %24 = call zeroext i8 @tvb_get_guint8(ptr noundef %23, i32 noundef 5)
+  %24 = call zeroext i8 @tvb_get_uint8(ptr noundef %23, i32 noundef 5)
   store i8 %24, ptr %10, align 1
   %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds %struct._packet_info, ptr %25, i32 0, i32 1
+  %26 = getelementptr inbounds nuw %struct._packet_info, ptr %25, i32 0, i32 1
   %27 = load ptr, ptr %26, align 8
   %28 = load i8, ptr %10, align 1
   %29 = zext i8 %28 to i32
-  %30 = call ptr @val_to_str(i32 noundef %29, ptr noundef @bmp_typevals, ptr noundef @.str.300)
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %27, i32 noundef 25, ptr noundef @.str.299, ptr noundef %30)
+  %30 = call ptr @val_to_str(i32 noundef %29, ptr noundef @bmp_typevals, ptr noundef @.str.355)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %27, i32 noundef 25, ptr noundef @.str.354, ptr noundef %30)
   %31 = load ptr, ptr %7, align 8
   %32 = load i32, ptr @proto_bmp, align 4
   %33 = load ptr, ptr %5, align 8
@@ -657,8 +735,8 @@ define internal i32 @dissect_bmp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   %35 = load ptr, ptr %13, align 8
   %36 = load i8, ptr %10, align 1
   %37 = zext i8 %36 to i32
-  %38 = call ptr @val_to_str(i32 noundef %37, ptr noundef @bmp_typevals, ptr noundef @.str.300)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %35, ptr noundef @.str.301, ptr noundef %38)
+  %38 = call ptr @val_to_str(i32 noundef %37, ptr noundef @bmp_typevals, ptr noundef @.str.355)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %35, ptr noundef @.str.356, ptr noundef %38)
   %39 = load i8, ptr %10, align 1
   %40 = zext i8 %39 to i32
   switch i32 %40, label %55 [
@@ -716,12 +794,14 @@ define internal i32 @dissect_bmp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   %59 = load i32, ptr %12, align 4
   %60 = call ptr @proto_item_add_subtree(ptr noundef %58, i32 noundef %59)
   store ptr %60, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
   store i32 0, ptr %15, align 4
   %61 = load ptr, ptr %14, align 8
   %62 = load i32, ptr @hf_bmp_version, align 4
   %63 = load ptr, ptr %5, align 8
   %64 = load i32, ptr %9, align 4
   %65 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %61, i32 noundef %62, ptr noundef %63, i32 noundef %64, i32 noundef 1, i32 noundef 0, ptr noundef %15)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #6
   %66 = load i32, ptr %15, align 4
   %67 = trunc i32 %66 to i8
   store i8 %67, ptr %16, align 1
@@ -808,34 +888,54 @@ define internal i32 @dissect_bmp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
 119:                                              ; preds = %118, %111, %104, %96, %89
   %120 = load ptr, ptr %5, align 8
   %121 = call i32 @tvb_captured_length(ptr noundef %120)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
   ret i32 %121
 }
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #2
 
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @col_clear(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_clear(ptr noundef, i32 noundef) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_bmp_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i16 noundef zeroext %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -855,6 +955,10 @@ define internal void @dissect_bmp_init(ptr noundef %0, ptr noundef %1, ptr nound
   store i32 %3, ptr %10, align 4
   store i8 %4, ptr %11, align 1
   store i16 %5, ptr %12, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
   %19 = load ptr, ptr %8, align 8
   %20 = load i32, ptr @hf_init_types, align 4
   %21 = load ptr, ptr %7, align 8
@@ -877,6 +981,8 @@ define internal void @dissect_bmp_init(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %33, label %34, label %73
 
 34:                                               ; preds = %29
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #6
   %35 = load ptr, ptr %7, align 8
   %36 = load i32, ptr %10, align 4
   %37 = call zeroext i16 @tvb_get_ntohs(ptr noundef %35, i32 noundef %36)
@@ -884,8 +990,8 @@ define internal void @dissect_bmp_init(ptr noundef %0, ptr noundef %1, ptr nound
   %38 = load ptr, ptr %15, align 8
   %39 = load i16, ptr %13, align 2
   %40 = zext i16 %39 to i32
-  %41 = call ptr @val_to_str(i32 noundef %40, ptr noundef @init_typevals, ptr noundef @.str.300)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %38, ptr noundef @.str.301, ptr noundef %41)
+  %41 = call ptr @val_to_str(i32 noundef %40, ptr noundef @init_typevals, ptr noundef @.str.355)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %38, ptr noundef @.str.356, ptr noundef %41)
   %42 = load ptr, ptr %16, align 8
   %43 = load i32, ptr @hf_init_type, align 4
   %44 = load ptr, ptr %7, align 8
@@ -923,13 +1029,19 @@ define internal void @dissect_bmp_init(ptr noundef %0, ptr noundef %1, ptr nound
   %71 = load i32, ptr %10, align 4
   %72 = add i32 %71, %70
   store i32 %72, ptr %10, align 4
-  br label %29, !llvm.loop !4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  br label %29, !llvm.loop !8
 
 73:                                               ; preds = %29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #6
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_bmp_peer_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i16 noundef zeroext %5, i8 noundef zeroext %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -953,6 +1065,11 @@ define internal void @dissect_bmp_peer_header(ptr noundef %0, ptr noundef %1, pt
   store i8 %4, ptr %12, align 1
   store i16 %5, ptr %13, align 2
   store i8 %6, ptr %14, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #6
   %23 = load ptr, ptr %9, align 8
   %24 = load i32, ptr @hf_peer_header, align 4
   %25 = load ptr, ptr %8, align 8
@@ -975,7 +1092,7 @@ define internal void @dissect_bmp_peer_header(ptr noundef %0, ptr noundef %1, pt
   store i32 %39, ptr %11, align 4
   %40 = load ptr, ptr %8, align 8
   %41 = load i32, ptr %11, align 4
-  %42 = call zeroext i8 @tvb_get_guint8(ptr noundef %40, i32 noundef %41)
+  %42 = call zeroext i8 @tvb_get_uint8(ptr noundef %40, i32 noundef %41)
   store i8 %42, ptr %15, align 1
   %43 = load i32, ptr %16, align 4
   %44 = icmp eq i32 %43, 3
@@ -1011,12 +1128,12 @@ define internal void @dissect_bmp_peer_header(ptr noundef %0, ptr noundef %1, pt
   store ptr %66, ptr %17, align 8
   %67 = load ptr, ptr %17, align 8
   %68 = load ptr, ptr %10, align 8
-  %69 = getelementptr inbounds %struct._packet_info, ptr %68, i32 0, i32 50
+  %69 = getelementptr inbounds nuw %struct._packet_info, ptr %68, i32 0, i32 51
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %8, align 8
   %72 = load i32, ptr %11, align 4
   %73 = call ptr @decode_bgp_rd(ptr noundef %70, ptr noundef %71, i32 noundef %72)
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %67, ptr noundef @.str.302, ptr noundef %73)
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %67, ptr noundef @.str.357, ptr noundef %73)
   %74 = load i32, ptr %11, align 4
   %75 = add i32 %74, 8
   store i32 %75, ptr %11, align 4
@@ -1089,6 +1206,7 @@ define internal void @dissect_bmp_peer_header(ptr noundef %0, ptr noundef %1, pt
   %130 = load i32, ptr %11, align 4
   %131 = add i32 %130, 4
   store i32 %131, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %20) #6
   %132 = load i8, ptr %14, align 1
   %133 = zext i8 %132 to i32
   %134 = icmp eq i32 %133, 4
@@ -1107,7 +1225,7 @@ define internal void @dissect_bmp_peer_header(ptr noundef %0, ptr noundef %1, pt
   ]
 
 138:                                              ; preds = %103
-  %139 = load i8, ptr %20, align 1
+  %139 = load i8, ptr %20, align 1, !range !6, !noundef !7
   %140 = trunc i8 %139 to i1
   br i1 %140, label %141, label %147
 
@@ -1122,7 +1240,7 @@ define internal void @dissect_bmp_peer_header(ptr noundef %0, ptr noundef %1, pt
 
 147:                                              ; preds = %138
   %148 = load ptr, ptr %10, align 8
-  %149 = getelementptr inbounds %struct._packet_info, ptr %148, i32 0, i32 1
+  %149 = getelementptr inbounds nuw %struct._packet_info, ptr %148, i32 0, i32 1
   %150 = load ptr, ptr %149, align 8
   call void @col_clear(ptr noundef %150, i32 noundef 25)
   %151 = load ptr, ptr @dissector_bgp, align 8
@@ -1148,6 +1266,8 @@ define internal void @dissect_bmp_peer_header(ptr noundef %0, ptr noundef %1, pt
   br i1 %164, label %165, label %204
 
 165:                                              ; preds = %160
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #6
   %166 = load ptr, ptr %9, align 8
   %167 = load i32, ptr @hf_peer_route_mirroring_type, align 4
   %168 = load ptr, ptr %8, align 8
@@ -1172,7 +1292,7 @@ define internal void @dissect_bmp_peer_header(ptr noundef %0, ptr noundef %1, pt
 
 181:                                              ; preds = %165
   %182 = load ptr, ptr %10, align 8
-  %183 = getelementptr inbounds %struct._packet_info, ptr %182, i32 0, i32 1
+  %183 = getelementptr inbounds nuw %struct._packet_info, ptr %182, i32 0, i32 1
   %184 = load ptr, ptr %183, align 8
   call void @col_clear(ptr noundef %184, i32 noundef 25)
   %185 = load ptr, ptr @dissector_bgp, align 8
@@ -1199,8 +1319,10 @@ define internal void @dissect_bmp_peer_header(ptr noundef %0, ptr noundef %1, pt
   store i32 %202, ptr %11, align 4
   br label %203
 
-203:                                              ; preds = %195, %181, %165
-  br label %160, !llvm.loop !6
+203:                                              ; preds = %165, %195, %181
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #6
+  br label %160, !llvm.loop !10
 
 204:                                              ; preds = %160
   br label %227
@@ -1220,7 +1342,7 @@ define internal void @dissect_bmp_peer_header(ptr noundef %0, ptr noundef %1, pt
   %214 = load ptr, ptr %10, align 8
   %215 = load i32, ptr %11, align 4
   %216 = load i8, ptr %15, align 1
-  %217 = load i8, ptr %20, align 1
+  %217 = load i8, ptr %20, align 1, !range !6, !noundef !7
   %218 = trunc i8 %217 to i1
   call void @dissect_bmp_peer_down_notification(ptr noundef %212, ptr noundef %213, ptr noundef %214, i32 noundef %215, i8 noundef signext %216, i1 noundef zeroext %218)
   br label %227
@@ -1237,15 +1359,21 @@ define internal void @dissect_bmp_peer_header(ptr noundef %0, ptr noundef %1, pt
 225:                                              ; preds = %103, %103
   br label %226
 
-226:                                              ; preds = %225, %103
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.303, ptr noundef @.str.304, i32 noundef 1087) #5
+226:                                              ; preds = %103, %225
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.358, ptr noundef @.str.359, i32 noundef 1187) #7
   unreachable
 
 227:                                              ; preds = %219, %211, %205, %204, %158
+  call void @llvm.lifetime.end.p0(i64 1, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #6
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_bmp_termination(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i16 noundef zeroext %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1263,6 +1391,10 @@ define internal void @dissect_bmp_termination(ptr noundef %0, ptr noundef %1, pt
   store i32 %3, ptr %10, align 4
   store i8 %4, ptr %11, align 1
   store i16 %5, ptr %12, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
   %17 = load ptr, ptr %8, align 8
   %18 = load i32, ptr @hf_term_types, align 4
   %19 = load ptr, ptr %7, align 8
@@ -1282,8 +1414,8 @@ define internal void @dissect_bmp_termination(ptr noundef %0, ptr noundef %1, pt
   %30 = load ptr, ptr %16, align 8
   %31 = load i16, ptr %13, align 2
   %32 = zext i16 %31 to i32
-  %33 = call ptr @val_to_str(i32 noundef %32, ptr noundef @term_typevals, ptr noundef @.str.300)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef @.str.301, ptr noundef %33)
+  %33 = call ptr @val_to_str(i32 noundef %32, ptr noundef @term_typevals, ptr noundef @.str.355)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef @.str.356, ptr noundef %33)
   %34 = load ptr, ptr %16, align 8
   %35 = load i32, ptr @hf_term_type, align 4
   %36 = load ptr, ptr %7, align 8
@@ -1330,10 +1462,14 @@ define internal void @dissect_bmp_termination(ptr noundef %0, ptr noundef %1, pt
   br label %70
 
 70:                                               ; preds = %62, %54
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #6
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_bmp_route_policy(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i16 noundef zeroext %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1349,9 +1485,11 @@ define internal void @dissect_bmp_route_policy(ptr noundef %0, ptr noundef %1, p
   store i32 %3, ptr %10, align 4
   store i8 %4, ptr %11, align 1
   store i16 %5, ptr %12, align 2
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %10, align 4
-  %17 = call zeroext i8 @tvb_get_guint8(ptr noundef %15, i32 noundef %16)
+  %17 = call zeroext i8 @tvb_get_uint8(ptr noundef %15, i32 noundef %16)
   store i8 %17, ptr %13, align 1
   %18 = load ptr, ptr %8, align 8
   %19 = load ptr, ptr %7, align 8
@@ -1456,21 +1594,27 @@ define internal void @dissect_bmp_route_policy(ptr noundef %0, ptr noundef %1, p
   %98 = load i32, ptr %14, align 4
   %99 = add i32 %98, -1
   store i32 %99, ptr %14, align 4
-  br label %89, !llvm.loop !7
+  br label %89, !llvm.loop !11
 
 100:                                              ; preds = %89
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #6
   ret void
 }
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) #2
 
-declare ptr @decode_bgp_rd(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @decode_bgp_rd(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @bmpv4_dissect_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i8 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1486,235 +1630,310 @@ define internal void @bmpv4_dissect_tlvs(ptr noundef %0, ptr noundef %1, i32 nou
   %17 = alloca ptr, align 8
   %18 = alloca i32, align 4
   %19 = alloca ptr, align 8
-  %20 = alloca i16, align 2
-  %21 = alloca ptr, align 8
-  %22 = alloca ptr, align 8
+  %20 = alloca i8, align 1
+  %21 = alloca i32, align 4
+  %22 = alloca i16, align 2
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store i32 %2, ptr %8, align 4
   store ptr %3, ptr %9, align 8
   store i8 %4, ptr %10, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
   call void @llvm.memset.p0.i64(ptr align 2 %11, i8 0, i64 8, i1 false)
-  br label %23
+  br label %25
 
-23:                                               ; preds = %166, %5
-  %24 = load ptr, ptr %7, align 8
-  %25 = load i32, ptr %8, align 4
-  %26 = call i32 @tvb_captured_length_remaining(ptr noundef %24, i32 noundef %25)
-  %27 = icmp sge i32 %26, 4
-  br i1 %27, label %28, label %167
+25:                                               ; preds = %195, %5
+  %26 = load ptr, ptr %7, align 8
+  %27 = load i32, ptr %8, align 4
+  %28 = call i32 @tvb_captured_length_remaining(ptr noundef %26, i32 noundef %27)
+  %29 = icmp sge i32 %28, 4
+  br i1 %29, label %30, label %196
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %6, align 8
-  store ptr %29, ptr %12, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = load i8, ptr %10, align 1
-  %32 = call i64 @bmpv4_dissect_tlv_hdr(ptr noundef %30, ptr noundef %12, ptr noundef %8, i8 noundef zeroext %31)
-  store i64 %32, ptr %13, align 2
+30:                                               ; preds = %25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  %31 = load ptr, ptr %6, align 8
+  store ptr %31, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  %32 = load ptr, ptr %7, align 8
+  %33 = load i8, ptr %10, align 1
+  %34 = call i64 @bmpv4_dissect_tlv_hdr(ptr noundef %32, ptr noundef %12, ptr noundef %8, i8 noundef zeroext %33)
+  store i64 %34, ptr %13, align 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %11, ptr align 2 %13, i64 8, i1 false)
-  %33 = getelementptr inbounds %struct.bmpv4_tlv_info, ptr %11, i32 0, i32 0
-  %34 = load i16, ptr %33, align 2
-  %35 = zext i16 %34 to i32
-  switch i32 %35, label %165 [
-    i32 5, label %36
-    i32 3, label %77
-    i32 6, label %105
-    i32 7, label %105
-    i32 4, label %138
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  %35 = getelementptr inbounds nuw %struct.bmpv4_tlv_info, ptr %11, i32 0, i32 0
+  %36 = load i16, ptr %35, align 2
+  %37 = zext i16 %36 to i32
+  switch i32 %37, label %194 [
+    i32 5, label %38
+    i32 3, label %80
+    i32 9, label %108
+    i32 6, label %134
+    i32 7, label %134
+    i32 4, label %167
   ]
 
-36:                                               ; preds = %28
-  %37 = load ptr, ptr %12, align 8
-  %38 = load i32, ptr @hf_bmpv4_tlv_group_id, align 4
-  %39 = load ptr, ptr %7, align 8
-  %40 = load i32, ptr %8, align 4
-  %41 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %39, i32 noundef %40, i32 noundef 2, i32 noundef 0)
+38:                                               ; preds = %30
+  %39 = load ptr, ptr %12, align 8
+  %40 = load i32, ptr @hf_bmpv4_tlv_group_id, align 4
+  %41 = load ptr, ptr %7, align 8
   %42 = load i32, ptr %8, align 4
-  %43 = add i32 %42, 2
-  store i32 %43, ptr %8, align 4
-  %44 = getelementptr inbounds %struct.bmpv4_tlv_info, ptr %11, i32 0, i32 1
-  %45 = load i16, ptr %44, align 2
-  %46 = zext i16 %45 to i32
-  %47 = sub i32 %46, 2
-  store i32 %47, ptr %14, align 4
-  %48 = load ptr, ptr %12, align 8
-  %49 = load i32, ptr @hf_bmpv4_tlv_value_bytes, align 4
-  %50 = load ptr, ptr %7, align 8
-  %51 = load i32, ptr %8, align 4
-  %52 = load i32, ptr %14, align 4
-  %53 = call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %49, ptr noundef %50, i32 noundef %51, i32 noundef %52, i32 noundef 0)
-  store ptr %53, ptr %15, align 8
+  %43 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef %42, i32 noundef 2, i32 noundef 0)
+  %44 = load i32, ptr %8, align 4
+  %45 = add i32 %44, 2
+  store i32 %45, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  %46 = getelementptr inbounds nuw %struct.bmpv4_tlv_info, ptr %11, i32 0, i32 1
+  %47 = load i16, ptr %46, align 2
+  %48 = zext i16 %47 to i32
+  %49 = sub i32 %48, 2
+  store i32 %49, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  %50 = load ptr, ptr %12, align 8
+  %51 = load i32, ptr @hf_bmpv4_tlv_value_bytes, align 4
+  %52 = load ptr, ptr %7, align 8
+  %53 = load i32, ptr %8, align 4
   %54 = load i32, ptr %14, align 4
-  %55 = sdiv i32 %54, 2
-  store i32 %55, ptr %16, align 4
-  %56 = load ptr, ptr %15, align 8
-  %57 = load i32, ptr %16, align 4
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %56, ptr noundef @.str.305, i32 noundef %57)
+  %55 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %51, ptr noundef %52, i32 noundef %53, i32 noundef %54, i32 noundef 0)
+  store ptr %55, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
+  %56 = load i32, ptr %14, align 4
+  %57 = sdiv i32 %56, 2
+  store i32 %57, ptr %16, align 4
   %58 = load ptr, ptr %15, align 8
-  %59 = load i32, ptr @ett_bmpv4_tlv_value, align 4
-  %60 = call ptr @proto_item_add_subtree(ptr noundef %58, i32 noundef %59)
-  store ptr %60, ptr %17, align 8
+  %59 = load i32, ptr %16, align 4
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %58, ptr noundef @.str.360, i32 noundef %59)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
+  %60 = load ptr, ptr %15, align 8
+  %61 = load i32, ptr @ett_bmpv4_tlv_value, align 4
+  %62 = call ptr @proto_item_add_subtree(ptr noundef %60, i32 noundef %61)
+  store ptr %62, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
   store i32 0, ptr %18, align 4
-  br label %61
+  br label %63
 
-61:                                               ; preds = %73, %36
-  %62 = load i32, ptr %18, align 4
-  %63 = load i32, ptr %16, align 4
-  %64 = icmp slt i32 %62, %63
-  br i1 %64, label %65, label %76
+63:                                               ; preds = %76, %38
+  %64 = load i32, ptr %18, align 4
+  %65 = load i32, ptr %16, align 4
+  %66 = icmp slt i32 %64, %65
+  br i1 %66, label %68, label %67
 
-65:                                               ; preds = %61
-  %66 = load ptr, ptr %17, align 8
-  %67 = load i32, ptr @hf_bmpv4_tlv_value_index, align 4
-  %68 = load ptr, ptr %7, align 8
-  %69 = load i32, ptr %8, align 4
-  %70 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %67, ptr noundef %68, i32 noundef %69, i32 noundef 2, i32 noundef 0)
-  %71 = load i32, ptr %8, align 4
-  %72 = add i32 %71, 2
-  store i32 %72, ptr %8, align 4
-  br label %73
+67:                                               ; preds = %63
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  br label %79
 
-73:                                               ; preds = %65
-  %74 = load i32, ptr %18, align 4
-  %75 = add i32 %74, 1
-  store i32 %75, ptr %18, align 4
-  br label %61, !llvm.loop !8
+68:                                               ; preds = %63
+  %69 = load ptr, ptr %17, align 8
+  %70 = load i32, ptr @hf_bmpv4_tlv_value_index, align 4
+  %71 = load ptr, ptr %7, align 8
+  %72 = load i32, ptr %8, align 4
+  %73 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %70, ptr noundef %71, i32 noundef %72, i32 noundef 2, i32 noundef 0)
+  %74 = load i32, ptr %8, align 4
+  %75 = add i32 %74, 2
+  store i32 %75, ptr %8, align 4
+  br label %76
 
-76:                                               ; preds = %61
-  br label %166
+76:                                               ; preds = %68
+  %77 = load i32, ptr %18, align 4
+  %78 = add i32 %77, 1
+  store i32 %78, ptr %18, align 4
+  br label %63, !llvm.loop !12
 
-77:                                               ; preds = %28
-  %78 = load ptr, ptr %12, align 8
-  %79 = load i32, ptr @hf_bmpv4_tlv_value_string, align 4
-  %80 = load ptr, ptr %7, align 8
-  %81 = load i32, ptr %8, align 4
-  %82 = getelementptr inbounds %struct.bmpv4_tlv_info, ptr %11, i32 0, i32 1
-  %83 = load i16, ptr %82, align 2
-  %84 = zext i16 %83 to i32
-  %85 = call ptr @proto_tree_add_item(ptr noundef %78, i32 noundef %79, ptr noundef %80, i32 noundef %81, i32 noundef %84, i32 noundef 0)
-  store ptr %85, ptr %19, align 8
-  %86 = getelementptr inbounds %struct.bmpv4_tlv_info, ptr %11, i32 0, i32 1
-  %87 = load i16, ptr %86, align 2
-  %88 = zext i16 %87 to i32
-  %89 = load i32, ptr %8, align 4
-  %90 = add i32 %89, %88
-  store i32 %90, ptr %8, align 4
-  %91 = getelementptr inbounds %struct.bmpv4_tlv_info, ptr %11, i32 0, i32 1
-  %92 = load i16, ptr %91, align 2
-  %93 = zext i16 %92 to i32
-  %94 = icmp eq i32 %93, 0
-  br i1 %94, label %100, label %95
+79:                                               ; preds = %67
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  br label %195
 
-95:                                               ; preds = %77
-  %96 = getelementptr inbounds %struct.bmpv4_tlv_info, ptr %11, i32 0, i32 1
-  %97 = load i16, ptr %96, align 2
-  %98 = zext i16 %97 to i32
-  %99 = icmp sgt i32 %98, 255
-  br i1 %99, label %100, label %104
+80:                                               ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #6
+  %81 = load ptr, ptr %12, align 8
+  %82 = load i32, ptr @hf_bmpv4_tlv_value_string, align 4
+  %83 = load ptr, ptr %7, align 8
+  %84 = load i32, ptr %8, align 4
+  %85 = getelementptr inbounds nuw %struct.bmpv4_tlv_info, ptr %11, i32 0, i32 1
+  %86 = load i16, ptr %85, align 2
+  %87 = zext i16 %86 to i32
+  %88 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %82, ptr noundef %83, i32 noundef %84, i32 noundef %87, i32 noundef 0)
+  store ptr %88, ptr %19, align 8
+  %89 = getelementptr inbounds nuw %struct.bmpv4_tlv_info, ptr %11, i32 0, i32 1
+  %90 = load i16, ptr %89, align 2
+  %91 = zext i16 %90 to i32
+  %92 = load i32, ptr %8, align 4
+  %93 = add i32 %92, %91
+  store i32 %93, ptr %8, align 4
+  %94 = getelementptr inbounds nuw %struct.bmpv4_tlv_info, ptr %11, i32 0, i32 1
+  %95 = load i16, ptr %94, align 2
+  %96 = zext i16 %95 to i32
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %103, label %98
 
-100:                                              ; preds = %95, %77
-  %101 = load ptr, ptr %9, align 8
-  %102 = load ptr, ptr %19, align 8
-  %103 = call ptr @expert_add_info(ptr noundef %101, ptr noundef %102, ptr noundef @ei_bmpv4_tlv_string_bad_length)
-  br label %104
+98:                                               ; preds = %80
+  %99 = getelementptr inbounds nuw %struct.bmpv4_tlv_info, ptr %11, i32 0, i32 1
+  %100 = load i16, ptr %99, align 2
+  %101 = zext i16 %100 to i32
+  %102 = icmp sgt i32 %101, 255
+  br i1 %102, label %103, label %107
 
-104:                                              ; preds = %100, %95
-  br label %166
+103:                                              ; preds = %98, %80
+  %104 = load ptr, ptr %9, align 8
+  %105 = load ptr, ptr %19, align 8
+  %106 = call ptr @expert_add_info(ptr noundef %104, ptr noundef %105, ptr noundef @ei_bmpv4_tlv_string_bad_length)
+  br label %107
 
-105:                                              ; preds = %28, %28
-  %106 = load ptr, ptr %7, align 8
-  %107 = load i32, ptr %8, align 4
-  %108 = call zeroext i8 @tvb_get_guint8(ptr noundef %106, i32 noundef %107)
-  %109 = zext i8 %108 to i16
-  store i16 %109, ptr %20, align 2
-  %110 = load i16, ptr %20, align 2
+107:                                              ; preds = %103, %98
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #6
+  br label %195
+
+108:                                              ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 1, ptr %20) #6
+  %109 = getelementptr inbounds nuw %struct.bmpv4_tlv_info, ptr %11, i32 0, i32 1
+  %110 = load i16, ptr %109, align 2
   %111 = zext i16 %110 to i32
-  %112 = icmp ne i32 %111, 0
-  br i1 %112, label %113, label %121
+  %112 = icmp sgt i32 %111, 4
+  %113 = zext i1 %112 to i8
+  store i8 %113, ptr %20, align 1
+  %114 = load ptr, ptr %12, align 8
+  %115 = load ptr, ptr %7, align 8
+  %116 = load i32, ptr %8, align 4
+  %117 = load i32, ptr @hf_bmpv4_tlv_path_status_status, align 4
+  %118 = load i32, ptr @ett_bmpv4_tlv_path_status, align 4
+  %119 = call ptr @proto_tree_add_bitmask(ptr noundef %114, ptr noundef %115, i32 noundef %116, i32 noundef %117, i32 noundef %118, ptr noundef @hf_bmpv4_tlv_path_status, i32 noundef 0)
+  %120 = load i32, ptr %8, align 4
+  %121 = add i32 %120, 4
+  store i32 %121, ptr %8, align 4
+  %122 = load i8, ptr %20, align 1, !range !6, !noundef !7
+  %123 = trunc i8 %122 to i1
+  br i1 %123, label %125, label %124
 
-113:                                              ; preds = %105
-  %114 = load i16, ptr %20, align 2
-  %115 = zext i16 %114 to i32
-  %116 = icmp ne i32 %115, 1
-  br i1 %116, label %117, label %121
+124:                                              ; preds = %108
+  store i32 4, ptr %21, align 4
+  br label %133
 
-117:                                              ; preds = %113
-  %118 = load ptr, ptr %9, align 8
-  %119 = load ptr, ptr %12, align 8
-  %120 = call ptr @expert_add_info(ptr noundef %118, ptr noundef %119, ptr noundef @ei_bmpv4_tlv_wrong_cap_value)
-  br label %121
+125:                                              ; preds = %108
+  %126 = load ptr, ptr %12, align 8
+  %127 = load i32, ptr @hf_bmpv4_tlv_path_status_reason, align 4
+  %128 = load ptr, ptr %7, align 8
+  %129 = load i32, ptr %8, align 4
+  %130 = call ptr @proto_tree_add_item(ptr noundef %126, i32 noundef %127, ptr noundef %128, i32 noundef %129, i32 noundef 2, i32 noundef 0)
+  %131 = load i32, ptr %8, align 4
+  %132 = add i32 %131, 2
+  store i32 %132, ptr %8, align 4
+  store i32 4, ptr %21, align 4
+  br label %133
 
-121:                                              ; preds = %117, %113, %105
-  %122 = getelementptr inbounds %struct.bmpv4_tlv_info, ptr %11, i32 0, i32 1
-  %123 = load i16, ptr %122, align 2
-  %124 = zext i16 %123 to i32
-  %125 = icmp ne i32 %124, 1
-  br i1 %125, label %126, label %130
+133:                                              ; preds = %125, %124
+  call void @llvm.lifetime.end.p0(i64 1, ptr %20) #6
+  br label %195
 
-126:                                              ; preds = %121
-  %127 = load ptr, ptr %9, align 8
-  %128 = load ptr, ptr %12, align 8
-  %129 = call ptr @expert_add_info(ptr noundef %127, ptr noundef %128, ptr noundef @ei_bmpv4_tlv_wrong_cap_size)
-  br label %130
-
-130:                                              ; preds = %126, %121
-  %131 = load ptr, ptr %12, align 8
-  %132 = load i32, ptr @hf_bmpv4_tlv_value_bool, align 4
-  %133 = load ptr, ptr %7, align 8
-  %134 = load i32, ptr %8, align 4
-  %135 = call ptr @proto_tree_add_item(ptr noundef %131, i32 noundef %132, ptr noundef %133, i32 noundef %134, i32 noundef 1, i32 noundef 0)
+134:                                              ; preds = %30, %30
+  call void @llvm.lifetime.start.p0(i64 2, ptr %22) #6
+  %135 = load ptr, ptr %7, align 8
   %136 = load i32, ptr %8, align 4
-  %137 = add i32 %136, 1
-  store i32 %137, ptr %8, align 4
-  br label %166
+  %137 = call zeroext i8 @tvb_get_uint8(ptr noundef %135, i32 noundef %136)
+  %138 = zext i8 %137 to i16
+  store i16 %138, ptr %22, align 2
+  %139 = load i16, ptr %22, align 2
+  %140 = zext i16 %139 to i32
+  %141 = icmp ne i32 %140, 0
+  br i1 %141, label %142, label %150
 
-138:                                              ; preds = %28
-  %139 = load ptr, ptr %12, align 8
-  %140 = load i32, ptr @hf_bmpv4_tlv_value_bytes, align 4
-  %141 = load ptr, ptr %7, align 8
-  %142 = load i32, ptr %8, align 4
-  %143 = getelementptr inbounds %struct.bmpv4_tlv_info, ptr %11, i32 0, i32 1
-  %144 = load i16, ptr %143, align 2
-  %145 = zext i16 %144 to i32
-  %146 = call ptr @proto_tree_add_item(ptr noundef %139, i32 noundef %140, ptr noundef %141, i32 noundef %142, i32 noundef %145, i32 noundef 0)
-  store ptr %146, ptr %21, align 8
-  %147 = load ptr, ptr %21, align 8
-  %148 = load i32, ptr @ett_bmpv4_tlv_value, align 4
-  %149 = call ptr @proto_item_add_subtree(ptr noundef %147, i32 noundef %148)
-  store ptr %149, ptr %22, align 8
-  %150 = load ptr, ptr @dissector_bgp, align 8
-  %151 = load ptr, ptr %7, align 8
-  %152 = load i32, ptr %8, align 4
-  %153 = getelementptr inbounds %struct.bmpv4_tlv_info, ptr %11, i32 0, i32 1
-  %154 = load i16, ptr %153, align 2
-  %155 = zext i16 %154 to i32
-  %156 = call ptr @tvb_new_subset_length(ptr noundef %151, i32 noundef %152, i32 noundef %155)
-  %157 = load ptr, ptr %9, align 8
-  %158 = load ptr, ptr %22, align 8
-  %159 = call i32 @call_dissector(ptr noundef %150, ptr noundef %156, ptr noundef %157, ptr noundef %158)
-  %160 = getelementptr inbounds %struct.bmpv4_tlv_info, ptr %11, i32 0, i32 1
-  %161 = load i16, ptr %160, align 2
-  %162 = zext i16 %161 to i32
+142:                                              ; preds = %134
+  %143 = load i16, ptr %22, align 2
+  %144 = zext i16 %143 to i32
+  %145 = icmp ne i32 %144, 1
+  br i1 %145, label %146, label %150
+
+146:                                              ; preds = %142
+  %147 = load ptr, ptr %9, align 8
+  %148 = load ptr, ptr %12, align 8
+  %149 = call ptr @expert_add_info(ptr noundef %147, ptr noundef %148, ptr noundef @ei_bmpv4_tlv_wrong_cap_value)
+  br label %150
+
+150:                                              ; preds = %146, %142, %134
+  %151 = getelementptr inbounds nuw %struct.bmpv4_tlv_info, ptr %11, i32 0, i32 1
+  %152 = load i16, ptr %151, align 2
+  %153 = zext i16 %152 to i32
+  %154 = icmp ne i32 %153, 1
+  br i1 %154, label %155, label %159
+
+155:                                              ; preds = %150
+  %156 = load ptr, ptr %9, align 8
+  %157 = load ptr, ptr %12, align 8
+  %158 = call ptr @expert_add_info(ptr noundef %156, ptr noundef %157, ptr noundef @ei_bmpv4_tlv_wrong_cap_size)
+  br label %159
+
+159:                                              ; preds = %155, %150
+  %160 = load ptr, ptr %12, align 8
+  %161 = load i32, ptr @hf_bmpv4_tlv_value_bool, align 4
+  %162 = load ptr, ptr %7, align 8
   %163 = load i32, ptr %8, align 4
-  %164 = add i32 %163, %162
-  store i32 %164, ptr %8, align 4
-  br label %166
+  %164 = call ptr @proto_tree_add_item(ptr noundef %160, i32 noundef %161, ptr noundef %162, i32 noundef %163, i32 noundef 1, i32 noundef 0)
+  %165 = load i32, ptr %8, align 4
+  %166 = add i32 %165, 1
+  store i32 %166, ptr %8, align 4
+  store i32 4, ptr %21, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %22) #6
+  br label %195
 
-165:                                              ; preds = %28
-  br label %166
+167:                                              ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #6
+  %168 = load ptr, ptr %12, align 8
+  %169 = load i32, ptr @hf_bmpv4_tlv_value_bytes, align 4
+  %170 = load ptr, ptr %7, align 8
+  %171 = load i32, ptr %8, align 4
+  %172 = getelementptr inbounds nuw %struct.bmpv4_tlv_info, ptr %11, i32 0, i32 1
+  %173 = load i16, ptr %172, align 2
+  %174 = zext i16 %173 to i32
+  %175 = call ptr @proto_tree_add_item(ptr noundef %168, i32 noundef %169, ptr noundef %170, i32 noundef %171, i32 noundef %174, i32 noundef 0)
+  store ptr %175, ptr %23, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #6
+  %176 = load ptr, ptr %23, align 8
+  %177 = load i32, ptr @ett_bmpv4_tlv_value, align 4
+  %178 = call ptr @proto_item_add_subtree(ptr noundef %176, i32 noundef %177)
+  store ptr %178, ptr %24, align 8
+  %179 = load ptr, ptr @dissector_bgp, align 8
+  %180 = load ptr, ptr %7, align 8
+  %181 = load i32, ptr %8, align 4
+  %182 = getelementptr inbounds nuw %struct.bmpv4_tlv_info, ptr %11, i32 0, i32 1
+  %183 = load i16, ptr %182, align 2
+  %184 = zext i16 %183 to i32
+  %185 = call ptr @tvb_new_subset_length(ptr noundef %180, i32 noundef %181, i32 noundef %184)
+  %186 = load ptr, ptr %9, align 8
+  %187 = load ptr, ptr %24, align 8
+  %188 = call i32 @call_dissector(ptr noundef %179, ptr noundef %185, ptr noundef %186, ptr noundef %187)
+  %189 = getelementptr inbounds nuw %struct.bmpv4_tlv_info, ptr %11, i32 0, i32 1
+  %190 = load i16, ptr %189, align 2
+  %191 = zext i16 %190 to i32
+  %192 = load i32, ptr %8, align 4
+  %193 = add i32 %192, %191
+  store i32 %193, ptr %8, align 4
+  store i32 4, ptr %21, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #6
+  br label %195
 
-166:                                              ; preds = %165, %138, %130, %104, %76
-  br label %23, !llvm.loop !9
+194:                                              ; preds = %30
+  br label %195
 
-167:                                              ; preds = %23
+195:                                              ; preds = %194, %167, %159, %133, %107, %79
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  br label %25, !llvm.loop !13
+
+196:                                              ; preds = %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
   ret void
 }
 
-declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_bmp_stat_report(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1732,6 +1951,10 @@ define internal void @dissect_bmp_stat_report(ptr noundef %0, ptr noundef %1, pt
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i8 %4, ptr %10, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
   %17 = load ptr, ptr %6, align 8
   %18 = load i32, ptr %9, align 4
   %19 = call i32 @tvb_get_ntohl(ptr noundef %17, i32 noundef %18)
@@ -1754,6 +1977,8 @@ define internal void @dissect_bmp_stat_report(ptr noundef %0, ptr noundef %1, pt
   br i1 %30, label %31, label %267
 
 31:                                               ; preds = %27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
   %32 = load ptr, ptr %7, align 8
   %33 = load i32, ptr @hf_stat_type, align 4
   %34 = load ptr, ptr %6, align 8
@@ -2076,19 +2301,25 @@ define internal void @dissect_bmp_stat_report(ptr noundef %0, ptr noundef %1, pt
   br label %263
 
 263:                                              ; preds = %256, %234, %212, %204, %196, %188, %180, %172, %150, %128, %120, %112, %104, %96, %88, %80, %72, %64, %56
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
   br label %264
 
 264:                                              ; preds = %263
   %265 = load i32, ptr %13, align 4
   %266 = add i32 %265, 1
   store i32 %266, ptr %13, align 4
-  br label %27, !llvm.loop !10
+  br label %27, !llvm.loop !14
 
 267:                                              ; preds = %27
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_bmp_peer_down_notification(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef signext %4, i1 noundef zeroext %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -2101,151 +2332,189 @@ define internal void @dissect_bmp_peer_down_notification(ptr noundef %0, ptr nou
   %15 = alloca i32, align 4
   %16 = alloca ptr, align 8
   %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store i32 %3, ptr %10, align 4
   store i8 %4, ptr %11, align 1
-  %18 = zext i1 %5 to i8
-  store i8 %18, ptr %12, align 1
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %10, align 4
-  %21 = call zeroext i8 @tvb_get_guint8(ptr noundef %19, i32 noundef %20)
-  store i8 %21, ptr %13, align 1
-  %22 = load ptr, ptr %8, align 8
-  %23 = load i32, ptr @hf_peer_down_reason, align 4
-  %24 = load ptr, ptr %7, align 8
-  %25 = load i32, ptr %10, align 4
-  %26 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %23, ptr noundef %24, i32 noundef %25, i32 noundef 1, i32 noundef 0)
-  %27 = load i32, ptr %10, align 4
-  %28 = add i32 %27, 1
-  store i32 %28, ptr %10, align 4
-  %29 = load i8, ptr %13, align 1
-  %30 = zext i8 %29 to i32
-  switch i32 %30, label %106 [
-    i32 2, label %31
-    i32 1, label %37
-    i32 3, label %37
-    i32 6, label %48
+  %19 = zext i1 %5 to i8
+  store i8 %19, ptr %12, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #6
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %10, align 4
+  %22 = call zeroext i8 @tvb_get_uint8(ptr noundef %20, i32 noundef %21)
+  store i8 %22, ptr %13, align 1
+  %23 = load ptr, ptr %8, align 8
+  %24 = load i32, ptr @hf_peer_down_reason, align 4
+  %25 = load ptr, ptr %7, align 8
+  %26 = load i32, ptr %10, align 4
+  %27 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %24, ptr noundef %25, i32 noundef %26, i32 noundef 1, i32 noundef 0)
+  %28 = load i32, ptr %10, align 4
+  %29 = add i32 %28, 1
+  store i32 %29, ptr %10, align 4
+  %30 = load i8, ptr %13, align 1
+  %31 = zext i8 %30 to i32
+  switch i32 %31, label %110 [
+    i32 2, label %32
+    i32 1, label %38
+    i32 3, label %38
+    i32 6, label %49
   ]
 
-31:                                               ; preds = %6
-  %32 = load ptr, ptr %8, align 8
-  %33 = load i32, ptr @hf_peer_down_data, align 4
-  %34 = load ptr, ptr %7, align 8
-  %35 = load i32, ptr %10, align 4
-  %36 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef 2, i32 noundef 0)
+32:                                               ; preds = %6
+  %33 = load ptr, ptr %8, align 8
+  %34 = load i32, ptr @hf_peer_down_data, align 4
+  %35 = load ptr, ptr %7, align 8
+  %36 = load i32, ptr %10, align 4
+  %37 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %34, ptr noundef %35, i32 noundef %36, i32 noundef 2, i32 noundef 0)
+  br label %111
+
+38:                                               ; preds = %6, %6
+  %39 = load ptr, ptr %9, align 8
+  %40 = getelementptr inbounds nuw %struct._packet_info, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8
+  call void @col_clear(ptr noundef %41, i32 noundef 25)
+  %42 = load ptr, ptr @dissector_bgp, align 8
+  %43 = load ptr, ptr %7, align 8
+  %44 = load i32, ptr %10, align 4
+  %45 = call ptr @tvb_new_subset_remaining(ptr noundef %43, i32 noundef %44)
+  %46 = load ptr, ptr %9, align 8
+  %47 = load ptr, ptr %8, align 8
+  %48 = call i32 @call_dissector(ptr noundef %42, ptr noundef %45, ptr noundef %46, ptr noundef %47)
+  br label %111
+
+49:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
+  %50 = load ptr, ptr %8, align 8
+  %51 = load i32, ptr @hf_peer_state_tlv, align 4
+  %52 = load ptr, ptr %7, align 8
+  %53 = load i32, ptr %10, align 4
+  %54 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %51, ptr noundef %52, i32 noundef %53, i32 noundef 4, i32 noundef 0)
+  store ptr %54, ptr %16, align 8
+  %55 = load ptr, ptr %16, align 8
+  %56 = load i32, ptr @ett_bmp_peer_state_tlv, align 4
+  %57 = call ptr @proto_item_add_subtree(ptr noundef %55, i32 noundef %56)
+  store ptr %57, ptr %17, align 8
+  %58 = load ptr, ptr %7, align 8
+  %59 = load i32, ptr %10, align 4
+  %60 = call zeroext i16 @tvb_get_uint16(ptr noundef %58, i32 noundef %59, i32 noundef 0)
+  %61 = zext i16 %60 to i32
+  store i32 %61, ptr %14, align 4
+  %62 = load i32, ptr %14, align 4
+  %63 = call ptr @try_val_to_str(i32 noundef %62, ptr noundef @peer_down_tlv_typevals)
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %65, label %69
+
+65:                                               ; preds = %49
+  %66 = load i8, ptr %12, align 1, !range !6, !noundef !7
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %68, label %69
+
+68:                                               ; preds = %65
+  store i32 2, ptr %18, align 4
   br label %107
 
-37:                                               ; preds = %6, %6
-  %38 = load ptr, ptr %9, align 8
-  %39 = getelementptr inbounds %struct._packet_info, ptr %38, i32 0, i32 1
-  %40 = load ptr, ptr %39, align 8
-  call void @col_clear(ptr noundef %40, i32 noundef 25)
-  %41 = load ptr, ptr @dissector_bgp, align 8
-  %42 = load ptr, ptr %7, align 8
-  %43 = load i32, ptr %10, align 4
-  %44 = call ptr @tvb_new_subset_remaining(ptr noundef %42, i32 noundef %43)
-  %45 = load ptr, ptr %9, align 8
-  %46 = load ptr, ptr %8, align 8
-  %47 = call i32 @call_dissector(ptr noundef %41, ptr noundef %44, ptr noundef %45, ptr noundef %46)
+69:                                               ; preds = %65, %49
+  %70 = load ptr, ptr %17, align 8
+  %71 = load i32, ptr @hf_peer_state_tlv_type, align 4
+  %72 = load ptr, ptr %7, align 8
+  %73 = load i32, ptr %10, align 4
+  %74 = call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %71, ptr noundef %72, i32 noundef %73, i32 noundef 2, i32 noundef 0)
+  %75 = load i32, ptr %10, align 4
+  %76 = add i32 %75, 2
+  store i32 %76, ptr %10, align 4
+  %77 = load ptr, ptr %17, align 8
+  %78 = load i32, ptr @hf_peer_state_tlv_length, align 4
+  %79 = load ptr, ptr %7, align 8
+  %80 = load i32, ptr %10, align 4
+  %81 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %77, i32 noundef %78, ptr noundef %79, i32 noundef %80, i32 noundef 2, i32 noundef 0, ptr noundef %15)
+  %82 = load i32, ptr %10, align 4
+  %83 = add i32 %82, 2
+  store i32 %83, ptr %10, align 4
+  %84 = load ptr, ptr %16, align 8
+  %85 = load i32, ptr %14, align 4
+  %86 = load i32, ptr %15, align 4
+  %87 = load i32, ptr %14, align 4
+  %88 = call ptr @val_to_str(i32 noundef %87, ptr noundef @peer_down_tlv_typevals, ptr noundef @.str.363)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %84, ptr noundef @.str.362, i32 noundef %85, i32 noundef %86, ptr noundef %88)
+  %89 = load ptr, ptr %16, align 8
+  %90 = load i32, ptr %15, align 4
+  %91 = add i32 4, %90
+  call void @proto_item_set_len(ptr noundef %89, i32 noundef %91)
+  %92 = load ptr, ptr %17, align 8
+  %93 = load i32, ptr @hf_peer_state_tlv_value, align 4
+  %94 = load ptr, ptr %7, align 8
+  %95 = load i32, ptr %10, align 4
+  %96 = load i32, ptr %15, align 4
+  %97 = call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %93, ptr noundef %94, i32 noundef %95, i32 noundef %96, i32 noundef 0)
+  %98 = load ptr, ptr %17, align 8
+  %99 = load i32, ptr @hf_peer_state_tlv_vrf_table_name, align 4
+  %100 = load ptr, ptr %7, align 8
+  %101 = load i32, ptr %10, align 4
+  %102 = load i32, ptr %15, align 4
+  %103 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %99, ptr noundef %100, i32 noundef %101, i32 noundef %102, i32 noundef 0)
+  %104 = load i32, ptr %15, align 4
+  %105 = load i32, ptr %10, align 4
+  %106 = add i32 %105, %104
+  store i32 %106, ptr %10, align 4
+  store i32 0, ptr %18, align 4
   br label %107
 
-48:                                               ; preds = %6
-  %49 = load ptr, ptr %8, align 8
-  %50 = load i32, ptr @hf_peer_state_tlv, align 4
-  %51 = load ptr, ptr %7, align 8
-  %52 = load i32, ptr %10, align 4
-  %53 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %50, ptr noundef %51, i32 noundef %52, i32 noundef 4, i32 noundef 0)
-  store ptr %53, ptr %16, align 8
-  %54 = load ptr, ptr %16, align 8
-  %55 = load i32, ptr @ett_bmp_peer_state_tlv, align 4
-  %56 = call ptr @proto_item_add_subtree(ptr noundef %54, i32 noundef %55)
-  store ptr %56, ptr %17, align 8
-  %57 = load ptr, ptr %7, align 8
-  %58 = load i32, ptr %10, align 4
-  %59 = call zeroext i16 @tvb_get_guint16(ptr noundef %57, i32 noundef %58, i32 noundef 0)
-  %60 = zext i16 %59 to i32
-  store i32 %60, ptr %14, align 4
-  %61 = load i32, ptr %14, align 4
-  %62 = call ptr @try_val_to_str(i32 noundef %61, ptr noundef @peer_down_tlv_typevals)
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %64, label %68
+107:                                              ; preds = %69, %68
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  %108 = load i32, ptr %18, align 4
+  switch i32 %108, label %123 [
+    i32 0, label %109
+    i32 2, label %111
+  ]
 
-64:                                               ; preds = %48
-  %65 = load i8, ptr %12, align 1
-  %66 = trunc i8 %65 to i1
-  br i1 %66, label %67, label %68
+109:                                              ; preds = %107
+  br label %110
 
-67:                                               ; preds = %64
-  br label %107
+110:                                              ; preds = %6, %109
+  br label %111
 
-68:                                               ; preds = %64, %48
-  %69 = load ptr, ptr %17, align 8
-  %70 = load i32, ptr @hf_peer_state_tlv_type, align 4
-  %71 = load ptr, ptr %7, align 8
-  %72 = load i32, ptr %10, align 4
-  %73 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %70, ptr noundef %71, i32 noundef %72, i32 noundef 2, i32 noundef 0)
-  %74 = load i32, ptr %10, align 4
-  %75 = add i32 %74, 2
-  store i32 %75, ptr %10, align 4
-  %76 = load ptr, ptr %17, align 8
-  %77 = load i32, ptr @hf_peer_state_tlv_length, align 4
-  %78 = load ptr, ptr %7, align 8
-  %79 = load i32, ptr %10, align 4
-  %80 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %76, i32 noundef %77, ptr noundef %78, i32 noundef %79, i32 noundef 2, i32 noundef 0, ptr noundef %15)
-  %81 = load i32, ptr %10, align 4
-  %82 = add i32 %81, 2
-  store i32 %82, ptr %10, align 4
-  %83 = load ptr, ptr %16, align 8
-  %84 = load i32, ptr %14, align 4
-  %85 = load i32, ptr %15, align 4
-  %86 = load i32, ptr %14, align 4
-  %87 = call ptr @val_to_str(i32 noundef %86, ptr noundef @peer_down_tlv_typevals, ptr noundef @.str.312)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %83, ptr noundef @.str.311, i32 noundef %84, i32 noundef %85, ptr noundef %87)
-  %88 = load ptr, ptr %16, align 8
-  %89 = load i32, ptr %15, align 4
-  %90 = add i32 4, %89
-  call void @proto_item_set_len(ptr noundef %88, i32 noundef %90)
-  %91 = load ptr, ptr %17, align 8
-  %92 = load i32, ptr @hf_peer_state_tlv_value, align 4
-  %93 = load ptr, ptr %7, align 8
-  %94 = load i32, ptr %10, align 4
-  %95 = load i32, ptr %15, align 4
-  %96 = call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %92, ptr noundef %93, i32 noundef %94, i32 noundef %95, i32 noundef 0)
-  %97 = load ptr, ptr %17, align 8
-  %98 = load i32, ptr @hf_peer_state_tlv_vrf_table_name, align 4
-  %99 = load ptr, ptr %7, align 8
-  %100 = load i32, ptr %10, align 4
-  %101 = load i32, ptr %15, align 4
-  %102 = call ptr @proto_tree_add_item(ptr noundef %97, i32 noundef %98, ptr noundef %99, i32 noundef %100, i32 noundef %101, i32 noundef 0)
-  %103 = load i32, ptr %15, align 4
-  %104 = load i32, ptr %10, align 4
-  %105 = add i32 %104, %103
-  store i32 %105, ptr %10, align 4
-  br label %106
+111:                                              ; preds = %110, %107, %38, %32
+  %112 = load i8, ptr %12, align 1, !range !6, !noundef !7
+  %113 = trunc i8 %112 to i1
+  br i1 %113, label %114, label %119
 
-106:                                              ; preds = %68, %6
-  br label %107
+114:                                              ; preds = %111
+  %115 = load ptr, ptr %8, align 8
+  %116 = load ptr, ptr %7, align 8
+  %117 = load i32, ptr %10, align 4
+  %118 = load ptr, ptr %9, align 8
+  call void @bmpv4_dissect_tlvs(ptr noundef %115, ptr noundef %116, i32 noundef %117, ptr noundef %118, i8 noundef zeroext 2)
+  store i32 1, ptr %18, align 4
+  br label %120
 
-107:                                              ; preds = %106, %67, %37, %31
-  %108 = load i8, ptr %12, align 1
-  %109 = trunc i8 %108 to i1
-  br i1 %109, label %110, label %115
+119:                                              ; preds = %111
+  store i32 0, ptr %18, align 4
+  br label %120
 
-110:                                              ; preds = %107
-  %111 = load ptr, ptr %8, align 8
-  %112 = load ptr, ptr %7, align 8
-  %113 = load i32, ptr %10, align 4
-  %114 = load ptr, ptr %9, align 8
-  call void @bmpv4_dissect_tlvs(ptr noundef %111, ptr noundef %112, i32 noundef %113, ptr noundef %114, i8 noundef zeroext 2)
-  br label %115
+120:                                              ; preds = %119, %114
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #6
+  %121 = load i32, ptr %18, align 4
+  switch i32 %121, label %123 [
+    i32 0, label %122
+    i32 1, label %122
+  ]
 
-115:                                              ; preds = %110, %107
+122:                                              ; preds = %120, %120
   ret void
+
+123:                                              ; preds = %120, %107
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_bmp_peer_up_notification(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2315,7 +2584,7 @@ define internal void @dissect_bmp_peer_up_notification(ptr noundef %0, ptr nound
   %56 = add i32 %55, 2
   store i32 %56, ptr %9, align 4
   %57 = load ptr, ptr %8, align 8
-  %58 = getelementptr inbounds %struct._packet_info, ptr %57, i32 0, i32 1
+  %58 = getelementptr inbounds nuw %struct._packet_info, ptr %57, i32 0, i32 1
   %59 = load ptr, ptr %58, align 8
   call void @col_clear(ptr noundef %59, i32 noundef 25)
   %60 = load ptr, ptr @dissector_bgp, align 8
@@ -2348,6 +2617,10 @@ define internal void @dissect_bmp_peer_up_notification(ptr noundef %0, ptr nound
   br i1 %82, label %83, label %176
 
 83:                                               ; preds = %78
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
   %84 = load ptr, ptr %7, align 8
   %85 = load i32, ptr @hf_peer_state_tlv, align 4
   %86 = load ptr, ptr %6, align 8
@@ -2378,8 +2651,8 @@ define internal void @dissect_bmp_peer_up_notification(ptr noundef %0, ptr nound
   %107 = load i32, ptr %11, align 4
   %108 = load i32, ptr %12, align 4
   %109 = load i32, ptr %11, align 4
-  %110 = call ptr @val_to_str(i32 noundef %109, ptr noundef @peer_up_tlv_typevals, ptr noundef @.str.312)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %106, ptr noundef @.str.311, i32 noundef %107, i32 noundef %108, ptr noundef %110)
+  %110 = call ptr @val_to_str(i32 noundef %109, ptr noundef @peer_up_tlv_typevals, ptr noundef @.str.363)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %106, ptr noundef @.str.362, i32 noundef %107, i32 noundef %108, ptr noundef %110)
   %111 = load ptr, ptr %13, align 8
   %112 = load i32, ptr %12, align 4
   %113 = add i32 4, %112
@@ -2472,21 +2745,26 @@ define internal void @dissect_bmp_peer_up_notification(ptr noundef %0, ptr nound
   br label %175
 
 175:                                              ; preds = %171, %161, %151, %141, %131, %121
-  br label %78, !llvm.loop !11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  br label %78, !llvm.loop !15
 
 176:                                              ; preds = %78
   ret void
 }
 
-; Function Attrs: noreturn
-declare void @proto_report_dissector_bug(ptr noundef, ...) #2
+; Function Attrs: noreturn null_pointer_is_valid
+declare void @proto_report_dissector_bug(ptr noundef, ...) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i64 @bmpv4_dissect_tlv_hdr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
   %5 = alloca %struct.bmpv4_tlv_info, align 2
   %6 = alloca ptr, align 8
@@ -2503,40 +2781,45 @@ define internal i64 @bmpv4_dissect_tlv_hdr(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store i8 %3, ptr %9, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr %16, align 4
   store i32 %17, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
   %18 = load ptr, ptr %7, align 8
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
   call void @llvm.memset.p0.i64(ptr align 2 %5, i8 0, i64 8, i1 false)
   %20 = load ptr, ptr %6, align 8
   %21 = load i32, ptr %10, align 4
   %22 = call zeroext i16 @tvb_get_ntohs(ptr noundef %20, i32 noundef %21)
-  %23 = getelementptr inbounds %struct.bmpv4_tlv_info, ptr %5, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %struct.bmpv4_tlv_info, ptr %5, i32 0, i32 0
   store i16 %22, ptr %23, align 2
   %24 = load ptr, ptr %6, align 8
   %25 = load i32, ptr %10, align 4
   %26 = add i32 %25, 2
   %27 = call zeroext i16 @tvb_get_ntohs(ptr noundef %24, i32 noundef %26)
-  %28 = getelementptr inbounds %struct.bmpv4_tlv_info, ptr %5, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct.bmpv4_tlv_info, ptr %5, i32 0, i32 1
   store i16 %27, ptr %28, align 2
   %29 = load i8, ptr %9, align 1
   %30 = zext i8 %29 to i32
   %31 = icmp eq i32 %30, 0
-  %32 = getelementptr inbounds %struct.bmpv4_tlv_info, ptr %5, i32 0, i32 3
+  %32 = getelementptr inbounds nuw %struct.bmpv4_tlv_info, ptr %5, i32 0, i32 3
   %33 = zext i1 %31 to i8
   store i8 %33, ptr %32, align 2
-  %34 = getelementptr inbounds %struct.bmpv4_tlv_info, ptr %5, i32 0, i32 3
-  %35 = load i8, ptr %34, align 2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  %34 = getelementptr inbounds nuw %struct.bmpv4_tlv_info, ptr %5, i32 0, i32 3
+  %35 = load i8, ptr %34, align 2, !range !6, !noundef !7
   %36 = trunc i8 %35 to i1
   %37 = select i1 %36, i32 2, i32 0
   %38 = add i32 4, %37
-  %39 = getelementptr inbounds %struct.bmpv4_tlv_info, ptr %5, i32 0, i32 1
+  %39 = getelementptr inbounds nuw %struct.bmpv4_tlv_info, ptr %5, i32 0, i32 1
   %40 = load i16, ptr %39, align 2
   %41 = zext i16 %40 to i32
   %42 = add i32 %38, %41
   store i32 %42, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
   %43 = load ptr, ptr %11, align 8
   %44 = load i32, ptr @hf_bmpv4_tlv, align 4
   %45 = load ptr, ptr %6, align 8
@@ -2545,11 +2828,12 @@ define internal i64 @bmpv4_dissect_tlv_hdr(ptr noundef %0, ptr noundef %1, ptr n
   %48 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %44, ptr noundef %45, i32 noundef %46, i32 noundef %47, i32 noundef 0)
   store ptr %48, ptr %14, align 8
   %49 = load ptr, ptr %14, align 8
-  %50 = getelementptr inbounds %struct.bmpv4_tlv_info, ptr %5, i32 0, i32 0
+  %50 = getelementptr inbounds nuw %struct.bmpv4_tlv_info, ptr %5, i32 0, i32 0
   %51 = load i16, ptr %50, align 2
   %52 = zext i16 %51 to i32
-  %53 = call ptr @val_to_str(i32 noundef %52, ptr noundef @bmpv4_tlv_typevals, ptr noundef @.str.300)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %49, ptr noundef @.str.306, ptr noundef %53)
+  %53 = call ptr @val_to_str(i32 noundef %52, ptr noundef @bmpv4_tlv_typevals, ptr noundef @.str.355)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %49, ptr noundef @.str.361, ptr noundef %53)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
   %54 = load ptr, ptr %14, align 8
   %55 = load i32, ptr @ett_bmpv4_tlv, align 4
   %56 = call ptr @proto_item_add_subtree(ptr noundef %54, i32 noundef %55)
@@ -2570,8 +2854,8 @@ define internal i64 @bmpv4_dissect_tlv_hdr(ptr noundef %0, ptr noundef %1, ptr n
   %69 = load i32, ptr %10, align 4
   %70 = add i32 %69, 2
   store i32 %70, ptr %10, align 4
-  %71 = getelementptr inbounds %struct.bmpv4_tlv_info, ptr %5, i32 0, i32 3
-  %72 = load i8, ptr %71, align 2
+  %71 = getelementptr inbounds nuw %struct.bmpv4_tlv_info, ptr %5, i32 0, i32 3
+  %72 = load i8, ptr %71, align 2, !range !6, !noundef !7
   %73 = trunc i8 %72 to i1
   br i1 %73, label %74, label %85
 
@@ -2583,7 +2867,7 @@ define internal i64 @bmpv4_dissect_tlv_hdr(ptr noundef %0, ptr noundef %1, ptr n
   %79 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %75, i32 noundef %76, ptr noundef %77, i32 noundef %78, i32 noundef 2, i32 noundef 0, ptr noundef %12)
   %80 = load i32, ptr %12, align 4
   %81 = trunc i32 %80 to i16
-  %82 = getelementptr inbounds %struct.bmpv4_tlv_info, ptr %5, i32 0, i32 2
+  %82 = getelementptr inbounds nuw %struct.bmpv4_tlv_info, ptr %5, i32 0, i32 2
   store i16 %81, ptr %82, align 2
   %83 = load i32, ptr %10, align 4
   %84 = add i32 %83, 2
@@ -2597,24 +2881,35 @@ define internal i64 @bmpv4_dissect_tlv_hdr(ptr noundef %0, ptr noundef %1, ptr n
   %88 = load ptr, ptr %15, align 8
   %89 = load ptr, ptr %7, align 8
   store ptr %88, ptr %89, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
   %90 = load i64, ptr %5, align 2
   ret i64 %90
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_uint16(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @try_val_to_str(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @try_val_to_str(i32 noundef, ptr noundef) #2
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_bmp_route_policy_event(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2637,6 +2932,7 @@ define internal i32 @dissect_bmp_route_policy_event(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
   %22 = load ptr, ptr %6, align 8
   %23 = load i32, ptr @hf_route_policy_single_event_length, align 4
   %24 = load ptr, ptr %5, align 8
@@ -2722,6 +3018,10 @@ define internal i32 @dissect_bmp_route_policy_event(ptr noundef %0, ptr noundef 
   br i1 %87, label %88, label %341
 
 88:                                               ; preds = %85
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
   %89 = load ptr, ptr %6, align 8
   %90 = load i32, ptr @hf_route_policy_tlv, align 4
   %91 = load ptr, ptr %5, align 8
@@ -2758,8 +3058,8 @@ define internal i32 @dissect_bmp_route_policy_event(ptr noundef %0, ptr noundef 
   %116 = load i32, ptr %10, align 4
   %117 = load i32, ptr %11, align 4
   %118 = load i32, ptr %10, align 4
-  %119 = call ptr @val_to_str(i32 noundef %118, ptr noundef @route_policy_tlv_typevals, ptr noundef @.str.312)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %115, ptr noundef @.str.311, i32 noundef %116, i32 noundef %117, ptr noundef %119)
+  %119 = call ptr @val_to_str(i32 noundef %118, ptr noundef @route_policy_tlv_typevals, ptr noundef @.str.363)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %115, ptr noundef @.str.362, i32 noundef %116, i32 noundef %117, ptr noundef %119)
   %120 = load ptr, ptr %12, align 8
   %121 = load i32, ptr %11, align 4
   %122 = add i32 4, %121
@@ -2804,9 +3104,11 @@ define internal i32 @dissect_bmp_route_policy_event(ptr noundef %0, ptr noundef 
   br label %340
 
 150:                                              ; preds = %88
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
   %151 = load ptr, ptr %5, align 8
   %152 = load i32, ptr %8, align 4
-  %153 = call zeroext i8 @tvb_get_guint8(ptr noundef %151, i32 noundef %152)
+  %153 = call zeroext i8 @tvb_get_uint8(ptr noundef %151, i32 noundef %152)
   store i8 %153, ptr %14, align 1
   %154 = load ptr, ptr %13, align 8
   %155 = load ptr, ptr %5, align 8
@@ -2894,6 +3196,12 @@ define internal i32 @dissect_bmp_route_policy_event(ptr noundef %0, ptr noundef 
   br i1 %220, label %221, label %290
 
 221:                                              ; preds = %218
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #6
   %222 = load ptr, ptr %13, align 8
   %223 = load i32, ptr @hf_route_policy_tlv_policy, align 4
   %224 = load ptr, ptr %5, align 8
@@ -2923,7 +3231,7 @@ define internal i32 @dissect_bmp_route_policy_event(ptr noundef %0, ptr noundef 
   %244 = load ptr, ptr %17, align 8
   %245 = load i32, ptr %20, align 4
   %246 = load i32, ptr %21, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %244, ptr noundef @.str.313, i32 noundef %245, i32 noundef %246)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %244, ptr noundef @.str.365, i32 noundef %245, i32 noundef %246)
   %247 = load ptr, ptr %17, align 8
   %248 = load i32, ptr %20, align 4
   %249 = add i32 4, %248
@@ -2936,12 +3244,12 @@ define internal i32 @dissect_bmp_route_policy_event(ptr noundef %0, ptr noundef 
   %255 = load i32, ptr %8, align 4
   %256 = load i32, ptr %20, align 4
   %257 = load ptr, ptr %7, align 8
-  %258 = getelementptr inbounds %struct._packet_info, ptr %257, i32 0, i32 50
+  %258 = getelementptr inbounds nuw %struct._packet_info, ptr %257, i32 0, i32 51
   %259 = load ptr, ptr %258, align 8
   %260 = call ptr @proto_tree_add_item_ret_string(ptr noundef %252, i32 noundef %253, ptr noundef %254, i32 noundef %255, i32 noundef %256, i32 noundef 0, ptr noundef %259, ptr noundef %18)
   %261 = load ptr, ptr %17, align 8
   %262 = load ptr, ptr %18, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %261, ptr noundef @.str.314, ptr noundef %262)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %261, ptr noundef @.str.366, ptr noundef %262)
   %263 = load i32, ptr %20, align 4
   %264 = load i32, ptr %8, align 4
   %265 = add i32 %264, %263
@@ -2952,12 +3260,12 @@ define internal i32 @dissect_bmp_route_policy_event(ptr noundef %0, ptr noundef 
   %269 = load i32, ptr %8, align 4
   %270 = load i32, ptr %21, align 4
   %271 = load ptr, ptr %7, align 8
-  %272 = getelementptr inbounds %struct._packet_info, ptr %271, i32 0, i32 50
+  %272 = getelementptr inbounds nuw %struct._packet_info, ptr %271, i32 0, i32 51
   %273 = load ptr, ptr %272, align 8
   %274 = call ptr @proto_tree_add_item_ret_string(ptr noundef %266, i32 noundef %267, ptr noundef %268, i32 noundef %269, i32 noundef %270, i32 noundef 0, ptr noundef %273, ptr noundef %19)
   %275 = load ptr, ptr %17, align 8
   %276 = load ptr, ptr %19, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %275, ptr noundef @.str.315, ptr noundef %276)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %275, ptr noundef @.str.367, ptr noundef %276)
   %277 = load i32, ptr %21, align 4
   %278 = load i32, ptr %8, align 4
   %279 = add i32 %278, %277
@@ -2974,13 +3282,21 @@ define internal i32 @dissect_bmp_route_policy_event(ptr noundef %0, ptr noundef 
   %288 = load i32, ptr %15, align 4
   %289 = add i32 %288, -1
   store i32 %289, ptr %15, align 4
-  br label %218, !llvm.loop !12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  br label %218, !llvm.loop !16
 
 290:                                              ; preds = %218
   %291 = load i32, ptr %11, align 4
   %292 = load i32, ptr %9, align 4
   %293 = sub i32 %292, %291
   store i32 %293, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #6
   br label %340
 
 294:                                              ; preds = %88
@@ -3048,37 +3364,50 @@ define internal i32 @dissect_bmp_route_policy_event(ptr noundef %0, ptr noundef 
   br label %340
 
 340:                                              ; preds = %333, %320, %307, %294, %290, %130
-  br label %85, !llvm.loop !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  br label %85, !llvm.loop !17
 
 341:                                              ; preds = %85
   %342 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
   ret i32 %342
 }
 
-declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-declare void @dissect_bgp_path_attr(ptr noundef, ptr noundef, i16 noundef zeroext, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissect_bgp_path_attr(ptr noundef, ptr noundef, i16 noundef zeroext, i32 noundef, ptr noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { noreturn }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind }
+attributes #7 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
