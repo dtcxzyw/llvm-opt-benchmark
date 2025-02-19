@@ -15801,7 +15801,7 @@ zend_string_release.exit:                         ; preds = %148, %152
 198:                                              ; preds = %193, %188
   %199 = lshr i32 %191, 4
   %200 = and i32 %199, 1
-  %spec.select369 = add i32 %200, %.1285424
+  %spec.select369 = add nsw i32 %200, %.1285424
   br label %201
 
 201:                                              ; preds = %198, %196, %.lr.ph425

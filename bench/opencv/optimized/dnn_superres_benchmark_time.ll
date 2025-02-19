@@ -1115,7 +1115,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %.noexc156
   %441 = trunc nuw nsw i64 %indvars.iv.i to i32
   %442 = and i32 %441, 1
   %443 = xor i32 %442, 1
-  %spec.select.i = add i32 %443, %.03066.i
+  %spec.select.i = add nsw i32 %443, %.03066.i
   %444 = mul nuw nsw i32 %442, %421
   %445 = mul nsw i32 %spec.select.i, %422
   store i32 %444, ptr %6, align 4

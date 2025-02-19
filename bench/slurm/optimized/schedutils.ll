@@ -40,16 +40,16 @@ define dso_local i32 @str_to_cnt(ptr noundef readonly captures(address) %0) loca
 
 12:                                               ; preds = %.lr.ph
   %13 = and i32 %11, 1
-  %spec.select36 = add i32 %13, %.02241
+  %spec.select36 = add nsw i32 %13, %.02241
   %14 = lshr i32 %11, 1
   %15 = and i32 %14, 1
-  %.3 = add i32 %spec.select36, %15
+  %.3 = add nsw i32 %spec.select36, %15
   %16 = lshr i32 %11, 2
   %17 = and i32 %16, 1
-  %.4 = add i32 %.3, %17
+  %.4 = add nsw i32 %.3, %17
   %18 = lshr i32 %11, 3
   %19 = and i32 %18, 1
-  %.5 = add i32 %.4, %19
+  %.5 = add nsw i32 %.4, %19
   %.025 = getelementptr inbounds i8, ptr %.02542, i64 -1
   %.not29 = icmp ult ptr %.025, %.027
   br i1 %.not29, label %.thread, label %.lr.ph, !llvm.loop !8

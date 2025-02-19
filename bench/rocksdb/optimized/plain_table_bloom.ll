@@ -80,7 +80,7 @@ cond.true:                                        ; preds = %entry
   %div3.i = and i32 %sub.i, -512
   %0 = and i32 %sub.i, 512
   %1 = xor i32 %0, 512
-  %spec.select.i = or i32 %1, %div3.i
+  %spec.select.i = or disjoint i32 %1, %div3.i
   br label %cond.end
 
 cond.false:                                       ; preds = %entry

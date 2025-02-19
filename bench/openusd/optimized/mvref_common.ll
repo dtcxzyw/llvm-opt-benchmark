@@ -4216,7 +4216,7 @@ define internal fastcc range(i32 0, 2) i32 @add_tpl_ref_mv(ptr noundef readonly 
 18:                                               ; preds = %12
   %19 = and i32 %3, 1
   %20 = xor i32 %19, 1
-  %21 = add i32 %6, %20
+  %21 = add nsw i32 %6, %20
   %22 = add nsw i32 %21, %3
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 7848
   %24 = load i32, ptr %23, align 4

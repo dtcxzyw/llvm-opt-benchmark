@@ -20855,7 +20855,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.0184259 = phi i8 [ %86, %.lr.ph261 ], [ %65, %.lr.ph261.preheader ]
   %84 = and i8 %.0184259, 1
   %85 = zext nneg i8 %84 to i32
-  %spec.select = add i32 %.0179260, %85
+  %spec.select = add nuw nsw i32 %.0179260, %85
   %86 = ashr i8 %.0184259, 1
   %.not209 = icmp ult i8 %.0184259, 2
   br i1 %.not209, label %._crit_edge, label %.lr.ph261, !llvm.loop !381

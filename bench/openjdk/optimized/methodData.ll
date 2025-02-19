@@ -3945,7 +3945,7 @@ define hidden noundef range(i32 -2147483632, -2147483648) i32 @_ZN10MethodData32
   %12 = load i16, ptr %11, align 2
   %13 = and i16 %12, 1
   %14 = zext nneg i16 %13 to i32
-  %spec.select = add i32 %.02534, %14
+  %spec.select = add nsw i32 %.02534, %14
   br label %15
 
 15:                                               ; preds = %9, %.lr.ph
@@ -5029,7 +5029,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %1, %_ZN26GrowableAr
   %55 = load i16, ptr %54, align 2
   %56 = and i16 %55, 1
   %57 = zext nneg i16 %56 to i32
-  %spec.select = add i32 %.05468, %57
+  %spec.select = add nsw i32 %.05468, %57
   br label %58
 
 58:                                               ; preds = %52, %.lr.ph

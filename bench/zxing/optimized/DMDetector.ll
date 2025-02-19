@@ -1805,10 +1805,10 @@ _ZNSt3mapIPKN5ZXing11ResultPointEiSt4lessIS3_ESaISt4pairIKS3_iEEE4findERS7_.exit
   %758 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %759 = load i32, ptr %758, align 8, !noalias !21
   %760 = and i32 %756, 1
-  %spec.select171.i = add i32 %760, %756
+  %spec.select171.i = add nsw i32 %760, %756
   %761 = add nsw i32 %spec.select171.i, 2
   %762 = and i32 %759, 1
-  %.0.i = add i32 %762, %759
+  %.0.i = add nsw i32 %762, %759
   %763 = add nsw i32 %.0.i, 2
   %764 = add i32 %spec.select171.i, -143
   %or.cond5.i = icmp ult i32 %764, -135
@@ -2014,9 +2014,9 @@ _ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread.i.i: ; pr
   %868 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %869 = load i32, ptr %868, align 8, !noalias !21
   %870 = and i32 %866, 1
-  %spec.select172.i = add i32 %870, %866
+  %spec.select172.i = add nsw i32 %870, %866
   %871 = and i32 %869, 1
-  %spec.select173.i = add i32 %871, %869
+  %spec.select173.i = add nsw i32 %871, %869
   br label %886
 
 872:                                              ; preds = %771

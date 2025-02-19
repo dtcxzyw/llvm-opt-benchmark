@@ -1401,15 +1401,15 @@ wt_status_get_detached_from.exit:                 ; preds = %62, %108
   %128 = load i32, ptr %127, align 8, !tbaa !128
   %129 = lshr i32 %128, 30
   %130 = and i32 %129, 1
-  %spec.select.i = add i32 %130, %.018.i
+  %spec.select.i = add nuw nsw i32 %130, %.018.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %131, label %124, !llvm.loop !180
 
 131:                                              ; preds = %124
-  %132 = mul nsw i32 %spec.select.i, 100
+  %132 = mul nuw nsw i32 %spec.select.i, 100
   %133 = udiv i32 %132, %118
-  %134 = sub i32 100, %133
+  %134 = sub nsw i32 100, %133
   br label %wt_status_check_sparse_checkout.exit
 
 wt_status_check_sparse_checkout.exit:             ; preds = %112, %114, %120, %131

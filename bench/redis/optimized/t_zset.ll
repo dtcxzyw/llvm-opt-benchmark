@@ -6705,13 +6705,13 @@ zsetTypeMaybeConvert.exit:                        ; preds = %99, %93, %81
   %116 = load i32, ptr %4, align 4, !tbaa !78
   %117 = lshr i32 %116, 2
   %118 = and i32 %117, 1
-  %spec.select = add i32 %118, %.2148219
+  %spec.select = add nuw nsw i32 %118, %.2148219
   %119 = lshr i32 %116, 3
   %120 = and i32 %119, 1
-  %.4 = add i32 %120, %.2144220
+  %.4 = add nuw nsw i32 %120, %.2144220
   %121 = and i32 %116, 1
   %122 = xor i32 %121, 1
-  %.3141 = add i32 %122, %.1139221
+  %.3141 = add nuw nsw i32 %122, %.1139221
   %123 = load double, ptr %3, align 8, !tbaa !5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
@@ -6728,8 +6728,8 @@ zsetTypeMaybeConvert.exit:                        ; preds = %99, %93, %81
   %.2144.lcssa = phi i32 [ 0, %zsetTypeMaybeConvert.exit ], [ %.4, %._crit_edge224.loopexit ]
   %.1139.lcssa = phi i1 [ true, %zsetTypeMaybeConvert.exit ], [ %124, %._crit_edge224.loopexit ]
   %.1125.lcssa = phi double [ 0.000000e+00, %zsetTypeMaybeConvert.exit ], [ %123, %._crit_edge224.loopexit ]
-  %125 = add nsw i32 %.2144.lcssa, %.2148.lcssa
-  %126 = sext i32 %125 to i64
+  %125 = add nuw nsw i32 %.2144.lcssa, %.2148.lcssa
+  %126 = zext nneg i32 %125 to i64
   %127 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !152
   %128 = add nsw i64 %127, %126
   store i64 %128, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !152
@@ -6737,7 +6737,7 @@ zsetTypeMaybeConvert.exit:                        ; preds = %99, %93, %81
   %130 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %131 = load ptr, ptr %130, align 8, !tbaa !75
   %132 = call i32 @getKeySlot(ptr noundef %131) #18
-  %133 = sext i32 %.2148.lcssa to i64
+  %133 = zext nneg i32 %.2148.lcssa to i64
   %134 = add i64 %100, %133
   call void @updateKeysizesHist(ptr noundef %129, i32 noundef %132, i32 noundef 3, i64 noundef %100, i64 noundef %134) #18
   br i1 %41, label %135, label %137

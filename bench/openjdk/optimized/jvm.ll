@@ -15123,7 +15123,7 @@ _ZN15JavaFieldStreamC2EPK13InstanceKlass.exit:    ; preds = %.lr.ph.i.i.i.i.i.i,
   %.03975 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %_ZN15FieldStreamBase4nextEv.exit ]
   %.sroa.0.0.copyload.i.i = load i32, ptr %118, align 4
   %126 = and i32 %.sroa.0.0.copyload.i.i, 1
-  %spec.select = add i32 %126, %.03975
+  %spec.select = add nuw nsw i32 %126, %.03975
   %127 = add nsw i32 %125, 1
   store i32 %127, ptr %114, align 8
   %.not.i46 = icmp slt i32 %127, %124

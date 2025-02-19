@@ -679,7 +679,7 @@ invoke.cont66:                                    ; preds = %if.end65
   %conv2.i116266 = and i16 %9, 1
   %10 = xor i16 %conv2.i116266, 1
   %11 = zext nneg i16 %10 to i32
-  %spec.select = add i32 %digitsAfterDecimalPlace.0, %11
+  %spec.select = add nsw i32 %digitsAfterDecimalPlace.0, %11
   br label %while.cond, !llvm.loop !7
 
 if.end74:                                         ; preds = %land.lhs.true28, %if.end56, %for.inc

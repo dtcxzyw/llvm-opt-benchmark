@@ -1409,7 +1409,7 @@ st_mult.exit340:                                  ; preds = %.preheader456, %558
   %577 = sub i32 %.5519, %.0211518
   %.sink681 = select i1 %.not300, i32 %577, i32 -1
   %578 = zext nneg i8 %573 to i32
-  %.1212 = add i32 %.0211518, %578
+  %.1212 = add nuw nsw i32 %.0211518, %578
   store i32 %.sink681, ptr %576, align 4, !tbaa !40
   %579 = add i32 %.5519, 1
   %580 = zext i32 %579 to i64

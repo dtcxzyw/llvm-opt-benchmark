@@ -92,7 +92,7 @@ define noundef i32 @_Z7nral_rti(i32 noundef %0) local_unnamed_addr #0 {
   %6 = load i32, ptr %5, align 4
   %7 = lshr i32 %6, 1
   %8 = and i32 %7, 1
-  %spec.select = add i32 %8, %4
+  %spec.select = add nsw i32 %8, %4
   ret i32 %spec.select
 }
 

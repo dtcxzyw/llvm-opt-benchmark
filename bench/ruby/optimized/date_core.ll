@@ -19990,7 +19990,7 @@ define internal fastcc range(i32 0, 2) i32 @c_valid_commercial_p(i32 noundef %0,
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #21
   %20 = lshr i32 %2, 28
   %21 = and i32 %20, 8
-  %spec.select = add i32 %21, %2
+  %spec.select = add nsw i32 %21, %2
   %22 = icmp slt i32 %1, 0
   br i1 %22, label %23, label %43
 

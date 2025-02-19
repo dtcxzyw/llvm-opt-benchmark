@@ -6180,7 +6180,7 @@ define ptr @Abc_NtkMapTransform(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %.lobit = and i32 %111, 1
   %112 = xor i32 %.lobit, 1
   %.sroa.0.2 = add nsw i32 %112, %.sroa.0.1184
-  %.sroa.7.2 = add i32 %.lobit, %.sroa.7.1185
+  %.sroa.7.2 = add nsw i32 %.lobit, %.sroa.7.1185
   %113 = getelementptr i8, ptr %96, i64 28
   %.val150179 = load i32, ptr %113, align 4, !tbaa !160
   %114 = icmp sgt i32 %.val150179, 0

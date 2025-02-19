@@ -10810,26 +10810,26 @@ for.cond.preheader:                               ; preds = %_ZSt16stable_partit
   %sub.ptr.rhs.cast.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp76 = icmp ugt i64 %sub.ptr.div.i, 1
-  br i1 %cmp76, label %for.body, label %for.end
+  %cmp77 = icmp ugt i64 %sub.ptr.div.i, 1
+  br i1 %cmp77, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %num_exported.078 = phi i64 [ %spec.select, %for.body ], [ 0, %for.cond.preheader ]
-  %i.077 = phi i64 [ %inc25, %for.body ], [ 1, %for.cond.preheader ]
-  %add.ptr.i21 = getelementptr inbounds nuw ptr, ptr %14, i64 %i.077
+  %num_exported.079 = phi i64 [ %spec.select, %for.body ], [ 0, %for.cond.preheader ]
+  %i.078 = phi i64 [ %inc25, %for.body ], [ 1, %for.cond.preheader ]
+  %add.ptr.i21 = getelementptr inbounds nuw ptr, ptr %14, i64 %i.078
   %15 = load ptr, ptr %add.ptr.i21, align 8
   %is_exported = getelementptr inbounds nuw i8, ptr %15, i64 49
   %bf.load = load i16, ptr %is_exported, align 1
   %16 = lshr i16 %bf.load, 5
   %17 = and i16 %16, 1
   %18 = zext nneg i16 %17 to i64
-  %spec.select = add i64 %num_exported.078, %18
-  %inc25 = add nuw nsw i64 %i.077, 1
+  %spec.select = add nuw nsw i64 %num_exported.079, %18
+  %inc25 = add nuw nsw i64 %i.078, 1
   %exitcond.not = icmp eq i64 %inc25, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !111
 
 for.end.loopexit:                                 ; preds = %for.body
-  %19 = sdiv i64 %spec.select, 8
+  %19 = lshr i64 %spec.select, 3
   %20 = trunc i64 %19 to i32
   %21 = add i32 %20, 1
   br label %for.end

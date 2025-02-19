@@ -691,7 +691,7 @@ define i32 @Dar_ManCutCount(ptr noundef readonly captures(none) %0, ptr noundef 
   %22 = load i32, ptr %21, align 4
   %23 = lshr i32 %22, 28
   %24 = and i32 %23, 1
-  %.221 = add i32 %24, %.12034
+  %.221 = add nsw i32 %24, %.12034
   %25 = and i32 %22, -268435456
   %narrow = icmp eq i32 %25, -1879048192
   %spec.select = zext i1 %narrow to i32
@@ -892,7 +892,7 @@ Abc_Clock.exit:                                   ; preds = %4, %10
   %81 = load i32, ptr %80, align 4
   %82 = lshr i32 %81, 28
   %83 = and i32 %82, 1
-  %.221.i = add i32 %83, %.12034.i
+  %.221.i = add nsw i32 %83, %.12034.i
   %84 = and i32 %81, -268435456
   %narrow.i46 = icmp eq i32 %84, -1879048192
   %spec.select.i = zext i1 %narrow.i46 to i32

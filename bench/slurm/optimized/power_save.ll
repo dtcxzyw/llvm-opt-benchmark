@@ -1804,7 +1804,7 @@ _rl_spend_token.exit.i:                           ; preds = %232, %230, %227
   %306 = load i32, ptr %305, align 8
   %307 = and i32 %306, 4096
   %308 = lshr exact i32 %307, 12
-  %spec.select.i = add i32 %308, %.0141266.i
+  %spec.select.i = add nuw nsw i32 %308, %.0141266.i
   %309 = getelementptr inbounds nuw i8, ptr %304, i64 208
   %310 = load i32, ptr %309, align 8
   %311 = zext i32 %310 to i64
@@ -2320,7 +2320,7 @@ _node_state_should_suspend.exit.thread.i:         ; preds = %483, %_rl_spend_tok
   %576 = load i64, ptr @last_log, align 8
   %577 = sub nsw i64 %66, %576
   %578 = icmp sgt i64 %577, 600
-  %579 = icmp sgt i32 %.0141.lcssa.i, 0
+  %579 = icmp ne i32 %.0141.lcssa.i, 0
   %or.cond.i = select i1 %578, i1 %579, i1 false
   br i1 %or.cond.i, label %580, label %588
 

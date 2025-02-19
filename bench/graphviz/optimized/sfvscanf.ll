@@ -541,7 +541,7 @@ gv_isspace.exit:                                  ; preds = %gv_isspace.exit.loo
   %220 = lshr i32 %219, 12
   %221 = and i32 %220, 1
   %222 = xor i32 %221, 1
-  %spec.select754 = add i32 %222, %.1575.ph857
+  %spec.select754 = add nsw i32 %222, %.1575.ph857
   br label %.outer856, !llvm.loop !12
 
 223:                                              ; preds = %204

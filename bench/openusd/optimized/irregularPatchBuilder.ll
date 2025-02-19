@@ -3670,7 +3670,7 @@ thread-pre-split:                                 ; preds = %_ZNK10OpenSubdiv6v3
   %256 = load i16, ptr %30, align 4
   %257 = and i16 %256, 1
   %258 = zext nneg i16 %257 to i32
-  %spec.select = add i32 %.0100, %258
+  %spec.select = add nsw i32 %.0100, %258
   br label %259
 
 259:                                              ; preds = %255, %253
@@ -4541,7 +4541,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceSizeEi.exit: ; preds = %174, %17
   %193 = load i16, ptr %58, align 4
   %194 = and i16 %193, 1
   %195 = zext nneg i16 %194 to i32
-  %spec.select = add i32 %.0114, %195
+  %spec.select = add nsw i32 %.0114, %195
   br label %196
 
 196:                                              ; preds = %192, %.loopexit151

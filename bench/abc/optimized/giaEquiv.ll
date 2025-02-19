@@ -1931,7 +1931,7 @@ Gia_ObjIsNone.exit.thread:                        ; preds = %8, %Gia_ObjIsNone.e
   %.144 = phi i32 [ %.04383, %15 ], [ %.04383, %17 ], [ %19, %Gia_ObjIsNone.exit ], [ %.04383, %8 ]
   %20 = lshr i32 %10, 28
   %21 = and i32 %20, 1
-  %spec.select56 = add i32 %21, %.04184
+  %spec.select56 = add nuw nsw i32 %21, %.04184
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !79

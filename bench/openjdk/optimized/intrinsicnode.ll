@@ -1804,7 +1804,7 @@ define hidden noundef i64 @_ZN16CompressBitsNode13compress_bitsElli(i64 noundef 
   %9 = select i1 %.not, i64 0, i64 %8
   %.112 = or i64 %9, %.01117
   %10 = trunc nuw nsw i64 %5 to i32
-  %.1 = add i32 %.019, %10
+  %.1 = add nuw nsw i32 %.019, %10
   %11 = ashr i64 %.01316, 1
   %12 = ashr i64 %.01415, 1
   %13 = add nuw nsw i32 %.01018, 1
@@ -1898,7 +1898,7 @@ define hidden noundef ptr @_ZNK16CompressBitsNode5ValueEP8PhaseGVN(ptr noundef n
   %64 = select i1 %.not.i, i64 0, i64 %63
   %.112.i = or i64 %64, %.01117.i
   %65 = trunc nuw nsw i64 %60 to i32
-  %.1.i = add i32 %.019.i, %65
+  %.1.i = add nuw nsw i32 %.019.i, %65
   %66 = ashr i64 %.01316.i, 1
   %67 = ashr i64 %.01415.i, 1
   %68 = add nuw nsw i32 %.01018.i, 1

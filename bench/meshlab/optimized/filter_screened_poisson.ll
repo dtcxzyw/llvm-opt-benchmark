@@ -43557,7 +43557,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
   %54 = lshr i8 %53, 1
   %55 = and i8 %54, 1
   %56 = zext nneg i8 %55 to i32
-  %spec.select = add i32 %39, %56
+  %spec.select = add nsw i32 %39, %56
   br label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread
 
 _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit, %38, %45, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i
@@ -47020,7 +47020,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.i: ; preds = %_Z
   %80 = lshr i8 %.fr9.i, 1
   %81 = and i8 %80, 1
   %82 = zext nneg i8 %81 to i32
-  %spec.select.i = add i32 %.0710.i, %82
+  %spec.select.i = add nsw i32 %.0710.i, %82
   br label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.i
 
 _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.i: ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.i, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i.i, %71, %.preheader
@@ -53132,7 +53132,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.i: ; preds = %_Z
   %85 = lshr i8 %.fr9.i, 1
   %86 = and i8 %85, 1
   %87 = zext nneg i8 %86 to i32
-  %spec.select.i = add i32 %.0710.i, %87
+  %spec.select.i = add nsw i32 %.0710.i, %87
   br label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.i
 
 _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.i: ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.i, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i.i, %76, %.preheader

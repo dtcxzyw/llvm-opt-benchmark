@@ -4547,7 +4547,7 @@ if.then:                                          ; preds = %land.lhs.true
   %and45 = lshr i32 %20, 20
   %21 = and i32 %and45, 1
   %22 = xor i32 %21, 1
-  %spec.select = add i32 %22, %draw_channel_current.044
+  %spec.select = add nsw i32 %22, %draw_channel_current.044
   br label %if.end51
 
 if.else:                                          ; preds = %land.lhs.true, %for.body

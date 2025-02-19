@@ -5429,7 +5429,7 @@ verify_cb_cert.exit267.i:                         ; preds = %308
   %319 = lshr i32 %318, 5
   %320 = and i32 %319, 1
   %321 = xor i32 %320, 1
-  %spec.select.i = add i32 %321, %.0168286.i
+  %spec.select.i = add nsw i32 %321, %.0168286.i
   br label %322
 
 322:                                              ; preds = %.thread281.i, %._crit_edge317.i

@@ -152526,7 +152526,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost14multiprecision16cpp_bf_io_det
   %8 = alloca %"class.boost::multiprecision::number.1037", align 16
   %9 = alloca %"struct.boost::multiprecision::detail::expression.1054", align 8
   %10 = and i64 %2, 1
-  %.in = add i64 %10, %2
+  %.in = add nsw i64 %10, %2
   %11 = ashr exact i64 %.in, 1
   %.not19 = icmp eq i64 %.in, 0
   br i1 %.not19, label %15, label %12

@@ -5015,7 +5015,7 @@ define internal range(i32 -1, 1) i32 @H5D__chunk_dest(ptr noundef %0) #0 {
   %20 = load ptr, ptr %19, align 8, !tbaa !214
   %21 = call fastcc i32 @H5D__chunk_cache_evict(ptr noundef %0, ptr noundef nonnull %.02333, i1 noundef zeroext true)
   %22 = lshr i32 %21, 31
-  %spec.select = add i32 %22, %.02432
+  %spec.select = add nuw nsw i32 %22, %.02432
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !216
 

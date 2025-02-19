@@ -575,12 +575,12 @@ define internal void @_ZL16evaluate_compareRKN3gmx20SelMethodEvalContextEP15gmx_
   %.03342.i = phi i32 [ 0, %.lr.ph.i ], [ %.134.i, %.critedge.i ]
   %.03541.i = phi i32 [ 0, %.lr.ph.i ], [ %.136.i, %.critedge.i ]
   %23 = load ptr, ptr %14, align 8
-  %24 = sext i32 %.03243.i to i64
-  %25 = getelementptr inbounds i32, ptr %23, i64 %24
+  %24 = zext nneg i32 %.03243.i to i64
+  %25 = getelementptr inbounds nuw i32, ptr %23, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = load ptr, ptr %15, align 8
-  %28 = sext i32 %.03541.i to i64
-  %29 = getelementptr inbounds i32, ptr %27, i64 %28
+  %28 = zext nneg i32 %.03541.i to i64
+  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = load i32, ptr %16, align 8
   switch i32 %31, label %.critedge.i [
@@ -639,10 +639,10 @@ define internal void @_ZL16evaluate_compareRKN3gmx20SelMethodEvalContextEP15gmx_
   %.134.i = phi i32 [ %48, %41 ], [ %.03342.i, %40 ], [ %.03342.i, %19 ], [ %.03342.i, %38 ], [ %.03342.i, %37 ], [ %.03342.i, %35 ], [ %.03342.i, %34 ], [ %.03342.i, %32 ]
   %54 = and i32 %52, 1
   %55 = xor i32 %54, 1
-  %spec.select.i = add i32 %55, %.03243.i
+  %spec.select.i = add nuw nsw i32 %55, %.03243.i
   %56 = and i32 %51, 1
   %57 = xor i32 %56, 1
-  %.136.i = add i32 %57, %.03541.i
+  %.136.i = add nuw nsw i32 %57, %.03541.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %58 = sext i32 %53 to i64
   %59 = icmp slt i64 %indvars.iv.next.i, %58
@@ -667,23 +667,23 @@ define internal void @_ZL16evaluate_compareRKN3gmx20SelMethodEvalContextEP15gmx_
   %.03643.i = phi i32 [ 0, %.lr.ph.i9 ], [ %.137.i, %.critedge.i12 ]
   %.03842.i = phi i32 [ 0, %.lr.ph.i9 ], [ %.139.i, %.critedge.i12 ]
   %69 = load ptr, ptr %61, align 8
-  %70 = sext i32 %.03544.i to i64
-  %71 = getelementptr inbounds float, ptr %69, i64 %70
+  %70 = zext nneg i32 %.03544.i to i64
+  %71 = getelementptr inbounds nuw float, ptr %69, i64 %70
   %72 = load float, ptr %71, align 4
   %73 = and i32 %68, 4
   %.not.i = icmp eq i32 %73, 0
-  %74 = sext i32 %.03842.i to i64
+  %74 = zext nneg i32 %.03842.i to i64
   br i1 %.not.i, label %79, label %75
 
 75:                                               ; preds = %67
   %76 = load ptr, ptr %62, align 8
-  %77 = getelementptr inbounds float, ptr %76, i64 %74
+  %77 = getelementptr inbounds nuw float, ptr %76, i64 %74
   %78 = load float, ptr %77, align 4
   br label %84
 
 79:                                               ; preds = %67
   %80 = load ptr, ptr %63, align 8
-  %81 = getelementptr inbounds i32, ptr %80, i64 %74
+  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %74
   %82 = load i32, ptr %81, align 4
   %83 = sitofp i32 %82 to float
   br label %84
@@ -746,11 +746,11 @@ define internal void @_ZL16evaluate_compareRKN3gmx20SelMethodEvalContextEP15gmx_
   %113 = load i32, ptr %5, align 8
   %114 = and i32 %113, 1
   %115 = xor i32 %114, 1
-  %spec.select.i13 = add i32 %115, %.03544.i
+  %spec.select.i13 = add nuw nsw i32 %115, %.03544.i
   %116 = load i32, ptr %7, align 8
   %117 = and i32 %116, 1
   %118 = xor i32 %117, 1
-  %.139.i = add i32 %118, %.03842.i
+  %.139.i = add nuw nsw i32 %118, %.03842.i
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i11, 1
   %119 = load i32, ptr %1, align 8
   %120 = sext i32 %119 to i64

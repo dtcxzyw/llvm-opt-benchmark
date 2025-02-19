@@ -6403,7 +6403,7 @@ define internal fastcc zeroext i1 @isBounceStart(ptr noundef nonnull readonly ca
   %27 = lshr i16 %26, 11
   %28 = and i16 %27, 1
   %29 = zext nneg i16 %28 to i32
-  %spec.select = add i32 %.0, %29
+  %spec.select = add nsw i32 %.0, %29
   br label %30
 
 30:                                               ; preds = %21, %19

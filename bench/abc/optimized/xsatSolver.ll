@@ -2152,7 +2152,7 @@ xSAT_WatchListRemove.exit83:                      ; preds = %118
 132:                                              ; preds = %73, %69, %56
   %133 = lshr exact i32 %67, 3
   %134 = xor i32 %133, 1
-  %spec.select = add i32 %134, %.06092
+  %spec.select = add nsw i32 %134, %.06092
   %135 = or i32 %66, 8
   store i32 %135, ptr %58, align 4
   %136 = load ptr, ptr %10, align 8, !tbaa !49

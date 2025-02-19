@@ -1505,7 +1505,7 @@ php_handle_jp2.exit.i:                            ; preds = %369, %.thread26.i.i
   %424 = zext i8 %423 to i32
   %425 = or disjoint i32 %422, %424
   %426 = and i32 %408, 1
-  %spec.select.i.i = add nuw i32 %411, %426
+  %spec.select.i.i = add nuw nsw i32 %411, %426
   %427 = icmp eq i32 %425, 1112361028
   br i1 %427, label %428, label %458
 

@@ -8352,7 +8352,7 @@ define internal fastcc range(i32 -1, 1) i32 @do_write_index(ptr noundef %0, ptr 
   %72 = load i32, ptr %71, align 8, !tbaa !32
   %73 = lshr i32 %72, 17
   %74 = and i32 %73, 1
-  %spec.select = add i32 %74, %.0195356
+  %spec.select = add nuw nsw i32 %74, %.0195356
   %75 = and i32 %72, -16385
   %76 = and i32 %72, 1610612736
   %.not241 = icmp ne i32 %76, 0

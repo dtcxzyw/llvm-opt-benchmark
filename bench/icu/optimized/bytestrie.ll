@@ -665,7 +665,7 @@ entry:
 if.end:                                           ; preds = %entry
   %1 = lshr i32 %inByte, 23
   %2 = and i32 %1, 256
-  %spec.select = add i32 %2, %inByte
+  %spec.select = add nsw i32 %2, %inByte
   %remainingMatchLength_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i32, ptr %remainingMatchLength_, align 8
   %cmp5 = icmp sgt i32 %3, -1

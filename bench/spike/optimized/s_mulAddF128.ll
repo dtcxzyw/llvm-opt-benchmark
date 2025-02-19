@@ -265,7 +265,7 @@ define { i64, i64 } @softfloat_mulAddF128(i64 noundef %0, i64 noundef %1, i64 no
   %.not294 = icmp eq i64 %120, 0
   %spec.select303 = select i1 %.not294, i64 8, i64 9
   %121 = lshr exact i64 %120, 57
-  %spec.select304 = add i64 %121, %.2248
+  %spec.select304 = add nsw i64 %121, %.2248
   br label %196
 
 122:                                              ; preds = %106

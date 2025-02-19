@@ -1905,7 +1905,7 @@ Abc_Clock.exit:                                   ; preds = %7, %13
   %37 = load i32, ptr %36, align 4, !tbaa !51
   %38 = and i32 %37, 1
   %39 = xor i32 %38, 1
-  %spec.select = add i32 %39, %.090134
+  %spec.select = add nuw nsw i32 %39, %.090134
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !85
@@ -2398,7 +2398,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %72 = load i32, ptr %71, align 4, !tbaa !51
   %73 = and i32 %72, 1
   %74 = xor i32 %73, 1
-  %spec.select = add i32 %74, %.099
+  %spec.select = add nuw nsw i32 %74, %.099
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond113.not, label %._crit_edge101, label %70, !llvm.loop !95

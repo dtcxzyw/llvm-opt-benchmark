@@ -921,7 +921,7 @@ fread.inline.exit201.i:                           ; preds = %132
 
 146:                                              ; preds = %137
   %147 = and i64 %139, 1
-  %spec.select190.i = add nuw i64 %143, %147
+  %spec.select190.i = add nuw nsw i64 %143, %147
   %148 = icmp slt i64 %spec.select190.i, 0
   br i1 %148, label %149, label %150
 

@@ -33484,7 +33484,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %74, %77
   %.not86 = icmp ne i32 %105, 0
   %.sroa.21.0 = zext i1 %.not86 to i8
   %106 = lshr exact i32 %105, 6
-  %.sroa.8.1 = shl i32 %.sroa.8.0, %106
+  %.sroa.8.1 = shl nsw i32 %.sroa.8.0, %106
   %.4 = and i32 %.060, -241
   %.not87 = icmp eq i32 %.4, 0
   br i1 %.not87, label %112, label %107

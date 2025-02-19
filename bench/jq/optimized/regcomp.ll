@@ -15484,7 +15484,7 @@ common.ret173:                                    ; preds = %171, %207, %197, %1
   %251 = load i32, ptr %250, align 4, !tbaa !97
   %252 = lshr i32 %251, 1
   %253 = and i32 %252, 2
-  %spec.select.i61 = add i32 %253, %.142.i
+  %spec.select.i61 = add nuw nsw i32 %253, %.142.i
   br label %common.ret173
 
 254:                                              ; preds = %225
@@ -15519,7 +15519,7 @@ common.ret173:                                    ; preds = %171, %207, %197, %1
   %273 = load i32, ptr %272, align 4, !tbaa !97
   %274 = lshr i32 %273, 1
   %275 = and i32 %274, 2
-  %spec.select57.i = add i32 %275, %.3.i60
+  %spec.select57.i = add nuw nsw i32 %275, %.3.i60
   br label %common.ret173
 
 276:                                              ; preds = %tailrecurse

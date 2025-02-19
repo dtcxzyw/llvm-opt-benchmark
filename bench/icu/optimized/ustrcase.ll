@@ -1528,7 +1528,7 @@ if.then50:                                        ; preds = %sw.bb4.i, %sw.bb3.i
   %or51 = or i32 %retval.0.i116.ph, %data.1181
   %and52 = lshr exact i32 %retval.0.i116.ph, 13
   %7 = and i32 %and52, 1
-  %spec.select111 = add i32 %7, %numYpogegrammeni.0182
+  %spec.select111 = add nuw nsw i32 %7, %numYpogegrammeni.0182
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %0
   br i1 %exitcond.not, label %while.end, label %while.body, !llvm.loop !11
@@ -1636,7 +1636,7 @@ if.else104:                                       ; preds = %if.end98
   %11 = load i16, ptr %arrayidx, align 2
   %conv107 = zext i16 %11 to i32
   %cmp108 = icmp ne i32 %upper.0, %conv107
-  %cmp109 = icmp sgt i32 %numYpogegrammeni.0.lcssa, 0
+  %cmp109 = icmp ne i32 %numYpogegrammeni.0.lcssa, 0
   %12 = select i1 %cmp108, i1 true, i1 %cmp109
   %conv110 = zext i1 %12 to i8
   %and112 = and i32 %data.2, 98304

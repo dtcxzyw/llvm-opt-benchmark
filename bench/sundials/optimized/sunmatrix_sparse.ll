@@ -469,7 +469,7 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonl
   %51 = getelementptr inbounds nuw i64, ptr %24, i64 %.3234274
   %52 = load i64, ptr %51, align 8, !tbaa !43
   %53 = lshr i64 %52, 63
-  %spec.select = add i64 %53, %.1250273
+  %spec.select = add nsw i64 %53, %.1250273
   %54 = add nuw nsw i64 %.3234274, 1
   %exitcond337.not = icmp eq i64 %54, %.0248
   br i1 %exitcond337.not, label %.loopexit261, label %.lr.ph275

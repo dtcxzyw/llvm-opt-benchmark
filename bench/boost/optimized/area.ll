@@ -171422,7 +171422,7 @@ _ZNK5boost14multiprecision8backends13cpp_dec_floatILj50EivE5orderEv.exit: ; pred
   %61 = lshr i32 %3, 8
   %62 = and i32 %61, 1
   %63 = zext nneg i32 %62 to i64
-  %spec.select = add i64 %spec.store.select, %63
+  %spec.select = add nsw i64 %spec.store.select, %63
   br label %64
 
 64:                                               ; preds = %59, %55

@@ -1455,7 +1455,7 @@ _ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit.i: ; preds = %407
 411:                                              ; preds = %_ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit.i
   %. = call i32 @llvm.umax.i32(i32 %395, i32 %396)
   %412 = and i32 %., 1
-  %spec.select239.i = add nuw i32 %412, %.
+  %spec.select239.i = add nuw nsw i32 %412, %.
   invoke void @_ZN5Yosys5RTLIL7SigSpec9extend_u0Eib(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %spec.select239.i, i1 noundef zeroext %406)
           to label %413 unwind label %401
 

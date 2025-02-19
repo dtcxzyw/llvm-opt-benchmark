@@ -1290,7 +1290,7 @@ _ZSt6copy_nIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS1_IPhS3_IhSaI
   %314 = add i32 %309, %.neg.i.i.i
   %315 = lshr i32 %314, 23
   %316 = and i32 %315, 256
-  %317 = add i32 %316, %314
+  %317 = add nsw i32 %316, %314
   %318 = icmp eq i32 %317, 0
   br i1 %318, label %319, label %322
 

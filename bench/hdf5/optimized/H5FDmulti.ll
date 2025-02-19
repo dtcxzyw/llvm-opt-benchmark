@@ -3447,7 +3447,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_flush(ptr noundef readonly capt
   %22 = load ptr, ptr %10, align 8, !tbaa !15
   %23 = call i32 @H5FDflush(ptr noundef %22, i64 noundef %1, i1 noundef zeroext %2) #15
   %24 = lshr i32 %23, 31
-  %spec.select = add i32 %24, %.017
+  %spec.select = add nsw i32 %24, %.017
   %25 = load i32, ptr %4, align 4, !tbaa !3
   %.not15 = icmp eq i32 %25, 0
   %26 = load ptr, ptr %5, align 8, !tbaa !13
@@ -3570,7 +3570,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_truncate(ptr noundef readonly c
   %22 = load ptr, ptr %10, align 8, !tbaa !15
   %23 = call i32 @H5FDtruncate(ptr noundef %22, i64 noundef %1, i1 noundef zeroext %2) #15
   %24 = lshr i32 %23, 31
-  %spec.select = add i32 %24, %.017
+  %spec.select = add nsw i32 %24, %.017
   %25 = load i32, ptr %4, align 4, !tbaa !3
   %.not15 = icmp eq i32 %25, 0
   %26 = load ptr, ptr %5, align 8, !tbaa !13
@@ -3666,7 +3666,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_lock(ptr noundef readonly captu
   br label %11
 
 11:                                               ; preds = %2, %35
-  %indvars.iv48 = phi i32 [ 0, %2 ], [ %indvars.iv.next49, %35 ]
+  %indvars.iv47 = phi i32 [ 0, %2 ], [ %indvars.iv.next48, %35 ]
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %35 ]
   %12 = getelementptr inbounds nuw [7 x ptr], ptr %10, i64 0, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !15
@@ -3722,23 +3722,22 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_lock(ptr noundef readonly captu
 35:                                               ; preds = %.thread, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  %indvars.iv.next49 = add nuw nsw i32 %indvars.iv48, 1
+  %indvars.iv.next48 = add nuw nsw i32 %indvars.iv47, 1
   br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !62
 
 36:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
-  %.not42 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not42, label %._crit_edge.thread, label %.lr.ph
+  %.not41 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not41, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36
-  %wide.trip.count = zext nneg i32 %indvars.iv48 to i64
+  %wide.trip.count = zext nneg i32 %indvars.iv47 to i64
   br label %37
 
-37:                                               ; preds = %.lr.ph, %58
-  %indvars.iv45 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next46, %58 ]
-  %.540 = phi i32 [ 1, %.lr.ph ], [ %spec.select, %58 ]
+37:                                               ; preds = %.lr.ph, %57
+  %indvars.iv44 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next45, %57 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
@@ -3758,86 +3757,80 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_lock(ptr noundef readonly captu
   br label %46
 
 46:                                               ; preds = %43, %40
-  %47 = getelementptr inbounds nuw [7 x ptr], ptr %10, i64 0, i64 %indvars.iv45
+  %47 = getelementptr inbounds nuw [7 x ptr], ptr %10, i64 0, i64 %indvars.iv44
   %48 = load ptr, ptr %47, align 8, !tbaa !15
   %49 = call i32 @H5FDunlock(ptr noundef %48) #15
-  %50 = lshr i32 %49, 31
-  %spec.select = add i32 %50, %.540
-  %51 = load i32, ptr %6, align 4, !tbaa !3
-  %.not30 = icmp eq i32 %51, 0
-  %52 = load ptr, ptr %7, align 8, !tbaa !13
-  %53 = load ptr, ptr %8, align 8, !tbaa !39
-  br i1 %.not30, label %56, label %54
+  %50 = load i32, ptr %6, align 4, !tbaa !3
+  %.not30 = icmp eq i32 %50, 0
+  %51 = load ptr, ptr %7, align 8, !tbaa !13
+  %52 = load ptr, ptr %8, align 8, !tbaa !39
+  br i1 %.not30, label %55, label %53
 
-54:                                               ; preds = %46
-  %55 = call i32 @H5Eset_auto2(i64 noundef 0, ptr noundef %52, ptr noundef %53) #15
-  br label %58
+53:                                               ; preds = %46
+  %54 = call i32 @H5Eset_auto2(i64 noundef 0, ptr noundef %51, ptr noundef %52) #15
+  br label %57
 
-56:                                               ; preds = %46
-  %57 = call i32 @H5Eset_auto1(ptr noundef %52, ptr noundef %53) #15
-  br label %58
+55:                                               ; preds = %46
+  %56 = call i32 @H5Eset_auto1(ptr noundef %51, ptr noundef %52) #15
+  br label %57
 
-58:                                               ; preds = %56, %54
+57:                                               ; preds = %55, %53
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
-  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
-  %exitcond51.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count
-  br i1 %exitcond51.not, label %._crit_edge, label %37, !llvm.loop !63
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
+  %exitcond50.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count
+  br i1 %exitcond50.not, label %._crit_edge, label %37, !llvm.loop !63
 
-._crit_edge:                                      ; preds = %58
-  %59 = icmp eq i32 %spec.select, 0
-  br i1 %59, label %.critedge, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %36, %._crit_edge
-  %60 = load i8, ptr @H5_libinit_g, align 1, !tbaa !18, !range !20, !noundef !21
+._crit_edge:                                      ; preds = %57, %36
+  %58 = load i8, ptr @H5_libinit_g, align 1, !tbaa !18, !range !20, !noundef !21
+  %59 = trunc nuw i8 %58 to i1
+  %60 = load i8, ptr @H5_libterm_g, align 1, !range !20
   %61 = trunc nuw i8 %60 to i1
-  %62 = load i8, ptr @H5_libterm_g, align 1, !range !20
-  %63 = trunc nuw i8 %62 to i1
-  %64 = select i1 %61, i1 true, i1 %63
-  br i1 %64, label %67, label %65, !prof !22
+  %62 = select i1 %59, i1 true, i1 %61
+  br i1 %62, label %65, label %63, !prof !22
 
-65:                                               ; preds = %._crit_edge.thread
-  %66 = call i32 @H5open() #15
+63:                                               ; preds = %._crit_edge
+  %64 = call i32 @H5open() #15
   %.pre = load i8, ptr @H5_libinit_g, align 1, !tbaa !18, !range !20
-  %.pre52 = load i8, ptr @H5_libterm_g, align 1, !range !20
-  br label %67
+  %.pre51 = load i8, ptr @H5_libterm_g, align 1, !range !20
+  br label %65
 
-67:                                               ; preds = %._crit_edge.thread, %65
-  %68 = phi i8 [ %62, %._crit_edge.thread ], [ %.pre52, %65 ]
-  %69 = phi i8 [ %60, %._crit_edge.thread ], [ %.pre, %65 ]
-  %70 = load i64, ptr @H5E_ERR_CLS_g, align 8, !tbaa !23
-  %71 = trunc nuw i8 %69 to i1
-  %72 = trunc nuw i8 %68 to i1
-  %73 = select i1 %71, i1 true, i1 %72
-  br i1 %73, label %76, label %74, !prof !22
+65:                                               ; preds = %._crit_edge, %63
+  %66 = phi i8 [ %60, %._crit_edge ], [ %.pre51, %63 ]
+  %67 = phi i8 [ %58, %._crit_edge ], [ %.pre, %63 ]
+  %68 = load i64, ptr @H5E_ERR_CLS_g, align 8, !tbaa !23
+  %69 = trunc nuw i8 %67 to i1
+  %70 = trunc nuw i8 %66 to i1
+  %71 = select i1 %69, i1 true, i1 %70
+  br i1 %71, label %74, label %72, !prof !22
 
-74:                                               ; preds = %67
-  %75 = call i32 @H5open() #15
-  %.pre53 = load i8, ptr @H5_libinit_g, align 1, !tbaa !18, !range !20
-  %.pre54 = load i8, ptr @H5_libterm_g, align 1, !range !20
-  br label %76
+72:                                               ; preds = %65
+  %73 = call i32 @H5open() #15
+  %.pre52 = load i8, ptr @H5_libinit_g, align 1, !tbaa !18, !range !20
+  %.pre53 = load i8, ptr @H5_libterm_g, align 1, !range !20
+  br label %74
 
-76:                                               ; preds = %67, %74
-  %77 = phi i8 [ %68, %67 ], [ %.pre54, %74 ]
-  %78 = phi i8 [ %69, %67 ], [ %.pre53, %74 ]
-  %79 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !23
-  %80 = trunc nuw i8 %78 to i1
-  %81 = trunc nuw i8 %77 to i1
-  %82 = select i1 %80, i1 true, i1 %81
-  br i1 %82, label %85, label %83, !prof !22
+74:                                               ; preds = %65, %72
+  %75 = phi i8 [ %66, %65 ], [ %.pre53, %72 ]
+  %76 = phi i8 [ %67, %65 ], [ %.pre52, %72 ]
+  %77 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !23
+  %78 = trunc nuw i8 %76 to i1
+  %79 = trunc nuw i8 %75 to i1
+  %80 = select i1 %78, i1 true, i1 %79
+  br i1 %80, label %83, label %81, !prof !22
 
-83:                                               ; preds = %76
-  %84 = call i32 @H5open() #15
-  br label %85
+81:                                               ; preds = %74
+  %82 = call i32 @H5open() #15
+  br label %83
 
-85:                                               ; preds = %76, %83
-  %86 = load i64, ptr @H5E_CANTLOCKFILE_g, align 8, !tbaa !23
-  %87 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FD_multi_lock, i32 noundef 1810, i64 noundef %70, i64 noundef %79, i64 noundef %86, ptr noundef nonnull @.str.44) #15
+83:                                               ; preds = %74, %81
+  %84 = load i64, ptr @H5E_CANTLOCKFILE_g, align 8, !tbaa !23
+  %85 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FD_multi_lock, i32 noundef 1810, i64 noundef %68, i64 noundef %77, i64 noundef %84, ptr noundef nonnull @.str.44) #15
   br label %.critedge
 
-.critedge:                                        ; preds = %35, %._crit_edge, %85
-  %.024 = phi i32 [ -1, %85 ], [ 0, %._crit_edge ], [ 0, %35 ]
+.critedge:                                        ; preds = %35, %83
+  %.024 = phi i32 [ -1, %83 ], [ 0, %35 ]
   ret i32 %.024
 }
 
@@ -3858,7 +3851,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_unlock(ptr noundef readonly cap
 7:                                                ; preds = %4
   %8 = tail call i32 @H5FDunlock(ptr noundef nonnull %6) #15
   %9 = lshr i32 %8, 31
-  %spec.select = add i32 %9, %.0913
+  %spec.select = add nsw i32 %9, %.0913
   br label %10
 
 10:                                               ; preds = %7, %4

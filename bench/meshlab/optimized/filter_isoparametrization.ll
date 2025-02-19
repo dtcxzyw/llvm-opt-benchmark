@@ -18936,7 +18936,7 @@ define linkonce_odr noundef i32 @_ZN17IsoParametrizator13PreconditionsI6CMeshOEE
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.035.047.i, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
-  %spec.select.i = add i32 %19, %.02048.i
+  %spec.select.i = add nuw nsw i32 %19, %.02048.i
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.035.047.i, i64 48
   %.not38.i = icmp eq ptr %20, %16
   br i1 %.not38.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !159
@@ -18955,7 +18955,7 @@ define linkonce_odr noundef i32 @_ZN17IsoParametrizator13PreconditionsI6CMeshOEE
   %.sroa.031.051.i = phi ptr [ %27, %.lr.ph54.i ], [ %22, %._crit_edge.i ]
   %25 = load i32, ptr %.sroa.031.051.i, align 4
   %26 = and i32 %25, 1
-  %spec.select25.i = add i32 %26, %.01852.i
+  %spec.select25.i = add nuw nsw i32 %26, %.01852.i
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.031.051.i, i64 48
   %.not39.i = icmp eq ptr %27, %24
   br i1 %.not39.i, label %._crit_edge55.i, label %.lr.ph54.i, !llvm.loop !160
@@ -18975,7 +18975,7 @@ define linkonce_odr noundef i32 @_ZN17IsoParametrizator13PreconditionsI6CMeshOEE
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.027.059.i, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 1
-  %spec.select26.i = add i32 %34, %.060.i
+  %spec.select26.i = add nuw nsw i32 %34, %.060.i
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.027.059.i, i64 48
   %.not40.i = icmp eq ptr %35, %31
   br i1 %.not40.i, label %._crit_edge63.i, label %.lr.ph62.i, !llvm.loop !161
@@ -36229,7 +36229,7 @@ define linkonce_odr noundef zeroext i1 @_Z19testParametrizationI8BaseMeshEbRT_S2
   %34 = load i32, ptr %33, align 8
   %35 = and i32 %34, 1
   %.not93 = icmp eq i32 %35, 0
-  %spec.select73 = add i32 %35, %.05298
+  %spec.select73 = add nsw i32 %35, %.05298
   %36 = and i1 %.not93, %not.
   %spec.select74 = select i1 %36, i1 %.099, i1 false
   %37 = getelementptr inbounds nuw i8, ptr %16, i64 96
@@ -71137,7 +71137,7 @@ define linkonce_odr noundef i32 @_ZN17IsoParametrizator13PreconditionsI12Abstrac
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.035.046.i, i64 36
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1
-  %spec.select.i = add i32 %19, %.02047.i
+  %spec.select.i = add nuw nsw i32 %19, %.02047.i
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.035.046.i, i64 56
   %.not38.i = icmp eq ptr %20, %16
   br i1 %.not38.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !843
@@ -71161,7 +71161,7 @@ define linkonce_odr noundef i32 @_ZN17IsoParametrizator13PreconditionsI12Abstrac
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.027.050.i, i64 92
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 1
-  %spec.select26.i = add i32 %31, %.051.i
+  %spec.select26.i = add nuw nsw i32 %31, %.051.i
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.027.050.i, i64 112
   %.not40.i = icmp eq ptr %32, %28
   br i1 %.not40.i, label %._crit_edge54.i, label %.lr.ph53.i, !llvm.loop !844

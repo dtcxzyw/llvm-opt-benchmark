@@ -718,7 +718,7 @@ thread-pre-split63.thread.i:                      ; preds = %thread-pre-split63.
   %300 = phi ptr [ %298, %thread-pre-split63.thread.i ], [ null, %thread-pre-split63.i ]
   %301 = call i32 @checkout_entry_ca(ptr noundef nonnull %.0.ph.i, ptr noundef null, ptr noundef nonnull @state, ptr noundef %300, ptr noundef null) #13
   %302 = lshr i32 %301, 31
-  %spec.select.i = add i32 %302, %.03668.i
+  %spec.select.i = add nsw i32 %302, %.03668.i
   %.pre78.i = load ptr, ptr @the_repository, align 8, !tbaa !21
   br label %.thread.thread.i
 
@@ -981,7 +981,7 @@ define internal fastcc range(i32 -1, 1) i32 @checkout_file(ptr noundef %0, ptr n
   %48 = select i1 %.not60, ptr null, ptr %47
   %49 = tail call i32 @checkout_entry_ca(ptr noundef nonnull %28, ptr noundef null, ptr noundef nonnull @state, ptr noundef %48, ptr noundef null) #13
   %50 = lshr i32 %49, 31
-  %spec.select68 = add i32 %50, %.03282131
+  %spec.select68 = add nsw i32 %50, %.03282131
   %.pre111 = load ptr, ptr @the_repository, align 8, !tbaa !21
   br label %51
 

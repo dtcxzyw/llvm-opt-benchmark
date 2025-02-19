@@ -2547,7 +2547,7 @@ _ZN15JavaFieldStreamC2EPK13InstanceKlass.exit:    ; preds = %.lr.ph.i.i.i.i.i.i,
   %51 = lshr i32 %.sroa.0.0.copyload.i.i, 3
   %52 = and i32 %51, 1
   %53 = xor i32 %52, 1
-  %spec.select = add i32 %53, %.01841
+  %spec.select = add nuw nsw i32 %53, %.01841
   %54 = add nsw i32 %50, 1
   store i32 %54, ptr %38, align 8
   %.not.i = icmp slt i32 %54, %49

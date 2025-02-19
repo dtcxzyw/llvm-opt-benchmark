@@ -2266,7 +2266,7 @@ define noundef i16 @"_ZN9softposit5p16e14math4log241_$LT$impl$u20$softposit..p16
   %.360 = phi i64 [ 0, %.loopexit ], [ %40, %21 ]
   %42 = lshr i32 %.2, 25
   %43 = and i32 %42, 64
-  %spec.select67 = add i32 %spec.select, %43
+  %spec.select67 = add nsw i32 %spec.select, %43
   %44 = sext i32 %spec.select67 to i64
   %45 = shl nsw i64 %44, 28
   %46 = or i64 %.360, %45

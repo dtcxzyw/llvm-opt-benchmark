@@ -2049,7 +2049,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   %87 = and i32 %86, 1
   %88 = getelementptr inbounds nuw [16 x i32], ptr %10, i64 0, i64 %indvars.iv
   store i32 %87, ptr %88, align 4, !tbaa !7
-  %spec.select = add i32 %87, %.0323
+  %spec.select = add nuw nsw i32 %87, %.0323
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond377.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond377.not, label %._crit_edge, label %.lr.ph324, !llvm.loop !57

@@ -474,7 +474,7 @@ st_mult.exit:                                     ; preds = %st_mult.exit.loopex
   %62 = load i32, ptr %61, align 8, !tbaa !73
   %63 = lshr i32 %62, 5
   %64 = and i32 %63, 1
-  %spec.select.us = add i32 %64, %.0114.us
+  %spec.select.us = add nuw nsw i32 %64, %.0114.us
   %65 = and i32 %62, %1
   %.not97.us = icmp eq i32 %65, 0
   br i1 %.not97.us, label %66, label %.split.us
@@ -514,7 +514,7 @@ st_mult.exit:                                     ; preds = %st_mult.exit.loopex
   %83 = load i32, ptr %82, align 8, !tbaa !73
   %84 = lshr i32 %83, 5
   %85 = and i32 %84, 1
-  %spec.select = add i32 %85, %.0114
+  %spec.select = add nuw nsw i32 %85, %.0114
   %86 = and i32 %83, %1
   %.not97 = icmp eq i32 %86, 0
   br i1 %.not97, label %87, label %.split.us

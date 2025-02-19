@@ -21460,7 +21460,7 @@ confirmWithYes.exit.i:                            ; preds = %753
   %776 = lshr i32 %775, 1
   %777 = and i32 %776, 1
   %778 = xor i32 %777, 1
-  %.111.i.i = add i32 %778, %.01021.i.i
+  %.111.i.i = add nuw nsw i32 %778, %.01021.i.i
   %779 = call ptr @listNext(ptr noundef nonnull %5) #33
   %.not.i202.i = icmp eq ptr %779, null
   br i1 %.not.i202.i, label %._crit_edge.i.i, label %.lr.ph.i.i

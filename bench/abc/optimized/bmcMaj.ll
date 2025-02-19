@@ -8262,7 +8262,7 @@ define void @Exa_ManIsNormalized(ptr noundef readonly captures(none) %0, ptr nou
   %8 = load i64, ptr %7, align 8, !tbaa !21
   %9 = trunc i64 %8 to i32
   %10 = and i32 %9, 1
-  %spec.select = add i32 %10, %.0914
+  %spec.select = add nuw nsw i32 %10, %.0914
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %6, !llvm.loop !236
@@ -14445,7 +14445,7 @@ Abc_Clock.exit:                                   ; preds = %12, %17
   %38 = load i64, ptr %37, align 8, !tbaa !21
   %39 = trunc i64 %38 to i32
   %40 = and i32 %39, 1
-  %spec.select.i = add i32 %40, %.0914.i
+  %spec.select.i = add nuw nsw i32 %40, %.0914.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.critedge.i, label %36, !llvm.loop !236
@@ -18066,7 +18066,7 @@ Abc_Clock.exit:                                   ; preds = %12, %17
   %43 = load i64, ptr %42, align 8, !tbaa !21
   %44 = trunc i64 %43 to i32
   %45 = and i32 %44, 1
-  %spec.select.i = add i32 %45, %.0914.i
+  %spec.select.i = add nuw nsw i32 %45, %.0914.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.critedge.i, label %41, !llvm.loop !236
@@ -24471,7 +24471,7 @@ Abc_Clock.exit:                                   ; preds = %12, %17
   %41 = load i64, ptr %40, align 8, !tbaa !21
   %42 = trunc i64 %41 to i32
   %43 = and i32 %42, 1
-  %spec.select.i = add i32 %43, %.0914.i
+  %spec.select.i = add nuw nsw i32 %43, %.0914.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.critedge.i, label %39, !llvm.loop !236

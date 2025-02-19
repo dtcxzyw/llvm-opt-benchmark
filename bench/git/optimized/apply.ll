@@ -6141,7 +6141,7 @@ write_out_one_result.exit.thread.i:               ; preds = %write_out_one_resul
   %1540 = lshr i8 %1539, 1
   %1541 = and i8 %1540, 1
   %1542 = zext nneg i8 %1541 to i32
-  %spec.select.i.i = add i32 %.083.i.i, %1542
+  %spec.select.i.i = add nuw nsw i32 %.083.i.i, %1542
   %1543 = getelementptr inbounds nuw i8, ptr %.04784.i.i, i64 72
   %.047.i.i = load ptr, ptr %1543, align 8, !tbaa !136
   %.not.i33.i = icmp eq ptr %.047.i.i, null
@@ -6192,7 +6192,7 @@ _.exit.i.i218:                                    ; preds = %1549, %1546
   br label %Q_.exit.i.i
 
 1560:                                             ; preds = %1555
-  %1561 = sext i32 %spec.select.i.i to i64
+  %1561 = zext nneg i32 %spec.select.i.i to i64
   %1562 = call ptr @dcngettext(ptr noundef null, ptr noundef nonnull @.str.237, ptr noundef nonnull @.str.238, i64 noundef range(i64 -2147483648, 2147483648) %1561, i32 noundef 5) #21
   br label %Q_.exit.i.i
 

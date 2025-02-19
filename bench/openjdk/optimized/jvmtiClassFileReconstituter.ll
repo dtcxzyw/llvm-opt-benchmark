@@ -5862,7 +5862,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter18write_method_infosEv(ptr n
   %20 = load i32, ptr %19, align 4
   %21 = lshr i32 %20, 6
   %22 = and i32 %21, 1
-  %spec.select = add i32 %22, %.02549
+  %spec.select = add nuw nsw i32 %22, %.02549
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !29

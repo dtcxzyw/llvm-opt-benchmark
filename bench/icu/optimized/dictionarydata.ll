@@ -669,7 +669,7 @@ _ZNK6icu_7522BytesDictionaryMatcher9transformEi.exit: ; preds = %cond.true, %if.
   store i32 -1, ptr %remainingMatchLength_.i, align 8
   %2 = lshr i32 %retval.0.i, 23
   %3 = and i32 %2, 256
-  %spec.select.i = add i32 %3, %retval.0.i
+  %spec.select.i = add nsw i32 %3, %retval.0.i
   %4 = load ptr, ptr %bytes_.i, align 8
   %call.i23 = invoke noundef i32 @_ZN6icu_759BytesTrie8nextImplEPKhi(ptr noundef nonnull align 8 dereferenceable(28) %bt, ptr noundef %4, i32 noundef %spec.select.i)
           to label %cond.end unwind label %lpad.loopexit

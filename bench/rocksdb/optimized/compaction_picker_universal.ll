@@ -2611,7 +2611,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %306 = and i8 %305, 1
   %307 = xor i8 %306, 1
   %308 = zext nneg i8 %307 to i32
-  %spec.select = add i32 %num_sr_not_compacted.0283, %308
+  %spec.select = add nuw nsw i32 %num_sr_not_compacted.0283, %308
   %inc69 = add nuw i64 %i.0282, 1
   %exitcond.not = icmp eq i64 %inc69, %umax
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !40

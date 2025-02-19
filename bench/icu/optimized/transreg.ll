@@ -3369,7 +3369,7 @@ while.body:                                       ; preds = %if.end, %while.body
   %varCount.08 = phi i32 [ %spec.select, %while.body ], [ 0, %if.end ]
   %varMask.07 = phi i32 [ %shr, %while.body ], [ %call.i5, %if.end ]
   %and = and i32 %varMask.07, 1
-  %spec.select = add i32 %varCount.08, %and
+  %spec.select = add nuw nsw i32 %varCount.08, %and
   %shr = lshr i32 %varMask.07, 1
   %cmp3.not = icmp ult i32 %varMask.07, 2
   br i1 %cmp3.not, label %return, label %while.body, !llvm.loop !15

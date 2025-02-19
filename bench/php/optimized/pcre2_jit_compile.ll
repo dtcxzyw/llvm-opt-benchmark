@@ -6739,7 +6739,7 @@ recurse_check_bit.exit344.thread.i.i:             ; preds = %get_class_iterator_
 ._crit_edge.i.i:                                  ; preds = %2833
   %2835 = lshr i32 %.1.i.i1171, 4
   %2836 = and i32 %2835, 1
-  %spec.select270.i.i = add i32 %2836, %.1193.i.i
+  %spec.select270.i.i = add nsw i32 %2836, %.1193.i.i
   %2837 = and i32 %.1.i.i1171, 1
   %.not213.i.i = icmp eq i32 %2837, 0
   br i1 %.not213.i.i, label %get_recurse_data_length.exit.i, label %2838
@@ -47348,7 +47348,7 @@ define internal fastcc void @sljit_emit_icall(ptr noundef captures(none) %0, i32
   %8 = lshr i32 %.015.in39.i, 6
   %9 = and i32 %8, 1
   %10 = xor i32 %9, 1
-  %spec.select.i = add i32 %10, %.040.i
+  %spec.select.i = add nuw nsw i32 %10, %.040.i
   %.not.i = icmp samesign ult i32 %.015.in39.i, 256
   br i1 %.not.i, label %11, label %7
 
@@ -47357,7 +47357,7 @@ define internal fastcc void @sljit_emit_icall(ptr noundef captures(none) %0, i32
   br i1 %12, label %72, label %13
 
 13:                                               ; preds = %11
-  %14 = icmp sgt i32 %spec.select.i, 2
+  %14 = icmp samesign ugt i32 %spec.select.i, 2
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %13

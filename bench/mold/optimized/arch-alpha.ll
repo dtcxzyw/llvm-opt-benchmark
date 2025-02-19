@@ -2176,7 +2176,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %12 = lshr i16 %bf.load, 4
   %13 = and i16 %12, 1
   %14 = zext nneg i16 %13 to i64
-  %n.1 = add i64 %n.09, %14
+  %n.1 = add nuw nsw i64 %n.09, %14
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.08, i64 16
   %cmp.i = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i, label %for.end, label %for.body

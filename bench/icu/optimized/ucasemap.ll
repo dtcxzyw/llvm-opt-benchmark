@@ -2080,7 +2080,7 @@ if.then194:                                       ; preds = %do.end191
   %or195 = or i32 %call192, %data.1179
   %and196 = lshr i32 %call192, 13
   %16 = and i32 %and196, 1
-  %spec.select163 = add i32 %16, %numYpogegrammeni.0180
+  %spec.select163 = add nuw nsw i32 %16, %numYpogegrammeni.0180
   %cmp104 = icmp slt i32 %nextNextIndex.4, %srcLength
   br i1 %cmp104, label %do.body105, label %while.end, !llvm.loop !9
 
@@ -2165,7 +2165,7 @@ lor.lhs.false256:                                 ; preds = %lor.lhs.false249
   br i1 %cmp263.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %lor.lhs.false256
-  %cmp264 = icmp sgt i32 %numYpogegrammeni.0.lcssa, 0
+  %cmp264 = icmp ne i32 %numYpogegrammeni.0.lcssa, 0
   %22 = zext i1 %cmp264 to i8
   br label %lor.end
 
@@ -2233,7 +2233,7 @@ if.end315:                                        ; preds = %lor.end309, %if.end
   %i2.1 = phi i32 [ %add294, %lor.end309 ], [ %i2.0, %if.end291 ]
   %sub316 = sub nsw i32 %nextIndex.4.lcssa, %i.0190
   %sub317 = sub nsw i32 %i2.1, %i.0190
-  %mul = shl nsw i32 %numYpogegrammeni.0.lcssa, 1
+  %mul = shl nuw nsw i32 %numYpogegrammeni.0.lcssa, 1
   %add318 = add nsw i32 %sub317, %mul
   %cmp319 = icmp ne i32 %sub316, %add318
   %29 = zext i1 %cmp319 to i8

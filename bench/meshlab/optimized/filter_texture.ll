@@ -12396,8 +12396,8 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
   %599 = fmul double %.05331529, 2.000000e+00
   %600 = and i32 %.pre-phi, 1
   %601 = xor i32 %600, 1
-  %.1538 = shl i32 %.05371526, %601
-  %.1536 = shl i32 %.05351527, %600
+  %.1538 = shl nsw i32 %.05371526, %601
+  %.1536 = shl nsw i32 %.05351527, %600
   %indvars.iv.next1625 = add nuw nsw i64 %indvars.iv1624, 1
   %exitcond1628.not = icmp eq i64 %indvars.iv.next1625, %wide.trip.count1627
   br i1 %exitcond1628.not, label %._crit_edge1534, label %565, !llvm.loop !44
@@ -13016,13 +13016,13 @@ _ZNSt6vectorIN3vcg9Triangle2IfEESaIS2_EED2Ev.exit: ; preds = %.loopexit1388, %.l
   %914 = load i32, ptr %913, align 8
   %915 = and i32 %914, 1
   %916 = xor i32 %915, 1
-  %spec.select664 = add i32 %916, %.05291485
+  %spec.select664 = add nuw nsw i32 %916, %.05291485
   %917 = getelementptr inbounds nuw i8, ptr %.sroa.01171.01484, i64 48
   %.not1376 = icmp eq ptr %917, %906
   br i1 %.not1376, label %._crit_edge1488.loopexit, label %.lr.ph1487, !llvm.loop !50
 
 ._crit_edge1488.loopexit:                         ; preds = %.lr.ph1487
-  %918 = sitofp i32 %spec.select664 to double
+  %918 = uitofp nneg i32 %spec.select664 to double
   %919 = fmul double %918, 5.000000e-01
   %920 = fptrunc double %919 to float
   br label %._crit_edge1488

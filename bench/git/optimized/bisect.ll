@@ -154,7 +154,7 @@ define dso_local void @find_bisection(ptr noundef captures(none) %0, ptr noundef
   %15 = lshr i32 %9, 6
   %16 = and i32 %15, 1
   %17 = xor i32 %16, 1
-  %spec.select = add i32 %17, %.074
+  %spec.select = add nsw i32 %17, %.074
   %18 = add nsw i32 %.03573, 1
   br label %19
 
@@ -270,7 +270,7 @@ commit_weight_at.exit.i:                          ; preds = %46, %42
   %56 = lshr i32 %55, 5
   %57 = and i32 %56, 1
   %58 = xor i32 %57, 1
-  %spec.select.us.i.i = add i32 %58, %.011.us.i.i
+  %spec.select.us.i.i = add nuw nsw i32 %58, %.011.us.i.i
   %59 = getelementptr inbounds nuw i8, ptr %.0612.us.i.i, i64 8
   %.06.us.i.i = load ptr, ptr %59, align 8, !tbaa !12
   %.not.us.i.i = icmp eq ptr %.06.us.i.i, null
@@ -3234,7 +3234,7 @@ define internal fastcc i32 @count_distance(ptr noundef nonnull readonly captures
   %7 = lshr i32 %5, 6
   %8 = and i32 %7, 1
   %9 = xor i32 %8, 1
-  %spec.select = add i32 %9, %.0173339
+  %spec.select = add nsw i32 %9, %.0173339
   %10 = or disjoint i32 %5, 1048576
   store i32 %10, ptr %6, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 48

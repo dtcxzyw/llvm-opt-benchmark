@@ -18291,7 +18291,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit156: ; preds = %75
   %757 = lshr i32 %755, 1
   %758 = and i32 %757, 1
   %759 = xor i32 %758, 1
-  %spec.select = add i32 %759, %.075409
+  %spec.select = add nsw i32 %759, %.075409
   %760 = and i32 %755, -3
   %761 = icmp eq i32 %760, 0
   br i1 %761, label %762, label %764

@@ -8585,7 +8585,7 @@ if.then.i.i:                                      ; preds = %entry
   %div3.i.i.i = and i32 %sub.i.i.i, -512
   %3 = and i32 %sub.i.i.i, 512
   %4 = xor i32 %3, 512
-  %spec.select.i.i.i = or i32 %4, %div3.i.i.i
+  %spec.select.i.i.i = or disjoint i32 %4, %div3.i.i.i
   %div7.i.i = lshr exact i32 %spec.select.i.i.i, 9
   br label %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder12ReserveSpaceEmPjS2_.exit
 
@@ -8839,7 +8839,7 @@ if.then.i:                                        ; preds = %entry
   %div3.i.i = and i32 %sub.i.i, -512
   %1 = and i32 %sub.i.i, 512
   %2 = xor i32 %1, 512
-  %spec.select.i.i = or i32 %2, %div3.i.i
+  %spec.select.i.i = or disjoint i32 %2, %div3.i.i
   %3 = lshr exact i32 %spec.select.i.i, 3
   %4 = or disjoint i32 %3, 5
   %5 = zext nneg i32 %4 to i64

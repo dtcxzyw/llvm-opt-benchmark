@@ -148,7 +148,7 @@ define range(i64 -9223372036854775808, 9223372036854775807) i64 @Java_com_sun_ma
   %16 = lshr i16 %15, 11
   %17 = and i16 %16, 1
   %18 = zext nneg i16 %17 to i64
-  %spec.select = add i64 %.011, %18
+  %spec.select = add nuw nsw i64 %.011, %18
   %19 = tail call ptr @readdir64(ptr noundef nonnull %3) #6
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %._crit_edge.loopexit, label %8, !llvm.loop !6

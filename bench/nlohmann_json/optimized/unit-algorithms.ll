@@ -33587,7 +33587,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
 if.end.i:                                         ; preds = %for.body.i
   %and.i = and i64 %__child.013.i, 1
   %6 = xor i64 %and.i, 1
-  %spec.select.i = add i64 %6, %__parent.012.i
+  %spec.select.i = add nuw nsw i64 %6, %__parent.012.i
   %inc5.i = add nuw nsw i64 %__child.013.i, 1
   %exitcond.not.i = icmp eq i64 %__child.013.i, %__n.03.i.i
   br i1 %exitcond.not.i, label %_ZSt15__is_heap_untilIN8nlohmann16json_abi_v3_11_36detail9iter_implINS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEElN9__gnu_cxx5__ops15_Iter_less_iterEET0_T_SL_RT1_.exit, label %for.body.i, !llvm.loop !822

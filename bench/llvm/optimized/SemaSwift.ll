@@ -10028,7 +10028,7 @@ _ZN5clangL25validateSwiftFunctionNameERNS_4SemaERKNS_10ParsedAttrENS_14SourceLoc
   %.0.copyload.i.i.i.i.i1.i.i.i.fr.i.i.i = freeze i64 %.0.copyload.i.i.i.i.i1.i.i.i.i.i.i
   %1163 = and i64 %.0.copyload.i.i.i.i.i1.i.i.i.fr.i.i.i, 1
   %1164 = xor i64 %1163, 1
-  %spec.select.i.i.i = add i64 %1164, %.010.i.i.i
+  %spec.select.i.i.i = add nsw i64 %1164, %.010.i.i.i
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang9SemaSwift12DiagnoseNameEPNS2_4DeclEN4llvm9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EclIPKPNS2_11ParmVarDeclEEEbT_.exit.thread.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang9SemaSwift12DiagnoseNameEPNS2_4DeclEN4llvm9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EclIPKPNS2_11ParmVarDeclEEEbT_.exit.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang9SemaSwift12DiagnoseNameEPNS2_4DeclEN4llvm9StringRefENS2_14SourceLocationERKNS2_10ParsedAttrEbE3$_0EclIPKPNS2_11ParmVarDeclEEEbT_.exit.i.i.i", %1157, %.lr.ph.i.i.i

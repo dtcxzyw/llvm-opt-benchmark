@@ -4510,7 +4510,7 @@ define dso_local void @_ZN5ImGui22TableSetupDrawChannelsEP10ImGuiTable(ptr nound
   %77 = lshr i32 %76, 20
   %78 = and i32 %77, 1
   %79 = xor i32 %78, 1
-  %spec.select = add i32 %79, %.053
+  %spec.select = add nsw i32 %79, %.053
   br label %83
 
 80:                                               ; preds = %66, %61

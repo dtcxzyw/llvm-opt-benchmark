@@ -52,7 +52,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 
 25:                                               ; preds = %20
   %26 = xor i32 %21, 1
-  %spec.select2192 = add i32 %24, %26
+  %spec.select2192 = add nsw i32 %24, %26
   br label %30
 
 27:                                               ; preds = %20

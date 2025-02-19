@@ -21500,7 +21500,7 @@ rb_str_append.exit:                               ; preds = %rbimpl_RB_TYPE_P_fa
 
 22:                                               ; preds = %rb_num2long_inline.exit
   %23 = lshr i64 %.0.i, 63
-  %spec.select = add nuw i64 %23, %.0.i
+  %spec.select = add nuw nsw i64 %23, %.0.i
   tail call void @rb_str_update(i64 noundef %0, i64 noundef %spec.select, i64 noundef 0, i64 noundef %2)
   br label %24
 

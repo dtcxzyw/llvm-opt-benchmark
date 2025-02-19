@@ -3087,7 +3087,7 @@ Gia_ObjSibl.exit:                                 ; preds = %11
   %15 = add nsw i32 %.01427, 1
   %16 = trunc i64 %.val21 to i32
   %17 = lshr i32 %16, 30
-  %spec.select = add i32 %17, %.028
+  %spec.select = add nsw i32 %17, %.028
   br label %Gia_ObjSibl.exit.thread
 
 Gia_ObjSibl.exit.thread:                          ; preds = %11, %14, %.lr.ph.split, %Gia_ObjSibl.exit

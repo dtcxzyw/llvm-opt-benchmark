@@ -3368,8 +3368,8 @@ define void @_Z28_gmx_sel_evaluate_arithmeticP18gmx_sel_evaluate_tRKSt10shared_p
   %.05470.us = phi float [ %.155.us, %60 ], [ 0.000000e+00, %.lr.ph ]
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  %44 = sext i32 %.04973.us to i64
-  %45 = getelementptr inbounds float, ptr %43, i64 %44
+  %44 = zext nneg i32 %.04973.us to i64
+  %45 = getelementptr inbounds nuw float, ptr %43, i64 %44
   %46 = load float, ptr %45, align 4
   %47 = load ptr, ptr %1, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
@@ -3417,7 +3417,7 @@ define void @_Z28_gmx_sel_evaluate_arithmeticP18gmx_sel_evaluate_tRKSt10shared_p
   %67 = lshr i32 %66, 1
   %68 = and i32 %67, 1
   %69 = xor i32 %68, 1
-  %spec.select.us = add i32 %69, %.04973.us
+  %spec.select.us = add nuw nsw i32 %69, %.04973.us
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
   br i1 %exitcond81.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !19
@@ -3431,13 +3431,13 @@ define void @_Z28_gmx_sel_evaluate_arithmeticP18gmx_sel_evaluate_tRKSt10shared_p
   %.05470 = phi float [ 0.000000e+00, %.lr.ph.split.preheader ], [ %.155, %97 ]
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = load ptr, ptr %72, align 8
-  %74 = sext i32 %.04973 to i64
-  %75 = getelementptr inbounds float, ptr %73, i64 %74
+  %74 = zext nneg i32 %.04973 to i64
+  %75 = getelementptr inbounds nuw float, ptr %73, i64 %74
   %76 = load float, ptr %75, align 4
   %77 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %78 = load ptr, ptr %77, align 8
-  %79 = sext i32 %.05072 to i64
-  %80 = getelementptr inbounds float, ptr %78, i64 %79
+  %79 = zext nneg i32 %.05072 to i64
+  %80 = getelementptr inbounds nuw float, ptr %78, i64 %79
   %81 = load float, ptr %80, align 4
   %82 = load ptr, ptr %1, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 48
@@ -3489,14 +3489,14 @@ define void @_Z28_gmx_sel_evaluate_arithmeticP18gmx_sel_evaluate_tRKSt10shared_p
   %105 = lshr i32 %104, 1
   %106 = and i32 %105, 1
   %107 = xor i32 %106, 1
-  %spec.select = add i32 %107, %.04973
+  %spec.select = add nuw nsw i32 %107, %.04973
   %108 = load ptr, ptr %9, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 40
   %110 = load i32, ptr %109, align 8
   %111 = lshr i32 %110, 1
   %112 = and i32 %111, 1
   %113 = xor i32 %112, 1
-  %spec.select60 = add i32 %113, %.05072
+  %spec.select60 = add nuw nsw i32 %113, %.05072
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count80
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19

@@ -4624,7 +4624,7 @@ _Z35interface_method_needs_itable_indexP6Method.exit.i: ; preds = %21
   %23 = lshr i32 %.sroa.0.0.copyload.i.i4.i.fr.i, 1
   %24 = and i32 %23, 1
   %25 = xor i32 %24, 1
-  %spec.select.i = add i32 %25, %.124.i
+  %spec.select.i = add nsw i32 %25, %.124.i
   br label %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i
 
 _Z35interface_method_needs_itable_indexP6Method.exit.thread.i: ; preds = %_Z35interface_method_needs_itable_indexP6Method.exit.i, %21, %16
@@ -4732,7 +4732,7 @@ _Z35interface_method_needs_itable_indexP6Method.exit.i: ; preds = %28
   %30 = lshr i32 %.sroa.0.0.copyload.i.i4.i.fr.i, 1
   %31 = and i32 %30, 1
   %32 = xor i32 %31, 1
-  %spec.select.i = add i32 %32, %.124.i
+  %spec.select.i = add nsw i32 %32, %.124.i
   br label %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i
 
 _Z35interface_method_needs_itable_indexP6Method.exit.thread.i: ; preds = %_Z35interface_method_needs_itable_indexP6Method.exit.i, %28, %23
@@ -4828,7 +4828,7 @@ _Z35interface_method_needs_itable_indexP6Method.exit.i23: ; preds = %74
   %76 = lshr i32 %.sroa.0.0.copyload.i.i4.i.fr.i25, 1
   %77 = and i32 %76, 1
   %78 = xor i32 %77, 1
-  %spec.select.i26 = add i32 %78, %.124.i18
+  %spec.select.i26 = add nsw i32 %78, %.124.i18
   br label %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i22
 
 _Z35interface_method_needs_itable_indexP6Method.exit.thread.i22: ; preds = %_Z35interface_method_needs_itable_indexP6Method.exit.i23, %74, %69
